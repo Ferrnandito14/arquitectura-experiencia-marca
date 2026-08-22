@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=Source+Sans+3:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <style>
+    :root {
+      --bg: #F2F5F1; --surface: #FFFFFF; --surface-2: #E9EEE9;
+      --text: #12231C; --text-muted: #4B5F55; --line: rgba(18,35,28,0.14);
+      --accent: #1F6F4A; --accent-ink: #FFFFFF; --accent-soft: #E1EFE6;
+      --accent-2: #D65A2C; --accent-2-soft: #FBE6DA;
+    }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: 'Source Sans 3', 'Segoe UI', sans-serif; }
+    h1, h2, h3, .display { font-family: 'Big Shoulders Display', 'Arial Narrow', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.01em; margin: 0; }
+    .mono { font-family: 'IBM Plex Mono', ui-monospace, monospace; }
+    label { font-size: 13px; font-weight: 600; color: var(--text-muted); display: block; margin-bottom: 6px; }
+    .field { padding: 12px 14px; border-radius: 9px; border: 1px solid var(--line); background: var(--surface); font-size: 15px; color: var(--text); width: 100%; box-sizing: border-box; }
+    .role-chip { padding: 12px 16px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); font-size: 14px; font-weight: 600; text-align: center; }
+    .role-chip.active { border-color: var(--accent); background: var(--accent-soft); color: var(--accent); }
+  </style>
+</helmet>
+
+<div style="width:900px; height:900px; display:flex; background:var(--bg); box-sizing:border-box;">
+
+  <!-- LEFT BRAND PANEL -->
+  <div style="width:340px; background:var(--text); color:var(--bg); padding:48px 40px; display:flex; flex-direction:column; justify-content:space-between; box-sizing:border-box;">
+    <div style="display:flex; align-items:center; gap:10px;">
+      <div style="width:14px; height:14px; border-radius:3px; background:#52C088; transform:rotate(45deg);"></div>
+      <span class="display" style="font-size:19px; color:var(--bg);">Startup Deportiva</span>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:16px;">
+      <h2 style="font-size:26px; text-transform:none; letter-spacing:0; color:var(--bg); line-height:1.15;">Cuéntanos quién eres. Nosotros decidimos qué mostrarte.</h2>
+      <p style="font-size:14px; color:#A7BDB1; margin:0; line-height:1.5;">No hace falta completar todo hoy — con lo mínimo ya podemos darte primeras recomendaciones, y te preguntamos más solo cuando haga falta.</p>
+    </div>
+    <span class="mono" style="font-size:11px; color:#6E8378;">Perfil mínimo · Sección 22, documento base</span>
+  </div>
+
+  <!-- RIGHT FORM -->
+  <div style="flex:1; padding:48px 52px; display:flex; flex-direction:column; gap:22px; box-sizing:border-box; overflow:hidden;">
+    <div>
+      <span style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-muted);">Paso 1 de 2</span>
+      <h1 style="font-size:24px; text-transform:none; letter-spacing:0; margin-top:6px;">¿Quién eres hoy?</h1>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:10px;">
+      <div class="role-chip active">Deportista</div>
+      <div class="role-chip">Familia / tutor</div>
+      <div class="role-chip">Entrenador</div>
+      <div class="role-chip">Otro profesional</div>
+      <div class="role-chip">Club / academia</div>
+      <div class="role-chip">Equipo</div>
+    </div>
+
+    <div style="height:1px; background:var(--line);"></div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+      <div>
+        <label>Nombre</label>
+        <div class="field" style="color:var(--text-muted);">Carlos Rodríguez</div>
+      </div>
+      <div>
+        <label>Edad</label>
+        <div class="field" style="color:var(--text-muted);">17</div>
+      </div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+      <div>
+        <label>Deporte</label>
+        <div class="field" style="display:flex; align-items:center; justify-content:space-between;">
+          <span>Fútbol</span>
+          <span class="mono" style="font-size:11px; color:var(--text-muted);">▾</span>
+        </div>
+      </div>
+      <div>
+        <label>Categoría</label>
+        <div class="field" style="display:flex; align-items:center; justify-content:space-between;">
+          <span>Sub-17</span>
+          <span class="mono" style="font-size:11px; color:var(--text-muted);">▾</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+      <div>
+        <label>País</label>
+        <div class="field" style="display:flex; align-items:center; justify-content:space-between;">
+          <span>Venezuela</span>
+          <span class="mono" style="font-size:11px; color:var(--text-muted);">▾</span>
+        </div>
+        <span style="font-size:11px; color:var(--text-muted);">Más países, próximamente</span>
+      </div>
+      <div>
+        <label>Ciudad</label>
+        <div class="field" style="color:var(--text-muted);">Caracas, Distrito Capital</div>
+      </div>
+    </div>
+
+    <div>
+      <label>¿Qué buscas ahora?</label>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <span class="field" style="width:auto; padding:8px 14px; border-color:var(--accent); background:var(--accent-soft); color:var(--accent); font-weight:600; font-size:13px;">Encontrar club o tryout</span>
+        <span class="field" style="width:auto; padding:8px 14px; font-size:13px; color:var(--text-muted);">Empezar a jugar</span>
+        <span class="field" style="width:auto; padding:8px 14px; font-size:13px; color:var(--text-muted);">Buscar trabajo</span>
+      </div>
+    </div>
+
+    <div style="display:flex; align-items:center; justify-content:space-between; margin-top:auto;">
+      <span style="font-size:13px; color:var(--text-muted);">¿Ya tienes cuenta? <span style="color:var(--accent); font-weight:600;">Iniciar sesión</span></span>
+      <button style="background:var(--accent); color:var(--accent-ink); font-weight:700; padding:13px 30px; border-radius:10px; font-size:15px; border:none;">Continuar</button>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>
