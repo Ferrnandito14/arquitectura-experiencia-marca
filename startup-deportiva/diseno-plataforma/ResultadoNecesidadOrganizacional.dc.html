@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=Source+Sans+3:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <style>
+    :root {
+      --bg: #F2F5F1; --surface: #FFFFFF; --surface-2: #E9EEE9;
+      --text: #12231C; --text-muted: #4B5F55; --line: rgba(18,35,28,0.14);
+      --accent: #1F6F4A; --accent-ink: #FFFFFF; --accent-soft: #E1EFE6;
+      --accent-2: #D65A2C; --accent-2-soft: #FBE6DA;
+    }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: 'Source Sans 3', 'Segoe UI', sans-serif; }
+    h1, h2, h3, .display { font-family: 'Big Shoulders Display', 'Arial Narrow', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.01em; margin: 0; }
+    .mono { font-family: 'IBM Plex Mono', ui-monospace, monospace; }
+    .chip { font-size: 12px; padding: 5px 12px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--text-muted); }
+    .card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 1px 2px rgba(18,35,28,0.06), 0 8px 24px -12px rgba(18,35,28,0.18); }
+    .group-btn { font-weight: 600; font-size: 13px; padding: 9px 16px; border-radius: 9px; border: 1px solid var(--line); background: var(--surface); }
+    .bar-track { height:6px; border-radius:999px; background:var(--surface-2); overflow:hidden; }
+    .bar-fill { height:100%; background:var(--accent); border-radius:999px; }
+  </style>
+</helmet>
+
+<div style="width:1280px; height:900px; background:var(--bg); box-sizing:border-box; display:flex; flex-direction:column; overflow:hidden;">
+
+  <div style="display:flex; align-items:center; justify-content:space-between; padding:16px 40px; border-bottom:1px solid var(--line);">
+    <div style="display:flex; align-items:center; gap:10px;">
+      <div style="width:12px; height:12px; border-radius:2px; background:var(--accent); transform:rotate(45deg);"></div>
+      <span class="display" style="font-size:16px;">Startup Deportiva</span>
+    </div>
+    <div style="display:flex; align-items:center; gap:10px;">
+      <span class="chip">Club Atlético Norte · organización</span>
+      <div style="width:34px; height:34px; border-radius:8px; background:var(--accent-soft); display:flex; align-items:center; justify-content:center; font-weight:700; color:var(--accent); font-size:13px;">CN</div>
+    </div>
+  </div>
+
+  <div style="padding:32px 40px; display:flex; flex-direction:column; gap:20px; overflow:hidden;">
+
+    <div style="display:flex; align-items:flex-end; justify-content:space-between; padding-bottom:16px; border-bottom:1px solid var(--line);">
+      <div>
+        <span style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-muted);">Contexto interpretado</span>
+        <h1 style="font-size:32px; color:var(--accent); margin-top:4px;">Necesidad organizacional</h1>
+      </div>
+      <div style="text-align:right;">
+        <span style="font-size:12px; color:var(--text-muted);">3 necesidades activas · 1 en borrador</span><br>
+        <span class="mono" style="font-size:13px;">cada una avanza por separado</span>
+      </div>
+    </div>
+
+    <div style="display:flex; gap:10px;">
+      <div class="group-btn">Buscar jugadores</div>
+      <div class="group-btn">Buscar entrenadores</div>
+      <div class="group-btn">Buscar staff</div>
+      <div class="group-btn">Crear tryout</div>
+      <div class="group-btn" style="background:var(--accent); color:var(--accent-ink); border-color:var(--accent);">+ Crear necesidad</div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:14px;">
+
+      <div class="card" style="padding:18px 20px; display:flex; flex-direction:column; gap:10px;">
+        <div style="display:flex; align-items:center; justify-content:space-between;">
+          <span style="font-size:11px; font-weight:700; text-transform:uppercase; color:var(--accent);">Necesidad 01 · Jugador</span>
+          <span style="font-size:11px; font-weight:700; padding:3px 9px; border-radius:999px; background:var(--accent-soft); color:var(--accent);">Activa</span>
+        </div>
+        <h3 style="font-size:18px; text-transform:none; letter-spacing:0;">Lateral derecho — Sub-17</h3>
+        <span style="font-size:13px; color:var(--text-muted);">Liga FUTVE Junior · nivel competitivo · radio 20 km</span>
+        <div style="display:flex; flex-direction:column; gap:4px; margin-top:4px;">
+          <div style="display:flex; justify-content:space-between; font-size:12px; color:var(--text-muted);"><span>12 candidatos compatibles</span><span>2 revisados</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width:17%;"></div></div>
+        </div>
+      </div>
+
+      <div class="card" style="padding:18px 20px; display:flex; flex-direction:column; gap:10px;">
+        <div style="display:flex; align-items:center; justify-content:space-between;">
+          <span style="font-size:11px; font-weight:700; text-transform:uppercase; color:var(--accent);">Necesidad 02 · Fisioterapeuta</span>
+          <span style="font-size:11px; font-weight:700; padding:3px 9px; border-radius:999px; background:var(--accent-soft); color:var(--accent);">Activa</span>
+        </div>
+        <h3 style="font-size:18px; text-transform:none; letter-spacing:0;">Fisioterapeuta certificado</h3>
+        <span style="font-size:13px; color:var(--text-muted);">Certificación deportiva requerida · disponibilidad inmediata</span>
+        <div style="display:flex; flex-direction:column; gap:4px; margin-top:4px;">
+          <div style="display:flex; justify-content:space-between; font-size:12px; color:var(--text-muted);"><span>5 candidatos compatibles</span><span>0 revisados</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width:0%;"></div></div>
+        </div>
+      </div>
+
+      <div class="card" style="padding:18px 20px; display:flex; flex-direction:column; gap:10px;">
+        <div style="display:flex; align-items:center; justify-content:space-between;">
+          <span style="font-size:11px; font-weight:700; text-transform:uppercase; color:var(--accent);">Necesidad 03 · Preparador físico</span>
+          <span style="font-size:11px; font-weight:700; padding:3px 9px; border-radius:999px; background:var(--accent-soft); color:var(--accent);">Activa</span>
+        </div>
+        <h3 style="font-size:18px; text-transform:none; letter-spacing:0;">Preparador físico — Sub-17</h3>
+        <span style="font-size:13px; color:var(--text-muted);">Especialidad en fuerza y velocidad</span>
+        <div style="display:flex; flex-direction:column; gap:4px; margin-top:4px;">
+          <div style="display:flex; justify-content:space-between; font-size:12px; color:var(--text-muted);"><span>3 candidatos compatibles</span><span>1 revisado</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width:33%;"></div></div>
+        </div>
+      </div>
+
+      <div class="card" style="padding:18px 20px; display:flex; flex-direction:column; gap:10px; background:var(--surface-2);">
+        <div style="display:flex; align-items:center; justify-content:space-between;">
+          <span style="font-size:11px; font-weight:700; text-transform:uppercase; color:var(--text-muted);">Necesidad 04 · Entrenador</span>
+          <span style="font-size:11px; font-weight:700; padding:3px 9px; border-radius:999px; background:var(--surface); color:var(--text-muted); border:1px solid var(--line);">Borrador</span>
+        </div>
+        <h3 style="font-size:18px; text-transform:none; letter-spacing:0; color:var(--text-muted);">Entrenador — Sub-13</h3>
+        <span style="font-size:13px; color:var(--text-muted);">Todavía sin criterios definidos — sin publicar</span>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+</x-dc>
+</body>
+</html>
