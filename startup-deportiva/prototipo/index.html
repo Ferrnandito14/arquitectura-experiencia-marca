@@ -475,6 +475,50 @@
     background: var(--accent);
   }
 
+  .card-top-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  .match {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 0.22rem 0.55rem;
+    border-radius: 6px;
+    white-space: nowrap;
+  }
+
+  .match::before {
+    content: "";
+    width: 0.4rem;
+    height: 0.4rem;
+    border-radius: 50%;
+    background: currentColor;
+    flex: none;
+  }
+
+  .match-muyalto { background: var(--accent-soft); color: var(--accent); }
+  .match-alto { background: var(--accent-soft); color: var(--accent); opacity: 0.85; }
+  .match-medio { background: var(--warn-soft); color: var(--warn); }
+  .match-bajo { background: var(--accent-2-soft); color: var(--accent-2); }
+
+  .match-why {
+    margin: 0;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    line-height: 1.45;
+  }
+
+  .match-why strong { color: var(--text); font-weight: 600; }
+
   .empty-state {
     grid-column: 1 / -1;
     border: 1px dashed var(--line);
@@ -612,7 +656,7 @@
       <h1>Startup Deportiva</h1>
       <span class="tag">boceto interactivo</span>
     </div>
-    <span class="phase-pill"><span class="dot" aria-hidden="true"></span>Fase 4 · Modelo de Contexto — en construcción</span>
+    <span class="phase-pill"><span class="dot" aria-hidden="true"></span>Fases 4–8 · Contexto → Matching — V0.1</span>
   </div>
 </header>
 
@@ -627,7 +671,7 @@
 
   <div class="note">
     <span aria-hidden="true">🛠️</span>
-    <span><strong>Boceto conceptual, sin backend.</strong> Las oportunidades, necesidades y cifras de las tarjetas de ejemplo son datos ilustrativos — ninguna organización, cupo o fecha ahí es real. El motor de matching (Fase 8) todavía no existe. Las categorías, ligas y cifras del panel de abajo sí son reales y tienen fuente.</span>
+    <span><strong>Boceto conceptual, sin backend.</strong> Las oportunidades, necesidades y cifras de las tarjetas de ejemplo son datos ilustrativos — ninguna organización, cupo o fecha ahí es real. Las etiquetas "Match ..." aplican a mano las reglas de <span class="mono">MATRIZ-MATCHING.md</span> V0.1 (clasificación de la sección 66 + explicabilidad de la sección 67) — todavía no existe un motor de cálculo automático, solo su lógica conceptual. Las categorías, ligas y cifras del panel de abajo sí son reales y tienen fuente.</span>
   </div>
 
   <div class="eco-real">
@@ -699,7 +743,7 @@
       <div class="section-label">Oportunidades relevantes</div>
       <div class="card-grid">
         <article class="card">
-          <span class="kind">Inscripción</span>
+          <div class="card-top-row"><span class="kind">Inscripción</span><span class="match match-muyalto">Match muy alto</span></div>
           <h3>Academia Los Álamos</h3>
           <dl>
             <dt>Deporte</dt><dd>Fútbol 7</dd>
@@ -709,10 +753,11 @@
             <dt>Horario</dt><dd>Mar/Jue 16-18h</dd>
             <dt>Precio</dt><dd>desde $25/mes</dd>
           </dl>
+          <p class="match-why">Te lo mostramos porque: <strong>acepta principiantes</strong> ✓ · <strong>2.3 km</strong> ✓ · horario compatible ✓ · precio dentro de rango habitual ✓.</p>
           <span class="status"><span class="dot"></span>Activa</span>
         </article>
         <article class="card">
-          <span class="kind">Entrenamiento</span>
+          <div class="card-top-row"><span class="kind">Entrenamiento</span><span class="match match-medio">Match medio</span></div>
           <h3>Escuela Municipal Norte</h3>
           <dl>
             <dt>Deporte</dt><dd>Fútbol 7</dd>
@@ -722,6 +767,7 @@
             <dt>Horario</dt><dd>Sáb 9-11h</dd>
             <dt>Precio</dt><dd>gratuito</dd>
           </dl>
+          <p class="match-why">Te lo mostramos porque: <strong>gratuita</strong> ✓ · 4.1 km ✓ — pero su categoría (Compotas/Sub-06) es para edades menores a las tuyas, así que el encaje por nivel es parcial.</p>
           <span class="status"><span class="dot"></span>Activa</span>
         </article>
       </div>
@@ -772,7 +818,7 @@
       <div class="section-label">Oportunidades relevantes</div>
       <div class="card-grid" id="jugadorGrid">
         <article class="card" data-categoria="Sub-17" data-competicion="Liga FUTVE Junior">
-          <span class="kind">Tryout</span>
+          <div class="card-top-row"><span class="kind">Tryout</span><span class="match match-muyalto">Match muy alto</span></div>
           <h3>Club Atlético Norte</h3>
           <dl>
             <dt>Categoría</dt><dd>Sub-17</dd>
@@ -782,10 +828,11 @@
             <dt>Fecha</dt><dd>14 sep 2026</dd>
             <dt>Cupos</dt><dd>30</dd>
           </dl>
+          <p class="match-why">Te lo mostramos porque: categoría Sub-17 ✓ · posición lateral ✓ · nivel competitivo ✓ · cupos abiertos ✓.</p>
           <span class="status"><span class="dot"></span>Activa</span>
         </article>
         <article class="card" data-categoria="Sub-17 Sub-19" data-competicion="Liga Canguro Diamante">
-          <span class="kind">Scouting</span>
+          <div class="card-top-row"><span class="kind">Scouting</span><span class="match match-alto">Match alto</span></div>
           <h3>Red de Ojeadores Regional</h3>
           <dl>
             <dt>Categoría</dt><dd>Sub-17 / Sub-19</dd>
@@ -793,6 +840,7 @@
             <dt>Cobertura</dt><dd>Zona metropolitana</dd>
             <dt>Requisito</dt><dd>video reciente</dd>
           </dl>
+          <p class="match-why">Te lo mostramos porque: categoría ✓ · cobertura de tu zona ✓ — falta un requisito adicional (video reciente) que todavía no está en tu perfil.</p>
           <span class="status"><span class="dot"></span>Activa</span>
         </article>
         <p class="empty-state" id="jugadorEmpty" hidden>No hay oportunidades de ejemplo para esa combinación de categoría y liga. (Con datos reales conectados, aquí se ampliaría la búsqueda o se sugeriría quitar un filtro.)</p>
@@ -857,7 +905,7 @@
       <div class="section-label">Oportunidades relevantes</div>
       <div class="card-grid">
         <article class="card">
-          <span class="kind">Empleo</span>
+          <div class="card-top-row"><span class="kind">Empleo</span><span class="match match-muyalto">Match muy alto</span></div>
           <h3>Academia Los Álamos</h3>
           <dl>
             <dt>Rol</dt><dd>Entrenador formativo</dd>
@@ -866,10 +914,11 @@
             <dt>Disponibilidad</dt><dd>inmediata</dd>
             <dt>Ubicación</dt><dd>6 km</dd>
           </dl>
+          <p class="match-why">Te lo mostramos porque: disponibilidad inmediata ✓ · certificación válida ✓ · 6 km ✓.</p>
           <span class="status"><span class="dot"></span>Activa</span>
         </article>
         <article class="card">
-          <span class="kind">Empleo</span>
+          <div class="card-top-row"><span class="kind">Empleo</span><span class="match match-alto">Match alto</span></div>
           <h3>Club Atlético Norte</h3>
           <dl>
             <dt>Rol</dt><dd>Asistente técnico Sub-17</dd>
@@ -877,6 +926,7 @@
             <dt>Disponibilidad</dt><dd>inicio de temporada</dd>
             <dt>Ubicación</dt><dd>12 km</dd>
           </dl>
+          <p class="match-why">Te lo mostramos porque: certificación válida ✓ · experiencia ✓ — la disponibilidad pedida (inicio de temporada) es algo posterior a tu disponibilidad inmediata.</p>
           <span class="status"><span class="dot"></span>Activa</span>
         </article>
       </div>
@@ -937,8 +987,8 @@
         </article>
 
         <div class="match-summary">
-          <div class="count">12</div>
-          <div class="count-label">perfiles compatibles según categoría, posición, nivel y radio</div>
+          <div class="count">3</div>
+          <div class="count-label">perfiles de ejemplo evaluados según categoría, posición, nivel y radio (ver <span class="mono">MATRIZ-MATCHING.md</span>)</div>
           <div class="chip-row" style="margin-top:0.9rem;">
             <span class="chip">Sub-17</span>
             <span class="chip">Lateral derecho</span>
@@ -946,6 +996,49 @@
             <span class="chip">Radio 20 km</span>
           </div>
         </div>
+      </div>
+
+      <div class="section-label">Jugadores compatibles (ejemplo — no son personas reales)</div>
+      <div class="card-grid">
+        <article class="card">
+          <div class="card-top-row"><span class="kind">Perfil · Jugador</span><span class="match match-muyalto">Match muy alto</span></div>
+          <h3>Jugador A</h3>
+          <dl>
+            <dt>Posición</dt><dd>Lateral derecho</dd>
+            <dt>Categoría</dt><dd>Sub-17</dd>
+            <dt>Nivel</dt><dd>Competitivo</dd>
+            <dt>Ubicación</dt><dd>8 km</dd>
+            <dt>Disponibilidad</dt><dd>inmediata</dd>
+          </dl>
+          <p class="match-why">Coincide en: posición ✓ · categoría ✓ · nivel ✓ · dentro del radio de 20 km ✓ · disponibilidad ✓.</p>
+          <span class="status"><span class="dot"></span>Perfil activo</span>
+        </article>
+        <article class="card">
+          <div class="card-top-row"><span class="kind">Perfil · Jugador</span><span class="match match-alto">Match alto</span></div>
+          <h3>Jugador B</h3>
+          <dl>
+            <dt>Posición</dt><dd>Lateral derecho</dd>
+            <dt>Categoría</dt><dd>Sub-16</dd>
+            <dt>Nivel</dt><dd>Competitivo</dd>
+            <dt>Ubicación</dt><dd>15 km</dd>
+            <dt>Disponibilidad</dt><dd>inmediata</dd>
+          </dl>
+          <p class="match-why">Coincide en: posición ✓ · nivel ✓ · dentro del radio ✓ — categoría (Sub-16) es una temporada por debajo de lo buscado.</p>
+          <span class="status"><span class="dot"></span>Perfil activo</span>
+        </article>
+        <article class="card">
+          <div class="card-top-row"><span class="kind">Perfil · Jugador</span><span class="match match-medio">Match medio</span></div>
+          <h3>Jugador C</h3>
+          <dl>
+            <dt>Posición</dt><dd>Central</dd>
+            <dt>Categoría</dt><dd>Sub-17</dd>
+            <dt>Nivel</dt><dd>Competitivo</dd>
+            <dt>Ubicación</dt><dd>5 km</dd>
+            <dt>Disponibilidad</dt><dd>inmediata</dd>
+          </dl>
+          <p class="match-why">Coincide en: categoría ✓ · nivel ✓ · muy cerca ✓ — juega de central, no de lateral derecho (la posición era un criterio obligatorio para este club).</p>
+          <span class="status"><span class="dot"></span>Perfil activo</span>
+        </article>
       </div>
 
       <div class="filters" aria-label="Filtros disponibles">
@@ -957,15 +1050,15 @@
       </div>
 
       <div class="action-row">
-        <button class="cta" disabled title="Fase 8 (Motor de Matching) todavía no está definida">Ver perfiles compatibles</button>
-        <span class="cta-note">Deshabilitado a propósito: la fórmula de matching (Fase 8) todavía no está diseñada — mostrar perfiles reales aquí sería inventar una función que no existe.</span>
+        <button class="cta" data-toast="Aquí se abriría el listado completo de perfiles compatibles — pantalla aún sin construir.">Ver perfiles compatibles</button>
+        <span class="cta-note">Los 3 perfiles de arriba son ficticios y aplican a mano las reglas de <span class="mono">MATRIZ-MATCHING.md</span> V0.1 — no existe todavía un motor de cálculo automático ni datos reales de jugadores conectados.</span>
       </div>
     </section>
 
   </div>
 
   <footer>
-    Basado en <span class="mono">CONTEXTO-MAESTRO.md</span> (secciones 6-9, 13, 15-16, 26) y <span class="mono">MATRIZ-CONTEXTO.md</span> V0.1 (contextos Iniciación, Desarrollo competitivo, Oportunidad profesional, Necesidad organizacional). Categorías y ligas reales según <span class="mono">INVESTIGACION-ECOSISTEMA-VE.md</span>. Este boceto se actualiza junto con esos documentos; no representa funcionalidades que no estén ya definidas ahí. Quedan 9 contextos de la matriz (Formación, Cambio de club, Preparación física, Recuperación, Entrenamiento individual, Profesionalización, Descubrimiento, Transición) todavía sin representar aquí.
+    Basado en <span class="mono">CONTEXTO-MAESTRO.md</span> (secciones 6-9, 13, 15-16, 26), <span class="mono">MATRIZ-CONTEXTO.md</span> V0.1 (contextos Iniciación, Desarrollo competitivo, Oportunidad profesional, Necesidad organizacional) y <span class="mono">MATRIZ-MATCHING.md</span> V0.1 (clasificación de match y explicabilidad, secciones 66-67). Categorías y ligas reales según <span class="mono">INVESTIGACION-ECOSISTEMA-VE.md</span>. Este boceto se actualiza junto con esos documentos; no representa funcionalidades que no estén ya definidas ahí. Quedan 9 contextos de la matriz (Formación, Cambio de club, Preparación física, Recuperación, Entrenamiento individual, Profesionalización, Descubrimiento, Transición) todavía sin representar aquí, y la Matriz de Recomendaciones (Fase 7 — qué mostrar primero) todavía no existe: por ahora las tarjetas se muestran en el orden en que fueron creadas, no priorizadas.
   </footer>
 
 </div>
