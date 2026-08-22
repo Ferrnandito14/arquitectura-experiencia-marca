@@ -90,5 +90,29 @@ En su lugar:
   reseñas y su fecha más reciente como proxy de actividad; presencia en
   marketplaces con historial de ventas visible; señales indirectas como
   inversión publicitaria detectable).
-- Marca explícitamente el score de este nivel como *"no evaluable sin
-  datos internos"** en vez:
+- Marca explícitamente el score de este nivel como **"no evaluable sin
+  datos internos"** en vez de forzar un número, y explica qué dato
+  específico se necesitaría pedirle al cliente para poder puntuarlo.
+
+| Score | Criterio (solo si hay datos internos o proxies razonablemente confiables) |
+|---|---|
+| 1 | Sin evidencia de que los canales generen resultado de negocio |
+| 2 | Resultados esporádicos o muy por debajo de lo esperable para su tamaño |
+| 3 | Resultados presentes pero sin evidencia de optimización activa |
+| 4 | Resultados sólidos con señales de medición y ajuste activo |
+| 5 | Resultados sólidos, medidos, y con ciclo de optimización visible/documentado |
+
+## Cómo se convierte el score en prioridades
+
+El resultado del IADM **no es solo un score — termina en Prioridades de
+intervención**. Este es el paso que más valor aporta y el que más fácil
+es hacer mal:
+
+**No prioces automáticamente por el nivel más bajo.** Una empresa puede
+tener Performance = 1 pero el problema real y más urgente es de
+Arquitectura ("nadie sabe dónde comprar" — la gente que sí llega no
+encuentra el camino, así que no hay forma de que Performance mejore hasta
+resolver eso primero). Prioriza por **causa raíz e impacto de negocio**,
+no por cuál número es más bajo en la tabla. Para cada brecha identificada,
+pregunta: si arreglo esto primero, ¿desbloquea mejoras en otro nivel, o es
+un arreglo aislado? Los que desbloquean otros niveles van primero.
