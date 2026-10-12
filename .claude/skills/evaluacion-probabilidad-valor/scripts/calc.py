@@ -1,42 +1,148 @@
 #!/usr/bin/env python3
-"""Calculos deterministas para picks. Uso:
-  calc.py implied 1.85
-  calc.py novig 1.85 2.05 [3.4]        # cuotas de TODOS los resultados del mismo mercado, misma casa
-  calc.py ev 0.58 1.85                 # probabilidad estimada, cuota
-  calc.py combo 1.12 1.10 1.25         # multiplicador (solo si las cuotas son de la misma casa)
-  calc.py joint 0.8 0.75               # prob. conjunta SOLO si los eventos son independientes
-  calc.py freq 9 10                    # frecuencia observada k/n + intervalo Wilson 95%
+"""Calculos deterministas para picks de futbol.
+
+Uso:
+  calc.py implied C                 prob. de equilibrio bruta = 1/C           (C > 1)
+  calc.py novig C1 C2 [C3 ...]      cuotas de TODOS los resultados del mismo mercado y misma casa (>=2, cada C > 1)
+  calc.py ev P C                    EV teorico por unidad = P*C - 1           (0 <= P <= 1, C > 1)
+  calc.py combo C1 C2 [...]         multiplicador (>=2 cuotas, cada C > 1). Solo equivale a un ticket real
+                                    si TODAS las cuotas son de la misma casa y el ticket existe alli.
+  calc.py joint P1 P2 [...]         producto de probabilidades (>=2, cada 0 <= P <= 1). Solo es la
+                                    probabilidad conjunta si los eventos son independientes.
+  calc.py freq K N                  frecuencia observada K/N (enteros, N > 0, 0 <= K <= N) + Wilson 95%
+
+Errores de uso o de entrada: mensaje en stderr y codigo de salida 2. Exito: 0.
+Un resultado matematico NO demuestra que un pick tenga valor: P debe estar justificada aparte.
 """
-import sys, math
+import math
+import re
+import sys
+
+USAGE = __doc__.split("\n\n")[1] if "\n\n" in __doc__ else __doc__
+_INT = re.compile(r"^[0-9]+$")
+
+
+class InputError(Exception):
+    pass
+
+
+def num(text, name):
+    if "_" in text or text.strip() != text or not text:
+        raise InputError(f"{name}: '{text}' no es un numero valido")
+    try:
+        x = float(text)
+    except ValueError:
+        raise InputError(f"{name}: '{text}' no es un numero")
+    if not math.isfinite(x):
+        raise InputError(f"{name}: '{text}' no es un numero finito")
+    return x
+
+
+def odds(text, name="cuota"):
+    x = num(text, name)
+    if x <= 1.0:
+        raise InputError(f"{name}: la cuota decimal debe ser > 1 (recibido {text})")
+    return x
+
+
+def prob(text, name="probabilidad"):
+    x = num(text, name)
+    if not 0.0 <= x <= 1.0:
+        raise InputError(f"{name}: la probabilidad debe estar en [0, 1] (recibido {text})")
+    return x
+
+
+def count(text, name):
+    if not _INT.match(text):
+        raise InputError(f"{name}: debe ser un entero no negativo (recibido '{text}')")
+    return int(text)
+
+
+def need(args, lo, hi, cmd):
+    if len(args) < lo or (hi is not None and len(args) > hi):
+        rango = f"{lo}" if lo == hi else (f"al menos {lo}" if hi is None else f"{lo} a {hi}")
+        raise InputError(f"'{cmd}' requiere {rango} argumento(s); recibidos {len(args)}")
+
+
+def finite(x, what):
+    if not math.isfinite(x):
+        raise InputError(f"{what}: resultado fuera de rango numerico")
+    return x
+
 
 def wilson(k, n, z=1.96):
     p = k / n
     d = 1 + z * z / n
     c = (p + z * z / (2 * n)) / d
     h = z * math.sqrt(p * (1 - p) / n + z * z / (4 * n * n)) / d
-    return max(0, c - h), min(1, c + h)
+    return max(0.0, c - h), min(1.0, c + h)
 
-def main(a):
-    if len(a) < 2: print(__doc__); return 1
-    cmd, v = a[0], [float(x) for x in a[1:]]
+
+def run(argv):
+    if not argv:
+        raise InputError("falta el comando")
+    cmd, a = argv[0], argv[1:]
+    out = []
     if cmd == "implied":
-        print(f"prob_equilibrio_bruta={1/v[0]:.4f}")
+        need(a, 1, 1, cmd)
+        c = odds(a[0])
+        out.append(f"prob_equilibrio_bruta={1/c:.4f}")
     elif cmd == "novig":
-        s = sum(1/o for o in v)
-        print(f"overround={s:.4f} margen={s-1:.4f}")
-        for o in v: print(f"cuota={o} bruta={1/o:.4f} sin_margen_proporcional={(1/o)/s:.4f}")
+        need(a, 2, None, cmd)
+        v = [odds(x, f"cuota {i+1}") for i, x in enumerate(a)]
+        s = sum(1 / o for o in v)
+        out.append(f"overround={s:.4f} margen={s-1:.4f}")
+        for o in v:
+            out.append(f"cuota={o:g} bruta={1/o:.4f} sin_margen_proporcional={(1/o)/s:.4f}")
+        out.append("nota: metodo proporcional (aproximacion); exige todas las selecciones del mismo mercado y casa")
     elif cmd == "ev":
-        p, o = v; print(f"EV_por_unidad={p*o-1:+.4f} cuota_justa={1/p:.3f} (valida solo si p es defendible)")
+        need(a, 2, 2, cmd)
+        p, c = prob(a[0]), odds(a[1])
+        fair = f"{1/p:.3f}" if p > 0 else "n/a"
+        out.append(f"EV_por_unidad={p*c-1:+.4f} cuota_justa={fair}")
+        out.append("nota: valido solo si P es una estimacion defendible; 0 o 1 absolutos exigen justificacion extraordinaria")
     elif cmd == "combo":
+        need(a, 2, None, cmd)
         m = 1.0
-        for o in v: m *= o
-        print(f"multiplicador={m:.4f} prob_equilibrio={1/m:.4f}")
+        for i, x in enumerate(a):
+            m *= odds(x, f"cuota {i+1}")
+        finite(m, "multiplicador")
+        out.append(f"multiplicador={m:.4f} prob_equilibrio={1/m:.4f}")
+        out.append("nota: ticket real solo si todas las cuotas son de la misma casa y la combinacion existe alli")
     elif cmd == "joint":
+        need(a, 2, None, cmd)
         p = 1.0
-        for x in v: p *= x
-        print(f"prob_conjunta_si_independientes={p:.4f} (con correlacion positiva real suele ser mayor; con negativa, menor)")
+        for i, x in enumerate(a):
+            p *= prob(x, f"probabilidad {i+1}")
+        out.append(f"prob_conjunta_si_independientes={p:.4f}")
+        out.append("nota: el producto exige independencia; con correlacion (mismo partido/equipo/arbitro) no es valido")
     elif cmd == "freq":
-        k, n = int(v[0]), int(v[1]); lo, hi = wilson(k, n)
-        print(f"frecuencia={k}/{n}={k/n:.3f} Wilson95%=[{lo:.3f},{hi:.3f}] (frecuencia observada, NO probabilidad)")
-    else: print(__doc__); return 1
-if __name__ == "__main__": sys.exit(main(sys.argv[1:]) or 0)
+        need(a, 2, 2, cmd)
+        k, n = count(a[0], "K"), count(a[1], "N")
+        if n <= 0:
+            raise InputError("N debe ser > 0")
+        if k > n:
+            raise InputError(f"K ({k}) no puede ser mayor que N ({n})")
+        lo, hi = wilson(k, n)
+        out.append(f"frecuencia={k}/{n}={k/n:.3f} Wilson95%=[{lo:.3f},{hi:.3f}]")
+        out.append("nota: frecuencia observada, NO probabilidad")
+    else:
+        raise InputError(f"comando desconocido: '{cmd}'")
+    return out
+
+
+def main(argv):
+    if argv and argv[0] in ("-h", "--help"):
+        print(__doc__)
+        return 0
+    try:
+        lines = run(argv)
+    except InputError as e:
+        print(f"error: {e}\n\n{USAGE}", file=sys.stderr)
+        return 2
+    print("\n".join(lines))
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv[1:]))
