@@ -19,26 +19,44 @@ Metodología: `protocolo-multifuente` (fuentes y registro), `verificacion-estadi
 ## Paso 1 — Cobertura del calendario
 Invoca la skill `cobertura-exhaustiva-picks` si existe en el entorno (inventario, auditoría de cobertura, diversificación) y aplica SIEMPRE `protocolo-multifuente` (calendarios Flashscore/Soccerway/worldfootball/BetExplorer/FotMob + oficiales; no solo SofaScore/APWin). Si `cobertura-exhaustiva-picks` no está disponible, ejecuta tú ese inventario con `verificador-mercados`. Resultado: lista maestra de partidos únicos, competiciones no examinadas y candidatos priorizados. Nuevos partidos pueden reemplazar borradores.
 
+## Mecanismos de coordinación (probados en Claude Code 2.1.296 el 2026-10-12; evidencia en docs/PRUEBAS-picks.md y tests/runs/)
+- **Por defecto: mediada por el director (hub-and-spoke).** Lanzas especialistas con `Agent` (varias llamadas en un mismo mensaje = paralelo) y **siempre con `name`**; cada informe vuelve a ti.
+- **Objeción → respuesta (verificado):** `SendMessage` con `to` = nombre del agente ya terminado lo **reanuda con su contexto** (mismo agentId; el agente responde citando su ronda 1 sin que se la reenvíes) y la respuesta llega como notificación. Si el nombre no resuelve usa el agentId; si no se puede reanudar, relanza un `Agent` con su informe previo + la objeción.
+- **Entre pares (verificado, pero no es el flujo base):** los agentes tienen `SendMessage` y, al reanudarse, ven un roster de agentes con nombre (`main` y los demás). Un agente pudo escribir a otro por nombre y recibir respuesta directa. Aun así, **el director sigue siendo quien reparte las objeciones y decide**; no dependas de que se coordinen solos. Informa en D qué ocurrió realmente.
+- **Agent Teams** (experimental, `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1`, lista de tareas compartida): NO activado ni necesario. No lo actives sin explicar antes el cambio a la persona. Con Teams activo, un subagente lanzado con `name` pasa a ser teammate (otro modo de funcionamiento).
+- Los subagentes no ven tu conversación ni tus skills cargadas: las skills metodológicas llegan por el campo `skills:` de cada agente y todo contexto va en el prompt.
+
 ## Paso 2 — Ronda 1: investigación paralela
-En UN solo mensaje lanza en paralelo (herramienta Agent, `run_in_background` según convenga) y **ponles `name`** para poder escribirles después:
-- `verificador-mercados` (name `verificador`): calendario/estado, mercado exacto, estadísticas publicadas, cuotas en ≥2 fuentes, tabla de registro de fuentes.
-- `analista-deportivo` (name `deportivo`): forma ajustada, bajas, contexto, por mercado.
-- `analista-cuantitativo` (name `cuanti`): estadísticas del mercado exacto, rangos de probabilidad, precio, EV.
-Los subagentes no ven tu conversación: en cada prompt incluye candidatos, fecha/zona horaria, mercados/líneas, lo que ya se sabe, qué entregar y la obligación de registrar fuentes (estados permitidos). Reparte por candidato/competición si hay muchos. Exige: hechos, a favor, en contra, pendientes.
+En UN solo mensaje lanza con `Agent` (`name` fijo, `subagent_type` el del agente): `verificador-mercados` (name `verificador`), `analista-deportivo` (name `deportivo`), `analista-cuantitativo` (name `cuanti`). Los subagentes NO ven tu conversación: el prompt debe ser autocontenido.
 
-Después lanza `auditor-adversarial` (name `auditor`) con los candidatos mejor valorados y los resúmenes de ronda 1.
+**Plantilla de delegación** (rellena los corchetes):
+```
+CONTEXTO: [fecha/zona horaria; si hay datos de prueba: "EJEMPLO — NO REAL, solo fixture://, prohibido web/memoria"]
+CANDIDATOS: [id | partido | mercado y línea exacta | cuota comunicada y quién la comunicó]
+MATERIAL/FUENTES A USAR: [rutas de fixtures, o "catálogo del protocolo-multifuente"]
+TU TAREA: [la función del agente + qué candidatos]
+CÁLCULOS: usa python3 .claude/skills/evaluacion-probabilidad-valor/scripts/calc.py (no calcules a mano)
+ENTREGA (formato fijo): 1) tabla de registro de fuentes (8 campos, estados permitidos); 2) por candidato: hechos con fuente/fecha/n · a favor · en contra · pendientes · estado propio (Verificado/Parcial/No verificable o rango de prob.); 3) limitaciones.
+```
+Después, con los resúmenes de ronda 1, lanza `auditor-adversarial` (name `auditor`) sobre los candidatos mejor valorados.
 
-## Paso 3 — Ronda 2: contraste real
-Construye la **lista de contradicciones** (dato vs dato, fuente vs fuente, tesis deportiva vs precio, objeción del auditor). Distribúyela: a cada agente envíale, con `SendMessage` (a su `name`; reanuda con su contexto) o nuevo Agent si ya terminó y no es reanudable, las objeciones relevantes de los demás **citando su evidencia**. Cada uno debe: responder, corregir errores demostrados, indicar qué evidencia pesa más y por qué.
-Honestidad sobre el mecanismo: esto es comunicación mediada por el director (hub-and-spoke). Hay mensajería directa entre agentes solo si Agent Teams está activo (`CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1`, experimental, más coste) y el agente tiene `SendMessage` y nombre; no la afirmes si no lo comprobaste en la ejecución. Reporta qué modalidad se usó.
+## Paso 3 — Ronda 2: objeción → respuesta
+Haz la **lista de contradicciones** (dato vs dato, fuente vs fuente, tesis deportiva vs precio, objeción del auditor, cifras defectuosas). Por cada una, `SendMessage` al agente responsable con esta plantilla:
+```
+OBJECIÓN [n] sobre [candidato]: [qué dice quién] · EVIDENCIA: [cita literal + fuente]
+PREGUNTA: ¿corriges, defiendes con evidencia nueva, o declaras no verificable? Responde en ≤10 líneas: RESPUESTA | EVIDENCIA | CAMBIO EN TU ESTADO DEL CANDIDATO.
+```
+Aplica lo que cada agente corrija. Quien objeta no decide: decides tú.
 
-## Paso 4 — Resolución
-Decide tú. Sin unanimidad; priorizas calidad de datos y pertinencia de la evidencia. **Tercera comprobación excepcional** solo si un dato crítico (baja decisiva, cuota mal identificada, línea/liquidación) puede cambiar la decisión: una consulta dirigida, no una nueva ronda. Cierre: tras 2 rondas (+ la excepcional). No reinicies por discrepancias menores ni repitas datos sin evidencia nueva. Incertidumbre ≠ parálisis; obligación de decidir ≠ fabricar certeza.
+## Paso 4 — Resolución y cierre (decide SIEMPRE tú)
+Responde por separado, para cada candidato relevante: **(1) ¿cuál es más probable? (2) ¿cuál tiene mejor relación probabilidad/cuota (valor)? (3) ¿cuál es la mejor alternativa global tras evidencia y riesgo?** Una selección probable con precio desfavorable no es valor; una cuota alta no es valor sin probabilidad defendible. Si la probabilidad no es estimable: "no estimable", sin EV.
 
-Estados por candidato: **SELECCIONAR · MANTENER COMO ALTERNATIVA · SUSTITUIR · DESCARTAR · NO EVALUABLE**.
-- Sin precio verificado (≥2 fuentes comparables) → puede conservarse como "fundamento deportivo, sin precio confirmado", nunca como valor económico confirmado.
-- Cuota alta probabilidad/precio desfavorable: resuélvelo explícitamente (alta probabilidad ≠ valor).
-- Combinadas: recalcula multiplicador (misma casa), evalúa correlación, identifica piernas débiles, busca sustitutos, compara tickets. No fuerces N combinadas; no recomiendes apostar todas las alternativas; separa objetivos (p. ej. ×1.20 vs ×4–4.8).
+Asigna a cada candidato: **SELECCIONAR · MANTENER COMO ALTERNATIVA · SUSTITUIR · DESCARTAR · NO EVALUABLE**:
+- SELECCIONAR: fundamento sólido, datos esenciales confirmados en ≥2 orígenes y precio verificado (≥2 cotizaciones comparables) — si falta el precio, como mucho "fundamento deportivo, sin precio confirmado" (alternativa).
+- SUSTITUIR: hay una alternativa mejor respaldada (indica cuál y por qué). DESCARTAR: deficiencia material concreta. NO EVALUABLE: faltan datos esenciales que no se pudieron obtener.
+- Sin unanimidad: pesa calidad y pertinencia de la evidencia. Nunca devuelvas la elección ni la síntesis a la persona; si la evidencia no separa dos opciones, dilo y elige con criterio explícito (p. ej. menor riesgo/menor correlación).
+- **Cierre:** 2 rondas. **Tercera comprobación** solo si un dato crítico concreto (baja decisiva, cuota mal identificada, línea/liquidación) puede cambiar el estado de un candidato: una consulta dirigida a un solo agente, no una ronda nueva. No reinicies por discrepancias menores ni repitas datos sin evidencia nueva.
+- Combinadas: multiplicador solo con cuotas de la misma casa (`calc.py combo`); correlación declarada; no fuerces N tickets; no recomiendes apostar todas las alternativas; bloques horarios del usuario separados.
 
 ## Paso 5 — Respuesta (empieza por la decisión)
 A. **Veredicto ejecutivo** (qué seleccionas, descartas y por qué).
