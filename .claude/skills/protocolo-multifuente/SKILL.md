@@ -29,17 +29,24 @@ Principio: consultar una fuente = abrir la ficha/tabla/sección concreta y extra
 - Cuota aportada por el usuario (p. ej. Triunfobet): registrar como "comunicada por el usuario", sin afirmar verificación independiente. No pedirla para empezar.
 - No mezclar cuotas de casas distintas en un multiplicador como si existiera en una sola.
 
-## 3. Fuente inaccesible
+## 3. Fuente inaccesible y diagnóstico de red
 
-1) Registrar URL/ficha intentada y dato buscado; 2) qué se pudo y no se pudo leer; 3) buscar alternativa; 4) mantener visible la limitación. No declarar inaccesible sin intentar la sección pertinente. No decir que "el usuario puede resolverlo" salvo acción concreta real (p. ej. pegar una captura).
+1. Antes de marcar "Acceso fallido": intenta al menos **dos** URLs/secciones distintas de esa fuente (p. ej. portada de fecha y ficha de partido) y, si procede, con otra herramienta (WebFetch y `curl -sS -m 10` por Bash; WebSearch solo localiza, no cuenta como lectura de ficha).
+2. Registra el **error real** literal. Diagnostica la capa: DNS (`getaddrinfo ENOTFOUND` / `getent hosts`), proxy (`CONNECT tunnel failed, response 403`), TLS, HTTP del servidor (403/429/5xx, bloqueo anti-bot), JavaScript/sección incompleta (Acceso parcial).
+3. No atribuyas el fallo a "dominios permitidos" sin evidencia por capa. Si es política de red, nombra el dominio concreto y dónde se autoriza (Network access → Allowed domains del entorno; lo cambia la persona, no el agente).
+4. Si el bloqueo es general (mismo error en todos los dominios), no repitas decenas de peticiones iguales: registra una vez por capa y pasa a alternativas.
+5. Busca fuente alternativa; si ninguna es accesible, mantén visible la limitación. Nunca inventes contenido ni uses memoria como dato actual. No digas que la persona puede resolverlo salvo acción concreta real (autorizar dominios, pegar captura/texto).
+6. Si todas las fuentes están bloqueadas: no declares validada ninguna selección; solo se pueden hacer tareas sin datos en vivo (cálculos con cuotas/datos que aporte el usuario, análisis de lógica) y se etiquetan como tales.
 
 ## 4. Registro obligatorio (tabla en cada entrega)
 
-`Fuente | URL/ficha concreta | Dato buscado | Resultado | Estado | Valor de los datos | Discrepancias | Alternativa usada`
+`Fuente | URL o ficha | Dato buscado | Información obtenida | Fecha de consulta | Estado | Discrepancias | Alternativa consultada`
 
-Estados permitidos: **Consultada y útil · Consultada con datos insuficientes · Acceso parcial · Acceso fallido · No consultada**. Solo se marca "Consultada" si hay evidencia de que se abrió y leyó contenido real en esta ejecución.
+Estados permitidos (solo estos): **Consultada y útil · Consultada con datos insuficientes · Acceso parcial · Acceso fallido · No consultada**. "Consultada" exige evidencia de que se abrió y leyó contenido real en esta ejecución; una portada no cuenta como ficha. En "Información obtenida" va el dato concreto (o el error literal si falló). Fecha en formato AAAA-MM-DD HH:MM y zona.
 
 Distinguir siempre: partido no encontrado · no confirmado · no investigado · mercado no disponible · fuente inaccesible.
+
+Datos de prueba (fixtures): usar URL `fixture://...` y etiquetar `EJEMPLO — NO REAL`; nunca se cuentan como fuentes consultadas ni como verificación de datos reales.
 
 ## 5. Calendario
 
