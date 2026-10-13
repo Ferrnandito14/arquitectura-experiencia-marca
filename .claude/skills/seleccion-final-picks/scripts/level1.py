@@ -160,7 +160,9 @@ def evaluate_match(match, provider, policy, now_iso):
         if p["status"] == "excluida":
             attempts.append({"provider": name, "resultado": "no consultada: excluida por política", "motivo": p["reason"][:160]})
     form, blocks, note = {}, {}, None
+    data_attempted = False          # ¿se hizo alguna consulta real de datos para ESTE partido?
     if provider is not None and provider.covers(match):
+        data_attempted = True
         try:
             before = (match["normalized_datetime_local"] or now_iso)[:10]
             form["local"] = provider.team_history(match, match["home_team"], before)
@@ -186,19 +188,27 @@ def evaluate_match(match, provider, policy, now_iso):
             reason = None if have_stats else "hay cuota pero no estadísticas"
             if have_stats and not have_price:
                 reason = "estadísticas descriptivas sin cuota verificada"
+        elif not data_attempted:
+            ev = "NOT_CHECKED"       # nadie examinó este mercado: no implica que no exista ni que la estadística sea 0
+            reason = ("no investigado: ninguna fuente permitida cubre esta competición (sin ficha ni feed abierto); "
+                      "no implica que el mercado no exista ni que la estadística sea 0")
+        elif not (form.get("local") and form.get("visitante")):
+            ev = "NO_EVALUABLE"
+            reason = "intento de consulta fallido o sin histórico: ver attempts"
         else:
             ev = "NO_EVALUABLE"
-            reason = ("sin fuente permitida que aporte este dato para la liga" if provider is None or not provider.covers(match)
-                      else "la fuente permitida no incluye este mercado/estadística")
+            reason = "la fuente permitida abierta no incluye este mercado/estadística"
         markets[key] = {
             "market_availability_status": "VERIFICADO_DISPONIBLE_EN_UNA_CASA" if have_price else "NOT_CHECKED",
             "statistics_availability_status": stats_status,
             "price_verification_status": "PRECIO_NO_CONFIRMADO" + (" (una sola casa vía agregador)" if have_price else ""),
             "evaluation_status": ev, "not_evaluable_reason": reason,
-            "sources_checked": [a["provider"] for a in attempts], "last_updated": now_iso,
+            "sources_checked": [a["provider"] for a in attempts if a["resultado"].startswith(("consultada", "acceso fallido"))],
+            "sources_not_consulted": [a["provider"] for a in attempts if a["resultado"].startswith(("no consultada", "sin cobertura"))],
+            "last_updated": now_iso,
             "stats": blocks.get(key, []), "price": prices.get(key)}
     n_ok = sum(1 for m in markets.values() if m["evaluation_status"] in ("EVALUABLE", "PARCIAL"))
-    return {"match_id": match["match_id"], "attempts": attempts, "form": form, "sample_note": note,
+    return {"match_id": match["match_id"], "attempts": attempts, "data_attempted": data_attempted, "form": form, "sample_note": note,
             "markets": markets, "evaluated_markets_ok": n_ok,
             "sports_analysis_status": "COMPLETADO" if (form.get("local") and form.get("visitante")) else "NO_EVALUABLE_TRAS_INTENTOS",
             "market_analysis_status": "COMPLETADO" if n_ok else "NO_EVALUABLE_TRAS_INTENTOS"}

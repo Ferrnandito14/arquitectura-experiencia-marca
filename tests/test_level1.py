@@ -65,14 +65,25 @@ class MarketStates(unittest.TestCase):
         self.assertAlmostEqual(sum(p["price"]["sin_margen_proporcional"]), 1.0, places=3)
         self.assertEqual(e["markets"]["goles.over_2_5"]["price"]["cuotas"], [1.9, 1.9])
 
-    def test_uncovered_league_is_no_evaluable_with_evidence_not_omitted(self):
+    def test_uncovered_league_markets_are_NOT_CHECKED_but_match_is_no_evaluable_with_evidence(self):
         e = self.ev(match(1, div=None), FakeProvider(covered=False))
         self.assertEqual(e["sports_analysis_status"], "NO_EVALUABLE_TRAS_INTENTOS")
-        self.assertTrue(all(m["evaluation_status"] == "NO_EVALUABLE" for m in e["markets"].values()))
+        self.assertFalse(e["data_attempted"])
+        # nadie examinó estos mercados: NOT_CHECKED, nunca NO_EVALUABLE «para completar la fila»
+        self.assertTrue(all(m["evaluation_status"] == "NOT_CHECKED" for m in e["markets"].values()))
+        self.assertTrue(all("no implica que el mercado no exista" in m["not_evaluable_reason"] for m in e["markets"].values()))
         provs = {a["provider"]: a["resultado"] for a in e["attempts"]}
-        self.assertIn("fotmob", provs)
-        self.assertIn("excluida", provs["fotmob"])          # evidencia: no consultada por política, NO "consultada"
+        self.assertIn("excluida", provs["fotmob"])
         self.assertEqual(len(e["markets"]), len(level1.ALL_MARKETS))
+        for m in e["markets"].values():     # sources_checked sólo lista lo realmente consultado
+            self.assertNotIn("fotmob", m["sources_checked"])
+            self.assertIn("fotmob", m["sources_not_consulted"])
+
+    def test_failed_attempt_is_no_evaluable_not_not_checked(self):
+        e = self.ev(match(1), FakeProvider(fail=True))
+        self.assertTrue(e["data_attempted"])
+        self.assertTrue(all(m["evaluation_status"] == "NO_EVALUABLE" for m in e["markets"].values()))
+        self.assertIn("football-data", e["markets"]["goles.btts"]["sources_checked"])
 
     def test_unsupported_stat_in_covered_league_is_no_evaluable_with_reason(self):
         e = self.ev(match(1), FakeProvider())
@@ -157,6 +168,7 @@ class Queue(unittest.TestCase):
         st, _ = level1.process(self.tmp, FakeProvider(fail=True), helpers.POLICY, now=NOW)
         self.assertEqual(st["matches"]["m-1"]["status"], "NO_EVALUABLE_TRAS_INTENTOS")
         self.assertTrue(any("acceso fallido" in a["resultado"] for a in st["matches"]["m-1"]["evidence"]))
+        self.assertTrue(st["matches"]["m-1"]["evidence"])
 
     def test_matrix_csv_written_with_every_market_row(self):
         make_run(self.tmp, [match(1)])

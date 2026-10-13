@@ -60,6 +60,27 @@ class Gate(unittest.TestCase):
         self.assertEqual(r["exit_code"], 3)
         self.assertTrue(r["problems"])
 
+    def test_processed_without_data_attempt_is_reported_and_markets_not_overstated(self):
+        tmp = prep([match(1, div=None), match(2, div=None)], FakeProvider(covered=False))
+        r = coverage_report.compute(tmp)
+        self.assertEqual((r["processed"], r["processed_without_any_data_attempt"]), (2, 2))
+        self.assertEqual((r["markets_examined"], r["markets_not_checked"]), (0, 2 * len(level1.ALL_MARKETS)))
+        self.assertEqual(r["coverage_markets_pct"], 0.0)       # antes se mostraba 100 %: nadie examinó esos mercados
+        self.assertEqual(r["exit_code"], 4)
+
+    def test_inventory_state_mismatch_blocks_and_orphans_flagged(self):
+        tmp = prep([match(1)])
+        inv = common.read_json(os.path.join(tmp, "inventory.json"))
+        inv["matches"][0]["sports_analysis_status"] = "PENDIENTE"          # inventario regenerado sin conservar el avance
+        common.write_json_atomic(os.path.join(tmp, "inventory.json"), inv)
+        r = coverage_report.compute(tmp)
+        self.assertEqual(r["exit_code"], 3)
+        self.assertTrue(any("inventario dice PENDIENTE" in b for _, b in r["problems"]))
+        st = common.read_json(os.path.join(tmp, "state.json"))
+        st["matches"]["m-fantasma"] = {"status": "COMPLETADO", "attempts": 1}
+        common.write_json_atomic(os.path.join(tmp, "state.json"), st)
+        self.assertTrue(any("huérfano" in b for _, b in coverage_report.compute(tmp)["problems"]))
+
     def test_empty_universe_is_never_a_definitive_ranking(self):
         tmp = prep([match(1, required=False)])
         r = coverage_report.compute(tmp)

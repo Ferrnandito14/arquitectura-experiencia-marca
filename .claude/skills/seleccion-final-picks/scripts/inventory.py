@@ -23,18 +23,30 @@ import common  # noqa: E402
 TOL_DISCREPANCY_MIN = 15      # diferencia de hora entre fuentes que ya es discrepancia
 CLUSTER_HOURS = 36            # ventana para considerar que dos registros pueden ser el mismo encuentro
 
-_CAT = [("women", r"\b(women|woman|femin\w*|ladies|w)\b|\(w\)|\bfem\b"),
-        ("youth", r"\bu-?(1[5-9]|2[0-3])\b|\b(youth|juvenil|junior\w*|academy)\b"),
-        ("reserve", r"\b(reserves?|reserva\w*|ii|b team|u21 team)\b| b$")]
+_WOMEN = re.compile(r"\b(women|woman|femin\w*|ladies|w)\b|\(w\)|\bfem\b")
+_YOUTH = re.compile(r"\bu-?(1[5-9]|20)\b|\b(youth|juvenil|junior\w*|academy)\b")
+_U23 = re.compile(r"\bu-?(2[1-3])\b")
+_RESERVE_TEAM = re.compile(r"(\s(b|ii|iii)$|\bb team\b|\breserves?\b|\bcastilla\b)")
+_RESERVE_COMP = re.compile(r"\b(reserves?|reserva\w*|development)\b")
+_FIRST_TEAM_EXCEPTIONS = {"willem ii"}      # clubes de primer equipo cuyo nombre termina en II
 
 
 def detect_category(home, away, competition, hint=None):
+    """women > youth (U15-U20) > u23 (U21-U23) > reserve > men. Se mira el NOMBRE DE CADA EQUIPO para reservas
+    (no la competición: 'Serie B' es primera plantilla). Es una etiqueta de apoyo, no decide elegibilidad."""
     if hint:
         return hint
-    text = " ".join([home or "", away or "", competition or ""]).lower()
-    for cat, rx in _CAT:
-        if re.search(rx, text):
-            return cat
+    teams = [(home or "").lower().strip(), (away or "").lower().strip()]
+    text = " ".join(teams + [(competition or "").lower()])
+    if _WOMEN.search(text):
+        return "women"
+    if _YOUTH.search(text):
+        return "youth"
+    if _U23.search(text):
+        return "u23"
+    if _RESERVE_COMP.search((competition or "").lower()) or any(
+            _RESERVE_TEAM.search(t) and t not in _FIRST_TEAM_EXCEPTIONS for t in teams):
+        return "reserve"
     return "men"
 
 
@@ -102,8 +114,9 @@ def cluster(raws):
     return groups, ambiguous
 
 
-def match_id(home_n, away_n, cat, local_date):
-    return "m-" + hashlib.sha1(f"{home_n}|{away_n}|{cat}|{local_date}".encode()).hexdigest()[:12]
+def match_id(home_n, away_n, local_date):
+    """ID estable: NO depende de la categoría ni de la competición (cambian al corregir clasificaciones)."""
+    return "m-" + hashlib.sha1(f"{home_n}|{away_n}|{local_date}".encode()).hexdigest()[:12]
 
 
 def _group_status(map_event_status, raw, now, start):
@@ -178,6 +191,8 @@ def build_inventory(raws_by_source, day, tz, now, policy, status_mappers=None):
             cal, basis = "CONFIRMADO", "una_fuente_estructurada_fiable_sin_discrepancias"
         else:
             cal, basis = "NO_CONFIRMADO", "ninguna"
+        if cal == "CONFIRMADO" and discrepancies:
+            basis = basis.replace("_sin_discrepancias", "") + "_con_discrepancias_abiertas"
         # elegibilidad prepartido
         if cal != "CONFIRMADO":
             elig, disp = "PENDIENTE_DE_VERIFICAR", f"calendario {cal}: verificar con fuentes adicionales"
@@ -189,7 +204,7 @@ def build_inventory(raws_by_source, day, tz, now, policy, status_mappers=None):
             elig, disp = "NO_ELEGIBLE", "NO_ELEGIBLE_PREPARTIDO — el encuentro ya ha comenzado"
         else:
             elig, disp = "ELEGIBLE", "elegible para evaluación prepartido"
-        mid = match_id(base["_home"], base["_away"], base["_cat"], local.date().isoformat() if local else "sin-fecha")
+        mid = match_id(base["_home"], base["_away"], local.date().isoformat() if local else "sin-fecha")
         comp = next((x["competition"] for x in g if x.get("competition")), "")
         matches.append({
             "match_id": mid, "home_team": base["home"], "away_team": base["away"], "competition": comp,
@@ -209,8 +224,26 @@ def build_inventory(raws_by_source, day, tz, now, policy, status_mappers=None):
             "extra": {k: next((x[k] for x in g if x.get(k)), None) for k in ("div", "odds", "referee")},
             "last_updated": now.strftime("%Y-%m-%dT%H:%M:%SZ"),
         })
-    matches.sort(key=lambda m: (m["normalized_datetime_utc"] or "9", m["match_id"]))
+    matches.sort(key=lambda m: (m["normalized_datetime_utc"] or "9", m["competition"], m["gender_or_category"]))
+    seen_ids = {}
+    for m in matches:                                   # colisión (mismo par y día, p. ej. dos categorías): sufijo determinista
+        n = seen_ids.get(m["match_id"], 0)
+        seen_ids[m["match_id"]] = n + 1
+        if n:
+            m["match_id"] = f'{m["match_id"]}-{n + 1}'
     return matches, dups
+
+
+def carry_over_progress(matches, prev_matches):
+    """Conserva sports/market_analysis_status de una ejecución anterior si el partido (mismo id y misma hora) no cambió."""
+    prev = {m["match_id"]: m for m in prev_matches}
+    for m in matches:
+        old = prev.get(m["match_id"])
+        if old and old.get("normalized_datetime_utc") == m["normalized_datetime_utc"]:
+            for k in ("sports_analysis_status", "market_analysis_status"):
+                if old.get(k) not in (None, "PENDIENTE"):
+                    m[k] = old[k]
+    return matches
 
 
 def source_registry(policy, attempts):
@@ -263,6 +296,8 @@ def main(argv=None):
     for path in a.manual:
         attempt("usuario", path, "calendario aportado por el usuario", lambda p=path: adapters.manual_calendar(p))
     matches, dups = build_inventory(raws, a.date, a.tz, now, policy)
+    prev = common.read_json(os.path.join(run, "inventory.json"), {"matches": []})
+    carry_over_progress(matches, prev.get("matches", []))     # regenerar el inventario NO borra el avance de la evaluación
     brutos = {k: len(v) for k, v in raws.items()}
     for k, v in raws.items():
         common.write_json_atomic(os.path.join(run, "sources", f"raw_{k.replace(':', '_')}.json"), v)

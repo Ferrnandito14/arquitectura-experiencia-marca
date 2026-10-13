@@ -36,9 +36,17 @@ class Dedup(unittest.TestCase):
         w = raw("apwin", "Barcelona Women", "Madrid Women", "Liga F", None, "UTC", epoch=epoch("2026-10-13T20:00:00Z"))
         ms, _ = build({"football-data": [men], "apwin": [w]})
         self.assertEqual(sorted(m["gender_or_category"] for m in ms), ["men", "women"])
-        self.assertEqual(inventory.detect_category("Sevilla Atletico", "Real B", "Segunda"), "men")
         self.assertEqual(inventory.detect_category("Real Madrid U19", "X U19", "Youth League"), "youth")
-        self.assertEqual(inventory.detect_category("Bayern II", "X", "Regionalliga"), "reserve")
+        self.assertEqual(inventory.detect_category("Bayern München II", "X", "Regionalliga"), "reserve")
+
+    def test_category_regressions_found_by_review(self):
+        dc = inventory.detect_category
+        self.assertEqual(dc("Novorizontino", "Ponte Preta", "Serie B"), "men")        # 'Serie B' es primera plantilla (falso positivo antiguo)
+        self.assertEqual(dc("Genoa", "Sampdoria", "Serie B"), "men")
+        self.assertEqual(dc("Utrecht", "Willem II", "Eredivisie"), "men")             # Willem II es primer equipo
+        self.assertEqual(dc("Celta B", "Sociedad B", "La Liga 2"), "reserve")         # filiales (falso negativo antiguo)
+        self.assertEqual(dc("Portimonense U23", "Academico Viseu U23", "Liga Revelação U23"), "u23")
+        self.assertEqual(dc("Newcastle Jets FC", "Gamba Osaka", "AFC Champions League"), "men")
 
     def test_duplicate_within_same_source_marked_DUPLICADO(self):
         a = raw("apwin", "A", "B", "Liga", None, "UTC", epoch=epoch("2026-10-13T20:00:00Z"), mid="1")
@@ -213,3 +221,54 @@ class ApwinParserRegression(unittest.TestCase):
         self.assertEqual(r[0]["competition"], "uefa champions league")
         self.assertEqual(r[0]["country"], "europe")
         self.assertEqual(r[0]["source_match_id"], "2")
+
+
+class StableIds(unittest.TestCase):
+    def test_match_id_does_not_depend_on_category_or_competition(self):
+        a = raw("apwin", "Celta B", "Sociedad B", "Liga X", None, "UTC", epoch=epoch("2026-10-13T20:00:00Z"))
+        b = dict(a, competition="Otro nombre de liga")
+        ma = build({"apwin": [a]})[0][0]["match_id"]
+        mb = build({"apwin": [b]})[0][0]["match_id"]
+        self.assertEqual(ma, mb)
+        self.assertEqual(inventory.match_id("a", "b", "2026-10-13"), inventory.match_id("a", "b", "2026-10-13"))
+
+    def test_id_collision_gets_deterministic_suffix(self):
+        a = raw("football-data", "Real", "Madrid", "Liga A", "2026-10-13 20:00", "UTC", mid="1")
+        b = raw("apwin", "Real", "Madrid", "Copa Z", None, "UTC", epoch=epoch("2026-10-13T20:00:00Z"), mid="2")
+        ms, _ = build({"football-data": [a], "apwin": [b]})
+        ids = sorted(m["match_id"] for m in ms)
+        self.assertEqual(len(ids), 2)
+        self.assertEqual(ids[1], ids[0] + "-2")
+
+
+class ConfirmationBasis(unittest.TestCase):
+    def test_basis_discloses_open_discrepancies(self):
+        a = raw("football-data", "A", "B", "Championship", "2026-10-13 06:00", "UTC", False, status="programado")
+        later = datetime(2026, 10, 13, 12, 0, tzinfo=timezone.utc)
+        ms, _ = inventory.build_inventory({"football-data": [a]}, "2026-10-13", TZ, later, helpers.POLICY,
+                                          status_mappers={"football-data": lambda s: "PROGRAMADO"})
+        m = ms[0]
+        self.assertEqual(m["calendar_verification_status"], "CONFIRMADO")
+        self.assertTrue(any(d["kind"] == "estado" for d in m["discrepancies"]))
+        self.assertNotIn("sin_discrepancias", m["confirmation_basis"])
+        self.assertIn("con_discrepancias_abiertas", m["confirmation_basis"])
+        self.assertEqual(m["selection_calendar_verification"], "REQUIERE_VERIFICACION_ADICIONAL")
+
+
+class PreserveProgressOnRegeneration(unittest.TestCase):
+    def test_carry_over_keeps_progress_only_if_match_unchanged(self):
+        a = raw("football-data", "A", "B", "Championship", "2026-10-13 19:45", "Europe/London", False)
+        prev, _ = build({"football-data": [a]})
+        prev[0]["sports_analysis_status"] = "NO_EVALUABLE_TRAS_INTENTOS"
+        prev[0]["market_analysis_status"] = "COMPLETADO"
+        same, _ = build({"football-data": [a]})
+        inventory.carry_over_progress(same, prev)
+        self.assertEqual((same[0]["sports_analysis_status"], same[0]["market_analysis_status"]), ("NO_EVALUABLE_TRAS_INTENTOS", "COMPLETADO"))
+        moved = dict(a, original_datetime="2026-10-13 21:00")
+        new, _ = build({"football-data": [moved]})
+        inventory.carry_over_progress(new, prev)                    # la hora cambió: hay que reevaluar
+        self.assertEqual(new[0]["sports_analysis_status"], "PENDIENTE")
+
+
+if __name__ == "__main__":
+    unittest.main()

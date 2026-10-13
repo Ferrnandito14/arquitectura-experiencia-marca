@@ -47,6 +47,20 @@ def compute(run):
             pending.append(m)
             if stt.startswith("ERROR"):
                 problems.append((m["match_id"], stt + ": " + str(s.get("last_error", ""))))
+    # consistencia inventario <-> estado <-> matriz (el informe debe concordar con lo persistido)
+    inv_ids = {m["match_id"] for m in ms}
+    for mid, s_ in st.items():
+        if mid not in inv_ids:
+            problems.append((mid, "estado huérfano: no existe en el inventario"))
+    for mid in mx:
+        if mid not in inv_ids:
+            problems.append((mid, "matriz huérfana: no existe en el inventario"))
+    for m in required:
+        s_ = st.get(m["match_id"], {}).get("status")
+        if s_ in PROCESSED_OK and m.get("sports_analysis_status") != s_:
+            problems.append((m["match_id"], f"inventario dice {m.get('sports_analysis_status')} pero el estado persistido dice {s_}"))
+        if s_ in PROCESSED_OK and m["match_id"] not in mx:
+            problems.append((m["match_id"], "estado procesado sin fila en matrix.json"))
     # mercados
     examined = ok = nonev = notchk = 0
     fam_ok = Counter()
@@ -64,13 +78,16 @@ def compute(run):
                 fam_ok[k.split(".")[0]] += 1
             else:
                 nonev += 1
+    no_data_attempt = [m["match_id"] for m in processed if not mx.get(m["match_id"], {}).get("data_attempted")]
     den_markets = len(required) * len(ALL)
     cal = Counter(m["calendar_verification_status"] for m in ms)
     started = sum(1 for m in ms if m["event_status"] in ("EN_JUEGO", "FINALIZADO") or "ya ha comenzado" in m["disposition"])
     not_elig = sum(1 for m in ms if m["prematch_eligibility"] == "NO_ELEGIBLE")
     pct = lambda a, b: round(100 * a / b, 1) if b else None
     systemic = [f for f in FAMS if required and fam_ok[f] == 0]
-    if required and pending:
+    if problems:
+        verdict, code = "BLOQUEADO — inconsistencias de integridad entre inventario, estado y matriz (ver problemas)", 3
+    elif required and pending:
         verdict, code = "BLOQUEADO — hay partidos confirmados y elegibles sin evaluación básica", 3
     elif not required:
         verdict, code = "RANKING PROVISIONAL RESTRINGIDO — no hay partidos confirmados y elegibles que evaluar", 4
@@ -86,6 +103,7 @@ def compute(run):
         "confirmed": cal["CONFIRMADO"], "not_confirmed": len(ms) - cal["CONFIRMADO"] - cal["DUPLICADO"],
         "started_or_finished": started, "not_eligible_prematch": not_elig,
         "required_confirmed_eligible": len(required), "processed": len(processed), "evaluated_sufficiently": len(sufficient),
+        "processed_without_any_data_attempt": len(no_data_attempt),
         "pending": len(pending), "pending_ids": [m["match_id"] for m in pending],
         "coverage_matches_pct": pct(len(processed), len(required)), "coverage_matches_den": len(required),
         "markets_denominator": den_markets, "markets_examined": examined, "markets_not_checked": notchk,
@@ -106,6 +124,7 @@ def render(r):
     L.append(f"| Requieren evaluación (confirmados y elegibles) | {r['required_confirmed_eligible']} | base de la cobertura |")
     L.append(f"| Procesados (evaluación básica o no evaluable con motivo) | {r['processed']} | de {r['coverage_matches_den']} = {r['coverage_matches_pct']}% |")
     L.append(f"| Evaluados suficientemente (histórico obtenido) | {r['evaluated_sufficiently']} | de {r['coverage_matches_den']} |")
+    L.append(f"| Procesados SIN ninguna consulta real de datos (ninguna fuente permitida los cubre) | {r['processed_without_any_data_attempt']} | de {r['processed']} procesados: «procesado» no es «examinado» |")
     L.append(f"| Pendientes | {r['pending']} | {r['pending_ids'][:10]}{'…' if len(r['pending_ids']) > 10 else ''} |")
     L.append(f"| Mercados examinados | {r['markets_examined']} | de {r['markets_denominator']} = {r['coverage_markets_pct']}% (NOT_CHECKED: {r['markets_not_checked']}) |")
     L.append(f"| Mercados con evaluación parcial/evaluable (candidatos) | {r['markets_evaluable_or_partial']} | |")
