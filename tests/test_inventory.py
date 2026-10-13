@@ -295,3 +295,63 @@ class ApwinPagination(unittest.TestCase):
                 class R: text = "nada"
                 return R()
         self.assertIsNone(adapters.apwin_fetch(C(), "2026-10-13")[1])
+
+
+class ApwinFetchAll(unittest.TestCase):
+    """Fixtures ficticios (EJEMPLO — NO REAL) de la paginación vía /api/home/calendar."""
+    @staticmethod
+    def _page(page, ids, has_more, total=5):
+        import json
+        ms = [{"id": str(i), "homeTeam": f"H{i}", "awayTeam": f"A{i}", "kickoffUnix": 1791909900 + i, "status": "upcoming"} for i in ids]
+        return json.dumps({"groups": [{"leagueSlug": "liga-x", "countrySlug": "pais-x", "matches": ms}],
+                           "pagination": {"page": page, "hasMore": has_more, "total": total, "totalLive": 0, "totalFinished": 0}})
+
+    def _client(self, pages, first_has_more=True):
+        urls = []
+        first = ApwinPagination.BLOB.replace("true", "true" if first_has_more else "false").replace("166", "5")
+
+        class C:
+            def fetch(s, url):
+                urls.append(url)
+                class R: pass
+                r = R()
+                r.text = first if "/api/" not in url else pages[len(urls) - 2]
+                return r
+        return C(), urls
+
+    def test_follows_pages_until_has_more_false_and_dedupes(self):
+        c, urls = self._client([self._page(2, [1, 2, 3], True), self._page(3, [3, 4, 5], False)])
+        recs, pag = adapters.apwin_fetch_all(c, "2026-10-13")
+        self.assertEqual(len({r["source_match_id"] for r in recs}), len(recs))
+        self.assertEqual((len(recs), pag["pages_fetched"], pag["complete"]), (5, 3, True))
+        self.assertTrue(all("/api/home/calendar?" in u and "page=" in u for u in urls[1:]))
+        self.assertIn("timezone=America%2FNew_York", urls[1])
+
+    def test_page_cap_and_incomplete_flag(self):
+        c, _ = self._client([self._page(2, [2], True), self._page(3, [3], True)])
+        recs, pag = adapters.apwin_fetch_all(c, "2026-10-13", max_pages=2)
+        self.assertEqual((pag["pages_fetched"], pag["complete"], pag["stop_reason"]), (2, False, "tope de páginas"))
+
+    def test_bad_structure_stops_without_inventing(self):
+        c, _ = self._client(['{"nope": 1}'])
+        recs, pag = adapters.apwin_fetch_all(c, "2026-10-13")
+        self.assertEqual(len(recs), 1)
+        self.assertFalse(pag["complete"])
+        self.assertIn("error en página 2", pag["stop_reason"])
+
+    def test_no_more_pages_makes_no_api_call(self):
+        c, urls = self._client([], first_has_more=False)
+        recs, pag = adapters.apwin_fetch_all(c, "2026-10-13")
+        self.assertEqual(len(urls), 1)
+        self.assertEqual(pag["stop_reason"], "hasMore=false")
+
+
+class CarryOverProxyResolution(unittest.TestCase):
+    def test_proxy_resolution_survives_regeneration(self):
+        old = [{"match_id": "m1", "normalized_datetime_utc": "2026-10-13T19:00:00Z", "sports_analysis_status": "PARCIAL_PROXY_OTRA_COMPETICION",
+                "market_analysis_status": "PENDIENTE", "extra": {"proxy_resolution": {"home": ["SP1", "Ath Madrid"], "away": ["E0", "Man United"]}}}]
+        new = [{"match_id": "m1", "normalized_datetime_utc": "2026-10-13T19:00:00Z", "sports_analysis_status": "PENDIENTE",
+                "market_analysis_status": "PENDIENTE", "extra": {"div": None}}]
+        inventory.carry_over_progress(new, old)
+        self.assertEqual(new[0]["extra"]["proxy_resolution"]["home"][1], "Ath Madrid")
+        self.assertEqual(new[0]["sports_analysis_status"], "PARCIAL_PROXY_OTRA_COMPETICION")

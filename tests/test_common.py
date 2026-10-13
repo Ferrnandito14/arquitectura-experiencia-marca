@@ -196,3 +196,32 @@ class Limits(unittest.TestCase):
             c.fetch("https://www.football-data.co.uk/c.csv")
         self.assertIn("tope", str(cm.exception))
         c.fetch("https://www.football-data.co.uk/a.csv")          # desde caché: no cuenta como descarga
+
+
+class SecretRedaction(unittest.TestCase):
+    """La clave de una API nunca se escribe en logs, caché ni Response.url."""
+    KEY = "SECRETKEY1234567890"
+
+    def test_redact_url_variants(self):
+        for q in ("APIkey", "apikey", "api_key", "token", "key"):
+            u = f"https://x.test/?action=a&{q}={self.KEY}&b=1"
+            r = common.redact_url(u)
+            self.assertNotIn(self.KEY, r)
+            self.assertIn("b=1", r)
+
+    def test_client_never_persists_key(self):
+        import tempfile, json, os
+        d = tempfile.mkdtemp()
+        pol = common.Policy()
+        pol.data["providers"]["apifootball"] = {"hosts": ["apiv3.apifootball.com"], "status": "condicional", "limits": {}}
+        pol._index = None if hasattr(pol, "_index") else None
+        opener = lambda url, headers, timeout: (200, {}, b'{"ok": 1}')
+        c = common.Client(os.path.join(d, "cache"), os.path.join(d, "log.jsonl"), policy=pol, opener=opener,
+                          sleep=lambda s: None, honor_robots=False, min_interval=0)
+        r = c.fetch(f"https://apiv3.apifootball.com/?action=get_leagues&APIkey={self.KEY}")
+        self.assertNotIn(self.KEY, r.url)
+        blob = ""
+        for root, _, files in os.walk(d):
+            for f in files:
+                blob += open(os.path.join(root, f), errors="replace").read()
+        self.assertNotIn(self.KEY, blob)

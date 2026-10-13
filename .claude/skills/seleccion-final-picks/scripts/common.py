@@ -179,8 +179,17 @@ class Policy:
 
 
 # ----------------------------------------------------------------------------- cliente HTTP
+_SECRET_QS = re.compile(r"(?i)([?&;](?:apikey|api_key|api-key|key|token|access_token)=)[^&#\s\"']+")
+
+
+def redact_url(s):
+    """Oculta valores de claves/tokens en query strings: nada sensible llega a logs, caché ni artefactos."""
+    return _SECRET_QS.sub(lambda m: m.group(1) + "***", s) if isinstance(s, str) else s
+
+
 class Response:
     def __init__(self, url, status, text, from_cache, headers=None):
+        url = redact_url(url)
         self.url, self.status, self.text, self.from_cache, self.headers = url, status, text, from_cache, headers or {}
 
 
@@ -212,12 +221,13 @@ class Client:
 
     # -- registro (sin cabeceras ni cookies)
     def _log(self, **kw):
+        kw = {k: redact_url(v) for k, v in kw.items()}
         kw["ts"] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
         if self.log_path:
             append_jsonl(self.log_path, kw)
 
     def _key(self, url):
-        return os.path.join(self.cache_dir, hashlib.sha256(url.encode()).hexdigest())
+        return os.path.join(self.cache_dir, hashlib.sha256(redact_url(url).encode()).hexdigest())
 
     def _cached(self, url):
         base = self._key(url)
@@ -305,7 +315,7 @@ class Client:
             base = self._key(url)
             with open(base + ".body", "w", encoding="utf-8") as f:
                 f.write(text)
-            write_json_atomic(base + ".meta.json", {"url": url, "status": st, "fetched_epoch": time.time()})
+            write_json_atomic(base + ".meta.json", {"url": redact_url(url), "status": st, "fetched_epoch": time.time()})
             return Response(url, st, text, False, {})
         raise last_err or FetchError(f"{host}: sin respuesta", "network")
 

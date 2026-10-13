@@ -2,6 +2,16 @@
   "reviewed_at": "2026-10-12",
   "nota": "Política de fuentes para acceso AUTOMATIZADO. Denegado por defecto: un host que no figura aquí no se consulta. 'excluida' = prohibido por condiciones de uso o robots.txt, o bloqueo anti-bot que no se evade. 'condicional' = permitido con límites indicados (lectura puntual, bajo volumen, uso privado). Esta revisión no es asesoría legal: sólo se leyeron robots.txt y los términos enlazados desde cada sitio.",
   "providers": {
+    "apifootball": {
+      "hosts": ["apiv3.apifootball.com"],
+      "status": "condicional",
+      "reason": "API de pago/prueba con clave propia de la persona usuaria (cuenta en apifootball.com, plan gratuito en período de prueba). Uso previsto por el proveedor: peticiones autenticadas con APIkey. La clave NUNCA se escribe en logs, caché ni artefactos (common.redact_url).",
+      "limits": {"min_interval": 2.0, "max_files_per_run": 40},
+      "evidence": ["https://apifootball.com/documentation/", "https://apifootball.com/robots.txt"],
+      "reliability": "estructurada",
+      "independence_group": "apifootball",
+      "risk_note": "Pendiente: condiciones de uso y límite real del plan no leídos (la página de términos devolvió 404). Límite de peticiones del plan por medir con una prueba acotada. Fecha de pago indicada por el panel: 2026-10-28."
+    },
     "fotmob": {
       "hosts": [
         "fotmob.com"
@@ -80,7 +90,7 @@
       "reason": "robots.txt permite la portada (prohíbe /calendar/*, /search/*, /s/*); sus términos (terms-conditions) no contienen cláusula explícita sobre acceso automatizado pero reservan derechos sobre el contenido. Sólo lectura puntual de la portada del día (HTML público), sin rastreo.",
       "limits": {
         "min_interval": 5.0,
-        "max_pages_per_run": 3
+        "max_pages_per_run": 48
       },
       "evidence": [
         "https://www.apwin.com/robots.txt",

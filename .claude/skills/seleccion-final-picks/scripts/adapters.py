@@ -99,6 +99,69 @@ def apwin_fetch(client, day_iso=None):
     return out, pag
 
 
+APWIN_API = APWIN_BASE + "/api/home/calendar"
+APWIN_API_TZ = "America/New_York"      # misma zona y país con los que el HTML sirve la página 1
+APWIN_API_COUNTRY = "US"
+APWIN_MAX_PAGES_PER_DAY = 14
+
+
+def apwin_api_records(payload, url):
+    """Registros brutos de la respuesta JSON de /api/home/calendar (mismo esquema que el feed embebido)."""
+    out = []
+    for g in payload.get("groups") or []:
+        for obj in g.get("matches") or []:
+            if not all(k in obj for k in ("homeTeam", "awayTeam", "kickoffUnix", "id")):
+                continue
+            ep = int(obj["kickoffUnix"])
+            out.append({
+                "source": "apwin", "source_match_id": str(obj["id"]), "home": obj["homeTeam"], "away": obj["awayTeam"],
+                "competition": (g.get("leagueSlug") or g.get("name") or "").replace("-", " "),
+                "country": (g.get("countrySlug") or "").replace("-", " "),
+                "category_hint": None, "original_datetime": str(ep), "source_timezone": "UTC", "tz_confirmed": True, "utc_epoch": ep,
+                "event_status_raw": obj.get("status"), "url": url,
+            })
+    return out
+
+
+def apwin_fetch_all(client, day_iso, max_pages=APWIN_MAX_PAGES_PER_DAY):
+    """Página 1 (HTML) + páginas siguientes del JSON público `/api/home/calendar` que usa la propia web (misma
+    zona/país que el HTML; robots.txt no lo veta; sin sesión). Se detiene en hasMore=false, respuesta no válida,
+    página sin partidos nuevos o tope. Devuelve (registros_deduplicados, paginación) con loaded vs declared_total."""
+    from urllib.parse import urlencode
+    recs, pag = apwin_fetch(client, day_iso)
+    if not pag:
+        return recs, pag
+    seen = {r["source_match_id"] for r in recs}
+    pages, stop, page = 1, None, pag["page"]
+    while pag["has_more"] and stop is None:
+        if pages >= max_pages:
+            stop = "tope de páginas"
+            break
+        page += 1
+        url = APWIN_API + "?" + urlencode({"date": day_iso, "locale": "en", "timezone": APWIN_API_TZ,
+                                           "country": APWIN_API_COUNTRY, "page": page})
+        try:
+            payload = json.loads(client.fetch(url).text)
+            p = payload["pagination"]
+            if not (isinstance(p["hasMore"], bool) and isinstance(p["total"], int) and isinstance(payload["groups"], list)):
+                raise ValueError("estructura inesperada")
+        except Exception as e:      # FetchError/PolicyError/JSON/estructura: no se inventa nada; se informa
+            stop = f"error en página {page}: {type(e).__name__}"
+            break
+        new = [r for r in apwin_api_records(payload, url) if r["source_match_id"] not in seen]
+        pages += 1
+        pag["declared_total"] = p["total"]
+        pag["has_more"] = p["hasMore"]
+        if not new:
+            stop = f"página {page} sin partidos nuevos"
+            break
+        seen.update(r["source_match_id"] for r in new)
+        recs.extend(new)
+    pag.update(loaded=len(recs), pages_fetched=pages, stop_reason=stop or "hasMore=false",
+               complete=(not pag["has_more"]) and len(recs) >= pag["declared_total"])
+    return recs, pag
+
+
 def apwin_status(raw):
     return _APWIN_STATUS.get((raw or "").lower(), "DESCONOCIDO")
 

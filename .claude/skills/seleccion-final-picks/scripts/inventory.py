@@ -243,6 +243,9 @@ def carry_over_progress(matches, prev_matches):
             for k in ("sports_analysis_status", "market_analysis_status"):
                 if old.get(k) not in (None, "PENDIENTE"):
                     m[k] = old[k]
+            pr = (old.get("extra") or {}).get("proxy_resolution")
+            if pr and m.get("sports_analysis_status") == old.get("sports_analysis_status"):
+                m.setdefault("extra", {})["proxy_resolution"] = pr     # sin esto la trazabilidad del proxy se pierde al regenerar
     return matches
 
 
@@ -293,11 +296,11 @@ def main(argv=None):
         for dday in common.days_to_query(a.date, a.tz):     # semántica de fecha de la fuente no certificada: día -1, 0, +1
             u = f"{adapters.APWIN_BASE}/?date={dday.isoformat()}"
             def _apw(x=dday.isoformat()):
-                recs, pag = adapters.apwin_fetch(client, x)
+                recs, pag = adapters.apwin_fetch_all(client, x)
                 if pag:
                     completeness.append(dict(pag, source="apwin"))
                 return recs
-            attempt("apwin", u, f"calendario del día {dday.isoformat()} (HTML público: solo página 1 de la lista)", _apw)
+            attempt("apwin", u, f"calendario del día {dday.isoformat()} (HTML público + JSON público paginado /api/home/calendar)", _apw)
     for path in a.manual:
         attempt("usuario", path, "calendario aportado por el usuario", lambda p=path: adapters.manual_calendar(p))
     matches, dups = build_inventory(raws, a.date, a.tz, now, policy)
