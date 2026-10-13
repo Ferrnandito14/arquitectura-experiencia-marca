@@ -21,13 +21,15 @@ class T(unittest.TestCase):
 
     def test_under_live_lost_early(self):
         leg = {"mercado": "total", "op": "under", "linea": 2.5}
-        self.assertEqual(s.eval_leg(leg, ev(2, 1, "67"))[0], "FALLADA")
+        self.assertEqual(s.eval_leg(leg, ev(2, 1, "67"))[0], "EN_JUEGO")  # provisional (VAR)
+        self.assertIn("PROVISIONAL", s.eval_leg(leg, ev(2, 1, "67"))[1])
         self.assertEqual(s.eval_leg(leg, ev(1, 1, "67"))[0], "EN_JUEGO")
         self.assertEqual(s.eval_leg(leg, ev(1, 1))[0], "ACERTADA")
 
     def test_over_live_won_early(self):
         leg = {"mercado": "total", "op": "over", "linea": 1.5}
-        self.assertEqual(s.eval_leg(leg, ev(1, 1, "30"))[0], "ACERTADA")
+        self.assertEqual(s.eval_leg(leg, ev(1, 1, "30"))[0], "EN_JUEGO")  # provisional (VAR)
+        self.assertEqual(s.eval_leg(leg, ev(1, 1))[0], "ACERTADA")
         self.assertEqual(s.eval_leg(leg, ev(0, 1))[0], "FALLADA")
 
     def test_1x2_and_first_half(self):
@@ -39,7 +41,8 @@ class T(unittest.TestCase):
         self.assertEqual(s.eval_leg(leg, ev(0, 1, "30", (0, 1)))[0], "EN_JUEGO")
 
     def test_btts(self):
-        self.assertEqual(s.eval_leg({"mercado": "btts"}, ev(1, 1, "50"))[0], "ACERTADA")
+        self.assertEqual(s.eval_leg({"mercado": "btts"}, ev(1, 1, "50"))[0], "EN_JUEGO")
+        self.assertEqual(s.eval_leg({"mercado": "btts"}, ev(1, 1))[0], "ACERTADA")
         self.assertEqual(s.eval_leg({"mercado": "btts"}, ev(2, 0))[0], "FALLADA")
 
     def test_cards_dc(self):

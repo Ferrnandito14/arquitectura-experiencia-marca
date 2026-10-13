@@ -84,9 +84,9 @@ def eval_leg(leg, e):
         if fin:
             return final(res), f"{tag}: {t} goles"
         if leg["op"] == "under" and t >= leg["linea"] and res != "win":
-            return "FALLADA", f"{tag}: ya superó la línea ({t} goles)" if res == "lose" else f"{tag}: en la línea (devolución si termina así)"
+            return "EN_JUEGO", (f"{tag}: ya superó la línea ({t} goles) — FALLO PROVISIONAL hasta el final (VAR)" if res == "lose" else f"{tag}: en la línea (devolución si termina así)")
         if leg["op"] == "over" and res == "win":
-            return "ACERTADA", f"{tag}: ya supera la línea ({t} goles)"
+            return "EN_JUEGO", f"{tag}: ya supera la línea ({t} goles) — CUMPLIDA PROVISIONAL hasta el final (VAR)"
         return "EN_JUEGO", f"{tag}: {t} goles; va {'ganando' if res == 'win' else 'perdiendo'} provisional"
     if mk == "handicap":
         res = settle_handicap(h, a, leg["lado"], leg["linea"])
@@ -109,14 +109,14 @@ def eval_leg(leg, e):
     if mk == "btts":
         both = h > 0 and a > 0
         if both:
-            return "ACERTADA", f"{tag}: ambos anotaron"
+            return ("ACERTADA", f"{tag}: ambos anotaron") if fin else ("EN_JUEGO", f"{tag}: ambos anotaron — CUMPLIDA PROVISIONAL hasta el final (VAR)")
         if fin:
             return "FALLADA", f"{tag}: no anotaron ambos"
         return "EN_JUEGO", f"{tag}: falta que anoten ambos"
     if mk == "cards_dc":
         pts = adapters._card_points(e)
         if pts is None:
-            return ("PENDIENTE", "sin eventos de tarjetas") if not fin else ("PENDIENTE", "partido terminado sin eventos de tarjetas: revisar a mano")
+            return ("EN_JUEGO", f"{tag}; sin tarjetas registradas todavía (0 pts)") if not fin else ("PENDIENTE", f"{tag}: terminado sin eventos de tarjetas: revisar a mano")
         tot = pts[0] + pts[1]
         dc = (h >= a) if leg["lado"] == "home_or_draw" else (a >= h)
         if fin:

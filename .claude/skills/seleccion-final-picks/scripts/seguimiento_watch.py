@@ -3,6 +3,7 @@
 Uso: seguimiento_watch.py --run runs/2026-10-13 [--every 60] [--minutes 28]. Termina solo al agotar el tiempo."""
 import argparse
 import re
+import datetime
 import os
 import sys
 import time
@@ -45,6 +46,14 @@ def main():
                         else:
                             print(f"[{t['id']}] {k.split('|')[0]} ({k.split('|')[1]}) -> {v[0]}: {v[1]}", flush=True)
                 prev[t["id"]] = cur
+            live = {}
+            for t in res:
+                for l in t["patas"]:
+                    m = re.match(r"^(\d+-\d+) \(([^)]+)\)", l["detalle"])
+                    if m:
+                        live[l["partido"].split(" – ")[0][:14]] = f"{m.group(1)} ({m.group(2)}')" if m.group(2).isdigit() else f"{m.group(1)} ({m.group(2)})"
+            if live:
+                print("PULSO " + datetime.datetime.utcnow().strftime("%H:%MZ") + " | " + " | ".join(f"{k} {v}" for k, v in live.items()), flush=True)
             if all(l["estado"] in ("ACERTADA", "FALLADA", "ANULADA") for t in res for l in t["patas"]):
                 print("FIN: todas las patas decididas", flush=True)
                 return 0

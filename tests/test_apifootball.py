@@ -57,13 +57,17 @@ class CardPoints(unittest.TestCase):
         e = {"cards": [self.card("A", "h", "yellow card"), self.card("B", "h", "red card"), self.card("C", "a", "yellow card")]}
         self.assertEqual(adapters._card_points(e), (3, 1))
 
-    def test_yellow_plus_red_same_player_is_three_and_second_yellow_dismissal_is_capped(self):
+    def test_yellow_plus_straight_red_is_three(self):
+        e = {"cards": [self.card("A", "h", "yellow card"), self.card("A", "h", "red card", "70")]}
+        self.assertEqual(adapters._card_points(e), (3, 0))              # 1 + 2 = 3, tope 3 por jugador
+
+    def test_second_yellow_dismissal_is_two_points_total_even_if_red_is_logged(self):
         e = {"cards": [self.card("A", "h", "yellow card"), self.card("A", "h", "yellow card", "70"), self.card("A", "h", "red card", "70")]}
-        self.assertEqual(adapters._card_points(e), (3, 0))              # 1+1+2 = 4, tope 3 por jugador
+        self.assertEqual(adapters._card_points(e), (2, 0))              # regla de la casa: doble amarilla = 2 en total
 
     def test_two_yellows_without_logged_red_count_as_dismissal(self):
         e = {"cards": [self.card("A", "a", "yellow card"), self.card("A", "a", "yellow card", "80")]}
-        self.assertEqual(adapters._card_points(e), (0, 3))
+        self.assertEqual(adapters._card_points(e), (0, 2))              # doble amarilla = 2 puntos en total
 
     def test_staff_and_extra_time_are_ignored(self):
         e = {"cards": [self.card("", "h", "yellow card", info="home"), self.card("A", "h", "yellow card", "105", stage="Extra Time"),

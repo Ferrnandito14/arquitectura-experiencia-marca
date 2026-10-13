@@ -340,7 +340,7 @@ def _cards_from_list(e):
 
 def _card_points(e):
     """Puntos de tarjetas por equipo (local, visitante) con la regla de la casa de la persona usuaria: amarilla = 1, roja = 2, máximo 3 por jugador
-    (1 amarilla + 1 roja; una segunda amarilla equivale a la roja), solo jugadores (los eventos sin nombre de jugador son del cuerpo técnico y se
+    (1 amarilla + 1 roja directa = 3; dos amarillas = expulsión = 2 puntos EN TOTAL, confirmado por la persona usuaria el 13-oct), solo jugadores (los eventos sin nombre de jugador son del cuerpo técnico y se
     ignoran) y solo 90' + descuento (la prórroga no cuenta; las del entretiempo sí). Sin lista de eventos o con 0 puntos en ambos equipos => None
     (dato faltante: un 0-0 de tarjetas es casi siempre un dato ausente y no se cuenta como 0). LIMITACIÓN: la API no marca si el jugador estaba en la
     cancha o en el banquillo; las tarjetas a suplentes con nombre se cuentan."""
@@ -364,7 +364,8 @@ def _card_points(e):
             y_r[0] += 1
     pts = [0, 0]
     for (side, _), (y, r) in per.items():
-        p = 3 if (y >= 2 and r == 0) else min(3, y + 2 * r)
+        # regla confirmada por la persona usuaria: la 2.ª amarilla cuenta 2 puntos EN TOTAL (no 3); amarilla + roja directa = 3; roja directa = 2
+        p = 2 if y >= 2 else min(3, y + 2 * r)
         pts[side] += p
     return None if pts == [0, 0] else (pts[0], pts[1])
 
