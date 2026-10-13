@@ -41,13 +41,15 @@ def summarize(rows, min_ref=6):
     def block(rs):
         return {"goles": _stats([tot_g(r) for r in rs], (1.5, 2.5, 3.5, 4.5)), "tarjetas": _stats([tot_c(r) for r in rs], (3.5, 4.5, 5.5, 6.5)),
                 "corners": _stats([tot_k(r) for r in rs], (8.5, 9.5, 10.5))}
-    teams, refs = {}, {}
+    teams, refs, diffs = {}, {}, {}
     for r in rows:
+        diffs.setdefault(r["local"], []).append(r["gl"] - r["gv"])
+        diffs.setdefault(r["visitante"], []).append(r["gv"] - r["gl"])
         for t in (r["local"], r["visitante"]):
             teams.setdefault(t, []).append(r)
         if r["arbitro"]:
             refs.setdefault(r["arbitro"], []).append(r)
-    return {"liga": block(rows), "equipos": {t: block(rs) for t, rs in teams.items()}, "arbitros": {a: block(rs) for a, rs in refs.items() if len(rs) >= min_ref}, "n_partidos": len(rows)}
+    return {"liga": block(rows), "equipos": {t: dict(block(rs), dif_goles=round(statistics.mean(diffs[t]), 3)) for t, rs in teams.items()}, "arbitros": {a: block(rs) for a, rs in refs.items() if len(rs) >= min_ref}, "n_partidos": len(rows)}
 
 
 def main(argv=None):

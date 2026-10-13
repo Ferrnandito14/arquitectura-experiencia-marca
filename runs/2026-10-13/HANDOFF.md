@@ -42,3 +42,6 @@
 - Pendiente: integrar rotación a priori en `tickets.py`; mercados de ganador del favorito con filtro de dominancia; ejecutar `league_sample.py` por liga antes de cada jornada; la persona usuaria quería añadir cosas a agentes/modelos (sin especificar). Preferencias: hora de CARACAS siempre; respuestas simples cuando lo pide; tablas; alegría al dar buenas noticias y claridad en las malas; ya NO quiere avisos de pulso salvo que los pida.
 - Clave de apifootball: se pegó en el chat; guardada fuera del repo en el scratchpad (`probe/key.txt`). PEDIR que la regenere al terminar y no usarla después. Recordatorio 26-oct (trig_01Ta32gFygrV1tt1moSw9Y1s): no hablar del plan de apifootball antes.
 
+## v2.6 (misma noche)
+Integrado en `tickets.py`: veto/rebaja por rotación a priori (`rotation.json` de `rotation_prior.py`) y tabla de favoritos a ganar con filtro de dominancia (`league_samples`). 265 pruebas OK. Pendiente: prior de liga/árbitro en `p_central`. La persona usuaria dijo «responde y ejecuta lo demás»: se tomaron las opciones recomendadas del plan (veto de unders y rebaja de ganadores, dominancia ≥ 0.5, «12» y 1.ª mitad fuera).
+

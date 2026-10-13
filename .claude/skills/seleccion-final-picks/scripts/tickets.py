@@ -23,7 +23,8 @@ import os
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import common  # noqa: E402
+import common
+import rotation_risk  # noqa: E402
 
 _CALC = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "evaluacion-probabilidad-valor", "scripts", "calc.py"))
 _spec = importlib.util.spec_from_file_location("calc", _CALC)
@@ -289,6 +290,87 @@ def apply_manual_odds(legs, path):
             l.update(cuota_media=idx[k], cuota_tipo="manual_usuario", n_casas=1, minmax_casas=[idx[k], idx[k]])
             n += 1
     return n
+
+
+def _team_scope(leg):
+    """'home' / 'away' si la pata es de un equipo concreto (gana, o empata, hándicap de ese lado); None si es de ambos equipos (goles, BTTS…)."""
+    t = (leg.get("seleccion") or "").lower()
+    if t.startswith("local") or "hándicap local" in t:
+        return "home"
+    if t.startswith("visitante") or "hándicap visitante" in t:
+        return "away"
+    return None
+
+
+def apply_rotation(legs, path):
+    """rotation.json (de `rotation_prior.py`): vetar unders y rebajar patas de ganador del equipo con riesgo de rotación ALTO/MEDIO (NO bloquea el ticket por falta de once).
+    Devuelve (patas, vetadas_por_rotacion, hay_datos). Sin fichero: no cambia nada."""
+    if not os.path.exists(path):
+        return legs, [], False
+    rot = common.read_json(path, {})
+    out, removed = [], []
+    for l in legs:
+        rec = rot.get(l["match_id"])
+        if not rec:
+            out.append(l)
+            continue
+        scope = _team_scope(l)
+        lv = [rec[sd]["nivel"] for sd in ((scope,) if scope else ("home", "away")) if rec.get(sd)]
+        level = max(lv, key=rotation_risk.LEVELS.index) if lv else None
+        sel = (l.get("seleccion") or "").lower()
+        team_win = scope is not None and ("gana" in sel or "empate" in sel)
+        act = rotation_risk.penalty_for_leg(level, _direction(l), team_win) if level else None
+        if act == "veto":
+            removed.append({"partido": l["partido"], "seleccion": l["seleccion"], "motivo": f"riesgo de rotación ALTO ({'; '.join(rec[scope or 'home']['motivos'])})"})
+            continue
+        if act == "rebajar":
+            l = dict(l, apoyo_conservador=round(max(0.0, l["apoyo_conservador"] - 0.05), 3), rotacion="PROVISIONAL por alineación: riesgo de rotación medio")
+        out.append(l)
+    return out, removed, True
+
+
+def _league_teams(run):
+    """league_samples/*.json -> {nombre normalizado: dif. de goles media por partido} (dominancia)."""
+    import glob
+    d = {}
+    for f in glob.glob(os.path.join(run, "league_samples", "*.json")):
+        for team, blk in (common.read_json(f, {}).get("resumen", {}).get("equipos") or {}).items():
+            if blk.get("dif_goles") is not None:
+                d[common.norm_name(team)] = blk["dif_goles"]
+    return d
+
+
+def favorites_table(legs, run, rotation_path, min_p=0.65, min_dom=0.5):
+    """Mercados de GANADOR del favorito con filtro de dominancia (auditoría 13-oct): P(mercado, sin margen) ≥ min_p, brecha muestra−mercado < MAX_GAP,
+    rotación del favorito baja y dominancia (dif. de goles de liga del favorito − la del rival) ≥ min_dom. Sin dato de liga o de rotación: no pasa (se dice)."""
+    dom = _league_teams(run)
+    rot = common.read_json(rotation_path, {}) if os.path.exists(rotation_path) else {}
+    out = []
+    for l in legs:
+        sel = (l.get("seleccion") or "").lower()
+        if l.get("mercado") != "resultado" or not sel.startswith(("local gana", "visitante gana")):
+            continue
+        pm = l.get("prob_implicita_sin_margen")
+        pc, gap = p_central(l)
+        if pm is None or pm < min_p or pc is None or gap >= MAX_GAP:
+            continue
+        side = "home" if sel.startswith("local") else "away"
+        h, a = l["partido"].split(" – ")
+        fav, opp = (h, a) if side == "home" else (a, h)
+        lv = ((rot.get(l["match_id"]) or {}).get(side) or {}).get("nivel")
+        d_f, d_o = dom.get(common.norm_name(fav)), dom.get(common.norm_name(opp))
+        why = []
+        if lv != "bajo":
+            why.append("rotación sin verificar" if lv is None else f"rotación {lv}")
+        if d_f is None or d_o is None:
+            why.append("dominancia sin dato de liga")
+        elif d_f - d_o < min_dom:
+            why.append(f"dominancia insuficiente ({round(d_f - d_o, 2)})")
+        if not why:
+            out.append({k: v for k, v in l.items() if not k.startswith("_")} | {"p_central": pc, "brecha": gap, "dominancia": round(d_f - d_o, 2), "rotacion": lv,
+                                                                                "ev_central": round(pc * l["cuota_media"] - 1, 3) if l.get("cuota_media") else None})
+    out.sort(key=lambda x: -(x["p_central"]))
+    return out
 
 
 def _direction(leg):
@@ -747,6 +829,19 @@ def render(result):
               "Sirve para armar y ordenar borradores. Antes de apostar compárala con tu casa: solo tiene valor si paga claramente por encima de la «cuota real mínima»; "
               "OJO: una cuota real ≥ esa mínima (≈1.65) en una línea que la muestra da 80–100 % suele indicar una definición distinta (puntos de reserva, tiempo parcial, línea mal leída), no valor. "
               "Si me pasas tus cuotas reales (`--manual-odds archivo.csv` con columnas home,away,seleccion,cuota) sustituyen a las aproximadas.*", ""]
+    if not result.get("rotacion_disponible", True):
+        L += ["> ⚠ Sin `rotation.json`: no se aplicó la penalización por riesgo de rotación (ejecuta `rotation_prior.py --from-tickets`).", ""]
+    if result.get("patas_vetadas_por_rotacion"):
+        L += ["## Patas vetadas por RIESGO DE ROTACIÓN a priori (se reevalúan a T-60 con el once real)", "", "| Partido | Selección | Motivo |", "|---|---|---|"]
+        L += [f"| {v['partido']} | {v['seleccion']} | {v['motivo']} |" for v in result["patas_vetadas_por_rotacion"]] + [""]
+    fav = result.get("favoritos")
+    if fav is not None:
+        L += ["## Favoritos a GANAR con filtro de dominancia (P mercado ≥ 0.65, brecha < 0.15, rotación baja, dominancia de liga ≥ 0.5)", ""]
+        if not fav:
+            L += ["Ningún favorito pasa todos los filtros (o falta `rotation.json` / `league_samples`): no se propone ninguno.", ""]
+        else:
+            L += ["| # | Partido | Selección | Cuota | P mercado | P central | Dominancia | EV central |", "|---|---|---|---|---|---|---|---|"]
+            L += [f"| {i} | {f['partido']} | {f['seleccion']} | {f['cuota_media']} | {f['prob_implicita_sin_margen']} | {f['p_central']} | {f['dominancia']} | {f['ev_central']} |" for i, f in enumerate(fav, 1)] + [""]
     if result.get("patas_vetadas"):
         seen = set()
         L += ["## Patas VETADAS por la revisión (no entran en ningún ticket ni ranking)", "", "| Partido | Selección | Motivo |", "|---|---|---|"]
@@ -825,6 +920,8 @@ def main(argv=None):
     excluded_names = {common.norm_name(x) for x in (a.exclude_match or [])}
     legs, vetoed = apply_vetoes(legs, os.path.join(a.run, "vetoes.json"))
     legs, gated = apply_quality_gate(legs, a.run)
+    rot_path = os.path.join(a.run, "rotation.json")
+    legs, vetoed_rot, has_rot = apply_rotation(legs, rot_path)
     legs_all = legs
     legs = [l for l in legs_all if l["history_kind"] in SAME_COMPETITION_KINDS]          # tickets y rankings PRINCIPALES: solo historial de la misma competición
     mixed_champ = [l for l in legs_all if l["history_kind"] not in SAME_COMPETITION_KINDS and "champions league" in (l.get("competicion") or "").lower()
@@ -875,6 +972,9 @@ def main(argv=None):
                                         "patas_champions_elegibles": len(items_ucl), "borradores": counts}
     out["cuotas_manuales_aplicadas"] = n_manual
     out["patas_vetadas"] = vetoed
+    out["patas_vetadas_por_rotacion"] = vetoed_rot
+    out["rotacion_disponible"] = has_rot
+    out["favoritos"] = favorites_table(legs, a.run, rot_path)
     out["bloqueadas_por_calidad"] = gated
     out["pares_vetados"] = [{"partido": v["partido"], "selecciones": v["selecciones"], "motivo": v.get("motivo")} for v in PAIR_RULES["vetados"].values()]
     out["excluidas_por_historial_mixto"] = len(legs_all) - len(legs)

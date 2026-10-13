@@ -92,3 +92,96 @@ class Snapshots(unittest.TestCase):
             self.assertEqual(r["p_mercado"], 0.8)
             self.assertEqual(r["n_vetos_vigentes"], 1)
             self.assertEqual(r["patas"][0]["seleccion"], "Menos de 4.5 goles")
+
+
+class RotationInTickets(unittest.TestCase):
+    def _legs(self):
+        import tickets
+        return [{"match_id": "m1", "partido": "H – A", "seleccion": "Menos de 4.5 goles", "apoyo_conservador": 0.7, "mercado": "goles"},
+                {"match_id": "m1", "partido": "H – A", "seleccion": "Local gana (1)", "apoyo_conservador": 0.7, "mercado": "resultado"},
+                {"match_id": "m1", "partido": "H – A", "seleccion": "Visitante gana (2)", "apoyo_conservador": 0.7, "mercado": "resultado"},
+                {"match_id": "m1", "partido": "H – A", "seleccion": "Más de 1.5 goles", "apoyo_conservador": 0.7, "mercado": "goles"},
+                {"match_id": "m9", "partido": "X – Y", "seleccion": "Menos de 2.5 goles", "apoyo_conservador": 0.7, "mercado": "goles"}]
+
+    def _write(self, d, home="alto", away="bajo"):
+        import json
+        path = os.path.join(d, "rotation.json")
+        json.dump({"m1": {"partido": "H – A", "home": {"nivel": home, "motivos": ["rota mucho"]}, "away": {"nivel": away, "motivos": []}}}, open(path, "w"))
+        return path
+
+    def test_high_rotation_vetoes_under_and_team_win_only_for_that_team(self):
+        import tempfile, tickets
+        with tempfile.TemporaryDirectory() as d:
+            legs, removed, has = tickets.apply_rotation(self._legs(), self._write(d))
+        sels = {l["seleccion"] for l in legs}
+        self.assertTrue(has)
+        self.assertNotIn("Menos de 4.5 goles", sels)          # un equipo de los dos con riesgo alto ⇒ under vetado
+        self.assertNotIn("Local gana (1)", sels)              # el local rota mucho
+        self.assertIn("Visitante gana (2)", sels)             # el visitante tiene riesgo bajo
+        self.assertIn("Más de 1.5 goles", sels)               # los overs no se penalizan
+        self.assertIn("Menos de 2.5 goles", sels)             # partido sin datos de rotación: no cambia
+        self.assertEqual(len(removed), 2)
+
+    def test_medium_rotation_lowers_support_and_labels_provisional(self):
+        import tempfile, tickets
+        with tempfile.TemporaryDirectory() as d:
+            legs, removed, _ = tickets.apply_rotation(self._legs(), self._write(d, home="medio"))
+        under = next(l for l in legs if l["seleccion"] == "Menos de 4.5 goles")
+        self.assertEqual(under["apoyo_conservador"], 0.65)
+        self.assertIn("PROVISIONAL", under["rotacion"])
+        self.assertEqual(removed, [])
+
+    def test_no_rotation_file_changes_nothing(self):
+        import tempfile, tickets
+        with tempfile.TemporaryDirectory() as d:
+            legs, removed, has = tickets.apply_rotation(self._legs(), os.path.join(d, "rotation.json"))
+        self.assertFalse(has)
+        self.assertEqual(len(legs), 5)
+
+
+class Favoritos(unittest.TestCase):
+    def _setup(self, d, dif_fav=1.2, dif_opp=0.2, nivel="bajo"):
+        import json
+        os.makedirs(os.path.join(d, "league_samples"))
+        json.dump({"resumen": {"equipos": {"Barcelona": {"dif_goles": dif_fav}, "Galatasaray": {"dif_goles": dif_opp}}}}, open(os.path.join(d, "league_samples", "1.json"), "w"))
+        json.dump({"m1": {"home": {"nivel": "alto"}, "away": {"nivel": nivel}}}, open(os.path.join(d, "rotation.json"), "w"))
+        return [{"match_id": "m1", "partido": "Galatasaray – Barcelona", "mercado": "resultado", "seleccion": "Visitante gana (2)", "cuota_media": 1.3,
+                 "prob_implicita_sin_margen": 0.72, "frec": [0.7, 0.9], "n": [10, 10], "apoyo_conservador": 0.5}]
+
+    def test_clear_favorite_passes_all_filters(self):
+        import tempfile, tickets
+        with tempfile.TemporaryDirectory() as d:
+            legs = self._setup(d)
+            r = tickets.favorites_table(legs, d, os.path.join(d, "rotation.json"))
+        self.assertEqual(len(r), 1)
+        self.assertEqual(r[0]["dominancia"], 1.0)
+
+    def test_rotated_favorite_or_weak_dominance_or_missing_data_do_not_pass(self):
+        import tempfile, tickets
+        with tempfile.TemporaryDirectory() as d:
+            legs = self._setup(d, nivel="medio")
+            self.assertEqual(tickets.favorites_table(legs, d, os.path.join(d, "rotation.json")), [])
+        with tempfile.TemporaryDirectory() as d:
+            legs = self._setup(d, dif_fav=0.4, dif_opp=0.2)
+            self.assertEqual(tickets.favorites_table(legs, d, os.path.join(d, "rotation.json")), [])
+        with tempfile.TemporaryDirectory() as d:
+            legs = self._setup(d)
+            os.remove(os.path.join(d, "league_samples", "1.json"))
+            self.assertEqual(tickets.favorites_table(legs, d, os.path.join(d, "rotation.json")), [])
+
+    def test_big_gap_or_low_market_probability_are_excluded(self):
+        import tempfile, tickets
+        with tempfile.TemporaryDirectory() as d:
+            legs = self._setup(d)
+            legs[0]["frec"] = [1.0, 1.0]                    # muestra 100 % vs mercado 72 %: brecha 0.28 ≥ 0.15
+            self.assertEqual(tickets.favorites_table(legs, d, os.path.join(d, "rotation.json")), [])
+            legs[0].update(frec=[0.7, 0.8], prob_implicita_sin_margen=0.55)      # favorito poco claro
+            self.assertEqual(tickets.favorites_table(legs, d, os.path.join(d, "rotation.json")), [])
+
+
+class LeagueDifGoles(unittest.TestCase):
+    def test_team_goal_difference_is_in_summary(self):
+        import league_sample
+        rows = [row(1, 3, 0), row(2, 2, 1)]
+        r = league_sample.summarize(rows)
+        self.assertEqual(r["equipos"]["A"]["dif_goles"], 2.0)
