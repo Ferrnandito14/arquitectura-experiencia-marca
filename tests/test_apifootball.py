@@ -69,6 +69,15 @@ class CardPoints(unittest.TestCase):
         e = {"cards": [self.card("A", "a", "yellow card"), self.card("A", "a", "yellow card", "80")]}
         self.assertEqual(adapters._card_points(e), (0, 2))              # doble amarilla = 2 puntos en total
 
+    def test_unused_substitute_card_is_ignored_but_substituted_player_counts(self):
+        e = {"lineup": {"home": {"starting_lineups": [{"player_key": "1"}, {"player_key": "2"}]}, "away": {"starting_lineups": [{"player_key": "9"}]}},
+             "substitutions": {"home": [{"substitution_player_id": "1 | 3"}], "away": []},
+             "cards": [dict(self.card("A", "h", "yellow card"), home_player_id="1"),      # titular luego sustituido: cuenta
+                       dict(self.card("B", "h", "yellow card"), home_player_id="3"),      # entró: cuenta
+                       dict(self.card("C", "h", "yellow card"), home_player_id="77"),     # suplente que no jugó: no cuenta
+                       dict(self.card("D", "a", "yellow card"), away_player_id="9")]}
+        self.assertEqual(adapters._card_points(e), (2, 1))
+
     def test_staff_and_extra_time_are_ignored(self):
         e = {"cards": [self.card("", "h", "yellow card", info="home"), self.card("A", "h", "yellow card", "105", stage="Extra Time"),
                        self.card("B", "a", "yellow card", "90+3", stage="2nd Half")]}

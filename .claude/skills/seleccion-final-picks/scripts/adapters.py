@@ -338,6 +338,25 @@ def _cards_from_list(e):
     return tuple(y), tuple(r)
 
 
+def _played_ids(e):
+    """Ids de jugadores que disputaron algún minuto, por lado (0 local, 1 visitante): titulares + los que entraron (también los sustituidos después).
+    None para un lado si la API no trae alineación (entonces no se filtra)."""
+    lu = e.get("lineup") or {}
+    subs = e.get("substitutions") or {}
+    out = [None, None]
+    for i, side in enumerate(("home", "away")):
+        starters = {p.get("player_key") for p in ((lu.get(side) or {}).get("starting_lineups") or []) if p.get("player_key")}
+        if not starters:
+            continue
+        ids = set(starters)
+        for sb in subs.get(side) or []:
+            for pid in str(sb.get("substitution_player_id") or "").split("|"):
+                if pid.strip():
+                    ids.add(pid.strip())
+        out[i] = ids
+    return out
+
+
 def _card_points(e):
     """Puntos de tarjetas por equipo (local, visitante) con la regla de la casa de la persona usuaria: amarilla = 1, roja = 2, máximo 3 por jugador
     (1 amarilla + 1 roja directa = 3; dos amarillas = expulsión = 2 puntos EN TOTAL, confirmado por la persona usuaria el 13-oct), solo jugadores (los eventos sin nombre de jugador son del cuerpo técnico y se
@@ -347,11 +366,15 @@ def _card_points(e):
     cl = e.get("cards") or []
     if not cl:
         return None
+    played = _played_ids(e)
     per = {}
     for c in cl:
         side = 0 if c.get("home_fault") else (1 if c.get("away_fault") else None)
         if side is None:
             continue
+        pid = c.get("home_player_id") if side == 0 else c.get("away_player_id")
+        if played[side] is not None and pid and pid not in played[side]:
+            continue        # regla de la casa: no cuentan las tarjetas a quien no disputó ningún minuto (suplente que no entró)
         t = str(c.get("time") or "").strip()
         if str(c.get("score_info_time") or "").lower().startswith("extra") or (t.isdigit() and int(t) > 90):
             continue
