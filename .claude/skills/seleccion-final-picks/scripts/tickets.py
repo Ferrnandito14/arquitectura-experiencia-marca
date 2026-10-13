@@ -46,6 +46,8 @@ EXCLUDE_TICKET_SELECTIONS = ("Gana alguno, sin empate",)    # auditor ronda 2: l
 MAX_LEG_REUSE = 2       # una misma pata (partido+selección) aparece como máximo en 2 borradores de un perfil (evita que un solo fallo hunda todos)
 MAX_SAME_DIRECTION = 2    # auditoría 13-oct: máx. 2 patas under (o over) por ticket: los unders del mismo día comparten el régimen de goles
 SAFE_P_MIN = 0.85         # un ticket solo se rotula «seguridad» si P(mercado, sin margen) ≥ 85 % y EV ≥ 0; si no, «bajo riesgo (EV<0)» con su P(pérdida)
+SHRINK_M = 40             # peso del mercado en el encogimiento p = (N·f + m·p_mercado)/(N + m): con n≈10–20 casi todo el peso es del mercado
+MAX_GAP = 0.15            # brecha muestra−mercado ≥ 15 pp = DESCARTE (artefacto de escoger el máximo entre muchas patas), no «salvedad»
 TICKET_MIN_BOOKS = 4    # revisión por lotes: cuotas medias de 2–3 casas son frágiles (precios repetidos/extremos); las patas de TICKET exigen ≥4 casas (rankings: ≥3)
 ODDS_MIN, ODDS_MAX = 1.03, 2.6
 PAIR_TOP_PER_MATCH = 10
@@ -308,6 +310,17 @@ def _direction_counts(items):
     return c
 
 
+def p_central(leg, m=SHRINK_M):
+    """Probabilidad central de una pata: encogimiento de la frecuencia de ambos equipos hacia la probabilidad de mercado sin margen. Devuelve
+    (p_central, brecha) con brecha = frecuencia agrupada − mercado, o (None, None) si falta precio de mercado o muestra."""
+    pm, fr, ns = leg.get("prob_implicita_sin_margen"), leg.get("frec"), leg.get("n")
+    if pm is None or not fr or not ns or sum(ns) == 0:
+        return None, None
+    N = sum(ns)
+    f = sum(a * b for a, b in zip(fr, ns)) / N
+    return round((N * f + m * pm) / (N + m), 4), round(f - pm, 3)
+
+
 def risk_label(p_mercado, ev_mercado):
     """Rótulo honesto del ticket (auditoría 13-oct: no llamar «seguridad» a un ×1.25 con 20 % de fallo y EV<0)."""
     if p_mercado is None:
@@ -551,7 +564,11 @@ def search(legs, lo, hi, max_legs, min_support, top=5, pool=60, exclude=frozense
                calc.joint_prob([calc.joint_prob([l["prob_implicita_sin_margen"] for l in x["patas"]]) for x in c]))
         _cm = calc.combo_odds([x["cuota"] for x in c])
         _ev = None if _pm is None else round(_pm * _cm - 1, 3)
-        out.append({"p_mercado_conjunta": None if _pm is None else round(_pm, 3), "p_perdida_mercado": None if _pm is None else round(1 - _pm, 3), "ev_mercado": _ev,
+        _pcs = [p_central(l)[0] for x in c for l in x["patas"]]
+        _pc = None if any(v is None for v in _pcs) else round(calc.joint_prob(_pcs), 3)
+        _brechas = [p_central(l)[1] for x in c for l in x["patas"] if p_central(l)[1] is not None]
+        out.append({"p_central_conjunta": _pc, "ev_central": None if _pc is None else round(_pc * _cm - 1, 3), "max_brecha_muestra_mercado": max(_brechas) if _brechas else None,
+                    "p_mercado_conjunta": None if _pm is None else round(_pm, 3), "p_perdida_mercado": None if _pm is None else round(1 - _pm, 3), "ev_mercado": _ev,
                     "etiqueta_riesgo": risk_label(_pm, _ev), "direcciones": _direction_counts(c),
                     "cuota_combinada_media": round(calc.combo_odds([x["cuota"] for x in c]), 3),
                     "cuota_combinada_conservadora": round(calc.combo_odds([x["cuota_cons"] for x in c]), 3), "n_patas": -nl, "n_partidos": len(c),
@@ -572,6 +589,9 @@ def top_picks(legs, top=15, min_attr_support=0.55):
     al elegir el mejor entre cientos de patas, tiende a sobrestimar (maldición del ganador). Son un ranking, no tickets: pueden repetir partido con los tickets."""
     priced = [l for l in legs if l["cuota_media"] is not None]
     for l in priced:
+        l["p_central"], l["brecha_muestra_mercado"] = p_central(l)
+        l["ev_central"] = None if l["p_central"] is None or l.get("cuota_tipo") == "estimada_por_modelo" else round(l["p_central"] * l["cuota_media"] - 1, 3)
+        l["sospechosa_por_brecha"] = l["brecha_muestra_mercado"] is not None and l["brecha_muestra_mercado"] >= MAX_GAP
         l["ev_descriptivo_conservador"] = round(l["apoyo_conservador"] * l["cuota_media"] - 1, 3)
         if l.get("cuota_tipo") == "estimada_por_modelo":
             l["ev_descriptivo_conservador"] = None          # circular: la cuota sale de la misma frecuencia; no se interpreta
@@ -586,9 +606,9 @@ def top_picks(legs, top=15, min_attr_support=0.55):
             if len(out) >= top:
                 break
         return out
-    return {"seguridad": pick(lambda l: (-l["apoyo_conservador"], -l["cuota_media"]), lambda l: True),
-            "atractivo": pick(lambda l: (-(l["ev_descriptivo_conservador"] or -9), -l["apoyo_conservador"]),
-                              lambda l: l["apoyo_conservador"] >= min_attr_support and l["ev_descriptivo_conservador"] is not None)}
+    return {"seguridad": pick(lambda l: (-(l["p_central"] if l["p_central"] is not None else l["apoyo_conservador"]), -l["cuota_media"]), lambda l: not l["sospechosa_por_brecha"]),
+            "atractivo": pick(lambda l: (-(l["ev_central"] if l["ev_central"] is not None else -9), -l["apoyo_conservador"]),
+                              lambda l: l["apoyo_conservador"] >= min_attr_support and l["ev_descriptivo_conservador"] is not None and not l["sospechosa_por_brecha"])}
 
 
 STAT_MARKET_NAMES = ("córners", "tarjetas", "remates a puerta", "remates")
@@ -696,7 +716,7 @@ def render(result):
             L += ["Sin combinación posible con las patas disponibles: no se fuerza ningún ticket.", ""]
         for i, tk in enumerate(t["tickets"], 1):
             flag = (" · ⚠ incluye cuota ESTIMADA (córners/tarjetas): verifícala en tu casa" if tk.get("usa_cuota_estimada") else "") + (" · incluye cuota aportada por ti" if tk.get("usa_cuota_manual") else "")
-            L += [f"**Rótulo honesto: {tk.get('etiqueta_riesgo')} · P(mercado, sin margen) {tk.get('p_mercado_conjunta')} · P(pérdida) {tk.get('p_perdida_mercado')} · EV(mercado) {tk.get('ev_mercado')} · direcciones {tk.get('direcciones')}**", ""]
+            L += [f"**Rótulo honesto: {tk.get('etiqueta_riesgo')} · P(mercado, sin margen) {tk.get('p_mercado_conjunta')} · P(pérdida) {tk.get('p_perdida_mercado')} · EV(mercado) {tk.get('ev_mercado')} · P central (encogida) {tk.get('p_central_conjunta')} · EV central {tk.get('ev_central')} · mayor brecha muestra−mercado {tk.get('max_brecha_muestra_mercado')} · direcciones {tk.get('direcciones')}**", ""]
             L += [f"### Puesto {i} · Borrador {i}{flag}: ×{tk['cuota_combinada_media']} (conservadora ×{tk['cuota_combinada_conservadora']}) · {tk['n_patas']} pata(s) en {tk['n_partidos']} partido(s) · apoyo conjunto descriptivo {tk['apoyo_conjunto_descriptivo']} "
                   f"(implícita de mercado sin margen {tk['prob_implicita_conjunta_sin_margen']})", "",
                   "| Partido | Inicio UTC | Selección | Cuota media (mín–máx, casas) | Apoyo cons. | n |", "|---|---|---|---|---|---|"]

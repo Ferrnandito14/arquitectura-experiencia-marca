@@ -136,6 +136,24 @@ class ProcessGates(unittest.TestCase):
         self.assertEqual(tickets.risk_label(0.90, -0.02), "BAJO RIESGO (EV<0)")
         self.assertIn("NO EVALUABLE".lower(), tickets.risk_label(None, None).lower().replace("no evaluable", "no evaluable"))
 
+    def test_shrinkage_pulls_sample_toward_market_and_flags_big_gaps(self):
+        leg = {"prob_implicita_sin_margen": 0.632, "frec": [1.0, 0.8], "n": [10, 10]}          # Durban: muestra 90 % vs mercado 63 %
+        p, gap = tickets.p_central(leg)
+        self.assertAlmostEqual(gap, 0.268, places=3)
+        self.assertLess(p, 0.9)
+        self.assertGreater(p, 0.632)
+        self.assertLess(abs(p - 0.632), abs(0.9 - 0.632) / 2)              # con n=20 y m=40 pesa más el mercado
+        self.assertGreaterEqual(gap, tickets.MAX_GAP)
+        self.assertEqual(tickets.p_central({"prob_implicita_sin_margen": None, "frec": [1, 1], "n": [10, 10]}), (None, None))
+
+    def test_top_picks_exclude_suspicious_gap_from_rankings(self):
+        base = ev(fh=form(10, 3, 0), fa=form(10, 0, 3), prices={"goles.over_5_5": avg([8.0, 1.1]), "resultado.doble_oportunidad": avg([1.15, 1.2, 4.0])})
+        legs = tickets.legs_for_match(mm(0), base)
+        tp = tickets.top_picks(legs, top=50, min_attr_support=0.0)
+        for lst in tp.values():
+            for l in lst:
+                self.assertFalse(l["sospechosa_por_brecha"])
+
     def test_search_never_exceeds_same_direction_limit(self):
         legs = []
         for i in range(6):
@@ -222,11 +240,11 @@ class TopPicks(unittest.TestCase):
             ids = [p["match_id"] for p in tp[k]]
             self.assertEqual(len(ids), len(set(ids)))
             self.assertLessEqual(len(ids), 5)
-        sup = [p["apoyo_conservador"] for p in tp["seguridad"]]
-        self.assertEqual(sup, sorted(sup, reverse=True))
-        ev_ = [p["ev_descriptivo_conservador"] for p in tp["atractivo"]]
+        sup = [p["p_central"] if p["p_central"] is not None else p["apoyo_conservador"] for p in tp["seguridad"]]
+        self.assertEqual(sup, sorted(sup, reverse=True))              # ranking por probabilidad central (encogida), no por Wilson
+        ev_ = [p["ev_central"] if p["ev_central"] is not None else -9 for p in tp["atractivo"]]
         self.assertEqual(ev_, sorted(ev_, reverse=True))
-        self.assertTrue(all(p["ev_descriptivo_conservador"] > 0 and p["apoyo_conservador"] >= 0.55 for p in tp["atractivo"]))
+        self.assertTrue(all(p["apoyo_conservador"] >= 0.55 and not p["sospechosa_por_brecha"] for p in tp["atractivo"]))
 
     def test_render_has_both_tables_and_disclaimer(self):
         import tempfile, common
