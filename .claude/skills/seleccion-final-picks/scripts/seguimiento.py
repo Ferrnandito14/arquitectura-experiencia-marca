@@ -140,6 +140,18 @@ def eval_leg(leg, e):
         if fin:
             return "FALLADA", f"{tag}: no anotaron ambos"
         return "EN_JUEGO", f"{tag}: falta que anoten ambos"
+    if mk == "dc":
+        ok = (h >= a) if leg["lado"] == "home_or_draw" else (a >= h)
+        if fin:
+            return ("ACERTADA" if ok else "FALLADA"), f"{tag}: doble oportunidad {'sí' if ok else 'no'}"
+        return "EN_JUEGO", f"{tag}: va {'cumpliendo' if ok else 'perdiendo'} provisional"
+    if mk == "goles_tarjetas":
+        pts = adapters._card_points(e) or (0, 0)
+        cur_p, goals = pts[0] + pts[1], h + a
+        both = goals >= leg["min_goles"] and cur_p >= leg["min_puntos"]
+        if fin:
+            return ("ACERTADA" if both else "FALLADA"), f"{tag}: {goals} goles y {cur_p} pts de tarjetas (A=1,R=2)"
+        return "EN_JUEGO", f"{tag}: {goals}/{leg['min_goles']} goles, {cur_p}/{leg['min_puntos']} pts de tarjetas" + (" — CUMPLIDA PROVISIONAL hasta el final (VAR)" if both else "")
     if mk == "cards_dc":
         pts = adapters._card_points(e)
         if pts is None:

@@ -98,3 +98,19 @@ class RegistroSoloFinalizado(unittest.TestCase):
             fin = lambda mid: ev(1, 1)                        # finalizado
             s.write_all(d, s.run(d, fin))
             self.assertEqual(len(open(reg).read().strip().splitlines()), 1)
+
+
+class NuevosMercados(unittest.TestCase):
+    def test_double_chance_and_goals_plus_cards(self):
+        dc = {"mercado": "dc", "lado": "home_or_draw"}
+        self.assertEqual(s.eval_leg(dc, ev(1, 1))[0], "ACERTADA")
+        self.assertEqual(s.eval_leg(dc, ev(0, 1))[0], "FALLADA")
+        self.assertEqual(s.eval_leg(dc, ev(0, 1, "60"))[0], "EN_JUEGO")
+        gc = {"mercado": "goles_tarjetas", "min_goles": 2, "min_puntos": 4}
+        cards = [{"home_fault": "A", "card": "yellow card", "time": "10"}] * 2 + [{"away_fault": "B", "card": "yellow card", "time": "20"}, {"away_fault": "C", "card": "red card", "time": "30"}]
+        cards = [dict(c, home_fault=n) if "home_fault" in c else dict(c, away_fault=n) for c, n in zip(cards, ["P1", "P2", "Q1", "Q2"])]
+        self.assertEqual(s.eval_leg(gc, ev(1, 1, cards=cards))[0], "ACERTADA")        # 2 goles y 1+1+1+2 = 5 puntos
+        self.assertEqual(s.eval_leg(gc, ev(1, 0, cards=cards))[0], "FALLADA")         # un solo gol al final
+        st, det = s.eval_leg(gc, ev(1, 1, "70", cards=cards))
+        self.assertEqual(st, "EN_JUEGO")
+        self.assertIn("PROVISIONAL", det)
