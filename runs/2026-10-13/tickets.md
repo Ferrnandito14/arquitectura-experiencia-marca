@@ -2,34 +2,60 @@
 
 > **Cuotas = promedio de ≥3 casas vía agregador (NO ejecutables); la casa recalcula las combinadas del mismo partido (cuota real menor). Apoyo = frecuencia descriptiva conservadora (Wilson inferior), NO probabilidad predictiva ni EV.** Entre partidos distintos el producto supone independencia. Las cuotas de cada pata son la MEDIANA entre casas; «conservadora» descuenta un 5 % a cada par del mismo partido y debe seguir ≥ el mínimo del rango más un colchón. Contrastar con la cuota REAL de la casa y con el Nivel 2 (bajas, alineaciones, 2.ª fuente de calendario) antes de apostar. **Regla: un partido no puede aparecer en dos tickets** (si falla en uno, no arrastra al otro): TODOS los borradores de un perfil excluyen los partidos de TODOS los borradores de los perfiles anteriores: escojas el que escojas de cada multiplicador, no comparten partido. Dos patas del mismo partido solo entran con justificación medida (apoyo conjunto sobre los mismos partidos pasados). Las patas de los tickets exigen **calendario confirmado por dos fuentes independientes** (hora del partido) y excluyen categorías juvenil/sub-23/reserva (plantillas rotativas); los rankings top lo marcan en columnas.
 
+## Ranking general — familia ×1.2–1.28 (seguridad) (de primero a último)
+
+Criterio: mayor apoyo conjunto descriptivo; a igual apoyo, menor distancia al equilibrio 1/cuota. Un margen negativo = la frecuencia histórica no cubre lo que paga el ticket. NO es EV real.
+
+| Puesto | Perfil | Borrador | Cuota (cons.) | Patas | Apoyo conjunto | Equilibrio 1/cuota | Margen |
+|---|---|---|---|---|---|---|---|
+| 1 | seguridad | 1 | ×1.25 (1.25) | 1 | 0.712 | 0.8 | -0.088 |
+| 2 | seguridad | 2 | ×1.25 (1.25) | 1 | 0.659 | 0.8 | -0.141 |
+| 3 | seguridad | 3 | ×1.22 (1.22) | 1 | 0.659 | 0.82 | -0.161 |
+| 4 | seguridad | 4 | ×1.254 (1.254) | 2 | 0.521 | 0.797 | -0.276 |
+| 5 | seguridad_champions | 1 | ×1.25 (1.25) | 1 | 0.496 | 0.8 | -0.304 |
+| 6 | seguridad | 5 | ×1.265 (1.265) | 2 | 0.476 | 0.791 | -0.315 |
+| 7 | seguridad_champions | 2 | ×1.229 (1.229) | 2 | 0.421 | 0.814 | -0.393 |
+| 8 | seguridad_champions | 3 | ×1.264 (1.264) | 2 | 0.392 | 0.791 | -0.399 |
+| 9 | seguridad_champions | 4 | ×1.231 (1.231) | 2 | 0.336 | 0.812 | -0.476 |
+| 10 | usuario (cuota informada, no verificada) | — | ×1.27 | 2 | 0.265 | 0.787 | -0.522 |
+
+## Ranking general — familia ×4.0–4.8 (amplio) (de primero a último)
+
+Criterio: mayor apoyo conjunto descriptivo; a igual apoyo, menor distancia al equilibrio 1/cuota. Un margen negativo = la frecuencia histórica no cubre lo que paga el ticket. NO es EV real.
+
+| Puesto | Perfil | Borrador | Cuota (cons.) | Patas | Apoyo conjunto | Equilibrio 1/cuota | Margen |
+|---|---|---|---|---|---|---|---|
+| 1 | amplio | 1 | ×4.634 (4.634) | 4 | 0.136 | 0.216 | -0.08 |
+| 2 | amplio | 2 | ×4.196 (4.196) | 6 | 0.059 | 0.238 | -0.179 |
+
 ## Perfil «seguridad»: ×1.2–1.28 (≤2 patas, apoyo mínimo por ítem 0.65, colchón 1 %) — 5 borradores
 
-### Borrador 1: ×1.25 (conservadora ×1.25) · 1 pata(s) en 1 partido(s) · apoyo conjunto descriptivo 0.712 (implícita de mercado sin margen 0.752)
+### Puesto 1 · Borrador 1: ×1.25 (conservadora ×1.25) · 1 pata(s) en 1 partido(s) · apoyo conjunto descriptivo 0.712 (implícita de mercado sin margen 0.752)
 
 | Partido | Inicio UTC | Selección | Cuota media (mín–máx, casas) | Apoyo cons. | n |
 |---|---|---|---|---|---|
 | Cardiff City – Watford (efl championship) | 2026-10-13T18:45:00Z | Menos de 4.5 goles | 1.25 (1.2–1.27, 7) | 0.712 (mín. equipo 0.701) | 9/10 |
 
-### Borrador 2: ×1.25 (conservadora ×1.25) · 1 pata(s) en 1 partido(s) · apoyo conjunto descriptivo 0.659 (implícita de mercado sin margen 0.754)
+### Puesto 2 · Borrador 2: ×1.25 (conservadora ×1.25) · 1 pata(s) en 1 partido(s) · apoyo conjunto descriptivo 0.659 (implícita de mercado sin margen 0.754)
 
 | Partido | Inicio UTC | Selección | Cuota media (mín–máx, casas) | Apoyo cons. | n |
 |---|---|---|---|---|---|
 | Atlético Bucaramanga – Águilas Doradas (categoria primera a) | 2026-10-13T23:30:00Z | Local o empate (1X) | 1.25 (1.16–1.27, 8) | 0.659 (mín. equipo 0.596) | 10/10 |
 
-### Borrador 3: ×1.22 (conservadora ×1.22) · 1 pata(s) en 1 partido(s) · apoyo conjunto descriptivo 0.659 (implícita de mercado sin margen 0.75)
+### Puesto 3 · Borrador 3: ×1.22 (conservadora ×1.22) · 1 pata(s) en 1 partido(s) · apoyo conjunto descriptivo 0.659 (implícita de mercado sin margen 0.75)
 
 | Partido | Inicio UTC | Selección | Cuota media (mín–máx, casas) | Apoyo cons. | n |
 |---|---|---|---|---|---|
 | Pendikspor – Van BB (1 lig) | 2026-10-13T17:00:00Z | Más de 1.5 goles | 1.22 (1.21–1.27, 7) | 0.659 (mín. equipo 0.596) | 10/10 |
 
-### Borrador 4: ×1.254 (conservadora ×1.254) · 2 pata(s) en 2 partido(s) · apoyo conjunto descriptivo 0.521 (implícita de mercado sin margen 0.67)
+### Puesto 4 · Borrador 4: ×1.254 (conservadora ×1.254) · 2 pata(s) en 2 partido(s) · apoyo conjunto descriptivo 0.521 (implícita de mercado sin margen 0.67)
 
 | Partido | Inicio UTC | Selección | Cuota media (mín–máx, casas) | Apoyo cons. | n |
 |---|---|---|---|---|---|
 | Birmingham City – Preston North End (efl championship) | 2026-10-13T19:00:00Z | Menos de 4.5 goles | 1.14 (1.12–1.18, 7) | 0.722 (mín. equipo 0.722) | 10/10 |
 | Harju Jalgpallikool – Nõmme United (meistriliiga) | 2026-10-13T15:00:00Z | Menos de 5.5 goles | 1.1 (1.07–1.14, 5) | 0.722 (mín. equipo 0.722) | 10/10 |
 
-### Borrador 5: ×1.265 (conservadora ×1.265) · 2 pata(s) en 2 partido(s) · apoyo conjunto descriptivo 0.476 (implícita de mercado sin margen 0.684)
+### Puesto 5 · Borrador 5: ×1.265 (conservadora ×1.265) · 2 pata(s) en 2 partido(s) · apoyo conjunto descriptivo 0.476 (implícita de mercado sin margen 0.684)
 
 | Partido | Inicio UTC | Selección | Cuota media (mín–máx, casas) | Apoyo cons. | n |
 |---|---|---|---|---|---|
@@ -38,7 +64,7 @@
 
 ## Perfil «amplio»: ×4.0–4.8 (≤6 patas, apoyo mínimo por ítem 0.55, colchón 4 %) — 2 borradores
 
-### Borrador 1: ×4.634 (conservadora ×4.634) · 4 pata(s) en 4 partido(s) · apoyo conjunto descriptivo 0.136 (implícita de mercado sin margen 0.16)
+### Puesto 1 · Borrador 1: ×4.634 (conservadora ×4.634) · 4 pata(s) en 4 partido(s) · apoyo conjunto descriptivo 0.136 (implícita de mercado sin margen 0.16)
 
 | Partido | Inicio UTC | Selección | Cuota media (mín–máx, casas) | Apoyo cons. | n |
 |---|---|---|---|---|---|
@@ -47,7 +73,7 @@
 | San Carlos – Inter San Carlos (primera division fpd) | 2026-10-14T02:00:00Z | Menos de 3.5 goles | 1.3 (1.29–1.32, 6) | 0.606 (mín. equipo 0.49) | 10/10 |
 | Rot-Weiss Essen – Fortuna Köln (3 liga) | 2026-10-13T17:00:00Z | Hándicap visitante +1.5 | 1.56 (1.43–1.6, 6) | 0.562 (mín. equipo 0.529) | 10/8 |
 
-### Borrador 2: ×4.196 (conservadora ×4.196) · 6 pata(s) en 6 partido(s) · apoyo conjunto descriptivo 0.059 (implícita de mercado sin margen 0.147)
+### Puesto 2 · Borrador 2: ×4.196 (conservadora ×4.196) · 6 pata(s) en 6 partido(s) · apoyo conjunto descriptivo 0.059 (implícita de mercado sin margen 0.147)
 
 | Partido | Inicio UTC | Selección | Cuota media (mín–máx, casas) | Apoyo cons. | n |
 |---|---|---|---|---|---|
@@ -57,6 +83,39 @@
 | Buriram United – Beijing Guoan (afc champions league) | 2026-10-13T12:15:00Z | Hándicap visitante +1.5 | 1.235 (1.21–1.27, 4) | 0.606 (mín. equipo 0.49) | 10/10 |
 | Bristol City – Blackburn Rovers (efl championship) | 2026-10-13T18:45:00Z | Hándicap visitante +1.5 | 1.22 (1.2–1.36, 7) | 0.606 (mín. equipo 0.49) | 10/10 |
 | Lens – Sporting (uefa champions league) | 2026-10-13T16:45:00Z | Más de 1.5 goles | 1.15 (1.14–1.19, 6) | 0.606 (mín. equipo 0.49) | 10/10 |
+
+## Perfil «seguridad_champions»: ×1.2–1.28 (≤2 patas, apoyo mínimo por ítem 0.45, colchón 1 %) — 4 borradores
+
+### Puesto 1 · Borrador 1: ×1.25 (conservadora ×1.25) · 1 pata(s) en 1 partido(s) · apoyo conjunto descriptivo 0.496 (implícita de mercado sin margen 0.749)
+
+| Partido | Inicio UTC | Selección | Cuota media (mín–máx, casas) | Apoyo cons. | n |
+|---|---|---|---|---|---|
+| Atlético Madrid – Manchester United (uefa champions league) | 2026-10-13T19:00:00Z | Menos de 4.5 goles | 1.25 (1.22–1.28, 6) | 0.496 (mín. equipo 0.397) | 10/10 |
+
+### Puesto 2 · Borrador 2: ×1.229 (conservadora ×1.229) · 2 pata(s) en 2 partido(s) · apoyo conjunto descriptivo 0.421 (implícita de mercado sin margen 0.697)
+
+| Partido | Inicio UTC | Selección | Cuota media (mín–máx, casas) | Apoyo cons. | n |
+|---|---|---|---|---|---|
+| RB Leipzig – PSV (uefa champions league) | 2026-10-13T19:00:00Z | Más de 1.5 goles | 1.055 (1.04–1.11, 6) | 0.722 (mín. equipo 0.722) | 10/10 |
+| Sabah – Slavia Praha (uefa champions league) | 2026-10-13T16:45:00Z | Menos de 4.5 goles | 1.165 (1.14–1.21, 6) | 0.583 (mín. equipo 0.49) | 8/10 |
+
+### Puesto 3 · Borrador 3: ×1.264 (conservadora ×1.264) · 2 pata(s) en 2 partido(s) · apoyo conjunto descriptivo 0.392 (implícita de mercado sin margen 0.688)
+
+| Partido | Inicio UTC | Selección | Cuota media (mín–máx, casas) | Apoyo cons. | n |
+|---|---|---|---|---|---|
+| Villarreal – Napoli (uefa champions league) | 2026-10-13T19:00:00Z | Menos de 5.5 goles | 1.045 (1.01–1.09, 6) | 0.722 (mín. equipo 0.722) | 10/10 |
+| Arsenal – Lille (uefa champions league) | 2026-10-13T19:00:00Z | Menos de 4.5 goles | 1.21 (1.2–1.24, 6) | 0.543 (mín. equipo 0.49) | 10/10 |
+
+### Puesto 4 · Borrador 4 · ⚠ incluye cuota ESTIMADA (córners/tarjetas): verifícala en tu casa: ×1.231 (conservadora ×1.231) · 2 pata(s) en 2 partido(s) · apoyo conjunto descriptivo 0.336 (implícita de mercado sin margen 0.681)
+
+| Partido | Inicio UTC | Selección | Cuota media (mín–máx, casas) | Apoyo cons. | n |
+|---|---|---|---|---|---|
+| Inter Milan – Club Brugge (uefa champions league) | 2026-10-13T19:00:00Z | Menos de 5.5 goles | 1.08 (1.08–1.16, 6) | 0.606 (mín. equipo 0.49) | 10/10 |
+| Viking – Bayern München (uefa champions league) | 2026-10-13T19:00:00Z | Menos de 5.5 tarjetas (A+R) | 1.14 ✎est. (1.14–1.14, 0) | 0.555 (mín. equipo 0.409) | 8/9 |
+
+## Perfil «amplio_champions»: ×4.0–4.8 (≤6 patas, apoyo mínimo por ítem 0.45, colchón 4 %) — 0 borradores
+
+Sin combinación posible con las patas disponibles: no se fuerza ningún ticket.
 
 ## Top de picks por SEGURIDAD (mayor apoyo conservador; una pata por partido)
 
@@ -86,7 +145,7 @@
 
 *EV descriptivo conservador NO es valor esperado real: usa el límite inferior de frecuencias pasadas como «probabilidad», y al escoger lo mejor entre cientos de patas tiende a sobrestimar. Estos rankings acompañan a los tickets y no los reemplazan; pueden repetir partidos que estén en un ticket.*
 
-## Córners y tarjetas: cuota APROXIMADA por modelo (✎ no es de ninguna casa) y cuota real mínima a exigir
+## Córners y tarjetas: cuota APROXIMADA por modelo (✎ no es de ninguna casa) y cuota real mínima a exigir (ordenadas de mayor a menor apoyo)
 
 | Partido | Selección | Cuota aprox. | Apoyo cons. | n | Cuota real mínima para tener valor |
 |---|---|---|---|---|---|
@@ -223,5 +282,5 @@
 | Athletic-MG – Londrina | Más de 2.5 tarjetas (A+R) | Nivel 2 (verificador/deportivo/cuantitativo): sin mercado de tarjetas en la API, cuota solo estimada por modelo, sin árbitro ni regla de liquidación verificada |
 
 ---
-Partidos usados en borradores de perfiles previos: 16; sin partidos repetidos entre multiplicadores: True; cuotas manuales aplicadas: 0.
+Partidos usados en borradores de perfiles previos: 23; sin partidos repetidos entre multiplicadores: True; cuotas manuales aplicadas: 0.
 Patas evaluadas: 8040 (con cuota media: 3197) en 204 partidos.

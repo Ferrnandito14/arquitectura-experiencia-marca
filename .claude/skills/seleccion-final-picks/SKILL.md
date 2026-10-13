@@ -81,3 +81,5 @@ No simules visitas, herramientas ni conversaciones; no inventes datos, cuotas ni
 - **Patas «12» (sin empate)** quedan fuera de los tickets hasta verificar marcadores a 90' (empates posiblemente registrados como victoria en copas).
 - Tops y tabla de córners/tarjetas solo con patas elegibles para ticket (2 fuentes de calendario, sin juvenil/sub-23/reserva, ≥4 casas o cuota estimada/manual).
 - Vetos del director en `runs/<fecha>/vetoes.json`; cada veto con motivo y su origen (Nivel 2, lote o auditor).
+- `tickets.py --champions` añade variantes solo-UEFA Champions League con pisos relajados (apoyo 0.45, equipo 0.35), rotuladas como de menor respaldo; ningún ticket se propone sin al menos una cuota real. El ranking general ordena los borradores por familia de multiplicador (mayor apoyo conjunto primero).
+- `custom_check.py --run runs/<fecha> --spec user_tickets.json` evalúa una combinada propuesta por la persona usuaria (líneas de cuarto o enteras, p. ej. 1.75 o 7) con la regla de liquidación de cada línea y cotas de cuota con las líneas vecinas; después se pasa a los agentes.

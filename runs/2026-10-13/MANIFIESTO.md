@@ -19,6 +19,7 @@ Todo lo siguiente sale de `inventory.json`, `state.json`, `coverage.json`, `batc
 - Nivel 2 (sobre `finalists.json`, 21 partidos): verificador-mercados, analista-deportivo, analista-cuantitativo, auditor-adversarial → informes en `reviews_raw/level2/`.
 - Revisión por lotes: 22 agentes de lote (11 lotes × deportivo y cuantitativo) + 1 verificador (discrepancias) = 23 respuestas conciliadas.
 - Auditoría adversarial final sobre los borradores regenerados: `reviews_raw/level2/auditor_ronda2.md` (agente nuevo: no es continuación por SendMessage de los agentes anteriores; ese hilo se perdió en los reinicios del worker).
+- Combinada de la persona usuaria (Inter–Brugge más de 1.75 + Viking–Bayern menos de 7, ×1.27): 3 agentes más (deportivo, cuantitativo, auditor adversarial) → `reviews_raw/level2/usuario_*.md`; análisis en `ANALISIS-combinada-usuario.md` y `user_tickets_eval.md` (calculado por `custom_check.py`).
 - Aviso: `apif_query.py` devolvió «sin clave» en el entorno del verificador del lote de discrepancias; ese agente leyó solo los datos crudos guardados (`sources/raw_*.json`).
 
 ## Consultas de red de los scripts (`sources/consultas.jsonl`, acumulado de la sesión)
@@ -29,4 +30,5 @@ Todo lo siguiente sale de `inventory.json`, `state.json`, `coverage.json`, `batc
 ## Cambios de método durante la ejecución (para trazabilidad)
 - Historial por equipo: prefiere la MISMA competición si hay ≥6 partidos; excluye amistosos; etiqueta `history_kind`.
 - Tickets: patas con cuota real exigen ≥4 casas (rankings ≥3); calendario con 2 fuentes; sin juveniles/sub-23/reservas; un partido no puede estar en dos multiplicadores; ≥2 borradores por multiplicador.
-- Vetos del director en `vetoes.json` (8 entradas: 6 de Nivel 2 y 2 de la revisión por lotes).
+- Vetos del director en `vetoes.json` (18 entradas: 6 de Nivel 2, 2 de la revisión por lotes y 10 del auditor de ronda 2).
+- Variante `--champions` (solo UEFA Champions League, pisos relajados: apoyo 0.45, equipo 0.35) y ranking general por familia de multiplicador; no se propone ningún ticket sin al menos una cuota real.

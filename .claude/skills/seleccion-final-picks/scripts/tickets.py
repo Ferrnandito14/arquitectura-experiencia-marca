@@ -31,6 +31,10 @@ _spec.loader.exec_module(calc)
 # Con n=10 el límite inferior de Wilson de un 10/10 es 0.722 y el de 9/10 es 0.66: por eso el mínimo de «seguridad» es 0.65 (≈ ≥9/10 en cada equipo)
 # (nombre, lo, hi, máx patas, apoyo mín por ítem, colchón sobre `lo`): el multiplicador CONSERVADOR (pares −5 %) debe quedar ≥ lo·(1+colchón)
 DEFAULT_TARGETS = [("seguridad", 1.20, 1.28, 2, 0.65, 0.01), ("amplio", 4.0, 4.8, 6, 0.55, 0.04)]
+# Variante «solo Champions» (--champions): el historial de la Champions es mixto (liga+copa+pretemporada, rivales de otro nivel) y no alcanza los pisos normales;
+# se relaja el apoyo mínimo (0.45) y el piso por equipo (0.35) y se rotula como VARIANTE de menor respaldo. Se mantienen vetos, ≥4 casas, sin «12», 2 fuentes de calendario.
+CHAMPIONS_TARGETS = [("seguridad_champions", 1.20, 1.28, 2, 0.45, 0.01), ("amplio_champions", 4.0, 4.8, 6, 0.45, 0.04)]
+CHAMPIONS_TEAM_FLOOR = 0.35
 OK_KINDS = ("apifootball_misma_competicion", "apifootball_historial_propio", "football-data_misma_liga")
 MIN_N, MIN_BOOKS = 6, 3
 TEAM_FLOOR = 0.55        # revisión del auditor: el apoyo es el promedio de dos equipos y un 10/10 tapa al flojo; en tickets CADA equipo debe alcanzar este piso (8/10 → 0.49 no pasa)
@@ -283,7 +287,7 @@ def search(legs, lo, hi, max_legs, min_support, top=5, pool=60, exclude=frozense
     lo_cons = lo * (1 + buffer)
 
     def rec(start, chosen, prod, prod_cons, nlegs, nest):
-        if prod_cons >= lo_cons and prod <= hi and chosen:
+        if prod_cons >= lo_cons and prod <= hi and chosen and any(l.get("cuota_tipo") != "estimada_por_modelo" for c_ in chosen for l in c_["patas"]):   # un ticket sin NINGUNA cuota real no se propone
             res.append((calc.joint_prob([c["apoyo"] for c in chosen]), -nlegs, prod, tuple(chosen)))
         for i in range(start, len(cand)):
             it = cand[i]
@@ -362,6 +366,35 @@ def unpriced(legs, top=20, min_support=0.5):
     return out
 
 
+def _ranking_general(result):
+    """Ranking de TODOS los borradores entregados, de primero a último, en cada familia de multiplicador (comparar un ×1.25 con un ×4.5 por margen
+    favorecería a las cuotas altas). Criterio: mayor apoyo conjunto descriptivo (frecuencia conjunta conservadora de que TODAS las patas se cumplan);
+    a igual apoyo, menor distancia al punto de equilibrio 1/cuota. NO es EV real. «champions» = variante con pisos relajados (menos respaldo)."""
+    fam = {"×1.2–1.28 (seguridad)": [], "×4.0–4.8 (amplio)": []}
+    for t in result["targets"]:
+        for i, tk in enumerate(t["tickets"], 1):
+            key = "×1.2–1.28 (seguridad)" if t["lo"] < 2 else "×4.0–4.8 (amplio)"
+            eq = 1 / tk["cuota_combinada_conservadora"]
+            fam[key].append((tk["apoyo_conjunto_descriptivo"], tk["apoyo_conjunto_descriptivo"] - eq, t["name"], i, f"×{tk['cuota_combinada_media']} ({tk['cuota_combinada_conservadora']})", tk["n_patas"], round(eq, 3)))
+    for u in result.get("usuario", []):
+        if u.get("apoyo_conjunto_gana_entera") is not None and u.get("multiplicador_usuario"):
+            eq = 1 / u["multiplicador_usuario"]
+            fam["×1.2–1.28 (seguridad)" if u["multiplicador_usuario"] < 2 else "×4.0–4.8 (amplio)"].append(
+                (u["apoyo_conjunto_gana_entera"], u["apoyo_conjunto_gana_entera"] - eq, "usuario (cuota informada, no verificada)", "—", f"×{u['multiplicador_usuario']}", len(u["patas"]), round(eq, 3)))
+    L = []
+    for name, rows in fam.items():
+        if not rows:
+            continue
+        rows.sort(key=lambda r: (-r[0], -r[1]))
+        L += [f"## Ranking general — familia {name} (de primero a último)", "",
+              "Criterio: mayor apoyo conjunto descriptivo; a igual apoyo, menor distancia al equilibrio 1/cuota. Un margen negativo = la frecuencia histórica no cubre lo que paga el ticket. NO es EV real.", "",
+              "| Puesto | Perfil | Borrador | Cuota (cons.) | Patas | Apoyo conjunto | Equilibrio 1/cuota | Margen |", "|---|---|---|---|---|---|---|---|"]
+        for k, (ap, m, pn, i, cuota, npatas, eq) in enumerate(rows, 1):
+            L.append(f"| {k} | {pn} | {i} | {cuota} | {npatas} | {ap} | {eq} | {round(m, 3)} |")
+        L.append("")
+    return L
+
+
 def render(result):
     L = ["# Tickets provisionales por multiplicador objetivo", "",
          "> **Cuotas = promedio de ≥3 casas vía agregador (NO ejecutables); la casa recalcula las combinadas del mismo partido (cuota real menor). "
@@ -372,6 +405,7 @@ def render(result):
          "TODOS los borradores de un perfil excluyen los partidos de TODOS los borradores de los perfiles anteriores: escojas el que escojas de cada multiplicador, no comparten partido. "
          "Dos patas del mismo partido solo entran con justificación medida (apoyo conjunto sobre los mismos partidos pasados). "
          "Las patas de los tickets exigen **calendario confirmado por dos fuentes independientes** (hora del partido) y excluyen categorías juvenil/sub-23/reserva (plantillas rotativas); los rankings top lo marcan en columnas.", ""]
+    L += _ranking_general(result)
     for t in result["targets"]:
         L += [f"## Perfil «{t['name']}»: ×{t['lo']}–{t['hi']} (≤{t['max_legs']} patas, apoyo mínimo por ítem {t['min_support']}, colchón {int(t.get('buffer', 0) * 100)} %) — {len(t['tickets'])} borradores", ""]
         if len(t["tickets"]) == 1:
@@ -380,7 +414,7 @@ def render(result):
             L += ["Sin combinación posible con las patas disponibles: no se fuerza ningún ticket.", ""]
         for i, tk in enumerate(t["tickets"], 1):
             flag = (" · ⚠ incluye cuota ESTIMADA (córners/tarjetas): verifícala en tu casa" if tk.get("usa_cuota_estimada") else "") + (" · incluye cuota aportada por ti" if tk.get("usa_cuota_manual") else "")
-            L += [f"### Borrador {i}{flag}: ×{tk['cuota_combinada_media']} (conservadora ×{tk['cuota_combinada_conservadora']}) · {tk['n_patas']} pata(s) en {tk['n_partidos']} partido(s) · apoyo conjunto descriptivo {tk['apoyo_conjunto_descriptivo']} "
+            L += [f"### Puesto {i} · Borrador {i}{flag}: ×{tk['cuota_combinada_media']} (conservadora ×{tk['cuota_combinada_conservadora']}) · {tk['n_patas']} pata(s) en {tk['n_partidos']} partido(s) · apoyo conjunto descriptivo {tk['apoyo_conjunto_descriptivo']} "
                   f"(implícita de mercado sin margen {tk['prob_implicita_conjunta_sin_margen']})", "",
                   "| Partido | Inicio UTC | Selección | Cuota media (mín–máx, casas) | Apoyo cons. | n |", "|---|---|---|---|---|---|"]
             for it in tk["items"]:
@@ -400,7 +434,7 @@ def render(result):
               "", "*EV descriptivo conservador NO es valor esperado real: usa el límite inferior de frecuencias pasadas como «probabilidad», y al escoger lo mejor entre cientos de patas "
               "tiende a sobrestimar. Estos rankings acompañan a los tickets y no los reemplazan; pueden repetir partidos que estén en un ticket.*", ""]
     if result["unpriced"]:
-        L += ["## Córners y tarjetas: cuota APROXIMADA por modelo (✎ no es de ninguna casa) y cuota real mínima a exigir", "",
+        L += ["## Córners y tarjetas: cuota APROXIMADA por modelo (✎ no es de ninguna casa) y cuota real mínima a exigir (ordenadas de mayor a menor apoyo)", "",
               "| Partido | Selección | Cuota aprox. | Apoyo cons. | n | Cuota real mínima para tener valor |", "|---|---|---|---|---|---|"]
         for u in result["unpriced"]:
             L.append(f"| {u['partido']} | {u['seleccion']} | {u['cuota_media']}{' (tuya)' if u.get('cuota_tipo') == 'manual_usuario' else ' ✎'} | {u['apoyo_conservador']} | {u['n'][0]}/{u['n'][1]} | {u['cuota_equilibrio_minima']} |")
@@ -427,6 +461,7 @@ def main(argv=None):
     ap.add_argument("--top", type=int, default=5, help="borradores por perfil (siempre se piden varios para poder escoger)")
     ap.add_argument("--manual-odds", help="CSV/JSON con cuotas reales de la persona usuaria: home,away,seleccion,cuota")
     ap.add_argument("--pool", type=int, default=60)
+    ap.add_argument("--champions", action="store_true", help="añade las variantes solo-UEFA Champions League (apoyo y piso por equipo relajados y rotulados)")
     a = ap.parse_args(argv)
     targets = DEFAULT_TARGETS
     if a.target:
@@ -444,9 +479,13 @@ def main(argv=None):
     out = {"targets": [], "n_legs": len(legs), "n_priced_legs": sum(1 for l in legs if l["cuota_media"] is not None),
            "n_matches_with_legs": len({l["match_id"] for l in legs})}
     results = [dict(name=n, lo=lo, hi=hi, max_legs=mx, min_support=ms, buffer=bf) for n, lo, hi, mx, ms, bf in targets]
+    if a.champions:
+        results += [dict(name=n, lo=lo, hi=hi, max_legs=mx, min_support=ms, buffer=bf, solo_champions=True) for n, lo, hi, mx, ms, bf in CHAMPIONS_TARGETS]
     used, chosen = frozenset(), []
+    ucl = [l for l in legs if "uefa champions league" in (l.get("competicion") or "").lower()]
     for r in results:                                   # perfiles en orden: el primero (seguridad) fija partidos que los demás NO pueden usar
-        tk, npool = search(legs, r["lo"], r["hi"], r["max_legs"], r["min_support"], a.top, a.pool, exclude=used, buffer=r["buffer"], team_floor=TEAM_FLOOR_BY_PROFILE.get(r["name"], TEAM_FLOOR))
+        r_legs, r_floor = (ucl, CHAMPIONS_TEAM_FLOOR) if r.get("solo_champions") else (legs, TEAM_FLOOR_BY_PROFILE.get(r["name"], TEAM_FLOOR))
+        tk, npool = search(r_legs, r["lo"], r["hi"], r["max_legs"], r["min_support"], a.top, a.pool, exclude=used, buffer=r["buffer"], team_floor=r_floor)
         r.update(pool=npool, tickets=tk)
         if tk:                                           # CUALQUIER borrador de un perfil queda excluido de los perfiles siguientes:
             used = used | {it["match_id"] for t_ in tk for it in t_["items"]}        # sea cual escojas de cada uno, no comparten partido
@@ -460,6 +499,8 @@ def main(argv=None):
     out["patas_vetadas"] = vetoed
     eligible = [l for l in legs if l.get("calendario_2_fuentes") and l.get("categoria", "men") not in EXCLUDE_TICKET_CATEGORIES
                 and (l.get("cuota_tipo") in ("estimada_por_modelo", "manual_usuario") or l.get("n_casas", 0) >= TICKET_MIN_BOOKS)]
+    up = os.path.join(a.run, "user_tickets_eval.json")
+    out["usuario"] = common.read_json(up, []) if os.path.exists(up) else []
     out["unpriced"] = unpriced(eligible)
     out["top_picks"] = top_picks(eligible)
     common.write_json_atomic(os.path.join(a.run, "tickets.json"), out)

@@ -262,6 +262,14 @@ class AuditRules(unittest.TestCase):
         self.assertIsNone(s) if s is None else self.assertLess(s["apoyo_min_equipo"], tickets.TEAM_FLOOR)
 
 
+class NoAllEstimated(unittest.TestCase):
+    def test_ticket_needs_one_real_priced_leg(self):
+        legs = [l for l in tickets.legs_for_match(mm(0), ev(prices={})) if l.get("cuota_tipo") == "estimada_por_modelo"]
+        self.assertTrue(legs)
+        res, _ = tickets.search(legs, 1.0, 9.0, 3, 0.0, require_calendar=False)
+        self.assertEqual(res, [])
+
+
 class Vetoes(unittest.TestCase):
     def test_vetoed_leg_removed_with_reason(self):
         import tempfile, json, common
