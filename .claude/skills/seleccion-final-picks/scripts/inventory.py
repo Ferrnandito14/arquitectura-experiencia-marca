@@ -200,6 +200,8 @@ def build_inventory(raws_by_source, day, tz, now, policy, status_mappers=None):
             "normalized_datetime_utc": utc.strftime("%Y-%m-%dT%H:%M:%SZ") if utc else None,
             "normalized_datetime_local": local.isoformat() if local else None,
             "calendar_verification_status": cal, "confirmation_basis": basis,
+            "selection_calendar_verification": ("SUFICIENTE" if cal == "CONFIRMADO" and basis in ("oficial", "dos_fuentes_independientes")
+                                                else "REQUIERE_VERIFICACION_ADICIONAL"),
             "event_status": ev, "prematch_eligibility": elig, "disposition": disp,
             "analysis_required": bool(cal == "CONFIRMADO" and elig == "ELEGIBLE"),
             "sports_analysis_status": "PENDIENTE", "market_analysis_status": "PENDIENTE",
@@ -255,7 +257,9 @@ def main(argv=None):
 
     attempt("football-data", adapters.FD_BASE + "/fixtures.csv", "calendario (fixtures.csv)", lambda: adapters.fd_fixtures(client))
     if not a.no_apwin:
-        attempt("apwin", adapters.APWIN_BASE + "/", "calendario (portada del día; HTML parcial)", lambda: adapters.apwin_home(client))
+        for dday in common.days_to_query(a.date, a.tz):     # semántica de fecha de la fuente no certificada: día -1, 0, +1
+            u = f"{adapters.APWIN_BASE}/?date={dday.isoformat()}"
+            attempt("apwin", u, f"calendario del día {dday.isoformat()} (HTML público parcial)", lambda x=dday.isoformat(): adapters.apwin_home(client, x))
     for path in a.manual:
         attempt("usuario", path, "calendario aportado por el usuario", lambda p=path: adapters.manual_calendar(p))
     matches, dups = build_inventory(raws, a.date, a.tz, now, policy)

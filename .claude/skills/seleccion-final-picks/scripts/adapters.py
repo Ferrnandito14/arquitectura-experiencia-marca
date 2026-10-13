@@ -62,21 +62,25 @@ def apwin_home(client, day_iso=None):
     url = APWIN_BASE + "/" + (f"?date={day_iso}" if day_iso else "")
     r = client.fetch(url)
     txt = r.text.replace('\\"', '"')
-    out, league, country = [], None, None
-    pos = [(m.start(), m.group(1), "league") for m in re.finditer(r'"leagueSlug":"([^"]+)"', txt)]
-    pos += [(m.start(), m.group(1), "country") for m in re.finditer(r'"countrySlug":"([^"]+)"', txt)]
-    pos.sort()
-    for m in re.finditer(r'\{"slug":"([^"]+)","code":"[^"]*".*?"status":"([^"]*)","id":"(\d+)".*?'
-                         r'"homeTeam":"([^"]*)","awayTeam":"([^"]*)".*?"kickoffUnix":(\d+)', txt):
-        lg = [p[1] for p in pos if p[0] < m.start() and p[2] == "league"]
-        ct = [p[1] for p in pos if p[0] < m.start() and p[2] == "country"]
-        ep = int(m.group(6))
+    out = []
+    ctx = sorted([(m.start(), m.group(1), "league") for m in re.finditer(r'"leagueSlug":"([^"]+)"', txt)]
+                 + [(m.start(), m.group(1), "country") for m in re.finditer(r'"countrySlug":"([^"]+)"', txt)])
+    dec = json.JSONDecoder()
+    for m in re.finditer(r'\{"slug":"', txt):
+        try:
+            obj, _ = dec.raw_decode(txt, m.start())          # objeto JSON completo y balanceado: no cruza partidos
+        except ValueError:
+            continue
+        if not all(k in obj for k in ("homeTeam", "awayTeam", "kickoffUnix", "id")):
+            continue
+        lg = [c[1] for c in ctx if c[0] < m.start() and c[2] == "league"]
+        ct = [c[1] for c in ctx if c[0] < m.start() and c[2] == "country"]
+        ep = int(obj["kickoffUnix"])
         out.append({
-            "source": "apwin", "source_match_id": m.group(3), "home": m.group(4), "away": m.group(5),
+            "source": "apwin", "source_match_id": str(obj["id"]), "home": obj["homeTeam"], "away": obj["awayTeam"],
             "competition": (lg[-1] if lg else "").replace("-", " "), "country": (ct[-1] if ct else "").replace("-", " "),
-            "category_hint": None,
-            "original_datetime": str(ep), "source_timezone": "UTC", "tz_confirmed": True, "utc_epoch": ep,
-            "event_status_raw": m.group(2), "url": url,
+            "category_hint": None, "original_datetime": str(ep), "source_timezone": "UTC", "tz_confirmed": True, "utc_epoch": ep,
+            "event_status_raw": obj.get("status"), "url": url,
         })
     return out
 

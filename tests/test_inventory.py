@@ -164,3 +164,52 @@ class Registry(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class SelectionVerification(unittest.TestCase):
+    def test_single_structured_source_enters_universe_but_final_selection_needs_more(self):
+        a = raw("football-data", "A", "B", "Championship", "2026-10-13 19:45", "Europe/London", False)
+        m = build({"football-data": [a]})[0][0]
+        self.assertEqual(m["calendar_verification_status"], "CONFIRMADO")
+        self.assertTrue(m["analysis_required"])
+        self.assertEqual(m["selection_calendar_verification"], "REQUIERE_VERIFICACION_ADICIONAL")
+
+    def test_two_independent_sources_sufficient_for_selection(self):
+        a = raw("football-data", "A", "B", "Championship", "2026-10-13 19:45", "Europe/London", False)
+        b = raw("apwin", "A", "B", "Championship", None, "UTC", epoch=epoch("2026-10-13T18:45:00Z"))
+        m = build({"football-data": [a], "apwin": [b]})[0][0]
+        self.assertEqual(m["selection_calendar_verification"], "SUFICIENTE")
+
+
+class ApwinDays(unittest.TestCase):
+    def test_apwin_requested_for_three_days_within_page_cap(self):
+        import copy, tempfile
+        urls = []
+        class C:
+            def fetch(self, url):
+                urls.append(url)
+                class R: text = ""
+                return R()
+        for d in common.days_to_query("2026-10-13"):
+            adapters.apwin_home(C(), d.isoformat())
+        self.assertEqual([u.split("=")[-1] for u in urls], ["2026-10-12", "2026-10-13", "2026-10-14"])
+        self.assertLessEqual(len(urls), helpers.POLICY.data["providers"]["apwin"].get("limits", {}).get("max_pages_per_run", 3))
+
+
+class ApwinParserRegression(unittest.TestCase):
+    def test_non_match_object_before_league_header_does_not_swallow_next_matches_league(self):
+        # Fallo real: un objeto con slug+code que NO es partido, antes de la cabecera de liga, hacía que el regex perezoso
+        # abarcara hasta el primer partido de la liga y le asignara competición vacía.
+        noise = '{\\"slug\\":\\"noticia\\",\\"code\\":\\"n\\",\\"title\\":\\"x\\"}'
+        league = ('{\\"countrySlug\\":\\"europe\\",\\"leagueSlug\\":\\"uefa-champions-league\\",\\"matches\\":['
+                  '{\\"slug\\":\\"m2\\",\\"code\\":\\"c\\",\\"status\\":\\"upcoming\\",\\"id\\":\\"2\\",\\"homeTeam\\":\\"Sabah\\",'
+                  '\\"awayTeam\\":\\"Slavia\\",\\"ext\\":{\\"b\\":2},\\"kickoffUnix\\":1791909900}]}')
+        class C:
+            def fetch(self, url):
+                class R: text = noise + "xx" + league
+                return R()
+        r = adapters.apwin_home(C())
+        self.assertEqual(len(r), 1)
+        self.assertEqual(r[0]["competition"], "uefa champions league")
+        self.assertEqual(r[0]["country"], "europe")
+        self.assertEqual(r[0]["source_match_id"], "2")
