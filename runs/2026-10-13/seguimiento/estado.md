@@ -4,7 +4,7 @@
 
 | Pata | Cuota | Estado | Detalle |
 |---|---|---|---|
-| Cardiff City – Watford · total | 1.25 | EN_JUEGO | 4-0 (84): 4 goles; va ganando provisional |
+| Cardiff City – Watford · total | 1.25 | EN_JUEGO | 5-1 (89): ya superó la línea (6 goles) — FALLO PROVISIONAL hasta el final (VAR) |
 
 ## B · x4.40 (x4 #1) — **PERDIDO** (monto 1000)
 
@@ -20,7 +20,7 @@
 
 | Pata | Cuota | Estado | Detalle |
 |---|---|---|---|
-| Inter Milan – Club Brugge · handicap | 1.55 | EN_JUEGO | 1-2 (72): va ganando provisional (puede cambiar) |
-| Arsenal – Lille · total | 1.66 | EN_JUEGO | 3-0 (73): 3 goles; va ganando provisional |
-| RB Leipzig – PSV · total | 1.25 | EN_JUEGO | 0-0 (70): 0 goles; va perdiendo provisional |
-| Viking – Bayern München · total | 1.42 | EN_JUEGO | 2-3 (72): 5 goles; va ganando provisional |
+| Inter Milan – Club Brugge · handicap | 1.55 | EN_JUEGO | 1-3 (76): va ganando provisional (puede cambiar) |
+| Arsenal – Lille · total | 1.66 | EN_JUEGO | 3-0 (78): 3 goles; va ganando provisional |
+| RB Leipzig – PSV · total | 1.25 | EN_JUEGO | 0-0 (74): 0 goles; va perdiendo provisional |
+| Viking – Bayern München · total | 1.42 | EN_JUEGO | 2-3 (76): 5 goles; va ganando provisional |

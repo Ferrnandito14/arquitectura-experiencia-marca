@@ -54,7 +54,7 @@ def main(argv=None):
         print(f"error: tope de {AGENT_CAP} consultas de agentes alcanzado", file=sys.stderr)
         return 3
     client = common.Client(os.path.join(a.run, "cache"), os.path.join(a.run, "sources", "consultas.jsonl"), policy=common.Policy(),
-                           min_interval=2.0, ttl=24 * 3600)
+                           min_interval=2.0, ttl=(60 if a.action in ("get_events", "get_lineups", "get_odds", "get_statistics") else 24 * 3600))   # datos del día: nunca de caché vieja (auditoría 13-oct: marcadores atrasados)
     try:
         data = adapters.apif_call(client, key, action=a.action, **params)
     except adapters.ApiLimit as e:
