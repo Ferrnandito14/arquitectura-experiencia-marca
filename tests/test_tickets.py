@@ -104,7 +104,7 @@ class Search(unittest.TestCase):
         res, _ = tickets.search(legs, 4.0, 4.8, 6, 0.3, top=5)
         self.assertTrue(res)
         for t in res:
-            self.assertTrue(4.0 <= t["cuota_combinada_media"] <= 4.8)
+            self.assertTrue(4.0 <= t["cuota_combinada_conservadora"] <= 4.8)       # el rango se juzga con la cuota conservadora (pares −5 %)
             ids = [it["match_id"] for it in t["items"]]
             self.assertEqual(len(ids), len(set(ids)))
             self.assertLessEqual(t["n_patas"], 6)
@@ -260,6 +260,44 @@ class AuditRules(unittest.TestCase):
     def test_team_floor_hides_weak_team(self):
         s = tickets._support(form(10, 2, 0), form(10, 2, 0), lambda h: True, lambda h: h["gf"] > 5)   # un equipo 10/10, el otro 0/10 → promedio 0.36 ≥ 0 pero mínimo ≈ 0
         self.assertIsNone(s) if s is None else self.assertLess(s["apoyo_min_equipo"], tickets.TEAM_FLOOR)
+
+
+class PairRange(unittest.TestCase):
+    def test_pair_range_uses_conservative_odds_for_ceiling(self):
+        a = {"match_id": "m0", "mismo_partido": True, "cuota": 1.285, "cuota_cons": 1.22}
+        b = {"match_id": "m1", "mismo_partido": False, "cuota": 1.285, "cuota_cons": 1.285}
+        self.assertEqual(tickets._hi_odds(a), 1.22)       # el par encaja bajo el techo 1.28 aunque su producto medio lo supere
+        self.assertEqual(tickets._hi_odds(b), 1.285)      # una pata suelta se juzga por su cuota media
+
+
+class PairRules(unittest.TestCase):
+    def tearDown(self):
+        tickets.PAIR_RULES["vetados"], tickets.PAIR_RULES["notas"] = {}, {}
+
+    def _legs(self):
+        return tickets.legs_for_match(mm(0), ev(prices={"goles.over_1_5": avg([1.25, 4.0], n=6), "resultado.doble_oportunidad": avg([1.25, 1.5, 3.0], n=6),
+                                                        "goles.over_2_5": avg([1.6, 2.3], n=6)}))
+
+    def test_vetoed_pair_not_generated_and_note_attached(self):
+        legs = self._legs()
+        pairs = [i for i in tickets._items(legs, 0.0, require_calendar=True) if i["mismo_partido"]]
+        self.assertTrue(pairs)
+        a, b = pairs[0]["patas"]
+        tickets.PAIR_RULES["vetados"][tickets._pair_key(a["partido"], [b["seleccion"], a["seleccion"]])] = {"partido": a["partido"], "selecciones": [a["seleccion"], b["seleccion"]]}
+        after = [i for i in tickets._items(legs, 0.0, require_calendar=True) if i["mismo_partido"]]
+        self.assertTrue(all({x["seleccion"] for x in i["patas"]} != {a["seleccion"], b["seleccion"]} for i in after))
+        tickets.PAIR_RULES["vetados"] = {}
+        tickets.PAIR_RULES["notas"][tickets._pair_key(a["partido"], [a["seleccion"], b["seleccion"]])] = {"veredicto": "V", "condicion": "C"}
+        noted = [i for i in tickets._items(legs, 0.0, require_calendar=True) if i["mismo_partido"] and {x["seleccion"] for x in i["patas"]} == {a["seleccion"], b["seleccion"]}]
+        self.assertIn("Reevaluación de agentes: V", noted[0]["justificacion"])
+
+
+class PairNoEstimated(unittest.TestCase):
+    def test_pair_never_includes_estimated_leg(self):
+        legs = tickets.legs_for_match(mm(0), ev(prices={"goles.over_1_5": avg([1.25, 4.0], n=6), "resultado.doble_oportunidad": avg([1.25, 1.5, 3.0], n=6)}))
+        for it in tickets._items(legs, 0.0, require_calendar=True):
+            if it["mismo_partido"]:
+                self.assertFalse(any(l.get("cuota_tipo") == "estimada_por_modelo" for l in it["patas"]))
 
 
 class QualityGates(unittest.TestCase):

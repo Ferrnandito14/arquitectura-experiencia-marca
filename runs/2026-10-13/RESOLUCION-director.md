@@ -27,3 +27,15 @@ Seguridad: Bucaramanga 1X > Pendikspor O1.5 > Cardiff U4.5 > Birmingham+Harju > 
 1. Tus cuotas reales por pata (CSV `home,away,seleccion,cuota`) para confirmar los rangos ×1.20–1.28 y ×4.0–4.8 con `--manual-odds`.
 2. Alineaciones y bajas del día; marcadores a 90' para reabrir las patas «12».
 3. Comprobar la hora actual y el estado de cada partido.
+
+## Pares del mismo partido: reevaluación por agentes (autorizada por la persona usuaria si hay respaldo estadístico y de los agentes)
+Informes: `reviews_raw/level2/pares_{deportivo,cuantitativo,auditor}.md`. Regla de decisión: un par solo se propone si ningún agente lo declara DESACONSEJADO; los pares con respaldo dividido se vetan; los aceptados llevan su condición en el ticket.
+| Par | Deportivo | Cuantitativo | Auditor | Decisión |
+|---|---|---|---|---|
+| Birmingham–Preston: +2.5 visitante + menos de 4.5 (×1.282, cons ×1.218) | Aceptable con salvedades | Aceptable con salvedades | Aceptable con salvedades | **Se mantiene** (borrador de seguridad #1) con condición: cuota real del combinado ≥1.20 y alineaciones; si paga menos, mejor la pata simple menos de 4.5 |
+| Bucaramanga: 1X + menos de 4.5 | Aceptable flojo | Desaconsejado | Desaconsejado | Vetado |
+| Bucaramanga: 1X + más de 0.5 | Aceptable | Desaconsejado | Desaconsejado | Vetado |
+| Birmingham–Preston: menos de 4.5 + 1X | Desaconsejado | Desaconsejado | Desaconsejado | Vetado |
+| Kyoto–Ratchaburi: +1.5 + menos de 3.5 (variante Champions) | Desaconsejado | Aceptable condicionado (cuota ≥2.35) | Aceptable en el límite (cuota ≥2.20) | Vetado: sin respaldo unánime |
+Correcciones aceptadas del auditor: se retira la frase «las patas se refuerzan entre sí (0.722 vs 0.521)», que comparaba cosas incomparables (el 0.722 es el techo de Wilson de un 10/10 con n=10); el overround 1.153 que motivó el veto de la +1.5 de Birmingham era un artefacto de mezclar medias de casas distintas (con medianas es 1.089), aunque el veto se mantiene por las demás causas. Veto adicional: todo el partido Pohang–Johor.
+Ningún agente considera defendible (valor demostrado) ningún par; el mejor es «probable pero no rentable demostrado» (EV de modelo −4 % a −9 %).

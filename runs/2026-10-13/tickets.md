@@ -2,7 +2,7 @@
 
 > **Cuotas = promedio de ≥3 casas vía agregador (NO ejecutables); la casa recalcula las combinadas del mismo partido (cuota real menor). Apoyo = frecuencia descriptiva conservadora (Wilson inferior), NO probabilidad predictiva ni EV.** Entre partidos distintos el producto supone independencia. Las cuotas de cada pata son la MEDIANA entre casas; «conservadora» descuenta un 5 % a cada par del mismo partido y debe seguir ≥ el mínimo del rango más un colchón. Contrastar con la cuota REAL de la casa y con el Nivel 2 (bajas, alineaciones, 2.ª fuente de calendario) antes de apostar. **Regla: un partido no puede aparecer en dos tickets** (si falla en uno, no arrastra al otro): TODOS los borradores de un perfil excluyen los partidos de TODOS los borradores de los perfiles anteriores: escojas el que escojas de cada multiplicador, no comparten partido. Dos patas del mismo partido solo entran con justificación medida (apoyo conjunto sobre los mismos partidos pasados). Las patas de los tickets exigen **calendario confirmado por dos fuentes independientes** (hora del partido) y excluyen categorías juvenil/sub-23/reserva (plantillas rotativas); los rankings top lo marcan en columnas.
 
-> **Puertas de calidad de datos.** (1) Veracidad: 28 mercados bloqueados automáticamente por avisos graves de los agentes (cifras defectuosas/imposibles/sospechosas). (2) Representatividad: 2679 patas con historial MIXTO (otra competición, copas, pretemporada) quedan fuera de los tickets y rankings principales; las de Champions pasan a las variantes `*_champions`, rotuladas de menor respaldo.
+> **Puertas de calidad de datos.** (1) Veracidad: 28 mercados bloqueados automáticamente por avisos graves de los agentes (cifras defectuosas/imposibles/sospechosas). (2) Representatividad: 2633 patas con historial MIXTO (otra competición, copas, pretemporada) quedan fuera de los tickets y rankings principales; las de Champions pasan a las variantes `*_champions`, rotuladas de menor respaldo.
 
 ## Ranking general — familia ×1.2–1.28 (seguridad) (de primero a último)
 
@@ -10,11 +10,11 @@ Criterio: mayor apoyo conjunto descriptivo; a igual apoyo, menor distancia al eq
 
 | Puesto | Perfil | Borrador | Cuota (cons.) | Patas | Apoyo conjunto | Equilibrio 1/cuota | Margen |
 |---|---|---|---|---|---|---|---|
-| 1 | seguridad | 1 | ×1.25 (1.25) | 1 | 0.712 | 0.8 | -0.088 |
-| 2 | seguridad | 2 | ×1.25 (1.25) | 1 | 0.659 | 0.8 | -0.141 |
-| 3 | seguridad | 3 | ×1.22 (1.22) | 1 | 0.659 | 0.82 | -0.161 |
-| 4 | seguridad_champions | 1 | ×1.235 (1.235) | 1 | 0.606 | 0.81 | -0.204 |
-| 5 | seguridad | 4 | ×1.254 (1.254) | 2 | 0.521 | 0.797 | -0.276 |
+| 1 | seguridad | 1 | ×1.282 (1.218) | 2 | 0.722 | 0.821 | -0.099 |
+| 2 | seguridad | 2 | ×1.25 (1.25) | 1 | 0.712 | 0.8 | -0.088 |
+| 3 | seguridad | 3 | ×1.25 (1.25) | 1 | 0.659 | 0.8 | -0.141 |
+| 4 | seguridad | 4 | ×1.22 (1.22) | 1 | 0.659 | 0.82 | -0.161 |
+| 5 | seguridad_champions | 1 | ×1.235 (1.235) | 1 | 0.606 | 0.81 | -0.204 |
 | 6 | seguridad_champions | 2 | ×1.25 (1.25) | 1 | 0.496 | 0.8 | -0.304 |
 | 7 | seguridad | 5 | ×1.265 (1.265) | 2 | 0.476 | 0.791 | -0.315 |
 | 8 | seguridad_champions | 3 | ×1.265 (1.265) | 2 | 0.438 | 0.791 | -0.353 |
@@ -28,44 +28,44 @@ Criterio: mayor apoyo conjunto descriptivo; a igual apoyo, menor distancia al eq
 
 | Puesto | Perfil | Borrador | Cuota (cons.) | Patas | Apoyo conjunto | Equilibrio 1/cuota | Margen |
 |---|---|---|---|---|---|---|---|
-| 1 | amplio_champions | 1 | ×4.331 (4.331) | 3 | 0.16 | 0.231 | -0.071 |
+| 1 | amplio_champions | 1 | ×4.205 (4.205) | 4 | 0.079 | 0.238 | -0.159 |
 | 2 | amplio | 1 | ×4.273 (4.273) | 5 | 0.076 | 0.234 | -0.158 |
-| 3 | amplio_champions | 2 | ×4.721 (4.485) | 5 | 0.066 | 0.223 | -0.157 |
-| 4 | amplio | 2 | ×4.21 (4.21) | 6 | 0.053 | 0.238 | -0.185 |
-| 5 | amplio | 3 | ×4.22 (4.22) | 6 | 0.045 | 0.237 | -0.192 |
+| 3 | amplio | 2 | ×4.21 (4.21) | 6 | 0.053 | 0.238 | -0.185 |
+| 4 | amplio | 3 | ×4.22 (4.22) | 6 | 0.045 | 0.237 | -0.192 |
 
 ## Perfil «seguridad»: ×1.2–1.28 (≤2 patas, apoyo mínimo por ítem 0.65, colchón 1 %) — 5 borradores
 
-### Puesto 1 · Borrador 1: ×1.25 (conservadora ×1.25) · 1 pata(s) en 1 partido(s) · apoyo conjunto descriptivo 0.712 (implícita de mercado sin margen 0.752)
+### Puesto 1 · Borrador 1: ×1.282 (conservadora ×1.218) · 2 pata(s) en 1 partido(s) · apoyo conjunto descriptivo 0.722 (implícita de mercado sin margen 0.661)
+
+| Partido | Inicio UTC | Selección | Cuota media (mín–máx, casas) | Apoyo cons. | n |
+|---|---|---|---|---|---|
+| Birmingham City – Preston North End (efl championship) | 2026-10-13T19:00:00Z | Hándicap visitante +2.5 ⚑ | 1.125 (1.11–1.18, 4) | 0.722 (mín. equipo 0.722) | 10/10 |
+| Birmingham City – Preston North End (efl championship) | 2026-10-13T19:00:00Z | Menos de 4.5 goles ⚑ | 1.14 (1.12–1.18, 7) | 0.722 (mín. equipo 0.722) | 10/10 |
+| ⚑ *dos patas del mismo partido (cuota combinada media 1.282; la casa suele pagar menos).* Conjunto medido en los mismos partidos pasados: local 1.0 (n=10), visitante 1.0 (n=10); apoyo conservador conjunto 0.722 (límite inferior de Wilson; techo 0.722 con n=10), frente a 0.521 como producto de los apoyos individuales (0.722 × 0.722). Referencia descriptiva: no prueba dependencia ni es una probabilidad. Reevaluación de agentes: deportivo, cuantitativo y auditor: ACEPTABLE CON SALVEDADES (ninguno lo ve defendible; EV de modelo ≈ −4 % a −9 %). Condición: exigir cuota real del combinado ≥1.20 y mirar alineaciones; el +2.5 tiene solo 4 casas (1xBet y Marathon repiten precio). Si la casa paga menos de 1.20, es mejor la pata simple Menos de 4.5 (×1.14). | | | | | |
+
+### Puesto 2 · Borrador 2: ×1.25 (conservadora ×1.25) · 1 pata(s) en 1 partido(s) · apoyo conjunto descriptivo 0.712 (implícita de mercado sin margen 0.752)
 
 | Partido | Inicio UTC | Selección | Cuota media (mín–máx, casas) | Apoyo cons. | n |
 |---|---|---|---|---|---|
 | Cardiff City – Watford (efl championship) | 2026-10-13T18:45:00Z | Menos de 4.5 goles | 1.25 (1.2–1.27, 7) | 0.712 (mín. equipo 0.701) | 9/10 |
 
-### Puesto 2 · Borrador 2: ×1.25 (conservadora ×1.25) · 1 pata(s) en 1 partido(s) · apoyo conjunto descriptivo 0.659 (implícita de mercado sin margen 0.754)
+### Puesto 3 · Borrador 3: ×1.25 (conservadora ×1.25) · 1 pata(s) en 1 partido(s) · apoyo conjunto descriptivo 0.659 (implícita de mercado sin margen 0.754)
 
 | Partido | Inicio UTC | Selección | Cuota media (mín–máx, casas) | Apoyo cons. | n |
 |---|---|---|---|---|---|
 | Atlético Bucaramanga – Águilas Doradas (categoria primera a) | 2026-10-13T23:30:00Z | Local o empate (1X) | 1.25 (1.16–1.27, 8) | 0.659 (mín. equipo 0.596) | 10/10 |
 
-### Puesto 3 · Borrador 3: ×1.22 (conservadora ×1.22) · 1 pata(s) en 1 partido(s) · apoyo conjunto descriptivo 0.659 (implícita de mercado sin margen 0.75)
+### Puesto 4 · Borrador 4: ×1.22 (conservadora ×1.22) · 1 pata(s) en 1 partido(s) · apoyo conjunto descriptivo 0.659 (implícita de mercado sin margen 0.75)
 
 | Partido | Inicio UTC | Selección | Cuota media (mín–máx, casas) | Apoyo cons. | n |
 |---|---|---|---|---|---|
 | Pendikspor – Van BB (1 lig) | 2026-10-13T17:00:00Z | Más de 1.5 goles | 1.22 (1.21–1.27, 7) | 0.659 (mín. equipo 0.596) | 10/10 |
 
-### Puesto 4 · Borrador 4: ×1.254 (conservadora ×1.254) · 2 pata(s) en 2 partido(s) · apoyo conjunto descriptivo 0.521 (implícita de mercado sin margen 0.67)
+### Puesto 5 · Borrador 5: ×1.265 (conservadora ×1.265) · 2 pata(s) en 2 partido(s) · apoyo conjunto descriptivo 0.476 (implícita de mercado sin margen 0.666)
 
 | Partido | Inicio UTC | Selección | Cuota media (mín–máx, casas) | Apoyo cons. | n |
 |---|---|---|---|---|---|
-| Birmingham City – Preston North End (efl championship) | 2026-10-13T19:00:00Z | Menos de 4.5 goles | 1.14 (1.12–1.18, 7) | 0.722 (mín. equipo 0.722) | 10/10 |
 | Harju Jalgpallikool – Nõmme United (meistriliiga) | 2026-10-13T15:00:00Z | Menos de 5.5 goles | 1.1 (1.07–1.14, 5) | 0.722 (mín. equipo 0.722) | 10/10 |
-
-### Puesto 5 · Borrador 5: ×1.265 (conservadora ×1.265) · 2 pata(s) en 2 partido(s) · apoyo conjunto descriptivo 0.476 (implícita de mercado sin margen 0.681)
-
-| Partido | Inicio UTC | Selección | Cuota media (mín–máx, casas) | Apoyo cons. | n |
-|---|---|---|---|---|---|
-| Norrköping – GIF Sundsvall (superettan) | 2026-10-13T17:00:00Z | Menos de 5.5 goles | 1.1 (1.08–1.14, 7) | 0.722 (mín. equipo 0.722) | 10/10 |
 | Durban City – AmaZulu (premier soccer league) | 2026-10-13T17:30:00Z | Menos de 3.5 goles | 1.15 (1.11–1.17, 6) | 0.659 (mín. equipo 0.596) | 10/10 |
 
 ## Perfil «amplio»: ×4.0–4.8 (≤6 patas, apoyo mínimo por ítem 0.55, colchón 4 %) — 3 borradores
@@ -137,26 +137,18 @@ Criterio: mayor apoyo conjunto descriptivo; a igual apoyo, menor distancia al eq
 | Villarreal – Napoli (uefa champions league) | 2026-10-13T19:00:00Z | Menos de 5.5 goles | 1.045 (1.01–1.09, 6) | 0.722 (mín. equipo 0.722) | 10/10 |
 | Arsenal – Lille (uefa champions league) | 2026-10-13T19:00:00Z | Menos de 4.5 goles | 1.21 (1.2–1.24, 6) | 0.543 (mín. equipo 0.49) | 10/10 |
 
-## Perfil «amplio_champions»: ×4.0–4.8 (≤6 patas, apoyo mínimo por ítem 0.45, colchón 4 %) — 2 borradores
+## Perfil «amplio_champions»: ×4.0–4.8 (≤6 patas, apoyo mínimo por ítem 0.45, colchón 4 %) — 1 borradores
 
-### Puesto 1 · Borrador 1: ×4.331 (conservadora ×4.331) · 3 pata(s) en 3 partido(s) · apoyo conjunto descriptivo 0.16 (implícita de mercado sin margen 0.19)
+**Solo existe 1 borrador distinto con las patas disponibles** (se pidieron varios para poder escoger): ampliar patas, bajar el apoyo mínimo o aportar cuotas reales.
+
+### Puesto 1 · Borrador 1: ×4.205 (conservadora ×4.205) · 4 pata(s) en 4 partido(s) · apoyo conjunto descriptivo 0.079 (implícita de mercado sin margen 0.183)
 
 | Partido | Inicio UTC | Selección | Cuota media (mín–máx, casas) | Apoyo cons. | n |
 |---|---|---|---|---|---|
 | Kyoto Sanga – Ratchaburi (afc champions league) | 2026-10-13T10:00:00Z | Hándicap visitante +1.5 | 1.68 (1.65–1.72, 6) | 0.659 (mín. equipo 0.596) | 10/10 |
-| Pohang Steelers – Johor Darul Ta'zim (afc champions league) | 2026-10-13T10:00:00Z | Más de 2.5 goles | 1.73 (1.65–1.78, 8) | 0.496 (mín. equipo 0.397) | 10/10 |
-| Galatasaray – Barcelona (uefa champions league) | 2026-10-13T19:00:00Z | Más de 3.5 goles | 1.49 (1.44–1.57, 7) | 0.49 (mín. equipo 0.49) | 10/10 |
-
-### Puesto 2 · Borrador 2 · ⚠ incluye cuota ESTIMADA (córners/tarjetas): verifícala en tu casa: ×4.721 (conservadora ×4.485) · 5 pata(s) en 4 partido(s) · apoyo conjunto descriptivo 0.066 (implícita de mercado sin margen 0.149)
-
-| Partido | Inicio UTC | Selección | Cuota media (mín–máx, casas) | Apoyo cons. | n |
-|---|---|---|---|---|---|
-| Công An Nhân Dân – Kashima Antlers (afc champions league) | 2026-10-13T12:15:00Z | Menos de 10.5 córners | 1.17 ✎est. (1.17–1.17, 0) | 0.543 (mín. equipo 0.49) | 10/10 |
-| Kyoto Sanga – Ratchaburi (afc champions league) | 2026-10-13T10:00:00Z | Hándicap visitante +1.5 ⚑ | 1.68 (1.65–1.72, 6) | 0.659 (mín. equipo 0.596) | 10/10 |
-| Kyoto Sanga – Ratchaburi (afc champions league) | 2026-10-13T10:00:00Z | Menos de 3.5 goles ⚑ | 1.43 (1.38–1.45, 7) | 0.496 (mín. equipo 0.397) | 10/10 |
-| ⚑ *dos patas del mismo partido (cuota combinada media 2.402; la casa suele pagar menos).* Conjunto medido en los mismos partidos pasados: local 0.9 (n=10), visitante 0.7 (n=10); apoyo conservador conjunto 0.496 frente a 0.327 si las patas fueran independientes (0.659 × 0.496): las patas se refuerzan entre sí. | | | | | |
 | Viking – Bayern München (uefa champions league) | 2026-10-13T19:00:00Z | Menos de 5.5 goles | 1.4 (1.37–1.44, 6) | 0.496 (mín. equipo 0.397) | 10/10 |
 | Shanghai SIPG – Daejeon Citizen (afc champions league) | 2026-10-13T10:00:00Z | Más de 1.5 goles | 1.2 (1.17–1.22, 7) | 0.496 (mín. equipo 0.397) | 10/10 |
+| Galatasaray – Barcelona (uefa champions league) | 2026-10-13T19:00:00Z | Más de 3.5 goles | 1.49 (1.44–1.57, 7) | 0.49 (mín. equipo 0.49) | 10/10 |
 
 ## Top de picks por SEGURIDAD (mayor apoyo conservador; una pata por partido)
 
@@ -231,8 +223,54 @@ Criterio: mayor apoyo conjunto descriptivo; a igual apoyo, menor distancia al eq
 
 | Partido | Selección | Motivo |
 |---|---|---|
+| Pohang Steelers – Johor Darul Ta'zim | Local gana (1) | Auditor ronda 2 / cierre de veto: la muestra de Johor está inflada (5.4 GF por partido, 10/10 over 1.5 contra rivales de otra liga) y afecta a cualquier pata de goles; se veta todo el partido |
+| Pohang Steelers – Johor Darul Ta'zim | Empate (X) | Auditor ronda 2 / cierre de veto: la muestra de Johor está inflada (5.4 GF por partido, 10/10 over 1.5 contra rivales de otra liga) y afecta a cualquier pata de goles; se veta todo el partido |
+| Pohang Steelers – Johor Darul Ta'zim | Visitante gana (2) | Auditor ronda 2 / cierre de veto: la muestra de Johor está inflada (5.4 GF por partido, 10/10 over 1.5 contra rivales de otra liga) y afecta a cualquier pata de goles; se veta todo el partido |
+| Pohang Steelers – Johor Darul Ta'zim | Local o empate (1X) | Auditor ronda 2 / cierre de veto: la muestra de Johor está inflada (5.4 GF por partido, 10/10 over 1.5 contra rivales de otra liga) y afecta a cualquier pata de goles; se veta todo el partido |
+| Pohang Steelers – Johor Darul Ta'zim | Gana alguno, sin empate (12) | Auditor ronda 2 / cierre de veto: la muestra de Johor está inflada (5.4 GF por partido, 10/10 over 1.5 contra rivales de otra liga) y afecta a cualquier pata de goles; se veta todo el partido |
 | Pohang Steelers – Johor Darul Ta'zim | Empate o visitante (X2) | Revisión por lotes (cuantitativo/deportivo): el apoyo de Johor se apoya en 5.4 goles/partido y 9/10 over 2.5 contra rivales mucho más débiles de otra liga; historial mixto sin ajuste por rival |
+| Pohang Steelers – Johor Darul Ta'zim | Hándicap local -2.5 | Auditor ronda 2 / cierre de veto: la muestra de Johor está inflada (5.4 GF por partido, 10/10 over 1.5 contra rivales de otra liga) y afecta a cualquier pata de goles; se veta todo el partido |
+| Pohang Steelers – Johor Darul Ta'zim | Hándicap visitante +2.5 | Auditor ronda 2 / cierre de veto: la muestra de Johor está inflada (5.4 GF por partido, 10/10 over 1.5 contra rivales de otra liga) y afecta a cualquier pata de goles; se veta todo el partido |
+| Pohang Steelers – Johor Darul Ta'zim | Hándicap local -1.5 | Auditor ronda 2 / cierre de veto: la muestra de Johor está inflada (5.4 GF por partido, 10/10 over 1.5 contra rivales de otra liga) y afecta a cualquier pata de goles; se veta todo el partido |
+| Pohang Steelers – Johor Darul Ta'zim | Hándicap visitante +1.5 | Auditor ronda 2 / cierre de veto: la muestra de Johor está inflada (5.4 GF por partido, 10/10 over 1.5 contra rivales de otra liga) y afecta a cualquier pata de goles; se veta todo el partido |
+| Pohang Steelers – Johor Darul Ta'zim | Hándicap local -0.5 | Auditor ronda 2 / cierre de veto: la muestra de Johor está inflada (5.4 GF por partido, 10/10 over 1.5 contra rivales de otra liga) y afecta a cualquier pata de goles; se veta todo el partido |
+| Pohang Steelers – Johor Darul Ta'zim | Hándicap visitante +0.5 | Auditor ronda 2 / cierre de veto: la muestra de Johor está inflada (5.4 GF por partido, 10/10 over 1.5 contra rivales de otra liga) y afecta a cualquier pata de goles; se veta todo el partido |
+| Pohang Steelers – Johor Darul Ta'zim | Hándicap local +0.5 | Auditor ronda 2 / cierre de veto: la muestra de Johor está inflada (5.4 GF por partido, 10/10 over 1.5 contra rivales de otra liga) y afecta a cualquier pata de goles; se veta todo el partido |
+| Pohang Steelers – Johor Darul Ta'zim | Hándicap visitante -0.5 | Auditor ronda 2 / cierre de veto: la muestra de Johor está inflada (5.4 GF por partido, 10/10 over 1.5 contra rivales de otra liga) y afecta a cualquier pata de goles; se veta todo el partido |
+| Pohang Steelers – Johor Darul Ta'zim | Hándicap local +1.5 | Auditor ronda 2 / cierre de veto: la muestra de Johor está inflada (5.4 GF por partido, 10/10 over 1.5 contra rivales de otra liga) y afecta a cualquier pata de goles; se veta todo el partido |
+| Pohang Steelers – Johor Darul Ta'zim | Hándicap visitante -1.5 | Auditor ronda 2 / cierre de veto: la muestra de Johor está inflada (5.4 GF por partido, 10/10 over 1.5 contra rivales de otra liga) y afecta a cualquier pata de goles; se veta todo el partido |
+| Pohang Steelers – Johor Darul Ta'zim | Hándicap local +2.5 | Auditor ronda 2 / cierre de veto: la muestra de Johor está inflada (5.4 GF por partido, 10/10 over 1.5 contra rivales de otra liga) y afecta a cualquier pata de goles; se veta todo el partido |
+| Pohang Steelers – Johor Darul Ta'zim | Hándicap visitante -2.5 | Auditor ronda 2 / cierre de veto: la muestra de Johor está inflada (5.4 GF por partido, 10/10 over 1.5 contra rivales de otra liga) y afecta a cualquier pata de goles; se veta todo el partido |
+| Pohang Steelers – Johor Darul Ta'zim | Más de 0.5 goles | Auditor ronda 2 / cierre de veto: la muestra de Johor está inflada (5.4 GF por partido, 10/10 over 1.5 contra rivales de otra liga) y afecta a cualquier pata de goles; se veta todo el partido |
+| Pohang Steelers – Johor Darul Ta'zim | Menos de 0.5 goles | Auditor ronda 2 / cierre de veto: la muestra de Johor está inflada (5.4 GF por partido, 10/10 over 1.5 contra rivales de otra liga) y afecta a cualquier pata de goles; se veta todo el partido |
 | Pohang Steelers – Johor Darul Ta'zim | Más de 1.5 goles | Auditor ronda 2: misma muestra inflada de Johor (5.4 GF, rivales de otra liga) por la que ya se vetó el X2; sin Johor el equipo local queda en 0.49 <0.55 |
+| Pohang Steelers – Johor Darul Ta'zim | Menos de 1.5 goles | Auditor ronda 2 / cierre de veto: la muestra de Johor está inflada (5.4 GF por partido, 10/10 over 1.5 contra rivales de otra liga) y afecta a cualquier pata de goles; se veta todo el partido |
+| Pohang Steelers – Johor Darul Ta'zim | Más de 2.5 goles | Auditor ronda 2 / cierre de veto: la muestra de Johor está inflada (5.4 GF por partido, 10/10 over 1.5 contra rivales de otra liga) y afecta a cualquier pata de goles; se veta todo el partido |
+| Pohang Steelers – Johor Darul Ta'zim | Menos de 2.5 goles | Auditor ronda 2 / cierre de veto: la muestra de Johor está inflada (5.4 GF por partido, 10/10 over 1.5 contra rivales de otra liga) y afecta a cualquier pata de goles; se veta todo el partido |
+| Pohang Steelers – Johor Darul Ta'zim | Más de 3.5 goles | Auditor ronda 2 / cierre de veto: la muestra de Johor está inflada (5.4 GF por partido, 10/10 over 1.5 contra rivales de otra liga) y afecta a cualquier pata de goles; se veta todo el partido |
+| Pohang Steelers – Johor Darul Ta'zim | Menos de 3.5 goles | Auditor ronda 2 / cierre de veto: la muestra de Johor está inflada (5.4 GF por partido, 10/10 over 1.5 contra rivales de otra liga) y afecta a cualquier pata de goles; se veta todo el partido |
+| Pohang Steelers – Johor Darul Ta'zim | Más de 4.5 goles | Auditor ronda 2 / cierre de veto: la muestra de Johor está inflada (5.4 GF por partido, 10/10 over 1.5 contra rivales de otra liga) y afecta a cualquier pata de goles; se veta todo el partido |
+| Pohang Steelers – Johor Darul Ta'zim | Menos de 4.5 goles | Auditor ronda 2 / cierre de veto: la muestra de Johor está inflada (5.4 GF por partido, 10/10 over 1.5 contra rivales de otra liga) y afecta a cualquier pata de goles; se veta todo el partido |
+| Pohang Steelers – Johor Darul Ta'zim | Más de 5.5 goles | Auditor ronda 2 / cierre de veto: la muestra de Johor está inflada (5.4 GF por partido, 10/10 over 1.5 contra rivales de otra liga) y afecta a cualquier pata de goles; se veta todo el partido |
+| Pohang Steelers – Johor Darul Ta'zim | Menos de 5.5 goles | Auditor ronda 2 / cierre de veto: la muestra de Johor está inflada (5.4 GF por partido, 10/10 over 1.5 contra rivales de otra liga) y afecta a cualquier pata de goles; se veta todo el partido |
+| Pohang Steelers – Johor Darul Ta'zim | Ambos anotan: sí | Auditor ronda 2 / cierre de veto: la muestra de Johor está inflada (5.4 GF por partido, 10/10 over 1.5 contra rivales de otra liga) y afecta a cualquier pata de goles; se veta todo el partido |
+| Pohang Steelers – Johor Darul Ta'zim | Ambos anotan: no | Auditor ronda 2 / cierre de veto: la muestra de Johor está inflada (5.4 GF por partido, 10/10 over 1.5 contra rivales de otra liga) y afecta a cualquier pata de goles; se veta todo el partido |
+| Pohang Steelers – Johor Darul Ta'zim | Más de 8.5 córners | Auditor ronda 2 / cierre de veto: la muestra de Johor está inflada (5.4 GF por partido, 10/10 over 1.5 contra rivales de otra liga) y afecta a cualquier pata de goles; se veta todo el partido |
+| Pohang Steelers – Johor Darul Ta'zim | Menos de 8.5 córners | Auditor ronda 2 / cierre de veto: la muestra de Johor está inflada (5.4 GF por partido, 10/10 over 1.5 contra rivales de otra liga) y afecta a cualquier pata de goles; se veta todo el partido |
+| Pohang Steelers – Johor Darul Ta'zim | Más de 9.5 córners | Auditor ronda 2 / cierre de veto: la muestra de Johor está inflada (5.4 GF por partido, 10/10 over 1.5 contra rivales de otra liga) y afecta a cualquier pata de goles; se veta todo el partido |
+| Pohang Steelers – Johor Darul Ta'zim | Menos de 9.5 córners | Auditor ronda 2 / cierre de veto: la muestra de Johor está inflada (5.4 GF por partido, 10/10 over 1.5 contra rivales de otra liga) y afecta a cualquier pata de goles; se veta todo el partido |
+| Pohang Steelers – Johor Darul Ta'zim | Más de 10.5 córners | Auditor ronda 2 / cierre de veto: la muestra de Johor está inflada (5.4 GF por partido, 10/10 over 1.5 contra rivales de otra liga) y afecta a cualquier pata de goles; se veta todo el partido |
+| Pohang Steelers – Johor Darul Ta'zim | Menos de 10.5 córners | Auditor ronda 2 / cierre de veto: la muestra de Johor está inflada (5.4 GF por partido, 10/10 over 1.5 contra rivales de otra liga) y afecta a cualquier pata de goles; se veta todo el partido |
+| Pohang Steelers – Johor Darul Ta'zim | Más de 11.5 córners | Auditor ronda 2 / cierre de veto: la muestra de Johor está inflada (5.4 GF por partido, 10/10 over 1.5 contra rivales de otra liga) y afecta a cualquier pata de goles; se veta todo el partido |
+| Pohang Steelers – Johor Darul Ta'zim | Menos de 11.5 córners | Auditor ronda 2 / cierre de veto: la muestra de Johor está inflada (5.4 GF por partido, 10/10 over 1.5 contra rivales de otra liga) y afecta a cualquier pata de goles; se veta todo el partido |
+| Pohang Steelers – Johor Darul Ta'zim | Más de 2.5 tarjetas (A+R) | Auditor ronda 2 / cierre de veto: la muestra de Johor está inflada (5.4 GF por partido, 10/10 over 1.5 contra rivales de otra liga) y afecta a cualquier pata de goles; se veta todo el partido |
+| Pohang Steelers – Johor Darul Ta'zim | Menos de 2.5 tarjetas (A+R) | Auditor ronda 2 / cierre de veto: la muestra de Johor está inflada (5.4 GF por partido, 10/10 over 1.5 contra rivales de otra liga) y afecta a cualquier pata de goles; se veta todo el partido |
+| Pohang Steelers – Johor Darul Ta'zim | Más de 3.5 tarjetas (A+R) | Auditor ronda 2 / cierre de veto: la muestra de Johor está inflada (5.4 GF por partido, 10/10 over 1.5 contra rivales de otra liga) y afecta a cualquier pata de goles; se veta todo el partido |
+| Pohang Steelers – Johor Darul Ta'zim | Menos de 3.5 tarjetas (A+R) | Auditor ronda 2 / cierre de veto: la muestra de Johor está inflada (5.4 GF por partido, 10/10 over 1.5 contra rivales de otra liga) y afecta a cualquier pata de goles; se veta todo el partido |
+| Pohang Steelers – Johor Darul Ta'zim | Más de 4.5 tarjetas (A+R) | Auditor ronda 2 / cierre de veto: la muestra de Johor está inflada (5.4 GF por partido, 10/10 over 1.5 contra rivales de otra liga) y afecta a cualquier pata de goles; se veta todo el partido |
+| Pohang Steelers – Johor Darul Ta'zim | Menos de 4.5 tarjetas (A+R) | Auditor ronda 2 / cierre de veto: la muestra de Johor está inflada (5.4 GF por partido, 10/10 over 1.5 contra rivales de otra liga) y afecta a cualquier pata de goles; se veta todo el partido |
+| Pohang Steelers – Johor Darul Ta'zim | Más de 5.5 tarjetas (A+R) | Auditor ronda 2 / cierre de veto: la muestra de Johor está inflada (5.4 GF por partido, 10/10 over 1.5 contra rivales de otra liga) y afecta a cualquier pata de goles; se veta todo el partido |
+| Pohang Steelers – Johor Darul Ta'zim | Menos de 5.5 tarjetas (A+R) | Auditor ronda 2 / cierre de veto: la muestra de Johor está inflada (5.4 GF por partido, 10/10 over 1.5 contra rivales de otra liga) y afecta a cualquier pata de goles; se veta todo el partido |
 | Công An Nhân Dân – Kashima Antlers | Gana alguno, sin empate (12) | Auditor ronda 2: pocos empates con copas/ASEAN en la muestra; patas '12' vetadas hasta verificar marcadores a 90' |
 | Sariyer – Bodrumspor | Menos de 4.5 goles | Auditor ronda 2: paga 1.065 (6.5 %) con equilibrio 93.9 % frente a implícita 86.4 %; la muestra incluye semifinal de playoff |
 | Al Sadd – Al Hilal | Gana alguno, sin empate (12) | Auditor ronda 2: 0 empates en 20 partidos con copas en la muestra; hipótesis (sin verificar) de empates registrados como victoria; sesgo del ganador |
@@ -336,6 +374,15 @@ Criterio: mayor apoyo conjunto descriptivo; a igual apoyo, menor distancia al eq
 | Arsenal – Lille | Hándicap visitante +2.5 | Nivel 2 (deportivo): favorito fuerte en casa, ganó por 3+ en 2 de 4 en casa; mercado ~36–39% a la goleada |
 | Athletic-MG – Londrina | Más de 2.5 tarjetas (A+R) | Nivel 2 (verificador/deportivo/cuantitativo): sin mercado de tarjetas en la API, cuota solo estimada por modelo, sin árbitro ni regla de liquidación verificada |
 
+## PARES del mismo partido vetados tras la reevaluación por agentes
+
+| Partido | Par | Motivo |
+|---|---|---|
+| Atlético Bucaramanga – Águilas Doradas | Local o empate (1X) + Menos de 4.5 goles | Deportivo: aceptable flojo; cuantitativo y auditor: DESACONSEJADO (conjunta 0.66–0.71 frente a equilibrio 0.755; la 1X simple a 1.25 lo domina; el producto 1.325 supera el rango). |
+| Atlético Bucaramanga – Águilas Doradas | Local o empate (1X) + Más de 0.5 goles | Cuantitativo y auditor: DESACONSEJADO (P = P(1X) − P(0-0): 0.64–0.70 frente a 0.762; riesgos disjuntos). |
+| Birmingham City – Preston North End | Menos de 4.5 goles + Local o empate (1X) | Deportivo, cuantitativo y auditor: DESACONSEJADO (conjunta 0.66–0.73 frente a 0.77; el par +2.5 visitante + menos de 4.5 lo domina). |
+| Kyoto Sanga – Ratchaburi | Hándicap visitante +1.5 + Menos de 3.5 goles | Deportivo: DESACONSEJADO (×2.40 pide ~40 %, historial mixto con copas); cuantitativo y auditor: aceptable solo con cuota real del par ≥2.20–2.35. Sin respaldo unánime de los agentes: no se propone. |
+
 ---
-Partidos usados en borradores de perfiles previos: 31; sin partidos repetidos entre multiplicadores: True; cuotas manuales aplicadas: 0.
+Partidos usados en borradores de perfiles previos: 28; sin partidos repetidos entre multiplicadores: True; cuotas manuales aplicadas: 0.
 Patas evaluadas: 5074 (con cuota media: 1947) en 135 partidos.
