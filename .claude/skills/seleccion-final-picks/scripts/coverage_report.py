@@ -145,18 +145,18 @@ def render(r):
     L.append(f"| Partidos no confirmados | {r['not_confirmed']} | calendario: {r['calendar_status']} |")
     L.append(f"| Iniciados/finalizados | {r['started_or_finished']} | no elegibles prepartido (todas las causas): {r['not_eligible_prematch']} |")
     L.append(f"| Requieren evaluación (confirmados y elegibles) | {r['required_confirmed_eligible']} | base de la cobertura |")
-    L.append(f"| Con disposición registrada (evaluado, no evaluable tras intentos, o no investigado por falta de fuente permitida; con motivo y evidencia) | {r['processed']} | de {r['coverage_matches_den']} = {r['coverage_matches_pct']}% |")
+    L.append(f"| Con disposición registrada (con motivo y evidencia) | {r['processed']} | de {r['coverage_matches_den']} = {r['coverage_matches_pct']}% — de ellos: {r['proxy_only_partial']} solo proxy parcial, {r['processed_without_any_data_attempt']} sin ninguna consulta de datos, {r['evaluated_sufficiently']} evaluados de verdad |")
     L.append(f"| Hora/calendario de los requeridos | {r['required_single_source_calendar']} de {r['required_confirmed_eligible']} con UNA sola fuente; "
              f"{r['required_selection_calendar_sufficient']} con verificación suficiente para selección final | «CONFIRMADO» significa sin discrepancias entre fuentes, no hora contrastada |")
     L.append(f"| Con al menos una consulta real de datos | {r['with_real_data_attempt']} | de {r['coverage_matches_den']} |")
     L.append(f"| Evaluados suficientemente (histórico de la MISMA competición) | {r['evaluated_sufficiently']} | de {r['coverage_matches_den']} |")
     L.append(f"| Solo con forma doméstica PROXY (otra competición): evaluación PARCIAL | {r['proxy_only_partial']} | de {r['coverage_matches_den']}; no evalúa el partido |")
-    L.append(f"| Procesados SIN ninguna consulta real de datos (ninguna fuente permitida los cubre) | {r['processed_without_any_data_attempt']} | de {r['processed']} procesados: «procesado» no es «examinado» |")
+    L.append(f"| NO intentados (ningún adaptador de fuente permitida los cubre; no se comprobó si otra fuente permitida lo haría) | {r['processed_without_any_data_attempt']} | de {r['processed']} con disposición: «con disposición» no es «examinado» |")
     L.append(f"| Pendientes | {r['pending']} | {r['pending_ids'][:10]}{'…' if len(r['pending_ids']) > 10 else ''} |")
     L.append(f"| Mercados examinados | {r['markets_examined']} | de {r['markets_denominator']} = {r['coverage_markets_pct']}% (NOT_CHECKED: {r['markets_not_checked']}); "
-             f"**{r['markets_examined_from_other_competition_proxy']} de ellos son solo proxy de OTRA competición** y {r['markets_examined'] - r['markets_examined_from_other_competition_proxy']} de la misma competición |")
-    L.append(f"| Mercados con evaluación parcial/evaluable | {r['markets_evaluable_or_partial']} | de la misma competición: {r['markets_evaluable_or_partial_same_competition']}; el resto es proxy descriptivo, no candidatos |")
-    L.append(f"| Mercados no evaluables | {r['markets_not_evaluable']} | familias sin ningún mercado evaluable **de la misma competición**: {r['systemic_families_without_any_evaluable']} |")
+             f"**de la MISMA competición: {r['markets_examined'] - r['markets_examined_from_other_competition_proxy']} (0 %)**; los otros {r['markets_examined_from_other_competition_proxy']} son solo proxy de OTRA competición |")
+    L.append(f"| Mercados con estadística descriptiva PARCIAL (EVALUABLES de la misma competición: {r['markets_evaluable_or_partial_same_competition']}) | {r['markets_evaluable_or_partial']} | el resto es proxy descriptivo de otra competición, no candidatos |")
+    L.append(f"| Mercados NO_EVALUABLE (huecos: en proxies, la fuente abierta no trae ese dato o no es comparable) | {r['markets_not_evaluable']} | familias sin ningún mercado evaluable **de la misma competición**: {r['systemic_families_without_any_evaluable']} |")
     if r["problems"]:
         L += ["", "Problemas de integridad:"] + [f"- {a}: {b}" for a, b in r["problems"]]
     L += ["", f"**Veredicto de la puerta de cobertura: {r['verdict']}**"]

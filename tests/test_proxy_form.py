@@ -122,6 +122,28 @@ class ProxyEvaluation(unittest.TestCase):
         self.assertIn("Sporting n=5", e["sample_note"])
         self.assertIn("ALIAS SUJETO A REVISIÓN: sporting", e["sample_note"])
 
+    def test_1x2_not_comparable_across_leagues_and_shots_are_real_stats(self):
+        e = self.ev(match("Arsenal", "Lille"), prov())
+        self.assertEqual(e["markets"]["resultado.1x2"]["evaluation_status"], "NO_EVALUABLE")
+        self.assertIn("ligas distintas", e["markets"]["resultado.1x2"]["not_evaluable_reason"])
+        self.assertEqual(e["markets"]["resultado.1x2"]["stats"], [])
+        for k in ("otros.tiros", "otros.tiros_a_puerta"):
+            self.assertEqual(e["markets"][k]["evaluation_status"], "PARCIAL", k)
+            self.assertTrue(all("línea de referencia" in b["label"] for b in e["markets"][k]["stats"]), k)
+        self.assertTrue(all("equipo local (casa+fuera)" in b["label"] or "equipo visitante (casa+fuera)" in b["label"]
+                            for b in e["markets"]["goles.btts"]["stats"]))
+
+    def test_cards_note_declares_non_homogeneous_definition(self):
+        e = self.ev(match("Arsenal", "Lille"), prov())
+        self.assertIn("NO homogénea entre ligas", e["sample_note"])
+        self.assertIn("Inglaterra y Escocia", e["sample_note"])
+
+    def test_price_is_NOT_CHECKED_when_nobody_tried(self):
+        e = self.ev(match("Viking", "Bayern München"), prov())
+        self.assertTrue(all(m["price_verification_status"] == "NOT_CHECKED" for m in e["markets"].values()))
+        e2 = self.ev(match("Arsenal", "Lille"), prov())
+        self.assertTrue(all(m["price_verification_status"].startswith("PRECIO_NO_CONFIRMADO") for m in e2["markets"].values()))
+
     def test_alias_use_is_recorded_for_review(self):
         e = self.ev(match("Inter Milan", "Club Brugge"), prov(extra={"B1": csv_for("B1", ["Club Brugge"])}))
         self.assertIn("alias", e["sample_note"])

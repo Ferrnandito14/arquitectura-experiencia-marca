@@ -176,28 +176,32 @@ def stat_blocks(hh, ha):
     tot = lambda h: (h["gf"] + h["ga"]) if h["gf"] is not None and h["ga"] is not None else None
     for line in (1.5, 2.5, 3.5):
         out[f"goles.over_{str(line).replace('.', '_')}"] = [
-            freq_block(*_count(hh, lambda h, l=line: None if tot(h) is None else tot(h) > l), f"local últimos {len(hh)}: total>{line}"),
-            freq_block(*_count(ha, lambda h, l=line: None if tot(h) is None else tot(h) > l), f"visitante últimos {len(ha)}: total>{line}")]
+            freq_block(*_count(hh, lambda h, l=line: None if tot(h) is None else tot(h) > l), f"equipo local (casa+fuera) últimos {len(hh)}: total>{line}"),
+            freq_block(*_count(ha, lambda h, l=line: None if tot(h) is None else tot(h) > l), f"equipo visitante (casa+fuera) últimos {len(ha)}: total>{line}")]
     btts = lambda h: None if h["gf"] is None else (h["gf"] > 0 and h["ga"] > 0)
-    out["goles.btts"] = [freq_block(*_count(hh, btts), f"local últimos {len(hh)}: ambos anotan"),
-                         freq_block(*_count(ha, btts), f"visitante últimos {len(ha)}: ambos anotan")]
+    out["goles.btts"] = [freq_block(*_count(hh, btts), f"equipo local (casa+fuera) últimos {len(hh)}: ambos anotan"),
+                         freq_block(*_count(ha, btts), f"equipo visitante (casa+fuera) últimos {len(ha)}: ambos anotan")]
     out["goles.goles_por_equipo"] = [freq_block(*_count(hh, lambda h: None if h["gf"] is None else h["gf"] >= 1), f"local anota ≥1 (últimos {len(hh)})"),
                                      freq_block(*_count(ha, lambda h: None if h["gf"] is None else h["gf"] >= 1), f"visitante anota ≥1 (últimos {len(ha)})")]
     ctot = lambda h: None if None in h["corners"] else h["corners"][0] + h["corners"][1]
     for line in (8.5, 9.5, 10.5):
         out.setdefault("corners.total", []).extend([
-            freq_block(*_count(hh, lambda h, l=line: None if ctot(h) is None else ctot(h) > l), f"local últimos {len(hh)}: córners totales>{line}"),
-            freq_block(*_count(ha, lambda h, l=line: None if ctot(h) is None else ctot(h) > l), f"visitante últimos {len(ha)}: córners totales>{line}")])
+            freq_block(*_count(hh, lambda h, l=line: None if ctot(h) is None else ctot(h) > l), f"equipo local (casa+fuera) últimos {len(hh)}: córners totales>{line}"),
+            freq_block(*_count(ha, lambda h, l=line: None if ctot(h) is None else ctot(h) > l), f"equipo visitante (casa+fuera) últimos {len(ha)}: córners totales>{line}")])
     cards = lambda h: None if None in h["yellow"] or None in h["red"] else sum(h["yellow"]) + sum(h["red"])
     for line in (3.5, 4.5, 5.5):
         out.setdefault("tarjetas.total", []).extend([
-            freq_block(*_count(hh, lambda h, l=line: None if cards(h) is None else cards(h) > l), f"local últimos {len(hh)}: tarjetas (A+R)>{line}"),
-            freq_block(*_count(ha, lambda h, l=line: None if cards(h) is None else cards(h) > l), f"visitante últimos {len(ha)}: tarjetas (A+R)>{line}")])
+            freq_block(*_count(hh, lambda h, l=line: None if cards(h) is None else cards(h) > l), f"equipo local (casa+fuera) últimos {len(hh)}: tarjetas (A+R)>{line}"),
+            freq_block(*_count(ha, lambda h, l=line: None if cards(h) is None else cards(h) > l), f"equipo visitante (casa+fuera) últimos {len(ha)}: tarjetas (A+R)>{line}")])
     win = lambda h: None if h["gf"] is None else h["gf"] > h["ga"]
-    out["resultado.1x2"] = [freq_block(*_count(hh, win), f"local gana (últimos {len(hh)}, todos los rivales)"),
+    out["resultado.1x2"] = [freq_block(*_count(hh, win), f"equipo local gana (últimos {len(hh)}, todos los rivales)"),
                             freq_block(*_count(ha, lambda h: None if h["gf"] is None else h["gf"] > h["ga"]), f"visitante gana (últimos {len(ha)})")]
     shots = lambda h: None if None in h["shots"] else h["shots"][0] + h["shots"][1]
-    out["otros.tiros"] = [freq_block(*_count(hh, lambda h: None if shots(h) is None else shots(h) > 0), f"local: dato de tiros presente en {len(hh)} partidos")]
+    sot = lambda h: None if None in h["sot"] else h["sot"][0] + h["sot"][1]
+    out["otros.tiros"] = [freq_block(*_count(hh, lambda h: None if shots(h) is None else shots(h) > 22.5), f"equipo local (casa+fuera) últimos {len(hh)}: tiros totales>22.5 (línea de referencia)"),
+                          freq_block(*_count(ha, lambda h: None if shots(h) is None else shots(h) > 22.5), f"equipo visitante (casa+fuera) últimos {len(ha)}: tiros totales>22.5 (línea de referencia)")]
+    out["otros.tiros_a_puerta"] = [freq_block(*_count(hh, lambda h: None if sot(h) is None else sot(h) > 8.5), f"equipo local (casa+fuera) últimos {len(hh)}: tiros a puerta totales>8.5 (línea de referencia)"),
+                                   freq_block(*_count(ha, lambda h: None if sot(h) is None else sot(h) > 8.5), f"equipo visitante (casa+fuera) últimos {len(ha)}: tiros a puerta totales>8.5 (línea de referencia)")]
     return {k: [b for b in v if b] for k, v in out.items()}
 
 
@@ -246,7 +250,7 @@ def evaluate_match(match, provider, policy, now_iso):
                 note = (f"PROXY: forma de liga DOMÉSTICA, OTRA competición, de ≤{HISTORY_N} partidos por equipo, temporada en curso; "
                         f"local→{pr['home'][1]} ({pr['home'][0]}{', alias' if pr['home'][2] else ''}), visitante→{pr['away'][1]} ({pr['away'][0]}{', alias' if pr['away'][2] else ''}). "
                         "NO es evidencia del partido (otra competición, rivales y contexto distintos), mezcla partidos en casa y fuera, y no es una muestra de temporada completa; "
-                        "tarjetas = amarillas+rojas sin ponderar, sin árbitro designado y sin verificar que la definición sea homogénea entre ligas; "
+                        "tarjetas = amarillas+rojas sin ponderar y sin árbitro designado; definición NO homogénea entre ligas (Football-Data: en Inglaterra y Escocia la amarilla inicial no cuenta cuando hay segunda amarilla y roja; en las ligas europeas sí); "
                         "líneas de córners/tarjetas/goles = referencias fijas, NO las de ninguna casa"
                         + (f"; MUESTRA DÉBIL n<8: {', '.join(weak)}" if weak else "")
                         + (f"; ALIAS SUJETO A REVISIÓN: {', '.join(review)}" if review else ""))
@@ -260,6 +264,8 @@ def evaluate_match(match, provider, policy, now_iso):
     markets = {}
     for key in ALL_MARKETS:
         have_stats = key in blocks and blocks[key]
+        if proxy and key.startswith("resultado."):
+            have_stats = False      # equipos de ligas distintas, sin rivales comunes: su % de victorias no es comparable para el 1X2
         have_price = key in prices
         if have_stats:
             stats_status = "SUFICIENTES" if (min(b["n"] for b in blocks[key]) >= 8 and not proxy) else "PARCIALES"
@@ -274,8 +280,11 @@ def evaluate_match(match, provider, policy, now_iso):
                 reason = "estadística descriptiva de liga doméstica (OTRA competición): no evalúa el partido; sin cuota verificada"
         elif not data_attempted:
             ev = "NOT_CHECKED"       # nadie examinó este mercado: no implica que no exista ni que la estadística sea 0
-            reason = ("no investigado: ninguna fuente permitida cubre esta competición (sin ficha ni feed abierto); "
+            reason = ("no investigado: ningún adaptador de fuente permitida cubre esta competición (sin ficha ni feed abierto); "
                       "no implica que el mercado no exista ni que la estadística sea 0")
+        elif proxy and key.startswith("resultado."):
+            ev = "NO_EVALUABLE"
+            reason = "forma doméstica de ligas distintas sin rivales comunes: no es comparable para resultado/hándicap; sin cuota"
         elif not (form.get("local") and form.get("visitante")):
             ev = "NO_EVALUABLE"
             reason = "intento de consulta fallido o sin histórico: ver attempts"
@@ -285,12 +294,13 @@ def evaluate_match(match, provider, policy, now_iso):
         markets[key] = {
             "market_availability_status": "VERIFICADO_DISPONIBLE_EN_UNA_CASA" if have_price else "NOT_CHECKED",
             "statistics_availability_status": stats_status,
-            "price_verification_status": "PRECIO_NO_CONFIRMADO" + (" (una sola casa vía agregador)" if have_price else ""),
+            "price_verification_status": ("NOT_CHECKED" if not data_attempted and not have_price
+                                          else "PRECIO_NO_CONFIRMADO" + (" (una sola casa vía agregador)" if have_price else "")),
             "evaluation_status": ev, "not_evaluable_reason": reason, "proxy_sample": proxy,
             "sources_checked": [a["provider"] for a in attempts if a["resultado"].startswith(("consultada", "acceso fallido"))],
             "sources_not_consulted": [a["provider"] for a in attempts if a["resultado"].startswith(("no consultada", "sin cobertura"))],
             "last_updated": now_iso,
-            "stats": blocks.get(key, []), "price": prices.get(key)}
+            "stats": ([] if (proxy and key.startswith("resultado.")) else blocks.get(key, [])), "price": prices.get(key)}
     n_ok = sum(1 for m in markets.values() if m["evaluation_status"] in ("EVALUABLE", "PARCIAL"))
     return {"match_id": match["match_id"], "attempts": attempts, "data_attempted": data_attempted, "proxy_sample": proxy, "form": form, "sample_note": note,
             "markets": markets, "evaluated_markets_ok": n_ok,
@@ -342,7 +352,8 @@ def process(run, provider, policy, limit=None, evaluator=evaluate_match, now=Non
                 s["reason"] = "solo forma doméstica de OTRA competición (proxy descriptivo): no evalúa el partido"
                 s["evidence"] = ev["attempts"]
             elif s["status"] == NO_INVESTIGADO:
-                s["reason"] = "ninguna fuente permitida cubre este partido: no hubo consulta real (fuentes excluidas por política o no revisadas)"
+                s["reason"] = ("no se intentó ninguna consulta de datos: ningún adaptador de fuente permitida implementado cubre esta competición "
+                               "(fuentes excluidas por política o no revisadas; no se ha comprobado si las ligas extra de Football-Data cubrirían alguna)")
                 s["evidence"] = ev["attempts"]
             m["sports_analysis_status"], m["market_analysis_status"] = ev["sports_analysis_status"], ev["market_analysis_status"]
         except Exception as e:      # error recuperable hasta MAX_ATTEMPTS
