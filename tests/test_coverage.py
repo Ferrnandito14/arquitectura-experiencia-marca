@@ -109,6 +109,26 @@ class Gate(unittest.TestCase):
         self.assertEqual(r["exit_code"] == 0, not fam_ok and r["evaluated_sufficiently"] == r["required_confirmed_eligible"])
 
 
+class ProxyIsPartial(unittest.TestCase):
+    def test_proxy_only_never_counts_as_sufficient(self):
+        tmp = prep([match(1), match(2)])
+        mx = common.read_json(os.path.join(tmp, "matrix.json"))
+        mx["matches"]["m-1"]["proxy_sample"] = True
+        common.write_json_atomic(os.path.join(tmp, "matrix.json"), mx)
+        r = coverage_report.compute(tmp)
+        self.assertEqual((r["evaluated_sufficiently"], r["proxy_only_partial"], r["processed"]), (1, 1, 2))
+        self.assertEqual(r["exit_code"], 4)                     # con un proxy en el universo requerido no hay ranking definitivo
+        self.assertIn("1 solo con forma doméstica proxy (parcial)", r["verdict"])
+
+    def test_all_proxy_is_restricted_even_with_zero_pending(self):
+        tmp = prep([match(1)])
+        mx = common.read_json(os.path.join(tmp, "matrix.json"))
+        mx["matches"]["m-1"]["proxy_sample"] = True
+        common.write_json_atomic(os.path.join(tmp, "matrix.json"), mx)
+        r = coverage_report.compute(tmp)
+        self.assertEqual((r["pending"], r["evaluated_sufficiently"], r["exit_code"]), (0, 0, 4))
+
+
 class SingleSourceCalendar(unittest.TestCase):
     def test_report_discloses_single_source_calendar_for_required_matches(self):
         tmp = prep([match(1), match(2)])

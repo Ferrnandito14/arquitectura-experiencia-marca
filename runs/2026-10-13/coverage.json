@@ -2,25 +2,27 @@
   "calendar_status": {
     "CONFIRMADO": 240
   },
-  "candidates_detected": 0,
+  "candidates_detected": 63,
   "confirmed": 240,
-  "coverage_markets_pct": 0.0,
+  "confirmed_with_sufficient_selection_check": 0,
+  "coverage_markets_pct": 46.7,
   "coverage_matches_den": 15,
   "coverage_matches_pct": 100.0,
   "evaluated_sufficiently": 0,
   "exit_code": 4,
   "markets_denominator": 345,
-  "markets_evaluable_or_partial": 0,
-  "markets_examined": 0,
-  "markets_not_checked": 345,
-  "markets_not_evaluable": 0,
+  "markets_evaluable_or_partial": 63,
+  "markets_examined": 161,
+  "markets_not_checked": 184,
+  "markets_not_evaluable": 98,
   "not_confirmed": 0,
   "not_eligible_prematch": 225,
   "pending": 0,
   "pending_ids": [],
   "problems": [],
   "processed": 15,
-  "processed_without_any_data_attempt": 15,
+  "processed_without_any_data_attempt": 8,
+  "proxy_only_partial": 7,
   "raw_by_source": {
     "apwin": 41,
     "football-data": 199
@@ -30,14 +32,39 @@
   "required_selection_calendar_sufficient": 0,
   "required_single_source_calendar": 15,
   "started_or_finished": 8,
-  "systemic_families_without_any_evaluable": [
-    "resultado",
-    "goles",
-    "corners",
-    "tarjetas",
-    "otros"
+  "systemic_families_without_any_evaluable": [],
+  "truncation_detail": [
+    {
+      "day": "2026-10-12",
+      "declared_total": 15,
+      "has_more": false,
+      "loaded": 11,
+      "page": 1,
+      "source": "apwin",
+      "url": "https://www.apwin.com/?date=2026-10-12"
+    },
+    {
+      "day": "2026-10-13",
+      "declared_total": 166,
+      "has_more": true,
+      "loaded": 15,
+      "page": 1,
+      "source": "apwin",
+      "url": "https://www.apwin.com/?date=2026-10-13"
+    },
+    {
+      "day": "2026-10-14",
+      "declared_total": 126,
+      "has_more": true,
+      "loaded": 15,
+      "page": 1,
+      "source": "apwin",
+      "url": "https://www.apwin.com/?date=2026-10-14"
+    }
   ],
+  "truncation_note": "UNIVERSO TRUNCADO: apwin 2026-10-12: 11 accesibles de 15 declarados; apwin 2026-10-13: 15 accesibles de 166 declarados; apwin 2026-10-14: 15 accesibles de 126 declarados — los partidos contados son una cota inferior; nunca «la jornada completa»",
   "unique_matches": 240,
-  "verdict": "RANKING PROVISIONAL RESTRINGIDO — limitación sistémica: familias sin ningún mercado evaluable ['resultado', 'goles', 'corners', 'tarjetas', 'otros']; 15 partidos sin histórico suficiente",
-  "with_real_data_attempt": 0
+  "universe_truncated": true,
+  "verdict": "RANKING PROVISIONAL RESTRINGIDO — limitación sistémica: 8 partidos NO investigados (sin fuente permitida), 7 solo con forma doméstica proxy (parcial) y 0 con intento insuficiente; UNIVERSO TRUNCADO: apwin 2026-10-12: 11 accesibles de 15 declarados; apwin 2026-10-13: 15 accesibles de 166 declarados; apwin 2026-10-14: 15 accesibles de 126 declarados — los partidos contados son una cota inferior; nunca «la jornada completa»",
+  "with_real_data_attempt": 7
 }
