@@ -44,6 +44,8 @@ PROFILE_DIVERSITY = {"amplio": (0.6, 3)}      # (solape máx. de partidos entre 
 TEAM_FLOOR_BY_PROFILE = {"amplio": 0.45}    # el perfil amplio acepta 8/10 por equipo (Wilson 0.49): relajado y rotulado; seguridad usa TEAM_FLOOR
 EXCLUDE_TICKET_SELECTIONS = ("Gana alguno, sin empate",)    # auditor ronda 2: las patas «12» salen con ~8 % de empates frente a 22–30 % de mercado (¿empate registrado como victoria en copas?): fuera de tickets hasta verificar marcadores a 90'
 MAX_LEG_REUSE = 2       # una misma pata (partido+selección) aparece como máximo en 2 borradores de un perfil (evita que un solo fallo hunda todos)
+MAX_SAME_DIRECTION = 2    # auditoría 13-oct: máx. 2 patas under (o over) por ticket: los unders del mismo día comparten el régimen de goles
+SAFE_P_MIN = 0.85         # un ticket solo se rotula «seguridad» si P(mercado, sin margen) ≥ 85 % y EV ≥ 0; si no, «bajo riesgo (EV<0)» con su P(pérdida)
 TICKET_MIN_BOOKS = 4    # revisión por lotes: cuotas medias de 2–3 casas son frágiles (precios repetidos/extremos); las patas de TICKET exigen ≥4 casas (rankings: ≥3)
 ODDS_MIN, ODDS_MAX = 1.03, 2.6
 PAIR_TOP_PER_MATCH = 10
@@ -286,6 +288,35 @@ def apply_manual_odds(legs, path):
     return n
 
 
+def _direction(leg):
+    """'under' / 'over' según el texto de la selección («Menos de …» / «Más de …»); None para ganador, hándicap, BTTS, doble oportunidad."""
+    t = (leg.get("seleccion") or "").lower()
+    if " menos de " in " " + t or t.startswith("menos de"):
+        return "under"
+    if " más de " in " " + t or t.startswith("más de"):
+        return "over"
+    return None
+
+
+def _direction_counts(items):
+    c = {"under": 0, "over": 0}
+    for it in items:
+        for l in it["patas"]:
+            d = _direction(l)
+            if d:
+                c[d] += 1
+    return c
+
+
+def risk_label(p_mercado, ev_mercado):
+    """Rótulo honesto del ticket (auditoría 13-oct: no llamar «seguridad» a un ×1.25 con 20 % de fallo y EV<0)."""
+    if p_mercado is None:
+        return "SIN PROBABILIDAD DE MERCADO (no evaluable)"
+    if p_mercado >= SAFE_P_MIN and ev_mercado is not None and ev_mercado >= 0:
+        return "SEGURIDAD"
+    return "BAJO RIESGO (EV<0)" if (ev_mercado is not None and ev_mercado < 0) else "RIESGO MEDIO/ALTO"
+
+
 def apply_vetoes(legs, path):
     """vetoes.json = [{"partido": "Local – Visitante" (o "match_id"), "seleccion": "texto exacto", "motivo": "…"}]: decisiones del director a partir de
     la revisión de los agentes. Una pata vetada no entra en tickets ni en rankings; el veto se registra en tickets.json."""
@@ -494,6 +525,9 @@ def search(legs, lo, hi, max_legs, min_support, top=5, pool=60, exclude=frozense
             if it["match_id"] in {c["match_id"] for c in chosen}:
                 continue
             n = nlegs + len(it["patas"])
+            dc = _direction_counts(chosen + [it])
+            if dc["under"] > MAX_SAME_DIRECTION or dc["over"] > MAX_SAME_DIRECTION:
+                continue
             e = nest + sum(1 for l in it["patas"] if l.get("cuota_tipo") == "estimada_por_modelo")
             p = prod * _hi_odds(it)
             if n <= max_legs and p <= hi and e <= max_est:
@@ -513,7 +547,13 @@ def search(legs, lo, hi, max_legs, min_support, top=5, pool=60, exclude=frozense
             break
     out = []
     for s, nl, p, c in picked:
-        out.append({"cuota_combinada_media": round(calc.combo_odds([x["cuota"] for x in c]), 3),
+        _pm = (None if any(l["prob_implicita_sin_margen"] is None for x in c for l in x["patas"]) else
+               calc.joint_prob([calc.joint_prob([l["prob_implicita_sin_margen"] for l in x["patas"]]) for x in c]))
+        _cm = calc.combo_odds([x["cuota"] for x in c])
+        _ev = None if _pm is None else round(_pm * _cm - 1, 3)
+        out.append({"p_mercado_conjunta": None if _pm is None else round(_pm, 3), "p_perdida_mercado": None if _pm is None else round(1 - _pm, 3), "ev_mercado": _ev,
+                    "etiqueta_riesgo": risk_label(_pm, _ev), "direcciones": _direction_counts(c),
+                    "cuota_combinada_media": round(calc.combo_odds([x["cuota"] for x in c]), 3),
                     "cuota_combinada_conservadora": round(calc.combo_odds([x["cuota_cons"] for x in c]), 3), "n_patas": -nl, "n_partidos": len(c),
                     "usa_cuota_estimada": any(l.get("cuota_tipo") == "estimada_por_modelo" for x in c for l in x["patas"]),
                     "usa_cuota_manual": any(l.get("cuota_tipo") == "manual_usuario" for x in c for l in x["patas"]),
@@ -641,6 +681,12 @@ def render(result):
     if fj.get("despues_de_utc") or fj.get("partidos_excluidos_manualmente"):
         L += [f"> **Filtros de jornada:** solo partidos que empiezan después de {fj.get('despues_de_utc')} ({fj.get('partidos_descartados_por_hora', 0)} partidos descartados por hora); excluidos a mano: {', '.join(fj.get('partidos_excluidos_manualmente') or []) or 'ninguno'}. "
               "Comprueba en tu casa que cada partido siga prepartido.", ""]
+    _all = [tk for t in result["targets"] for tk in t["tickets"]]
+    _evs = [tk["ev_mercado"] for tk in _all if tk.get("ev_mercado") is not None]
+    if _all and (not _evs or max(_evs) < 0):
+        L += ["> # ⛔ NO APOSTAR", "> Con las probabilidades de mercado sin margen, **ningún borrador tiene EV ≥ 0** "
+              f"(mejor EV {max(_evs) if _evs else 'n/d'}). Los borradores se entregan como INFORMATIVOS: cada ticket muestra su probabilidad de pérdida. "
+              "Una pata con cuota 1.25 falla 1 de cada 5 veces; un ticket no es «seguro» por tener mucho apoyo histórico.", ""]
     L += _ranking_general(result)
     for t in result["targets"]:
         L += [f"## Perfil «{t['name']}»: ×{t['lo']}–{t['hi']} (≤{t['max_legs']} patas, apoyo mínimo por ítem {t['min_support']}, colchón {int(t.get('buffer', 0) * 100)} %) — {len(t['tickets'])} borradores", ""]
@@ -650,6 +696,7 @@ def render(result):
             L += ["Sin combinación posible con las patas disponibles: no se fuerza ningún ticket.", ""]
         for i, tk in enumerate(t["tickets"], 1):
             flag = (" · ⚠ incluye cuota ESTIMADA (córners/tarjetas): verifícala en tu casa" if tk.get("usa_cuota_estimada") else "") + (" · incluye cuota aportada por ti" if tk.get("usa_cuota_manual") else "")
+            L += [f"**Rótulo honesto: {tk.get('etiqueta_riesgo')} · P(mercado, sin margen) {tk.get('p_mercado_conjunta')} · P(pérdida) {tk.get('p_perdida_mercado')} · EV(mercado) {tk.get('ev_mercado')} · direcciones {tk.get('direcciones')}**", ""]
             L += [f"### Puesto {i} · Borrador {i}{flag}: ×{tk['cuota_combinada_media']} (conservadora ×{tk['cuota_combinada_conservadora']}) · {tk['n_patas']} pata(s) en {tk['n_partidos']} partido(s) · apoyo conjunto descriptivo {tk['apoyo_conjunto_descriptivo']} "
                   f"(implícita de mercado sin margen {tk['prob_implicita_conjunta_sin_margen']})", "",
                   "| Partido | Inicio UTC | Selección | Cuota media (mín–máx, casas) | Apoyo cons. | n |", "|---|---|---|---|---|---|"]

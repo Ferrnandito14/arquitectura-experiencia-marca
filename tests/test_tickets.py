@@ -121,6 +121,49 @@ class Search(unittest.TestCase):
         self.assertIn("calc.wilson", src)
 
 
+class ProcessGates(unittest.TestCase):
+    """Reglas de proceso añadidas tras la auditoría del 13-oct: dirección correlacionada, rótulo honesto, P(pérdida), NO APOSTAR."""
+
+    def test_direction_detection(self):
+        self.assertEqual(tickets._direction({"seleccion": "Menos de 4.5 goles"}), "under")
+        self.assertEqual(tickets._direction({"seleccion": "Más de 1.5 goles"}), "over")
+        self.assertEqual(tickets._direction({"seleccion": "Local o empate (1X)"}), None)
+        self.assertEqual(tickets._direction({"seleccion": "Hándicap visitante +2.5"}), None)
+
+    def test_risk_label_never_calls_negative_ev_safety(self):
+        self.assertEqual(tickets.risk_label(0.90, 0.05), "SEGURIDAD")
+        self.assertEqual(tickets.risk_label(0.80, -0.11), "BAJO RIESGO (EV<0)")      # un ×1.25 con 20 % de fallo no es «seguridad»
+        self.assertEqual(tickets.risk_label(0.90, -0.02), "BAJO RIESGO (EV<0)")
+        self.assertIn("NO EVALUABLE".lower(), tickets.risk_label(None, None).lower().replace("no evaluable", "no evaluable"))
+
+    def test_search_never_exceeds_same_direction_limit(self):
+        legs = []
+        for i in range(6):
+            legs += tickets.legs_for_match(mm(i), ev(prices={"goles.over_5_5": avg([8.0, 1.1]), "resultado.doble_oportunidad": avg([1.15, 1.2, 4.0])}))
+        res, _ = tickets.search(legs, 1.2, 1.9, 4, 0.0, top=10)
+        self.assertTrue(res)
+        for t in res:
+            d = t["direcciones"]
+            self.assertLessEqual(d["under"], tickets.MAX_SAME_DIRECTION)
+            self.assertLessEqual(d["over"], tickets.MAX_SAME_DIRECTION)
+
+    def test_ticket_carries_loss_probability_and_label(self):
+        legs = tickets.legs_for_match(mm(0), ev(prices={"goles.over_5_5": avg([8.0, 1.1]), "resultado.doble_oportunidad": avg([1.15, 1.2, 4.0])}))
+        res, _ = tickets.search(legs, 1.05, 1.5, 2, 0.0, top=3)
+        self.assertTrue(res)
+        for t in res:
+            if t["p_mercado_conjunta"] is not None:
+                self.assertAlmostEqual(t["p_mercado_conjunta"] + t["p_perdida_mercado"], 1.0, places=2)
+            self.assertIn(t["etiqueta_riesgo"].split(" ")[0], ("SEGURIDAD", "BAJO", "RIESGO", "SIN"))
+
+    def test_render_opens_with_no_apostar_when_every_ev_negative(self):
+        tk = {"cuota_combinada_media": 1.25, "cuota_combinada_conservadora": 1.2, "n_patas": 1, "n_partidos": 1, "usa_cuota_estimada": False, "usa_cuota_manual": False,
+              "apoyo_conjunto_descriptivo": 0.7, "prob_implicita_conjunta_sin_margen": 0.8, "p_mercado_conjunta": 0.8, "p_perdida_mercado": 0.2, "ev_mercado": -0.11,
+              "etiqueta_riesgo": "BAJO RIESGO (EV<0)", "direcciones": {"under": 1, "over": 0}, "items": []}
+        res = {"targets": [{"name": "seguridad", "lo": 1.2, "hi": 1.28, "max_legs": 2, "min_support": 0.6, "tickets": [tk]}], "unpriced": [], "n_legs": 0, "n_priced_legs": 0, "n_matches_with_legs": 0}
+        self.assertIn("NO APOSTAR", tickets.render(res))
+
+
 if __name__ == "__main__":
     unittest.main()
 
