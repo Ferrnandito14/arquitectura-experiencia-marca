@@ -48,7 +48,8 @@ class RealRunProxyIndependentRecompute(unittest.TestCase):
         csvs = load_csvs()
         idx = {m["match_id"]: m for m in inv["matches"]}
         proxies = [(mid, e) for mid, e in mx.items() if e["proxy_sample"]]
-        self.assertGreaterEqual(len(proxies), 1)
+        if not proxies:
+            self.skipTest("la ejecución real guardada ya no contiene proxies (el historial propio de la API los reemplazó)")
         checked = 0
         for mid, e in proxies:
             m = idx[mid]
@@ -78,12 +79,41 @@ class RealRunProxyIndependentRecompute(unittest.TestCase):
                 self.assertLessEqual(len(samples[side]), 10)
         self.assertGreaterEqual(checked, 5 * 2 * len(proxies))
 
+    def test_own_history_blocks_match_independent_recount_from_rows(self):
+        """Recuento independiente (sin stat_blocks) de BTTS, más de 2.5 goles y córners>9.5 desde las filas guardadas del historial propio."""
+        mx = json.load(open(os.path.join(RUN, "matrix.json")))["matches"]
+        own = [e for e in mx.values() if e.get("history_kind") == "apifootball_historial_propio"]
+        if not own:
+            self.skipTest("no hay partidos con historial propio en la ejecución guardada")
+        checked = 0
+        for e in own:
+            for side, rows in (("local", e["form"]["local"]), ("visitante", e["form"]["visitante"])):
+                idx = 0 if side == "local" else 1
+                blocks = e["markets"]["goles.btts"]["stats"]
+                if len(blocks) == 2:
+                    k = sum(1 for r in rows if r["gf"] is not None and r["gf"] > 0 and r["ga"] > 0)
+                    n = sum(1 for r in rows if r["gf"] is not None)
+                    self.assertEqual((blocks[idx]["k"], blocks[idx]["n"]), (k, n))
+                    checked += 1
+                ob = e["markets"]["goles.over_2_5"]["stats"]
+                if len(ob) == 2:
+                    k = sum(1 for r in rows if r["gf"] is not None and r["gf"] + r["ga"] > 2.5)
+                    n = sum(1 for r in rows if r["gf"] is not None)
+                    self.assertEqual((ob[idx]["k"], ob[idx]["n"]), (k, n))
+                    checked += 1
+                self.assertLessEqual(len(rows), 10)
+        self.assertGreater(checked, 0)
+
     def test_no_proxy_cell_claims_value(self):
         mx = json.load(open(os.path.join(RUN, "matrix.json")))["matches"]
         for e in mx.values():
             for k, c in e["markets"].items():
-                self.assertNotEqual(c["evaluation_status"], "EVALUABLE", k)
-                self.assertIsNone(c["price"], k)
+                self.assertNotEqual(c["evaluation_status"], "EVALUABLE", k)       # el nivel 1 nunca declara EVALUABLE
+                if c["price"] is not None:                                         # con la API solo existen PROMEDIOS de mercado, nunca «una casa»
+                    self.assertEqual(c["price"].get("tipo"), "promedio_de_mercado", k)
+                    self.assertGreaterEqual(c["price"]["n_casas"], 2, k)
+                    self.assertIn("NO cuota ejecutable", c["price"]["casa"], k)
+                    self.assertNotIn("(vía football-data)", c["price"]["casa"] if e.get("history_kind") == "proxy_otra_competicion" else "", k)
 
 
 if __name__ == "__main__":

@@ -14,7 +14,7 @@ import importlib.util
 import io
 import os
 import sys
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import adapters  # noqa: E402
@@ -155,6 +155,107 @@ class FootballDataHistory:
         return out
 
 
+class ProviderLimit(Exception):
+    """La API de pago/prueba rechazó por límite o clave: la cola se detiene sin marcar partidos como evaluados."""
+
+
+class ApiFootballHistory:
+    """Historial PROPIO de cada equipo (todas sus competiciones, etiquetadas) desde apifootball `get_events?team_id=`: una petición
+    por equipo devuelve sus partidos finalizados con estadísticas en línea. NO es histórico de la misma competición: es la forma
+    reciente del equipo (mezcla casa/fuera y competiciones), sin ajustar por rival. Faltas de estadística => None, nunca 0."""
+    name = "apifootball"
+    needs_review = {}
+    LOOKBACK_DAYS = 180
+
+    def __init__(self, client, key, today_iso):
+        self.client, self.key, self.today = client, key, today_iso
+        self._teams, self.requests, self._odds = {}, 0, {}
+        self.limit_hit = None
+
+    def covers(self, match):
+        a = (match.get("extra") or {}).get("api") or {}
+        return bool(a.get("home_id") and a.get("away_id")) and not self.limit_hit
+
+    def is_proxy(self, match):
+        return False
+
+    def _events(self, team_id, before_iso):
+        k = (team_id, before_iso)
+        if k not in self._teams:
+            d_to = (datetime.fromisoformat(before_iso) - timedelta(days=1)).date().isoformat()
+            d_from = (datetime.fromisoformat(before_iso) - timedelta(days=self.LOOKBACK_DAYS)).date().isoformat()
+            try:
+                self._teams[k] = adapters.apif_call(self.client, self.key, action="get_events", team_id=team_id,
+                                                    **{"from": d_from, "to": d_to}, timezone="UTC")
+                self.requests += 1
+            except adapters.ApiLimit as e:
+                self.limit_hit = str(e)
+                raise ProviderLimit(str(e))
+            except common.PolicyError as e:
+                if "tope de" in str(e):          # tope por ejecución de la política: la cola se detiene y se reanuda en otra ejecución
+                    self.limit_hit = str(e)
+                    raise ProviderLimit(str(e))
+                raise ProviderUnavailable(f"apifootball team {team_id}: {e}")
+            except common.FetchError as e:
+                raise ProviderUnavailable(f"apifootball team {team_id}: {e}")
+        return self._teams[k]
+
+    def team_history(self, match, team, before_iso):
+        a = match["extra"]["api"]
+        tid = a["home_id"] if team == match["home_team"] else a["away_id"]
+        rows = []
+        for e in self._events(tid, before_iso):
+            if (e.get("match_status") or "").lower() not in ("finished", "after pen.", "after extra time"):
+                continue
+            r = adapters.apif_history_row(e, tid)
+            if r:
+                rows.append(r)
+        rows.sort(key=lambda r: r["date"])
+        return rows[-HISTORY_N:]
+
+    def load_odds(self, day_from, day_to):
+        try:
+            rows = adapters.apif_call(self.client, self.key, action="get_odds", **{"from": day_from, "to": day_to})
+            self.requests += 1
+        except adapters.ApiLimit as e:
+            self.limit_hit = str(e)
+            raise ProviderLimit(str(e))
+        self._odds = adapters.apif_odds_average(rows)
+        return len(self._odds)
+
+    def odds_for(self, match):
+        mid = ((match.get("extra") or {}).get("api") or {}).get("match_id")
+        return self._odds.get(mid, {})
+
+
+class CompositeProvider:
+    """Prefiere el historial propio de la API; si no cubre el partido, la forma doméstica proxy de Football-Data (etiquetada)."""
+
+    def __init__(self, api, fd):
+        self.api, self.fd, self._chosen, self.name = api, fd, {}, "football-data"
+
+    @property
+    def needs_review(self):
+        return getattr(self.fd, "needs_review", {})
+
+    def covers(self, match):
+        for p in (self.api, self.fd):
+            if p is not None and p.covers(match):
+                self._chosen[match["match_id"]] = p
+                self.name = p.name
+                return True
+        return False
+
+    def is_proxy(self, match):
+        return self._chosen[match["match_id"]].is_proxy(match)
+
+    def team_history(self, match, team, before_iso):
+        return self._chosen[match["match_id"]].team_history(match, team, before_iso)
+
+    def odds_for(self, match):
+        return self.api.odds_for(match) if self.api else {}
+
+
 # ----------------------------------------------------------------------------- cálculo descriptivo
 def freq_block(k, n, label):
     if n <= 0:
@@ -205,9 +306,18 @@ def stat_blocks(hh, ha):
     return {k: [b for b in v if b] for k, v in out.items()}
 
 
-def odds_info(match):
+def odds_info(match, provider=None):
     o = (match.get("extra") or {}).get("odds") or {}
     res = {}
+    for key, v in (getattr(provider, "odds_for", lambda m: {})(match) or {}).items():
+        try:
+            ov, nv = calc.novig_probs(v["cuotas_medias"])
+            res[key] = {"casa": f"PROMEDIO de {v['n_casas']} casas (agregador apifootball): referencia de mercado, NO cuota ejecutable",
+                        "tipo": "promedio_de_mercado", "cuotas": v["cuotas_medias"], "minmax": v["minmax"], "n_casas": v["n_casas"],
+                        "overround": round(ov, 4), "prob_equilibrio_bruta": [round(calc.implied_prob(c), 4) for c in v["cuotas_medias"]],
+                        "sin_margen_proporcional": [round(x, 4) for x in nv]}
+        except ValueError:
+            continue
     try:
         if all(k in o for k in ("B365H", "B365D", "B365A")):
             cs = [float(o["B365H"]), float(o["B365D"]), float(o["B365A"])]
@@ -254,13 +364,20 @@ def evaluate_match(match, provider, policy, now_iso):
                         "líneas de córners/tarjetas/goles = referencias fijas, NO las de ninguna casa"
                         + (f"; MUESTRA DÉBIL n<8: {', '.join(weak)}" if weak else "")
                         + (f"; ALIAS SUJETO A REVISIÓN: {', '.join(review)}" if review else ""))
+            elif getattr(provider, "name", "") == "apifootball":
+                weak = [f"{t} n={len(form[side])}" for side, t in (("local", match["home_team"]), ("visitante", match["away_team"])) if len(form[side]) < 8]
+                note = (f"HISTORIAL PROPIO de cada equipo (apifootball, últimos ≤{HISTORY_N} partidos finalizados en 180 días, TODAS sus competiciones, "
+                        "etiquetadas por partido); NO es histórico de la misma competición, mezcla casa y fuera, sin ajustar por rival ni por categoría del rival; "
+                        "estadística faltante en un partido = excluido de la muestra (n menor), nunca 0; tarjetas A+R solo si hay datos de amarillas y rojas; "
+                        "líneas de córners/tarjetas/goles/tiros = referencias fijas, NO las de ninguna casa; cuotas = promedio de mercado, no ejecutable"
+                        + (f"; MUESTRA DÉBIL n<8: {', '.join(weak)}" if weak else ""))
             else:
                 note = f"últimos ≤{HISTORY_N} partidos por equipo de la liga {match['extra'].get('div')}, temporada en curso: NO es una muestra de temporada completa"
         except ProviderUnavailable as e:
             attempts.append({"provider": provider.name, "resultado": f"acceso fallido: {e}"})
     else:
         attempts.append({"provider": getattr(provider, "name", "football-data"), "resultado": "sin cobertura de esta liga/competición"})
-    prices = odds_info(match)
+    prices = odds_info(match, provider)
     markets = {}
     for key in ALL_MARKETS:
         have_stats = key in blocks and blocks[key]
@@ -295,14 +412,19 @@ def evaluate_match(match, provider, policy, now_iso):
             "market_availability_status": "VERIFICADO_DISPONIBLE_EN_UNA_CASA" if have_price else "NOT_CHECKED",
             "statistics_availability_status": stats_status,
             "price_verification_status": ("NOT_CHECKED" if not data_attempted and not have_price
-                                          else "PRECIO_NO_CONFIRMADO" + (" (una sola casa vía agregador)" if have_price else "")),
+                                          else "PRECIO_NO_CONFIRMADO" + ((" (promedio de mercado vía agregador, no ejecutable)" if prices[key].get("tipo") == "promedio_de_mercado"
+                                                         else " (una sola casa vía agregador)") if have_price else "")),
             "evaluation_status": ev, "not_evaluable_reason": reason, "proxy_sample": proxy,
             "sources_checked": [a["provider"] for a in attempts if a["resultado"].startswith(("consultada", "acceso fallido"))],
             "sources_not_consulted": [a["provider"] for a in attempts if a["resultado"].startswith(("no consultada", "sin cobertura"))],
             "last_updated": now_iso,
             "stats": ([] if (proxy and key.startswith("resultado.")) else blocks.get(key, [])), "price": prices.get(key)}
     n_ok = sum(1 for m in markets.values() if m["evaluation_status"] in ("EVALUABLE", "PARCIAL"))
-    return {"match_id": match["match_id"], "attempts": attempts, "data_attempted": data_attempted, "proxy_sample": proxy, "form": form, "sample_note": note,
+    kind = (None if not data_attempted else ("proxy_otra_competicion" if proxy else
+            ("apifootball_historial_propio" if getattr(provider, "name", "") == "apifootball" else "football-data_misma_liga")))
+    api_prices = getattr(provider, "odds_for", lambda m: {})(match) if data_attempted else {}
+    return {"match_id": match["match_id"], "attempts": attempts, "data_attempted": data_attempted, "proxy_sample": proxy, "history_kind": kind,
+            "api_prices": api_prices, "form": form, "sample_note": note,
             "markets": markets, "evaluated_markets_ok": n_ok,
             "sports_analysis_status": (("COMPLETADO" if not proxy else PARCIAL_PROXY) if (form.get("local") and form.get("visitante"))
                                       else ("NO_EVALUABLE_TRAS_INTENTOS" if data_attempted else NO_INVESTIGADO)),
@@ -356,6 +478,13 @@ def process(run, provider, policy, limit=None, evaluator=evaluate_match, now=Non
                                "(fuentes excluidas por política o no revisadas; no se ha comprobado si las ligas extra de Football-Data cubrirían alguna)")
                 s["evidence"] = ev["attempts"]
             m["sports_analysis_status"], m["market_analysis_status"] = ev["sports_analysis_status"], ev["market_analysis_status"]
+        except ProviderLimit as e:  # límite/clave de la API: el partido sigue PENDIENTE y la cola se detiene (no se simula evaluación)
+            s["status"], s["attempts"] = "PENDIENTE", s["attempts"] - 1
+            s["last_error"] = f"detenido por límite de la API: {e}"
+            save_state(run, st)
+            common.write_json_atomic(os.path.join(run, "matrix.json"), matrix)
+            print(f"AVISO: cola detenida por límite/clave de la API ({e}); quedan partidos PENDIENTES", file=sys.stderr)
+            break
         except Exception as e:      # error recuperable hasta MAX_ATTEMPTS
             s["status"] = "ERROR_RECUPERABLE" if s["attempts"] < MAX_ATTEMPTS else "ERROR_REQUIERE_INTERVENCION"
             s["last_error"] = f"{type(e).__name__}: {e}"
@@ -388,6 +517,8 @@ def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--run", required=True)
     ap.add_argument("--limit", type=int)
+    ap.add_argument("--no-api", action="store_true", help="no usar apifootball aunque haya clave")
+    ap.add_argument("--reset", default="", help="estados de la cola a volver a PENDIENTE (coma), p. ej. NO_INVESTIGADO_SIN_FUENTE_PERMITIDA,PARCIAL_PROXY_OTRA_COMPETICION")
     a = ap.parse_args(argv)
     inv = common.read_json(os.path.join(a.run, "inventory.json"))
     if not inv:
@@ -398,7 +529,31 @@ def main(argv=None):
                            min_interval=policy.data["providers"]["football-data"]["limits"]["min_interval"])
     d = datetime.fromisoformat(inv["meta"]["date"])
     season = f"{(d.year if d.month >= 7 else d.year - 1) % 100:02d}{(d.year + (1 if d.month >= 7 else 0)) % 100:02d}"
-    st, _ = process(a.run, FootballDataHistory(client, season), policy, a.limit)
+    if a.reset:
+        stq = load_state(a.run)
+        wanted = {x.strip() for x in a.reset.split(",") if x.strip()}
+        n = 0
+        for rec in stq["matches"].values():
+            if rec["status"] in wanted:
+                rec["status"] = "PENDIENTE"
+                n += 1
+        save_state(a.run, stq)
+        print(f"reiniciados a PENDIENTE: {n}")
+    fd = FootballDataHistory(client, season)
+    key = adapters.apif_key()
+    prov = fd
+    if key and not a.no_api:
+        api_client = common.Client(os.path.join(a.run, "cache"), os.path.join(a.run, "sources", "consultas.jsonl"), policy=policy,
+                                   min_interval=policy.data["providers"]["apifootball"]["limits"]["min_interval"], ttl=24 * 3600)
+        api = ApiFootballHistory(api_client, key, inv["meta"]["date"])
+        try:
+            d0, d1 = inv["meta"]["window_utc"][0][:10], inv["meta"]["window_utc"][1][:10]
+            n_odds = api.load_odds(d0, d1)
+            print(f"cuotas medias de la API cargadas para {n_odds} partidos ({d0}..{d1})")
+        except ProviderLimit as e:
+            print(f"AVISO: no se pudieron cargar cuotas ({e})", file=sys.stderr)
+        prov = CompositeProvider(api, fd)
+    st, _ = process(a.run, prov, policy, a.limit)
     from collections import Counter
     print("estado de la cola:", dict(Counter(s["status"] for s in st["matches"].values())))
     return 0

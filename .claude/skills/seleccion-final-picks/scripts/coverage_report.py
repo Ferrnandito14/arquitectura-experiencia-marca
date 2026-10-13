@@ -69,7 +69,7 @@ def compute(run):
             problems.append((m["match_id"], "estado procesado sin fila en matrix.json"))
     # mercados
     examined = ok = nonev = notchk = 0
-    examined_proxy = ok_proxy = 0
+    examined_proxy = ok_proxy = examined_own = ok_own = 0
     fam_ok = Counter()
     for m in required:
         ev = mx.get(m["match_id"])
@@ -81,14 +81,18 @@ def compute(run):
                 continue
             examined += 1
             is_proxy = bool(mk.get("proxy_sample") or ev.get("proxy_sample"))
+            own = ev.get("history_kind") == "apifootball_historial_propio"
             examined_proxy += is_proxy
+            examined_own += own
             if mk["evaluation_status"] in ("EVALUABLE", "PARCIAL"):
                 ok += 1
                 ok_proxy += is_proxy
+                ok_own += own
                 if not is_proxy:
                     fam_ok[k.split(".")[0]] += 1           # un proxy de otra competición NO levanta una limitación sistémica
             else:
                 nonev += 1
+    kinds = Counter(mx.get(m["match_id"], {}).get("history_kind") for m in processed)
     no_data_attempt = [m["match_id"] for m in processed if not mx.get(m["match_id"], {}).get("data_attempted")]
     den_markets = len(required) * len(ALL)
     cal = Counter(m["calendar_verification_status"] for m in ms)
@@ -126,6 +130,7 @@ def compute(run):
         "processed_without_any_data_attempt": len(no_data_attempt), "with_real_data_attempt": len(processed) - len(no_data_attempt),
         "pending": len(pending), "pending_ids": [m["match_id"] for m in pending],
         "coverage_matches_pct": pct(len(processed), len(required)), "coverage_matches_den": len(required),
+        "history_kinds": {str(k): v for k, v in kinds.items()}, "markets_examined_own_history": examined_own, "markets_ok_own_history": ok_own,
         "markets_denominator": den_markets, "markets_examined": examined, "markets_not_checked": notchk, "markets_examined_from_other_competition_proxy": examined_proxy,
         "markets_evaluable_or_partial_same_competition": ok - ok_proxy,
         "markets_evaluable_or_partial": ok, "markets_not_evaluable": nonev,
@@ -149,14 +154,16 @@ def render(r):
     L.append(f"| Hora/calendario de los requeridos | {r['required_single_source_calendar']} de {r['required_confirmed_eligible']} con UNA sola fuente; "
              f"{r['required_selection_calendar_sufficient']} con verificación suficiente para selección final | «CONFIRMADO» significa sin discrepancias entre fuentes, no hora contrastada |")
     L.append(f"| Con al menos una consulta real de datos | {r['with_real_data_attempt']} | de {r['coverage_matches_den']} |")
-    L.append(f"| Evaluados suficientemente (histórico de la MISMA competición) | {r['evaluated_sufficiently']} | de {r['coverage_matches_den']} |")
+    hk = r["history_kinds"]
+    L.append(f"| Con HISTORIAL PROPIO de los dos equipos (apifootball, todas sus competiciones, etiquetadas; NO es la misma competición) | {hk.get('apifootball_historial_propio', 0)} | de {r['coverage_matches_den']}; muestra ≤10 partidos recientes, mezcla casa/fuera, sin ajustar por rival |")
+    L.append(f"| Con histórico de la MISMA liga (Football-Data) | {hk.get('football-data_misma_liga', 0)} | de {r['coverage_matches_den']} |")
     L.append(f"| Solo con forma doméstica PROXY (otra competición): evaluación PARCIAL | {r['proxy_only_partial']} | de {r['coverage_matches_den']}; no evalúa el partido |")
     L.append(f"| NO intentados (ningún adaptador de fuente permitida los cubre; no se comprobó si otra fuente permitida lo haría) | {r['processed_without_any_data_attempt']} | de {r['processed']} con disposición: «con disposición» no es «examinado» |")
     L.append(f"| Pendientes | {r['pending']} | {r['pending_ids'][:10]}{'…' if len(r['pending_ids']) > 10 else ''} |")
     L.append(f"| Mercados examinados | {r['markets_examined']} | de {r['markets_denominator']} = {r['coverage_markets_pct']}% (NOT_CHECKED: {r['markets_not_checked']}); "
-             f"**de la MISMA competición: {r['markets_examined'] - r['markets_examined_from_other_competition_proxy']} (0 %)**; los otros {r['markets_examined_from_other_competition_proxy']} son solo proxy de OTRA competición |")
-    L.append(f"| Mercados con estadística descriptiva PARCIAL (EVALUABLES de la misma competición: {r['markets_evaluable_or_partial_same_competition']}) | {r['markets_evaluable_or_partial']} | el resto es proxy descriptivo de otra competición, no candidatos |")
-    L.append(f"| Mercados NO_EVALUABLE (huecos: en proxies, la fuente abierta no trae ese dato o no es comparable) | {r['markets_not_evaluable']} | familias sin ningún mercado evaluable **de la misma competición**: {r['systemic_families_without_any_evaluable']} |")
+             f"con historial propio del equipo: {r['markets_examined_own_history']}; solo proxy de OTRA competición: {r['markets_examined_from_other_competition_proxy']} |")
+    L.append(f"| Mercados con estadística descriptiva o cuota media (PARCIAL/EVALUABLE) | {r['markets_evaluable_or_partial']} | con historial propio/misma liga: {r['markets_evaluable_or_partial_same_competition']}; el resto es proxy de otra competición |")
+    L.append(f"| Mercados NO_EVALUABLE (huecos: en proxies, la fuente abierta no trae ese dato o no es comparable) | {r['markets_not_evaluable']} | familias sin ningún mercado evaluable con historial propio o de la misma liga: {r['systemic_families_without_any_evaluable']} |")
     if r["problems"]:
         L += ["", "Problemas de integridad:"] + [f"- {a}: {b}" for a, b in r["problems"]]
     L += ["", f"**Veredicto de la puerta de cobertura: {r['verdict']}**"]
@@ -167,9 +174,9 @@ def render(r):
               f"- Hay {r['markets_evaluable_or_partial']} mercados con estadística descriptiva PARCIAL (de partidos de otra competición cuando es proxy), pero ningún candidato evaluado, ninguna probabilidad, cuota ni EV para los {r['required_confirmed_eligible']} partidos requeridos.",
               f"- {r['markets_not_checked']} mercados están NOT_CHECKED (no investigados): eso no prueba que el mercado no exista ni que la estadística sea 0.",
               "- No se sostiene ninguna selección por valor ni «alta probabilidad»; cualquier orden entre partidos sería criterio cualitativo sin valor económico confirmado.",
-              "- No hay histórico de la misma competición, árbitro designado, bajas ni cuotas de ninguna casa para estos partidos; el proxy doméstico no sustituye esos datos.",
+              "- No hay histórico de la misma competición ajustado por rival, árbitro designado, bajas ni cuotas ejecutables de una casa concreta para estos partidos; el historial propio es descriptivo y el proxy doméstico no sustituye esos datos.",
               "- El calendario de cada partido proviene de una sola fuente: no basta para una selección final (`selection_calendar_verification`).",
-              "- Para levantar la restricción hace falta una fuente que cubra estas competiciones **obtenida de forma legítima** (API con licencia, datos aportados por el usuario, permiso del proveedor)."]
+              "- Para levantar la restricción faltan, según el caso: partidos sin cobertura de la API, bajas/alineaciones, cuotas ejecutables de la casa de la persona usuaria y contraste de Nivel 2."]
     return "\n".join(L)
 
 

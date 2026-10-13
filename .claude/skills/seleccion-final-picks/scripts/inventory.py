@@ -133,7 +133,7 @@ def _group_status(map_event_status, raw, now, start):
 def build_inventory(raws_by_source, day, tz, now, policy, status_mappers=None):
     """raws_by_source: {fuente: [registros brutos]}. Devuelve (matches, raw_duplicates)."""
     win_start, win_end = common.window_for_local_date(day, tz)
-    status_mappers = status_mappers or {"apwin": adapters.apwin_status}
+    status_mappers = status_mappers or {"apwin": adapters.apwin_status, "apifootball": adapters.apwin_status}
     allraw = []
     for src, lst in raws_by_source.items():
         allraw.extend(_norm_record(x) for x in lst)
@@ -221,7 +221,7 @@ def build_inventory(raws_by_source, day, tz, now, policy, status_mappers=None):
             "analysis_required": bool(cal == "CONFIRMADO" and elig == "ELEGIBLE"),
             "sports_analysis_status": "PENDIENTE", "market_analysis_status": "PENDIENTE",
             "verification_sources": sorted({x["source"] for x in g}), "discrepancies": discrepancies,
-            "extra": {k: next((x[k] for x in g if x.get(k)), None) for k in ("div", "odds", "referee")},
+            "extra": {k: next((x[k] for x in g if x.get(k)), None) for k in ("div", "odds", "referee", "api")},
             "last_updated": now.strftime("%Y-%m-%dT%H:%M:%SZ"),
         })
     matches.sort(key=lambda m: (m["normalized_datetime_utc"] or "9", m["competition"], m["gender_or_category"]))
@@ -262,6 +262,52 @@ def source_registry(policy, attempts):
     return rows
 
 
+_GENERIC_TOKENS = re.compile(r"^(u-?\d{2}|women|woman|w|youth|juvenil|reserves?|team|academy|ii|iii)$")
+
+
+def _distinct_tokens(s):
+    """Tokens que identifican al club (sin marcadores de categoría como U19/Women, que comparten equipos distintos)."""
+    return {t for t in _tokens(s) if not _GENERIC_TOKENS.match(t)}
+
+
+def _team_compat(a, b):
+    na, nb = common.norm_name(a), common.norm_name(b)
+    return bool(na and nb and (na == nb or na in nb or nb in na or (_distinct_tokens(a) & _distinct_tokens(b))))
+
+
+def align_api_records(api_recs, other_raws, tol_min=10):
+    """Alinea los eventos de la API con los de otras fuentes SIN fusión difusa a ciegas: mismo instante (±tol_min), misma
+    categoría y compatibilidad de nombre en AMBOS equipos, con candidato único en ambos sentidos. Si hay ambigüedad el evento
+    de la API NO entra al inventario (evita doble conteo) y queda listado. Devuelve (registros_a_incluir, informe)."""
+    others = [_norm_record(r) for r in other_raws]
+    cand = []
+    for r in api_recs:
+        nr = _norm_record(r)
+        cs = [i for i, o in enumerate(others) if nr["_utc"] and o["_utc"] and abs(nr["_utc"] - o["_utc"]) <= timedelta(minutes=tol_min)
+              and nr["_cat"] == o["_cat"] and _team_compat(r["home"], o["home"]) and _team_compat(r["away"], o["away"])]
+        cand.append(cs)
+    taken = {}
+    for i, cs in enumerate(cand):
+        if len(cs) == 1:
+            taken.setdefault(cs[0], []).append(i)
+    keep, ambiguous, aligned = [], [], 0
+    for i, (r, cs) in enumerate(zip(api_recs, cand)):
+        if len(cs) == 0:
+            keep.append(r)
+        elif len(cs) == 1 and len(taken[cs[0]]) == 1:
+            o = other_raws[cs[0]]
+            r = dict(r, home=o["home"], away=o["away"], competition=o.get("competition") or r.get("competition"),
+                     country=o.get("country") or r.get("country"), aligned_to=o["source"] + ":" + str(o["source_match_id"]))
+            keep.append(r)
+            aligned += 1
+        else:
+            ambiguous.append({"api": r["api"]["home_name"] + " – " + r["api"]["away_name"], "api_match_id": r["source_match_id"],
+                              "candidates": [other_raws[c]["home"] + " – " + other_raws[c]["away"] for c in cs]})
+    rep = {"api_total": len(api_recs), "aligned_with_other_source": aligned, "api_only_added": len(keep) - aligned,
+           "ambiguous_excluded": len(ambiguous), "ambiguous": ambiguous}
+    return keep, rep
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--date", required=True)
@@ -269,6 +315,7 @@ def main(argv=None):
     ap.add_argument("--run-dir", default="runs")
     ap.add_argument("--manual", action="append", default=[], help="calendario aportado por el usuario (CSV/JSON)")
     ap.add_argument("--no-apwin", action="store_true")
+    ap.add_argument("--no-api", action="store_true", help="no consultar apifootball (clave en APIFOOTBALL_KEY / APIFOOTBALL_KEY_FILE)")
     a = ap.parse_args(argv)
     now = datetime.now(timezone.utc)
     run = os.path.join(a.run_dir, a.date)
@@ -286,7 +333,7 @@ def main(argv=None):
                              "Información obtenida": f"{len(res)} registros", "Fecha de consulta": t,
                              "Estado": "Consultada y útil" if res else "Consultada con datos insuficientes",
                              "Discrepancias": "—", "Alternativa consultada": "—"})
-        except (common.PolicyError, common.FetchError) as e:
+        except (common.PolicyError, common.FetchError, adapters.ApiLimit) as e:
             attempts.append({"Fuente": name, "URL o ficha": url, "Dato buscado": what, "Información obtenida": "—",
                              "Fecha de consulta": t, "Estado": "Acceso fallido", "Discrepancias": "—",
                              "Alternativa consultada": f"{type(e).__name__}: {e}"})
@@ -301,6 +348,24 @@ def main(argv=None):
                     completeness.append(dict(pag, source="apwin"))
                 return recs
             attempt("apwin", u, f"calendario del día {dday.isoformat()} (HTML público + JSON público paginado /api/home/calendar)", _apw)
+    api_report = None
+    key = None if a.no_api else adapters.apif_key()
+    if key:
+        d0, d1 = (d.isoformat() for d in (lambda ds: (ds[0], ds[-1]))(common.days_to_query(a.date, a.tz)))
+        def _api():
+            global_recs = adapters.apif_event_records(adapters.apif_events(client, key, d0, d1))
+            others = [r for lst in raws.values() for r in lst]
+            keep, rep = align_api_records(global_recs, others)
+            nonlocal api_report
+            api_report = rep
+            completeness.append({"source": "apifootball", "loaded": len(global_recs), "declared_total": len(global_recs), "complete": True,
+                                 "note": "get_events del rango de días UTC; sin paginación"})
+            return keep
+        attempt("apifootball", adapters.APIF_BASE + f"?action=get_events&from={d0}&to={d1}", "calendario (get_events, timezone=UTC)", _api)
+    else:
+        attempts.append({"Fuente": "apifootball", "URL o ficha": adapters.APIF_BASE, "Dato buscado": "calendario", "Información obtenida": "—",
+                         "Fecha de consulta": now.strftime("%Y-%m-%d %H:%M UTC"), "Estado": "No consultada",
+                         "Discrepancias": "—", "Alternativa consultada": "sin clave en el entorno (APIFOOTBALL_KEY) o --no-api"})
     for path in a.manual:
         attempt("usuario", path, "calendario aportado por el usuario", lambda p=path: adapters.manual_calendar(p))
     matches, dups = build_inventory(raws, a.date, a.tz, now, policy)
@@ -311,7 +376,7 @@ def main(argv=None):
         common.write_json_atomic(os.path.join(run, "sources", f"raw_{k.replace(':', '_')}.json"), v)
     inv = {"meta": {"date": a.date, "tz": a.tz, "window_utc": [win[0].strftime("%Y-%m-%dT%H:%M:%SZ"), win[1].strftime("%Y-%m-%dT%H:%M:%SZ")],
                     "generated_at": now.strftime("%Y-%m-%dT%H:%M:%SZ"), "raw_counts": brutos,
-                    "source_completeness": completeness,
+                    "source_completeness": completeness, "api_alignment": api_report,
                     "source_registry": source_registry(policy, attempts)},
            "matches": matches, "raw_duplicates": dups}
     common.write_json_atomic(os.path.join(run, "inventory.json"), inv)
