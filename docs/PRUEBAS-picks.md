@@ -1,36 +1,38 @@
-# Pruebas — estado real (2026-10-12/13, Claude Code 2.1.296, contenedor cloud)
+# Pruebas — estado real (v2.4, jornada 2026-10-13 America/Caracas)
 
-Tres categorías que NO se mezclan. **Ninguna prueba sintética valida la investigación deportiva real, y la ejecución real NO produjo picks** (ver «Resultado de la ejecución real»).
+Tres categorías que NO se mezclan. **Ninguna prueba sintética valida la investigación deportiva real. La ejecución real produjo borradores PROVISIONALES, no un ranking definitivo ni picks con valor demostrado.**
 
-## 1. Pruebas unitarias y offline (código y reglas)
-`python3 -m unittest discover -s tests -v` → **152 pruebas, OK** (incluye una recomputación independiente de las frecuencias de los 7 proxies desde los CSV en caché) (sin red). Cubren: `calc.py` (válidos, límites, entradas inválidas con código 2 y sin trazas); robots.txt con comodines y especificidad; política de fuentes (denegado por defecto, excluidas, topes y ritmo por proveedor); cliente HTTP simulado (UA honesto, caché, `Retry-After`, backoff, anti-bot no evadido, sin cabeceras sensibles en el log, escritura atómica); zonas horarias (ventana de Caracas, bordes 03:59/04:00Z, BST/GMT y EDT/EST por fecha); normalización y deduplicación conservadora (femenino, juvenil, reservas, mismo nombre en otra competición); los cuatro estados independientes (calendario/encuentro/elegibilidad/análisis; confirmado+finalizado); base de confirmación y `selection_calendar_verification`; parser de APWin (con regresión del fallo real) y paginación; cola reanudable (corte y reanudación, `EN_CURSO`, errores recuperables → intervención); estados por mercado (`NOT_CHECKED` ≠ `NO_EVALUABLE`; `INSUFICIENTES` solo si se buscó); proxy doméstico (alias exactos, sin difusos, ambigüedad, solo equipos masculinos de primera plantilla, nota con n<8, nunca `COMPLETADO`); `calc.py` importado sin reimplementar (AST); informe de cobertura (denominadores, **puerta de cobertura que falla con un confirmado y elegible sin evaluar**, motivo+evidencia obligatorios, universo truncado, proxy ≠ suficiente, integridad inventario↔estado↔matriz); lotes con IDs estables (ausentes, duplicados, desconocidos, filas pendientes, «un resumen no es evidencia», re-asignación tras cambio de IDs); cláusulas obligatorias de la skill y del protocolo.
-**Mutaciones comprobadas** (se rompió a propósito cada regla y las pruebas fallaron): puerta de cobertura, robots con comodines, `Disallow` ignorado, exclusión de fuentes, ventana local, `NO_EVALUABLE`→`PARCIAL`, y el parser antiguo de APWin (el test de regresión falla con él). Hallazgo: un primer test de regresión pasaba también con el parser antiguo; se reescribió.
-`install.sh`: `--dry-run`, creación, idempotencia y argumento inválido OK (directorio temporal).
+## 1. Pruebas técnicas y offline (código y reglas)
+`python3 -m unittest discover -s tests` → **204 pruebas, OK (1 omitida)**, sin red. Cubren: `calc.py`; robots.txt; política de fuentes (denegado por defecto, topes, ritmo); cliente HTTP (reintentos, caché, UA honesto); **redacción de la clave** (`common.redact_url`); inventario (ventana local Caracas, deduplicación conservadora, paginación APWin con 2–3 páginas fixture, alineación apifootball↔APWin sin fusiones ambiguas, normalización de nombres); `level1` (cola reanudable, poda de huérfanos, `ProviderLimit`, historial de la misma competición vs mixto); adaptador apifootball (llamada, estados, historial, cuotas medias/medianas) con fixtures; `coverage_report` (puerta de cobertura); `batches` (integridad: ausente/duplicado/desconocido/pendiente); **`tickets.py`** (patas, búsqueda por rango, pares del mismo partido de familias distintas con justificación, partidos sin repetir entre perfiles, diversidad, calendario de 2 fuentes, exclusión de juveniles/sub-23/reservas, top por seguridad y atractivo, cuotas manuales, vetos, **≥4 casas por pata, exclusión de patas «12», piso de apoyo por equipo**).
+Limitación: estas pruebas verifican reglas y matemática, no que las estadísticas de fútbol sean correctas.
 
 ## 2. Pruebas sintéticas (datos ficticios «EJEMPLO — NO REAL», `tests/fixtures/`, evidencia en `tests/runs/`)
-Flujo multiagente real con 4 agentes y solo `fixture://`, 0 llamadas web: verificador, deportivo y cuantitativo en paralelo → auditor → Ronda 2 con `SendMessage` (objeción → respuesta, con correcciones reales de cuanti/deportivo/verificador) → resolución del director → cierre en 2 rondas; fuente defectuosa detectada y descartada; sustitución de un borrador débil; mensajería entre pares verificada (deportivo → cuanti). Validan la coordinación y la lógica, no la calidad deportiva.
+Flujo multiagente de la fase anterior con 4 agentes y solo `fixture://` (0 llamadas web). Demuestra el mecanismo (objeción → respuesta → resolución) y no aporta ningún dato deportivo real.
 
-## 3. Ejecución REAL (jornada local 2026-10-13, America/Caracas) y su resultado
-Datos reales, solo fuentes permitidas por la política. Registro completo en `runs/2026-10-13/` (inventario, cola, matriz, informe de cobertura, consultas, revisiones y MANIFIESTO).
+## 3. Ejecución REAL (jornada 2026-10-13, America/Caracas)
+Fuentes permitidas: APWin (paginación autorizada por la persona usuaria), apifootball (clave propia, plan de prueba), Football-Data. Registro en `runs/2026-10-13/` (ver `MANIFIESTO.md`).
 | Etapa | Resultado real |
 |---|---|
-| Inventario | 240 únicos (Football-Data 199, todos anteriores a la ventana; APWin 41). **15** en la ventana local. **Universo truncado**: APWin declara 166 (13-oct) y 126 (14-oct) y el HTML permitido solo trae 15 por día. |
-| Calendario | Los 15 con **una sola fuente** (APWin), 0 con verificación suficiente para selección final. Bragantino–Cruzeiro (00:00Z) = 12-oct 20:00 Caracas ⇒ fuera de la jornada. |
-| Nivel 1 | 15 con disposición: **7** con forma doméstica PROXY de otra competición (`PARCIAL_PROXY_OTRA_COMPETICION`), **8** `NO_INVESTIGADO_SIN_FUENTE_PERMITIDA` (AFC Champions League, Liga Revelação U23, UEFA Youth League, Sabah–Slavia, Viking–Bayern). 0 evaluados con histórico de la misma competición. |
-| Mercados | 345 = 15×23: 161 examinados (todos proxy de otra competición), 184 `NOT_CHECKED`. 0 de la misma competición. |
-| Puerta de cobertura | **RANKING PROVISIONAL RESTRINGIDO** (exit 4). Sin picks, sin probabilidades, sin cuotas, sin EV. |
-| Revisión por agentes | verificador (discrepancias + muestra de control de 12 + re-derivación de los 240), deportivo y cuantitativo (cada fila de cada lote), auditor adversarial (3 rondas). **Defectos reales encontrados por ellos y corregidos**: `sources_checked` aparentaba consultas inexistentes; `NO_EVALUABLE` donde correspondía `NOT_CHECKED`; clasificación de reservas (Serie B/Willem II/filiales); inventario regenerado sin conservar avance; `match_id` dependía de la categoría; estadísticas `INSUFICIENTES` sin intento; estado de partido «tras intentos» sin intentos; parser de APWin que perdía la competición; universo truncado no declarado; proxy contado como «suficiente». Recalculo independiente de 32 frecuencias k/n del proxy: 32/32 coinciden. |
-| Mensajería (conteos) | 4 agentes lanzados; 11 `SendMessage` entregados (3 por nombre, 8 por agentId) y 4 fallidos por nombre tras el reinicio; ver `runs/2026-10-13/MANIFIESTO.md`. |
-| Mensajería | `SendMessage` por nombre reanuda con contexto; **los nombres no sobreviven a un reinicio del proceso de trabajo, los agentId sí** (verificado: los 4 agentes se reanudaron por ID tras el reinicio). |
-| Cumplimiento | Se descubrió, al revisar `robots.txt` y condiciones, que FotMob/BetExplorer/Transfermarkt/Understat/SoccerStats no son usables de forma automatizada. **La fase previa de pruebas (antes de esa revisión) las había consultado con un User-Agent de navegador; esos datos no se reutilizan.** Descargas de red de esta ejecución: Football-Data 12 (tope 20), APWin 4 en toda la sesión (≤3 por ejecución de `inventory.py`; el tope por ejecución se respetó, ver MANIFIESTO). |
+| Inventario | 1012 partidos únicos (apifootball 748, APWin 313, Football-Data 199 brutos). 1009 CONFIRMADOS, 3 FECHA_DISCREPANTE; 690 no elegibles prepartido (189 iniciados/finalizados). **319 requieren evaluación.** Universo truncado: APWin 167 de 172 declarados (13-oct) y 11 de 15 (12-oct). |
+| Calendario | 129 de los 319 con verificación suficiente (2 fuentes) para selección final; 190 con una sola fuente. Independencia de proveedores no verificada. |
+| Nivel 1 | 285 con historial propio por equipo (138 misma competición, 147 mixto), 272 evaluados con suficiencia, 13 con intento insuficiente; **34 sin fuente permitida** (NO_INVESTIGADO). |
+| Mercados | 7337 posibles: 6555 examinados (89.3 %), 782 NOT_CHECKED, 2380 evaluables/parciales, 4175 NO_EVALUABLE (sobre todo córners/tarjetas sin cobertura). |
+| Cuotas | Medianas de ≥3 casas vía UN agregador (no ejecutables). Córners/tarjetas: cuota APROXIMADA por modelo, rotulada. |
+| Puerta de cobertura | **RANKING PROVISIONAL RESTRINGIDO** (exit 4). |
+| Revisión por lotes | 11 lotes × (deportivo, cuantitativo) + 30 discrepancias (verificador): **319/319 revisados por ambos, 0 faltantes/duplicados/pendientes, 443 correcciones o advertencias**. Fichas compactas, sin fuentes externas. |
+| Nivel 2 y auditoría | 4 agentes sobre 21 finalistas + auditor adversarial sobre los borradores regenerados. Hallazgos aplicados: DC mal calculada, vetos (18 entradas), ≥4 casas por pata, piso por equipo, exclusión de patas «12», tope de reutilización de patas. |
+| Resultado | Seguridad: 5 borradores; amplio: 3 borradores (piso por equipo relajado a 0.45). Ninguno tiene ventaja demostrable (EV descriptivo ≈ negativo salvo una pata) ni alcanza el punto de equilibrio de la probabilidad conjunta. |
 
-## 4. NO ejecutado (con motivo)
+## 4. NO ejecutado / NO verificado (con motivo)
 | Elemento | Motivo |
 |---|---|
-| Cobertura exhaustiva real de la jornada (cientos de partidos, córners/tarjetas/cuotas reales, dos cotizaciones comparables, comparación y sustitución con datos reales, selección final) | No existen fuentes permitidas que lo cubran; las que sí lo hacen están excluidas por sus condiciones. Requiere API con licencia, datos aportados por la persona usuaria o permiso del proveedor. |
-| Paginación de APWin (`page=2…`) | Decisión de la persona usuaria (condiciones de APWin); no se amplía el tope. |
-| Revisión de UEFA/AFC/Liga Portugal/FPF y de las demás fuentes «no revisadas» | Procedimiento en `docs/PROCEDIMIENTO-ALTA-FUENTE.md`; pendiente de decisión. |
-| Cuotas actuales de cualquier casa | Ninguna fuente permitida las proporciona para estos partidos. |
-| Verificación de la cita de uso de Football-Data (`data.php`, 2026-10-12) | Solo vista en una consulta; no hay copia guardada; el riesgo se eleva a la persona usuaria. |
-| Agent Teams | No activado (experimental, no necesario). |
-| `cobertura-exhaustiva-picks` y `reto-de-90-dias-20` (skills de cuenta) | No modificadas ni invocadas. |
+| Alineaciones, bajas, árbitro, motivación | Ninguna fuente usada las entrega antes del partido. |
+| Cuotas ejecutables de una casa concreta; cuotas reales de córners/tarjetas | Solo promedio de agregador; córners/tarjetas sin mercado en la API. Pásalas con `--manual-odds`. |
+| Marcadores a 90' de los historiales con copas (patas «12») | Hipótesis de empates registrados como victoria sin comprobar; las patas «12» quedan fuera de tickets. |
+| Hora de 3 partidos de Zambia | apifootball y APWin discrepan 13 h; falta tercera fuente. |
+| Términos de uso de apifootball | Página de términos devolvió 404; el límite real del plan no está medido (≈650 descargas reales sin alcanzarlo). |
+| Revisión de las demás fuentes «no revisadas» (UEFA/AFC/…) | `docs/PROCEDIMIENTO-ALTA-FUENTE.md`; pendiente de decisión. |
+| Agent Teams | No activado. |
+
+## Reglas de integridad
+No simules visitas, herramientas ni conversaciones; no inventes datos, cuotas ni probabilidades; no uses memoria como dato actual. El apoyo (límite inferior de Wilson de una frecuencia descriptiva; techo 0.722 con n=10) NO es probabilidad predictiva y el «EV descriptivo» NO es EV real.

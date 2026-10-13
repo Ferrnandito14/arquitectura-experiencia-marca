@@ -8,109 +8,75 @@
 
 | Partido | Inicio UTC | Selección | Cuota media (mín–máx, casas) | Apoyo cons. | n |
 |---|---|---|---|---|---|
-| Cardiff City – Watford (efl championship) | 2026-10-13T18:45:00Z | Menos de 4.5 goles | 1.25 (1.2–1.27, 7) | 0.712 | 9/10 |
+| Cardiff City – Watford (efl championship) | 2026-10-13T18:45:00Z | Menos de 4.5 goles | 1.25 (1.2–1.27, 7) | 0.712 (mín. equipo 0.701) | 9/10 |
 
 ### Borrador 2: ×1.25 (conservadora ×1.25) · 1 pata(s) en 1 partido(s) · apoyo conjunto descriptivo 0.659 (implícita de mercado sin margen 0.754)
 
 | Partido | Inicio UTC | Selección | Cuota media (mín–máx, casas) | Apoyo cons. | n |
 |---|---|---|---|---|---|
-| Atlético Bucaramanga – Águilas Doradas (categoria primera a) | 2026-10-13T23:30:00Z | Local o empate (1X) | 1.25 (1.16–1.27, 8) | 0.659 | 10/10 |
+| Atlético Bucaramanga – Águilas Doradas (categoria primera a) | 2026-10-13T23:30:00Z | Local o empate (1X) | 1.25 (1.16–1.27, 8) | 0.659 (mín. equipo 0.596) | 10/10 |
 
 ### Borrador 3: ×1.22 (conservadora ×1.22) · 1 pata(s) en 1 partido(s) · apoyo conjunto descriptivo 0.659 (implícita de mercado sin margen 0.75)
 
 | Partido | Inicio UTC | Selección | Cuota media (mín–máx, casas) | Apoyo cons. | n |
 |---|---|---|---|---|---|
-| Pendikspor – Van BB (1 lig) | 2026-10-13T17:00:00Z | Más de 1.5 goles | 1.22 (1.21–1.27, 7) | 0.659 | 10/10 |
+| Pendikspor – Van BB (1 lig) | 2026-10-13T17:00:00Z | Más de 1.5 goles | 1.22 (1.21–1.27, 7) | 0.659 (mín. equipo 0.596) | 10/10 |
 
-### Borrador 4: ×1.267 (conservadora ×1.267) · 2 pata(s) en 2 partido(s) · apoyo conjunto descriptivo 0.521 (implícita de mercado sin margen 0.656)
-
-| Partido | Inicio UTC | Selección | Cuota media (mín–máx, casas) | Apoyo cons. | n |
-|---|---|---|---|---|---|
-| Kyoto Sanga – Ratchaburi (afc champions league) | 2026-10-13T10:00:00Z | Hándicap visitante +2.5 | 1.19 (1.19–1.27, 3) | 0.722 | 10/10 |
-| Sariyer – Bodrumspor (1 lig) | 2026-10-13T14:00:00Z | Menos de 4.5 goles | 1.065 (1.05–1.1, 6) | 0.722 | 10/10 |
-
-### Borrador 5: ×1.255 (conservadora ×1.255) · 2 pata(s) en 2 partido(s) · apoyo conjunto descriptivo 0.521 (implícita de mercado sin margen 0.691)
+### Borrador 4: ×1.254 (conservadora ×1.254) · 2 pata(s) en 2 partido(s) · apoyo conjunto descriptivo 0.521 (implícita de mercado sin margen 0.67)
 
 | Partido | Inicio UTC | Selección | Cuota media (mín–máx, casas) | Apoyo cons. | n |
 |---|---|---|---|---|---|
-| Al Sadd – Al Hilal (afc champions league) | 2026-10-13T16:00:00Z | Gana alguno, sin empate (12) | 1.19 (1.13–1.22, 8) | 0.722 | 10/10 |
-| RB Leipzig – PSV (uefa champions league) | 2026-10-13T19:00:00Z | Más de 1.5 goles | 1.055 (1.04–1.11, 6) | 0.722 | 10/10 |
+| Birmingham City – Preston North End (efl championship) | 2026-10-13T19:00:00Z | Menos de 4.5 goles | 1.14 (1.12–1.18, 7) | 0.722 (mín. equipo 0.722) | 10/10 |
+| Harju Jalgpallikool – Nõmme United (meistriliiga) | 2026-10-13T15:00:00Z | Menos de 5.5 goles | 1.1 (1.07–1.14, 5) | 0.722 (mín. equipo 0.722) | 10/10 |
 
-## Perfil «amplio»: ×4.0–4.8 (≤6 patas, apoyo mínimo por ítem 0.55, colchón 4 %) — 5 borradores
-
-### Borrador 1: ×4.476 (conservadora ×4.253) · 5 pata(s) en 4 partido(s) · apoyo conjunto descriptivo 0.163 (implícita de mercado sin margen 0.141)
+### Borrador 5: ×1.265 (conservadora ×1.265) · 2 pata(s) en 2 partido(s) · apoyo conjunto descriptivo 0.476 (implícita de mercado sin margen 0.684)
 
 | Partido | Inicio UTC | Selección | Cuota media (mín–máx, casas) | Apoyo cons. | n |
 |---|---|---|---|---|---|
-| Simba – Mashujaa (ligi kuu bara) | 2026-10-13T16:00:00Z | Gana alguno, sin empate (12) ⚑ | 1.095 (1.06–1.13, 4) | 0.722 | 10/10 |
-| Simba – Mashujaa (ligi kuu bara) | 2026-10-13T16:00:00Z | Menos de 3.5 goles ⚑ | 1.34 (1.29–1.34, 3) | 0.722 | 10/10 |
-| ⚑ *dos patas del mismo partido (cuota combinada media 1.467; la casa suele pagar menos).* Conjunto medido en los mismos partidos pasados: local 1.0 (n=10), visitante 1.0 (n=10); apoyo conservador conjunto 0.722 frente a 0.521 si las patas fueran independientes (0.722 × 0.722): las patas se refuerzan entre sí. | | | | | |
-| Richards Bay – Mamelodi Sundowns (premier soccer league) | 2026-10-13T17:30:00Z | Más de 1.5 goles | 1.29 (1.27–1.31, 6) | 0.659 | 10/10 |
-| Durban City – AmaZulu (premier soccer league) | 2026-10-13T17:30:00Z | Menos de 2.5 goles | 1.46 (1.44–1.5, 7) | 0.606 | 10/10 |
-| Fajr Sepasi – Aluminium Arak (persian gulf pro league) | 2026-10-13T13:30:00Z | Empate o visitante (X2) | 1.62 (1.62–1.78, 3) | 0.566 | 7/7 |
+| Al Sadd – Al Hilal (afc champions league) | 2026-10-13T16:00:00Z | Más de 1.5 goles | 1.1 (1.08–1.14, 7) | 0.722 (mín. equipo 0.722) | 10/10 |
+| Durban City – AmaZulu (premier soccer league) | 2026-10-13T17:30:00Z | Menos de 3.5 goles | 1.15 (1.11–1.17, 6) | 0.659 (mín. equipo 0.596) | 10/10 |
 
-### Borrador 2: ×4.423 (conservadora ×4.203) · 5 pata(s) en 4 partido(s) · apoyo conjunto descriptivo 0.127 (implícita de mercado sin margen 0.139)
+## Perfil «amplio»: ×4.0–4.8 (≤6 patas, apoyo mínimo por ítem 0.55, colchón 4 %) — 2 borradores
+
+### Borrador 1: ×4.634 (conservadora ×4.634) · 4 pata(s) en 4 partido(s) · apoyo conjunto descriptivo 0.136 (implícita de mercado sin margen 0.16)
 
 | Partido | Inicio UTC | Selección | Cuota media (mín–máx, casas) | Apoyo cons. | n |
 |---|---|---|---|---|---|
-| Harju Jalgpallikool – Nõmme United (meistriliiga) | 2026-10-13T15:00:00Z | Menos de 5.5 goles ⚑ | 1.1 (1.07–1.14, 5) | 0.722 | 10/10 |
-| Harju Jalgpallikool – Nõmme United (meistriliiga) | 2026-10-13T15:00:00Z | Gana alguno, sin empate (12) ⚑ | 1.17 (1.07–1.25, 7) | 0.659 | 10/10 |
-| ⚑ *dos patas del mismo partido (cuota combinada media 1.287; la casa suele pagar menos).* Conjunto medido en los mismos partidos pasados: local 0.9 (n=10), visitante 1.0 (n=10); apoyo conservador conjunto 0.659 frente a 0.476 si las patas fueran independientes (0.722 × 0.659): las patas se refuerzan entre sí. | | | | | |
-| Athletic-MG – Londrina (serie b) | 2026-10-13T22:30:00Z | Más de 1.5 goles | 1.36 (1.35–1.4, 7) | 0.606 | 10/10 |
-| Fajr Sepasi – Aluminium Arak (persian gulf pro league) | 2026-10-13T13:30:00Z | Empate o visitante (X2) | 1.62 (1.62–1.78, 3) | 0.566 | 7/7 |
-| Rot-Weiss Essen – Fortuna Köln (3 liga) | 2026-10-13T17:00:00Z | Hándicap visitante +1.5 | 1.56 (1.43–1.6, 6) | 0.562 | 10/8 |
+| Kyoto Sanga – Ratchaburi (afc champions league) | 2026-10-13T10:00:00Z | Hándicap visitante +1.5 | 1.68 (1.65–1.72, 6) | 0.659 (mín. equipo 0.596) | 10/10 |
+| Athletic-MG – Londrina (serie b) | 2026-10-13T22:30:00Z | Más de 1.5 goles | 1.36 (1.35–1.4, 7) | 0.606 (mín. equipo 0.49) | 10/10 |
+| San Carlos – Inter San Carlos (primera division fpd) | 2026-10-14T02:00:00Z | Menos de 3.5 goles | 1.3 (1.29–1.32, 6) | 0.606 (mín. equipo 0.49) | 10/10 |
+| Rot-Weiss Essen – Fortuna Köln (3 liga) | 2026-10-13T17:00:00Z | Hándicap visitante +1.5 | 1.56 (1.43–1.6, 6) | 0.562 (mín. equipo 0.529) | 10/8 |
 
-### Borrador 3: ×4.511 (conservadora ×4.286) · 6 pata(s) en 5 partido(s) · apoyo conjunto descriptivo 0.108 (implícita de mercado sin margen 0.134)
+### Borrador 2: ×4.196 (conservadora ×4.196) · 6 pata(s) en 6 partido(s) · apoyo conjunto descriptivo 0.059 (implícita de mercado sin margen 0.147)
 
 | Partido | Inicio UTC | Selección | Cuota media (mín–máx, casas) | Apoyo cons. | n |
 |---|---|---|---|---|---|
-| Simba – Mashujaa (ligi kuu bara) | 2026-10-13T16:00:00Z | Gana alguno, sin empate (12) ⚑ | 1.095 (1.06–1.13, 4) | 0.722 | 10/10 |
-| Simba – Mashujaa (ligi kuu bara) | 2026-10-13T16:00:00Z | Menos de 3.5 goles ⚑ | 1.34 (1.29–1.34, 3) | 0.722 | 10/10 |
-| ⚑ *dos patas del mismo partido (cuota combinada media 1.467; la casa suele pagar menos).* Conjunto medido en los mismos partidos pasados: local 1.0 (n=10), visitante 1.0 (n=10); apoyo conservador conjunto 0.722 frente a 0.521 si las patas fueran independientes (0.722 × 0.722): las patas se refuerzan entre sí. | | | | | |
-| Birmingham City – Preston North End (efl championship) | 2026-10-13T19:00:00Z | Menos de 4.5 goles | 1.14 (1.12–1.18, 7) | 0.722 | 10/10 |
-| Petrojet – Wadi Degla (egyptian premier league) | 2026-10-13T17:00:00Z | Más de 1.5 goles | 1.33 (1.32–1.36, 7) | 0.606 | 10/10 |
-| San Carlos – Inter San Carlos (primera division fpd) | 2026-10-14T02:00:00Z | Menos de 3.5 goles | 1.3 (1.29–1.32, 6) | 0.606 | 10/10 |
-| Rot-Weiss Essen – Fortuna Köln (3 liga) | 2026-10-13T17:00:00Z | Hándicap visitante +1.5 | 1.56 (1.43–1.6, 6) | 0.562 | 10/8 |
-
-### Borrador 4: ×4.17 (conservadora ×4.17) · 5 pata(s) en 5 partido(s) · apoyo conjunto descriptivo 0.077 (implícita de mercado sin margen 0.152)
-
-| Partido | Inicio UTC | Selección | Cuota media (mín–máx, casas) | Apoyo cons. | n |
-|---|---|---|---|---|---|
-| Burgess Hill Town – Dulwich Hamlet (isthmian premier division) | 2026-10-13T18:45:00Z | Más de 1.5 goles | 1.16 (1.16–1.21, 3) | 0.659 | 10/10 |
-| Petrojet – Wadi Degla (egyptian premier league) | 2026-10-13T17:00:00Z | Más de 1.5 goles | 1.33 (1.32–1.36, 7) | 0.606 | 10/10 |
-| Bury Town – Needham Market (southern league premier central) | 2026-10-13T18:45:00Z | Gana alguno, sin empate (12) | 1.245 (1.21–1.3, 6) | 0.606 | 10/10 |
-| Fajr Sepasi – Aluminium Arak (persian gulf pro league) | 2026-10-13T13:30:00Z | Empate o visitante (X2) | 1.62 (1.62–1.78, 3) | 0.566 | 7/7 |
-| Pohang Steelers – Johor Darul Ta'zim (afc champions league) | 2026-10-13T10:00:00Z | Empate o visitante (X2) | 1.34 (1.24–1.37, 8) | 0.56 | 10/10 |
-
-### Borrador 5: ×4.209 (conservadora ×4.209) · 5 pata(s) en 5 partido(s) · apoyo conjunto descriptivo 0.076 (implícita de mercado sin margen 0.156)
-
-| Partido | Inicio UTC | Selección | Cuota media (mín–máx, casas) | Apoyo cons. | n |
-|---|---|---|---|---|---|
-| Burgess Hill Town – Dulwich Hamlet (isthmian premier division) | 2026-10-13T18:45:00Z | Más de 1.5 goles | 1.16 (1.16–1.21, 3) | 0.659 | 10/10 |
-| Durban City – AmaZulu (premier soccer league) | 2026-10-13T17:30:00Z | Menos de 2.5 goles | 1.46 (1.44–1.5, 7) | 0.606 | 10/10 |
-| Buriram United – Beijing Guoan (afc champions league) | 2026-10-13T12:15:00Z | Hándicap visitante +1.5 | 1.235 (1.21–1.27, 4) | 0.606 | 10/10 |
-| Rot-Weiss Essen – Fortuna Köln (3 liga) | 2026-10-13T17:00:00Z | Hándicap visitante +1.5 | 1.56 (1.43–1.6, 6) | 0.562 | 10/8 |
-| Kaizer Chiefs – Stellenbosch (premier soccer league) | 2026-10-13T17:30:00Z | Hándicap visitante +1.5 | 1.29 (1.26–1.35, 4) | 0.56 | 10/10 |
+| Kyoto Sanga – Ratchaburi (afc champions league) | 2026-10-13T10:00:00Z | Hándicap visitante +1.5 | 1.68 (1.65–1.72, 6) | 0.659 (mín. equipo 0.596) | 10/10 |
+| Workington – Whitby Town (northern premier league) | 2026-10-13T18:45:00Z | Más de 1.5 goles | 1.135 (1.11–1.2, 4) | 0.659 (mín. equipo 0.596) | 10/10 |
+| Sariyer – Bodrumspor (1 lig) | 2026-10-13T14:00:00Z | Menos de 3.5 goles | 1.27 (1.23–1.29, 7) | 0.606 (mín. equipo 0.49) | 10/10 |
+| Buriram United – Beijing Guoan (afc champions league) | 2026-10-13T12:15:00Z | Hándicap visitante +1.5 | 1.235 (1.21–1.27, 4) | 0.606 (mín. equipo 0.49) | 10/10 |
+| Bristol City – Blackburn Rovers (efl championship) | 2026-10-13T18:45:00Z | Hándicap visitante +1.5 | 1.22 (1.2–1.36, 7) | 0.606 (mín. equipo 0.49) | 10/10 |
+| Lens – Sporting (uefa champions league) | 2026-10-13T16:45:00Z | Más de 1.5 goles | 1.15 (1.14–1.19, 6) | 0.606 (mín. equipo 0.49) | 10/10 |
 
 ## Top de picks por SEGURIDAD (mayor apoyo conservador; una pata por partido)
 
 | # | Partido | Categoría | Inicio UTC | Calendario | Selección | Cuota media (mín–máx, casas) | Apoyo cons. | n | Implícita s/margen | EV desc. cons. |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 1 | Simba – Mashujaa (ligi kuu bara) | men | 2026-10-13T16:00:00Z | 2 fuentes | Menos de 3.5 goles | 1.34 (1.29–1.34, 3) | 0.722 | 10/10 | 0.6748 | -0.033 |
-| 2 | Kyoto Sanga – Ratchaburi (afc champions league) | men | 2026-10-13T10:00:00Z | 2 fuentes | Hándicap visitante +2.5 | 1.19 (1.19–1.27, 3) | 0.722 | 10/10 | 0.7586 | -0.141 |
-| 3 | Al Sadd – Al Hilal (afc champions league) | men | 2026-10-13T16:00:00Z | 2 fuentes | Gana alguno, sin empate (12) | 1.19 (1.13–1.22, 8) | 0.722 | 10/10 | 0.7889 | -0.141 |
-| 4 | Cheltenham Town – Tottenham U21 (efl trophy) | u23 ⚠ | 2026-10-13T18:00:00Z | 2 fuentes | Hándicap visitante +2.5 | 1.14 (1.14–1.19, 3) | 0.722 | 10/10 | 0.7904 | -0.177 |
-| 5 | Birmingham City – Preston North End (efl championship) | men | 2026-10-13T19:00:00Z | 2 fuentes | Menos de 4.5 goles | 1.14 (1.12–1.18, 7) | 0.722 | 10/10 | 0.8143 | -0.177 |
-| 6 | Harju Jalgpallikool – Nõmme United (meistriliiga) | men | 2026-10-13T15:00:00Z | 2 fuentes | Menos de 5.5 goles | 1.1 (1.07–1.14, 5) | 0.722 | 10/10 | 0.8226 | -0.206 |
-| 7 | Norrköping – GIF Sundsvall (superettan) | men | 2026-10-13T17:00:00Z | 2 fuentes | Menos de 5.5 goles | 1.1 (1.08–1.14, 7) | 0.722 | 10/10 | 0.841 | -0.206 |
-| 8 | Sariyer – Bodrumspor (1 lig) | men | 2026-10-13T14:00:00Z | 2 fuentes | Menos de 4.5 goles | 1.065 (1.05–1.1, 6) | 0.722 | 10/10 | 0.8642 | -0.231 |
-| 9 | Lehota p. V. – Michalovce (Cup - 1/16-finals) | men | 2026-10-13T13:00:00Z | 1 fuente | Menos de 5.5 goles | 1.055 (1.02–1.06, 4) | 0.722 | 10/10 | 0.8835 | -0.238 |
-| 10 | RB Leipzig – PSV (uefa champions league) | men | 2026-10-13T19:00:00Z | 2 fuentes | Más de 1.5 goles | 1.055 (1.04–1.11, 6) | 0.722 | 10/10 | 0.8763 | -0.238 |
-| 11 | Villarreal – Napoli (uefa champions league) | men | 2026-10-13T19:00:00Z | 2 fuentes | Menos de 5.5 goles | 1.045 (1.01–1.09, 6) | 0.722 | 10/10 | 0.8894 | -0.246 |
-| 12 | Pendikspor – Van BB (1 lig) | men | 2026-10-13T17:00:00Z | 2 fuentes | Más de 0.5 goles | 1.04 (1.02–1.05, 5) | 0.722 | 10/10 | 0.9114 | -0.249 |
-| 13 | Cartaginés – Puntarenas (primera division fpd) | men | 2026-10-14T00:00:00Z | 2 fuentes | Menos de 5.5 goles | 1.04 (1.01–1.05, 5) | 0.722 | 10/10 | 0.9099 | -0.249 |
-| 14 | Orlando Pirates – TS Galaxy (premier soccer league) | men | 2026-10-13T17:30:00Z | 2 fuentes | Menos de 5.5 goles | 1.035 (1.01–1.04, 4) | 0.722 | 10/10 | 0.9206 | -0.253 |
-| 15 | Richards Bay – Mamelodi Sundowns (premier soccer league) | men | 2026-10-13T17:30:00Z | 2 fuentes | Más de 0.5 goles | 1.035 (1.01–1.06, 6) | 0.722 | 10/10 | 0.8903 | -0.253 |
+| 1 | Birmingham City – Preston North End (efl championship) | men | 2026-10-13T19:00:00Z | 2 fuentes | Menos de 4.5 goles | 1.14 (1.12–1.18, 7) | 0.722 | 10/10 | 0.8143 | -0.177 |
+| 2 | Harju Jalgpallikool – Nõmme United (meistriliiga) | men | 2026-10-13T15:00:00Z | 2 fuentes | Menos de 5.5 goles | 1.1 (1.07–1.14, 5) | 0.722 | 10/10 | 0.8226 | -0.206 |
+| 3 | Al Sadd – Al Hilal (afc champions league) | men | 2026-10-13T16:00:00Z | 2 fuentes | Más de 1.5 goles | 1.1 (1.08–1.14, 7) | 0.722 | 10/10 | 0.8451 | -0.206 |
+| 4 | Norrköping – GIF Sundsvall (superettan) | men | 2026-10-13T17:00:00Z | 2 fuentes | Menos de 5.5 goles | 1.1 (1.08–1.14, 7) | 0.722 | 10/10 | 0.841 | -0.206 |
+| 5 | Simba – Mashujaa (ligi kuu bara) | men | 2026-10-13T16:00:00Z | 2 fuentes | Gana alguno, sin empate (12) | 1.095 (1.06–1.13, 4) | 0.722 | 10/10 | 0.8387 | -0.209 |
+| 6 | RB Leipzig – PSV (uefa champions league) | men | 2026-10-13T19:00:00Z | 2 fuentes | Más de 1.5 goles | 1.055 (1.04–1.11, 6) | 0.722 | 10/10 | 0.8763 | -0.238 |
+| 7 | Villarreal – Napoli (uefa champions league) | men | 2026-10-13T19:00:00Z | 2 fuentes | Menos de 5.5 goles | 1.045 (1.01–1.09, 6) | 0.722 | 10/10 | 0.8894 | -0.246 |
+| 8 | Pendikspor – Van BB (1 lig) | men | 2026-10-13T17:00:00Z | 2 fuentes | Más de 0.5 goles | 1.04 (1.02–1.05, 5) | 0.722 | 10/10 | 0.9114 | -0.249 |
+| 9 | Cartaginés – Puntarenas (primera division fpd) | men | 2026-10-14T00:00:00Z | 2 fuentes | Menos de 5.5 goles | 1.04 (1.01–1.05, 5) | 0.722 | 10/10 | 0.9099 | -0.249 |
+| 10 | Orlando Pirates – TS Galaxy (premier soccer league) | men | 2026-10-13T17:30:00Z | 2 fuentes | Menos de 5.5 goles | 1.035 (1.01–1.04, 4) | 0.722 | 10/10 | 0.9206 | -0.253 |
+| 11 | Bristol City – Blackburn Rovers (efl championship) | men | 2026-10-13T18:45:00Z | 2 fuentes | Menos de 5.5 goles | 1.035 (1.02–1.05, 4) | 0.722 | 10/10 | 0.9206 | -0.253 |
+| 12 | Stoke City – Middlesbrough (efl championship) | men | 2026-10-13T19:00:00Z | 2 fuentes | Más de 0.5 goles | 1.03 (1.02–1.05, 4) | 0.722 | 10/10 | 0.9244 | -0.256 |
+| 13 | Millonarios – Once Caldas (categoria primera a) | men | 2026-10-14T01:30:00Z | 2 fuentes | Menos de 5.5 goles | 1.03 (1.01–1.04, 4) | 0.722 | 10/10 | 0.9337 | -0.256 |
+| 14 | San Carlos – Inter San Carlos (primera division fpd) | men | 2026-10-14T02:00:00Z | 2 fuentes | Más de 0.5 goles | 1.03 (1.03–1.07, 5) | 0.722 | 10/10 | 0.8806 | -0.256 |
+| 15 | Cardiff City – Watford (efl championship) | men | 2026-10-13T18:45:00Z | 2 fuentes | Menos de 4.5 goles | 1.25 (1.2–1.27, 7) | 0.712 | 9/10 | 0.7525 | -0.11 |
 
 ## Top de picks por ATRACTIVO (rentabilidad-cuota: EV descriptivo conservador = apoyo × cuota − 1, apoyo ≥ 0.55)
 
@@ -124,13 +90,8 @@
 
 | Partido | Selección | Cuota aprox. | Apoyo cons. | n | Cuota real mínima para tener valor |
 |---|---|---|---|---|---|
-| Al Bukiryah – Al Zulfi | Menos de 11.5 córners | 1.11 ✎ | 0.606 | 10/10 | 1.65 |
 | Arsenal – Lille | Menos de 5.5 tarjetas (A+R) | 1.11 ✎ | 0.606 | 10/10 | 1.65 |
-| Artis Brno B – Brno B | Menos de 5.5 tarjetas (A+R) | 1.11 ✎ | 0.606 | 10/10 | 1.65 |
-| Gillingham – Brighton U21 | Menos de 11.5 córners | 1.11 ✎ | 0.606 | 10/10 | 1.65 |
-| Montana – Ludogorets II | Más de 3.5 tarjetas (A+R) | 1.11 ✎ | 0.606 | 10/10 | 1.65 |
 | Petrojet – Wadi Degla | Menos de 5.5 tarjetas (A+R) | 1.11 ✎ | 0.606 | 10/10 | 1.65 |
-| Al Bukiryah – Al Zulfi | Menos de 5.5 tarjetas (A+R) | 1.11 ✎ | 0.596 | 10/10 | 1.68 |
 | Atlético Bucaramanga – Águilas Doradas | Más de 2.5 tarjetas (A+R) | 1.11 ✎ | 0.596 | 10/10 | 1.68 |
 | Bandırmaspor – Sivasspor | Más de 2.5 tarjetas (A+R) | 1.11 ✎ | 0.596 | 10/10 | 1.68 |
 | Công An Nhân Dân – Kashima Antlers | Menos de 5.5 tarjetas (A+R) | 1.12 ✎ | 0.596 | 10/9 | 1.68 |
@@ -140,10 +101,15 @@
 | Havelse – Würzburger Kickers | Menos de 11.5 córners | 1.13 ✎ | 0.583 | 10/8 | 1.72 |
 | Kyoto Sanga – Ratchaburi | Menos de 5.5 tarjetas (A+R) | 1.13 ✎ | 0.583 | 8/10 | 1.72 |
 | Birmingham City – Preston North End | Menos de 5.5 tarjetas (A+R) | 1.12 ✎ | 0.58 | 9/10 | 1.72 |
-| Boston Utd – Southampton U21 | Menos de 5.5 tarjetas (A+R) | 1.12 ✎ | 0.58 | 10/9 | 1.72 |
 | FUS Rabat – Raja Casablanca | Más de 3.5 tarjetas (A+R) | 1.12 ✎ | 0.58 | 10/9 | 1.72 |
 | Norrköping – GIF Sundsvall | Menos de 4.5 tarjetas (A+R) | 1.12 ✎ | 0.58 | 10/9 | 1.72 |
 | Pendikspor – Van BB | Más de 2.5 tarjetas (A+R) | 1.12 ✎ | 0.58 | 10/9 | 1.72 |
+| Newcastle Jets FC – Gamba Osaka | Menos de 4.5 tarjetas (A+R) | 1.1 ✎ | 0.569 | 6/9 | 1.76 |
+| Newcastle Jets FC – Gamba Osaka | Menos de 5.5 tarjetas (A+R) | 1.1 ✎ | 0.569 | 6/9 | 1.76 |
+| Rot-Weiss Essen – Fortuna Köln | Más de 2.5 tarjetas (A+R) | 1.13 ✎ | 0.566 | 10/8 | 1.77 |
+| RSB Berkane – CR Khemis Zemamra | Menos de 10.5 córners | 1.13 ✎ | 0.565 | 9/9 | 1.77 |
+| Sabah – Slavia Praha | Menos de 5.5 tarjetas (A+R) | 1.13 ✎ | 0.562 | 8/10 | 1.78 |
+| RB Leipzig – PSV | Menos de 5.5 tarjetas (A+R) | 1.17 ✎ | 0.56 | 10/10 | 1.79 |
 
 *Cuota aproximada = 1 / (frecuencia suavizada de ambos equipos × (1 + 0.08)): supone un margen típico de casa y SALE de la misma estadística, por eso no se usa para hablar de valor. Sirve para armar y ordenar borradores. Antes de apostar compárala con tu casa: solo tiene valor si paga claramente por encima de la «cuota real mínima». Si me pasas tus cuotas reales (`--manual-odds archivo.csv` con columnas home,away,seleccion,cuota) sustituyen a las aproximadas.*
 
@@ -151,7 +117,63 @@
 
 | Partido | Selección | Motivo |
 |---|---|---|
+| Pohang Steelers – Johor Darul Ta'zim | Empate o visitante (X2) | Revisión por lotes (cuantitativo/deportivo): el apoyo de Johor se apoya en 5.4 goles/partido y 9/10 over 2.5 contra rivales mucho más débiles de otra liga; historial mixto sin ajuste por rival |
+| Pohang Steelers – Johor Darul Ta'zim | Más de 1.5 goles | Auditor ronda 2: misma muestra inflada de Johor (5.4 GF, rivales de otra liga) por la que ya se vetó el X2; sin Johor el equipo local queda en 0.49 <0.55 |
+| Công An Nhân Dân – Kashima Antlers | Gana alguno, sin empate (12) | Auditor ronda 2: pocos empates con copas/ASEAN en la muestra; patas '12' vetadas hasta verificar marcadores a 90' |
+| Sariyer – Bodrumspor | Menos de 4.5 goles | Auditor ronda 2: paga 1.065 (6.5 %) con equilibrio 93.9 % frente a implícita 86.4 %; la muestra incluye semifinal de playoff |
+| Al Sadd – Al Hilal | Gana alguno, sin empate (12) | Auditor ronda 2: 0 empates en 20 partidos con copas en la muestra; hipótesis (sin verificar) de empates registrados como victoria; sesgo del ganador |
+| Sabah – Slavia Praha | Gana alguno, sin empate (12) | Auditor ronda 2: 0 empates en 8; muestra con Qualifying y pretemporada; patas '12' vetadas hasta verificar marcadores a 90' |
+| Petrojet – Wadi Degla | Más de 1.5 goles | Auditor ronda 2: lote b08: discrepancia >30 pp frente al mercado, historial con Relegation Group y tarjetas 1/10 vs 9/10 por verificar |
 | Orlando Pirates – TS Galaxy | Hándicap visitante +2.5 | Nivel 2 (deportivo): Pirates #2, ganó por 3+ en 3/10; cuota ya baja y riesgo no compensado |
+| Kaizer Chiefs – Stellenbosch | Hándicap visitante +1.5 | Auditor ronda 2: Wilson propio 0.397; la frecuencia coincide con el mercado (sin apoyo); etiqueta Play-offs sin confirmar |
+| Richards Bay – Mamelodi Sundowns | Local gana (1) | Revisión por lotes (cuantitativo): precios de doble oportunidad incoherentes con el 1X2 (medias de distinto n de casas) y BTTS observado 16/20 frente a ~37% del mercado |
+| Richards Bay – Mamelodi Sundowns | Empate (X) | Revisión por lotes (cuantitativo): precios de doble oportunidad incoherentes con el 1X2 (medias de distinto n de casas) y BTTS observado 16/20 frente a ~37% del mercado |
+| Richards Bay – Mamelodi Sundowns | Visitante gana (2) | Revisión por lotes (cuantitativo): precios de doble oportunidad incoherentes con el 1X2 (medias de distinto n de casas) y BTTS observado 16/20 frente a ~37% del mercado |
+| Richards Bay – Mamelodi Sundowns | Local o empate (1X) | Revisión por lotes (cuantitativo): precios de doble oportunidad incoherentes con el 1X2 (medias de distinto n de casas) y BTTS observado 16/20 frente a ~37% del mercado |
+| Richards Bay – Mamelodi Sundowns | Gana alguno, sin empate (12) | Revisión por lotes (cuantitativo): precios de doble oportunidad incoherentes con el 1X2 (medias de distinto n de casas) y BTTS observado 16/20 frente a ~37% del mercado |
+| Richards Bay – Mamelodi Sundowns | Empate o visitante (X2) | Revisión por lotes (cuantitativo): precios de doble oportunidad incoherentes con el 1X2 (medias de distinto n de casas) y BTTS observado 16/20 frente a ~37% del mercado |
+| Richards Bay – Mamelodi Sundowns | Hándicap local -2.5 | Revisión por lotes (cuantitativo): precios de doble oportunidad incoherentes con el 1X2 (medias de distinto n de casas) y BTTS observado 16/20 frente a ~37% del mercado |
+| Richards Bay – Mamelodi Sundowns | Hándicap visitante +2.5 | Revisión por lotes (cuantitativo): precios de doble oportunidad incoherentes con el 1X2 (medias de distinto n de casas) y BTTS observado 16/20 frente a ~37% del mercado |
+| Richards Bay – Mamelodi Sundowns | Hándicap local -1.5 | Revisión por lotes (cuantitativo): precios de doble oportunidad incoherentes con el 1X2 (medias de distinto n de casas) y BTTS observado 16/20 frente a ~37% del mercado |
+| Richards Bay – Mamelodi Sundowns | Hándicap visitante +1.5 | Revisión por lotes (cuantitativo): precios de doble oportunidad incoherentes con el 1X2 (medias de distinto n de casas) y BTTS observado 16/20 frente a ~37% del mercado |
+| Richards Bay – Mamelodi Sundowns | Hándicap local -0.5 | Revisión por lotes (cuantitativo): precios de doble oportunidad incoherentes con el 1X2 (medias de distinto n de casas) y BTTS observado 16/20 frente a ~37% del mercado |
+| Richards Bay – Mamelodi Sundowns | Hándicap visitante +0.5 | Revisión por lotes (cuantitativo): precios de doble oportunidad incoherentes con el 1X2 (medias de distinto n de casas) y BTTS observado 16/20 frente a ~37% del mercado |
+| Richards Bay – Mamelodi Sundowns | Hándicap local +0.5 | Revisión por lotes (cuantitativo): precios de doble oportunidad incoherentes con el 1X2 (medias de distinto n de casas) y BTTS observado 16/20 frente a ~37% del mercado |
+| Richards Bay – Mamelodi Sundowns | Hándicap visitante -0.5 | Revisión por lotes (cuantitativo): precios de doble oportunidad incoherentes con el 1X2 (medias de distinto n de casas) y BTTS observado 16/20 frente a ~37% del mercado |
+| Richards Bay – Mamelodi Sundowns | Hándicap local +1.5 | Revisión por lotes (cuantitativo): precios de doble oportunidad incoherentes con el 1X2 (medias de distinto n de casas) y BTTS observado 16/20 frente a ~37% del mercado |
+| Richards Bay – Mamelodi Sundowns | Hándicap visitante -1.5 | Revisión por lotes (cuantitativo): precios de doble oportunidad incoherentes con el 1X2 (medias de distinto n de casas) y BTTS observado 16/20 frente a ~37% del mercado |
+| Richards Bay – Mamelodi Sundowns | Hándicap local +2.5 | Revisión por lotes (cuantitativo): precios de doble oportunidad incoherentes con el 1X2 (medias de distinto n de casas) y BTTS observado 16/20 frente a ~37% del mercado |
+| Richards Bay – Mamelodi Sundowns | Hándicap visitante -2.5 | Revisión por lotes (cuantitativo): precios de doble oportunidad incoherentes con el 1X2 (medias de distinto n de casas) y BTTS observado 16/20 frente a ~37% del mercado |
+| Richards Bay – Mamelodi Sundowns | Más de 0.5 goles | Revisión por lotes (cuantitativo): precios de doble oportunidad incoherentes con el 1X2 (medias de distinto n de casas) y BTTS observado 16/20 frente a ~37% del mercado |
+| Richards Bay – Mamelodi Sundowns | Menos de 0.5 goles | Revisión por lotes (cuantitativo): precios de doble oportunidad incoherentes con el 1X2 (medias de distinto n de casas) y BTTS observado 16/20 frente a ~37% del mercado |
+| Richards Bay – Mamelodi Sundowns | Más de 1.5 goles | Revisión por lotes (cuantitativo): precios de doble oportunidad incoherentes con el 1X2 (medias de distinto n de casas) y BTTS observado 16/20 frente a ~37% del mercado |
+| Richards Bay – Mamelodi Sundowns | Menos de 1.5 goles | Revisión por lotes (cuantitativo): precios de doble oportunidad incoherentes con el 1X2 (medias de distinto n de casas) y BTTS observado 16/20 frente a ~37% del mercado |
+| Richards Bay – Mamelodi Sundowns | Más de 2.5 goles | Revisión por lotes (cuantitativo): precios de doble oportunidad incoherentes con el 1X2 (medias de distinto n de casas) y BTTS observado 16/20 frente a ~37% del mercado |
+| Richards Bay – Mamelodi Sundowns | Menos de 2.5 goles | Revisión por lotes (cuantitativo): precios de doble oportunidad incoherentes con el 1X2 (medias de distinto n de casas) y BTTS observado 16/20 frente a ~37% del mercado |
+| Richards Bay – Mamelodi Sundowns | Más de 3.5 goles | Revisión por lotes (cuantitativo): precios de doble oportunidad incoherentes con el 1X2 (medias de distinto n de casas) y BTTS observado 16/20 frente a ~37% del mercado |
+| Richards Bay – Mamelodi Sundowns | Menos de 3.5 goles | Revisión por lotes (cuantitativo): precios de doble oportunidad incoherentes con el 1X2 (medias de distinto n de casas) y BTTS observado 16/20 frente a ~37% del mercado |
+| Richards Bay – Mamelodi Sundowns | Más de 4.5 goles | Revisión por lotes (cuantitativo): precios de doble oportunidad incoherentes con el 1X2 (medias de distinto n de casas) y BTTS observado 16/20 frente a ~37% del mercado |
+| Richards Bay – Mamelodi Sundowns | Menos de 4.5 goles | Revisión por lotes (cuantitativo): precios de doble oportunidad incoherentes con el 1X2 (medias de distinto n de casas) y BTTS observado 16/20 frente a ~37% del mercado |
+| Richards Bay – Mamelodi Sundowns | Más de 5.5 goles | Revisión por lotes (cuantitativo): precios de doble oportunidad incoherentes con el 1X2 (medias de distinto n de casas) y BTTS observado 16/20 frente a ~37% del mercado |
+| Richards Bay – Mamelodi Sundowns | Menos de 5.5 goles | Revisión por lotes (cuantitativo): precios de doble oportunidad incoherentes con el 1X2 (medias de distinto n de casas) y BTTS observado 16/20 frente a ~37% del mercado |
+| Richards Bay – Mamelodi Sundowns | Ambos anotan: sí | Revisión por lotes (cuantitativo): precios de doble oportunidad incoherentes con el 1X2 (medias de distinto n de casas) y BTTS observado 16/20 frente a ~37% del mercado |
+| Richards Bay – Mamelodi Sundowns | Ambos anotan: no | Revisión por lotes (cuantitativo): precios de doble oportunidad incoherentes con el 1X2 (medias de distinto n de casas) y BTTS observado 16/20 frente a ~37% del mercado |
+| Richards Bay – Mamelodi Sundowns | Más de 8.5 córners | Revisión por lotes (cuantitativo): precios de doble oportunidad incoherentes con el 1X2 (medias de distinto n de casas) y BTTS observado 16/20 frente a ~37% del mercado |
+| Richards Bay – Mamelodi Sundowns | Menos de 8.5 córners | Revisión por lotes (cuantitativo): precios de doble oportunidad incoherentes con el 1X2 (medias de distinto n de casas) y BTTS observado 16/20 frente a ~37% del mercado |
+| Richards Bay – Mamelodi Sundowns | Más de 9.5 córners | Revisión por lotes (cuantitativo): precios de doble oportunidad incoherentes con el 1X2 (medias de distinto n de casas) y BTTS observado 16/20 frente a ~37% del mercado |
+| Richards Bay – Mamelodi Sundowns | Menos de 9.5 córners | Revisión por lotes (cuantitativo): precios de doble oportunidad incoherentes con el 1X2 (medias de distinto n de casas) y BTTS observado 16/20 frente a ~37% del mercado |
+| Richards Bay – Mamelodi Sundowns | Más de 10.5 córners | Revisión por lotes (cuantitativo): precios de doble oportunidad incoherentes con el 1X2 (medias de distinto n de casas) y BTTS observado 16/20 frente a ~37% del mercado |
+| Richards Bay – Mamelodi Sundowns | Menos de 10.5 córners | Revisión por lotes (cuantitativo): precios de doble oportunidad incoherentes con el 1X2 (medias de distinto n de casas) y BTTS observado 16/20 frente a ~37% del mercado |
+| Richards Bay – Mamelodi Sundowns | Más de 11.5 córners | Revisión por lotes (cuantitativo): precios de doble oportunidad incoherentes con el 1X2 (medias de distinto n de casas) y BTTS observado 16/20 frente a ~37% del mercado |
+| Richards Bay – Mamelodi Sundowns | Menos de 11.5 córners | Revisión por lotes (cuantitativo): precios de doble oportunidad incoherentes con el 1X2 (medias de distinto n de casas) y BTTS observado 16/20 frente a ~37% del mercado |
+| Richards Bay – Mamelodi Sundowns | Más de 2.5 tarjetas (A+R) | Revisión por lotes (cuantitativo): precios de doble oportunidad incoherentes con el 1X2 (medias de distinto n de casas) y BTTS observado 16/20 frente a ~37% del mercado |
+| Richards Bay – Mamelodi Sundowns | Menos de 2.5 tarjetas (A+R) | Revisión por lotes (cuantitativo): precios de doble oportunidad incoherentes con el 1X2 (medias de distinto n de casas) y BTTS observado 16/20 frente a ~37% del mercado |
+| Richards Bay – Mamelodi Sundowns | Más de 3.5 tarjetas (A+R) | Revisión por lotes (cuantitativo): precios de doble oportunidad incoherentes con el 1X2 (medias de distinto n de casas) y BTTS observado 16/20 frente a ~37% del mercado |
+| Richards Bay – Mamelodi Sundowns | Menos de 3.5 tarjetas (A+R) | Revisión por lotes (cuantitativo): precios de doble oportunidad incoherentes con el 1X2 (medias de distinto n de casas) y BTTS observado 16/20 frente a ~37% del mercado |
+| Richards Bay – Mamelodi Sundowns | Más de 4.5 tarjetas (A+R) | Revisión por lotes (cuantitativo): precios de doble oportunidad incoherentes con el 1X2 (medias de distinto n de casas) y BTTS observado 16/20 frente a ~37% del mercado |
+| Richards Bay – Mamelodi Sundowns | Menos de 4.5 tarjetas (A+R) | Revisión por lotes (cuantitativo): precios de doble oportunidad incoherentes con el 1X2 (medias de distinto n de casas) y BTTS observado 16/20 frente a ~37% del mercado |
+| Richards Bay – Mamelodi Sundowns | Más de 5.5 tarjetas (A+R) | Revisión por lotes (cuantitativo): precios de doble oportunidad incoherentes con el 1X2 (medias de distinto n de casas) y BTTS observado 16/20 frente a ~37% del mercado |
+| Richards Bay – Mamelodi Sundowns | Menos de 5.5 tarjetas (A+R) | Revisión por lotes (cuantitativo): precios de doble oportunidad incoherentes con el 1X2 (medias de distinto n de casas) y BTTS observado 16/20 frente a ~37% del mercado |
 | Hartlepool – Newcastle Utd U21 | Local gana (1) | Nivel 2 (verificador/deportivo): plantilla sub-23, una sola fuente de calendario, cuotas 1X2 sospechosas |
 | Hartlepool – Newcastle Utd U21 | Empate (X) | Nivel 2 (verificador/deportivo): plantilla sub-23, una sola fuente de calendario, cuotas 1X2 sospechosas |
 | Hartlepool – Newcastle Utd U21 | Visitante gana (2) | Nivel 2 (verificador/deportivo): plantilla sub-23, una sola fuente de calendario, cuotas 1X2 sospechosas |
@@ -192,11 +214,14 @@
 | Hartlepool – Newcastle Utd U21 | Menos de 4.5 tarjetas (A+R) | Nivel 2 (verificador/deportivo): plantilla sub-23, una sola fuente de calendario, cuotas 1X2 sospechosas |
 | Hartlepool – Newcastle Utd U21 | Más de 5.5 tarjetas (A+R) | Nivel 2 (verificador/deportivo): plantilla sub-23, una sola fuente de calendario, cuotas 1X2 sospechosas |
 | Hartlepool – Newcastle Utd U21 | Menos de 5.5 tarjetas (A+R) | Nivel 2 (verificador/deportivo): plantilla sub-23, una sola fuente de calendario, cuotas 1X2 sospechosas |
+| Bury Town – Needham Market | Gana alguno, sin empate (12) | Auditor ronda 2: 0 empates en 10 (Needham 2): patas '12' vetadas hasta verificar marcadores a 90' |
 | Birmingham City – Preston North End | Hándicap visitante +1.5 | Nivel 2 (deportivo): Preston #24 perdió por 2+ en 3/10; se prefiere la +2.5 (overround 1.153 anómalo en la +1.5 según cuantitativo) |
+| Villarreal – Napoli | Hándicap visitante +1.5 | Auditor ronda 2: la muestra incluye amistosos (Como Cup/Emirates Cup) pese a 'sin amistosos'; 4 casas |
 | Inter Milan – Club Brugge | Hándicap visitante +2.5 | Nivel 2 (deportivo): Inter ganó por 3+ en 2 de 4 partidos competitivos en casa; el mercado da ~35% a la goleada → riesgo alto para una pata de seguridad |
+| RB Leipzig – PSV | Gana alguno, sin empate (12) | Auditor ronda 2: 0 empates en 10; patas '12' vetadas hasta verificar marcadores a 90' |
 | Arsenal – Lille | Hándicap visitante +2.5 | Nivel 2 (deportivo): favorito fuerte en casa, ganó por 3+ en 2 de 4 en casa; mercado ~36–39% a la goleada |
 | Athletic-MG – Londrina | Más de 2.5 tarjetas (A+R) | Nivel 2 (verificador/deportivo/cuantitativo): sin mercado de tarjetas en la API, cuota solo estimada por modelo, sin árbitro ni regla de liquidación verificada |
 
 ---
-Partidos usados en borradores de perfiles previos: 22; sin partidos repetidos entre multiplicadores: True; cuotas manuales aplicadas: 0.
-Patas evaluadas: 8099 (con cuota media: 3237) en 205 partidos.
+Partidos usados en borradores de perfiles previos: 16; sin partidos repetidos entre multiplicadores: True; cuotas manuales aplicadas: 0.
+Patas evaluadas: 8040 (con cuota media: 3197) en 204 partidos.

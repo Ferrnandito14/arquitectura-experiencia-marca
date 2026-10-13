@@ -33,6 +33,11 @@ _spec.loader.exec_module(calc)
 DEFAULT_TARGETS = [("seguridad", 1.20, 1.28, 2, 0.65, 0.01), ("amplio", 4.0, 4.8, 6, 0.55, 0.04)]
 OK_KINDS = ("apifootball_misma_competicion", "apifootball_historial_propio", "football-data_misma_liga")
 MIN_N, MIN_BOOKS = 6, 3
+TEAM_FLOOR = 0.55        # revisión del auditor: el apoyo es el promedio de dos equipos y un 10/10 tapa al flojo; en tickets CADA equipo debe alcanzar este piso (8/10 → 0.49 no pasa)
+TEAM_FLOOR_BY_PROFILE = {"amplio": 0.45}    # el perfil amplio acepta 8/10 por equipo (Wilson 0.49): relajado y rotulado; seguridad usa TEAM_FLOOR
+EXCLUDE_TICKET_SELECTIONS = ("Gana alguno, sin empate",)    # auditor ronda 2: las patas «12» salen con ~8 % de empates frente a 22–30 % de mercado (¿empate registrado como victoria en copas?): fuera de tickets hasta verificar marcadores a 90'
+MAX_LEG_REUSE = 2       # una misma pata (partido+selección) aparece como máximo en 2 borradores de un perfil (evita que un solo fallo hunda todos)
+TICKET_MIN_BOOKS = 4    # revisión por lotes: cuotas medias de 2–3 casas son frágiles (precios repetidos/extremos); las patas de TICKET exigen ≥4 casas (rankings: ≥3)
 ODDS_MIN, ODDS_MAX = 1.03, 2.6
 PAIR_TOP_PER_MATCH = 10
 EST_MARGIN = 0.08     # SUPUESTO: margen típico de una casa en mercados secundarios; la cuota estimada NO es de ninguna casa
@@ -111,8 +116,9 @@ def _support(fh, fa, ph, pa):
     if len(hs) < MIN_N or len(as_) < MIN_N:
         return None
     kh, ka = sum(hs), sum(as_)
-    lo = (calc.wilson(kh, len(hs))[0] + calc.wilson(ka, len(as_))[0]) / 2
-    return {"apoyo_conservador": round(lo, 3), "frec": [round(kh / len(hs), 3), round(ka / len(as_), 3)], "n": [len(hs), len(as_)]}
+    wh, wa = calc.wilson(kh, len(hs))[0], calc.wilson(ka, len(as_))[0]
+    lo = (wh + wa) / 2
+    return {"apoyo_conservador": round(lo, 3), "apoyo_min_equipo": round(min(wh, wa), 3), "frec": [round(kh / len(hs), 3), round(ka / len(as_), 3)], "n": [len(hs), len(as_)]}
 
 
 def _novig(c):
@@ -224,17 +230,19 @@ def _family(leg):
     return leg["mercado"]
 
 
-def _items(legs, min_support, with_pairs=True, require_calendar=False, exclude_categories=()):
+def _items(legs, min_support, with_pairs=True, require_calendar=False, exclude_categories=(), team_floor=TEAM_FLOOR):
     """Ítems = pata suelta o par de patas del mismo partido (apoyo CONJUNTO sobre los mismos partidos pasados)."""
     by = {}
     for l in legs:
-        if l["cuota_media"] is not None and (l.get("calendario_2_fuentes") or not require_calendar) and l.get("categoria", "men") not in exclude_categories:
+        if l["cuota_media"] is not None and (l.get("calendario_2_fuentes") or not require_calendar) and l.get("categoria", "men") not in exclude_categories \
+                and not (require_calendar and l["seleccion"].startswith(EXCLUDE_TICKET_SELECTIONS)) \
+                and (not require_calendar or l.get("cuota_tipo") in ("estimada_por_modelo", "manual_usuario") or l.get("n_casas", 0) >= TICKET_MIN_BOOKS):
             by.setdefault(l["match_id"], []).append(l)
     items = []
     for mid, ls in by.items():
         ls.sort(key=lambda l: -l["apoyo_conservador"])
         for l in ls:
-            if l["apoyo_conservador"] >= min_support:
+            if l["apoyo_conservador"] >= min_support and (not require_calendar or l.get("apoyo_min_equipo", 1) >= team_floor):
                 items.append({"match_id": mid, "patas": [l], "cuota": l["cuota_media"], "cuota_cons": l["cuota_media"], "apoyo": l["apoyo_conservador"], "mismo_partido": False})
         if with_pairs:
             for a, b in itertools.combinations(ls[:PAIR_TOP_PER_MATCH], 2):
@@ -246,7 +254,7 @@ def _items(legs, min_support, with_pairs=True, require_calendar=False, exclude_c
                 # «bien justificado»: el apoyo CONJUNTO medido sobre los mismos partidos pasados supera el mínimo del perfil y no es
                 # peor que el de las dos patas tratadas como independientes (tolerancia 0.02): la segunda pata no debilita a la primera
                 indep = a["apoyo_conservador"] * b["apoyo_conservador"]
-                if sup and sup["apoyo_conservador"] >= min_support and sup["apoyo_conservador"] >= indep - 0.02:
+                if sup and sup["apoyo_conservador"] >= min_support and sup["apoyo_conservador"] >= indep - 0.02 and (not require_calendar or sup["apoyo_min_equipo"] >= team_floor):
                     just = (f"Conjunto medido en los mismos partidos pasados: local {sup['frec'][0]} (n={sup['n'][0]}), visitante {sup['frec'][1]} (n={sup['n'][1]}); "
                             f"apoyo conservador conjunto {sup['apoyo_conservador']} frente a {round(indep, 3)} si las patas fueran independientes "
                             f"({a['apoyo_conservador']} × {b['apoyo_conservador']}): " +
@@ -257,8 +265,8 @@ def _items(legs, min_support, with_pairs=True, require_calendar=False, exclude_c
     return items
 
 
-def search(legs, lo, hi, max_legs, min_support, top=5, pool=60, exclude=frozenset(), require_calendar=True, exclude_categories=EXCLUDE_TICKET_CATEGORIES, buffer=0.0):
-    items = [i for i in _items(legs, min_support, require_calendar=require_calendar, exclude_categories=exclude_categories) if i["match_id"] not in exclude]
+def search(legs, lo, hi, max_legs, min_support, top=5, pool=60, exclude=frozenset(), require_calendar=True, exclude_categories=EXCLUDE_TICKET_CATEGORIES, buffer=0.0, team_floor=TEAM_FLOOR):
+    items = [i for i in _items(legs, min_support, require_calendar=require_calendar, exclude_categories=exclude_categories, team_floor=team_floor) if i["match_id"] not in exclude]
     items.sort(key=lambda i: (-i["apoyo"], -i["cuota"]))      # a igual apoyo (= igual riesgo), la cuota más alta
     best_per_match, cand = {}, []
     for it in items:                                        # hasta 6 ítems por partido para no perder la variedad de mercados
@@ -288,12 +296,15 @@ def search(legs, lo, hi, max_legs, min_support, top=5, pool=60, exclude=frozense
                 rec(i + 1, chosen + [it], p, prod_cons * it["cuota_cons"], n, e)
     rec(0, [], 1.0, 1.0, 0, 0)
     res.sort(key=lambda t: (-t[0], -t[1]))
-    picked, taken = [], []
+    picked, taken, reuse = [], [], {}
     for r in res:                                       # borradores DISTINTOS: no repetir casi los mismos partidos
         ms = {x["match_id"] for x in r[3]}
-        if all(len(ms & t) / min(len(ms), len(t)) <= MAX_OVERLAP for t in taken):
+        keys = {(l["match_id"], l["seleccion"]) for x in r[3] for l in x["patas"]}
+        if all(len(ms & t) / min(len(ms), len(t)) <= MAX_OVERLAP for t in taken) and all(reuse.get(k, 0) < MAX_LEG_REUSE for k in keys):
             picked.append(r)
             taken.append(ms)
+            for k in keys:
+                reuse[k] = reuse.get(k, 0) + 1
         if len(picked) >= top:
             break
     out = []
@@ -375,7 +386,7 @@ def render(result):
             for it in tk["items"]:
                 for p in it["patas"]:
                     L.append(f"| {p['partido']} ({p['competicion']}) | {p['inicio_utc']} | {p['seleccion']}{' ⚑' if it['mismo_partido'] else ''} | {p['cuota_media']}{' ✎est.' if p.get('cuota_tipo') == 'estimada_por_modelo' else ''} "
-                             f"({p['minmax_casas'][0]}–{p['minmax_casas'][1]}, {p['n_casas']}) | {p['apoyo_conservador']} | {p['n'][0]}/{p['n'][1]} |")
+                             f"({p['minmax_casas'][0]}–{p['minmax_casas'][1]}, {p['n_casas']}) | {p['apoyo_conservador']} (mín. equipo {p.get('apoyo_min_equipo', '—')}) | {p['n'][0]}/{p['n'][1]} |")
                 if it["mismo_partido"]:
                     L.append(f"| ⚑ *dos patas del mismo partido (cuota combinada media {it['cuota']}; la casa suele pagar menos).* {it.get('justificacion') or ''} | | | | | |")
             L.append("")
@@ -435,7 +446,7 @@ def main(argv=None):
     results = [dict(name=n, lo=lo, hi=hi, max_legs=mx, min_support=ms, buffer=bf) for n, lo, hi, mx, ms, bf in targets]
     used, chosen = frozenset(), []
     for r in results:                                   # perfiles en orden: el primero (seguridad) fija partidos que los demás NO pueden usar
-        tk, npool = search(legs, r["lo"], r["hi"], r["max_legs"], r["min_support"], a.top, a.pool, exclude=used, buffer=r["buffer"])
+        tk, npool = search(legs, r["lo"], r["hi"], r["max_legs"], r["min_support"], a.top, a.pool, exclude=used, buffer=r["buffer"], team_floor=TEAM_FLOOR_BY_PROFILE.get(r["name"], TEAM_FLOOR))
         r.update(pool=npool, tickets=tk)
         if tk:                                           # CUALQUIER borrador de un perfil queda excluido de los perfiles siguientes:
             used = used | {it["match_id"] for t_ in tk for it in t_["items"]}        # sea cual escojas de cada uno, no comparten partido
@@ -447,8 +458,10 @@ def main(argv=None):
     out["sin_partidos_repetidos_entre_principales"] = out["sin_partidos_repetidos_entre_perfiles"]
     out["cuotas_manuales_aplicadas"] = n_manual
     out["patas_vetadas"] = vetoed
-    out["unpriced"] = unpriced(legs)
-    out["top_picks"] = top_picks(legs)
+    eligible = [l for l in legs if l.get("calendario_2_fuentes") and l.get("categoria", "men") not in EXCLUDE_TICKET_CATEGORIES
+                and (l.get("cuota_tipo") in ("estimada_por_modelo", "manual_usuario") or l.get("n_casas", 0) >= TICKET_MIN_BOOKS)]
+    out["unpriced"] = unpriced(eligible)
+    out["top_picks"] = top_picks(eligible)
     common.write_json_atomic(os.path.join(a.run, "tickets.json"), out)
     text = render(out)
     with open(os.path.join(a.run, "tickets.md"), "w", encoding="utf-8") as f:

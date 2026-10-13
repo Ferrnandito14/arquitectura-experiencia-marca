@@ -236,10 +236,30 @@ class PairFamilies(unittest.TestCase):
 class Categories(unittest.TestCase):
     def test_youth_excluded_from_tickets_by_default(self):
         m = dict(mm(0), gender_or_category="u23")
-        legs = tickets.legs_for_match(m, ev(prices={"resultado.doble_oportunidad": avg([1.15, 1.22, 3.0])}))
+        legs = tickets.legs_for_match(m, ev(prices={"resultado.doble_oportunidad": avg([1.25, 1.5, 3.0])}))
         self.assertTrue(legs and all(l["categoria"] == "u23" for l in legs))
         self.assertEqual(tickets.search(legs, 1.20, 1.28, 2, 0.5)[0], [])
         self.assertTrue(tickets.search(legs, 1.20, 1.28, 2, 0.5, exclude_categories=())[0])
+
+
+class AuditRules(unittest.TestCase):
+    """Reglas añadidas tras la revisión por lotes y la auditoría adversarial."""
+
+    def test_two_book_prices_do_not_enter_tickets(self):
+        legs = tickets.legs_for_match(mm(0), ev(prices={"resultado.doble_oportunidad": avg([1.25, 1.5, 3.0], n=3)}))
+        self.assertEqual(tickets.search(legs, 1.20, 1.28, 2, 0.5)[0], [])           # 3 casas: sirve para rankings, no para tickets
+        legs = tickets.legs_for_match(mm(0), ev(prices={"resultado.doble_oportunidad": avg([1.25, 1.5, 3.0], n=4)}))
+        self.assertTrue(tickets.search(legs, 1.20, 1.28, 2, 0.5)[0])
+
+    def test_no_draw_legs_excluded_from_tickets(self):
+        legs = tickets.legs_for_match(mm(0), ev(prices={"resultado.doble_oportunidad": avg([1.5, 1.25, 3.0])}))
+        self.assertTrue(any(l["seleccion"].startswith("Gana alguno") and l["cuota_media"] for l in legs))
+        for it in tickets._items(legs, 0.0, require_calendar=True):
+            self.assertFalse(any(l["seleccion"].startswith("Gana alguno") for l in it["patas"]))
+
+    def test_team_floor_hides_weak_team(self):
+        s = tickets._support(form(10, 2, 0), form(10, 2, 0), lambda h: True, lambda h: h["gf"] > 5)   # un equipo 10/10, el otro 0/10 → promedio 0.36 ≥ 0 pero mínimo ≈ 0
+        self.assertIsNone(s) if s is None else self.assertLess(s["apoyo_min_equipo"], tickets.TEAM_FLOOR)
 
 
 class Vetoes(unittest.TestCase):
