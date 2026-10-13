@@ -2,9 +2,9 @@
 
 > **Cuotas = promedio de ≥3 casas vía agregador (NO ejecutables); la casa recalcula las combinadas del mismo partido (cuota real menor). Apoyo = frecuencia descriptiva conservadora (Wilson inferior), NO probabilidad predictiva ni EV.** Entre partidos distintos el producto supone independencia. Las cuotas de cada pata son la MEDIANA entre casas; «conservadora» descuenta un 5 % a cada par del mismo partido y debe seguir ≥ el mínimo del rango más un colchón. Contrastar con la cuota REAL de la casa y con el Nivel 2 (bajas, alineaciones, 2.ª fuente de calendario) antes de apostar. **Regla: un partido no puede aparecer en dos tickets** (si falla en uno, no arrastra al otro): TODOS los borradores de un perfil excluyen los partidos de TODOS los borradores de los perfiles anteriores: escojas el que escojas de cada multiplicador, no comparten partido. Dos patas del mismo partido solo entran con justificación medida (apoyo conjunto sobre los mismos partidos pasados). Las patas de los tickets exigen **calendario confirmado por dos fuentes independientes** (hora del partido) y excluyen categorías juvenil/sub-23/reserva (plantillas rotativas); los rankings top lo marcan en columnas.
 
-> **Puertas de calidad de datos.** (1) Veracidad: 15 mercados bloqueados automáticamente por avisos graves de los agentes (cifras defectuosas/imposibles/sospechosas). (2) Representatividad: 5136 patas con historial MIXTO (otra competición, copas, pretemporada) quedan fuera de los tickets y rankings principales; las de Champions pasan a las variantes `*_champions`, rotuladas de menor respaldo.
+> **Puertas de calidad de datos.** (1) Veracidad: 15 mercados bloqueados automáticamente por avisos graves de los agentes (cifras defectuosas/imposibles/sospechosas). (2) Representatividad: 4866 patas con historial MIXTO (otra competición, copas, pretemporada) quedan fuera de los tickets y rankings principales; las de Champions pasan a las variantes `*_champions`, rotuladas de menor respaldo.
 
-> **Filtros de jornada:** solo partidos que empiezan después de 2026-10-13T15:23:04Z (65 partidos descartados por hora); excluidos a mano: Cardiff City – Watford. Comprueba en tu casa que cada partido siga prepartido.
+> **Filtros de jornada:** solo partidos que empiezan después de 2026-10-13T15:45:51Z (67 partidos descartados por hora); excluidos a mano: Cardiff City – Watford. Comprueba en tu casa que cada partido siga prepartido.
 
 ## Ranking general — familia ×1.2–1.28 (seguridad) (de primero a último)
 
@@ -14,13 +14,68 @@ Criterio: mayor apoyo conjunto descriptivo; a igual apoyo, menor distancia al eq
 |---|---|---|---|---|---|---|---|
 | 1 | usuario (cuota informada, no verificada) | — | ×1.27 | 2 | 0.265 | 0.787 | -0.522 |
 
+## Ranking general — familia ×4.0–4.8 (amplio) (de primero a último)
+
+Criterio: mayor apoyo conjunto descriptivo; a igual apoyo, menor distancia al equilibrio 1/cuota. Un margen negativo = la frecuencia histórica no cubre lo que paga el ticket. NO es EV real.
+
+| Puesto | Perfil | Borrador | Cuota (cons.) | Patas | Apoyo conjunto | Equilibrio 1/cuota | Margen |
+|---|---|---|---|---|---|---|---|
+| 1 | experimento_champions_mixto_real | 1 | ×4.229 (4.229) | 3 | 0.167 | 0.236 | -0.069 |
+| 2 | experimento_champions_mixto_con_estimadas | 1 | ×4.229 (4.229) | 3 | 0.167 | 0.236 | -0.069 |
+| 3 | experimento_champions_solo_real | 1 | ×4.365 (4.365) | 3 | 0.138 | 0.229 | -0.091 |
+| 4 | experimento_champions_solo_con_estimadas | 1 | ×4.365 (4.365) | 3 | 0.138 | 0.229 | -0.091 |
+
 ## Perfil «amplio»: ×4.0–4.8 (≤6 patas, apoyo mínimo por ítem 0.55, colchón 4 %) — 0 borradores
 
 Sin combinación posible con las patas disponibles: no se fuerza ningún ticket.
 
-## Perfil «amplio_champions»: ×4.0–4.8 (≤6 patas, apoyo mínimo por ítem 0.45, colchón 4 %) — 0 borradores
+## Perfil «experimento_champions_solo_real»: ×4.0–4.8 (≤6 patas, apoyo mínimo por ítem 0.4, colchón 4 %) — 1 borradores
 
-Sin combinación posible con las patas disponibles: no se fuerza ningún ticket.
+**Solo existe 1 borrador distinto con las patas disponibles** (se pidieron varios para poder escoger): ampliar patas, bajar el apoyo mínimo o aportar cuotas reales.
+
+### Puesto 1 · Borrador 1: ×4.365 (conservadora ×4.365) · 3 pata(s) en 3 partido(s) · apoyo conjunto descriptivo 0.138 (implícita de mercado sin margen 0.194)
+
+| Partido | Inicio UTC | Selección | Cuota media (mín–máx, casas) | Apoyo cons. | n |
+|---|---|---|---|---|---|
+| RB Leipzig – PSV (uefa champions league) | 2026-10-13T19:00:00Z | Más de 2.5 goles | 1.29 (1.28–1.34, 7) | 0.543 (mín. equipo 0.49) | 10/10 |
+| Inter Milan – Club Brugge (uefa champions league) | 2026-10-13T19:00:00Z | Hándicap visitante +1.5 | 2.155 (2.1–2.24, 8) | 0.518 (mín. equipo 0.313) | 10/10 |
+| Arsenal – Lille (uefa champions league) | 2026-10-13T19:00:00Z | Menos de 3.5 goles | 1.57 (1.53–1.66, 7) | 0.49 (mín. equipo 0.49) | 10/10 |
+
+## Perfil «experimento_champions_solo_con_estimadas»: ×4.0–4.8 (≤6 patas, apoyo mínimo por ítem 0.4, colchón 4 %) — 1 borradores
+
+**Solo existe 1 borrador distinto con las patas disponibles** (se pidieron varios para poder escoger): ampliar patas, bajar el apoyo mínimo o aportar cuotas reales.
+
+### Puesto 1 · Borrador 1: ×4.365 (conservadora ×4.365) · 3 pata(s) en 3 partido(s) · apoyo conjunto descriptivo 0.138 (implícita de mercado sin margen 0.194)
+
+| Partido | Inicio UTC | Selección | Cuota media (mín–máx, casas) | Apoyo cons. | n |
+|---|---|---|---|---|---|
+| RB Leipzig – PSV (uefa champions league) | 2026-10-13T19:00:00Z | Más de 2.5 goles | 1.29 (1.28–1.34, 7) | 0.543 (mín. equipo 0.49) | 10/10 |
+| Inter Milan – Club Brugge (uefa champions league) | 2026-10-13T19:00:00Z | Hándicap visitante +1.5 | 2.155 (2.1–2.24, 8) | 0.518 (mín. equipo 0.313) | 10/10 |
+| Arsenal – Lille (uefa champions league) | 2026-10-13T19:00:00Z | Menos de 3.5 goles | 1.57 (1.53–1.66, 7) | 0.49 (mín. equipo 0.49) | 10/10 |
+
+## Perfil «experimento_champions_mixto_real»: ×4.0–4.8 (≤6 patas, apoyo mínimo por ítem 0.4, colchón 4 %) — 1 borradores
+
+**Solo existe 1 borrador distinto con las patas disponibles** (se pidieron varios para poder escoger): ampliar patas, bajar el apoyo mínimo o aportar cuotas reales.
+
+### Puesto 1 · Borrador 1: ×4.229 (conservadora ×4.229) · 3 pata(s) en 3 partido(s) · apoyo conjunto descriptivo 0.167 (implícita de mercado sin margen 0.201)
+
+| Partido | Inicio UTC | Selección | Cuota media (mín–máx, casas) | Apoyo cons. | n |
+|---|---|---|---|---|---|
+| Atlético Bucaramanga – Águilas Doradas (categoria primera a) | 2026-10-13T23:30:00Z | Local o empate (1X) | 1.25 (1.16–1.27, 8) | 0.659 (mín. equipo 0.596) | 10/10 |
+| Inter Milan – Club Brugge (uefa champions league) | 2026-10-13T19:00:00Z | Hándicap visitante +1.5 | 2.155 (2.1–2.24, 8) | 0.518 (mín. equipo 0.313) | 10/10 |
+| Arsenal – Lille (uefa champions league) | 2026-10-13T19:00:00Z | Menos de 3.5 goles | 1.57 (1.53–1.66, 7) | 0.49 (mín. equipo 0.49) | 10/10 |
+
+## Perfil «experimento_champions_mixto_con_estimadas»: ×4.0–4.8 (≤6 patas, apoyo mínimo por ítem 0.4, colchón 4 %) — 1 borradores
+
+**Solo existe 1 borrador distinto con las patas disponibles** (se pidieron varios para poder escoger): ampliar patas, bajar el apoyo mínimo o aportar cuotas reales.
+
+### Puesto 1 · Borrador 1: ×4.229 (conservadora ×4.229) · 3 pata(s) en 3 partido(s) · apoyo conjunto descriptivo 0.167 (implícita de mercado sin margen 0.201)
+
+| Partido | Inicio UTC | Selección | Cuota media (mín–máx, casas) | Apoyo cons. | n |
+|---|---|---|---|---|---|
+| Atlético Bucaramanga – Águilas Doradas (categoria primera a) | 2026-10-13T23:30:00Z | Local o empate (1X) | 1.25 (1.16–1.27, 8) | 0.659 (mín. equipo 0.596) | 10/10 |
+| Inter Milan – Club Brugge (uefa champions league) | 2026-10-13T19:00:00Z | Hándicap visitante +1.5 | 2.155 (2.1–2.24, 8) | 0.518 (mín. equipo 0.313) | 10/10 |
+| Arsenal – Lille (uefa champions league) | 2026-10-13T19:00:00Z | Menos de 3.5 goles | 1.57 (1.53–1.66, 7) | 0.49 (mín. equipo 0.49) | 10/10 |
 
 ## Top de picks por SEGURIDAD (mayor apoyo conservador; una pata por partido)
 
@@ -36,31 +91,31 @@ Sin combinación posible con las patas disponibles: no se fuerza ningún ticket.
 | 8 | Stoke City – Middlesbrough (efl championship) | men | 2026-10-13T19:00:00Z | 2 fuentes | Más de 0.5 goles | 1.03 (1.02–1.05, 4) | 0.722 | 10/10 | 0.9244 | -0.256 |
 | 9 | Millonarios – Once Caldas (categoria primera a) | men | 2026-10-14T01:30:00Z | 2 fuentes | Menos de 5.5 goles | 1.03 (1.01–1.04, 4) | 0.722 | 10/10 | 0.9337 | -0.256 |
 | 10 | San Carlos – Inter San Carlos (primera division fpd) | men | 2026-10-14T02:00:00Z | 2 fuentes | Más de 0.5 goles | 1.03 (1.03–1.07, 5) | 0.722 | 10/10 | 0.8806 | -0.256 |
-| 11 | Queen's Park – Inverness CT (championship) | men | 2026-10-13T18:45:00Z | 2 fuentes | Menos de 4.5 goles | 1.1 (1.06–1.12, 7) | 0.712 | 10/9 | 0.8503 | -0.217 |
-| 12 | Burnley – Charlton Athletic (efl championship) | men | 2026-10-13T18:45:00Z | 2 fuentes | Menos de 5.5 goles | 1.035 (1.01–1.06, 4) | 0.712 | 9/10 | 0.914 | -0.263 |
-| 13 | ASO Chlef – MC Alger (ligue 1) | men | 2026-10-13T16:45:00Z | 2 fuentes | Más de 0.5 goles | 1.1 (1.08–1.12, 5) | 0.676 | 8/8 | 0.837 | -0.256 |
-| 14 | Atlético Bucaramanga – Águilas Doradas (categoria primera a) | men | 2026-10-13T23:30:00Z | 2 fuentes | Local o empate (1X) | 1.25 (1.16–1.27, 8) | 0.659 | 10/10 | 0.7542 | -0.176 |
-| 15 | Durban City – AmaZulu (premier soccer league) | men | 2026-10-13T17:30:00Z | 2 fuentes | Menos de 3.5 goles | 1.15 (1.11–1.17, 6) | 0.659 | 10/10 | 0.8099 | -0.242 |
+| 11 | Cardiff City – Watford (efl championship) | men | 2026-10-13T18:45:00Z | 2 fuentes | Menos de 4.5 goles | 1.25 (1.2–1.27, 7) | 0.712 | 9/10 | 0.7525 | -0.11 |
+| 12 | Queen's Park – Inverness CT (championship) | men | 2026-10-13T18:45:00Z | 2 fuentes | Menos de 4.5 goles | 1.1 (1.06–1.12, 7) | 0.712 | 10/9 | 0.8503 | -0.217 |
+| 13 | Burnley – Charlton Athletic (efl championship) | men | 2026-10-13T18:45:00Z | 2 fuentes | Menos de 5.5 goles | 1.035 (1.01–1.06, 4) | 0.712 | 9/10 | 0.914 | -0.263 |
+| 14 | ASO Chlef – MC Alger (ligue 1) | men | 2026-10-13T16:45:00Z | 2 fuentes | Más de 0.5 goles | 1.1 (1.08–1.12, 5) | 0.676 | 8/8 | 0.837 | -0.256 |
+| 15 | Atlético Bucaramanga – Águilas Doradas (categoria primera a) | men | 2026-10-13T23:30:00Z | 2 fuentes | Local o empate (1X) | 1.25 (1.16–1.27, 8) | 0.659 | 10/10 | 0.7542 | -0.176 |
 
 ## Top de picks por ATRACTIVO (rentabilidad-cuota: EV descriptivo conservador = apoyo × cuota − 1, apoyo ≥ 0.55; ordenado de mayor a menor; EV negativo = la estadística conservadora no cubre el precio)
 
 | # | Partido | Categoría | Inicio UTC | Calendario | Selección | Cuota media (mín–máx, casas) | Apoyo cons. | n | Implícita s/margen | EV desc. cons. |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 1 | Atlético Bucaramanga – Águilas Doradas (categoria primera a) | men | 2026-10-13T23:30:00Z | 2 fuentes | Local o empate (1X) | 1.25 (1.16–1.27, 8) | 0.659 | 10/10 | 0.7542 | -0.176 |
-| 2 | Athletic-MG – Londrina (serie b) | men | 2026-10-13T22:30:00Z | 2 fuentes | Más de 1.5 goles | 1.36 (1.35–1.4, 7) | 0.606 | 10/10 | 0.6792 | -0.176 |
-| 3 | Birmingham City – Preston North End (efl championship) | men | 2026-10-13T19:00:00Z | 2 fuentes | Menos de 4.5 goles | 1.14 (1.12–1.18, 7) | 0.722 | 10/10 | 0.8143 | -0.177 |
-| 4 | Pendikspor – Van BB (1 lig) | men | 2026-10-13T17:00:00Z | 2 fuentes | Más de 1.5 goles | 1.22 (1.21–1.27, 7) | 0.659 | 10/10 | 0.75 | -0.196 |
-| 5 | Norrköping – GIF Sundsvall (superettan) | men | 2026-10-13T17:00:00Z | 2 fuentes | Menos de 5.5 goles | 1.1 (1.08–1.14, 7) | 0.722 | 10/10 | 0.841 | -0.206 |
-| 6 | Simba – Mashujaa (ligi kuu bara) | men | 2026-10-13T16:00:00Z | 2 fuentes | Gana alguno, sin empate (12) | 1.095 (1.06–1.13, 4) | 0.722 | 10/10 | 0.8387 | -0.209 |
-| 7 | San Carlos – Inter San Carlos (primera division fpd) | men | 2026-10-14T02:00:00Z | 2 fuentes | Menos de 3.5 goles | 1.3 (1.29–1.32, 6) | 0.606 | 10/10 | 0.7092 | -0.212 |
-| 8 | Queen's Park – Inverness CT (championship) | men | 2026-10-13T18:45:00Z | 2 fuentes | Menos de 4.5 goles | 1.1 (1.06–1.12, 7) | 0.712 | 10/9 | 0.8503 | -0.217 |
-| 9 | Durban City – AmaZulu (premier soccer league) | men | 2026-10-13T17:30:00Z | 2 fuentes | Menos de 3.5 goles | 1.15 (1.11–1.17, 6) | 0.659 | 10/10 | 0.8099 | -0.242 |
-| 10 | Cartaginés – Puntarenas (primera division fpd) | men | 2026-10-14T00:00:00Z | 2 fuentes | Menos de 5.5 goles | 1.04 (1.01–1.05, 5) | 0.722 | 10/10 | 0.9099 | -0.249 |
-| 11 | Workington – Whitby Town (northern premier league) | men | 2026-10-13T18:45:00Z | 2 fuentes | Más de 1.5 goles | 1.135 (1.11–1.2, 4) | 0.659 | 10/10 | 0.803 | -0.252 |
-| 12 | FUS Rabat – Raja Casablanca (botola pro) | men | 2026-10-13T20:00:00Z | 2 fuentes | Menos de 3.5 goles | 1.135 (1.12–1.17, 6) | 0.659 | 10/10 | 0.8063 | -0.252 |
-| 13 | Orlando Pirates – TS Galaxy (premier soccer league) | men | 2026-10-13T17:30:00Z | 2 fuentes | Menos de 5.5 goles | 1.035 (1.01–1.04, 4) | 0.722 | 10/10 | 0.9206 | -0.253 |
-| 14 | Bristol City – Blackburn Rovers (efl championship) | men | 2026-10-13T18:45:00Z | 2 fuentes | Menos de 5.5 goles | 1.035 (1.02–1.05, 4) | 0.722 | 10/10 | 0.9206 | -0.253 |
-| 15 | Stoke City – Middlesbrough (efl championship) | men | 2026-10-13T19:00:00Z | 2 fuentes | Más de 0.5 goles | 1.03 (1.02–1.05, 4) | 0.722 | 10/10 | 0.9244 | -0.256 |
+| 1 | Cardiff City – Watford (efl championship) | men | 2026-10-13T18:45:00Z | 2 fuentes | Menos de 4.5 goles | 1.25 (1.2–1.27, 7) | 0.712 | 9/10 | 0.7525 | -0.11 |
+| 2 | Atlético Bucaramanga – Águilas Doradas (categoria primera a) | men | 2026-10-13T23:30:00Z | 2 fuentes | Local o empate (1X) | 1.25 (1.16–1.27, 8) | 0.659 | 10/10 | 0.7542 | -0.176 |
+| 3 | Athletic-MG – Londrina (serie b) | men | 2026-10-13T22:30:00Z | 2 fuentes | Más de 1.5 goles | 1.36 (1.35–1.4, 7) | 0.606 | 10/10 | 0.6792 | -0.176 |
+| 4 | Birmingham City – Preston North End (efl championship) | men | 2026-10-13T19:00:00Z | 2 fuentes | Menos de 4.5 goles | 1.14 (1.12–1.18, 7) | 0.722 | 10/10 | 0.8143 | -0.177 |
+| 5 | Pendikspor – Van BB (1 lig) | men | 2026-10-13T17:00:00Z | 2 fuentes | Más de 1.5 goles | 1.22 (1.21–1.27, 7) | 0.659 | 10/10 | 0.75 | -0.196 |
+| 6 | Norrköping – GIF Sundsvall (superettan) | men | 2026-10-13T17:00:00Z | 2 fuentes | Menos de 5.5 goles | 1.1 (1.08–1.14, 7) | 0.722 | 10/10 | 0.841 | -0.206 |
+| 7 | Simba – Mashujaa (ligi kuu bara) | men | 2026-10-13T16:00:00Z | 2 fuentes | Gana alguno, sin empate (12) | 1.095 (1.06–1.13, 4) | 0.722 | 10/10 | 0.8387 | -0.209 |
+| 8 | San Carlos – Inter San Carlos (primera division fpd) | men | 2026-10-14T02:00:00Z | 2 fuentes | Menos de 3.5 goles | 1.3 (1.29–1.32, 6) | 0.606 | 10/10 | 0.7092 | -0.212 |
+| 9 | Queen's Park – Inverness CT (championship) | men | 2026-10-13T18:45:00Z | 2 fuentes | Menos de 4.5 goles | 1.1 (1.06–1.12, 7) | 0.712 | 10/9 | 0.8503 | -0.217 |
+| 10 | Durban City – AmaZulu (premier soccer league) | men | 2026-10-13T17:30:00Z | 2 fuentes | Menos de 3.5 goles | 1.15 (1.11–1.17, 6) | 0.659 | 10/10 | 0.8099 | -0.242 |
+| 11 | Cartaginés – Puntarenas (primera division fpd) | men | 2026-10-14T00:00:00Z | 2 fuentes | Menos de 5.5 goles | 1.04 (1.01–1.05, 5) | 0.722 | 10/10 | 0.9099 | -0.249 |
+| 12 | Workington – Whitby Town (northern premier league) | men | 2026-10-13T18:45:00Z | 2 fuentes | Más de 1.5 goles | 1.135 (1.11–1.2, 4) | 0.659 | 10/10 | 0.803 | -0.252 |
+| 13 | FUS Rabat – Raja Casablanca (botola pro) | men | 2026-10-13T20:00:00Z | 2 fuentes | Menos de 3.5 goles | 1.135 (1.12–1.17, 6) | 0.659 | 10/10 | 0.8063 | -0.252 |
+| 14 | Orlando Pirates – TS Galaxy (premier soccer league) | men | 2026-10-13T17:30:00Z | 2 fuentes | Menos de 5.5 goles | 1.035 (1.01–1.04, 4) | 0.722 | 10/10 | 0.9206 | -0.253 |
+| 15 | Bristol City – Blackburn Rovers (efl championship) | men | 2026-10-13T18:45:00Z | 2 fuentes | Menos de 5.5 goles | 1.035 (1.02–1.05, 4) | 0.722 | 10/10 | 0.9206 | -0.253 |
 
 *EV descriptivo conservador NO es valor esperado real: usa el límite inferior de frecuencias pasadas como «probabilidad», y al escoger lo mejor entre cientos de patas tiende a sobrestimar. Estos rankings acompañan a los tickets y no los reemplazan; pueden repetir partidos que estén en un ticket.*
 
@@ -92,42 +147,42 @@ Sin combinación posible con las patas disponibles: no se fuerza ningún ticket.
 | 22 | Cartaginés – Puntarenas | tarjetas | Cartaginés: menos de 5.5 tarjetas (A=1, R=2) | 1.11 ✎ | 0.596 (0.596) | 10/10 | 1.68 |
 | 23 | San Carlos – Inter San Carlos | tarjetas | Inter San Carlos: menos de 4.5 tarjetas (A=1, R=2) | 1.11 ✎ | 0.596 (0.596) | 10/10 | 1.68 |
 | 24 | Bristol City – Blackburn Rovers | tarjetas | Blackburn Rovers: más de 0.5 tarjetas (A=1, R=2) | 1.12 ✎ | 0.596 (0.49) | 10/9 | 1.68 |
-| 25 | Durban City – AmaZulu | tarjetas | AmaZulu: menos de 3.5 tarjetas (A=1, R=2) | 1.12 ✎ | 0.588 (0.453) | 9/10 | 1.7 |
-| 26 | Orlando Pirates – TS Galaxy | tarjetas | Más de 1.5 tarjetas (A=1, R=2) | 1.12 ✎ | 0.588 (0.453) | 9/10 | 1.7 |
-| 27 | Orlando Pirates – TS Galaxy | remates | Más de 15.5 remates totales | 1.12 ✎ | 0.588 (0.453) | 9/10 | 1.7 |
-| 28 | Millonarios – Once Caldas | tarjetas | Millonarios: menos de 5.5 tarjetas (A=1, R=2) | 1.12 ✎ | 0.588 (0.453) | 10/9 | 1.7 |
-| 29 | Hansa Rostock – Meppen | córners | Meppen: más de 2.5 córners | 1.13 ✎ | 0.583 (0.49) | 10/8 | 1.72 |
-| 30 | Hansa Rostock – Meppen | tarjetas | Meppen: más de 1.5 tarjetas (A=1, R=2) | 1.13 ✎ | 0.583 (0.49) | 10/8 | 1.72 |
-| 31 | Havelse – Würzburger Kickers | córners | Menos de 11.5 córners | 1.13 ✎ | 0.583 (0.49) | 10/8 | 1.72 |
-| 32 | Havelse – Würzburger Kickers | córners | Würzburger Kickers: menos de 7.5 córners | 1.13 ✎ | 0.583 (0.49) | 10/8 | 1.72 |
-| 33 | Millwall – Swansea City | tarjetas | Menos de 5.5 tarjetas (A=1, R=2) | 1.13 ✎ | 0.583 (0.49) | 10/8 | 1.72 |
-| 34 | Pendikspor – Van BB | tarjetas | Más de 2.5 tarjetas (A=1, R=2) | 1.12 ✎ | 0.58 (0.565) | 10/9 | 1.72 |
-| 35 | Durban City – AmaZulu | tarjetas | Durban City: más de 0.5 tarjetas (A=1, R=2) | 1.12 ✎ | 0.58 (0.565) | 9/10 | 1.72 |
-| 36 | Durban City – AmaZulu | tarjetas | Durban City: menos de 4.5 tarjetas (A=1, R=2) | 1.12 ✎ | 0.58 (0.565) | 9/10 | 1.72 |
-| 37 | Orlando Pirates – TS Galaxy | tarjetas | Menos de 6.5 tarjetas (A=1, R=2) | 1.12 ✎ | 0.58 (0.565) | 9/10 | 1.72 |
-| 38 | Burnley – Charlton Athletic | córners | Más de 7.5 córners | 1.12 ✎ | 0.58 (0.565) | 9/10 | 1.72 |
-| 39 | Burnley – Charlton Athletic | córners | Charlton Athletic: más de 2.5 córners | 1.12 ✎ | 0.58 (0.565) | 9/10 | 1.72 |
-| 40 | Queen's Park – Inverness CT | tarjetas | Menos de 6.5 tarjetas (A=1, R=2) | 1.12 ✎ | 0.58 (0.565) | 10/9 | 1.72 |
-| 41 | Queen's Park – Inverness CT | tarjetas | Inverness CT: menos de 3.5 tarjetas (A=1, R=2) | 1.12 ✎ | 0.58 (0.565) | 10/9 | 1.72 |
-| 42 | Bristol City – Blackburn Rovers | remates a puerta | Más de 3.5 remates a puerta | 1.13 ✎ | 0.577 (0.453) | 9/9 | 1.73 |
-| 43 | Bristol City – Blackburn Rovers | remates | Bristol City: más de 7.5 remates totales | 1.13 ✎ | 0.577 (0.453) | 9/9 | 1.73 |
-| 44 | Birmingham City – Preston North End | remates a puerta | Birmingham City: menos de 6.5 remates a puerta | 1.13 ✎ | 0.577 (0.453) | 9/9 | 1.73 |
-| 45 | Stoke City – Middlesbrough | tarjetas | Más de 1.5 tarjetas (A=1, R=2) | 1.13 ✎ | 0.577 (0.453) | 9/9 | 1.73 |
-| 46 | Stoke City – Middlesbrough | tarjetas | Stoke City: menos de 3.5 tarjetas (A=1, R=2) | 1.13 ✎ | 0.577 (0.453) | 9/9 | 1.73 |
-| 47 | Rot-Weiss Essen – Fortuna Köln | tarjetas | Menos de 7.5 tarjetas (A=1, R=2) | 1.13 ✎ | 0.566 (0.409) | 10/8 | 1.77 |
-| 48 | Tapatío – Tepatitlán | córners | Tapatío: menos de 7.5 córners | 1.13 ✎ | 0.566 (0.409) | 10/8 | 1.77 |
-| 49 | Wrexham – West Bromwich | tarjetas | Más de 1.5 tarjetas (A=1, R=2) | 1.13 ✎ | 0.565 (0.565) | 9/9 | 1.77 |
-| 50 | Athletic-MG – Londrina | tarjetas | Más de 2.5 tarjetas (A=1, R=2) | 1.13 ✎ | 0.565 (0.565) | 9/9 | 1.77 |
-| 51 | Burnley – Charlton Athletic | remates a puerta | Charlton Athletic: más de 1.5 remates a puerta | 1.14 ✎ | 0.564 (0.453) | 8/9 | 1.77 |
-| 52 | Hansa Rostock – Meppen | córners | Meppen: menos de 7.5 córners | 1.13 ✎ | 0.562 (0.529) | 10/8 | 1.78 |
-| 53 | Havelse – Würzburger Kickers | tarjetas | Havelse: más de 1.5 tarjetas (A=1, R=2) | 1.13 ✎ | 0.562 (0.529) | 10/8 | 1.78 |
-| 54 | Kaizer Chiefs – Stellenbosch | córners | Stellenbosch: menos de 5.5 córners | 1.17 ✎ | 0.56 (0.397) | 10/10 | 1.79 |
-| 55 | Tapatío – Tepatitlán | tarjetas | Menos de 8.5 tarjetas (A=1, R=2) | 1.17 ✎ | 0.56 (0.397) | 10/10 | 1.79 |
-| 56 | Millonarios – Once Caldas | córners | Once Caldas: más de 2.5 córners | 1.17 ✎ | 0.56 (0.397) | 10/10 | 1.79 |
-| 57 | San Carlos – Inter San Carlos | córners | Menos de 13.5 córners | 1.17 ✎ | 0.56 (0.397) | 10/10 | 1.79 |
-| 58 | San Carlos – Inter San Carlos | córners | San Carlos: menos de 6.5 córners | 1.17 ✎ | 0.56 (0.397) | 10/10 | 1.79 |
-| 59 | Queen's Park – Inverness CT | córners | Inverness CT: menos de 7.5 córners | 1.18 ✎ | 0.549 (0.397) | 10/9 | 1.82 |
-| 60 | Norrköping – GIF Sundsvall | córners | Norrköping: más de 2.5 córners | 1.17 ✎ | 0.543 (0.49) | 10/10 | 1.84 |
+| 25 | Cardiff City – Watford | córners | Más de 6.5 córners | 1.12 ✎ | 0.596 (0.49) | 9/10 | 1.68 |
+| 26 | Cardiff City – Watford | córners | Cardiff City: más de 2.5 córners | 1.12 ✎ | 0.596 (0.49) | 9/10 | 1.68 |
+| 27 | Durban City – AmaZulu | tarjetas | AmaZulu: menos de 3.5 tarjetas (A=1, R=2) | 1.12 ✎ | 0.588 (0.453) | 9/10 | 1.7 |
+| 28 | Orlando Pirates – TS Galaxy | tarjetas | Más de 1.5 tarjetas (A=1, R=2) | 1.12 ✎ | 0.588 (0.453) | 9/10 | 1.7 |
+| 29 | Orlando Pirates – TS Galaxy | remates | Más de 15.5 remates totales | 1.12 ✎ | 0.588 (0.453) | 9/10 | 1.7 |
+| 30 | Millonarios – Once Caldas | tarjetas | Millonarios: menos de 5.5 tarjetas (A=1, R=2) | 1.12 ✎ | 0.588 (0.453) | 10/9 | 1.7 |
+| 31 | Hansa Rostock – Meppen | córners | Meppen: más de 2.5 córners | 1.13 ✎ | 0.583 (0.49) | 10/8 | 1.72 |
+| 32 | Hansa Rostock – Meppen | tarjetas | Meppen: más de 1.5 tarjetas (A=1, R=2) | 1.13 ✎ | 0.583 (0.49) | 10/8 | 1.72 |
+| 33 | Havelse – Würzburger Kickers | córners | Menos de 11.5 córners | 1.13 ✎ | 0.583 (0.49) | 10/8 | 1.72 |
+| 34 | Havelse – Würzburger Kickers | córners | Würzburger Kickers: menos de 7.5 córners | 1.13 ✎ | 0.583 (0.49) | 10/8 | 1.72 |
+| 35 | Millwall – Swansea City | tarjetas | Menos de 5.5 tarjetas (A=1, R=2) | 1.13 ✎ | 0.583 (0.49) | 10/8 | 1.72 |
+| 36 | Pendikspor – Van BB | tarjetas | Más de 2.5 tarjetas (A=1, R=2) | 1.12 ✎ | 0.58 (0.565) | 10/9 | 1.72 |
+| 37 | Durban City – AmaZulu | tarjetas | Durban City: más de 0.5 tarjetas (A=1, R=2) | 1.12 ✎ | 0.58 (0.565) | 9/10 | 1.72 |
+| 38 | Durban City – AmaZulu | tarjetas | Durban City: menos de 4.5 tarjetas (A=1, R=2) | 1.12 ✎ | 0.58 (0.565) | 9/10 | 1.72 |
+| 39 | Orlando Pirates – TS Galaxy | tarjetas | Menos de 6.5 tarjetas (A=1, R=2) | 1.12 ✎ | 0.58 (0.565) | 9/10 | 1.72 |
+| 40 | Burnley – Charlton Athletic | córners | Más de 7.5 córners | 1.12 ✎ | 0.58 (0.565) | 9/10 | 1.72 |
+| 41 | Burnley – Charlton Athletic | córners | Charlton Athletic: más de 2.5 córners | 1.12 ✎ | 0.58 (0.565) | 9/10 | 1.72 |
+| 42 | Queen's Park – Inverness CT | tarjetas | Menos de 6.5 tarjetas (A=1, R=2) | 1.12 ✎ | 0.58 (0.565) | 10/9 | 1.72 |
+| 43 | Queen's Park – Inverness CT | tarjetas | Inverness CT: menos de 3.5 tarjetas (A=1, R=2) | 1.12 ✎ | 0.58 (0.565) | 10/9 | 1.72 |
+| 44 | Bristol City – Blackburn Rovers | remates a puerta | Más de 3.5 remates a puerta | 1.13 ✎ | 0.577 (0.453) | 9/9 | 1.73 |
+| 45 | Bristol City – Blackburn Rovers | remates | Bristol City: más de 7.5 remates totales | 1.13 ✎ | 0.577 (0.453) | 9/9 | 1.73 |
+| 46 | Birmingham City – Preston North End | remates a puerta | Birmingham City: menos de 6.5 remates a puerta | 1.13 ✎ | 0.577 (0.453) | 9/9 | 1.73 |
+| 47 | Stoke City – Middlesbrough | tarjetas | Más de 1.5 tarjetas (A=1, R=2) | 1.13 ✎ | 0.577 (0.453) | 9/9 | 1.73 |
+| 48 | Stoke City – Middlesbrough | tarjetas | Stoke City: menos de 3.5 tarjetas (A=1, R=2) | 1.13 ✎ | 0.577 (0.453) | 9/9 | 1.73 |
+| 49 | Rot-Weiss Essen – Fortuna Köln | tarjetas | Menos de 7.5 tarjetas (A=1, R=2) | 1.13 ✎ | 0.566 (0.409) | 10/8 | 1.77 |
+| 50 | Tapatío – Tepatitlán | córners | Tapatío: menos de 7.5 córners | 1.13 ✎ | 0.566 (0.409) | 10/8 | 1.77 |
+| 51 | Wrexham – West Bromwich | tarjetas | Más de 1.5 tarjetas (A=1, R=2) | 1.13 ✎ | 0.565 (0.565) | 9/9 | 1.77 |
+| 52 | Athletic-MG – Londrina | tarjetas | Más de 2.5 tarjetas (A=1, R=2) | 1.13 ✎ | 0.565 (0.565) | 9/9 | 1.77 |
+| 53 | Burnley – Charlton Athletic | remates a puerta | Charlton Athletic: más de 1.5 remates a puerta | 1.14 ✎ | 0.564 (0.453) | 8/9 | 1.77 |
+| 54 | Cardiff City – Watford | remates a puerta | Más de 5.5 remates a puerta | 1.14 ✎ | 0.564 (0.453) | 8/9 | 1.77 |
+| 55 | Hansa Rostock – Meppen | córners | Meppen: menos de 7.5 córners | 1.13 ✎ | 0.562 (0.529) | 10/8 | 1.78 |
+| 56 | Havelse – Würzburger Kickers | tarjetas | Havelse: más de 1.5 tarjetas (A=1, R=2) | 1.13 ✎ | 0.562 (0.529) | 10/8 | 1.78 |
+| 57 | Kaizer Chiefs – Stellenbosch | córners | Stellenbosch: menos de 5.5 córners | 1.17 ✎ | 0.56 (0.397) | 10/10 | 1.79 |
+| 58 | Tapatío – Tepatitlán | tarjetas | Menos de 8.5 tarjetas (A=1, R=2) | 1.17 ✎ | 0.56 (0.397) | 10/10 | 1.79 |
+| 59 | Millonarios – Once Caldas | córners | Once Caldas: más de 2.5 córners | 1.17 ✎ | 0.56 (0.397) | 10/10 | 1.79 |
+| 60 | San Carlos – Inter San Carlos | córners | Menos de 13.5 córners | 1.17 ✎ | 0.56 (0.397) | 10/10 | 1.79 |
 
 *Cuota aproximada = 1 / (frecuencia suavizada de ambos equipos × (1 + 0.08)): supone un margen típico de casa y SALE de la misma estadística, por eso no se usa para hablar de valor. Sirve para armar y ordenar borradores. Antes de apostar compárala con tu casa: solo tiene valor si paga claramente por encima de la «cuota real mínima»; OJO: una cuota real ≥ esa mínima (≈1.65) en una línea que la muestra da 80–100 % suele indicar una definición distinta (puntos de reserva, tiempo parcial, línea mal leída), no valor. Si me pasas tus cuotas reales (`--manual-odds archivo.csv` con columnas home,away,seleccion,cuota) sustituyen a las aproximadas.*
 
@@ -506,4 +561,4 @@ Sin combinación posible con las patas disponibles: no se fuerza ningún ticket.
 
 ---
 Partidos usados en borradores de perfiles previos: 0; sin partidos repetidos entre multiplicadores: True; cuotas manuales aplicadas: 0.
-Patas evaluadas: 8298 (con cuota media: 3882) en 93 partidos.
+Patas evaluadas: 8448 (con cuota media: 3970) en 93 partidos.

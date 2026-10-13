@@ -277,6 +277,33 @@ class StatMarkets(unittest.TestCase):
         self.assertEqual(tickets._family(c[0]), "remates a puerta")
 
 
+class CandidateSlots(unittest.TestCase):
+    def test_estimated_legs_do_not_displace_real_priced_ones(self):
+        mk = lambda mid, c, ap, tipo: {"match_id": mid, "cuota": c, "cuota_cons": c, "apoyo": ap, "mismo_partido": False,
+                                       "patas": [{"match_id": mid, "partido": f"P{mid}", "seleccion": f"S{c}{tipo}", "mercado": "goles", "cuota_tipo": tipo, "cuota_media": c, "n_casas": 6 if tipo != "estimada_por_modelo" else 0,
+                                                  "prob_implicita_sin_margen": 0.5, "apoyo_conservador": ap}]}
+        items = [mk("a", 1.2 + i / 100, 0.7, "estimada_por_modelo") for i in range(8)] + [mk("a", 2.0, 0.5, "promedio_de_mercado")] + [mk("b", 2.1, 0.5, "promedio_de_mercado")]
+        res, _ = tickets.search(None, 4.0, 4.5, 3, 0.1, top=2, items_override=items, buffer=0.0)
+        self.assertTrue(res)                                       # 2.0 × 2.1 = 4.2 existe aunque «a» tenga 8 patas estimadas con más apoyo
+
+
+class ExcludeOnlyForTickets(unittest.TestCase):
+    def test_excluded_match_stays_in_tops_but_not_in_tickets(self):
+        import tempfile, json, common
+        d = tempfile.mkdtemp()
+        inv = {"matches": [dict(mm(i), analysis_required=True) for i in range(3)]}
+        mx = {"matches": {f"m{i}": ev(prices={"resultado.doble_oportunidad": avg([1.25, 1.5, 3.0], n=6), "goles.over_1_5": avg([1.25, 4.0], n=6)}) for i in range(3)}}
+        common.write_json_atomic(os.path.join(d, "inventory.json"), inv)
+        common.write_json_atomic(os.path.join(d, "matrix.json"), mx)
+        name = f"{mm(0)['home_team']} – {mm(0)['away_team']}"
+        self.assertEqual(tickets.main(["--run", d, "--target", "seg:1.20:1.28:2:0.3", "--exclude-match", name]), 0)
+        out = json.load(open(os.path.join(d, "tickets.json")))
+        in_tickets = {l["partido"] for r in out["targets"] for t in r["tickets"] for it in t["items"] for l in it["patas"]}
+        in_tops = {p["partido"] for p in out["top_picks"]["seguridad"]}
+        self.assertNotIn(name, in_tickets)
+        self.assertIn(name, in_tops)
+
+
 class StaleSample(unittest.TestCase):
     def test_recent_count_and_gate(self):
         old = [dict(r, date="2026-06-20") for r in form(10)]

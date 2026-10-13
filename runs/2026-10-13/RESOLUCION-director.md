@@ -52,3 +52,12 @@ Informes: `reviews_raw/level2/x4_hoy_{deportivo,cuantitativo,auditor}.md`. Se in
 | Tarjetas: eventos y estadísticas discrepan (≥2 puntos; anomalía del 22-ago) | Fila → dato faltante |
 | Tabla de «candidatos» contradice vetos, circular, selección adversa | Renombrada «inventario descriptivo», n≥8, sin ordenar alfabéticamente, avisos de cuota ≥1.65 sospechosa, `disparidad extrema` bloquea mercado |
 **Resultado: con todos los filtros y vetos hoy no hay ningún ×4 que pase** (`amplio` 0 borradores). Variantes relajadas exploradas (Durban aceptado como riesgo explícito → ×4.188; apoyo mínimo 0.50 y piso 0.40 → ×4.2–4.7) contienen pares del mismo partido sin reevaluar y no se proponen como borradores. No se fuerza un ticket.
+
+## Experimento único (a pedido): UEFA Champions League con filtros relajados — 13-oct
+Relajado SOLO para patas de la UEFA Champions League: apoyo mínimo 0.40 (normal 0.55), piso por equipo 0.30 (0.45), ≥4 partidos de los últimos 100 días (6), historial mixto permitido, sin pares del mismo partido; se mantienen ≥4 casas, calendario de 2 fuentes, vetos, puertas de veracidad y pata de precio real. Informes: `reviews_raw/level2/champions_exp_{deportivo,cuantitativo,auditor}.md`.
+| Ticket | Cuota | Apoyo | Mercado (conjunta) | Cuota justa | Deportivo | Cuantitativo | Auditor |
+|---|---|---|---|---|---|---|---|
+| Combinada: Bucaramanga 1X + Brugge +1.5 + Arsenal–Lille U3.5 | ×4.229 | 0.167 | 0.201 | ~4.97 | DÉBIL (algo mejor) | EV ≈ −15 % | ACEPTABLE CON SALVEDADES |
+| Borrador solo CL: Leipzig O2.5 + Brugge +1.5 + Arsenal–Lille U3.5 | ×4.365 | 0.138 | 0.194 | ~5.17 | DÉBIL | EV ≈ −15 % | ACEPTABLE al borde de DESACONSEJADO |
+Decisión: ninguno es defendible; se entregan como EXPERIMENTO con EV negativo y stake simbólico, preferible la combinada. Condiciones: cuota real del combinado en una sola casa ≥4.3 (≥5.0 para el equilibrio), alineaciones ~18:00Z, y resolver la pata de Inter–Brugge +1.5 (apoyo mínimo del equipo 0.313; el mercado da ~56 % a que Inter gane por 2+; brecha de 36 pp mayor que las de los vetos de Essen, Durban y Bristol; el auditor pide vetarla por coherencia). Jugar ambos tickets: DESACONSEJADO (comparten dos patas; ~73 % de caer los dos a la vez).
+Corrección de proceso: `--exclude-match` (Cardiff–Watford, ya en el ×1.25 de la persona usuaria) también sacaba el partido de los tops; ahora la exclusión vale solo para armar tickets (Cardiff–Watford: #11 en seguridad y #1 en atractivo).

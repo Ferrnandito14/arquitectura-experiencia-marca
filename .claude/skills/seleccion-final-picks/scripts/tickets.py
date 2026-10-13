@@ -416,7 +416,7 @@ def _family(leg):
     return leg["mercado"]
 
 
-def _items(legs, min_support, with_pairs=True, require_calendar=False, exclude_categories=(), team_floor=TEAM_FLOOR):
+def _items(legs, min_support, with_pairs=True, require_calendar=False, exclude_categories=(), team_floor=TEAM_FLOOR, min_recent=MIN_N):
     """Ítems = pata suelta o par de patas del mismo partido (apoyo CONJUNTO sobre los mismos partidos pasados)."""
     by = {}
     for l in legs:
@@ -428,7 +428,7 @@ def _items(legs, min_support, with_pairs=True, require_calendar=False, exclude_c
     for mid, ls in by.items():
         ls.sort(key=lambda l: -l["apoyo_conservador"])
         for l in ls:
-            if l["apoyo_conservador"] >= min_support and (not require_calendar or (l.get("apoyo_min_equipo", 1) >= team_floor and min(l.get("n_recientes", [MIN_N, MIN_N])) >= MIN_N)):
+            if l["apoyo_conservador"] >= min_support and (not require_calendar or (l.get("apoyo_min_equipo", 1) >= team_floor and min(l.get("n_recientes", [MIN_N, MIN_N])) >= min_recent)):
                 items.append({"match_id": mid, "patas": [l], "cuota": l["cuota_media"], "cuota_cons": l["cuota_media"], "apoyo": l["apoyo_conservador"], "mismo_partido": False})
         if with_pairs:
             for a, b in itertools.combinations(ls[:PAIR_TOP_PER_MATCH], 2):
@@ -464,10 +464,12 @@ def _hi_odds(it):
     return it["cuota_cons"] if it["mismo_partido"] else it["cuota"]
 
 
-def search(legs, lo, hi, max_legs, min_support, top=5, pool=60, exclude=frozenset(), require_calendar=True, exclude_categories=EXCLUDE_TICKET_CATEGORIES, buffer=0.0, team_floor=TEAM_FLOOR, max_overlap=None, max_reuse=None):
+def search(legs, lo, hi, max_legs, min_support, top=5, pool=60, exclude=frozenset(), require_calendar=True, exclude_categories=EXCLUDE_TICKET_CATEGORIES, buffer=0.0, team_floor=TEAM_FLOOR, max_overlap=None, max_reuse=None, items_override=None, require=None, with_pairs=True, min_recent=MIN_N, max_estimated=None):
+    max_est = MAX_ESTIMATED_LEGS if max_estimated is None else max_estimated
     max_overlap = MAX_OVERLAP if max_overlap is None else max_overlap
     max_reuse = MAX_LEG_REUSE if max_reuse is None else max_reuse
-    items = [i for i in _items(legs, min_support, require_calendar=require_calendar, exclude_categories=exclude_categories, team_floor=team_floor) if i["match_id"] not in exclude]
+    base = items_override if items_override is not None else _items(legs, min_support, with_pairs=with_pairs, require_calendar=require_calendar, exclude_categories=exclude_categories, team_floor=team_floor, min_recent=min_recent)
+    items = [i for i in base if i["match_id"] not in exclude]
     items.sort(key=lambda i: (-i["apoyo"], -i["cuota"]))      # a igual apoyo (= igual riesgo), la cuota más alta
     best_per_match, cand = {}, []
     for it in items:                                        # hasta 6 ítems por partido para no perder la variedad de mercados
@@ -475,8 +477,9 @@ def search(legs, lo, hi, max_legs, min_support, top=5, pool=60, exclude=frozense
             continue
         if it["cuota"] ** (1 / len(it["patas"])) < 0.9 * lo ** (1 / max_legs):
             continue                                        # con max_legs patas no se llega a `lo` si cada pata paga menos de ~la media necesaria
-        if best_per_match.get(it["match_id"], 0) < 6:
-            best_per_match[it["match_id"]] = best_per_match.get(it["match_id"], 0) + 1
+        slot = (it["match_id"], any(l.get("cuota_tipo") == "estimada_por_modelo" for l in it["patas"]))       # tope por partido Y por tipo de precio: las patas estimadas no desplazan a las de cuota real
+        if best_per_match.get(slot, 0) < 6:
+            best_per_match[slot] = best_per_match.get(slot, 0) + 1
             cand.append(it)
     cand = cand[:pool]
     res = []
@@ -484,7 +487,7 @@ def search(legs, lo, hi, max_legs, min_support, top=5, pool=60, exclude=frozense
     lo_cons = lo * (1 + buffer)
 
     def rec(start, chosen, prod, prod_cons, nlegs, nest):
-        if prod_cons >= lo_cons and prod <= hi and chosen and any(l.get("cuota_tipo") != "estimada_por_modelo" for c_ in chosen for l in c_["patas"]):   # un ticket sin NINGUNA cuota real no se propone
+        if prod_cons >= lo_cons and prod <= hi and chosen and any(l.get("cuota_tipo") != "estimada_por_modelo" for c_ in chosen for l in c_["patas"]) and (require is None or require(chosen)):   # un ticket sin NINGUNA cuota real no se propone
             res.append((calc.joint_prob([c["apoyo"] for c in chosen]), -nlegs, prod, tuple(chosen)))
         for i in range(start, len(cand)):
             it = cand[i]
@@ -493,7 +496,7 @@ def search(legs, lo, hi, max_legs, min_support, top=5, pool=60, exclude=frozense
             n = nlegs + len(it["patas"])
             e = nest + sum(1 for l in it["patas"] if l.get("cuota_tipo") == "estimada_por_modelo")
             p = prod * _hi_odds(it)
-            if n <= max_legs and p <= hi and e <= MAX_ESTIMATED_LEGS:
+            if n <= max_legs and p <= hi and e <= max_est:
                 rec(i + 1, chosen + [it], p, prod_cons * it["cuota_cons"], n, e)
     rec(0, [], 1.0, 1.0, 0, 0)
     res.sort(key=lambda t: (-t[0], -t[1]))
@@ -712,6 +715,7 @@ def main(argv=None):
     ap.add_argument("--after-utc", help="ISO UTC (p. ej. 2026-10-13T15:30:00Z) o «now»: descarta los partidos que empiezan antes (ya jugados o en juego); «now» suma 15 min de margen")
     ap.add_argument("--exclude-match", action="append", default=[], help="«Local – Visitante» a excluir de todos los tickets (repetible), p. ej. el partido de otro ticket ya puesto")
     ap.add_argument("--only-profile", action="append", default=[], help="NOMBRE de perfil a generar (repetible): seguridad, amplio (las variantes champions siguen a --champions)")
+    ap.add_argument("--relax-champions-once", action="store_true", help="EXPERIMENTO ÚNICO a pedido: añade un borrador solo-UEFA Champions League y una combinada Champions + otras ligas con filtros relajados SOLO para las patas de Champions (apoyo 0.40, piso por equipo 0.30, ≥4 partidos de los últimos 100 días, sin pares); el resto de reglas se mantiene")
     ap.add_argument("--champions", action="store_true", help="añade las variantes solo-UEFA Champions League (apoyo y piso por equipo relajados y rotulados)")
     a = ap.parse_args(argv)
     targets = DEFAULT_TARGETS
@@ -729,12 +733,16 @@ def main(argv=None):
     load_pair_rules(a.run)
     if a.only_profile:
         targets = [t for t in targets if t[0] in a.only_profile]
-    legs, filtros = filter_legs_time_and_matches(legs, a.after_utc, a.exclude_match)
+    legs, filtros = filter_legs_time_and_matches(legs, a.after_utc, [])              # la exclusión a mano vale SOLO para armar tickets (abajo), no para tops ni inventario
+    filtros["partidos_excluidos_manualmente"] = list(a.exclude_match or [])
+    excluded_names = {common.norm_name(x) for x in (a.exclude_match or [])}
     legs, vetoed = apply_vetoes(legs, os.path.join(a.run, "vetoes.json"))
     legs, gated = apply_quality_gate(legs, a.run)
     legs_all = legs
     legs = [l for l in legs_all if l["history_kind"] in SAME_COMPETITION_KINDS]          # tickets y rankings PRINCIPALES: solo historial de la misma competición
-    mixed_champ = [l for l in legs_all if l["history_kind"] not in SAME_COMPETITION_KINDS and "champions league" in (l.get("competicion") or "").lower()]
+    mixed_champ = [l for l in legs_all if l["history_kind"] not in SAME_COMPETITION_KINDS and "champions league" in (l.get("competicion") or "").lower()
+                   and common.norm_name(l["partido"]) not in excluded_names]
+    legs_tk = [l for l in legs if common.norm_name(l["partido"]) not in excluded_names]      # patas para TICKETS (sin los partidos excluidos a mano)
     out = {"targets": [], "n_legs": len(legs), "n_priced_legs": sum(1 for l in legs if l["cuota_media"] is not None),
            "n_matches_with_legs": len({l["match_id"] for l in legs})}
     results = [dict(name=n, lo=lo, hi=hi, max_legs=mx, min_support=ms, buffer=bf) for n, lo, hi, mx, ms, bf in targets]
@@ -744,7 +752,7 @@ def main(argv=None):
     used, chosen = frozenset(), []
     ucl = mixed_champ
     for r in results:                                   # perfiles en orden: el primero (seguridad) fija partidos que los demás NO pueden usar
-        r_legs, r_floor = (ucl, CHAMPIONS_TEAM_FLOOR) if r.get("solo_champions") else (legs, TEAM_FLOOR_BY_PROFILE.get(r["name"], TEAM_FLOOR))
+        r_legs, r_floor = (ucl, CHAMPIONS_TEAM_FLOOR) if r.get("solo_champions") else (legs_tk, TEAM_FLOOR_BY_PROFILE.get(r["name"], TEAM_FLOOR))
         tk, npool = search(r_legs, r["lo"], r["hi"], r["max_legs"], r["min_support"], a.top, a.pool, exclude=used, buffer=r["buffer"], team_floor=r_floor, **dict(zip(("max_overlap", "max_reuse"), PROFILE_DIVERSITY.get(r["name"], (None, None)))))
         r.update(pool=npool, tickets=tk)
         r["_singles"] = [i for i in _items(r_legs, r["min_support"], with_pairs=False, require_calendar=True, exclude_categories=EXCLUDE_TICKET_CATEGORIES, team_floor=r_floor)]
@@ -760,6 +768,24 @@ def main(argv=None):
     sets = [{it["match_id"] for t_ in r["tickets"] for it in t_["items"]} for r in results]
     out["sin_partidos_repetidos_entre_perfiles"] = all(not (sets[i] & sets[j]) for i in range(len(sets)) for j in range(i + 1, len(sets)))
     out["sin_partidos_repetidos_entre_principales"] = out["sin_partidos_repetidos_entre_perfiles"]
+    if a.relax_champions_once:
+        ucl_legs = [l for l in legs_all if l["history_kind"] not in SAME_COMPETITION_KINDS and "uefa champions league" in (l.get("competicion") or "").lower()
+                   and common.norm_name(l["partido"]) not in excluded_names]
+        items_ucl = _items(ucl_legs, 0.40, with_pairs=False, require_calendar=True, exclude_categories=EXCLUDE_TICKET_CATEGORIES, team_floor=0.30, min_recent=4)
+        items_main = _items(legs_tk, 0.55, with_pairs=False, require_calendar=True, exclude_categories=EXCLUDE_TICKET_CATEGORIES, team_floor=0.45)
+        ucl_ids = {i["match_id"] for i in items_ucl}
+        div = dict(max_overlap=0.6, max_reuse=3, buffer=0.04)
+        main_top = sorted(items_main, key=lambda i: (-i["apoyo"], -i["cuota"]))[:60]
+        specs = (("experimento_champions_solo_real", items_ucl, None, 0), ("experimento_champions_solo_con_estimadas", items_ucl, None, 2),
+                 ("experimento_champions_mixto_real", main_top + items_ucl, lambda ch: any(c["match_id"] in ucl_ids for c in ch), 0),
+                 ("experimento_champions_mixto_con_estimadas", main_top + items_ucl, lambda ch: any(c["match_id"] in ucl_ids for c in ch), 2))
+        counts = {}
+        for nm, its, req, me in specs:
+            tk, _ = search(None, 4.0, 4.8, 6, 0.40, top=1, pool=220, items_override=its, require=req, max_estimated=me, **div)
+            counts[nm] = len(tk)
+            results.append(dict(name=nm, lo=4.0, hi=4.8, max_legs=6, min_support=0.40, buffer=0.04, tickets=tk, pool=len(its), reemplazos=[], experimento=True))
+        out["experimento_champions"] = {"parametros": "apoyo mínimo 0.40, piso por equipo 0.30, ≥4 partidos de los últimos 100 días, sin pares; solo patas de la UEFA Champions League; el resto de reglas igual",
+                                        "patas_champions_elegibles": len(items_ucl), "borradores": counts}
     out["cuotas_manuales_aplicadas"] = n_manual
     out["patas_vetadas"] = vetoed
     out["bloqueadas_por_calidad"] = gated
