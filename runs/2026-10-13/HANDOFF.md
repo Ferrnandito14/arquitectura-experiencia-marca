@@ -27,3 +27,10 @@
 3. Lanzar revisión por lotes (12×2 + verificador) en tandas; `batches.py check` (exit 0 = todo conciliado).
 4. Ronda 2 (objeciones por SendMessage) y `RESOLUCION-director.md`; actualizar MANIFIESTO, docs/PRUEBAS-picks.md, FUENTES-CONFORMIDAD.
 5. Rebuild `dist/football-picks-system-v2.4.zip` + parches + SHA256SUMS + VERIFICACION y entregar; informe final con denominadores, advertencias (cuotas medias/estimadas, apoyo≠probabilidad) y pedir cuotas reales de la casa para confirmar rangos.
+
+## SEGUIMIENTO EN VIVO (13-oct, tarde) — leer primero tras compactar
+- Tickets reales de Fernando en `runs/2026-10-13/seguimiento/tickets_abiertos.json`: A ×1.25 Cardiff–Watford U4.5; B ×4.40 (Pendikspor O1.5, Durban U2.5, Athletic-MG O1.5, San Carlos U3.5, Bucaramanga O1.5); C ×4.62 Champions V1 (Brugge +2.5, Arsenal–Lille U3.5, Leipzig O2.5, Viking–Bayern U5.5); D ×5.73 propio (Arsenal gana, Barcelona gana, Bayern gana 1.ª mitad, Villarreal–Napoli BTTS, Atlético–ManU tarjetas >2.5 + Atlético o empate).
+- Scripts: `seguimiento.py` (estado puntual → `estado.md/json`, `registro_resultados.jsonl`) y `seguimiento_watch.py` (vigilante en segundo plano, log en el scratchpad `vigilancia.log`, emite 1 línea por cambio). Clave: `APIFOOTBALL_KEY_FILE=<scratchpad>/probe/key.txt` (fuera del repo; la clave se pegó en el chat → pedir REGENERARLA al terminar el día).
+- Canal de avisos: Monitor con `tail -F vigilancia.log`, expira cada 30 min → re-armar. Respaldo: send_later 19:10, 19:30, 20:05, 20:45, 21:15 UTC; tras 21:15 programar 00:40, 01:40, 04:10 (Athletic 22:30Z, Bucaramanga 23:30Z, San Carlos 02:00Z del 14).
+- Fernando dio permiso explícito de seguimiento en vivo. Avisar solo cambios (gol, pata decidida, roja, ticket perdido/ganado), con efecto por ticket (C y D comparten Arsenal–Lille y Viking–Bayern).
+- Pendiente: lectura de alineaciones Champions (~18:00Z), informe de cierre (por pata, tasa de éxito, calibración mercado vs resultado), actualizar MANIFIESTO/RESOLUCION/paquete dist, recordatorio 26-oct, él quiere añadir cosas a agentes/modelos (no especificado).
