@@ -270,9 +270,15 @@ def _distinct_tokens(s):
     return {t for t in _tokens(s) if not _GENERIC_TOKENS.match(t)}
 
 
+def _prefix_token(ta, tb):
+    """Un token (≥3 letras) es prefijo de un token del otro nombre: «van» ~ «vanspor», «pohang» ~ «pohangs»."""
+    return any(len(x) >= 3 and (y.startswith(x) or x.startswith(y)) and min(len(x), len(y)) >= 3 for x in ta for y in tb)
+
+
 def _team_compat(a, b):
     na, nb = common.norm_name(a), common.norm_name(b)
-    return bool(na and nb and (na == nb or na in nb or nb in na or (_distinct_tokens(a) & _distinct_tokens(b))))
+    return bool(na and nb and (na == nb or na in nb or nb in na or (_distinct_tokens(a) & _distinct_tokens(b))
+                               or _prefix_token(_distinct_tokens(a), _distinct_tokens(b))))
 
 
 def align_api_records(api_recs, other_raws, tol_min=10):

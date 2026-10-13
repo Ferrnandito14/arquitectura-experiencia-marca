@@ -31,6 +31,7 @@ NO_INVESTIGADO = "NO_INVESTIGADO_SIN_FUENTE_PERMITIDA"
 # Solo hay forma de OTRA competición (proxy doméstico): análisis PARCIAL, nunca COMPLETADO.
 PARCIAL_PROXY = "PARCIAL_PROXY_OTRA_COMPETICION"
 HISTORY_N = 10
+MIN_SAME_COMP = 6      # mínimo de partidos de la misma competición para preferirlos al historial mixto
 FAMILIES = {
     "resultado": ["1x2", "doble_oportunidad", "empate_no_valido", "handicap"],
     "goles": ["over_1_5", "over_2_5", "over_3_5", "btts", "goles_por_equipo", "rangos_goles", "primera_parte"],
@@ -207,11 +208,24 @@ class ApiFootballHistory:
         for e in self._events(tid, before_iso):
             if (e.get("match_status") or "").lower() not in ("finished", "after pen.", "after extra time"):
                 continue
+            if "friendl" in (e.get("league_name") or "").lower():
+                continue                                   # los amistosos (rotaciones, rivales dispares) no entran en ninguna muestra
             r = adapters.apif_history_row(e, tid)
             if r:
                 rows.append(r)
         rows.sort(key=lambda r: r["date"])
-        return rows[-HISTORY_N:]
+        base = lambda x: common.norm_name((x or "").split(" - ")[0])
+        comp = base(a.get("league_name"))
+        same = [r for r in rows if comp and base(r["competition"]) == comp]
+        if len(same) >= MIN_SAME_COMP:                     # preferir partidos de la MISMA competición (sin eliminatorias/copas contra rivales dispares)
+            use = same[-HISTORY_N:]
+            for r in use:
+                r["misma_competicion"] = True
+            return use
+        use = rows[-HISTORY_N:]
+        for r in use:
+            r["misma_competicion"] = False
+        return use
 
     def load_odds(self, day_from, day_to):
         try:
@@ -366,8 +380,11 @@ def evaluate_match(match, provider, policy, now_iso):
                         + (f"; ALIAS SUJETO A REVISIÓN: {', '.join(review)}" if review else ""))
             elif getattr(provider, "name", "") == "apifootball":
                 weak = [f"{t} n={len(form[side])}" for side, t in (("local", match["home_team"]), ("visitante", match["away_team"])) if len(form[side]) < 8]
-                note = (f"HISTORIAL PROPIO de cada equipo (apifootball, últimos ≤{HISTORY_N} partidos finalizados en 180 días, TODAS sus competiciones, "
-                        "etiquetadas por partido); NO es histórico de la misma competición, mezcla casa y fuera, sin ajustar por rival ni por categoría del rival; "
+                same = all(r.get("misma_competicion") for r in (form["local"] + form["visitante"]))
+                note = (("MISMA COMPETICIÓN (apifootball, últimos ≤%d partidos finalizados de cada equipo en 180 días, sin amistosos): " % HISTORY_N) if same else
+                        f"HISTORIAL PROPIO de cada equipo (apifootball, últimos ≤{HISTORY_N} partidos finalizados en 180 días, sin amistosos, MEZCLA competiciones — copas/eliminatorias/otras ligas —, "
+                        "etiquetadas por partido); NO es histórico de la misma competición para al menos un equipo, ") + ("mezcla casa y fuera,"
+                        " sin ajustar por rival ni por categoría del rival; "
                         "estadística faltante en un partido = excluido de la muestra (n menor), nunca 0; tarjetas A+R solo si hay datos de amarillas y rojas; "
                         "líneas de córners/tarjetas/goles/tiros = referencias fijas, NO las de ninguna casa; cuotas = promedio de mercado, no ejecutable"
                         + (f"; MUESTRA DÉBIL n<8: {', '.join(weak)}" if weak else ""))
@@ -420,8 +437,15 @@ def evaluate_match(match, provider, policy, now_iso):
             "last_updated": now_iso,
             "stats": ([] if (proxy and key.startswith("resultado.")) else blocks.get(key, [])), "price": prices.get(key)}
     n_ok = sum(1 for m in markets.values() if m["evaluation_status"] in ("EVALUABLE", "PARCIAL"))
-    kind = (None if not data_attempted else ("proxy_otra_competicion" if proxy else
-            ("apifootball_historial_propio" if getattr(provider, "name", "") == "apifootball" else "football-data_misma_liga")))
+    if not data_attempted:
+        kind = None
+    elif proxy:
+        kind = "proxy_otra_competicion"
+    elif getattr(provider, "name", "") == "apifootball":
+        rows = (form.get("local") or []) + (form.get("visitante") or [])
+        kind = "apifootball_misma_competicion" if rows and all(r.get("misma_competicion") for r in rows) else "apifootball_historial_propio"
+    else:
+        kind = "football-data_misma_liga"
     api_prices = getattr(provider, "odds_for", lambda m: {})(match) if data_attempted else {}
     return {"match_id": match["match_id"], "attempts": attempts, "data_attempted": data_attempted, "proxy_sample": proxy, "history_kind": kind,
             "api_prices": api_prices, "form": form, "sample_note": note,
@@ -441,6 +465,12 @@ def save_state(run, st):
 
 
 def init_state(st, inv):
+    ids = {m["match_id"] for m in inv["matches"]}
+    orphans = [mid for mid in st["matches"] if mid not in ids]
+    if orphans:                                     # el inventario se regeneró y fusionó/renombró partidos: se retira el estado huérfano y se deja constancia
+        st.setdefault("pruned_orphans", []).extend({"match_id": mid, "last_status": st["matches"][mid].get("status")} for mid in orphans)
+        for mid in orphans:
+            del st["matches"][mid]
     for m in inv["matches"]:
         if m["match_id"] not in st["matches"]:
             st["matches"][m["match_id"]] = {"status": "PENDIENTE" if m["analysis_required"] else "NO_REQUIERE_ANALISIS",
@@ -452,6 +482,7 @@ def process(run, provider, policy, limit=None, evaluator=evaluate_match, now=Non
     inv = common.read_json(os.path.join(run, "inventory.json"))
     st = init_state(load_state(run), inv)
     matrix = common.read_json(os.path.join(run, "matrix.json"), {"matches": {}})
+    matrix["matches"] = {k: v for k, v in matrix["matches"].items() if k in st["matches"]}
     now_iso = (now or datetime.now(timezone.utc)).strftime("%Y-%m-%dT%H:%M:%SZ")
     save_state(run, st)
     done = 0

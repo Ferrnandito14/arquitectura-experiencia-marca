@@ -23,12 +23,48 @@ import common  # noqa: E402
 AGENTS_PER_BATCH = ["analista-deportivo", "analista-cuantitativo"]
 
 
+def _fk(blocks, i):
+    b = blocks[i] if len(blocks) > i else None
+    return f"{b['k']}/{b['n']}" if b else "—"
+
+
+def review_card(m, ev):
+    """Ficha COMPACTA (~1–2 KB) que un agente puede revisar por lotes: identidad, calendario, tipo/tamaño de historial, forma W/D/L,
+    frecuencias clave por equipo y cuotas medias principales. La fila completa de matrix.json (~25 KB, 23 mercados) NO cabe por lotes."""
+    card = {"match_id": m["match_id"], "partido": f"{m['home_team']} – {m['away_team']}", "competicion": m.get("competition"), "pais": m.get("country"),
+            "categoria": m.get("gender_or_category"), "inicio_utc": m.get("normalized_datetime_utc"), "inicio_caracas": (m.get("normalized_datetime_local") or "")[:16],
+            "calendario": {"fuentes": m.get("source_names"), "base": m.get("confirmation_basis"), "seleccion": m.get("selection_calendar_verification"),
+                           "discrepancias": [f"{d.get('kind', '?')}: {d.get('detail', '')}" for d in m.get("discrepancies", [])]},
+            "estado_analisis": m.get("sports_analysis_status")}
+    if not ev or not ev.get("data_attempted"):
+        card["datos"] = "SIN HISTORIAL (ninguna fuente permitida cubre este partido): NO_INVESTIGADO"
+        return card
+    f = ev.get("form", {})
+    res = lambda rows: "".join("W" if r["gf"] is not None and r["gf"] > r["ga"] else ("D" if r["gf"] == r["ga"] else "L") for r in rows if r["gf"] is not None)
+    gs = lambda rows: [round(sum(r["gf"] for r in rows if r["gf"] is not None) / max(1, len(rows)), 2), round(sum(r["ga"] for r in rows if r["gf"] is not None) / max(1, len(rows)), 2)]
+    mk = ev["markets"]
+    card["historial"] = {"tipo": ev.get("history_kind"), "n": [len(f.get("local", [])), len(f.get("visitante", []))],
+                         "forma_local": res(f.get("local", [])), "forma_visitante": res(f.get("visitante", [])),
+                         "goles_a_favor_en_contra_local": gs(f.get("local", [])), "goles_a_favor_en_contra_visitante": gs(f.get("visitante", [])),
+                         "competiciones_local": sorted({r["competition"] for r in f.get("local", [])})[:4],
+                         "competiciones_visitante": sorted({r["competition"] for r in f.get("visitante", [])})[:4]}
+    st = lambda key, i0: [_fk(mk.get(key, {}).get("stats", []), i0), _fk(mk.get(key, {}).get("stats", []), i0 + 1)]
+    card["frecuencias_k_n_[local,visitante]"] = {"btts": st("goles.btts", 0), "over_1_5": st("goles.over_1_5", 0), "over_2_5": st("goles.over_2_5", 0), "over_3_5": st("goles.over_3_5", 0),
+                                                 "corners_total_8_5": st("corners.total", 0), "corners_total_9_5": st("corners.total", 2), "tarjetas_3_5": st("tarjetas.total", 0), "tarjetas_4_5": st("tarjetas.total", 2)}
+    ap = ev.get("api_prices") or {}
+    card["cuotas_medias"] = {k: {"cuotas": v["cuotas_medias"], "n_casas": v["n_casas"]} for k, v in ap.items()
+                             if k in ("resultado.1x2", "resultado.doble_oportunidad", "goles.btts", "goles.over_1_5", "goles.over_2_5", "goles.over_3_5", "goles.over_4_5")}
+    if not card["cuotas_medias"]:
+        card["cuotas_medias"] = "sin cuotas medias (<2 casas o partido sin cobertura de cuotas)"
+    card["nota_muestra"] = (ev.get("sample_note") or "")[:260]
+    return card
+
+
 def row_size(m, ev):
-    return len(json.dumps({"m": {k: m[k] for k in ("match_id", "home_team", "away_team", "competition", "normalized_datetime_utc")},
-                           "ev": ev}, ensure_ascii=False))
+    return len(json.dumps(review_card(m, ev), ensure_ascii=False))
 
 
-def make_batches(inv, matrix, max_chars=50000):
+def make_batches(inv, matrix, max_chars=60000):
     rows = [m for m in inv["matches"] if m["analysis_required"]]
     rows.sort(key=lambda m: (m["competition"], m["normalized_datetime_utc"] or "", m["match_id"]))
     batches, cur, size = [], [], 0
@@ -118,7 +154,7 @@ def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("cmd", choices=["make", "check", "rebatch"])
     ap.add_argument("--run", required=True)
-    ap.add_argument("--max-chars", type=int, default=50000)
+    ap.add_argument("--max-chars", type=int, default=60000)
     ap.add_argument("--results")
     ap.add_argument("--old-map")
     ap.add_argument("--raw")
@@ -131,6 +167,9 @@ def main(argv=None):
     if a.cmd == "make":
         b = make_batches(inv, mx, a.max_chars)
         common.write_json_atomic(os.path.join(a.run, "batches.json"), b)
+        ids = {i for bb in b["batches"] for i in bb["match_ids"]} | set(b["discrepancy_batch"]["match_ids"])
+        cards = {m["match_id"]: review_card(m, mx["matches"].get(m["match_id"], {})) for m in inv["matches"] if m["match_id"] in ids}
+        common.write_json_atomic(os.path.join(a.run, "review_cards.json"), cards)         # fichas compactas que revisan los agentes
         print(f"{len(b['batches'])} lotes para {b['n_required']} partidos requeridos; lote de discrepancias: {len(b['discrepancy_batch']['match_ids'])}")
         return 0
     if a.cmd == "rebatch":

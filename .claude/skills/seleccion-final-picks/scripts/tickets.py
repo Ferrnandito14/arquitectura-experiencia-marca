@@ -29,13 +29,16 @@ _spec.loader.exec_module(calc)
 
 # nombre, lo, hi, máx. patas (cada pata cuenta), apoyo conservador mínimo por ítem
 # Con n=10 el límite inferior de Wilson de un 10/10 es 0.722 y el de 9/10 es 0.66: por eso el mínimo de «seguridad» es 0.65 (≈ ≥9/10 en cada equipo)
-DEFAULT_TARGETS = [("seguridad", 1.20, 1.28, 2, 0.65), ("amplio", 4.0, 4.8, 6, 0.55)]
-OK_KINDS = ("apifootball_historial_propio", "football-data_misma_liga")
+# (nombre, lo, hi, máx patas, apoyo mín por ítem, colchón sobre `lo`): el multiplicador CONSERVADOR (pares −5 %) debe quedar ≥ lo·(1+colchón)
+DEFAULT_TARGETS = [("seguridad", 1.20, 1.28, 2, 0.65, 0.01), ("amplio", 4.0, 4.8, 6, 0.55, 0.04)]
+OK_KINDS = ("apifootball_misma_competicion", "apifootball_historial_propio", "football-data_misma_liga")
 MIN_N, MIN_BOOKS = 6, 3
 ODDS_MIN, ODDS_MAX = 1.03, 2.6
 PAIR_TOP_PER_MATCH = 10
 EST_MARGIN = 0.08     # SUPUESTO: margen típico de una casa en mercados secundarios; la cuota estimada NO es de ninguna casa
 EXCLUDE_TICKET_CATEGORIES = ('youth', 'u23', 'reserve')    # plantillas juveniles/sub-23/reservas rotan y su historial es poco fiable: fuera de los tickets por defecto
+PAIR_HAIRCUT = 0.95   # la casa suele pagar menos por combinar dos mercados del mismo partido: se descuenta un 5 % para decidir si el ticket sigue en rango
+MAX_ESTIMATED_LEGS = 1  # como máximo una pata con cuota ESTIMADA (córners/tarjetas) por ticket
 MAX_OVERLAP = 0.34    # borradores de un mismo perfil: como máximo un tercio de sus partidos puede coincidir con uno ya elegido
 
 
@@ -112,17 +115,33 @@ def _support(fh, fa, ph, pa):
     return {"apoyo_conservador": round(lo, 3), "frec": [round(kh / len(hs), 3), round(ka / len(as_), 3)], "n": [len(hs), len(as_)]}
 
 
+def _novig(c):
+    inv = [1 / x for x in c]
+    t = sum(inv)
+    return [x / t for x in inv]
+
+
 def _price(ev, key, idx):
-    p = (ev.get("api_prices") or {}).get(key)
+    ap = ev.get("api_prices") or {}
+    p = ap.get(key)
     if not p or p.get("n_casas", 0) < MIN_BOOKS:
         mk = (ev.get("markets") or {}).get(key, {}).get("price")        # compat: cuota ya guardada en el mercado
         p = {"cuotas_medias": mk["cuotas"], "n_casas": mk.get("n_casas", 0), "minmax": mk.get("minmax", [[None, None]] * len(mk["cuotas"]))} if mk and mk.get("tipo") == "promedio_de_mercado" else None
     if not p or p.get("n_casas", 0) < MIN_BOOKS:
         return None
-    odd = p["cuotas_medias"][idx]
-    imp = 1 / odd
-    tot = sum(1 / c for c in p["cuotas_medias"])
-    return {"cuota_media": odd, "minmax_casas": p["minmax"][idx], "n_casas": p["n_casas"], "prob_implicita_sin_margen": round(imp / tot, 4)}
+    cs = p.get("cuotas_medianas") or p["cuotas_medias"]          # MEDIANA entre casas (una casa atípica no infla el multiplicador)
+    odd = cs[idx]
+    if key == "resultado.doble_oportunidad":                      # las 3 cuotas NO son excluyentes: la prob. implícita sale del 1X2 sin margen
+        x = ap.get("resultado.1x2")
+        if x and x.get("n_casas", 0) >= MIN_BOOKS:
+            p1, px, p2 = _novig(x.get("cuotas_medianas") or x["cuotas_medias"])
+            imp = [p1 + px, p1 + p2, px + p2][idx]
+        else:
+            imp = None
+    else:
+        imp = round(_novig(cs)[idx], 4)
+    return {"cuota_media": odd, "minmax_casas": p["minmax"][idx], "n_casas": p["n_casas"], "n_precios_distintos": p.get("n_precios_distintos"),
+            "prob_implicita_sin_margen": None if imp is None else round(imp, 4)}
 
 
 def legs_for_match(m, ev, _unused=None):
@@ -145,7 +164,8 @@ def legs_for_match(m, ev, _unused=None):
             if pr and ODDS_MIN <= pr["cuota_media"] <= ODDS_MAX:
                 leg.update(pr)
                 leg["cuota_tipo"] = "promedio_de_mercado"
-                leg["indicador_descriptivo"] = round(sup["apoyo_conservador"] - pr["prob_implicita_sin_margen"], 3)
+                if pr["prob_implicita_sin_margen"] is not None:
+                    leg["indicador_descriptivo"] = round(sup["apoyo_conservador"] - pr["prob_implicita_sin_margen"], 3)
         else:        # córners/tarjetas: ninguna fuente usada publica cuota -> APROXIMADA por modelo, siempre rotulada
             p_est = (sum(round(f * n) for f, n in zip(sup["frec"], sup["n"])) + 2) / (sum(sup["n"]) + 4)      # frecuencia suavizada de ambos equipos
             est = round(1 / (p_est * (1 + EST_MARGIN)), 2)
@@ -168,6 +188,21 @@ def apply_manual_odds(legs, path):
             l.update(cuota_media=idx[k], cuota_tipo="manual_usuario", n_casas=1, minmax_casas=[idx[k], idx[k]])
             n += 1
     return n
+
+
+def apply_vetoes(legs, path):
+    """vetoes.json = [{"partido": "Local – Visitante" (o "match_id"), "seleccion": "texto exacto", "motivo": "…"}]: decisiones del director a partir de
+    la revisión de los agentes. Una pata vetada no entra en tickets ni en rankings; el veto se registra en tickets.json."""
+    vs = common.read_json(path, []) if os.path.exists(path) else []
+    out, removed = [], []
+    for l in legs:
+        hit = next((v for v in vs if (v.get("match_id") == l["match_id"] or common.norm_name(v.get("partido", "")) == common.norm_name(l["partido"]))
+                    and (not v.get("seleccion") or v["seleccion"].strip().lower() == l["seleccion"].strip().lower())), None)
+        if hit:
+            removed.append({"partido": l["partido"], "seleccion": l["seleccion"], "motivo": hit.get("motivo")})
+        else:
+            out.append(l)
+    return out, removed
 
 
 def collect_legs(run):
@@ -200,7 +235,7 @@ def _items(legs, min_support, with_pairs=True, require_calendar=False, exclude_c
         ls.sort(key=lambda l: -l["apoyo_conservador"])
         for l in ls:
             if l["apoyo_conservador"] >= min_support:
-                items.append({"match_id": mid, "patas": [l], "cuota": l["cuota_media"], "apoyo": l["apoyo_conservador"], "mismo_partido": False})
+                items.append({"match_id": mid, "patas": [l], "cuota": l["cuota_media"], "cuota_cons": l["cuota_media"], "apoyo": l["apoyo_conservador"], "mismo_partido": False})
         if with_pairs:
             for a, b in itertools.combinations(ls[:PAIR_TOP_PER_MATCH], 2):
                 if _family(a) == _family(b):          # misma familia (p. ej. «más de 1.5» + «más de 2.5», o 1X + hándicap): una pata implica o contradice a la otra
@@ -217,11 +252,12 @@ def _items(legs, min_support, with_pairs=True, require_calendar=False, exclude_c
                             f"({a['apoyo_conservador']} × {b['apoyo_conservador']}): " +
                             ("las patas se refuerzan entre sí." if sup["apoyo_conservador"] >= indep else "casi sin pérdida respecto a la independencia."))
                     items.append({"match_id": mid, "patas": [a, b], "cuota": round(a["cuota_media"] * b["cuota_media"], 3),
+                                  "cuota_cons": round(a["cuota_media"] * b["cuota_media"] * PAIR_HAIRCUT, 3),
                                   "apoyo": sup["apoyo_conservador"], "mismo_partido": True, "apoyo_conjunto": sup, "justificacion": just})
     return items
 
 
-def search(legs, lo, hi, max_legs, min_support, top=5, pool=60, exclude=frozenset(), require_calendar=True, exclude_categories=EXCLUDE_TICKET_CATEGORIES):
+def search(legs, lo, hi, max_legs, min_support, top=5, pool=60, exclude=frozenset(), require_calendar=True, exclude_categories=EXCLUDE_TICKET_CATEGORIES, buffer=0.0):
     items = [i for i in _items(legs, min_support, require_calendar=require_calendar, exclude_categories=exclude_categories) if i["match_id"] not in exclude]
     items.sort(key=lambda i: (-i["apoyo"], -i["cuota"]))      # a igual apoyo (= igual riesgo), la cuota más alta
     best_per_match, cand = {}, []
@@ -236,18 +272,21 @@ def search(legs, lo, hi, max_legs, min_support, top=5, pool=60, exclude=frozense
     cand = cand[:pool]
     res = []
 
-    def rec(start, chosen, prod, nlegs):
-        if lo <= prod <= hi and chosen:
+    lo_cons = lo * (1 + buffer)
+
+    def rec(start, chosen, prod, prod_cons, nlegs, nest):
+        if prod_cons >= lo_cons and prod <= hi and chosen:
             res.append((calc.joint_prob([c["apoyo"] for c in chosen]), -nlegs, prod, tuple(chosen)))
         for i in range(start, len(cand)):
             it = cand[i]
             if it["match_id"] in {c["match_id"] for c in chosen}:
                 continue
             n = nlegs + len(it["patas"])
+            e = nest + sum(1 for l in it["patas"] if l.get("cuota_tipo") == "estimada_por_modelo")
             p = prod * it["cuota"]
-            if n <= max_legs and p <= hi:
-                rec(i + 1, chosen + [it], p, n)
-    rec(0, [], 1.0, 0)
+            if n <= max_legs and p <= hi and e <= MAX_ESTIMATED_LEGS:
+                rec(i + 1, chosen + [it], p, prod_cons * it["cuota_cons"], n, e)
+    rec(0, [], 1.0, 1.0, 0, 0)
     res.sort(key=lambda t: (-t[0], -t[1]))
     picked, taken = [], []
     for r in res:                                       # borradores DISTINTOS: no repetir casi los mismos partidos
@@ -259,11 +298,13 @@ def search(legs, lo, hi, max_legs, min_support, top=5, pool=60, exclude=frozense
             break
     out = []
     for s, nl, p, c in picked:
-        out.append({"cuota_combinada_media": round(calc.combo_odds([x["cuota"] for x in c]), 3), "n_patas": -nl, "n_partidos": len(c),
+        out.append({"cuota_combinada_media": round(calc.combo_odds([x["cuota"] for x in c]), 3),
+                    "cuota_combinada_conservadora": round(calc.combo_odds([x["cuota_cons"] for x in c]), 3), "n_patas": -nl, "n_partidos": len(c),
                     "usa_cuota_estimada": any(l.get("cuota_tipo") == "estimada_por_modelo" for x in c for l in x["patas"]),
                     "usa_cuota_manual": any(l.get("cuota_tipo") == "manual_usuario" for x in c for l in x["patas"]),
                     "apoyo_conjunto_descriptivo": round(s, 3),
-                    "prob_implicita_conjunta_sin_margen": round(calc.joint_prob([calc.joint_prob([l["prob_implicita_sin_margen"] for l in x["patas"]]) for x in c]), 3),
+                    "prob_implicita_conjunta_sin_margen": (None if any(l["prob_implicita_sin_margen"] is None for x in c for l in x["patas"]) else
+                                                          round(calc.joint_prob([calc.joint_prob([l["prob_implicita_sin_margen"] for l in x["patas"]]) for x in c]), 3)),
                     "items": [{"match_id": x["match_id"], "mismo_partido": x["mismo_partido"], "cuota": x["cuota"], "apoyo": x["apoyo"], "justificacion": x.get("justificacion"),
                                "patas": [{k: v for k, v in l.items() if not k.startswith("_")} for l in x["patas"]]} for x in c]})
     return out, len(cand)
@@ -314,20 +355,21 @@ def render(result):
     L = ["# Tickets provisionales por multiplicador objetivo", "",
          "> **Cuotas = promedio de ≥3 casas vía agregador (NO ejecutables); la casa recalcula las combinadas del mismo partido (cuota real menor). "
          "Apoyo = frecuencia descriptiva conservadora (Wilson inferior), NO probabilidad predictiva ni EV.** Entre partidos distintos el producto supone independencia. "
+         "Las cuotas de cada pata son la MEDIANA entre casas; «conservadora» descuenta un 5 % a cada par del mismo partido y debe seguir ≥ el mínimo del rango más un colchón. "
          "Contrastar con la cuota REAL de la casa y con el Nivel 2 (bajas, alineaciones, 2.ª fuente de calendario) antes de apostar. "
          "**Regla: un partido no puede aparecer en dos tickets** (si falla en uno, no arrastra al otro): "
          "TODOS los borradores de un perfil excluyen los partidos de TODOS los borradores de los perfiles anteriores: escojas el que escojas de cada multiplicador, no comparten partido. "
          "Dos patas del mismo partido solo entran con justificación medida (apoyo conjunto sobre los mismos partidos pasados). "
          "Las patas de los tickets exigen **calendario confirmado por dos fuentes independientes** (hora del partido) y excluyen categorías juvenil/sub-23/reserva (plantillas rotativas); los rankings top lo marcan en columnas.", ""]
     for t in result["targets"]:
-        L += [f"## Perfil «{t['name']}»: ×{t['lo']}–{t['hi']} (≤{t['max_legs']} patas, apoyo mínimo por ítem {t['min_support']}) — {len(t['tickets'])} borradores", ""]
+        L += [f"## Perfil «{t['name']}»: ×{t['lo']}–{t['hi']} (≤{t['max_legs']} patas, apoyo mínimo por ítem {t['min_support']}, colchón {int(t.get('buffer', 0) * 100)} %) — {len(t['tickets'])} borradores", ""]
         if len(t["tickets"]) == 1:
             L += ["**Solo existe 1 borrador distinto con las patas disponibles** (se pidieron varios para poder escoger): ampliar patas, bajar el apoyo mínimo o aportar cuotas reales.", ""]
         if not t["tickets"]:
             L += ["Sin combinación posible con las patas disponibles: no se fuerza ningún ticket.", ""]
         for i, tk in enumerate(t["tickets"], 1):
             flag = (" · ⚠ incluye cuota ESTIMADA (córners/tarjetas): verifícala en tu casa" if tk.get("usa_cuota_estimada") else "") + (" · incluye cuota aportada por ti" if tk.get("usa_cuota_manual") else "")
-            L += [f"### Borrador {i}{flag}: ×{tk['cuota_combinada_media']} · {tk['n_patas']} pata(s) en {tk['n_partidos']} partido(s) · apoyo conjunto descriptivo {tk['apoyo_conjunto_descriptivo']} "
+            L += [f"### Borrador {i}{flag}: ×{tk['cuota_combinada_media']} (conservadora ×{tk['cuota_combinada_conservadora']}) · {tk['n_patas']} pata(s) en {tk['n_partidos']} partido(s) · apoyo conjunto descriptivo {tk['apoyo_conjunto_descriptivo']} "
                   f"(implícita de mercado sin margen {tk['prob_implicita_conjunta_sin_margen']})", "",
                   "| Partido | Inicio UTC | Selección | Cuota media (mín–máx, casas) | Apoyo cons. | n |", "|---|---|---|---|---|---|"]
             for it in tk["items"]:
@@ -354,6 +396,14 @@ def render(result):
         L += ["", f"*Cuota aproximada = 1 / (frecuencia suavizada de ambos equipos × (1 + {EST_MARGIN})): supone un margen típico de casa y SALE de la misma estadística, por eso no se usa para hablar de valor. "
               "Sirve para armar y ordenar borradores. Antes de apostar compárala con tu casa: solo tiene valor si paga claramente por encima de la «cuota real mínima». "
               "Si me pasas tus cuotas reales (`--manual-odds archivo.csv` con columnas home,away,seleccion,cuota) sustituyen a las aproximadas.*", ""]
+    if result.get("patas_vetadas"):
+        seen = set()
+        L += ["## Patas VETADAS por la revisión (no entran en ningún ticket ni ranking)", "", "| Partido | Selección | Motivo |", "|---|---|---|"]
+        for v in result["patas_vetadas"]:
+            if (v["partido"], v["seleccion"]) not in seen:
+                seen.add((v["partido"], v["seleccion"]))
+                L.append(f"| {v['partido']} | {v['seleccion']} | {v.get('motivo') or ''} |")
+        L.append("")
     L += ["---", f"Partidos usados en borradores de perfiles previos: {len(result.get('partidos_usados_en_principales', []))}; sin partidos repetidos entre multiplicadores: {result.get('sin_partidos_repetidos_entre_perfiles')}; cuotas manuales aplicadas: {result.get('cuotas_manuales_aplicadas', 0)}.",
           f"Patas evaluadas: {result['n_legs']} (con cuota media: {result['n_priced_legs']}) en {result['n_matches_with_legs']} partidos."]
     return "\n".join(L)
@@ -371,19 +421,21 @@ def main(argv=None):
     if a.target:
         targets = []
         for t in a.target:
-            n, lo, hi, mx, ms = t.split(":")
-            targets.append((n, float(lo), float(hi), int(mx), float(ms)))
+            parts = t.split(":")
+            n, lo, hi, mx, ms = parts[:5]
+            targets.append((n, float(lo), float(hi), int(mx), float(ms), float(parts[5]) if len(parts) > 5 else 0.0))
     if not os.path.exists(os.path.join(a.run, "matrix.json")):
         print("error: falta matrix.json (ejecuta level1.py)", file=sys.stderr)
         return 2
     legs = collect_legs(a.run)
     n_manual = apply_manual_odds(legs, a.manual_odds) if a.manual_odds else 0
+    legs, vetoed = apply_vetoes(legs, os.path.join(a.run, "vetoes.json"))
     out = {"targets": [], "n_legs": len(legs), "n_priced_legs": sum(1 for l in legs if l["cuota_media"] is not None),
            "n_matches_with_legs": len({l["match_id"] for l in legs})}
-    results = [dict(name=n, lo=lo, hi=hi, max_legs=mx, min_support=ms) for n, lo, hi, mx, ms in targets]
+    results = [dict(name=n, lo=lo, hi=hi, max_legs=mx, min_support=ms, buffer=bf) for n, lo, hi, mx, ms, bf in targets]
     used, chosen = frozenset(), []
     for r in results:                                   # perfiles en orden: el primero (seguridad) fija partidos que los demás NO pueden usar
-        tk, npool = search(legs, r["lo"], r["hi"], r["max_legs"], r["min_support"], a.top, a.pool, exclude=used)
+        tk, npool = search(legs, r["lo"], r["hi"], r["max_legs"], r["min_support"], a.top, a.pool, exclude=used, buffer=r["buffer"])
         r.update(pool=npool, tickets=tk)
         if tk:                                           # CUALQUIER borrador de un perfil queda excluido de los perfiles siguientes:
             used = used | {it["match_id"] for t_ in tk for it in t_["items"]}        # sea cual escojas de cada uno, no comparten partido
@@ -394,6 +446,7 @@ def main(argv=None):
     out["sin_partidos_repetidos_entre_perfiles"] = all(not (sets[i] & sets[j]) for i in range(len(sets)) for j in range(i + 1, len(sets)))
     out["sin_partidos_repetidos_entre_principales"] = out["sin_partidos_repetidos_entre_perfiles"]
     out["cuotas_manuales_aplicadas"] = n_manual
+    out["patas_vetadas"] = vetoed
     out["unpriced"] = unpriced(legs)
     out["top_picks"] = top_picks(legs)
     common.write_json_atomic(os.path.join(a.run, "tickets.json"), out)

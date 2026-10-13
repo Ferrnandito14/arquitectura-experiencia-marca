@@ -300,7 +300,11 @@ def apif_odds_average(rows, min_books=2):
                         vals[c].append(x)
                     books.append(r.get("odd_bookmakers"))
             if len(books) >= min_books:
-                mk[key] = {"cuotas_medias": [round(sum(vals[c]) / len(vals[c]), 3) for c in cols], "n_casas": len(books),
+                import statistics
+                tuples = {tuple(vals[c][i] for c in cols) for i in range(len(books))}
+                mk[key] = {"cuotas_medias": [round(sum(vals[c]) / len(vals[c]), 3) for c in cols],
+                           "cuotas_medianas": [round(statistics.median(vals[c]), 3) for c in cols],     # robusta a una casa atípica
+                           "n_casas": len(books), "n_precios_distintos": len(tuples),                     # casas que repiten el mismo precio no son independientes
                            "minmax": [[min(vals[c]), max(vals[c])] for c in cols], "casas": sorted(set(books))}
         if mk:
             out[mid] = mk

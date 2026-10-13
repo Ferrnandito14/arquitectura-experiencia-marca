@@ -81,7 +81,7 @@ def compute(run):
                 continue
             examined += 1
             is_proxy = bool(mk.get("proxy_sample") or ev.get("proxy_sample"))
-            own = ev.get("history_kind") == "apifootball_historial_propio"
+            own = ev.get("history_kind") in ("apifootball_historial_propio", "apifootball_misma_competicion")
             examined_proxy += is_proxy
             examined_own += own
             if mk["evaluation_status"] in ("EVALUABLE", "PARCIAL"):
@@ -155,7 +155,8 @@ def render(r):
              f"{r['required_selection_calendar_sufficient']} con verificación suficiente para selección final | «CONFIRMADO» significa sin discrepancias entre fuentes, no hora contrastada |")
     L.append(f"| Con al menos una consulta real de datos | {r['with_real_data_attempt']} | de {r['coverage_matches_den']} |")
     hk = r["history_kinds"]
-    L.append(f"| Con HISTORIAL PROPIO de los dos equipos (apifootball, todas sus competiciones, etiquetadas; NO es la misma competición) | {hk.get('apifootball_historial_propio', 0)} | de {r['coverage_matches_den']}; muestra ≤10 partidos recientes, mezcla casa/fuera, sin ajustar por rival |")
+    L.append(f"| Con histórico de la MISMA competición de los dos equipos (apifootball, sin amistosos) | {hk.get('apifootball_misma_competicion', 0)} | de {r['coverage_matches_den']}; ≤10 partidos recientes, mezcla casa/fuera, sin ajustar por rival |")
+    L.append(f"| Con HISTORIAL PROPIO MIXTO (apifootball: copas/otras competiciones etiquetadas; al menos un equipo sin 6 partidos de la misma competición) | {hk.get('apifootball_historial_propio', 0)} | de {r['coverage_matches_den']}; muestra menos comparable |")
     L.append(f"| Con histórico de la MISMA liga (Football-Data) | {hk.get('football-data_misma_liga', 0)} | de {r['coverage_matches_den']} |")
     L.append(f"| Solo con forma doméstica PROXY (otra competición): evaluación PARCIAL | {r['proxy_only_partial']} | de {r['coverage_matches_den']}; no evalúa el partido |")
     L.append(f"| NO intentados (ningún adaptador de fuente permitida los cubre; no se comprobó si otra fuente permitida lo haría) | {r['processed_without_any_data_attempt']} | de {r['processed']} con disposición: «con disposición» no es «examinado» |")

@@ -142,3 +142,36 @@ class AlignGenericTokens(unittest.TestCase):
         self.assertFalse(inventory._team_compat("Arsenal U19", "Lille U19"))
         self.assertTrue(inventory._team_compat("Sporting CP U19", "Sporting U19"))
         self.assertTrue(inventory._team_compat("Pohang", "Pohang Steelers"))
+
+
+class NameEdgeCases(unittest.TestCase):
+    def test_dotless_i_and_nordic_letters(self):
+        self.assertEqual(common.norm_name("Bandırmaspor"), common.norm_name("Bandirmaspor"))
+        self.assertEqual(common.norm_name("Bodø/Glimt"), common.norm_name("Bodo Glimt"))
+
+    def test_prefix_token_match_requires_same_time_category_and_unique_candidate(self):
+        self.assertTrue(inventory._team_compat("Pendikspor", "Pendikspor"))
+        self.assertTrue(inventory._team_compat("Van BB", "Vanspor FK"))
+        self.assertFalse(inventory._team_compat("Arsenal U19", "Lille U19"))
+
+
+class SameCompetition(unittest.TestCase):
+    def _prov(self, evs):
+        return level1.ApiFootballHistory(FakeClient(evs), KEY, "2026-10-13")
+
+    def _m(self, league="Liga X"):
+        return {"home_team": "A", "away_team": "B", "extra": {"api": {"home_id": "1", "away_id": "2", "match_id": "9", "league_name": league}}}
+
+    def test_friendlies_excluded_and_same_competition_preferred(self):
+        evs = [ev(str(i), "A", "B", 1, 0, date=f"2026-09-{i + 1:02d}", league="Liga X") for i in range(7)]
+        evs += [ev("c1", "A", "B", 5, 0, date="2026-09-20", league="FA Cup - Semi-finals"), ev("f1", "A", "B", 0, 0, date="2026-09-21", league="Friendlies Clubs")]
+        rows = self._prov(evs).team_history(self._m(), "A", "2026-10-13")
+        self.assertTrue(all(r["competition"] == "Liga X" and r["misma_competicion"] for r in rows))
+        self.assertEqual(len(rows), 7)
+
+    def test_falls_back_to_mixed_history_when_few_same_competition_matches(self):
+        evs = [ev(str(i), "A", "B", 1, 0, date=f"2026-09-{i + 1:02d}", league="Liga X") for i in range(3)]
+        evs += [ev(f"c{i}", "A", "B", 2, 0, date=f"2026-09-{i + 10:02d}", league="Copa Y") for i in range(5)]
+        rows = self._prov(evs).team_history(self._m(), "A", "2026-10-13")
+        self.assertEqual(len(rows), 8)
+        self.assertFalse(any(r["misma_competicion"] for r in rows))

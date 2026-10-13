@@ -77,7 +77,8 @@ _SUFFIX = re.compile(r"\b(fc|cf|sc|ac|afc|cd|ud|sd|fk|sk|bk|if|ik|ssc|rc|as|us|c
 
 def norm_name(s):
     """Minúsculas, sin acentos ni puntuación ni sufijos genéricos. NO decide identidad por sí solo."""
-    s = unicodedata.normalize("NFKD", s or "")
+    s = (s or "").replace("ı", "i").replace("İ", "I").replace("ø", "o").replace("Ø", "O").replace("ł", "l").replace("Ł", "L").replace("đ", "d").replace("ß", "ss")
+    s = unicodedata.normalize("NFKD", s)         # letras sin descomposición Unicode (ı, ø, ł…) se sustituyen antes: NFKD no las convierte
     s = "".join(c for c in s if not unicodedata.combining(c)).lower()
     s = re.sub(r"[^a-z0-9 ]+", " ", s)
     s = _SUFFIX.sub(" ", s)

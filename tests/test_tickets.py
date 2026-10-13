@@ -240,3 +240,16 @@ class Categories(unittest.TestCase):
         self.assertTrue(legs and all(l["categoria"] == "u23" for l in legs))
         self.assertEqual(tickets.search(legs, 1.20, 1.28, 2, 0.5)[0], [])
         self.assertTrue(tickets.search(legs, 1.20, 1.28, 2, 0.5, exclude_categories=())[0])
+
+
+class Vetoes(unittest.TestCase):
+    def test_vetoed_leg_removed_with_reason(self):
+        import tempfile, json, common
+        legs = tickets.legs_for_match(mm(0), ev(prices={"resultado.doble_oportunidad": avg([1.15, 1.22, 3.0])}))
+        d = tempfile.mkdtemp()
+        p = os.path.join(d, "vetoes.json")
+        common.write_json_atomic(p, [{"partido": "H0 – A0", "seleccion": "Gana alguno, sin empate (12)", "motivo": "prueba"}])
+        out, removed = tickets.apply_vetoes(legs, p)
+        self.assertEqual(len(removed), 1)
+        self.assertFalse(any(l["seleccion"] == "Gana alguno, sin empate (12)" for l in out))
+        self.assertEqual(removed[0]["motivo"], "prueba")

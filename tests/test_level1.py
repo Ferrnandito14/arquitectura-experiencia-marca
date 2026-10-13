@@ -193,3 +193,12 @@ class Queue(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class OrphanState(unittest.TestCase):
+    def test_orphan_state_pruned_with_trace(self):
+        st = {"matches": {"viejo": {"status": "PENDIENTE"}, "m1": {"status": "COMPLETADO", "attempts": 1, "disposition": "x"}}}
+        inv = {"matches": [{"match_id": "m1", "analysis_required": True, "disposition": "x"}]}
+        level1.init_state(st, inv)
+        self.assertNotIn("viejo", st["matches"])
+        self.assertEqual(st["pruned_orphans"][0]["match_id"], "viejo")
