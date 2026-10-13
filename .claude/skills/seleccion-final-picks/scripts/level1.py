@@ -28,6 +28,8 @@ _spec.loader.exec_module(calc)
 MAX_ATTEMPTS = 3
 # Ninguna fuente permitida cubre el partido: NO hubo consulta real de datos. Distinto de NO_EVALUABLE_TRAS_INTENTOS (que exige intentos).
 NO_INVESTIGADO = "NO_INVESTIGADO_SIN_FUENTE_PERMITIDA"
+# Solo hay forma de OTRA competición (proxy doméstico): análisis PARCIAL, nunca COMPLETADO.
+PARCIAL_PROXY = "PARCIAL_PROXY_OTRA_COMPETICION"
 HISTORY_N = 10
 FAMILIES = {
     "resultado": ["1x2", "doble_oportunidad", "empate_no_valido", "handicap"],
@@ -106,6 +108,8 @@ class FootballDataHistory:
     def covers(self, match):
         if match.get("extra", {}).get("div"):
             return True
+        if match.get("gender_or_category", "men") != "men":
+            return False        # juveniles/sub-23/reservas/femenino: la forma del primer equipo masculino NO es proxy válido
         try:
             h, a = self.resolve(match["home_team"]), self.resolve(match["away_team"])
         except ProviderUnavailable:
@@ -242,7 +246,8 @@ def evaluate_match(match, provider, policy, now_iso):
                 note = (f"PROXY: forma de liga DOMÉSTICA, OTRA competición, de ≤{HISTORY_N} partidos por equipo, temporada en curso; "
                         f"local→{pr['home'][1]} ({pr['home'][0]}{', alias' if pr['home'][2] else ''}), visitante→{pr['away'][1]} ({pr['away'][0]}{', alias' if pr['away'][2] else ''}). "
                         "NO es evidencia del partido (otra competición, rivales y contexto distintos), mezcla partidos en casa y fuera, y no es una muestra de temporada completa; "
-                        "tarjetas = amarillas+rojas sin ponderar"
+                        "tarjetas = amarillas+rojas sin ponderar, sin árbitro designado y sin verificar que la definición sea homogénea entre ligas; "
+                        "líneas de córners/tarjetas/goles = referencias fijas, NO las de ninguna casa"
                         + (f"; MUESTRA DÉBIL n<8: {', '.join(weak)}" if weak else "")
                         + (f"; ALIAS SUJETO A REVISIÓN: {', '.join(review)}" if review else ""))
             else:
@@ -289,9 +294,9 @@ def evaluate_match(match, provider, policy, now_iso):
     n_ok = sum(1 for m in markets.values() if m["evaluation_status"] in ("EVALUABLE", "PARCIAL"))
     return {"match_id": match["match_id"], "attempts": attempts, "data_attempted": data_attempted, "proxy_sample": proxy, "form": form, "sample_note": note,
             "markets": markets, "evaluated_markets_ok": n_ok,
-            "sports_analysis_status": ("COMPLETADO" if (form.get("local") and form.get("visitante"))
+            "sports_analysis_status": (("COMPLETADO" if not proxy else PARCIAL_PROXY) if (form.get("local") and form.get("visitante"))
                                       else ("NO_EVALUABLE_TRAS_INTENTOS" if data_attempted else NO_INVESTIGADO)),
-            "market_analysis_status": ("COMPLETADO" if n_ok else ("NO_EVALUABLE_TRAS_INTENTOS" if data_attempted else NO_INVESTIGADO))}
+            "market_analysis_status": (("COMPLETADO" if not proxy else PARCIAL_PROXY) if n_ok else ("NO_EVALUABLE_TRAS_INTENTOS" if data_attempted else NO_INVESTIGADO))}
 
 
 # ----------------------------------------------------------------------------- cola reanudable
@@ -320,7 +325,7 @@ def process(run, provider, policy, limit=None, evaluator=evaluate_match, now=Non
     done = 0
     for m in inv["matches"]:
         s = st["matches"][m["match_id"]]
-        if s["status"] in ("COMPLETADO", "NO_EVALUABLE_TRAS_INTENTOS", NO_INVESTIGADO, "NO_REQUIERE_ANALISIS", "ERROR_REQUIERE_INTERVENCION"):
+        if s["status"] in ("COMPLETADO", PARCIAL_PROXY, "NO_EVALUABLE_TRAS_INTENTOS", NO_INVESTIGADO, "NO_REQUIERE_ANALISIS", "ERROR_REQUIERE_INTERVENCION"):
             continue
         if limit is not None and done >= limit:
             break
@@ -332,6 +337,9 @@ def process(run, provider, policy, limit=None, evaluator=evaluate_match, now=Non
             s["status"] = ev["sports_analysis_status"]
             if s["status"] == "NO_EVALUABLE_TRAS_INTENTOS":
                 s["reason"] = "se intentó la consulta permitida y no aportó histórico suficiente"
+                s["evidence"] = ev["attempts"]
+            elif s["status"] == PARCIAL_PROXY:
+                s["reason"] = "solo forma doméstica de OTRA competición (proxy descriptivo): no evalúa el partido"
                 s["evidence"] = ev["attempts"]
             elif s["status"] == NO_INVESTIGADO:
                 s["reason"] = "ninguna fuente permitida cubre este partido: no hubo consulta real (fuentes excluidas por política o no revisadas)"

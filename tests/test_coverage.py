@@ -129,6 +129,40 @@ class ProxyIsPartial(unittest.TestCase):
         self.assertEqual((r["pending"], r["evaluated_sufficiently"], r["exit_code"]), (0, 0, 4))
 
 
+class ProxyMarketAccounting(unittest.TestCase):
+    def test_proxy_status_is_processed_not_sufficient_and_markets_split(self):
+        tmp = prep([match(1)], FakeProvider())
+        mx = common.read_json(os.path.join(tmp, "matrix.json"))
+        e = mx["matches"]["m-1"]
+        e["proxy_sample"] = True
+        for m in e["markets"].values():
+            m["proxy_sample"] = True
+        common.write_json_atomic(os.path.join(tmp, "matrix.json"), mx)
+        st = common.read_json(os.path.join(tmp, "state.json"))
+        st["matches"]["m-1"].update(status=level1.PARCIAL_PROXY, reason="solo proxy", evidence=[{"provider": "football-data"}])
+        common.write_json_atomic(os.path.join(tmp, "state.json"), st)
+        inv = common.read_json(os.path.join(tmp, "inventory.json"))
+        inv["matches"][0]["sports_analysis_status"] = level1.PARCIAL_PROXY
+        common.write_json_atomic(os.path.join(tmp, "inventory.json"), inv)
+        r = coverage_report.compute(tmp)
+        self.assertEqual((r["processed"], r["proxy_only_partial"], r["evaluated_sufficiently"]), (1, 1, 0))
+        self.assertEqual(r["markets_examined_from_other_competition_proxy"], r["markets_examined"])
+        self.assertEqual(r["markets_evaluable_or_partial_same_competition"], 0)
+        # un proxy de otra competición NO levanta la limitación sistémica de ninguna familia
+        self.assertEqual(sorted(r["systemic_families_without_any_evaluable"]), sorted(level1.FAMILIES))
+        self.assertEqual(r["exit_code"], 4)
+        self.assertIn("solo proxy de OTRA competición", coverage_report.render(r).replace("**", ""))
+
+    def test_proxy_status_without_reason_is_a_problem(self):
+        tmp = prep([match(1)])
+        st = common.read_json(os.path.join(tmp, "state.json"))
+        st["matches"]["m-1"].update(status=level1.PARCIAL_PROXY)
+        st["matches"]["m-1"].pop("reason", None)
+        st["matches"]["m-1"].pop("evidence", None)
+        common.write_json_atomic(os.path.join(tmp, "state.json"), st)
+        self.assertTrue(any("sin motivo o sin evidencia" in b for _, b in coverage_report.compute(tmp)["problems"]))
+
+
 class SingleSourceCalendar(unittest.TestCase):
     def test_report_discloses_single_source_calendar_for_required_matches(self):
         tmp = prep([match(1), match(2)])

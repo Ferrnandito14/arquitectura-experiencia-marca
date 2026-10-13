@@ -14,8 +14,9 @@ from collections import Counter
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import common  # noqa: E402
 
-PROCESSED_OK = ("COMPLETADO", "NO_EVALUABLE_TRAS_INTENTOS", "NO_INVESTIGADO_SIN_FUENTE_PERMITIDA")
-NEEDS_REASON = ("NO_EVALUABLE_TRAS_INTENTOS", "NO_INVESTIGADO_SIN_FUENTE_PERMITIDA")
+PARCIAL_PROXY = "PARCIAL_PROXY_OTRA_COMPETICION"
+PROCESSED_OK = ("COMPLETADO", PARCIAL_PROXY, "NO_EVALUABLE_TRAS_INTENTOS", "NO_INVESTIGADO_SIN_FUENTE_PERMITIDA")
+NEEDS_REASON = ("NO_EVALUABLE_TRAS_INTENTOS", "NO_INVESTIGADO_SIN_FUENTE_PERMITIDA", PARCIAL_PROXY)
 
 
 def _all_markets():
@@ -44,11 +45,10 @@ def compute(run):
                 pending.append(m)
                 continue
             processed.append(m)
-            if stt == "COMPLETADO":
-                if mx.get(m["match_id"], {}).get("proxy_sample"):
-                    proxy_only.append(m)          # solo forma doméstica de OTRA competición: PARCIAL, nunca «suficiente»
-                else:
-                    sufficient.append(m)
+            if stt == PARCIAL_PROXY or mx.get(m["match_id"], {}).get("proxy_sample"):
+                proxy_only.append(m)              # solo forma doméstica de OTRA competición: PARCIAL, nunca «suficiente»
+            elif stt == "COMPLETADO":
+                sufficient.append(m)
         else:
             pending.append(m)
             if stt.startswith("ERROR"):
@@ -69,6 +69,7 @@ def compute(run):
             problems.append((m["match_id"], "estado procesado sin fila en matrix.json"))
     # mercados
     examined = ok = nonev = notchk = 0
+    examined_proxy = ok_proxy = 0
     fam_ok = Counter()
     for m in required:
         ev = mx.get(m["match_id"])
@@ -79,9 +80,13 @@ def compute(run):
                 notchk += 1
                 continue
             examined += 1
+            is_proxy = bool(mk.get("proxy_sample") or ev.get("proxy_sample"))
+            examined_proxy += is_proxy
             if mk["evaluation_status"] in ("EVALUABLE", "PARCIAL"):
                 ok += 1
-                fam_ok[k.split(".")[0]] += 1
+                ok_proxy += is_proxy
+                if not is_proxy:
+                    fam_ok[k.split(".")[0]] += 1           # un proxy de otra competición NO levanta una limitación sistémica
             else:
                 nonev += 1
     no_data_attempt = [m["match_id"] for m in processed if not mx.get(m["match_id"], {}).get("data_attempted")]
@@ -121,7 +126,8 @@ def compute(run):
         "processed_without_any_data_attempt": len(no_data_attempt), "with_real_data_attempt": len(processed) - len(no_data_attempt),
         "pending": len(pending), "pending_ids": [m["match_id"] for m in pending],
         "coverage_matches_pct": pct(len(processed), len(required)), "coverage_matches_den": len(required),
-        "markets_denominator": den_markets, "markets_examined": examined, "markets_not_checked": notchk,
+        "markets_denominator": den_markets, "markets_examined": examined, "markets_not_checked": notchk, "markets_examined_from_other_competition_proxy": examined_proxy,
+        "markets_evaluable_or_partial_same_competition": ok - ok_proxy,
         "markets_evaluable_or_partial": ok, "markets_not_evaluable": nonev,
         "coverage_markets_pct": pct(examined, den_markets),
         "candidates_detected": ok, "systemic_families_without_any_evaluable": systemic,
@@ -147,9 +153,10 @@ def render(r):
     L.append(f"| Solo con forma doméstica PROXY (otra competición): evaluación PARCIAL | {r['proxy_only_partial']} | de {r['coverage_matches_den']}; no evalúa el partido |")
     L.append(f"| Procesados SIN ninguna consulta real de datos (ninguna fuente permitida los cubre) | {r['processed_without_any_data_attempt']} | de {r['processed']} procesados: «procesado» no es «examinado» |")
     L.append(f"| Pendientes | {r['pending']} | {r['pending_ids'][:10]}{'…' if len(r['pending_ids']) > 10 else ''} |")
-    L.append(f"| Mercados examinados | {r['markets_examined']} | de {r['markets_denominator']} = {r['coverage_markets_pct']}% (NOT_CHECKED: {r['markets_not_checked']}) |")
-    L.append(f"| Mercados con evaluación parcial/evaluable (candidatos) | {r['markets_evaluable_or_partial']} | |")
-    L.append(f"| Mercados no evaluables | {r['markets_not_evaluable']} | familias sin ningún mercado evaluable: {r['systemic_families_without_any_evaluable']} |")
+    L.append(f"| Mercados examinados | {r['markets_examined']} | de {r['markets_denominator']} = {r['coverage_markets_pct']}% (NOT_CHECKED: {r['markets_not_checked']}); "
+             f"**{r['markets_examined_from_other_competition_proxy']} de ellos son solo proxy de OTRA competición** y {r['markets_examined'] - r['markets_examined_from_other_competition_proxy']} de la misma competición |")
+    L.append(f"| Mercados con evaluación parcial/evaluable | {r['markets_evaluable_or_partial']} | de la misma competición: {r['markets_evaluable_or_partial_same_competition']}; el resto es proxy descriptivo, no candidatos |")
+    L.append(f"| Mercados no evaluables | {r['markets_not_evaluable']} | familias sin ningún mercado evaluable **de la misma competición**: {r['systemic_families_without_any_evaluable']} |")
     if r["problems"]:
         L += ["", "Problemas de integridad:"] + [f"- {a}: {b}" for a, b in r["problems"]]
     L += ["", f"**Veredicto de la puerta de cobertura: {r['verdict']}**"]

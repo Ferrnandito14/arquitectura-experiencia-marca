@@ -96,8 +96,11 @@ class ProxyEvaluation(unittest.TestCase):
         p = prov(extra={"T1": csv_for("T1", ["Galatasaray"])})
         e = self.ev(m, p)
         self.assertTrue(e["proxy_sample"] and e["data_attempted"])
-        self.assertEqual(e["sports_analysis_status"], "COMPLETADO")
+        self.assertEqual(e["sports_analysis_status"], level1.PARCIAL_PROXY)           # nunca COMPLETADO con solo proxy
+        self.assertEqual(e["market_analysis_status"], level1.PARCIAL_PROXY)
         self.assertIn("OTRA competición", e["sample_note"])
+        self.assertIn("sin árbitro designado", e["sample_note"])
+        self.assertIn("NO las de ninguna casa", e["sample_note"])
         for h in e["form"]["local"] + e["form"]["visitante"]:
             self.assertIn("liga doméstica, OTRA competición", h["competition"])
         mk = e["markets"]["goles.btts"]
@@ -123,6 +126,16 @@ class ProxyEvaluation(unittest.TestCase):
         e = self.ev(match("Inter Milan", "Club Brugge"), prov(extra={"B1": csv_for("B1", ["Club Brugge"])}))
         self.assertIn("alias", e["sample_note"])
         self.assertIn("Inter (I1, alias)", e["sample_note"])
+
+    def test_proxy_only_for_senior_mens_teams(self):
+        p = prov()
+        for cat in ("youth", "u23", "reserve", "women"):
+            m = match("Arsenal", "Lille")
+            m["gender_or_category"] = cat
+            self.assertFalse(p.covers(m), cat)           # la forma del primer equipo masculino no es proxy de juveniles/reservas/femenino
+        m = match("Arsenal", "Lille")
+        m["gender_or_category"] = "men"
+        self.assertTrue(p.covers(m))
 
     def test_native_football_data_match_is_not_proxy(self):
         m = match("Arsenal", "Man United", comp="Premier League", div="E0")

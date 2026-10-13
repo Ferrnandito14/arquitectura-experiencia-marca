@@ -55,6 +55,7 @@ class OrchestratorClauses(unittest.TestCase):
             "no falsificar navegador ni evadir CAPTCHA/Cloudflare", "SendMessage", "descriptivas, no probabilidades predictivas",
             "un resumen por competición no es evidencia", "Tercera comprobación", "decide SIEMPRE tú",
             "(1) ¿qué selección parece más probable? (2) ¿cuál tiene mejor relación probabilidad/cuota? (3) ¿cuál es la mejor alternativa global?",
+            "PARCIAL_PROXY_OTRA_COMPETICION", "nunca `COMPLETADO`", "Proxy doméstico", "Universo truncado", "cota inferior", "team_aliases.json", "NO_INVESTIGADO_SIN_FUENTE_PERMITIDA", "los agentId sí",
         ):
             self.assertTrue(clause.lower() in self.s.lower(), clause)
 
