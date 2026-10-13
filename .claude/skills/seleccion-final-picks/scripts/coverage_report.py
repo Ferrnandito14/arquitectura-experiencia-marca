@@ -30,6 +30,8 @@ def compute(run):
     st = common.read_json(os.path.join(run, "state.json"), {"matches": {}})["matches"]
     mx = common.read_json(os.path.join(run, "matrix.json"), {"matches": {}})["matches"]
     ms = inv["matches"]
+    comp = inv["meta"].get("source_completeness", [])
+    truncated = [c for c in comp if c.get("has_more") or c.get("loaded", 0) < c.get("declared_total", 0)]
     ALL, FAMS = _all_markets()
     required = [m for m in ms if m["analysis_required"]]
     problems, pending, processed, sufficient = [], [], [], []
@@ -86,6 +88,10 @@ def compute(run):
     not_elig = sum(1 for m in ms if m["prematch_eligibility"] == "NO_ELEGIBLE")
     pct = lambda a, b: round(100 * a / b, 1) if b else None
     systemic = [f for f in FAMS if required and fam_ok[f] == 0]
+    trunc_note = ""
+    if truncated:
+        trunc_note = ("UNIVERSO TRUNCADO: " + "; ".join(f"{c['source']} {c.get('day')}: {c['loaded']} accesibles de {c['declared_total']} declarados" for c in truncated)
+                      + " — los partidos contados son una cota inferior; nunca «la jornada completa»")
     if problems:
         verdict, code = "BLOQUEADO — inconsistencias de integridad entre inventario, estado y matriz (ver problemas)", 3
     elif required and pending:
@@ -95,7 +101,10 @@ def compute(run):
     elif len(sufficient) < len(required) or systemic:
         verdict, code = ("RANKING PROVISIONAL RESTRINGIDO — limitación sistémica: "
                          + (f"familias sin ningún mercado evaluable {systemic}; " if systemic else "")
-                         + f"{len(required) - len(sufficient)} partidos sin histórico suficiente"), 4
+                         + f"{len(no_data_attempt)} partidos NO investigados (sin fuente permitida) y {len(required) - len(sufficient) - len(no_data_attempt)} con intento insuficiente"
+                         + ("; " + trunc_note if trunc_note else "")), 4
+    elif truncated:
+        verdict, code = "RANKING PROVISIONAL RESTRINGIDO — " + trunc_note, 4
     else:
         verdict, code = "COBERTURA DE NIVEL 1 COMPLETA — ranking definitivo permitido, sujeto al Nivel 2", 0
     return {
@@ -113,6 +122,8 @@ def compute(run):
         "markets_evaluable_or_partial": ok, "markets_not_evaluable": nonev,
         "coverage_markets_pct": pct(examined, den_markets),
         "candidates_detected": ok, "systemic_families_without_any_evaluable": systemic,
+        "universe_truncated": bool(truncated), "truncation_detail": truncated, "truncation_note": trunc_note,
+        "confirmed_with_sufficient_selection_check": sum(1 for m in ms if m.get("selection_calendar_verification") == "SUFICIENTE"),
         "problems": problems, "verdict": verdict, "exit_code": code}
 
 
@@ -121,7 +132,7 @@ def render(r):
     L.append("| Métrica | Valor | Denominador / nota |\n|---|---|---|")
     L.append(f"| Registros brutos por fuente | {r['raw_by_source']} | duplicados dentro de fuente: {r['raw_duplicates_within_source']} |")
     L.append(f"| Partidos únicos | {r['unique_matches']} | tras deduplicar |")
-    L.append(f"| Partidos confirmados | {r['confirmed']} | de {r['unique_matches']} únicos |")
+    L.append(f"| Partidos con calendario CONFIRMADO (según fuente estructurada) | {r['confirmed']} | de {r['unique_matches']} únicos; con verificación SUFICIENTE para selección final: {r['confirmed_with_sufficient_selection_check']} |")
     L.append(f"| Partidos no confirmados | {r['not_confirmed']} | calendario: {r['calendar_status']} |")
     L.append(f"| Iniciados/finalizados | {r['started_or_finished']} | no elegibles prepartido (todas las causas): {r['not_eligible_prematch']} |")
     L.append(f"| Requieren evaluación (confirmados y elegibles) | {r['required_confirmed_eligible']} | base de la cobertura |")
@@ -138,6 +149,8 @@ def render(r):
     if r["problems"]:
         L += ["", "Problemas de integridad:"] + [f"- {a}: {b}" for a, b in r["problems"]]
     L += ["", f"**Veredicto de la puerta de cobertura: {r['verdict']}**"]
+    if r["universe_truncated"]:
+        L += ["", f"**⚠ {r['truncation_note']}.** Nada de lo que sigue puede describirse como «la jornada completa»."]
     if r["exit_code"] == 4:
         L += ["", "**Qué NO se sostiene con este resultado:**",
               f"- No hay candidatos evaluados ({r['markets_evaluable_or_partial']} mercados con datos), ni k/n, probabilidad, cuota o EV para los {r['required_confirmed_eligible']} partidos requeridos.",

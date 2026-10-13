@@ -272,7 +272,7 @@ def main(argv=None):
     policy = common.Policy()
     client = common.Client(os.path.join(run, "cache"), os.path.join(run, "sources", "consultas.jsonl"), policy=policy)
     win = common.window_for_local_date(a.date, a.tz)
-    raws, attempts = {}, []
+    raws, attempts, completeness = {}, [], []
 
     def attempt(name, url, what, fn):
         t = now.strftime("%Y-%m-%d %H:%M UTC")
@@ -292,7 +292,12 @@ def main(argv=None):
     if not a.no_apwin:
         for dday in common.days_to_query(a.date, a.tz):     # semántica de fecha de la fuente no certificada: día -1, 0, +1
             u = f"{adapters.APWIN_BASE}/?date={dday.isoformat()}"
-            attempt("apwin", u, f"calendario del día {dday.isoformat()} (HTML público parcial)", lambda x=dday.isoformat(): adapters.apwin_home(client, x))
+            def _apw(x=dday.isoformat()):
+                recs, pag = adapters.apwin_fetch(client, x)
+                if pag:
+                    completeness.append(dict(pag, source="apwin"))
+                return recs
+            attempt("apwin", u, f"calendario del día {dday.isoformat()} (HTML público: solo página 1 de la lista)", _apw)
     for path in a.manual:
         attempt("usuario", path, "calendario aportado por el usuario", lambda p=path: adapters.manual_calendar(p))
     matches, dups = build_inventory(raws, a.date, a.tz, now, policy)
@@ -303,6 +308,7 @@ def main(argv=None):
         common.write_json_atomic(os.path.join(run, "sources", f"raw_{k.replace(':', '_')}.json"), v)
     inv = {"meta": {"date": a.date, "tz": a.tz, "window_utc": [win[0].strftime("%Y-%m-%dT%H:%M:%SZ"), win[1].strftime("%Y-%m-%dT%H:%M:%SZ")],
                     "generated_at": now.strftime("%Y-%m-%dT%H:%M:%SZ"), "raw_counts": brutos,
+                    "source_completeness": completeness,
                     "source_registry": source_registry(policy, attempts)},
            "matches": matches, "raw_duplicates": dups}
     common.write_json_atomic(os.path.join(run, "inventory.json"), inv)

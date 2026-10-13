@@ -124,6 +124,27 @@ class SingleSourceCalendar(unittest.TestCase):
         self.assertIn("«CONFIRMADO» significa sin discrepancias entre fuentes, no hora contrastada", text)
 
 
+class TruncatedUniverse(unittest.TestCase):
+    def test_truncated_source_never_gives_definitive_even_if_all_evaluated(self):
+        tmp = prep([match(1), match(2)])
+        inv = common.read_json(os.path.join(tmp, "inventory.json"))
+        inv["meta"]["source_completeness"] = [{"source": "apwin", "day": "2026-10-13", "loaded": 15, "declared_total": 166, "has_more": True}]
+        common.write_json_atomic(os.path.join(tmp, "inventory.json"), inv)
+        r = coverage_report.compute(tmp)
+        self.assertTrue(r["universe_truncated"])
+        self.assertEqual(r["exit_code"], 4)
+        self.assertIn("UNIVERSO TRUNCADO", r["verdict"])
+        self.assertIn("15 accesibles de 166 declarados", r["verdict"])
+        self.assertIn("nunca «la jornada completa»", coverage_report.render(r))
+
+    def test_complete_source_does_not_flag_truncation(self):
+        tmp = prep([match(1)])
+        inv = common.read_json(os.path.join(tmp, "inventory.json"))
+        inv["meta"]["source_completeness"] = [{"source": "x", "day": "d", "loaded": 5, "declared_total": 5, "has_more": False}]
+        common.write_json_atomic(os.path.join(tmp, "inventory.json"), inv)
+        self.assertFalse(coverage_report.compute(tmp)["universe_truncated"])
+
+
 class Denominators(unittest.TestCase):
     def test_percentages_and_denominators(self):
         ms = [match(1), match(2), match(3), match(4, required=False)]

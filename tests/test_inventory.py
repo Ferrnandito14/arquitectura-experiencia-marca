@@ -272,3 +272,26 @@ class PreserveProgressOnRegeneration(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class ApwinPagination(unittest.TestCase):
+    BLOB = ('{\\"pagination\\":{\\"page\\":1,\\"hasMore\\":true,\\"total\\":166},\\"x\\":1}'
+            '{\\"countrySlug\\":\\"europe\\",\\"leagueSlug\\":\\"uefa-champions-league\\",\\"matches\\":['
+            '{\\"slug\\":\\"m\\",\\"code\\":\\"c\\",\\"status\\":\\"upcoming\\",\\"id\\":\\"1\\",\\"homeTeam\\":\\"A\\",\\"awayTeam\\":\\"B\\",\\"kickoffUnix\\":1791909900}]}')
+
+    def test_pagination_parsed_and_loaded_counted(self):
+        class C:
+            def fetch(self, url):
+                class R: text = ApwinPagination.BLOB
+                return R()
+        recs, pag = adapters.apwin_fetch(C(), "2026-10-13")
+        self.assertEqual((len(recs), pag["loaded"], pag["declared_total"], pag["has_more"]), (1, 1, 166, True))
+        self.assertEqual(pag["day"], "2026-10-13")
+        self.assertEqual(len(adapters.apwin_home(C(), "2026-10-13")), 1)
+
+    def test_no_pagination_block_returns_none(self):
+        class C:
+            def fetch(self, url):
+                class R: text = "nada"
+                return R()
+        self.assertIsNone(adapters.apwin_fetch(C(), "2026-10-13")[1])

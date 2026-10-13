@@ -44,12 +44,23 @@ class ProviderUnavailable(Exception):
 
 
 # ----------------------------------------------------------------------------- proveedor de histórico permitido
+TOP_DIVS = ["E0", "SP1", "D1", "I1", "F1", "N1", "B1", "T1", "P1", "SC0", "G1"]
+ALIASES_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "team_aliases.json")
+
+
 class FootballDataHistory:
-    """CSV de temporada de Football-Data (mmz4281/<temporada>/<div>.csv). Cubre goles, córners, tarjetas, tiros, árbitro."""
+    """CSV de temporada de Football-Data (mmz4281/<temporada>/<div>.csv). Cubre goles, córners, tarjetas, tiros, árbitro.
+    Dos usos: (1) partidos cuyo calendario viene de Football-Data (misma competición); (2) PROXY: equipos de un partido de
+    OTRA competición (p. ej. Champions League) que juegan en una liga doméstica cubierta -> su forma doméstica se usa
+    SIEMPRE etiquetada como «liga doméstica, otra competición» y nunca como evidencia del partido."""
     name = "football-data"
 
-    def __init__(self, client, season_code):
+    def __init__(self, client, season_code, aliases=None):
         self.client, self.season, self._cache, self.files = client, season_code, {}, 0
+        raw_aliases = aliases if aliases is not None else common.read_json(ALIASES_PATH, {}).get("aliases", {})
+        self._aliases = {common.norm_name(k): v for k, v in raw_aliases.items()}      # claves normalizadas siempre
+        self._index = None
+        self._resolved = {}
 
     def _rows(self, div):
         if div not in self._cache:
@@ -58,16 +69,65 @@ class FootballDataHistory:
             except (common.PolicyError, common.FetchError) as e:
                 raise ProviderUnavailable(f"football-data {div}: {e}")
             self.files += 1
-            self._cache[div] = list(csv.DictReader(io.StringIO(r.text.lstrip("﻿"))))
+            self._cache[div] = list(csv.DictReader(io.StringIO(r.text.lstrip("\ufeff"))))
         return self._cache[div]
 
+    def _build_index(self):
+        if self._index is None:
+            idx, amb = {}, set()
+            for div in TOP_DIVS:
+                for x in self._rows(div):
+                    for t in (x.get("HomeTeam"), x.get("AwayTeam")):
+                        if not t:
+                            continue
+                        k = common.norm_name(t)
+                        if k in idx and idx[k][1] != t:
+                            amb.add(k)
+                        idx.setdefault(k, (div, t))
+            self._index = ({k: v for k, v in idx.items() if k not in amb}, amb)
+        return self._index
+
+    def resolve(self, team):
+        """(div, nombre_FD, alias_usado) o None. Solo coincidencia exacta normalizada o alias explícito; nunca difusa."""
+        if team in self._resolved:
+            return self._resolved[team]
+        idx, amb = self._build_index()
+        k = common.norm_name(team)
+        out = None
+        if k in idx:
+            out = (idx[k][0], idx[k][1], False)
+        elif k in self._aliases and common.norm_name(self._aliases[k]) in idx:
+            d, t = idx[common.norm_name(self._aliases[k])]
+            out = (d, t, True)
+        self._resolved[team] = out
+        return out
+
     def covers(self, match):
-        return bool(match.get("extra", {}).get("div"))
+        if match.get("extra", {}).get("div"):
+            return True
+        try:
+            h, a = self.resolve(match["home_team"]), self.resolve(match["away_team"])
+        except ProviderUnavailable:
+            return False
+        if h and a:
+            match.setdefault("extra", {})["proxy_resolution"] = {"home": h, "away": a}
+            return True
+        return False
+
+    def is_proxy(self, match):
+        return not match.get("extra", {}).get("div")
 
     def team_history(self, match, team, before_iso):
+        if match.get("extra", {}).get("div"):
+            div, fd_name, label = match["extra"]["div"], team, match.get("competition")
+        else:
+            side = "home" if team == match["home_team"] else "away"
+            div, fd_name, _ = match["extra"]["proxy_resolution"][side]
+            comp = adapters.FD_DIV.get(div, ("", div))
+            label = f"{comp[1]} ({comp[0]}) — liga doméstica, OTRA competición"
         rows = []
-        for x in self._rows(match["extra"]["div"]):
-            if team not in (x.get("HomeTeam"), x.get("AwayTeam")) or not x.get("FTHG"):
+        for x in self._rows(div):
+            if fd_name not in (x.get("HomeTeam"), x.get("AwayTeam")) or not x.get("FTHG"):
                 continue
             try:
                 d = datetime.strptime(x["Date"], "%d/%m/%Y")
@@ -79,14 +139,14 @@ class FootballDataHistory:
         rows.sort(key=lambda t: t[0])
         out = []
         for d, x in rows[-HISTORY_N:]:
-            home = x["HomeTeam"] == team
+            home = x["HomeTeam"] == fd_name
             gi = lambda k: int(x[k]) if x.get(k, "").strip() != "" else None
-            out.append({"date": d.strftime("%Y-%m-%d"), "competition": match.get("competition"), "venue": "local" if home else "visitante",
+            out.append({"date": d.strftime("%Y-%m-%d"), "competition": label, "venue": "local" if home else "visitante",
                         "opponent": x["AwayTeam"] if home else x["HomeTeam"], "gf": gi("FTHG") if home else gi("FTAG"),
                         "ga": gi("FTAG") if home else gi("FTHG"), "ht_goals": (gi("HTHG"), gi("HTAG")),
                         "corners": (gi("HC"), gi("AC")), "yellow": (gi("HY"), gi("AY")), "red": (gi("HR"), gi("AR")),
                         "shots": (gi("HS"), gi("AS")), "sot": (gi("HST"), gi("AST")), "fouls": (gi("HF"), gi("AF")),
-                        "referee": x.get("Referee") or None})
+                        "referee": x.get("Referee") or None, "fd_team": fd_name})
         return out
 
 
@@ -161,7 +221,7 @@ def evaluate_match(match, provider, policy, now_iso):
     for name, p in policy.data["providers"].items():
         if p["status"] == "excluida":
             attempts.append({"provider": name, "resultado": "no consultada: excluida por política", "motivo": p["reason"][:160]})
-    form, blocks, note = {}, {}, None
+    form, blocks, note, proxy = {}, {}, None, False
     data_attempted = False          # ¿se hizo alguna consulta real de datos para ESTE partido?
     if provider is not None and provider.covers(match):
         data_attempted = True
@@ -172,7 +232,14 @@ def evaluate_match(match, provider, policy, now_iso):
             attempts.append({"provider": provider.name, "resultado": f"consultada: {len(form['local'])}+{len(form['visitante'])} partidos previos"})
             if form["local"] and form["visitante"]:
                 blocks = stat_blocks(form["local"], form["visitante"])
-            note = f"últimos ≤{HISTORY_N} partidos por equipo de la liga {match['extra'].get('div')}, temporada en curso: NO es una muestra de temporada completa"
+            proxy = bool(getattr(provider, "is_proxy", lambda m: False)(match))
+            if proxy:
+                pr = match["extra"]["proxy_resolution"]
+                note = (f"PROXY: forma de liga DOMÉSTICA, OTRA competición, de ≤{HISTORY_N} partidos por equipo, temporada en curso; "
+                        f"local→{pr['home'][1]} ({pr['home'][0]}{', alias' if pr['home'][2] else ''}), visitante→{pr['away'][1]} ({pr['away'][0]}{', alias' if pr['away'][2] else ''}). "
+                        "NO es evidencia del partido (otra competición, rivales y contexto distintos) ni una muestra de temporada completa")
+            else:
+                note = f"últimos ≤{HISTORY_N} partidos por equipo de la liga {match['extra'].get('div')}, temporada en curso: NO es una muestra de temporada completa"
         except ProviderUnavailable as e:
             attempts.append({"provider": provider.name, "resultado": f"acceso fallido: {e}"})
     else:
@@ -183,7 +250,7 @@ def evaluate_match(match, provider, policy, now_iso):
         have_stats = key in blocks and blocks[key]
         have_price = key in prices
         if have_stats:
-            stats_status = "SUFICIENTES" if min(b["n"] for b in blocks[key]) >= 8 else "PARCIALES"
+            stats_status = "SUFICIENTES" if (min(b["n"] for b in blocks[key]) >= 8 and not proxy) else "PARCIALES"
         else:
             stats_status = "INSUFICIENTES" if data_attempted else "NOT_CHECKED"     # INSUFICIENTES = se buscó y no bastó
         if have_stats or have_price:
@@ -191,6 +258,8 @@ def evaluate_match(match, provider, policy, now_iso):
             reason = None if have_stats else "hay cuota pero no estadísticas"
             if have_stats and not have_price:
                 reason = "estadísticas descriptivas sin cuota verificada"
+            if have_stats and proxy:
+                reason = "estadística descriptiva de liga doméstica (OTRA competición): no evalúa el partido; sin cuota verificada"
         elif not data_attempted:
             ev = "NOT_CHECKED"       # nadie examinó este mercado: no implica que no exista ni que la estadística sea 0
             reason = ("no investigado: ninguna fuente permitida cubre esta competición (sin ficha ni feed abierto); "
@@ -211,7 +280,7 @@ def evaluate_match(match, provider, policy, now_iso):
             "last_updated": now_iso,
             "stats": blocks.get(key, []), "price": prices.get(key)}
     n_ok = sum(1 for m in markets.values() if m["evaluation_status"] in ("EVALUABLE", "PARCIAL"))
-    return {"match_id": match["match_id"], "attempts": attempts, "data_attempted": data_attempted, "form": form, "sample_note": note,
+    return {"match_id": match["match_id"], "attempts": attempts, "data_attempted": data_attempted, "proxy_sample": proxy, "form": form, "sample_note": note,
             "markets": markets, "evaluated_markets_ok": n_ok,
             "sports_analysis_status": ("COMPLETADO" if (form.get("local") and form.get("visitante"))
                                       else ("NO_EVALUABLE_TRAS_INTENTOS" if data_attempted else NO_INVESTIGADO)),

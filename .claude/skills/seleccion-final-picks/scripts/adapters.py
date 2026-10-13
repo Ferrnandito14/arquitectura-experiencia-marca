@@ -57,8 +57,19 @@ _APWIN_STATUS = {"upcoming": "PROGRAMADO", "live": "EN_JUEGO", "finished": "FINA
                  "cancelled": "CANCELADO", "canceled": "CANCELADO"}
 
 
+def apwin_pagination(txt):
+    """{'page','has_more','declared_total'} del bloque `"pagination":{...}` embebido, o None si no existe."""
+    m = re.search(r'"pagination":\{"page":(\d+),"hasMore":(true|false),"total":(\d+)', txt)
+    return {"page": int(m.group(1)), "has_more": m.group(2) == "true", "declared_total": int(m.group(3))} if m else None
+
+
 def apwin_home(client, day_iso=None):
-    """Portada de APWin (HTML público). Extrae los partidos embebidos (JSON de Next escapado). kickoffUnix = época UTC."""
+    return apwin_fetch(client, day_iso)[0]
+
+
+def apwin_fetch(client, day_iso=None):
+    """Portada de APWin (HTML público). Devuelve (registros, paginación). El HTML solo trae la PÁGINA 1 de una lista
+    paginada que el cliente completa con llamadas que NO se usan: el universo es una cota inferior."""
     url = APWIN_BASE + "/" + (f"?date={day_iso}" if day_iso else "")
     r = client.fetch(url)
     txt = r.text.replace('\\"', '"')
@@ -82,7 +93,10 @@ def apwin_home(client, day_iso=None):
             "category_hint": None, "original_datetime": str(ep), "source_timezone": "UTC", "tz_confirmed": True, "utc_epoch": ep,
             "event_status_raw": obj.get("status"), "url": url,
         })
-    return out
+    pag = apwin_pagination(txt)
+    if pag:
+        pag.update(url=url, loaded=len(out), day=day_iso)
+    return out, pag
 
 
 def apwin_status(raw):
