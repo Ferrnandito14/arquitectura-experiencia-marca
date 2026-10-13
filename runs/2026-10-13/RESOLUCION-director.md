@@ -39,3 +39,16 @@ Informes: `reviews_raw/level2/pares_{deportivo,cuantitativo,auditor}.md`. Regla 
 | Kyoto–Ratchaburi: +1.5 + menos de 3.5 (variante Champions) | Desaconsejado | Aceptable condicionado (cuota ≥2.35) | Aceptable en el límite (cuota ≥2.20) | Vetado: sin respaldo unánime |
 Correcciones aceptadas del auditor: se retira la frase «las patas se refuerzan entre sí (0.722 vs 0.521)», que comparaba cosas incomparables (el 0.722 es el techo de Wilson de un 10/10 con n=10); el overround 1.153 que motivó el veto de la +1.5 de Birmingham era un artefacto de mezclar medias de casas distintas (con medianas es 1.089), aunque el veto se mantiene por las demás causas. Veto adicional: todo el partido Pohang–Johor.
 Ningún agente considera defendible (valor demostrado) ningún par; el mejor es «probable pero no rentable demostrado» (EV de modelo −4 % a −9 %).
+
+## ×4 de los partidos que faltaban hoy (13-oct, tras el ticket perdido) y mercados nuevos
+Informes: `reviews_raw/level2/x4_hoy_{deportivo,cuantitativo,auditor}.md`. Se integraron córners, tarjetas (regla de la casa: A=1, R=2, máx. 3 por jugador, sin cuerpo técnico, 90'+descuento) y remates (a puerta y totales) con la escalera completa de líneas por total y por equipo, mismo apoyo de Wilson y mismos filtros; sin cuotas reales (✎ estimada, circular).
+| Hallazgo | Decisión |
+|---|---|
+| Borradores previos (3): Durban y Athletic-MG en los tres; EV de mercado −33 % a −41 %; P(≥1 gana) ≈ 0.28 | Reconocido: jugar los tres no diversifica |
+| Durban U2.5: brecha 27 pp (≈ la del veto de Essen), Wilson < implícita, fase «Play-offs 1/2» sin confirmar | **Vetada** por coherencia (deportivo la veía defendible) |
+| Bristol–Blackburn +1.5 (cifra defectuosa 1.06 vs 3.52, frecuencia ≈ mercado) | **Vetada** |
+| Chippenham–Frome O1.5 (n=9, nivel 7, 4 casas, hueco de datos) | **Vetada** |
+| FUS Rabat U3.5 (15 de 20 filas de jun–jul) | Nueva puerta: cada equipo necesita ≥6 partidos de los últimos 100 días |
+| Tarjetas: eventos y estadísticas discrepan (≥2 puntos; anomalía del 22-ago) | Fila → dato faltante |
+| Tabla de «candidatos» contradice vetos, circular, selección adversa | Renombrada «inventario descriptivo», n≥8, sin ordenar alfabéticamente, avisos de cuota ≥1.65 sospechosa, `disparidad extrema` bloquea mercado |
+**Resultado: con todos los filtros y vetos hoy no hay ningún ×4 que pase** (`amplio` 0 borradores). Variantes relajadas exploradas (Durban aceptado como riesgo explícito → ×4.188; apoyo mínimo 0.50 y piso 0.40 → ×4.2–4.7) contienen pares del mismo partido sin reevaluar y no se proponen como borradores. No se fuerza un ticket.

@@ -38,3 +38,4 @@ Todo lo siguiente sale de `inventory.json`, `state.json`, `coverage.json`, `batc
 - Representatividad: 2679 patas con historial mixto fuera de los tickets y rankings principales; las de Champions van a las variantes `seguridad_champions` y `amplio_champions`.
 - Amplio: diversidad relajada (solape ≤60 %, pata repetida ≤3 veces) porque con historial de la misma competición hay pocas combinaciones.
 - Reevaluación de pares del mismo partido: 3 agentes más (deportivo, cuantitativo, auditor) → `reviews_raw/level2/pares_*.md`; reglas en `pair_rules.json`; la cuota de un par se juzga contra el rango con la cuota conservadora (−5 %).
+- ×4 de hoy y mercados nuevos: 3 agentes más (deportivo, cuantitativo, auditor) → `reviews_raw/level2/x4_hoy_*.md`; `level1.py` reconstruido dos veces desde caché (sin descargas nuevas) para añadir `cards_pts`; `candidatos_estadisticos.csv` y `manual_odds_plantilla.csv`.

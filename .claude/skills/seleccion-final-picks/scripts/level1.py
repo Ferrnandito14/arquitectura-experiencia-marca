@@ -152,6 +152,7 @@ class FootballDataHistory:
                         "ga": gi("FTAG") if home else gi("FTHG"), "ht_goals": (gi("HTHG"), gi("HTAG")),
                         "corners": (gi("HC"), gi("AC")), "yellow": (gi("HY"), gi("AY")), "red": (gi("HR"), gi("AR")),
                         "shots": (gi("HS"), gi("AS")), "sot": (gi("HST"), gi("AST")), "fouls": (gi("HF"), gi("AF")),
+                        "cards_pts": ((gi("HY") + 2 * gi("HR"), gi("AY") + 2 * gi("AR")) if None not in (gi("HY"), gi("HR"), gi("AY"), gi("AR")) and (gi("HY") + gi("HR") + gi("AY") + gi("AR")) > 0 else (None, None)),
                         "referee": x.get("Referee") or None, "fd_team": fd_name})
         return out
 

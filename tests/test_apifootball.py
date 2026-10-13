@@ -44,6 +44,55 @@ class Call(unittest.TestCase):
                          ["upcoming", "upcoming", "finished", "finished", "postponed", "cancelled", "live", "live"])
 
 
+class CardPoints(unittest.TestCase):
+    """Regla de tarjetas de la casa: amarilla 1, roja 2, máx. 3 por jugador, sin cuerpo técnico, solo 90'+descuento; 0 y 0 = dato faltante."""
+
+    def card(self, who, side, kind, time="30", info="", stage="1st Half"):
+        c = {"time": time, "card": kind, "home_fault": "", "away_fault": "", "info": info, "score_info_time": stage}
+        if who:
+            c["home_fault" if side == "h" else "away_fault"] = who
+        return c
+
+    def test_basic_points(self):
+        e = {"cards": [self.card("A", "h", "yellow card"), self.card("B", "h", "red card"), self.card("C", "a", "yellow card")]}
+        self.assertEqual(adapters._card_points(e), (3, 1))
+
+    def test_yellow_plus_red_same_player_is_three_and_second_yellow_dismissal_is_capped(self):
+        e = {"cards": [self.card("A", "h", "yellow card"), self.card("A", "h", "yellow card", "70"), self.card("A", "h", "red card", "70")]}
+        self.assertEqual(adapters._card_points(e), (3, 0))              # 1+1+2 = 4, tope 3 por jugador
+
+    def test_two_yellows_without_logged_red_count_as_dismissal(self):
+        e = {"cards": [self.card("A", "a", "yellow card"), self.card("A", "a", "yellow card", "80")]}
+        self.assertEqual(adapters._card_points(e), (0, 3))
+
+    def test_staff_and_extra_time_are_ignored(self):
+        e = {"cards": [self.card("", "h", "yellow card", info="home"), self.card("A", "h", "yellow card", "105", stage="Extra Time"),
+                       self.card("B", "a", "yellow card", "90+3", stage="2nd Half")]}
+        self.assertEqual(adapters._card_points(e), (0, 1))              # el DT y la prórroga no puntúan; el descuento del 90' sí
+
+    def test_no_events_or_all_zero_is_missing_not_zero(self):
+        self.assertIsNone(adapters._card_points({"cards": []}))
+        self.assertIsNone(adapters._card_points({"cards": [self.card("", "h", "yellow card", info="home")]}))
+
+
+class CardConsistency(unittest.TestCase):
+    def _event(self, cards, yl, rd):
+        return {"match_id": "1", "match_date": "2026-09-01", "league_name": "L", "match_hometeam_id": "10", "match_awayteam_id": "20", "match_hometeam_name": "A", "match_awayteam_name": "B",
+                "match_hometeam_score": "1", "match_awayteam_score": "0", "cards": cards,
+                "statistics": [{"type": "Yellow Cards", "home": str(yl[0]), "away": str(yl[1])}, {"type": "Red Cards", "home": str(rd[0]), "away": str(rd[1])}]}
+
+    def card(self, who, side, kind):
+        return {"time": "30", "card": kind, "home_fault": who if side == "h" else "", "away_fault": who if side == "a" else "", "info": "", "score_info_time": "1st Half"}
+
+    def test_events_and_stats_that_agree_are_kept(self):
+        e = self._event([self.card("A", "h", "yellow card"), self.card("B", "a", "yellow card")], (1, 1), (0, 0))
+        self.assertEqual(adapters.apif_history_row(e, "10")["cards_pts"], (1, 1))
+
+    def test_events_and_stats_that_disagree_by_two_points_are_missing(self):
+        e = self._event([self.card("A", "h", "yellow card"), self.card("B", "h", "yellow card"), self.card("C", "h", "yellow card")], (1, 0), (0, 0))   # eventos 3, estadística 1
+        self.assertEqual(adapters.apif_history_row(e, "10")["cards_pts"], (None, None))
+
+
 class HistoryRow(unittest.TestCase):
     def test_missing_stats_are_none_not_zero(self):
         r = adapters.apif_history_row(ev("1", "A", "B", 2, 1), "1")

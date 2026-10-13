@@ -242,6 +242,80 @@ class Categories(unittest.TestCase):
         self.assertTrue(tickets.search(legs, 1.20, 1.28, 2, 0.5, exclude_categories=())[0])
 
 
+class StatMarkets(unittest.TestCase):
+    def _row(self, venue, corners, sot, cards):
+        r = {"gf": 1, "ga": 1, "venue": venue, "date": "2026-09-01", "corners": corners, "yellow": (None, None), "red": (None, None), "shots": (None, None), "sot": sot,
+             "fouls": (None, None), "cards_pts": cards, "referee": None}
+        return r
+
+    def test_ladder_has_total_and_team_lines_for_every_stat_market(self):
+        labels = [a[3] for a in tickets.atoms(ev(), ("Alfa", "Beta"))]
+        for needle in ("Más de 9.5 córners", "Alfa: más de 4.5 córners", "Beta: menos de 5.5 córners", "Más de 4.5 tarjetas (A=1, R=2)",
+                       "Alfa: menos de 2.5 tarjetas (A=1, R=2)", "Más de 8.5 remates a puerta", "Beta: más de 3.5 remates a puerta", "Más de 24.5 remates totales"):
+            self.assertIn(needle, labels)
+
+    def test_team_line_uses_own_value_for_the_team_and_conceded_for_the_rival(self):
+        fh = [self._row("local", (8, 2), (5, 1), (1, 1)) for _ in range(8)]     # Alfa en casa: 8 córners propios
+        fa = [self._row("visitante", (7, 3), (2, 6), (2, 2)) for _ in range(8)]  # Beta fuera: concede 7
+        legs = {l["seleccion"]: l for l in tickets.legs_for_match(mm(0), ev(fh=fh, fa=fa))}
+        l = legs[f"{mm(0)['home_team']}: más de 6.5 córners"]
+        self.assertEqual(l["frec"], [1.0, 1.0])                                  # local propio 8>6.5 y lo que concede Beta 7>6.5
+        self.assertEqual(l["mercado"], "córners")
+
+    def test_cards_zero_zero_is_missing_not_zero(self):
+        self.assertIsNone(tickets._cards_tuple({"cards_pts": (0, 0), "yellow": (None, None), "red": (None, None)}))
+        self.assertEqual(tickets._cards_tuple({"cards_pts": (2, 3)}), (2, 3))
+        self.assertEqual(tickets._cards_tuple({"yellow": (1, 2), "red": (1, 0)}), (3, 2))   # filas antiguas: 1 + 2×roja
+
+    def test_stat_legs_are_estimated_priced_and_family_is_the_market(self):
+        fh = [self._row("local", (8, 2), (5, 1), (3, 3)) for _ in range(10)]
+        fa = [self._row("visitante", (7, 3), (2, 6), (3, 3)) for _ in range(10)]
+        legs = tickets.legs_for_match(mm(0), ev(fh=fh, fa=fa))
+        c = [l for l in legs if l["mercado"] == "remates a puerta"]
+        self.assertTrue(c)
+        self.assertTrue(all(l["cuota_tipo"] in (None, "estimada_por_modelo") for l in c))
+        self.assertEqual(tickets._family(c[0]), "remates a puerta")
+
+
+class StaleSample(unittest.TestCase):
+    def test_recent_count_and_gate(self):
+        old = [dict(r, date="2026-06-20") for r in form(10)]
+        self.assertEqual(tickets._n_recent(old, "2026-10-13T17:00:00Z"), 0)
+        recent = [dict(r, date="2026-10-01") for r in form(10)]
+        self.assertEqual(tickets._n_recent(recent, "2026-10-13T17:00:00Z"), 10)
+        legs = tickets.legs_for_match(mm(0), ev(fh=old, fa=recent, prices={"resultado.doble_oportunidad": avg([1.25, 1.5, 3.0], n=6)}))
+        self.assertTrue(all(min(l["n_recientes"]) == 0 for l in legs))
+        self.assertEqual([i for i in tickets._items(legs, 0.0, require_calendar=True)], [])   # muestra antigua: fuera de tickets
+
+
+class TimeAndExclusions(unittest.TestCase):
+    def test_after_utc_and_exclude_match(self):
+        legs = tickets.legs_for_match(mm(0), ev(prices={"resultado.doble_oportunidad": avg([1.25, 1.5, 3.0], n=6)}))
+        for l in legs:
+            l["inicio_utc"] = "2026-10-13T17:00:00Z"
+        kept, info = tickets.filter_legs_time_and_matches(legs, "2026-10-13T18:00:00Z", [])
+        self.assertEqual(kept, [])
+        self.assertEqual(info["partidos_descartados_por_hora"], 1)
+        kept, _ = tickets.filter_legs_time_and_matches(legs, "2026-10-13T16:00:00Z", [])
+        self.assertTrue(kept)
+        kept, info = tickets.filter_legs_time_and_matches(legs, None, [legs[0]["partido"]])
+        self.assertEqual(kept, [])
+        self.assertEqual(info["partidos_excluidos_manualmente"], [legs[0]["partido"]])
+
+
+class Replacements(unittest.TestCase):
+    def test_replacement_keeps_range_info_and_skips_taken_matches(self):
+        mk = lambda mid, c, ap: {"match_id": mid, "cuota": c, "cuota_cons": c, "apoyo": ap, "mismo_partido": False,
+                                 "patas": [{"partido": f"P{mid}", "seleccion": "S", "cuota_tipo": "promedio_de_mercado", "cuota_media": c}]}
+        tk = {"cuota_combinada_conservadora": 4.2, "items": [mk("a", 1.5, 0.6), mk("b", 2.8, 0.2)]}
+        singles = [mk("c", 1.45, 0.65), mk("d", 1.55, 0.6), mk("e", 1.5, 0.7)]
+        out = tickets._replacements([tk], singles, 4.0, 4.8, {"e"})
+        alts = out[0]["alternativas"]
+        self.assertEqual(alts[0]["partido"], "Pc")                               # «e» está tomado por otro ticket
+        self.assertAlmostEqual(alts[0]["nuevo_multiplicador"], round(4.2 / 1.5 * 1.45, 3))
+        self.assertTrue(alts[0]["en_rango"])
+
+
 class AuditRules(unittest.TestCase):
     """Reglas añadidas tras la revisión por lotes y la auditoría adversarial."""
 

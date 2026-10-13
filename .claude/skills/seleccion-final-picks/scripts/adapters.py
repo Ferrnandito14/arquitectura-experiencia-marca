@@ -338,6 +338,37 @@ def _cards_from_list(e):
     return tuple(y), tuple(r)
 
 
+def _card_points(e):
+    """Puntos de tarjetas por equipo (local, visitante) con la regla de la casa de la persona usuaria: amarilla = 1, roja = 2, máximo 3 por jugador
+    (1 amarilla + 1 roja; una segunda amarilla equivale a la roja), solo jugadores (los eventos sin nombre de jugador son del cuerpo técnico y se
+    ignoran) y solo 90' + descuento (la prórroga no cuenta; las del entretiempo sí). Sin lista de eventos o con 0 puntos en ambos equipos => None
+    (dato faltante: un 0-0 de tarjetas es casi siempre un dato ausente y no se cuenta como 0). LIMITACIÓN: la API no marca si el jugador estaba en la
+    cancha o en el banquillo; las tarjetas a suplentes con nombre se cuentan."""
+    cl = e.get("cards") or []
+    if not cl:
+        return None
+    per = {}
+    for c in cl:
+        side = 0 if c.get("home_fault") else (1 if c.get("away_fault") else None)
+        if side is None:
+            continue
+        t = str(c.get("time") or "").strip()
+        if str(c.get("score_info_time") or "").lower().startswith("extra") or (t.isdigit() and int(t) > 90):
+            continue
+        name = c.get("home_fault") or c.get("away_fault")
+        kind = (c.get("card") or "").lower()
+        y_r = per.setdefault((side, name), [0, 0])
+        if "red" in kind:
+            y_r[1] += 1
+        elif "yellow" in kind:
+            y_r[0] += 1
+    pts = [0, 0]
+    for (side, _), (y, r) in per.items():
+        p = 3 if (y >= 2 and r == 0) else min(3, y + 2 * r)
+        pts[side] += p
+    return None if pts == [0, 0] else (pts[0], pts[1])
+
+
 def apif_history_row(e, team_id):
     """Fila de historial (mismo formato que FootballDataHistory.team_history) desde un evento FINALIZADO de la API.
     Falta de estadística => None (nunca 0 inventado)."""
@@ -354,7 +385,14 @@ def apif_history_row(e, team_id):
     ht = (e.get("match_hometeam_halftime_score"), e.get("match_awayteam_halftime_score"))
     ht = tuple(int(x) if str(x).strip().isdigit() else None for x in ht)
     shots, sot, corners, fouls = _stat(e, "Shots Total"), _stat(e, "Shots On Goal"), _stat(e, "Corners"), _stat(e, "Fouls")
+    cp = _card_points(e)
+    stat_pts = (yellow[0] + 2 * red[0], yellow[1] + 2 * red[1]) if (yellow and red and None not in tuple(yellow) + tuple(red)) else None
+    if cp is None and stat_pts and sum(stat_pts) > 0:
+        cp = stat_pts                                                 # sin lista de eventos: puntos desde estadísticas agregadas (pueden incluir cuerpo técnico)
+    elif cp is not None and stat_pts is not None and any(abs(cp[i] - stat_pts[i]) >= 2 for i in (0, 1)):
+        cp = None                                                     # eventos y estadísticas del proveedor discrepan en ≥2 puntos: dato DEFECTUOSO, no se usa (auditor)
     return {"date": e["match_date"], "competition": e.get("league_name") or "?", "venue": "local" if home else "visitante",
+            "cards_pts": (cp[0], cp[1]) if cp else (None, None),
             "opponent": e["match_awayteam_name"] if home else e["match_hometeam_name"],
             "gf": hs if home else as_, "ga": as_ if home else hs, "ht_goals": ht,
             "corners": (gi(corners, 0), gi(corners, 1)) if corners else (None, None),
