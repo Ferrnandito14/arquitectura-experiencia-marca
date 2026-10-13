@@ -1,71 +1,64 @@
 ---
 name: seleccion-final-picks
-description: Orquesta la investigación multiagente y la decisión final de picks de fútbol - amplía el calendario, activa verificador, analistas y auditor en paralelo, organiza el contraste, resuelve discrepancias y entrega SELECCIONAR/ALTERNATIVA/SUSTITUIR/DESCARTAR/NO EVALUABLE. Úsala cuando el usuario pida elegir, comparar, validar o sustituir picks o borradores de combinadas, o diga "decide los mejores picks".
+description: Orquesta el descubrimiento, la evaluación individual de TODOS los partidos confirmados de una jornada, el contraste multiagente y la decisión final de picks de fútbol (SELECCIONAR/ALTERNATIVA/SUSTITUIR/DESCARTAR/NO EVALUABLE). Usa scripts de inventario, Nivel 1 y cobertura con puerta de cobertura. Úsala cuando el usuario pida elegir, comparar, validar o sustituir picks o borradores, "analiza la jornada", "decide los mejores picks".
 ---
 
 # Selección final de picks — director de decisión
 
-Tú (la conversación principal) eres el **director de decisión**: coordinas, resuelves y decides. No crees un quinto agente. Eres el responsable final de conservar, sustituir o descartar. Los borradores del usuario NO son picks aprobados. Ninguna apuesta es segura; son candidatos evaluados.
+Tú (la conversación principal) eres el **director de decisión**: coordinas, resuelves y decides. No hay quinto agente. Los borradores del usuario NO son picks aprobados. Ninguna apuesta es segura: son candidatos evaluados. Equipo (`.claude/agents/`): `verificador-mercados`, `analista-deportivo`, `analista-cuantitativo`, `auditor-adversarial`. Metodología: `protocolo-multifuente`, `verificacion-estadistica-futbol`, `evaluacion-probabilidad-valor` (+ `scripts/calc.py`).
 
-Equipo (subagentes en `.claude/agents/`): `verificador-mercados`, `analista-deportivo`, `analista-cuantitativo`, `auditor-adversarial`.
-Metodología: `protocolo-multifuente` (fuentes y registro), `verificacion-estadistica-futbol`, `evaluacion-probabilidad-valor` (+ `scripts/calc.py`).
+## REGLA CRÍTICA
+**Todo partido confirmado y elegible dentro del alcance de la jornada recibe una evaluación individual (Nivel 1) ANTES de cualquier ranking definitivo.** Descubrir cientos de partidos y profundizar en cuatro elegidos de antemano está prohibido. **No seleccionar un partido es válido; no investigarlo y afirmar que no ofrece oportunidades no lo es.** Que un partido esté *procesado* no significa que esté *evaluado suficientemente*: informa ambas cifras.
 
-## Paso 0 — Alcance
-- Lista cerrada de 2–3 candidatos para comparar → no reconstruyas la jornada; ve al Paso 2.
-- Borradores/universo abierto/fecha → Paso 1.
-- No pidas al usuario cuotas de Triunfobet ni ligas a revisar; si las aporta, regístralas como "comunicadas por el usuario". Pregunta solo por datos personales imprescindibles.
-- Franjas horarias definidas por el usuario = bloques separados, clasificados por hora de **inicio**; no mezcles.
+## Alcance y zona horaria
+- La jornada es un **día de calendario local**; por defecto `America/Caracas` (UTC−4). Ventana = `[00:00, 24:00)` locales convertidos a UTC con `zoneinfo`. Un partido a las 00:00 UTC del 13 es del 12 local. No confundas fecha local con fecha UTC.
+- Lista cerrada de 2–3 candidatos solo para comparar → no hace falta reconstruir la jornada (ve al Nivel 2 con esos candidatos), pero indícalo en el informe.
+- No pidas cuotas de Triunfobet ni ligas para empezar; las que aporte el usuario se registran como "comunicadas por el usuario" (no verificadas).
 
-## Paso 1 — Cobertura del calendario
-Invoca la skill `cobertura-exhaustiva-picks` si existe en el entorno (inventario, auditoría de cobertura, diversificación) y aplica SIEMPRE `protocolo-multifuente` (calendarios Flashscore/Soccerway/worldfootball/BetExplorer/FotMob + oficiales; no solo SofaScore/APWin). Si `cobertura-exhaustiva-picks` no está disponible, ejecuta tú ese inventario con `verificador-mercados`. Resultado: lista maestra de partidos únicos, competiciones no examinadas y candidatos priorizados. Nuevos partidos pueden reemplazar borradores.
+## Fuentes: política de acceso (obligatoria)
+`scripts/sources_policy.json` manda: **denegado por defecto**; hosts `excluida` (condiciones de uso, `robots.txt` o anti-bot) **no se consultan**; los `condicional` solo con sus límites (ritmo, nº de descargas). `common.py` lo impone en código. Identidad honesta `User-Agent: football-picks-system/0.1`; **no falsificar navegador ni evadir CAPTCHA/Cloudflare**; no guardar cabeceras sensibles. Si una fuente falla o está excluida: registrar el motivo y buscar alternativa permitida; si no hay, la limitación es parte del resultado. Revisa `docs/FUENTES-CONFORMIDAD.md`. Ampliar cobertura = obtener datos de forma legítima (API con licencia/clave, calendario aportado por el usuario con `inventory.py --manual`, autorización escrita del proveedor), no relajar la política.
 
-## Mecanismos de coordinación (probados en Claude Code 2.1.296 el 2026-10-12; evidencia en docs/PRUEBAS-picks.md y tests/runs/)
-- **Por defecto: mediada por el director (hub-and-spoke).** Lanzas especialistas con `Agent` (varias llamadas en un mismo mensaje = paralelo) y **siempre con `name`**; cada informe vuelve a ti.
-- **Objeción → respuesta (verificado):** `SendMessage` con `to` = nombre del agente ya terminado lo **reanuda con su contexto** (mismo agentId; el agente responde citando su ronda 1 sin que se la reenvíes) y la respuesta llega como notificación. Si el nombre no resuelve usa el agentId; si no se puede reanudar, relanza un `Agent` con su informe previo + la objeción.
-- **Entre pares (verificado, pero no es el flujo base):** los agentes tienen `SendMessage` y, al reanudarse, ven un roster de agentes con nombre (`main` y los demás). Un agente pudo escribir a otro por nombre y recibir respuesta directa. Aun así, **el director sigue siendo quien reparte las objeciones y decide**; no dependas de que se coordinen solos. Informa en D qué ocurrió realmente.
-- **Agent Teams** (experimental, `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1`, lista de tareas compartida): NO activado ni necesario. No lo actives sin explicar antes el cambio a la persona. Con Teams activo, un subagente lanzado con `name` pasa a ser teammate (otro modo de funcionamiento).
-- Los subagentes no ven tu conversación ni tus skills cargadas: las skills metodológicas llegan por el campo `skills:` de cada agente y todo contexto va en el prompt.
+## Flujo (10 pasos) con scripts
+Scripts en `.claude/skills/seleccion-final-picks/scripts/` (ejecutar desde la raíz del proyecto). Todo se guarda en `runs/<fecha>/`.
+1. **Descubrir** y 2. **normalizar/deduplicar/verificar**: `python3 …/inventory.py --date AAAA-MM-DD --tz America/Caracas [--manual archivo]` → `inventory.json`, `sources/` (registro bruto + `consultas.jsonl`). Estados **independientes** por partido: calendario {CONFIRMADO, NO_CONFIRMADO, DUPLICADO, FECHA_DISCREPANTE, INFORMACION_INSUFICIENTE}, encuentro {PROGRAMADO, EN_JUEGO, FINALIZADO, APLAZADO, CANCELADO, DESCONOCIDO}, elegibilidad {ELEGIBLE, NO_ELEGIBLE, PENDIENTE_DE_VERIFICAR}, análisis {PENDIENTE, EN_CURSO, COMPLETADO, NO_EVALUABLE_TRAS_INTENTOS}. Se consultan los días −1/0/+1 de cada fuente y se filtra por timestamp normalizado. Nada se elimina del inventario (los no confirmados y los fuera de fecha se conservan con su disposición). Una sola fuente estructurada fiable basta para *entrar* al universo; una **selección final** exige `selection_calendar_verification = SUFICIENTE` (oficial o dos fuentes independientes).
+3. **Revisar discrepancias** (calendario, hora, identidad) con `verificador-mercados`: **todas**, no una muestra (más una muestra de control de registros sin discrepancias).
+4. **Nivel 1 universal**: `python3 …/level1.py --run runs/<fecha>` → `state.json` (cola reanudable, escritura atómica), `matrix.json/.csv`. Para cada confirmado y elegible: forma, contexto, y las familias de mercado (resultado/hándicaps; goles 1.5/2.5/3.5, BTTS, por equipo, rangos, 1.ª parte; córners; tarjetas y árbitro; tiros/a puerta/fueras de juego) con campos separados `market_availability_status`, `statistics_availability_status`, `price_verification_status`, `evaluation_status` {EVALUABLE, PARCIAL, NO_EVALUABLE, **NOT_CHECKED**}, `not_evaluable_reason`, `sources_checked`. **NOT_CHECKED ≠ NO_EVALUABLE**; no encontrar una cuota no prueba que el mercado no exista; falta de estadísticas no es cero. Un partido sin fuente permitida que lo cubra queda `NO_EVALUABLE_TRAS_INTENTOS` **con motivo y evidencia de intentos**, nunca omitido ni rellenado. Las frecuencias k/n y Wilson son **descriptivas, no probabilidades predictivas**; "últimos 10" no es una temporada completa. La matemática viene de `calc.py` (importada).
+5. **Cobertura**: `python3 …/coverage_report.py --run runs/<fecha>` → métricas con denominadores (brutos por fuente, únicos, confirmados, no confirmados, iniciados/finalizados, evaluados, pendientes, mercados examinados, candidatos, no evaluables; % cobertura de encuentros y de mercados por separado). **Puerta de cobertura (exit≠0):** con confirmados+elegibles pendientes → **BLOQUEADO** (no hay ranking definitivo; procesa los pendientes o guarda la cola y di cuántos faltan). Con limitación sistémica (familias de mercado enteras no evaluables, o sin histórico) → etiqueta **RANKING PROVISIONAL RESTRINGIDO** y explica qué conclusiones NO se sostienen. Una nota genérica de limitaciones no desbloquea el ranking.
+6. **Revisión por lotes de agentes**: `python3 …/batches.py make --run runs/<fecha>` crea lotes de tamaño calculado del volumen real, con `match_id` estables. `analista-deportivo` y `analista-cuantitativo` revisan **todas las filas** de cada lote asignado y devuelven JSON `{agent,batch_id,rows:[{match_id,review_status,corrections,note}]}`; `verificador-mercados` revisa el lote de discrepancias. Concilia con `batches.py check --results …`: ninguna fila ausente/duplicada/desconocida; fila no revisada = PENDIENTE; **un resumen por competición no es evidencia**. Si el volumen supera el contexto, divide en más lotes, nunca reduzcas el universo.
+7. **Candidatos para Nivel 2** de TODA la jornada (ningún partido anterior tiene prioridad). Nivel 2 profundiza: muestras ampliadas, línea exacta, rivales comparables, localía, bajas/alineaciones, córners/tarjetas con fuentes permitidas, cuotas en ≥2 fuentes **realmente independientes** (varias casas vía un mismo agregador = una vía de datos), probabilidad *defendible* o "no estimable", riesgos, correlación.
+8. **Contraste** (Ronda 2) y 9. **Resolución** del director; 10. **Informe**. Detalle abajo.
+Si el trabajo se interrumpe: persistir inventario, cola y matriz; informar partidos pendientes; reanudar sin repetir consultas vigentes (caché). No declares exhaustiva la jornada ni definitivo el ranking con pendientes.
 
-## Paso 2 — Ronda 1: investigación paralela
-En UN solo mensaje lanza con `Agent` (`name` fijo, `subagent_type` el del agente): `verificador-mercados` (name `verificador`), `analista-deportivo` (name `deportivo`), `analista-cuantitativo` (name `cuanti`). Los subagentes NO ven tu conversación: el prompt debe ser autocontenido.
+## Mecanismos de coordinación (probados en Claude Code 2.1.296; evidencia en docs/PRUEBAS-picks.md y tests/runs/)
+- **Por defecto, mediada por el director (hub-and-spoke).** Lanzas especialistas con `Agent` (varias llamadas en un mismo mensaje = paralelo) y **siempre con `name`**; cada informe vuelve a ti.
+- **Objeción → respuesta (verificado):** `SendMessage` con `to` = nombre del agente ya terminado lo **reanuda con su contexto** (mismo agentId) y su respuesta llega como notificación. Si el nombre no resuelve usa el agentId; si no es reanudable, relanza un `Agent` con su informe previo + la objeción.
+- **Entre pares (verificado, no es el flujo base):** los agentes tienen `SendMessage` y al reanudarse ven un roster de agentes con nombre; uno escribió a otro y recibió respuesta directa. El director sigue repartiendo objeciones y decidiendo. Registra solo los mensajes y respuestas que realmente ocurrieron.
+- **Agent Teams** (experimental): NO activado ni necesario; no lo actives sin explicar antes el cambio.
+- Los subagentes no ven tu conversación ni tus skills: todo contexto va en el prompt (rutas de scripts, `match_id`, política de fuentes, formato de entrega). Pueden heredar un "modo plan" (solo lectura) del que los lanza: pídeles lecturas por tubería y que no escriban archivos; los scripts y tú persisten los resultados.
 
-**Plantilla de delegación** (rellena los corchetes):
+**Plantilla de delegación (rellena):**
 ```
-CONTEXTO: [fecha/zona horaria; si hay datos de prueba: "EJEMPLO — NO REAL, solo fixture://, prohibido web/memoria"]
-CANDIDATOS: [id | partido | mercado y línea exacta | cuota comunicada y quién la comunicó]
-MATERIAL/FUENTES A USAR: [rutas de fixtures, o "catálogo del protocolo-multifuente"]
-TU TAREA: [la función del agente + qué candidatos]
-CÁLCULOS: usa python3 .claude/skills/evaluacion-probabilidad-valor/scripts/calc.py (no calcules a mano)
-ENTREGA (formato fijo): 1) tabla de registro de fuentes (8 campos, estados permitidos); 2) por candidato: hechos con fuente/fecha/n · a favor · en contra · pendientes · estado propio (Verificado/Parcial/No verificable o rango de prob.); 3) limitaciones.
+CONTEXTO: [fecha local America/Caracas + ventana UTC; DATOS REALES o "EJEMPLO — NO REAL, solo fixture://"]
+POLÍTICA DE FUENTES: sources_policy.json; UA football-picks-system/0.1; sin evadir anti-bot; excluidas = no consultar.
+MATERIAL: [runs/<fecha>/batches.json lote bXX → match_ids; matrix.json] (no leas EXPECTATIVAS ni otros tests/)
+TU TAREA: [rol + qué hacer con CADA fila del lote] ; CÁLCULOS: scripts/calc.py (no a mano)
+ENTREGA: JSON de revisión por fila (match_id, review_status, corrections, note) + tabla de registro de fuentes (8 campos) + limitaciones.
 ```
-Después, con los resúmenes de ronda 1, lanza `auditor-adversarial` (name `auditor`) sobre los candidatos mejor valorados.
-
-## Paso 3 — Ronda 2: objeción → respuesta
-Haz la **lista de contradicciones** (dato vs dato, fuente vs fuente, tesis deportiva vs precio, objeción del auditor, cifras defectuosas). Por cada una, `SendMessage` al agente responsable con esta plantilla:
+**Plantilla de objeción (SendMessage):**
 ```
-OBJECIÓN [n] sobre [candidato]: [qué dice quién] · EVIDENCIA: [cita literal + fuente]
-PREGUNTA: ¿corriges, defiendes con evidencia nueva, o declaras no verificable? Responde en ≤10 líneas: RESPUESTA | EVIDENCIA | CAMBIO EN TU ESTADO DEL CANDIDATO.
+AFIRMACIÓN CUESTIONADA: … · EVIDENCIA: [cita + fuente] · PREGUNTA: … · IMPACTO SOBRE LA DECISIÓN: alto/medio/bajo
+Responde ≤10 líneas: RESPUESTA | EVIDENCIA | CAMBIO EN TU ESTADO DEL CANDIDATO.
 ```
-Aplica lo que cada agente corrija. Quien objeta no decide: decides tú.
 
-## Paso 4 — Resolución y cierre (decide SIEMPRE tú)
-Responde por separado, para cada candidato relevante: **(1) ¿cuál es más probable? (2) ¿cuál tiene mejor relación probabilidad/cuota (valor)? (3) ¿cuál es la mejor alternativa global tras evidencia y riesgo?** Una selección probable con precio desfavorable no es valor; una cuota alta no es valor sin probabilidad defendible. Si la probabilidad no es estimable: "no estimable", sin EV.
+## Ronda 2 y resolución (decide SIEMPRE tú)
+`auditor-adversarial` ataca los finalistas **y** audita la cobertura: muestra de partidos que no avanzaron, mercados poco populares, competiciones con menos cobertura, fuentes defectuosas, descartes y no evaluables materiales (la muestra no sustituye la evaluación universal). El director envía las objeciones con la plantilla; no se exige unanimidad: pesa la calidad y pertinencia de la evidencia. **Tercera comprobación** solo si un dato crítico concreto puede cambiar la decisión (una consulta dirigida, no una ronda nueva). No prolongues el debate.
 
-Asigna a cada candidato: **SELECCIONAR · MANTENER COMO ALTERNATIVA · SUSTITUIR · DESCARTAR · NO EVALUABLE**:
-- SELECCIONAR: fundamento sólido, datos esenciales confirmados en ≥2 orígenes y precio verificado (≥2 cotizaciones comparables) — si falta el precio, como mucho "fundamento deportivo, sin precio confirmado" (alternativa).
-- SUSTITUIR: hay una alternativa mejor respaldada (indica cuál y por qué). DESCARTAR: deficiencia material concreta. NO EVALUABLE: faltan datos esenciales que no se pudieron obtener.
-- Sin unanimidad: pesa calidad y pertinencia de la evidencia. Nunca devuelvas la elección ni la síntesis a la persona; si la evidencia no separa dos opciones, dilo y elige con criterio explícito (p. ej. menor riesgo/menor correlación).
-- **Cierre:** 2 rondas. **Tercera comprobación** solo si un dato crítico concreto (baja decisiva, cuota mal identificada, línea/liquidación) puede cambiar el estado de un candidato: una consulta dirigida a un solo agente, no una ronda nueva. No reinicies por discrepancias menores ni repitas datos sin evidencia nueva.
-- Combinadas: multiplicador solo con cuotas de la misma casa (`calc.py combo`); correlación declarada; no fuerces N tickets; no recomiendes apostar todas las alternativas; bloques horarios del usuario separados.
+Responde por separado: **(1) ¿qué selección parece más probable? (2) ¿cuál tiene mejor relación probabilidad/cuota? (3) ¿cuál es la mejor alternativa global? (4) ¿qué se sustituye o descarta? (5) ¿qué no puede evaluarse y por qué?** Una selección probable con precio desfavorable no es valor. Sin probabilidad defendible → "no estimable", sin EV. Sin precio verificado en ≥2 vías independientes → "fundamento deportivo, sin valor económico confirmado". Una combinada no tiene valoración económica completa si falta cuota confirmada de algún componente; multiplicador solo con cuotas de la misma casa (`calc.py combo`); declarar correlación (mismo partido ⇒ dependiente). No es obligatorio recomendar apuestas ni completar un número de picks.
 
-## Paso 5 — Respuesta (empieza por la decisión)
-A. **Veredicto ejecutivo** (qué seleccionas, descartas y por qué).
-B. **Clasificación**: tabla candidato | mercado | cuota verificada (fuente/fecha) | fundamento | riesgo | decisión.
-C. **Evidencia decisiva** (estadística, contextual, precio).
-D. **Contraste entre agentes**: desacuerdos, evidencia que los resolvió, incertidumbres vigentes; modalidad de coordinación usada.
-E. **Fuentes efectivamente consultadas** (tabla de registro; estados reales; fuentes inaccesibles).
-F. **Riesgos y alternativas** (qué invalidaría la selección; sustituto razonable).
-G. **Estado de validación**: respaldada por datos y precio verificables · fundamento deportivo sin precio · alternativa con incertidumbre · descartado · no evaluable.
+Estados: **SELECCIONAR · MANTENER COMO ALTERNATIVA · SUSTITUIR · DESCARTAR · NO EVALUABLE** (con motivo).
+
+## Informe final (empieza por la decisión)
+A. Veredicto · B. Tabla de candidatos (mercado, cuota verificada y vía, fundamento, riesgo, decisión) · C. Evidencia decisiva · D. Contraste entre agentes (mecanismo realmente usado) · E. Fuentes realmente consultadas / no consultadas por política · F. Riesgos y alternativas · G. Estado de validación. **Más** la tabla de cobertura (denominadores y %), qué calcularon los scripts y qué revisaron los agentes, y la etiqueta **RANKING PROVISIONAL RESTRINGIDO** si corresponde. No presentes un resultado parcial como exhaustivo.
 
 ## Reglas de integridad
-No simules visitas, herramientas ni conversaciones. Si las webs no son accesibles (política de red, bloqueo, JS), dilo en E, no rellenes con memoria como si fuera dato actual, y degrada los candidatos a "NO EVALUABLE" o "sin verificar" según corresponda. Esta skill no toca el seguimiento del capital (`reto-de-90-dias-20`); respeta sus reglas de honestidad si ambas están activas.
+No simules visitas, herramientas ni conversaciones; no inventes datos, cuotas ni probabilidades; no uses memoria como dato actual. Datos obtenidos antes de la política de conformidad (p. ej. endpoints excluidos) no se reutilizan como evidencia. No toques el seguimiento patrimonial (`reto-de-90-dias-20`); respeta sus reglas de honestidad si ambas skills están activas. Sin push a GitHub sin autorización.
