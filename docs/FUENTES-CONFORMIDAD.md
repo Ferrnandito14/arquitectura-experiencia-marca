@@ -21,3 +21,15 @@ Identidad: `User-Agent: football-picks-system/0.1`. No se falsifica un navegador
 
 ## Datos anteriores a esta revisión
 En una fase previa de pruebas, agentes del sistema consultaron FotMob (`/api/`), el endpoint AJAX de BetExplorer, SoccerStats y Transfermarkt con un User-Agent de navegador. Esa fase fue anterior a esta revisión de conformidad: sus resultados **no se reutilizan como evidencia** ni en el pipeline ni en las decisiones, y se conservan solo como registro histórico de lo ocurrido (`tests/runs/`, informes del 2026-10-12). El comportamiento descrito (p. ej. cuotas O/U obtenidas por un agente y vacías para otro en el endpoint de BetExplorer) no se reprodujo: reproducirlo implicaría volver a consultar un host excluido.
+
+
+## Estado de aceptación (a 2026-10-13)
+| Fuente | Estado | Decisión de la persona usuaria |
+|---|---|---|
+| Football-Data | condicional, **ya usada** (12 descargas CSV) | **PENDIENTE** — riesgo medio-bajo: `robots.txt` bloquea por nombre crawlers de IA; el cliente se identifica con su propio UA y descarga ficheros CSV concretos para análisis privado (valoración nuestra, no un hecho jurídico). |
+| APWin | condicional, **ya usada** (4 páginas públicas en la sesión) | **PENDIENTE** — riesgo medio: términos de la suscripción Premium («any unauthorized, commercial or non-commercial use is prohibited»). Paginación no ampliada. |
+
+Observaciones de APWin: (1) el HTML incluye además un bloque JSON-LD (`SportsEvent`) con 6 partidos destacados por día; todos los del 13-oct ya estaban en el feed, así que no amplía el universo en la ventana (sí aporta 6 partidos del 12-oct no presentes en el feed); (2) para el 12-oct declara `total:15` y muestra 11 sin que se haya podido explicar la diferencia; (3) las horas del feed y del JSON-LD coinciden, pero son de la misma fuente (no independientes).
+
+## Football-Data: lo que NO se comprobó
+Que sus «ligas extra» (p. ej. Noruega, Japón, China) cubran alguno de los 8 partidos no investigados: no se evaluó. No se afirma que «ninguna fuente permitida» los cubra, solo que **no se intentó** (ningún adaptador permitido implementado).
