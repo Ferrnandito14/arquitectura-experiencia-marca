@@ -10,9 +10,10 @@
 | Requieren evaluación (confirmados y elegibles) | 15 | base de la cobertura |
 | Procesados (evaluación básica o no evaluable con motivo) | 15 | de 15 = 100.0% |
 | Evaluados suficientemente (histórico obtenido) | 0 | de 15 |
+| Procesados SIN ninguna consulta real de datos (ninguna fuente permitida los cubre) | 15 | de 15 procesados: «procesado» no es «examinado» |
 | Pendientes | 0 | [] |
-| Mercados examinados | 345 | de 345 = 100.0% (NOT_CHECKED: 0) |
+| Mercados examinados | 0 | de 345 = 0.0% (NOT_CHECKED: 345) |
 | Mercados con evaluación parcial/evaluable (candidatos) | 0 | |
-| Mercados no evaluables | 345 | familias sin ningún mercado evaluable: ['resultado', 'goles', 'corners', 'tarjetas', 'otros'] |
+| Mercados no evaluables | 0 | familias sin ningún mercado evaluable: ['resultado', 'goles', 'corners', 'tarjetas', 'otros'] |
 
 **Veredicto de la puerta de cobertura: RANKING PROVISIONAL RESTRINGIDO — limitación sistémica: familias sin ningún mercado evaluable ['resultado', 'goles', 'corners', 'tarjetas', 'otros']; 15 partidos sin histórico suficiente**

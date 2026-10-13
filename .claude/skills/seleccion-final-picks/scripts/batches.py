@@ -3,6 +3,8 @@
 
   batches.py make  --run runs/<fecha> [--max-chars 50000]      -> batches.json
   batches.py check --run runs/<fecha> --results resultados.json -> reviews.json (exit 0 sólo si TODO está conciliado)
+  batches.py rebatch --run runs/<fecha> --old-map mapa.json --raw filas.json -> reviews_rebatched.json
+        (si cambian IDs/lotes tras corregir el inventario, re-asigna las filas ya revisadas por (equipos, fecha local))
 
 El tamaño de lote se calcula del volumen real (caracteres por fila), agrupando por competición; una competición
 grande se parte. Un resumen por competición NO es evidencia: cada match_id debe aparecer revisado por cada agente
@@ -86,12 +88,40 @@ def check_results(batches, results):
             "per_agent": per_agent, "corrections": corrections}
 
 
+def remap_ids(old_map, inv):
+    """old_map: {id_antiguo: {home, away, local_date}} -> {id_antiguo: id_nuevo|None} emparejando por (equipos normalizados, fecha local)."""
+    idx = {(common.norm_name(m["home_team"]), common.norm_name(m["away_team"]), (m["normalized_datetime_local"] or "")[:10]): m["match_id"]
+           for m in inv["matches"]}
+    return {oid: idx.get((common.norm_name(d["home"]), common.norm_name(d["away"]), d["local_date"])) for oid, d in old_map.items()}
+
+
+def rebatch(batches, raw_results, id_map):
+    """Re-asigna filas revisadas (con IDs/lotes antiguos) a los lotes vigentes. Devuelve (resultados, no_mapeadas)."""
+    pool, unmapped = {}, []
+    for blocks in raw_results.values():
+        for b in blocks:
+            for row in b["rows"]:
+                nid = id_map.get(row["match_id"])
+                if not nid:
+                    unmapped.append({"agent": b["agent"], "old_id": row["match_id"]})
+                    continue
+                pool.setdefault(b["agent"], {})[nid] = dict(row, match_id=nid, remapped_from=row["match_id"])
+    results = []
+    for bt in batches["batches"] + [batches["discrepancy_batch"]]:
+        for ag in bt["agents"]:
+            rows = [pool[ag][i] for i in bt["match_ids"] if i in pool.get(ag, {})]
+            results.append({"agent": ag, "batch_id": bt["batch_id"], "rows": rows})
+    return results, unmapped
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("cmd", choices=["make", "check"])
+    ap.add_argument("cmd", choices=["make", "check", "rebatch"])
     ap.add_argument("--run", required=True)
     ap.add_argument("--max-chars", type=int, default=50000)
     ap.add_argument("--results")
+    ap.add_argument("--old-map")
+    ap.add_argument("--raw")
     a = ap.parse_args(argv)
     inv = common.read_json(os.path.join(a.run, "inventory.json"))
     mx = common.read_json(os.path.join(a.run, "matrix.json"), {"matches": {}})
@@ -103,6 +133,16 @@ def main(argv=None):
         common.write_json_atomic(os.path.join(a.run, "batches.json"), b)
         print(f"{len(b['batches'])} lotes para {b['n_required']} partidos requeridos; lote de discrepancias: {len(b['discrepancy_batch']['match_ids'])}")
         return 0
+    if a.cmd == "rebatch":
+        if not (a.old_map and a.raw):
+            print("error: rebatch requiere --old-map y --raw", file=sys.stderr)
+            return 2
+        batches = common.read_json(os.path.join(a.run, "batches.json"))
+        idmap = remap_ids(common.read_json(a.old_map), inv)
+        res, unm = rebatch(batches, common.read_json(a.raw), idmap)
+        common.write_json_atomic(os.path.join(a.run, "reviews_rebatched.json"), res)
+        print(f"re-asignadas {sum(len(r['rows']) for r in res)} filas a {len(res)} (lote, agente); no mapeadas: {len(unm)}")
+        return 0 if not unm else 3
     if not a.results:
         print("error: check requiere --results", file=sys.stderr)
         return 2

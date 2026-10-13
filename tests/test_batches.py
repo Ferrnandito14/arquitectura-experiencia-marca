@@ -113,5 +113,33 @@ class Batches(unittest.TestCase):
         self.assertEqual(batches.main(["check", "--run", tmp, "--results", res]), 3)   # faltan los otros agentes
 
 
+class Rebatch(unittest.TestCase):
+    def test_remap_by_teams_and_local_date_survives_id_change(self):
+        inv = inv_of(6)
+        old_map = {f"viejo-{i}": {"home": inv["matches"][i]["home_team"], "away": inv["matches"][i]["away_team"], "local_date": "2026-10-13"}
+                   for i in range(6)}
+        for m in inv["matches"]:
+            m["normalized_datetime_local"] = "2026-10-13T15:00:00-04:00"
+        idmap = batches.remap_ids(old_map, inv)
+        self.assertEqual(idmap["viejo-3"], inv["matches"][3]["match_id"])
+        b = batches.make_batches(inv, {"matches": {}}, max_chars=500)
+        raw = {"x": [{"agent": ag, "batch_id": "bViejo", "rows": [{"match_id": f"viejo-{i}", "review_status": "REVISADO", "corrections": ["c"]} for i in range(6)]}
+                     for ag in batches.AGENTS_PER_BATCH]}
+        res, unm = batches.rebatch(b, raw, idmap)
+        self.assertEqual(unm, [])
+        rows_cuanti = [r for x in res if x["agent"] == "analista-cuantitativo" for r in x["rows"]]
+        self.assertEqual(sorted(r["remapped_from"] for r in rows_cuanti), [f"viejo-{i}" for i in range(6)])
+        disc = {"agent": "verificador-mercados", "batch_id": "disc", "rows": [{"match_id": i, "review_status": "REVISADO"} for i in b["discrepancy_batch"]["match_ids"]]}
+        self.assertTrue(batches.check_results(b, [r for r in res if r["rows"]] + [disc])["ok"])
+
+    def test_unmapped_old_ids_are_reported_not_dropped_silently(self):
+        inv = inv_of(2)
+        idmap = batches.remap_ids({"viejo": {"home": "NoExiste", "away": "Nadie", "local_date": "2026-10-13"}}, inv)
+        self.assertIsNone(idmap["viejo"])
+        b = batches.make_batches(inv, {"matches": {}})
+        res, unm = batches.rebatch(b, {"x": [{"agent": "analista-deportivo", "batch_id": "b", "rows": [{"match_id": "viejo", "review_status": "REVISADO"}]}]}, idmap)
+        self.assertEqual(unm[0]["old_id"], "viejo")
+
+
 if __name__ == "__main__":
     unittest.main()
