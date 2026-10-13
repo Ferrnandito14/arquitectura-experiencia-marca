@@ -15,11 +15,11 @@
 | Solo con forma doméstica PROXY (otra competición): evaluación PARCIAL | 7 | de 15; no evalúa el partido |
 | Procesados SIN ninguna consulta real de datos (ninguna fuente permitida los cubre) | 8 | de 15 procesados: «procesado» no es «examinado» |
 | Pendientes | 0 | [] |
-| Mercados examinados | 161 | de 345 = 46.7% (NOT_CHECKED: 184) |
-| Mercados con evaluación parcial/evaluable (candidatos) | 63 | |
-| Mercados no evaluables | 98 | familias sin ningún mercado evaluable: [] |
+| Mercados examinados | 161 | de 345 = 46.7% (NOT_CHECKED: 184); **161 de ellos son solo proxy de OTRA competición** y 0 de la misma competición |
+| Mercados con evaluación parcial/evaluable | 63 | de la misma competición: 0; el resto es proxy descriptivo, no candidatos |
+| Mercados no evaluables | 98 | familias sin ningún mercado evaluable **de la misma competición**: ['resultado', 'goles', 'corners', 'tarjetas', 'otros'] |
 
-**Veredicto de la puerta de cobertura: RANKING PROVISIONAL RESTRINGIDO — limitación sistémica: 8 partidos NO investigados (sin fuente permitida), 7 solo con forma doméstica proxy (parcial) y 0 con intento insuficiente; UNIVERSO TRUNCADO: apwin 2026-10-12: 11 accesibles de 15 declarados; apwin 2026-10-13: 15 accesibles de 166 declarados; apwin 2026-10-14: 15 accesibles de 126 declarados — los partidos contados son una cota inferior; nunca «la jornada completa»**
+**Veredicto de la puerta de cobertura: RANKING PROVISIONAL RESTRINGIDO — limitación sistémica: familias sin ningún mercado evaluable ['resultado', 'goles', 'corners', 'tarjetas', 'otros']; 8 partidos NO investigados (sin fuente permitida), 7 solo con forma doméstica proxy (parcial) y 0 con intento insuficiente; UNIVERSO TRUNCADO: apwin 2026-10-12: 11 accesibles de 15 declarados; apwin 2026-10-13: 15 accesibles de 166 declarados; apwin 2026-10-14: 15 accesibles de 126 declarados — los partidos contados son una cota inferior; nunca «la jornada completa»**
 
 **⚠ UNIVERSO TRUNCADO: apwin 2026-10-12: 11 accesibles de 15 declarados; apwin 2026-10-13: 15 accesibles de 166 declarados; apwin 2026-10-14: 15 accesibles de 126 declarados — los partidos contados son una cota inferior; nunca «la jornada completa».** Nada de lo que sigue puede describirse como «la jornada completa».
 

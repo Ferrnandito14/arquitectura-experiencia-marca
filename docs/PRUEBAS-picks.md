@@ -1,33 +1,35 @@
-# Pruebas — estado real (2026-10-12, Claude Code 2.1.296, contenedor cloud)
+# Pruebas — estado real (2026-10-12/13, Claude Code 2.1.296, contenedor cloud)
 
-Las tres categorías NO se mezclan. Los resultados sintéticos no validan investigación deportiva real.
+Tres categorías que NO se mezclan. **Ninguna prueba sintética valida la investigación deportiva real, y la ejecución real NO produjo picks** (ver «Resultado de la ejecución real»).
 
-## 1. Ejecutadas con DATOS REALES
-| # | Prueba | Resultado |
-|---|---|---|
-| 1 | Carga: 4 agentes y 4 skills detectados | **OK.** `claude -p` ejecutado desde este repo listó `analista-cuantitativo, analista-deportivo, auditor-adversarial, verificador-mercados` y las skills `evaluacion-probabilidad-valor, protocolo-multifuente, seleccion-final-picks, verificacion-estadistica-futbol`. Además aparecen las skills de cuenta `cobertura-exhaustiva-picks` y `reto-de-90-dias-20`. |
-| 2 | Script `calc.py` (válidos, límites, inválidos) | **OK.** `python3 -m unittest discover -s tests -v` → 19 tests, OK. Entradas inválidas → stderr + exit 2, sin trazas (incl. `freq 11 10`, `freq 0 0`, `implied 0`, nan/inf, nº de args). |
-| 3–5 | Intentos reales de acceso a fuentes deportivas (calendarios, córners/tarjetas, cuotas) | **Ejecutados; resultado: ACCESO FALLIDO en los 22 dominios del catálogo.** curl: `CONNECT tunnel failed, response 403`; WebFetch: `getaddrinfo ENOTFOUND`; `getent hosts` sin resolución. Detalle por capa en `docs/DIAGNOSTICO-RED.md`. Un `verificador-mercados` real (v1) intentó Flashscore, Soccerway, worldfootball y LaLiga oficial y registró "Acceso fallido" con el error literal, sin inventar partidos. Defecto corregido en v2: intentar ≥2 URLs por fuente y diagnosticar la capa. |
-| — | `install.sh` (`--dry-run`, creación, idempotencia, argumento inválido) | **OK** sobre un directorio temporal (9 archivos; segunda ejecución 0 cambios; `--bogus` → exit 2). |
-| 10 | Persistencia: ZIP, patches, checksums | Ver `dist/VERIFICACION.txt` (generado fuera del ZIP) y el informe final. |
+## 1. Pruebas unitarias y offline (código y reglas)
+`python3 -m unittest discover -s tests -v` → **147 pruebas, OK** (sin red). Cubren: `calc.py` (válidos, límites, entradas inválidas con código 2 y sin trazas); robots.txt con comodines y especificidad; política de fuentes (denegado por defecto, excluidas, topes y ritmo por proveedor); cliente HTTP simulado (UA honesto, caché, `Retry-After`, backoff, anti-bot no evadido, sin cabeceras sensibles en el log, escritura atómica); zonas horarias (ventana de Caracas, bordes 03:59/04:00Z, BST/GMT y EDT/EST por fecha); normalización y deduplicación conservadora (femenino, juvenil, reservas, mismo nombre en otra competición); los cuatro estados independientes (calendario/encuentro/elegibilidad/análisis; confirmado+finalizado); base de confirmación y `selection_calendar_verification`; parser de APWin (con regresión del fallo real) y paginación; cola reanudable (corte y reanudación, `EN_CURSO`, errores recuperables → intervención); estados por mercado (`NOT_CHECKED` ≠ `NO_EVALUABLE`; `INSUFICIENTES` solo si se buscó); proxy doméstico (alias exactos, sin difusos, ambigüedad, solo equipos masculinos de primera plantilla, nota con n<8, nunca `COMPLETADO`); `calc.py` importado sin reimplementar (AST); informe de cobertura (denominadores, **puerta de cobertura que falla con un confirmado y elegible sin evaluar**, motivo+evidencia obligatorios, universo truncado, proxy ≠ suficiente, integridad inventario↔estado↔matriz); lotes con IDs estables (ausentes, duplicados, desconocidos, filas pendientes, «un resumen no es evidencia», re-asignación tras cambio de IDs); cláusulas obligatorias de la skill y del protocolo.
+**Mutaciones comprobadas** (se rompió a propósito cada regla y las pruebas fallaron): puerta de cobertura, robots con comodines, `Disallow` ignorado, exclusión de fuentes, ventana local, `NO_EVALUABLE`→`PARCIAL`, y el parser antiguo de APWin (el test de regresión falla con él). Hallazgo: un primer test de regresión pasaba también con el parser antiguo; se reescribió.
+`install.sh`: `--dry-run`, creación, idempotencia y argumento inválido OK (directorio temporal).
 
-## 2. Ejecutadas con DATOS DE PRUEBA (sintéticos — "EJEMPLO — NO REAL")
-Fixture: `tests/fixtures/ejemplo_no_real.md`; expectativas fijadas antes: `tests/fixtures/EXPECTATIVAS.md`; evidencia: `tests/runs/` (MANIFIESTO, transcripciones, `RESOLUCION-director.md`). 4 agentes reales con nombre; 0 llamadas a WebFetch/WebSearch (solo Read y Bash).
-| # | Prueba | Resultado |
-|---|---|---|
-| 6 | Comparación probable vs valor | **OK.** Cuanti separó "más probable" (B nominal) de "mejor valor"; el director resolvió las 3 preguntas por separado. Ningún candidato con valor demostrado (EV cruza 0 en A y E). |
-| 7 | Desacuerdo: auditor objeta → agente responde → director resuelve | **OK.** El auditor objetó E, A, B; el director envió 3 objeciones con `SendMessage`; cuanti corrigió E (suelo 60%→55%, retiró "mejor valor") y declaró B no estimable; deportivo cambió su orden a A > E > B; verificador degradó "Verificado" a "con salvedad". Caso "alta probabilidad/precio desfavorable" (B) resuelto con la evidencia deportiva (baja confirmada). |
-| 8 | Sustitución de borrador débil | **OK.** D (n=4, H2H 2019, 1 cuota) → SUSTITUIR por E (2 orígenes + 2 cuotas). |
-| 9 | Cierre | **OK.** 2 rondas, 0 terceras comprobaciones (ningún dato pendiente cambiaba el estado de A/E), decisión final emitida por el director. |
-| C | Fuente defectuosa | **OK.** `corners-b` (ceros incompatibles) detectada y descartada por verificador, deportivo y cuanti; C quedó NO EVALUABLE. |
-| — | Mecanismos de comunicación | **Verificado:** `Agent` con `name` en paralelo; `SendMessage` a agente terminado lo reanuda con su contexto (mismo agentId; deportivo respondió citando su ronda 1 con 0 herramientas); mensajería entre pares: deportivo → cuanti entregada y respondida; roster (`main, cuanti, verificador`) visible en el contexto reanudado. En ninguna ejecución de decisión los agentes se escribieron solos: la coordinación fue mediada por el director. |
-Desviaciones observadas: el verificador omitió la columna "Fecha de consulta" en su tabla (la declaró aparte); los subagentes afirmaron estar en "modo plan" y no escribieron archivos (el sistema no lo necesita, pero indica que heredan el modo de permisos de la sesión que los lanza). Los rangos de probabilidad de cuanti son juicio declarado, no modelo.
+## 2. Pruebas sintéticas (datos ficticios «EJEMPLO — NO REAL», `tests/fixtures/`, evidencia en `tests/runs/`)
+Flujo multiagente real con 4 agentes y solo `fixture://`, 0 llamadas web: verificador, deportivo y cuantitativo en paralelo → auditor → Ronda 2 con `SendMessage` (objeción → respuesta, con correcciones reales de cuanti/deportivo/verificador) → resolución del director → cierre en 2 rondas; fuente defectuosa detectada y descartada; sustitución de un borrador débil; mensajería entre pares verificada (deportivo → cuanti). Validan la coordinación y la lógica, no la calidad deportiva.
 
-## 3. NO ejecutadas, con motivo
-| Prueba | Motivo |
+## 3. Ejecución REAL (jornada local 2026-10-13, America/Caracas) y su resultado
+Datos reales, solo fuentes permitidas por la política. Registro completo en `runs/2026-10-13/` (inventario, cola, matriz, informe de cobertura, consultas, revisiones y MANIFIESTO).
+| Etapa | Resultado real |
 |---|---|
-| 3 (matriz multifuente real), 4 (córners/tarjetas línea exacta real), 5 (dos cotizaciones reales) con datos | Dominios bloqueados por la política de red del entorno (ver DIAGNOSTICO-RED). Requiere autorizar los dominios en *Network access → Allowed domains* y repetir. |
-| 6–9 con partidos reales | Mismo bloqueo. Lo sintético demuestra la coordinación, no la calidad de la investigación real. |
-| Agent Teams | No activado deliberadamente (experimental, no necesario). |
-| Cobertura/uso de `cobertura-exhaustiva-picks` | Skill de cuenta (almacén sincronizado), no modificada ni invocada en las pruebas; su integración está definida en el Paso 1 pero no probada. |
-| Zonas horarias/franjas del usuario, combinadas reales | No hubo datos reales. |
+| Inventario | 240 únicos (Football-Data 199, todos anteriores a la ventana; APWin 41). **15** en la ventana local. **Universo truncado**: APWin declara 166 (13-oct) y 126 (14-oct) y el HTML permitido solo trae 15 por día. |
+| Calendario | Los 15 con **una sola fuente** (APWin), 0 con verificación suficiente para selección final. Bragantino–Cruzeiro (00:00Z) = 12-oct 20:00 Caracas ⇒ fuera de la jornada. |
+| Nivel 1 | 15 con disposición: **7** con forma doméstica PROXY de otra competición (`PARCIAL_PROXY_OTRA_COMPETICION`), **8** `NO_INVESTIGADO_SIN_FUENTE_PERMITIDA` (AFC Champions League, Liga Revelação U23, UEFA Youth League, Sabah–Slavia, Viking–Bayern). 0 evaluados con histórico de la misma competición. |
+| Mercados | 345 = 15×23: 161 examinados (todos proxy de otra competición), 184 `NOT_CHECKED`. 0 de la misma competición. |
+| Puerta de cobertura | **RANKING PROVISIONAL RESTRINGIDO** (exit 4). Sin picks, sin probabilidades, sin cuotas, sin EV. |
+| Revisión por agentes | verificador (discrepancias + muestra de control de 12 + re-derivación de los 240), deportivo y cuantitativo (cada fila de cada lote), auditor adversarial (3 rondas). **Defectos reales encontrados por ellos y corregidos**: `sources_checked` aparentaba consultas inexistentes; `NO_EVALUABLE` donde correspondía `NOT_CHECKED`; clasificación de reservas (Serie B/Willem II/filiales); inventario regenerado sin conservar avance; `match_id` dependía de la categoría; estadísticas `INSUFICIENTES` sin intento; estado de partido «tras intentos» sin intentos; parser de APWin que perdía la competición; universo truncado no declarado; proxy contado como «suficiente». Recalculo independiente de 32 frecuencias k/n del proxy: 32/32 coinciden. |
+| Mensajería | `SendMessage` por nombre reanuda con contexto; **los nombres no sobreviven a un reinicio del proceso de trabajo, los agentId sí** (verificado: los 4 agentes se reanudaron por ID tras el reinicio). |
+| Cumplimiento | Se descubrió, al revisar `robots.txt` y condiciones, que FotMob/BetExplorer/Transfermarkt/Understat/SoccerStats no son usables de forma automatizada. **La fase previa de pruebas (antes de esa revisión) las había consultado con un User-Agent de navegador; esos datos no se reutilizan.** Descargas de red de esta ejecución: Football-Data 12 (tope 20), APWin 4 en toda la sesión (≤3 por ejecución de `inventory.py`; el tope por ejecución se respetó, ver MANIFIESTO). |
+
+## 4. NO ejecutado (con motivo)
+| Elemento | Motivo |
+|---|---|
+| Cobertura exhaustiva real de la jornada (cientos de partidos, córners/tarjetas/cuotas reales, dos cotizaciones comparables, comparación y sustitución con datos reales, selección final) | No existen fuentes permitidas que lo cubran; las que sí lo hacen están excluidas por sus condiciones. Requiere API con licencia, datos aportados por la persona usuaria o permiso del proveedor. |
+| Paginación de APWin (`page=2…`) | Decisión de la persona usuaria (condiciones de APWin); no se amplía el tope. |
+| Revisión de UEFA/AFC/Liga Portugal/FPF y de las demás fuentes «no revisadas» | Procedimiento en `docs/PROCEDIMIENTO-ALTA-FUENTE.md`; pendiente de decisión. |
+| Cuotas actuales de cualquier casa | Ninguna fuente permitida las proporciona para estos partidos. |
+| Verificación de la cita de uso de Football-Data (`data.php`, 2026-10-12) | Solo vista en una consulta; no hay copia guardada; el riesgo se eleva a la persona usuaria. |
+| Agent Teams | No activado (experimental, no necesario). |
+| `cobertura-exhaustiva-picks` y `reto-de-90-dias-20` (skills de cuenta) | No modificadas ni invocadas. |
