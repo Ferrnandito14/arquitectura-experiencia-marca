@@ -49,7 +49,7 @@
         "soccerstats.com"
       ],
       "status": "excluida",
-      "reason": "Con el User-Agent honesto responde con desafío Cloudflare ('Just a moment'); no se evade.",
+      "reason": "Inaccesible: con el User-Agent honesto responde con un desafío anti-bot de Cloudflare («Just a moment») incluso en robots.txt; no se evade. Sus condiciones de uso NO se han leído.",
       "evidence": [
         "GET https://www.soccerstats.com/robots.txt -> HTTP 403 desafío"
       ]
@@ -69,7 +69,8 @@
         "https://www.football-data.co.uk/robots.txt"
       ],
       "reliability": "estructurada",
-      "independence_group": "football-data"
+      "independence_group": "football-data",
+      "risk_note": "Riesgo medio-bajo, decisión de la persona usuaria: su robots.txt bloquea por nombre crawlers de IA (GPTBot, ClaudeBot, Anthropic-AI, Claude-Web, PerplexityBot, CCBot…) y permite a '*'. Este cliente se identifica con su propio UA, no es un crawler: descarga ≤20 CSV concretos por ejecución para análisis privado. Cita de data.php (2026-10-12): «its use is intended for private individuals only, NOT commerical or data training products using automated bots/scrapers/AI»."
     },
     "apwin": {
       "hosts": [
@@ -87,7 +88,8 @@
       ],
       "reliability": "estructurada",
       "independence_group": "apwin",
-      "reliability_note": "Feed JSON embebido con kickoff en época UTC y estado; fiabilidad de calendario no verificada contra fuente oficial: basta para ENTRAR al universo de evaluación, no para una selección final."
+      "reliability_note": "Feed JSON embebido con kickoff en época UTC y estado; fiabilidad de calendario no verificada contra fuente oficial: basta para ENTRAR al universo de evaluación, no para una selección final.",
+      "risk_note": "Riesgo medio, decisión de la persona usuaria: sus términos (terms-conditions) son los de la suscripción Premium y dicen que «any unauthorized, commercial or non-commercial use is prohibited»; no mencionan acceso automatizado pero reservan los derechos de forma amplia. Solo se lee la portada pública con ?date= (3 páginas por ejecución). El HTML trae la PÁGINA 1 de una lista paginada (total declarado 166 el 13-oct): NO se amplía a paginación sin decisión expresa."
     }
   }
 }
