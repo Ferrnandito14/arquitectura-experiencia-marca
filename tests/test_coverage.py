@@ -38,18 +38,22 @@ class Gate(unittest.TestCase):
     def test_no_evaluable_without_reason_or_evidence_counts_as_pending_and_problem(self):
         tmp = prep([match(1, div=None)], FakeProvider(covered=False))
         st = common.read_json(os.path.join(tmp, "state.json"))
+        self.assertEqual(st["matches"]["m-1"]["status"], level1.NO_INVESTIGADO)
         del st["matches"]["m-1"]["evidence"]
         common.write_json_atomic(os.path.join(tmp, "state.json"), st)
         r = coverage_report.compute(tmp)
         self.assertEqual(r["exit_code"], 3)
-        self.assertTrue(r["problems"] and "sin motivo o sin evidencia" in r["problems"][0][1])
+        self.assertTrue(r["problems"] and any("sin motivo o sin evidencia" in b for _, b in r["problems"]))
 
     def test_no_evaluable_with_reason_and_evidence_is_processed_but_restricted(self):
         tmp = prep([match(1, div=None)], FakeProvider(covered=False))
         r = coverage_report.compute(tmp)
-        self.assertEqual((r["processed"], r["pending"], r["evaluated_sufficiently"]), (1, 0, 0))
+        self.assertEqual((r["processed"], r["pending"], r["evaluated_sufficiently"], r["with_real_data_attempt"]), (1, 0, 0, 0))
         self.assertEqual(r["exit_code"], 4)
         self.assertIn("RANKING PROVISIONAL RESTRINGIDO", r["verdict"])
+        text = coverage_report.render(r)
+        self.assertIn("Qué NO se sostiene", text)
+        self.assertIn("NOT_CHECKED (no investigados)", text)
 
     def test_error_states_block(self):
         tmp = prep([match(1)], process=False)
@@ -103,6 +107,21 @@ class Gate(unittest.TestCase):
         self.assertIn(r["exit_code"], (0, 4))     # 0 sólo si ninguna familia queda sin mercados evaluables
         fam_ok = r["systemic_families_without_any_evaluable"]
         self.assertEqual(r["exit_code"] == 0, not fam_ok and r["evaluated_sufficiently"] == r["required_confirmed_eligible"])
+
+
+class SingleSourceCalendar(unittest.TestCase):
+    def test_report_discloses_single_source_calendar_for_required_matches(self):
+        tmp = prep([match(1), match(2)])
+        inv = common.read_json(os.path.join(tmp, "inventory.json"))
+        for m in inv["matches"]:
+            m["source_names"] = ["apwin"]
+            m["selection_calendar_verification"] = "REQUIERE_VERIFICACION_ADICIONAL"
+        common.write_json_atomic(os.path.join(tmp, "inventory.json"), inv)
+        r = coverage_report.compute(tmp)
+        self.assertEqual((r["required_single_source_calendar"], r["required_selection_calendar_sufficient"]), (2, 0))
+        text = coverage_report.render(r)
+        self.assertIn("UNA sola fuente", text)
+        self.assertIn("«CONFIRMADO» significa sin discrepancias entre fuentes, no hora contrastada", text)
 
 
 class Denominators(unittest.TestCase):

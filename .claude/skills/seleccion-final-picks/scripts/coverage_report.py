@@ -14,7 +14,8 @@ from collections import Counter
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import common  # noqa: E402
 
-PROCESSED_OK = ("COMPLETADO", "NO_EVALUABLE_TRAS_INTENTOS")
+PROCESSED_OK = ("COMPLETADO", "NO_EVALUABLE_TRAS_INTENTOS", "NO_INVESTIGADO_SIN_FUENTE_PERMITIDA")
+NEEDS_REASON = ("NO_EVALUABLE_TRAS_INTENTOS", "NO_INVESTIGADO_SIN_FUENTE_PERMITIDA")
 
 
 def _all_markets():
@@ -36,8 +37,8 @@ def compute(run):
         s = st.get(m["match_id"], {"status": "PENDIENTE"})
         stt = s["status"]
         if stt in PROCESSED_OK:
-            if stt == "NO_EVALUABLE_TRAS_INTENTOS" and not (s.get("reason") and s.get("evidence")):
-                problems.append((m["match_id"], "NO_EVALUABLE_TRAS_INTENTOS sin motivo o sin evidencia de intentos"))
+            if stt in NEEDS_REASON and not (s.get("reason") and s.get("evidence")):
+                problems.append((m["match_id"], f"{stt} sin motivo o sin evidencia de intentos"))
                 pending.append(m)
                 continue
             processed.append(m)
@@ -103,7 +104,9 @@ def compute(run):
         "confirmed": cal["CONFIRMADO"], "not_confirmed": len(ms) - cal["CONFIRMADO"] - cal["DUPLICADO"],
         "started_or_finished": started, "not_eligible_prematch": not_elig,
         "required_confirmed_eligible": len(required), "processed": len(processed), "evaluated_sufficiently": len(sufficient),
-        "processed_without_any_data_attempt": len(no_data_attempt),
+        "required_single_source_calendar": sum(1 for m in required if len(m.get("source_names", [])) < 2),
+        "required_selection_calendar_sufficient": sum(1 for m in required if m.get("selection_calendar_verification") == "SUFICIENTE"),
+        "processed_without_any_data_attempt": len(no_data_attempt), "with_real_data_attempt": len(processed) - len(no_data_attempt),
         "pending": len(pending), "pending_ids": [m["match_id"] for m in pending],
         "coverage_matches_pct": pct(len(processed), len(required)), "coverage_matches_den": len(required),
         "markets_denominator": den_markets, "markets_examined": examined, "markets_not_checked": notchk,
@@ -122,7 +125,10 @@ def render(r):
     L.append(f"| Partidos no confirmados | {r['not_confirmed']} | calendario: {r['calendar_status']} |")
     L.append(f"| Iniciados/finalizados | {r['started_or_finished']} | no elegibles prepartido (todas las causas): {r['not_eligible_prematch']} |")
     L.append(f"| Requieren evaluación (confirmados y elegibles) | {r['required_confirmed_eligible']} | base de la cobertura |")
-    L.append(f"| Procesados (evaluación básica o no evaluable con motivo) | {r['processed']} | de {r['coverage_matches_den']} = {r['coverage_matches_pct']}% |")
+    L.append(f"| Con disposición registrada (evaluado, no evaluable tras intentos, o no investigado por falta de fuente permitida; con motivo y evidencia) | {r['processed']} | de {r['coverage_matches_den']} = {r['coverage_matches_pct']}% |")
+    L.append(f"| Hora/calendario de los requeridos | {r['required_single_source_calendar']} de {r['required_confirmed_eligible']} con UNA sola fuente; "
+             f"{r['required_selection_calendar_sufficient']} con verificación suficiente para selección final | «CONFIRMADO» significa sin discrepancias entre fuentes, no hora contrastada |")
+    L.append(f"| Con al menos una consulta real de datos | {r['with_real_data_attempt']} | de {r['coverage_matches_den']} |")
     L.append(f"| Evaluados suficientemente (histórico obtenido) | {r['evaluated_sufficiently']} | de {r['coverage_matches_den']} |")
     L.append(f"| Procesados SIN ninguna consulta real de datos (ninguna fuente permitida los cubre) | {r['processed_without_any_data_attempt']} | de {r['processed']} procesados: «procesado» no es «examinado» |")
     L.append(f"| Pendientes | {r['pending']} | {r['pending_ids'][:10]}{'…' if len(r['pending_ids']) > 10 else ''} |")
@@ -132,6 +138,14 @@ def render(r):
     if r["problems"]:
         L += ["", "Problemas de integridad:"] + [f"- {a}: {b}" for a, b in r["problems"]]
     L += ["", f"**Veredicto de la puerta de cobertura: {r['verdict']}**"]
+    if r["exit_code"] == 4:
+        L += ["", "**Qué NO se sostiene con este resultado:**",
+              f"- No hay candidatos evaluados ({r['markets_evaluable_or_partial']} mercados con datos), ni k/n, probabilidad, cuota o EV para los {r['required_confirmed_eligible']} partidos requeridos.",
+              f"- {r['markets_not_checked']} mercados están NOT_CHECKED (no investigados): eso no prueba que el mercado no exista ni que la estadística sea 0.",
+              "- No se sostiene ninguna selección por valor ni «alta probabilidad»; cualquier orden entre partidos sería criterio cualitativo sin valor económico confirmado.",
+              "- No hay histórico, córners, tarjetas, árbitro, bajas ni cuotas de ninguna casa para estos partidos.",
+              "- El calendario de cada partido proviene de una sola fuente: no basta para una selección final (`selection_calendar_verification`).",
+              "- Para levantar la restricción hace falta una fuente que cubra estas competiciones **obtenida de forma legítima** (API con licencia, datos aportados por el usuario, permiso del proveedor)."]
     return "\n".join(L)
 
 

@@ -67,8 +67,10 @@ class MarketStates(unittest.TestCase):
 
     def test_uncovered_league_markets_are_NOT_CHECKED_but_match_is_no_evaluable_with_evidence(self):
         e = self.ev(match(1, div=None), FakeProvider(covered=False))
-        self.assertEqual(e["sports_analysis_status"], "NO_EVALUABLE_TRAS_INTENTOS")
+        self.assertEqual(e["sports_analysis_status"], level1.NO_INVESTIGADO)       # no hubo ni un intento real: no es 'tras intentos'
+        self.assertEqual(e["market_analysis_status"], level1.NO_INVESTIGADO)
         self.assertFalse(e["data_attempted"])
+        self.assertTrue(all(m["statistics_availability_status"] == "NOT_CHECKED" for m in e["markets"].values()))
         # nadie examinó estos mercados: NOT_CHECKED, nunca NO_EVALUABLE «para completar la fila»
         self.assertTrue(all(m["evaluation_status"] == "NOT_CHECKED" for m in e["markets"].values()))
         self.assertTrue(all("no implica que el mercado no exista" in m["not_evaluable_reason"] for m in e["markets"].values()))
@@ -83,6 +85,8 @@ class MarketStates(unittest.TestCase):
         e = self.ev(match(1), FakeProvider(fail=True))
         self.assertTrue(e["data_attempted"])
         self.assertTrue(all(m["evaluation_status"] == "NO_EVALUABLE" for m in e["markets"].values()))
+        self.assertEqual(e["sports_analysis_status"], "NO_EVALUABLE_TRAS_INTENTOS")    # aquí SÍ hubo intento (falló)
+        self.assertTrue(all(m["statistics_availability_status"] == "INSUFICIENTES" for m in e["markets"].values()))
         self.assertIn("football-data", e["markets"]["goles.btts"]["sources_checked"])
 
     def test_unsupported_stat_in_covered_league_is_no_evaluable_with_reason(self):
@@ -156,9 +160,18 @@ class Queue(unittest.TestCase):
             self.assertEqual(st["matches"]["m-1"]["status"], expected)
         self.assertIn("RuntimeError", st["matches"]["m-1"]["last_error"])
 
-    def test_no_evaluable_records_reason_and_evidence(self):
+    def test_not_investigated_records_reason_and_evidence(self):
         make_run(self.tmp, [match(1, div=None)])
         st, _ = level1.process(self.tmp, FakeProvider(covered=False), helpers.POLICY, now=NOW)
+        s = st["matches"]["m-1"]
+        self.assertEqual(s["status"], level1.NO_INVESTIGADO)
+        self.assertTrue(s["reason"] and s["evidence"])
+        inv = common.read_json(os.path.join(self.tmp, "inventory.json"))
+        self.assertEqual(inv["matches"][0]["sports_analysis_status"], level1.NO_INVESTIGADO)   # inventario y estado sincronizados
+
+    def test_no_evaluable_tras_intentos_when_attempt_was_made_and_failed(self):
+        make_run(self.tmp, [match(1)])
+        st, _ = level1.process(self.tmp, FakeProvider(fail=True), helpers.POLICY, now=NOW)
         s = st["matches"]["m-1"]
         self.assertEqual(s["status"], "NO_EVALUABLE_TRAS_INTENTOS")
         self.assertTrue(s["reason"] and s["evidence"])

@@ -26,6 +26,8 @@ calc = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(calc)
 
 MAX_ATTEMPTS = 3
+# Ninguna fuente permitida cubre el partido: NO hubo consulta real de datos. Distinto de NO_EVALUABLE_TRAS_INTENTOS (que exige intentos).
+NO_INVESTIGADO = "NO_INVESTIGADO_SIN_FUENTE_PERMITIDA"
 HISTORY_N = 10
 FAMILIES = {
     "resultado": ["1x2", "doble_oportunidad", "empate_no_valido", "handicap"],
@@ -180,9 +182,10 @@ def evaluate_match(match, provider, policy, now_iso):
     for key in ALL_MARKETS:
         have_stats = key in blocks and blocks[key]
         have_price = key in prices
-        stats_status = "SUFICIENTES" if have_stats and min(b["n"] for b in blocks[key]) >= 8 else ("PARCIALES" if have_stats else "INSUFICIENTES")
-        if key == "resultado.1x2" and not have_price and not have_stats:
-            stats_status = "INSUFICIENTES"
+        if have_stats:
+            stats_status = "SUFICIENTES" if min(b["n"] for b in blocks[key]) >= 8 else "PARCIALES"
+        else:
+            stats_status = "INSUFICIENTES" if data_attempted else "NOT_CHECKED"     # INSUFICIENTES = se buscó y no bastó
         if have_stats or have_price:
             ev = "PARCIAL"        # nunca EVALUABLE aquí: falta contraste de rivales, bajas y 2.ª cotización (Nivel 2)
             reason = None if have_stats else "hay cuota pero no estadísticas"
@@ -210,8 +213,9 @@ def evaluate_match(match, provider, policy, now_iso):
     n_ok = sum(1 for m in markets.values() if m["evaluation_status"] in ("EVALUABLE", "PARCIAL"))
     return {"match_id": match["match_id"], "attempts": attempts, "data_attempted": data_attempted, "form": form, "sample_note": note,
             "markets": markets, "evaluated_markets_ok": n_ok,
-            "sports_analysis_status": "COMPLETADO" if (form.get("local") and form.get("visitante")) else "NO_EVALUABLE_TRAS_INTENTOS",
-            "market_analysis_status": "COMPLETADO" if n_ok else "NO_EVALUABLE_TRAS_INTENTOS"}
+            "sports_analysis_status": ("COMPLETADO" if (form.get("local") and form.get("visitante"))
+                                      else ("NO_EVALUABLE_TRAS_INTENTOS" if data_attempted else NO_INVESTIGADO)),
+            "market_analysis_status": ("COMPLETADO" if n_ok else ("NO_EVALUABLE_TRAS_INTENTOS" if data_attempted else NO_INVESTIGADO))}
 
 
 # ----------------------------------------------------------------------------- cola reanudable
@@ -240,7 +244,7 @@ def process(run, provider, policy, limit=None, evaluator=evaluate_match, now=Non
     done = 0
     for m in inv["matches"]:
         s = st["matches"][m["match_id"]]
-        if s["status"] in ("COMPLETADO", "NO_EVALUABLE_TRAS_INTENTOS", "NO_REQUIERE_ANALISIS", "ERROR_REQUIERE_INTERVENCION"):
+        if s["status"] in ("COMPLETADO", "NO_EVALUABLE_TRAS_INTENTOS", NO_INVESTIGADO, "NO_REQUIERE_ANALISIS", "ERROR_REQUIERE_INTERVENCION"):
             continue
         if limit is not None and done >= limit:
             break
@@ -249,9 +253,12 @@ def process(run, provider, policy, limit=None, evaluator=evaluate_match, now=Non
         try:
             ev = evaluator(m, provider, policy, now_iso)
             matrix["matches"][m["match_id"]] = ev
-            s["status"] = "COMPLETADO" if ev["sports_analysis_status"] == "COMPLETADO" else "NO_EVALUABLE_TRAS_INTENTOS"
+            s["status"] = ev["sports_analysis_status"]
             if s["status"] == "NO_EVALUABLE_TRAS_INTENTOS":
-                s["reason"] = "ninguna fuente permitida aporta histórico para este partido"
+                s["reason"] = "se intentó la consulta permitida y no aportó histórico suficiente"
+                s["evidence"] = ev["attempts"]
+            elif s["status"] == NO_INVESTIGADO:
+                s["reason"] = "ninguna fuente permitida cubre este partido: no hubo consulta real (fuentes excluidas por política o no revisadas)"
                 s["evidence"] = ev["attempts"]
             m["sports_analysis_status"], m["market_analysis_status"] = ev["sports_analysis_status"], ev["market_analysis_status"]
         except Exception as e:      # error recuperable hasta MAX_ATTEMPTS
