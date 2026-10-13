@@ -210,7 +210,11 @@ class Disjoint(unittest.TestCase):
                                               "goles.over_2_5": avg([1.5, 2.4])}) for i in range(10)}}
         common.write_json_atomic(os.path.join(d, "inventory.json"), inv)
         common.write_json_atomic(os.path.join(d, "matrix.json"), mx)
-        self.assertEqual(tickets.main(["--run", d, "--target", "seg:1.20:1.28:2:0.5", "--target", "amp:4.0:4.8:6:0.3"]), 0)
+        old, tickets.MAX_GAP = tickets.MAX_GAP, 1.0              # este test es de disjunción de partidos, no del descarte por brecha (fixtures con muestra del 100 %)
+        try:
+            self.assertEqual(tickets.main(["--run", d, "--target", "seg:1.20:1.28:2:0.5", "--target", "amp:4.0:4.8:6:0.3"]), 0)
+        finally:
+            tickets.MAX_GAP = old
         out = json.load(open(os.path.join(d, "tickets.json")))
         self.assertTrue(out["sin_partidos_repetidos_entre_perfiles"])
         a = {it["match_id"] for t in out["targets"][0]["tickets"] for it in t["items"]}

@@ -373,6 +373,20 @@ def favorites_table(legs, run, rotation_path, min_p=0.65, min_dom=0.5):
     return out
 
 
+def drop_big_gap(legs, max_gap=None):
+    """Quita de los TICKETS las patas con precio de mercado cuya frecuencia de muestra supera a la probabilidad de mercado en ≥ max_gap (maldición del ganador con n pequeño).
+    Las patas sin precio de mercado (córners/tarjetas estimadas) no tienen brecha medible y se conservan. Devuelve (patas, n_descartadas)."""
+    max_gap = MAX_GAP if max_gap is None else max_gap
+    keep, n = [], 0
+    for l in legs:
+        _, gap = p_central(l)
+        if gap is not None and gap >= max_gap:
+            n += 1
+            continue
+        keep.append(l)
+    return keep, n
+
+
 def _direction(leg):
     """'under' / 'over' según el texto de la selección («Menos de …» / «Más de …»); None para ganador, hándicap, BTTS, doble oportunidad."""
     t = (leg.get("seleccion") or "").lower()
@@ -927,6 +941,7 @@ def main(argv=None):
     mixed_champ = [l for l in legs_all if l["history_kind"] not in SAME_COMPETITION_KINDS and "champions league" in (l.get("competicion") or "").lower()
                    and common.norm_name(l["partido"]) not in excluded_names]
     legs_tk = [l for l in legs if common.norm_name(l["partido"]) not in excluded_names]      # patas para TICKETS (sin los partidos excluidos a mano)
+    legs_tk, big_gap = drop_big_gap(legs_tk)                                                  # auditoría 13-oct: brecha muestra−mercado ≥ 15 pp = descarte, no «salvedad"
     out = {"targets": [], "n_legs": len(legs), "n_priced_legs": sum(1 for l in legs if l["cuota_media"] is not None),
            "n_matches_with_legs": len({l["match_id"] for l in legs})}
     results = [dict(name=n, lo=lo, hi=hi, max_legs=mx, min_support=ms, buffer=bf) for n, lo, hi, mx, ms, bf in targets]
@@ -973,6 +988,7 @@ def main(argv=None):
     out["cuotas_manuales_aplicadas"] = n_manual
     out["patas_vetadas"] = vetoed
     out["patas_vetadas_por_rotacion"] = vetoed_rot
+    out["patas_descartadas_por_brecha"] = big_gap
     out["rotacion_disponible"] = has_rot
     out["favoritos"] = favorites_table(legs, a.run, rot_path)
     out["bloqueadas_por_calidad"] = gated

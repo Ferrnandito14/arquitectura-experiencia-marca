@@ -185,3 +185,14 @@ class LeagueDifGoles(unittest.TestCase):
         rows = [row(1, 3, 0), row(2, 2, 1)]
         r = league_sample.summarize(rows)
         self.assertEqual(r["equipos"]["A"]["dif_goles"], 2.0)
+
+
+class BrechaEnTickets(unittest.TestCase):
+    def test_legs_with_big_gap_are_dropped_from_tickets_but_unpriced_are_kept(self):
+        import tickets
+        legs = [{"prob_implicita_sin_margen": 0.632, "frec": [1.0, 0.8], "n": [10, 10], "id": "durban"},
+                {"prob_implicita_sin_margen": 0.80, "frec": [0.8, 0.9], "n": [10, 10], "id": "ok"},
+                {"prob_implicita_sin_margen": None, "frec": [1.0, 1.0], "n": [10, 10], "id": "sin_precio"}]
+        keep, n = tickets.drop_big_gap(legs)
+        self.assertEqual(n, 1)
+        self.assertEqual([l["id"] for l in keep], ["ok", "sin_precio"])
