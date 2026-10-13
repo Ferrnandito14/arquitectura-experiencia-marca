@@ -78,6 +78,38 @@ def wilson(k, n, z=1.96):
     return max(0.0, c - h), min(1.0, c + h)
 
 
+# --- API importable (usada por level1.py; la CLI de abajo sólo valida y formatea) ---
+def implied_prob(c):
+    """Probabilidad de equilibrio bruta = 1/cuota decimal (c > 1)."""
+    return 1 / c
+
+
+def novig_probs(cuotas):
+    """(overround, [prob sin margen proporcional]) para todas las selecciones de un mismo mercado y casa."""
+    s = sum(1 / o for o in cuotas)
+    return s, [(1 / o) / s for o in cuotas]
+
+
+def ev_unit(p, c):
+    """EV teórico por unidad = p*c - 1. Sólo es válido si p es defendible."""
+    return p * c - 1
+
+
+def combo_odds(cuotas):
+    m = 1.0
+    for o in cuotas:
+        m *= o
+    return m
+
+
+def joint_prob(probs):
+    """Producto: sólo es la probabilidad conjunta bajo independencia."""
+    p = 1.0
+    for x in probs:
+        p *= x
+    return p
+
+
 def run(argv):
     if not argv:
         raise InputError("falta el comando")
@@ -86,34 +118,29 @@ def run(argv):
     if cmd == "implied":
         need(a, 1, 1, cmd)
         c = odds(a[0])
-        out.append(f"prob_equilibrio_bruta={1/c:.4f}")
+        out.append(f"prob_equilibrio_bruta={implied_prob(c):.4f}")
     elif cmd == "novig":
         need(a, 2, None, cmd)
         v = [odds(x, f"cuota {i+1}") for i, x in enumerate(a)]
-        s = sum(1 / o for o in v)
+        s, nv = novig_probs(v)
         out.append(f"overround={s:.4f} margen={s-1:.4f}")
-        for o in v:
-            out.append(f"cuota={o:g} bruta={1/o:.4f} sin_margen_proporcional={(1/o)/s:.4f}")
+        for o, q in zip(v, nv):
+            out.append(f"cuota={o:g} bruta={implied_prob(o):.4f} sin_margen_proporcional={q:.4f}")
         out.append("nota: metodo proporcional (aproximacion); exige todas las selecciones del mismo mercado y casa")
     elif cmd == "ev":
         need(a, 2, 2, cmd)
         p, c = prob(a[0]), odds(a[1])
         fair = f"{1/p:.3f}" if p > 0 else "n/a"
-        out.append(f"EV_por_unidad={p*c-1:+.4f} cuota_justa={fair}")
+        out.append(f"EV_por_unidad={ev_unit(p, c):+.4f} cuota_justa={fair}")
         out.append("nota: valido solo si P es una estimacion defendible; 0 o 1 absolutos exigen justificacion extraordinaria")
     elif cmd == "combo":
         need(a, 2, None, cmd)
-        m = 1.0
-        for i, x in enumerate(a):
-            m *= odds(x, f"cuota {i+1}")
-        finite(m, "multiplicador")
+        m = finite(combo_odds([odds(x, f"cuota {i+1}") for i, x in enumerate(a)]), "multiplicador")
         out.append(f"multiplicador={m:.4f} prob_equilibrio={1/m:.4f}")
         out.append("nota: ticket real solo si todas las cuotas son de la misma casa y la combinacion existe alli")
     elif cmd == "joint":
         need(a, 2, None, cmd)
-        p = 1.0
-        for i, x in enumerate(a):
-            p *= prob(x, f"probabilidad {i+1}")
+        p = joint_prob([prob(x, f"probabilidad {i+1}") for i, x in enumerate(a)])
         out.append(f"prob_conjunta_si_independientes={p:.4f}")
         out.append("nota: el producto exige independencia; con correlacion (mismo partido/equipo/arbitro) no es valido")
     elif cmd == "freq":

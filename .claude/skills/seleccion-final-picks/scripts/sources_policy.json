@@ -1,0 +1,92 @@
+{
+  "reviewed_at": "2026-10-12",
+  "nota": "Política de fuentes para acceso AUTOMATIZADO. Denegado por defecto: un host que no figura aquí no se consulta. 'excluida' = prohibido por condiciones de uso o robots.txt, o bloqueo anti-bot que no se evade. 'condicional' = permitido con límites indicados (lectura puntual, bajo volumen, uso privado). Esta revisión no es asesoría legal: sólo se leyeron robots.txt y los términos enlazados desde cada sitio.",
+  "providers": {
+    "fotmob": {
+      "hosts": [
+        "fotmob.com"
+      ],
+      "status": "excluida",
+      "reason": "Términos (fotmob.com/tos.txt): prohíben scraping y la recuperación sistemática/masiva/automática; robots.txt: 'Disallow: /api/*'.",
+      "evidence": [
+        "https://www.fotmob.com/tos.txt",
+        "https://www.fotmob.com/robots.txt"
+      ]
+    },
+    "betexplorer": {
+      "hosts": [
+        "betexplorer.com"
+      ],
+      "status": "excluida",
+      "reason": "Términos (terms-of-service.php, operador Livesport): prohíben 'embedding, aggregating, scraping or recreating' el contenido sin consentimiento y cargar el servidor con peticiones automatizadas; robots.txt desautoriza /*?year= y /*?month=.",
+      "evidence": [
+        "https://www.betexplorer.com/terms-of-service.php",
+        "https://www.betexplorer.com/robots.txt"
+      ]
+    },
+    "transfermarkt": {
+      "hosts": [
+        "transfermarkt.com"
+      ],
+      "status": "excluida",
+      "reason": "Términos (intern/anb §11.1): 'not permitted to access or copy the Digital Content using bots, spiders, screen scraping or other automated processes' (aunque robots.txt permita /).",
+      "evidence": [
+        "https://www.transfermarkt.com/intern/anb"
+      ]
+    },
+    "understat": {
+      "hosts": [
+        "understat.com"
+      ],
+      "status": "excluida",
+      "reason": "robots.txt: 'User-agent: * / Disallow: /'.",
+      "evidence": [
+        "https://understat.com/robots.txt"
+      ]
+    },
+    "soccerstats": {
+      "hosts": [
+        "soccerstats.com"
+      ],
+      "status": "excluida",
+      "reason": "Con el User-Agent honesto responde con desafío Cloudflare ('Just a moment'); no se evade.",
+      "evidence": [
+        "GET https://www.soccerstats.com/robots.txt -> HTTP 403 desafío"
+      ]
+    },
+    "football-data": {
+      "hosts": [
+        "football-data.co.uk"
+      ],
+      "status": "condicional",
+      "reason": "Datos CSV gratuitos 'for use with spreadsheet applications'; uso destinado a particulares, NO a productos comerciales o de entrenamiento de datos con bots/scrapers/IA. Se descargan solo ficheros CSV concretos (fixtures.csv y temporadas), sin rastreo, a ritmo bajo, para análisis privado.",
+      "limits": {
+        "min_interval": 3.0,
+        "max_files_per_run": 20
+      },
+      "evidence": [
+        "https://www.football-data.co.uk/data.php",
+        "https://www.football-data.co.uk/robots.txt"
+      ],
+      "reliability": "estructurada",
+      "independence_group": "football-data"
+    },
+    "apwin": {
+      "hosts": [
+        "apwin.com"
+      ],
+      "status": "condicional",
+      "reason": "robots.txt permite la portada (prohíbe /calendar/*, /search/*, /s/*); sus términos (terms-conditions) no contienen cláusula explícita sobre acceso automatizado pero reservan derechos sobre el contenido. Sólo lectura puntual de la portada del día (HTML público), sin rastreo.",
+      "limits": {
+        "min_interval": 5.0,
+        "max_pages_per_run": 3
+      },
+      "evidence": [
+        "https://www.apwin.com/robots.txt",
+        "https://www.apwin.com/terms-conditions/"
+      ],
+      "reliability": "agregada",
+      "independence_group": "apwin"
+    }
+  }
+}

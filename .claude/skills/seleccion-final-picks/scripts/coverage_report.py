@@ -1,0 +1,138 @@
+#!/usr/bin/env python3
+"""Informe de cobertura con denominadores explícitos y PUERTA de cobertura.
+
+Uso:  coverage_report.py --run runs/2026-10-13 [--json]
+Códigos de salida:  0 = ranking definitivo permitido | 3 = BLOQUEADO (hay confirmados+elegibles sin evaluación básica
+o estados inválidos) | 4 = RANKING PROVISIONAL RESTRINGIDO (limitación sistémica) | 2 = uso/entrada inválida.
+'Procesado' no significa 'evaluado suficientemente': ambos se reportan por separado.
+"""
+import argparse
+import os
+import sys
+from collections import Counter
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import common  # noqa: E402
+
+PROCESSED_OK = ("COMPLETADO", "NO_EVALUABLE_TRAS_INTENTOS")
+
+
+def _all_markets():
+    import level1
+    return level1.ALL_MARKETS, list(level1.FAMILIES)
+
+
+def compute(run):
+    inv = common.read_json(os.path.join(run, "inventory.json"))
+    if not inv:
+        raise FileNotFoundError("falta inventory.json")
+    st = common.read_json(os.path.join(run, "state.json"), {"matches": {}})["matches"]
+    mx = common.read_json(os.path.join(run, "matrix.json"), {"matches": {}})["matches"]
+    ms = inv["matches"]
+    ALL, FAMS = _all_markets()
+    required = [m for m in ms if m["analysis_required"]]
+    problems, pending, processed, sufficient = [], [], [], []
+    for m in required:
+        s = st.get(m["match_id"], {"status": "PENDIENTE"})
+        stt = s["status"]
+        if stt in PROCESSED_OK:
+            if stt == "NO_EVALUABLE_TRAS_INTENTOS" and not (s.get("reason") and s.get("evidence")):
+                problems.append((m["match_id"], "NO_EVALUABLE_TRAS_INTENTOS sin motivo o sin evidencia de intentos"))
+                pending.append(m)
+                continue
+            processed.append(m)
+            if stt == "COMPLETADO":
+                sufficient.append(m)
+        else:
+            pending.append(m)
+            if stt.startswith("ERROR"):
+                problems.append((m["match_id"], stt + ": " + str(s.get("last_error", ""))))
+    # mercados
+    examined = ok = nonev = notchk = 0
+    fam_ok = Counter()
+    for m in required:
+        ev = mx.get(m["match_id"])
+        if not ev:
+            continue
+        for k, mk in ev["markets"].items():
+            if mk["evaluation_status"] == "NOT_CHECKED":
+                notchk += 1
+                continue
+            examined += 1
+            if mk["evaluation_status"] in ("EVALUABLE", "PARCIAL"):
+                ok += 1
+                fam_ok[k.split(".")[0]] += 1
+            else:
+                nonev += 1
+    den_markets = len(required) * len(ALL)
+    cal = Counter(m["calendar_verification_status"] for m in ms)
+    started = sum(1 for m in ms if m["event_status"] in ("EN_JUEGO", "FINALIZADO") or "ya ha comenzado" in m["disposition"])
+    not_elig = sum(1 for m in ms if m["prematch_eligibility"] == "NO_ELEGIBLE")
+    pct = lambda a, b: round(100 * a / b, 1) if b else None
+    systemic = [f for f in FAMS if required and fam_ok[f] == 0]
+    if required and pending:
+        verdict, code = "BLOQUEADO — hay partidos confirmados y elegibles sin evaluación básica", 3
+    elif not required:
+        verdict, code = "RANKING PROVISIONAL RESTRINGIDO — no hay partidos confirmados y elegibles que evaluar", 4
+    elif len(sufficient) < len(required) or systemic:
+        verdict, code = ("RANKING PROVISIONAL RESTRINGIDO — limitación sistémica: "
+                         + (f"familias sin ningún mercado evaluable {systemic}; " if systemic else "")
+                         + f"{len(required) - len(sufficient)} partidos sin histórico suficiente"), 4
+    else:
+        verdict, code = "COBERTURA DE NIVEL 1 COMPLETA — ranking definitivo permitido, sujeto al Nivel 2", 0
+    return {
+        "raw_by_source": inv["meta"]["raw_counts"], "raw_duplicates_within_source": len(inv.get("raw_duplicates", [])),
+        "unique_matches": len(ms), "calendar_status": dict(cal),
+        "confirmed": cal["CONFIRMADO"], "not_confirmed": len(ms) - cal["CONFIRMADO"] - cal["DUPLICADO"],
+        "started_or_finished": started, "not_eligible_prematch": not_elig,
+        "required_confirmed_eligible": len(required), "processed": len(processed), "evaluated_sufficiently": len(sufficient),
+        "pending": len(pending), "pending_ids": [m["match_id"] for m in pending],
+        "coverage_matches_pct": pct(len(processed), len(required)), "coverage_matches_den": len(required),
+        "markets_denominator": den_markets, "markets_examined": examined, "markets_not_checked": notchk,
+        "markets_evaluable_or_partial": ok, "markets_not_evaluable": nonev,
+        "coverage_markets_pct": pct(examined, den_markets),
+        "candidates_detected": ok, "systemic_families_without_any_evaluable": systemic,
+        "problems": problems, "verdict": verdict, "exit_code": code}
+
+
+def render(r):
+    L = ["# Informe de cobertura", ""]
+    L.append("| Métrica | Valor | Denominador / nota |\n|---|---|---|")
+    L.append(f"| Registros brutos por fuente | {r['raw_by_source']} | duplicados dentro de fuente: {r['raw_duplicates_within_source']} |")
+    L.append(f"| Partidos únicos | {r['unique_matches']} | tras deduplicar |")
+    L.append(f"| Partidos confirmados | {r['confirmed']} | de {r['unique_matches']} únicos |")
+    L.append(f"| Partidos no confirmados | {r['not_confirmed']} | calendario: {r['calendar_status']} |")
+    L.append(f"| Iniciados/finalizados | {r['started_or_finished']} | no elegibles prepartido (todas las causas): {r['not_eligible_prematch']} |")
+    L.append(f"| Requieren evaluación (confirmados y elegibles) | {r['required_confirmed_eligible']} | base de la cobertura |")
+    L.append(f"| Procesados (evaluación básica o no evaluable con motivo) | {r['processed']} | de {r['coverage_matches_den']} = {r['coverage_matches_pct']}% |")
+    L.append(f"| Evaluados suficientemente (histórico obtenido) | {r['evaluated_sufficiently']} | de {r['coverage_matches_den']} |")
+    L.append(f"| Pendientes | {r['pending']} | {r['pending_ids'][:10]}{'…' if len(r['pending_ids']) > 10 else ''} |")
+    L.append(f"| Mercados examinados | {r['markets_examined']} | de {r['markets_denominator']} = {r['coverage_markets_pct']}% (NOT_CHECKED: {r['markets_not_checked']}) |")
+    L.append(f"| Mercados con evaluación parcial/evaluable (candidatos) | {r['markets_evaluable_or_partial']} | |")
+    L.append(f"| Mercados no evaluables | {r['markets_not_evaluable']} | familias sin ningún mercado evaluable: {r['systemic_families_without_any_evaluable']} |")
+    if r["problems"]:
+        L += ["", "Problemas de integridad:"] + [f"- {a}: {b}" for a, b in r["problems"]]
+    L += ["", f"**Veredicto de la puerta de cobertura: {r['verdict']}**"]
+    return "\n".join(L)
+
+
+def main(argv=None):
+    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("--run", required=True)
+    ap.add_argument("--json", action="store_true")
+    a = ap.parse_args(argv)
+    try:
+        r = compute(a.run)
+    except FileNotFoundError as e:
+        print(f"error: {e}", file=sys.stderr)
+        return 2
+    common.write_json_atomic(os.path.join(a.run, "coverage.json"), r)
+    text = render(r)
+    with open(os.path.join(a.run, "coverage_report.md"), "w", encoding="utf-8") as f:
+        f.write(text + "\n")
+    print(text)
+    return r["exit_code"]
+
+
+if __name__ == "__main__":
+    sys.exit(main())
