@@ -80,7 +80,7 @@ class Snapshots(unittest.TestCase):
     def test_snapshot_lines_are_appended_with_declared_probabilities(self):
         import json, tempfile, tickets
         tk = {"cuota_combinada_media": 1.25, "cuota_combinada_conservadora": 1.2, "p_mercado_conjunta": 0.8, "p_central_conjunta": 0.78, "ev_mercado": -0.11, "ev_central": -0.12,
-              "max_brecha_muestra_mercado": 0.2, "etiqueta_riesgo": "BAJO RIESGO (EV<0)", "direcciones": {"under": 1, "over": 0},
+              "max_brecha_muestra_mercado": 0.2, "etiqueta_riesgo": "RIESGO MEDIO (EV<0)", "direcciones": {"under": 1, "over": 0},
               "items": [{"patas": [{"partido": "A – B", "seleccion": "Menos de 4.5 goles", "cuota_media": 1.25, "cuota_tipo": "promedio_de_mercado", "prob_implicita_sin_margen": 0.8, "frec": [1.0, 0.9], "n": [10, 10], "inicio_utc": "2026-10-13T18:45:00Z"}]}]}
         out = {"targets": [{"name": "seguridad", "tickets": [tk]}], "patas_vetadas": [{"partido": "X – Y"}]}
         with tempfile.TemporaryDirectory() as d:

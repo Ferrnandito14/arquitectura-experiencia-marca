@@ -419,12 +419,14 @@ def p_central(leg, m=SHRINK_M):
 
 
 def risk_label(p_mercado, ev_mercado):
-    """Rótulo honesto del ticket (auditoría 13-oct: no llamar «seguridad» a un ×1.25 con 20 % de fallo y EV<0)."""
-    if p_mercado is None:
+    """Rótulo honesto del ticket por su probabilidad de pérdida (auditoría 13-oct: un ×1.25 con 20 % de fallo no es «seguridad», y un ×3 con 75 % de fallo
+    no es «bajo riesgo»). SEGURIDAD solo con P(mercado, sin margen) ≥ 85 % y EV ≥ 0."""
+    if p_mercado is None or ev_mercado is None:
         return "SIN PROBABILIDAD DE MERCADO (no evaluable)"
-    if p_mercado >= SAFE_P_MIN and ev_mercado is not None and ev_mercado >= 0:
+    if p_mercado >= SAFE_P_MIN and ev_mercado >= 0:
         return "SEGURIDAD"
-    return "BAJO RIESGO (EV<0)" if (ev_mercado is not None and ev_mercado < 0) else "RIESGO MEDIO/ALTO"
+    tier = "RIESGO MEDIO" if p_mercado >= 0.70 else ("RIESGO ALTO" if p_mercado >= 0.50 else "RIESGO MUY ALTO")
+    return f"{tier} (EV<0)" if ev_mercado < 0 else tier
 
 
 def apply_vetoes(legs, path):
@@ -798,6 +800,9 @@ def render(result):
     if fj.get("despues_de_utc") or fj.get("partidos_excluidos_manualmente"):
         L += [f"> **Filtros de jornada:** solo partidos que empiezan después de {fj.get('despues_de_utc')} ({fj.get('partidos_descartados_por_hora', 0)} partidos descartados por hora); excluidos a mano: {', '.join(fj.get('partidos_excluidos_manualmente') or []) or 'ninguno'}. "
               "Comprueba en tu casa que cada partido siga prepartido.", ""]
+    if result.get("filtro_relajado"):
+        L += [f"> # ⚠ FILTRO RELAJADO — NO RECOMENDADO\n> Estos borradores se generaron con una brecha muestra−mercado máxima de {result.get('max_brecha_usada')} (el estándar es {MAX_GAP}) **solo porque la persona usuaria pidió ver un ticket de este multiplicador**. "
+              "Con la brecha estándar no existe ningún borrador. La brecha grande es la señal que falló con Durban el 13-oct.", ""]
     _all = [tk for t in result["targets"] for tk in t["tickets"]]
     _evs = [tk["ev_mercado"] for tk in _all if tk.get("ev_mercado") is not None]
     if _all and (not _evs or max(_evs) < 0):
@@ -912,6 +917,7 @@ def main(argv=None):
     ap.add_argument("--exclude-match", action="append", default=[], help="«Local – Visitante» a excluir de todos los tickets (repetible), p. ej. el partido de otro ticket ya puesto")
     ap.add_argument("--only-profile", action="append", default=[], help="NOMBRE de perfil a generar (repetible): seguridad, amplio (las variantes champions siguen a --champions)")
     ap.add_argument("--relax-champions-once", action="store_true", help="EXPERIMENTO ÚNICO a pedido: añade un borrador solo-UEFA Champions League y una combinada Champions + otras ligas con filtros relajados SOLO para las patas de Champions (apoyo 0.40, piso por equipo 0.30, ≥4 partidos de los últimos 100 días, sin pares); el resto de reglas se mantiene")
+    ap.add_argument("--max-gap", type=float, default=None, help="brecha muestra−mercado máxima de las patas de TICKET (por defecto MAX_GAP=0.15). Subirla es una RELAJACIÓN explícita a petición de la persona usuaria: el ticket sale rotulado y no es recomendable")
     ap.add_argument("--champions", action="store_true", help="añade las variantes solo-UEFA Champions League (apoyo y piso por equipo relajados y rotulados)")
     a = ap.parse_args(argv)
     targets = DEFAULT_TARGETS
@@ -941,7 +947,7 @@ def main(argv=None):
     mixed_champ = [l for l in legs_all if l["history_kind"] not in SAME_COMPETITION_KINDS and "champions league" in (l.get("competicion") or "").lower()
                    and common.norm_name(l["partido"]) not in excluded_names]
     legs_tk = [l for l in legs if common.norm_name(l["partido"]) not in excluded_names]      # patas para TICKETS (sin los partidos excluidos a mano)
-    legs_tk, big_gap = drop_big_gap(legs_tk)                                                  # auditoría 13-oct: brecha muestra−mercado ≥ 15 pp = descarte, no «salvedad"
+    legs_tk, big_gap = drop_big_gap(legs_tk, a.max_gap)                                                  # auditoría 13-oct: brecha muestra−mercado ≥ 15 pp = descarte, no «salvedad"
     out = {"targets": [], "n_legs": len(legs), "n_priced_legs": sum(1 for l in legs if l["cuota_media"] is not None),
            "n_matches_with_legs": len({l["match_id"] for l in legs})}
     results = [dict(name=n, lo=lo, hi=hi, max_legs=mx, min_support=ms, buffer=bf) for n, lo, hi, mx, ms, bf in targets]
@@ -989,6 +995,8 @@ def main(argv=None):
     out["patas_vetadas"] = vetoed
     out["patas_vetadas_por_rotacion"] = vetoed_rot
     out["patas_descartadas_por_brecha"] = big_gap
+    out["max_brecha_usada"] = MAX_GAP if a.max_gap is None else a.max_gap
+    out["filtro_relajado"] = a.max_gap is not None and a.max_gap > MAX_GAP
     out["rotacion_disponible"] = has_rot
     out["favoritos"] = favorites_table(legs, a.run, rot_path)
     out["bloqueadas_por_calidad"] = gated

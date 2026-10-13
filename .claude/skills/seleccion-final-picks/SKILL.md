@@ -91,7 +91,7 @@ No simules visitas, herramientas ni conversaciones; no inventes datos, cuotas ni
 
 ### Reglas añadidas tras la auditoría del 13-oct-2026 (v2.5; informe completo: `runs/2026-10-13/AUDITORIA-agentes-y-modelo.md`)
 - **Un veto es vinculante:** una pata vetada (`vetoes.json`) no vuelve a ningún ticket para alcanzar un multiplicador. Si con los filtros no hay combinación en rango, el resultado es «sin ticket»; el rango nunca justifica relajar.
-- **Honestidad del rótulo:** «seguridad / casi seguro» solo si P(ticket, mercado) ≥ 85 % y EV ≥ 0; si no, «bajo riesgo (EV<0)». Todo borrador muestra su **P(pérdida)**. Cuota 1.25 = 20 % de fallo.
+- **Honestidad del rótulo:** «seguridad / casi seguro» solo si P(ticket, mercado) ≥ 85 % y EV ≥ 0; si no, «RIESGO MEDIO / ALTO / MUY ALTO (EV<0)» según P(mercado) ≥70 % / ≥50 % / <50 %. Todo borrador muestra su **P(pérdida)**. Cuota 1.25 = 20 % de fallo.
 - **Modo NO APOSTAR:** si el EV del mejor borrador es < 0 en el escenario de mercado, el informe abre con «NO APOSTAR» y los borradores se entregan como informativos.
 - **Diversificación:** máx. 1 pata repetida entre tickets del día y máx. 2 patas de la misma dirección (under u over) por ticket; los unders del mismo día comparten el régimen de goles.
 - **Alineaciones — la persona usuaria arma los picks HORAS antes:** NO se bloquea el ticket por falta de once. Se usa el **riesgo de rotación a priori** (descanso, competición europea/copa en ≤4 días, tasa de cambios de los últimos 4 once, fase de eliminatoria) que penaliza unders y patas de ganador del equipo con riesgo y rotula el borrador «PROVISIONAL por alineación»; a **T-60 min** se hace la revisión con el once real: MANTENER / DEBILITADA / SUSTITUIR por pata. «Ausente del once» ≠ baja.

@@ -132,8 +132,10 @@ class ProcessGates(unittest.TestCase):
 
     def test_risk_label_never_calls_negative_ev_safety(self):
         self.assertEqual(tickets.risk_label(0.90, 0.05), "SEGURIDAD")
-        self.assertEqual(tickets.risk_label(0.80, -0.11), "BAJO RIESGO (EV<0)")      # un ×1.25 con 20 % de fallo no es «seguridad»
-        self.assertEqual(tickets.risk_label(0.90, -0.02), "BAJO RIESGO (EV<0)")
+        self.assertEqual(tickets.risk_label(0.80, -0.11), "RIESGO MEDIO (EV<0)")      # un ×1.25 con 20 % de fallo no es «seguridad»
+        self.assertEqual(tickets.risk_label(0.90, -0.02), "RIESGO MEDIO (EV<0)" if False else "RIESGO MEDIO (EV<0)")
+        self.assertEqual(tickets.risk_label(0.28, -0.20), "RIESGO MUY ALTO (EV<0)")       # un ×3 con 72 % de fallo no es «bajo riesgo»
+        self.assertEqual(tickets.risk_label(0.55, -0.20), "RIESGO ALTO (EV<0)")
         self.assertIn("NO EVALUABLE".lower(), tickets.risk_label(None, None).lower().replace("no evaluable", "no evaluable"))
 
     def test_shrinkage_pulls_sample_toward_market_and_flags_big_gaps(self):
