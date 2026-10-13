@@ -61,6 +61,7 @@ class FootballDataHistory:
         self._aliases = {common.norm_name(k): v for k, v in raw_aliases.items()}      # claves normalizadas siempre
         self._index = None
         self._resolved = {}
+        self.needs_review = {common.norm_name(k): v for k, v in common.read_json(ALIASES_PATH, {}).get("needs_review", {}).items()}
 
     def _rows(self, div):
         if div not in self._cache:
@@ -235,9 +236,15 @@ def evaluate_match(match, provider, policy, now_iso):
             proxy = bool(getattr(provider, "is_proxy", lambda m: False)(match))
             if proxy:
                 pr = match["extra"]["proxy_resolution"]
+                weak = [f"{t} n={len(form[side])}" for side, t in (("local", match["home_team"]), ("visitante", match["away_team"])) if len(form[side]) < 8]
+                review = [k for k, v in getattr(provider, "needs_review", {}).items()
+                          if any(common.norm_name(match[t]) == k and pr[side][2] for t, side in (("home_team", "home"), ("away_team", "away")))]
                 note = (f"PROXY: forma de liga DOMÉSTICA, OTRA competición, de ≤{HISTORY_N} partidos por equipo, temporada en curso; "
                         f"local→{pr['home'][1]} ({pr['home'][0]}{', alias' if pr['home'][2] else ''}), visitante→{pr['away'][1]} ({pr['away'][0]}{', alias' if pr['away'][2] else ''}). "
-                        "NO es evidencia del partido (otra competición, rivales y contexto distintos) ni una muestra de temporada completa")
+                        "NO es evidencia del partido (otra competición, rivales y contexto distintos), mezcla partidos en casa y fuera, y no es una muestra de temporada completa; "
+                        "tarjetas = amarillas+rojas sin ponderar"
+                        + (f"; MUESTRA DÉBIL n<8: {', '.join(weak)}" if weak else "")
+                        + (f"; ALIAS SUJETO A REVISIÓN: {', '.join(review)}" if review else ""))
             else:
                 note = f"últimos ≤{HISTORY_N} partidos por equipo de la liga {match['extra'].get('div')}, temporada en curso: NO es una muestra de temporada completa"
         except ProviderUnavailable as e:
@@ -274,7 +281,7 @@ def evaluate_match(match, provider, policy, now_iso):
             "market_availability_status": "VERIFICADO_DISPONIBLE_EN_UNA_CASA" if have_price else "NOT_CHECKED",
             "statistics_availability_status": stats_status,
             "price_verification_status": "PRECIO_NO_CONFIRMADO" + (" (una sola casa vía agregador)" if have_price else ""),
-            "evaluation_status": ev, "not_evaluable_reason": reason,
+            "evaluation_status": ev, "not_evaluable_reason": reason, "proxy_sample": proxy,
             "sources_checked": [a["provider"] for a in attempts if a["resultado"].startswith(("consultada", "acceso fallido"))],
             "sources_not_consulted": [a["provider"] for a in attempts if a["resultado"].startswith(("no consultada", "sin cobertura"))],
             "last_updated": now_iso,

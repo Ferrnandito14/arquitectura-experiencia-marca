@@ -107,7 +107,17 @@ class ProxyEvaluation(unittest.TestCase):
         self.assertTrue(mk["price_verification_status"].startswith("PRECIO_NO_CONFIRMADO"))
         self.assertIsNone(mk["price"])
         self.assertEqual(e["markets"]["corners.total"]["evaluation_status"], "PARCIAL")
+        self.assertTrue(all(m["proxy_sample"] for m in e["markets"].values()))       # la marca vive en cada celda
+        self.assertIn("mezcla partidos en casa y fuera", e["sample_note"])
         self.assertEqual(e["markets"]["otros.fueras_de_juego"]["evaluation_status"], "NO_EVALUABLE")   # fuente abierta sin ese dato
+
+    def test_weak_sample_and_reviewable_alias_are_flagged_in_note(self):
+        p = prov(extra={"P1": csv_for("P1", ["Sp Lisbon"], n=5)})
+        p.needs_review = {"sporting": "alias global"}
+        e = self.ev(match("Lens", "Sporting"), p)
+        self.assertIn("MUESTRA DÉBIL n<8", e["sample_note"])
+        self.assertIn("Sporting n=5", e["sample_note"])
+        self.assertIn("ALIAS SUJETO A REVISIÓN: sporting", e["sample_note"])
 
     def test_alias_use_is_recorded_for_review(self):
         e = self.ev(match("Inter Milan", "Club Brugge"), prov(extra={"B1": csv_for("B1", ["Club Brugge"])}))
@@ -118,6 +128,7 @@ class ProxyEvaluation(unittest.TestCase):
         m = match("Arsenal", "Man United", comp="Premier League", div="E0")
         e = self.ev(m, prov())
         self.assertFalse(e["proxy_sample"])
+        self.assertFalse(any(m["proxy_sample"] for m in e["markets"].values()))
         self.assertEqual(e["markets"]["goles.btts"]["statistics_availability_status"], "SUFICIENTES")
 
     def test_uncovered_pair_stays_not_investigated(self):
