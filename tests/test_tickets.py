@@ -13,7 +13,7 @@ def avg(cuotas, n=5):
     return {"cuotas_medias": cuotas, "n_casas": n, "minmax": [[c, c] for c in cuotas], "casas": ["a"] * n}
 
 
-def ev(kind="apifootball_historial_propio", fh=None, fa=None, prices=None):
+def ev(kind="apifootball_misma_competicion", fh=None, fa=None, prices=None):
     return {"history_kind": kind, "form": {"local": fh or form(8), "visitante": fa or form(8, 0, 2)}, "markets": {}, "api_prices": prices or {}}
 
 
@@ -260,6 +260,43 @@ class AuditRules(unittest.TestCase):
     def test_team_floor_hides_weak_team(self):
         s = tickets._support(form(10, 2, 0), form(10, 2, 0), lambda h: True, lambda h: h["gf"] > 5)   # un equipo 10/10, el otro 0/10 → promedio 0.36 ≥ 0 pero mínimo ≈ 0
         self.assertIsNone(s) if s is None else self.assertLess(s["apoyo_min_equipo"], tickets.TEAM_FLOOR)
+
+
+class QualityGates(unittest.TestCase):
+    def _run_dir(self, corrections, kind):
+        import tempfile, common
+        d = tempfile.mkdtemp()
+        inv = {"matches": [dict(mm(0), analysis_required=True, competition="UEFA Champions League")]}
+        mx = {"matches": {"m0": ev(kind=kind, prices={"goles.over_1_5": avg([1.25, 4.0], n=6), "resultado.doble_oportunidad": avg([1.25, 1.5, 3.0], n=6)})}}
+        common.write_json_atomic(os.path.join(d, "inventory.json"), inv)
+        common.write_json_atomic(os.path.join(d, "matrix.json"), mx)
+        os.makedirs(os.path.join(d, "reviews_raw", "batch"))
+        common.write_json_atomic(os.path.join(d, "reviews_raw", "batch", "b01_analista-cuantitativo.json"),
+                                 {"agent": "analista-cuantitativo", "batch_id": "b01", "rows": [{"match_id": "m0", "review_status": "REVISADO", "corrections": corrections, "note": ""}]})
+        return d
+
+    def test_hard_flaw_blocks_only_the_affected_market(self):
+        d = self._run_dir(["Tarjetas 0/3: ceros sospechosos"], "apifootball_misma_competicion")
+        legs = tickets.collect_legs(d)
+        kept, gated = tickets.apply_quality_gate(legs, d)
+        self.assertTrue(gated and all(g["familia"] == "tarjetas" for g in gated))
+        self.assertTrue(any(l["mercado"] == "goles" for l in kept))
+        self.assertFalse(any(l["mercado"] == "tarjetas" for l in kept))
+
+    def test_flaw_without_market_blocks_whole_match(self):
+        d = self._run_dir(["denominador mayor que n: dato defectuoso"], "apifootball_misma_competicion")
+        kept, gated = tickets.apply_quality_gate(tickets.collect_legs(d), d)
+        self.assertEqual(kept, [])
+        self.assertEqual(gated[0]["familia"], "todo el partido")
+
+    def test_mixed_history_leaves_main_tickets_and_goes_to_champions_variant(self):
+        import json
+        d = self._run_dir([], "apifootball_historial_propio")
+        self.assertEqual(tickets.main(["--run", d, "--champions", "--target", "seg:1.20:1.28:1:0.5"]), 0)
+        out = json.load(open(os.path.join(d, "tickets.json")))
+        self.assertEqual(out["targets"][0]["tickets"], [])                      # principal: historial mixto no entra
+        self.assertTrue(out["excluidas_por_historial_mixto"] > 0)
+        self.assertTrue(any(r["tickets"] for r in out["targets"] if r["name"] == "seguridad_champions"))
 
 
 class NoAllEstimated(unittest.TestCase):

@@ -32,3 +32,8 @@ Todo lo siguiente sale de `inventory.json`, `state.json`, `coverage.json`, `batc
 - Tickets: patas con cuota real exigen ≥4 casas (rankings ≥3); calendario con 2 fuentes; sin juveniles/sub-23/reservas; un partido no puede estar en dos multiplicadores; ≥2 borradores por multiplicador.
 - Vetos del director en `vetoes.json` (18 entradas: 6 de Nivel 2, 2 de la revisión por lotes y 10 del auditor de ronda 2).
 - Variante `--champions` (solo UEFA Champions League, pisos relajados: apoyo 0.45, equipo 0.35) y ranking general por familia de multiplicador; no se propone ningún ticket sin al menos una cuota real.
+
+## Puertas de calidad aplicadas a los tickets (decisión de la persona usuaria)
+- Veracidad: 28 mercados bloqueados automáticamente por avisos graves de los agentes de lote (listados en `tickets.json` → `bloqueadas_por_calidad`).
+- Representatividad: 2679 patas con historial mixto fuera de los tickets y rankings principales; las de Champions van a las variantes `seguridad_champions` y `amplio_champions`.
+- Amplio: diversidad relajada (solape ≤60 %, pata repetida ≤3 veces) porque con historial de la misma competición hay pocas combinaciones.

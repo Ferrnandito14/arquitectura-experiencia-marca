@@ -14,6 +14,8 @@ NO es valor esperado ni probabilidad predictiva: apoyo = frecuencia descriptiva 
 apoyos entre partidos supone independencia. Contrastar con la cuota real y con el Nivel 2 (bajas, alineaciones, 2.ª fuente de calendario).
 """
 import argparse
+import glob
+import re
 import importlib.util
 import itertools
 import os
@@ -38,6 +40,7 @@ CHAMPIONS_TEAM_FLOOR = 0.35
 OK_KINDS = ("apifootball_misma_competicion", "apifootball_historial_propio", "football-data_misma_liga")
 MIN_N, MIN_BOOKS = 6, 3
 TEAM_FLOOR = 0.55        # revisión del auditor: el apoyo es el promedio de dos equipos y un 10/10 tapa al flojo; en tickets CADA equipo debe alcanzar este piso (8/10 → 0.49 no pasa)
+PROFILE_DIVERSITY = {"amplio": (0.6, 3)}      # (solape máx. de partidos entre borradores, veces máx. que se repite una pata): el amplio tiene pocas combinaciones y se piden varios
 TEAM_FLOOR_BY_PROFILE = {"amplio": 0.45}    # el perfil amplio acepta 8/10 por equipo (Wilson 0.49): relajado y rotulado; seguridad usa TEAM_FLOOR
 EXCLUDE_TICKET_SELECTIONS = ("Gana alguno, sin empate",)    # auditor ronda 2: las patas «12» salen con ~8 % de empates frente a 22–30 % de mercado (¿empate registrado como victoria en copas?): fuera de tickets hasta verificar marcadores a 90'
 MAX_LEG_REUSE = 2       # una misma pata (partido+selección) aparece como máximo en 2 borradores de un perfil (evita que un solo fallo hunda todos)
@@ -215,6 +218,54 @@ def apply_vetoes(legs, path):
     return out, removed
 
 
+# Puerta de calidad de DATOS (veracidad): avisos GRAVES de los agentes de lote sobre una cifra defectuosa bloquean de forma automática el mercado afectado
+# (o todo el partido si el aviso no nombra mercado). «Inflado por rivales débiles» o «el mercado discrepa» NO son defectos de veracidad: son señales de
+# representatividad y se tratan con la separación por tipo de historial.
+HARD_FLAW = re.compile(r"defectuos|sospechos|incoheren|denominador|duplicad|imposible|no cuadra|no es plausible|no plausible|descart|an[óo]mal", re.I)
+SAME_COMPETITION_KINDS = ("apifootball_misma_competicion", "football-data_misma_liga")
+
+
+def _flaw_families(text):
+    t = text.lower()
+    fams = set()
+    if "tarjeta" in t:
+        fams.add("tarjetas")
+    if "corner" in t or "córner" in t:
+        fams.add("córners")
+    if re.search(r"btts|ambos", t):
+        fams.add("ambos_anotan")
+    if re.search(r"1x2|doble oportunidad|h[áa]ndicap|favorito|victoria|\bdc\b", t):
+        fams.add("resultado")
+    if re.search(r"\bgoles|\bgf\b|\bga\b|\bover|\bunder|o\d\.\d|u\d\.\d", t):
+        fams.add("goles_total")
+    return fams or {"ALL"}
+
+
+def apply_quality_gate(legs, run):
+    """Quita las patas cuyo mercado tiene un aviso grave de veracidad en la revisión por lotes. Devuelve (patas, bloqueos)."""
+    block = {}
+    for f in sorted(glob.glob(os.path.join(run, "reviews_raw", "batch", "*.json"))):
+        d = common.read_json(f, [])
+        for r in (d if isinstance(d, list) else [d]):
+            for row in r.get("rows", []):
+                for c in row.get("corrections", []) or []:
+                    if HARD_FLAW.search(c):
+                        for fam in _flaw_families(c):
+                            block.setdefault(row["match_id"], {}).setdefault(fam, []).append(f"{str(r.get('agent', ''))[9:12]}: {c[:140]}")
+    out, gated, seen = [], [], set()
+    for l in legs:
+        b = block.get(l["match_id"])
+        fam = _family(l)
+        hit = (b.get("ALL") or b.get(fam)) if b else None
+        if hit:
+            if (l["match_id"], fam) not in seen:
+                seen.add((l["match_id"], fam))
+                gated.append({"partido": l["partido"], "familia": "todo el partido" if b.get("ALL") else fam, "aviso": hit[0]})
+        else:
+            out.append(l)
+    return out, gated
+
+
 def collect_legs(run):
     inv = common.read_json(os.path.join(run, "inventory.json"))
     mx = common.read_json(os.path.join(run, "matrix.json"), {"matches": {}})["matches"]
@@ -269,7 +320,9 @@ def _items(legs, min_support, with_pairs=True, require_calendar=False, exclude_c
     return items
 
 
-def search(legs, lo, hi, max_legs, min_support, top=5, pool=60, exclude=frozenset(), require_calendar=True, exclude_categories=EXCLUDE_TICKET_CATEGORIES, buffer=0.0, team_floor=TEAM_FLOOR):
+def search(legs, lo, hi, max_legs, min_support, top=5, pool=60, exclude=frozenset(), require_calendar=True, exclude_categories=EXCLUDE_TICKET_CATEGORIES, buffer=0.0, team_floor=TEAM_FLOOR, max_overlap=None, max_reuse=None):
+    max_overlap = MAX_OVERLAP if max_overlap is None else max_overlap
+    max_reuse = MAX_LEG_REUSE if max_reuse is None else max_reuse
     items = [i for i in _items(legs, min_support, require_calendar=require_calendar, exclude_categories=exclude_categories, team_floor=team_floor) if i["match_id"] not in exclude]
     items.sort(key=lambda i: (-i["apoyo"], -i["cuota"]))      # a igual apoyo (= igual riesgo), la cuota más alta
     best_per_match, cand = {}, []
@@ -304,7 +357,7 @@ def search(legs, lo, hi, max_legs, min_support, top=5, pool=60, exclude=frozense
     for r in res:                                       # borradores DISTINTOS: no repetir casi los mismos partidos
         ms = {x["match_id"] for x in r[3]}
         keys = {(l["match_id"], l["seleccion"]) for x in r[3] for l in x["patas"]}
-        if all(len(ms & t) / min(len(ms), len(t)) <= MAX_OVERLAP for t in taken) and all(reuse.get(k, 0) < MAX_LEG_REUSE for k in keys):
+        if all(len(ms & t) / min(len(ms), len(t)) <= max_overlap for t in taken) and all(reuse.get(k, 0) < max_reuse for k in keys):
             picked.append(r)
             taken.append(ms)
             for k in keys:
@@ -348,7 +401,7 @@ def top_picks(legs, top=15, min_attr_support=0.55):
         return out
     return {"seguridad": pick(lambda l: (-l["apoyo_conservador"], -l["cuota_media"]), lambda l: True),
             "atractivo": pick(lambda l: (-(l["ev_descriptivo_conservador"] or -9), -l["apoyo_conservador"]),
-                              lambda l: l["apoyo_conservador"] >= min_attr_support and l["ev_descriptivo_conservador"] is not None and l["ev_descriptivo_conservador"] > 0)}
+                              lambda l: l["apoyo_conservador"] >= min_attr_support and l["ev_descriptivo_conservador"] is not None)}
 
 
 def unpriced(legs, top=20, min_support=0.5):
@@ -405,6 +458,9 @@ def render(result):
          "TODOS los borradores de un perfil excluyen los partidos de TODOS los borradores de los perfiles anteriores: escojas el que escojas de cada multiplicador, no comparten partido. "
          "Dos patas del mismo partido solo entran con justificación medida (apoyo conjunto sobre los mismos partidos pasados). "
          "Las patas de los tickets exigen **calendario confirmado por dos fuentes independientes** (hora del partido) y excluyen categorías juvenil/sub-23/reserva (plantillas rotativas); los rankings top lo marcan en columnas.", ""]
+    L += [f"> **Puertas de calidad de datos.** (1) Veracidad: {len(result.get('bloqueadas_por_calidad', []))} mercados bloqueados automáticamente por avisos graves de los agentes (cifras defectuosas/imposibles/sospechosas). "
+          f"(2) Representatividad: {result.get('excluidas_por_historial_mixto', 0)} patas con historial MIXTO (otra competición, copas, pretemporada) quedan fuera de los tickets y rankings principales; "
+          "las de Champions pasan a las variantes `*_champions`, rotuladas de menor respaldo.", ""]
     L += _ranking_general(result)
     for t in result["targets"]:
         L += [f"## Perfil «{t['name']}»: ×{t['lo']}–{t['hi']} (≤{t['max_legs']} patas, apoyo mínimo por ítem {t['min_support']}, colchón {int(t.get('buffer', 0) * 100)} %) — {len(t['tickets'])} borradores", ""]
@@ -430,7 +486,7 @@ def render(result):
         rows = lambda lst: [f"| {i} | {p['partido']} ({p['competicion']}) | {p.get('categoria', 'men')}{' ⚠' if p.get('categoria', 'men') in EXCLUDE_TICKET_CATEGORIES else ''} | {p['inicio_utc']} | {'2 fuentes' if p.get('calendario_2_fuentes') else '1 fuente'} | {p['seleccion']}{' ✎est.' if p.get('cuota_tipo') == 'estimada_por_modelo' else ''} | {p['cuota_media']} ({p['minmax_casas'][0]}–{p['minmax_casas'][1]}, {p['n_casas']}) | "
                             f"{p['apoyo_conservador']} | {p['n'][0]}/{p['n'][1]} | {p['prob_implicita_sin_margen']} | {p['ev_descriptivo_conservador'] if p['ev_descriptivo_conservador'] is not None else '—'} |" for i, p in enumerate(lst, 1)]
         L += ["## Top de picks por SEGURIDAD (mayor apoyo conservador; una pata por partido)", ""] + hdr + rows(tp["seguridad"]) + [""]
-        L += ["## Top de picks por ATRACTIVO (rentabilidad-cuota: EV descriptivo conservador = apoyo × cuota − 1, apoyo ≥ 0.55)", ""] + hdr + rows(tp["atractivo"]) + [
+        L += ["## Top de picks por ATRACTIVO (rentabilidad-cuota: EV descriptivo conservador = apoyo × cuota − 1, apoyo ≥ 0.55; ordenado de mayor a menor; EV negativo = la estadística conservadora no cubre el precio)", ""] + hdr + rows(tp["atractivo"]) + [
               "", "*EV descriptivo conservador NO es valor esperado real: usa el límite inferior de frecuencias pasadas como «probabilidad», y al escoger lo mejor entre cientos de patas "
               "tiende a sobrestimar. Estos rankings acompañan a los tickets y no los reemplazan; pueden repetir partidos que estén en un ticket.*", ""]
     if result["unpriced"]:
@@ -476,16 +532,20 @@ def main(argv=None):
     legs = collect_legs(a.run)
     n_manual = apply_manual_odds(legs, a.manual_odds) if a.manual_odds else 0
     legs, vetoed = apply_vetoes(legs, os.path.join(a.run, "vetoes.json"))
+    legs, gated = apply_quality_gate(legs, a.run)
+    legs_all = legs
+    legs = [l for l in legs_all if l["history_kind"] in SAME_COMPETITION_KINDS]          # tickets y rankings PRINCIPALES: solo historial de la misma competición
+    mixed_champ = [l for l in legs_all if l["history_kind"] not in SAME_COMPETITION_KINDS and "champions league" in (l.get("competicion") or "").lower()]
     out = {"targets": [], "n_legs": len(legs), "n_priced_legs": sum(1 for l in legs if l["cuota_media"] is not None),
            "n_matches_with_legs": len({l["match_id"] for l in legs})}
     results = [dict(name=n, lo=lo, hi=hi, max_legs=mx, min_support=ms, buffer=bf) for n, lo, hi, mx, ms, bf in targets]
     if a.champions:
         results += [dict(name=n, lo=lo, hi=hi, max_legs=mx, min_support=ms, buffer=bf, solo_champions=True) for n, lo, hi, mx, ms, bf in CHAMPIONS_TARGETS]
     used, chosen = frozenset(), []
-    ucl = [l for l in legs if "uefa champions league" in (l.get("competicion") or "").lower()]
+    ucl = mixed_champ
     for r in results:                                   # perfiles en orden: el primero (seguridad) fija partidos que los demás NO pueden usar
         r_legs, r_floor = (ucl, CHAMPIONS_TEAM_FLOOR) if r.get("solo_champions") else (legs, TEAM_FLOOR_BY_PROFILE.get(r["name"], TEAM_FLOOR))
-        tk, npool = search(r_legs, r["lo"], r["hi"], r["max_legs"], r["min_support"], a.top, a.pool, exclude=used, buffer=r["buffer"], team_floor=r_floor)
+        tk, npool = search(r_legs, r["lo"], r["hi"], r["max_legs"], r["min_support"], a.top, a.pool, exclude=used, buffer=r["buffer"], team_floor=r_floor, **dict(zip(("max_overlap", "max_reuse"), PROFILE_DIVERSITY.get(r["name"], (None, None)))))
         r.update(pool=npool, tickets=tk)
         if tk:                                           # CUALQUIER borrador de un perfil queda excluido de los perfiles siguientes:
             used = used | {it["match_id"] for t_ in tk for it in t_["items"]}        # sea cual escojas de cada uno, no comparten partido
@@ -497,6 +557,8 @@ def main(argv=None):
     out["sin_partidos_repetidos_entre_principales"] = out["sin_partidos_repetidos_entre_perfiles"]
     out["cuotas_manuales_aplicadas"] = n_manual
     out["patas_vetadas"] = vetoed
+    out["bloqueadas_por_calidad"] = gated
+    out["excluidas_por_historial_mixto"] = len(legs_all) - len(legs)
     eligible = [l for l in legs if l.get("calendario_2_fuentes") and l.get("categoria", "men") not in EXCLUDE_TICKET_CATEGORIES
                 and (l.get("cuota_tipo") in ("estimada_por_modelo", "manual_usuario") or l.get("n_casas", 0) >= TICKET_MIN_BOOKS)]
     up = os.path.join(a.run, "user_tickets_eval.json")
