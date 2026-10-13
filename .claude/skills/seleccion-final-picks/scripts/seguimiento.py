@@ -53,6 +53,33 @@ def settle_handicap(h, a, lado, linea):
     return "win" if d > 0 else ("void" if d == 0 else "lose")
 
 
+def score90(e):
+    """Marcador a los 90' + descuento: si la API trae `match_hometeam_ft_score` (tiempo completo, sin prórroga ni penales) se usa ese; si no, el marcador general.
+    Las apuestas de goles/hándicap/1X2 se liquidan a 90'; la prórroga y los penales no cuentan."""
+    ft_h, ft_a = _int(e.get("match_hometeam_ft_score")), _int(e.get("match_awayteam_ft_score"))
+    if ft_h is not None and ft_a is not None:
+        return ft_h, ft_a
+    return score(e)
+
+
+def settle_handicap_quarter(h, a, lado, linea):
+    """Hándicap asiático con líneas de cuarto (±.25/.75): la apuesta se divide a partes iguales entre las dos líneas vecinas.
+    Devuelve 'win' | 'half_win' | 'void' | 'half_loss' | 'lose' (para líneas enteras o .5 equivale a settle_handicap)."""
+    if round(linea * 4) % 2 == 0:                     # línea entera o .5
+        return settle_handicap(h, a, lado, linea)
+    lo, hi = linea - 0.25, linea + 0.25
+    r = [settle_handicap(h, a, lado, lo), settle_handicap(h, a, lado, hi)]
+    if r == ["win", "win"]:
+        return "win"
+    if r == ["lose", "lose"]:
+        return "lose"
+    if "win" in r and "void" in r:
+        return "half_win"
+    if "lose" in r and "void" in r:
+        return "half_loss"
+    return "void"
+
+
 def provisional(final_fn, e, leg):
     """Para totales en juego: 'under' se pierde ya si supera la línea; 'over' se gana ya si la supera; si no, EN_JUEGO."""
     return None
@@ -146,7 +173,7 @@ def run(run_dir, fetch):
             if l["apif"] not in cache:
                 cache[l["apif"]] = fetch(l["apif"])
             st, det = eval_leg(l, cache[l["apif"]])
-            legs.append({**l, "estado": st, "detalle": det})
+            legs.append({**l, "estado": st, "detalle": det, "fin": bool(cache[l["apif"]]) and state(cache[l["apif"]]) == "finished"})
         out.append({"id": t["id"], "nombre": t["nombre"], "monto": t["monto"], "estado": ticket_status(legs), "patas": legs})
     return out
 
@@ -170,7 +197,7 @@ def write_all(run_dir, res):
         for t in res:
             for l in t["patas"]:
                 k = (t["id"], l["partido"], l["mercado"])
-                if l["estado"] in ("ACERTADA", "FALLADA", "ANULADA") and k not in seen:
+                if l["estado"] in ("ACERTADA", "FALLADA", "ANULADA") and l.get("fin") and k not in seen:     # auditoría 13-oct: solo con el partido FINALIZADO (un gol anulado dejó un «2-0 ACERTADA» falso)
                     f.write(json.dumps({"ticket": t["id"], "partido": l["partido"], "mercado": l["mercado"], "cuota": l["cuota"],
                                         "resultado": l["estado"], "detalle": l["detalle"]}, ensure_ascii=False) + "\n")
     return "\n".join(L)

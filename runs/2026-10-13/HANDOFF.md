@@ -34,3 +34,11 @@
 - Canal de avisos: Monitor con `tail -F vigilancia.log`, expira cada 30 min → re-armar. Respaldo: send_later 19:10, 19:30, 20:05, 20:45, 21:15 UTC; tras 21:15 programar 00:40, 01:40, 04:10 (Athletic 22:30Z, Bucaramanga 23:30Z, San Carlos 02:00Z del 14).
 - Fernando dio permiso explícito de seguimiento en vivo. Avisar solo cambios (gol, pata decidida, roja, ticket perdido/ganado), con efecto por ticket (C y D comparten Arsenal–Lille y Viking–Bayern).
 - Pendiente: lectura de alineaciones Champions (~18:00Z), informe de cierre (por pata, tasa de éxito, calibración mercado vs resultado), actualizar MANIFIESTO/RESOLUCION/paquete dist, recordatorio 26-oct, él quiere añadir cosas a agentes/modelos (no especificado).
+
+## ESTADO AL CIERRE DEL 13-oct (noche) — leer primero tras compactar
+- Todos los tickets del 13-oct se perdieron (sistema 3/7 patas; ticket propio de la persona usuaria 4/5). Auditoría completa: `runs/2026-10-13/AUDITORIA-agentes-y-modelo.md`; registro final por pata: `seguimiento/registro_resultados.jsonl`.
+- La persona usuaria aprobó TODAS las correcciones salvo «sin once no hay ticket»: arma los picks HORAS antes; se usa riesgo de rotación a priori y revisión a T-60 (`lineup_check.py`).
+- Implementado y probado (258 pruebas): reglas nuevas en los 4 agentes y en SKILL.md; `tickets.py` (dirección, rótulo, P(pérdida), EV, NO APOSTAR, P central, snapshots); `league_sample.py`, `rotation_risk.py`, `lineup_check.py`, `calibracion.py`; seguimiento (cuarto de línea, marcador a 90', registro solo finalizado); tarjetas (2.ª amarilla = 2; suplentes que no jugaron no cuentan). TTL 60 s de `apif_query.py`; tope de consultas de agentes 250 (autorizado).
+- Pendiente: integrar rotación a priori en `tickets.py`; mercados de ganador del favorito con filtro de dominancia; ejecutar `league_sample.py` por liga antes de cada jornada; la persona usuaria quería añadir cosas a agentes/modelos (sin especificar). Preferencias: hora de CARACAS siempre; respuestas simples cuando lo pide; tablas; alegría al dar buenas noticias y claridad en las malas; ya NO quiere avisos de pulso salvo que los pida.
+- Clave de apifootball: se pegó en el chat; guardada fuera del repo en el scratchpad (`probe/key.txt`). PEDIR que la regenere al terminar y no usarla después. Recordatorio 26-oct (trig_01Ta32gFygrV1tt1moSw9Y1s): no hablar del plan de apifootball antes.
+

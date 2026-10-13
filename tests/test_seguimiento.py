@@ -63,3 +63,38 @@ class T(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class Liquidacion(unittest.TestCase):
+    def test_quarter_line_handicap(self):
+        # visitante +0.25: empate = media derrota? no: +0.25 = mitad en +0 (devolución en empate) y mitad en +0.5 (gana) → media victoria en el empate
+        self.assertEqual(s.settle_handicap_quarter(1, 1, "away", 0.25), "half_win")
+        self.assertEqual(s.settle_handicap_quarter(2, 1, "away", 0.25), "lose")
+        self.assertEqual(s.settle_handicap_quarter(0, 1, "away", 0.25), "win")
+        # visitante -0.25: empate = media derrota
+        self.assertEqual(s.settle_handicap_quarter(1, 1, "away", -0.25), "half_loss")
+        # líneas .5 y enteras no cambian
+        self.assertEqual(s.settle_handicap_quarter(3, 0, "away", 2.5), "lose")
+        self.assertEqual(s.settle_handicap_quarter(2, 0, "away", 2.0), "void")
+
+    def test_score_at_90_ignores_extra_time(self):
+        e = {"match_hometeam_score": "2", "match_awayteam_score": "1", "match_hometeam_ft_score": "1", "match_awayteam_ft_score": "1"}
+        self.assertEqual(s.score90(e), (1, 1))
+        self.assertEqual(s.score90({"match_hometeam_score": "2", "match_awayteam_score": "1"}), (2, 1))
+
+
+class RegistroSoloFinalizado(unittest.TestCase):
+    def test_log_only_written_when_match_finished(self):
+        import json, tempfile
+        with tempfile.TemporaryDirectory() as d:
+            os.makedirs(os.path.join(d, "seguimiento"))
+            spec = {"tickets": [{"id": "T", "nombre": "t", "monto": 1, "patas": [{"mid": "m", "apif": "1", "partido": "A – B", "mercado": "total", "op": "over", "linea": 1.5, "cuota": 1.3}]}]}
+            with open(os.path.join(d, "seguimiento", "tickets_abiertos.json"), "w", encoding="utf-8") as f:
+                json.dump(spec, f)
+            live = lambda mid: ev(1, 1, "54")                 # 2 goles en juego: cumplida PROVISIONAL, no se registra
+            s.write_all(d, s.run(d, live))
+            reg = os.path.join(d, "seguimiento", "registro_resultados.jsonl")
+            self.assertFalse(os.path.exists(reg) and open(reg).read().strip())
+            fin = lambda mid: ev(1, 1)                        # finalizado
+            s.write_all(d, s.run(d, fin))
+            self.assertEqual(len(open(reg).read().strip().splitlines()), 1)

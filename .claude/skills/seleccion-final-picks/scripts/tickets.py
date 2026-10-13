@@ -14,6 +14,7 @@ NO es valor esperado ni probabilidad predictiva: apoyo = frecuencia descriptiva 
 apoyos entre partidos supone independencia. Contrastar con la cuota real y con el Nivel 2 (bajas, alineaciones, 2.ª fuente de calendario).
 """
 import argparse
+import json
 import glob
 import re
 import importlib.util
@@ -772,6 +773,25 @@ def render(result):
     return "\n".join(L)
 
 
+def write_snapshots(run, out, now_iso=None):
+    """snapshots.jsonl (auditoría 13-oct): una línea por borrador con lo que el sistema DECLARÓ al proponerlo (probabilidades, cuotas, brecha, rótulo, direcciones, vetos
+    vigentes) para poder calibrar después con `calibracion.py`; no se sobrescribe, se añade."""
+    import datetime
+    now_iso = now_iso or datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    n = 0
+    with open(os.path.join(run, "snapshots.jsonl"), "a", encoding="utf-8") as f:
+        for t in out.get("targets", []):
+            for i, tk in enumerate(t["tickets"], 1):
+                f.write(json.dumps({"ts_utc": now_iso, "perfil": t["name"], "borrador": i, "cuota_media": tk["cuota_combinada_media"], "cuota_conservadora": tk["cuota_combinada_conservadora"],
+                                    "p_mercado": tk.get("p_mercado_conjunta"), "p_central": tk.get("p_central_conjunta"), "ev_mercado": tk.get("ev_mercado"), "ev_central": tk.get("ev_central"),
+                                    "max_brecha": tk.get("max_brecha_muestra_mercado"), "etiqueta": tk.get("etiqueta_riesgo"), "direcciones": tk.get("direcciones"),
+                                    "n_vetos_vigentes": len(out.get("patas_vetadas", [])),
+                                    "patas": [{"partido": l["partido"], "seleccion": l["seleccion"], "cuota": l["cuota_media"], "tipo_cuota": l.get("cuota_tipo"), "p_mercado": l.get("prob_implicita_sin_margen"),
+                                               "frec": l.get("frec"), "n": l.get("n"), "inicio_utc": l.get("inicio_utc")} for it in tk["items"] for l in it["patas"]]}, ensure_ascii=False) + "\n")
+                n += 1
+    return n
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--run", required=True)
@@ -874,6 +894,7 @@ def main(argv=None):
             w_.writerow([h_, a_, u["seleccion"], "", u["mercado"], u["apoyo_conservador"], u["cuota_equilibrio_minima"]])
     out["top_picks"] = top_picks(eligible)
     common.write_json_atomic(os.path.join(a.run, "tickets.json"), out)
+    write_snapshots(a.run, out)
     text = render(out)
     with open(os.path.join(a.run, "tickets.md"), "w", encoding="utf-8") as f:
         f.write(text + "\n")
