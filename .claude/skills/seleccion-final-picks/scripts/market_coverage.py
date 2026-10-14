@@ -35,15 +35,48 @@ RESULTADOS = ("encontrado", "consultado_no_encontrado", "fuente_no_ofrece", "no_
 CANAL_DATOS = "datos_deportivos"
 MAX_LEG_ODDS = 2.10          # límite individual de cuota por pata (decisión de la persona usuaria)
 MIN_N = tickets.MIN_N
-# Nivel de validación declarado del modelo propio: se actualiza SOLO cuando un backtest fuera de muestra lo justifique (docs/BACKTEST-modelo-pata-v0.md).
-MODEL_VALIDATION = {"nivel": "insuficiente", "referencia": "docs/BACKTEST-modelo-pata-v0.md",
-                    "motivo": "backtest de 1 día (n=114), no supera al mercado y con posible fuga de cuotas: no basta para usar sus probabilidades como decisión"}
+# Nivel de validación declarado del modelo propio: lo escribe `backtest_modelo.py --write-validation data/model_validation.json` (política declarada en POLICY); sin ese archivo,
+# o mientras ningún backtest lo justifique, es «insuficiente». Nunca se sube a mano.
+MODEL_VALIDATION = {"nivel": "insuficiente", "referencia": "docs/BACKTEST-modelo-v1.md", "familias": {}, "blend_weight": None,
+                    "motivo": "sin backtest vigente: ningún modelo se considera validado"}
+_VALIDATION_FILE = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", "..", "data", "model_validation.json"))
+
+
+def load_model_validation(path=_VALIDATION_FILE):
+    if os.path.exists(path):
+        try:
+            v = common.read_json(path)
+            MODEL_VALIDATION.update({k: v[k] for k in ("nivel", "familias", "motivo", "referencia", "generado_utc") if k in v})
+            MODEL_VALIDATION["blend_weight"] = v.get("blend_weight")
+        except (OSError, ValueError):
+            pass
+    return MODEL_VALIDATION
+
+
+load_model_validation()
+# Familia de validación (backtest_modelo.py) de cada capacidad del catálogo; las no probadas (DNB, hándicaps, 1.ª parte) no tienen familia => no validadas.
+VALIDATION_FAMILY = {"1x2": "1x2", "dc": "dc", "goals_total": "goals_total", "btts": "btts", "team_goals": "team_goals", "count:corners": "corners_total", "count:cards": "cards_total"}
+
+
+def validation_level(entry):
+    """Nivel de validación del estimador de esta entrada: el de su familia en el backtest; sin familia (no probada) o sin archivo, el global."""
+    fam = VALIDATION_FAMILY.get(entry.get("model"))
+    fams = MODEL_VALIDATION.get("familias") or {}
+    if fam and fam in fams:
+        return fams[fam]["nivel"]
+    return "no_evaluada" if fams and entry.get("model") else MODEL_VALIDATION["nivel"]
 
 
 CHANNEL_SEMANTICS = {
     "datos": "encontrado = el historial obtenido por una consulta externa REGISTRADA contiene el campo que el mercado necesita en ≥1 fila; consultado_no_encontrado = el campo falta en todas las filas; "
              "NO significa estadística suficiente (analítica) ni que el mercado/línea concreto se consultara en una fuente externa",
     "precios": "encontrado = la fuente, consultada para este partido, devolvió precio; consultado_no_encontrado = consultada sin precio; fuente_no_ofrece = la fuente no publica el mercado; pendiente = sin constancia de consulta o adaptador sin mapear"}
+
+
+# ── ¿el estimador está validado? ──
+def model_validated(entry):
+    """True solo con validación suficiente (de su familia, o global): un modelo no validado nunca habilita recomendar."""
+    return MODEL_VALIDATION["nivel"] == "suficiente" or validation_level(entry) == "suficiente"
 
 
 # ── helpers de datos deportivos ──
@@ -59,20 +92,41 @@ def _field_present(h, field):
 
 
 def _probe_model_keys():
-    rows = [{"gf": 1, "ga": 1, "venue": "local"}] * 8
-    return set(leg_model.model_probs(rows, rows, 1.3, 1.1).keys())
+    """Claves que los modelos propios devuelven DE VERDAD (no las que prometa la documentación): leg_model.model_probs y count_model.model_probs."""
+    import count_model
+    rows = [{"gf": 1, "ga": 1, "venue": "local", "ht_goals": (1, 0)}] * 8
+    keys = set(leg_model.model_probs(rows, rows, 1.3, 1.1, share=0.45).keys())
+    crows = [{"venue": "local", "own": 5, "opp": 4}] * 8
+    st = {"mu": 5.0, "adv": 1.1, "r_total": None, "r_team": None, "n": 100}
+    for name, tl, ml in (("corners", count_model.CORNER_TOTAL, count_model.CORNER_TEAM), ("cards", count_model.CARD_TOTAL, count_model.CARD_TEAM)):
+        keys |= set(count_model.model_probs(name, crows, crows, st, tl, ml))
+    return keys
 
 
 def model_key(entry, keys):
-    m = entry.get("model")
+    """Clave de salida del modelo propio que cubre la entrada, o None si ningún modelo la calcula."""
+    m, d, ln = entry.get("model"), entry.get("direction"), entry.get("line")
     if m == "1x2":
-        k = {"home": "p1", "draw": "px", "away": "p2"}[entry["direction"]]
+        k = {"home": "p1", "draw": "px", "away": "p2"}[d]
     elif m == "dc":
-        k = {"1x": "1x", "x2": "x2", "12": "12"}[entry["direction"]]
+        k = {"1x": "1x", "x2": "x2", "12": "12"}[d]
     elif m == "goals_total":
-        k = f"over_{entry['line']}"
+        k = f"over_{ln}"
     elif m == "btts":
         k = "btts"
+    elif m == "dnb":
+        k = f"dnb_{d}"
+    elif m == "handicap":
+        k = f"ah_{d}_{ln:+.1f}"
+    elif m == "team_goals":
+        k = f"{entry['scope']}_over_{ln}"
+    elif m == "half_1x2":
+        k = {"home": "ht_p1", "draw": "ht_px", "away": "ht_p2"}[d]
+    elif m == "half_total":
+        k = f"ht_over_{ln}"
+    elif m in ("count:corners", "count:cards"):
+        name = m.split(":")[1]
+        k = f"{name}_{'total' if entry['scope'] == 'match' else entry['scope']}_over_{ln}"
     else:
         return None
     return k if k in keys else None
@@ -223,11 +277,13 @@ def _datos_status(entry, atoms_by_label, ev, home, away):
 
 
 def _estimator_status(entry, keys, ev):
+    """calculable = existe estimador propio Y hay datos del campo que necesita; datos_insuficientes = hay estimador pero faltan datos; no_implementado = ningún modelo lo calcula."""
     k = model_key(entry, keys)
     if k is None:
         return "no_implementado", None
     f = (ev or {}).get("form") or {}
-    ok = lambda rows: sum(1 for r in rows if r.get("gf") is not None and r.get("ga") is not None) >= MIN_N
+    need = entry["data_requirements"]
+    ok = lambda rows: sum(1 for r in rows if all(_field_present(r, x) for x in need)) >= MIN_N
     return ("calculable" if ok(f.get("local", [])) and ok(f.get("visitante", [])) else "datos_insuficientes"), k
 
 
@@ -271,7 +327,7 @@ def build_records(matches, ev_by_id, providers=(), catalog=None, contexts=None):
             est, mk = _estimator_status(e, keys, ev)
             rows.append({"match_id": m["match_id"], "partido": f"{home} – {away}", "entry_id": e["id"], "family": e["family"], "market": e["market"], "line": e["line"],
                          "investigacion": {"canales": canales, "resuelta": all(c["resultado"] != "pendiente" and c["evidencia"] for c in canales)},
-                         "analitica": {"datos": datos, "datos_n": n, "estimador": est, "clave_modelo": mk, "validacion": MODEL_VALIDATION["nivel"] if est != "no_implementado" else None},
+                         "analitica": {"datos": datos, "datos_n": n, "estimador": est, "clave_modelo": mk, "validacion": validation_level(e) if est != "no_implementado" else None},
                          "precio": _pricing(m, e, providers, found, failed)})
             if contexts and e["data_requirements"][0] in ("corners", "cards_pts"):
                 ml = (contexts.get(m["match_id"]) or {}).get("muestra_liga") or {}
@@ -444,7 +500,7 @@ def row_readiness(row):
                        "cuota_dentro_del_limite": p.get("cumple_limite") is True,
                        "datos_suficientes": a["datos"] == "suficientes",
                        "estimador_propio_disponible": a["estimador"] == "calculable",
-                       "modelo_validado": MODEL_VALIDATION["nivel"] == "suficiente"})
+                       "modelo_validado": model_validated(mc.BY_ID.get(row["entry_id"], {}))})
 
 
 def ticket_readiness(tk, investigacion_certificada=False):

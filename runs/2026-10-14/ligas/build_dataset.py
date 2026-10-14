@@ -5,7 +5,10 @@ import argparse, json, os, sys
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", ".claude", "skills", "seleccion-final-picks", "scripts"))
 import leg_model as L, market_coverage as MC, rotation_risk as R, tickets as T  # noqa: E402
 
-MAX_ODDS, W_MODEL = MC.MAX_LEG_ODDS, 0.2
+MAX_ODDS = MC.MAX_LEG_ODDS
+# Sin ponderación arbitraria: la mezcla modelo/mercado solo existe si un backtest validó un peso (data/model_validation.json -> blend_weight); si no, p_central = probabilidad del MERCADO sin margen
+# (referencia) y la del modelo se muestra APARTE como segunda opinión no validada.
+W_MODEL = MC.MODEL_VALIDATION.get("blend_weight") or 0.0
 _ap = argparse.ArgumentParser(description=__doc__)
 _ap.add_argument("--run", default="runs/2026-10-14", help="carpeta del run (inventory.json, matrix.json, rotation.json y ligas/partidos_usuario.json + ligas/ids.json)")
 RUN = _ap.parse_args().run
@@ -53,7 +56,7 @@ for lg, h, a, hora, o1x2, line, ou in P:
         if pen == "rebajar":
             pc -= 0.05
         legs.append({"seleccion": sel, "cuota": odds, "tipo_precio": "su casa (captura)", "p_mercado": round(pm, 4), "p_modelo": None if pmod is None else round(pmod, 4),
-                     "p_central": round(pc, 4), "brecha": None if pmod is None else round(pmod - pm, 3), "ev_central": round(pc * odds - 1, 3), "ev_mercado": round(pm * odds - 1, 3),
+                     "p_central": round(pc, 4), "p_central_metodo": ("mercado sin margen (modelo no validado: sin mezcla)" if not W_MODEL else f"mezcla validada w={W_MODEL}"), "brecha": None if pmod is None else round(pmod - pm, 3), "ev_central": round(pc * odds - 1, 3), "ev_mercado": round(pm * odds - 1, 3),
                      "rotacion": pen, "direccion": direction})
     add(f"Gana {h}", o1x2[0], q3[0], mp and mp["p1"], "win", "home")
     add("Empate", o1x2[1], q3[1], mp and mp["px"], "draw")

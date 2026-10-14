@@ -158,9 +158,9 @@ class ApifootballOddsProvider(PriceProvider):
             try:
                 with open(base + ".meta.json", encoding="utf-8") as fh:
                     import datetime as _dt
-                    ts = _dt.datetime.fromtimestamp(json.load(fh)["fetched_epoch"], _dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+                    cache_ts = _dt.datetime.fromtimestamp(json.load(fh)["fetched_epoch"], _dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
             except (OSError, ValueError, KeyError):
-                pass
+                cache_ts = None
             try:
                 with open(path, encoding="utf-8") as fh:
                     body = json.load(fh)
@@ -169,12 +169,13 @@ class ApifootballOddsProvider(PriceProvider):
             if not isinstance(body, list):
                 continue
             qs = parse_qs(urlparse(url).query)
-            self.queries.append({"url": url, "ts": ts, "cache": os.path.relpath(path, run), "from": (qs.get("from") or [None])[0], "to": (qs.get("to") or [None])[0],
+            self.queries.append({"url": url, "ts": ts, "cache_utc": cache_ts, "cache": os.path.relpath(path, run), "from": (qs.get("from") or [None])[0], "to": (qs.get("to") or [None])[0],
                                  "match_id": (qs.get("match_id") or [None])[0], "filas": len(body)})
             for r in body:                                                 # misma casa y partido en varias consultas: se conserva la fila más reciente
                 k = (str(r.get("match_id")), r.get("odd_bookmakers"))
                 if k not in rows or str(r.get("odd_date", "")) > str(rows[k].get("odd_date", "")):
                     rows[k] = r
+        self.rows = rows                                                   # {(match_id, casa): fila cruda más reciente}: el backtest filtra por odd_date < inicio del partido
         self.last_odd = {}
         for (mid, _), r in rows.items():
             self.last_odd[mid] = max(self.last_odd.get(mid, ""), str(r.get("odd_date", "")))

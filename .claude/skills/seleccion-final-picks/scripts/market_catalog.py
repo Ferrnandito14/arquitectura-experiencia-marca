@@ -114,6 +114,20 @@ def build_catalog():
                 C.append(_e(f"{key}.equipo.{scope}.over.{L}", fam[key], market, scope, "{" + scope + "}: más de " + f"{L} {nm}", line=L, direction="over", stats="atoms"))
                 C.append(_e(f"{key}.equipo.{scope}.under.{L}", fam[key], market, scope, "{" + scope + "}: menos de " + f"{L} {nm}", line=L, direction="under", stats="atoms"))
     C.append(_e("otros.fueras_de_juego.total", "otros", "fueras de juego", "match", "Fueras de juego totales"))
+    for e in C:                                                    # capacidad de los modelos propios (leg_model.py / count_model.py); None = sin estimador
+        i = e["id"]
+        if i.startswith("resultado.dnb."):
+            e["model"] = "dnb"
+        elif i.startswith("goles.equipo."):
+            e["model"] = "team_goals"
+        elif i.startswith("primera_parte.1x2."):
+            e["model"] = "half_1x2"
+        elif i.startswith("primera_parte.total."):
+            e["model"] = "half_total"
+        elif i.startswith("corners."):
+            e["model"] = "count:corners"
+        elif i.startswith("cards_pts."):
+            e["model"] = "count:cards"
     return C
 
 
