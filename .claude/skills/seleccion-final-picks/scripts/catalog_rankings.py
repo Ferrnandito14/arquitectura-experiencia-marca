@@ -95,8 +95,10 @@ def agent_status(units, reports, reviewed=None):
             st = f"rechazada:{why}" if why else (f"degradada:{soft}" if soft else (f"objetada:{','.join(obj)}" if obj else "aprobada"))
             if reviewed is not None and st in ("aprobada",) or (reviewed is not None and st.startswith("objetada")):
                 pr = e["precio"]
-                if reviewed.get((u["match_id"], e["id"])) != (pr["estado"], pr["cuota"], pr["fuente"]):
-                    st = "precio_nuevo_sin_revisar"          # los agentes revisaron otro precio (o ninguno) para esta entrada
+                rv = reviewed.get((u["match_id"], e["id"]))
+                # la aprobación cubre el MISMO tipo de precio y la MISMA fuente; una cuota que se mueve (refresco de precios) no la invalida, pero se avisa si cambió mucho (ver `cuota_revisada`)
+                if rv is None or (rv[0], rv[2]) != (pr["estado"], pr["fuente"]):
+                    st = "precio_nuevo_sin_revisar"          # los agentes revisaron otro tipo/fuente de precio (o ninguno) para esta entrada
             out[(uid, e["id"])] = st
     return out
 
@@ -110,7 +112,7 @@ def _limite(odds, p):
     return "sin_precio_justa_ok" if 1 / p <= MAX_LEG_ODDS else "sin_precio_justa_excede"
 
 
-def legs_from_units(units, status=None):
+def legs_from_units(units, status=None, reviewed=None):
     """Una pata por (partido, entrada) del catálogo, con TODOS los hechos y los motivos que la excluyen de combinadas."""
     status = status or {}
     legs = []
@@ -137,7 +139,7 @@ def legs_from_units(units, status=None):
                          "etiqueta": mc.BY_ID[e["id"]]["label"].replace("{home}", teams[0]).replace("{away}", teams[-1]), "direccion": e["direccion"], "linea": e["linea"], "alcance": e["alcance"], "hora_utc": u.get("hora_utc"), "liga": u.get("liga"),
                          "cuota": odds, "precio_estado": pr["estado"], "precio_tipo": PRICE_OK.get(pr["estado"]), "fuente_precio": pr["fuente"], "observado_utc": pr.get("observado_utc"), "n_casas": pr.get("n_casas"), "limite_2_10": _limite(odds, p),
                          "p_modelo": p, "brecha_vs_precio": gap, "cuota_minima_justa": None if not p else round(1 / p, 3), "ev_teorico": None if (p is None or odds is None) else round(p * odds - 1, 3),
-                         "datos": e["datos"], "validacion": e["validacion"], "modelo_validado": cov.model_validated(mc.BY_ID[e["id"]]), "agentes": st, "motivos_exclusion": motivos})
+                         "cuota_revisada": ((reviewed or {}).get((u["match_id"], e["id"])) or (None, None, None))[1], "datos": e["datos"], "validacion": e["validacion"], "modelo_validado": cov.model_validated(mc.BY_ID[e["id"]]), "agentes": st, "motivos_exclusion": motivos})
     return legs
 
 
@@ -343,7 +345,8 @@ def main(argv=None):
     ids = sorted(set(common.read_json(a.ids).values())) if a.ids else None
     units, s = ar.build_units(a.run, ids, tuple(a.capture) if a.capture else None)
     reports = ar.load_reports(a.run)
-    legs = legs_from_units(units, agent_status(units, reports, reviewed_prices(a.run)))
+    rev_prices = reviewed_prices(a.run)
+    legs = legs_from_units(units, agent_status(units, reports, rev_prices), rev_prices)
     targets = tuple((n, float(lo), float(hi), int(k)) for n, lo, hi, k in (t.split(":") for t in a.targets.split(","))) if a.targets else DEFAULT_TARGETS
     res = {"run": a.run, "banner": cov.banner(s), "investigacion_certificada": s["investigacion_certificada"], "politica": POLICY, "resumen": summary(legs),
            "rankings": build_rankings(legs), "combinadas": build_combos(legs, s["investigacion_certificada"], targets)}

@@ -8,12 +8,12 @@ Nada de esto es una recomendación: el modelo propio no está validado y las pro
 
 {
  "patas_catalogo": 11084,
- "elegibles_para_combinadas": 316,
+ "elegibles_para_combinadas": 320,
  "por_motivo_de_exclusion": {
-  "brecha_modelo_vs_precio": 494,
-  "cuota_sobre_2.1": 1786,
+  "brecha_modelo_vs_precio": 485,
+  "cuota_sobre_2.1": 1785,
   "degradada:deportivo:BAJA": 2023,
-  "elegible": 316,
+  "elegible": 320,
   "rechazada:auditor:descartar_de_rankings": 28,
   "rechazada:auditor:verificar_manualmente": 421,
   "rechazada:cuantitativo:datos_insuficientes": 66,
@@ -22,11 +22,11 @@ Nada de esto es una recomendación: el modelo propio no está validado y las pro
   "rechazada:verificador:discrepancia_de_la_unidad": 93,
   "rechazada:verificador:no_verificable": 900,
   "sin_estimador_propio": 6651,
-  "sin_precio": 7054
+  "sin_precio": 7056
  },
  "por_precio": {
-  "otra_fuente": 3860,
-  "sin_precio": 7050,
+  "otra_fuente": 3858,
+  "sin_precio": 7052,
   "real_verificada": 170,
   "no_verificable": 4
  },
@@ -45,30 +45,30 @@ Nada de esto es una recomendación: el modelo propio no está validado y las pro
 
 ### x1.2 (cuota 1.2–1.28, hasta 2 patas; evaluadas 1176)
 
-**#1** cuota ×1.25 · P(modelo) 89.5% · P(pérdida) 10.5% · agentes: APROBADA · apta: NO_APTA (falta: precio_real_verificado, modelo_validado)
+**#1** cuota ×1.265 · P(modelo) 89.5% · P(pérdida) 10.5% · agentes: APROBADA · apta: NO_APTA (falta: precio_real_verificado, modelo_validado)
 _REFERENCIA (alguna pata solo tiene precio de agregador: no ejecutable)_
-- DC United – New York Red Bulls · Menos de 4.5 goles @1.25 (referencia) · p=0.90
+- DC United – New York Red Bulls · Menos de 4.5 goles @1.265 (referencia) · p=0.90
 
-**#2** cuota ×1.21 · P(modelo) 88.6% · P(pérdida) 11.4% · agentes: APROBADA · apta: NO_APTA (falta: precio_real_verificado, modelo_validado)
+**#2** cuota ×1.232 · P(modelo) 84.7% · P(pérdida) 15.3% · agentes: APROBADA · apta: NO_APTA (falta: precio_real_verificado, modelo_validado)
 _REFERENCIA (alguna pata solo tiene precio de agregador: no ejecutable)_
 - DC United – New York Red Bulls · Menos de 5.5 goles @1.1 (referencia) · p=0.96
-- Fluminense – Palmeiras · Más de 0.5 goles @1.1 (referencia) · p=0.92
+- Feyenoord – Como · Más de 1.5 goles @1.12 (referencia) · p=0.88
 
-**#3** cuota ×1.221 · P(modelo) 81.4% · P(pérdida) 18.6% · agentes: APROBADA · apta: NO_APTA (falta: precio_real_verificado, modelo_validado)
+**#3** cuota ×1.21 · P(modelo) 85.6% · P(pérdida) 14.4% · agentes: APROBADA · apta: NO_APTA (falta: precio_real_verificado, modelo_validado)
 _REFERENCIA (alguna pata solo tiene precio de agregador: no ejecutable)_
-- Fluminense – Palmeiras · Más de 0.5 goles @1.1 (referencia) · p=0.92
-- Feyenoord – Como · Más de 1.5 goles @1.11 (referencia) · p=0.88
+- DC United – New York Red Bulls · Menos de 5.5 goles @1.1 (referencia) · p=0.96
+- LA Galaxy – Portland Timbers · Más de 1.5 goles @1.1 (referencia) · p=0.89
 
-### x3 (cuota 2.8–3.4, hasta 4 patas; evaluadas 59535)
+### x3 (cuota 2.8–3.4, hasta 4 patas; evaluadas 52955)
 
-**#1** cuota ×3.013 · P(modelo) 45.7% · P(pérdida) 54.3% · agentes: APROBADA · apta: NO_APTA (falta: modelo_validado)
-_ejecutable (precios reales)_
-- DC United – New York Red Bulls · Menos de 3.5 goles @1.62 (ejecutable) · p=0.76
-- LASK – Liverpool · Menos de 3.5 goles @1.86 (ejecutable) · p=0.60
-
-**#2** cuota ×2.939 · P(modelo) 43.4% · P(pérdida) 56.6% · agentes: APROBADA · apta: NO_APTA (falta: modelo_validado)
+**#1** cuota ×2.939 · P(modelo) 43.4% · P(pérdida) 56.6% · agentes: APROBADA · apta: NO_APTA (falta: modelo_validado)
 _ejecutable (precios reales)_
 - Fluminense – Palmeiras · Más de 1.5 goles @1.58 (ejecutable) · p=0.73
+- LASK – Liverpool · Menos de 3.5 goles @1.86 (ejecutable) · p=0.60
+
+**#2** cuota ×2.976 · P(modelo) 42.3% · P(pérdida) 57.7% · agentes: APROBADA · apta: NO_APTA (falta: modelo_validado)
+_ejecutable (precios reales)_
+- Colorado Rapids – Minnesota United · Más de 2.5 goles @1.6 (ejecutable) · p=0.71
 - LASK – Liverpool · Menos de 3.5 goles @1.86 (ejecutable) · p=0.60
 
 **#3** cuota ×2.8 · P(modelo) 41.8% · P(pérdida) 58.2% · agentes: APROBADA · apta: NO_APTA (falta: modelo_validado)
@@ -78,23 +78,24 @@ _ejecutable (precios reales)_
 
 ### x4 (cuota 4.0–4.8, hasta 5 patas; evaluadas 331211)
 
-**#1** cuota ×4.648 · P(modelo) 25.7% · P(pérdida) 74.3% · agentes: APROBADA · apta: NO_APTA (falta: modelo_validado)
-_ejecutable (precios reales)_
-- Colorado Rapids – Minnesota United · Más de 2.5 goles @1.6 (ejecutable) · p=0.71
+**#1** cuota ×4.009 · P(modelo) 25.6% · P(pérdida) 74.4% · agentes: APROBADA · apta: NO_APTA (falta: precio_real_verificado, modelo_validado)
+_REFERENCIA (alguna pata solo tiene precio de agregador: no ejecutable)_
+- Bodo/Glimt – Borussia Dortmund · Empate o visitante (X2) @1.38 (referencia) · p=0.70
 - Lincoln – West Ham · Más de 2.5 goles @1.66 (ejecutable) · p=0.61
 - Manchester City – PSG · Menos de 3.5 goles @1.75 (ejecutable) · p=0.59
 
-**#2** cuota ×4.214 · P(modelo) 27.3% · P(pérdida) 72.7% · agentes: APROBADA · apta: NO_APTA (falta: precio_real_verificado, modelo_validado)
+**#2** cuota ×4.013 · P(modelo) 31.0% · P(pérdida) 69.0% · agentes: APROBADA · apta: NO_APTA (falta: precio_real_verificado, modelo_validado)
 _REFERENCIA (alguna pata solo tiene precio de agregador: no ejecutable)_
-- Colorado Rapids – Minnesota United · Ambos anotan: sí @1.52 (referencia) · p=0.70
-- LASK – Liverpool · Ambos anotan: sí @1.67 (referencia) · p=0.64
+- Fluminense – Palmeiras · Más de 1.5 goles @1.58 (ejecutable) · p=0.73
+- Colorado Rapids – Minnesota United · Ambos anotan: sí @1.53 (referencia) · p=0.70
 - Lincoln – West Ham · Más de 2.5 goles @1.66 (ejecutable) · p=0.61
 
-**#3** cuota ×4.062 · P(modelo) 35.3% · P(pérdida) 64.7% · agentes: SIN_REVISION · apta: NO_APTA (falta: precio_real_verificado, modelo_validado, revision_agentes_completa)
+**#3** cuota ×4.581 · P(modelo) 21.5% · P(pérdida) 78.5% · agentes: APROBADA · apta: NO_APTA (falta: precio_real_verificado, modelo_validado)
 _REFERENCIA (alguna pata solo tiene precio de agregador: no ejecutable)_
-- Roma – Real Madrid · Real Madrid: menos de 2.5 goles @1.4 (referencia) · p=0.81
-- Nashville – Sporting KC · Sporting KC: más de 2.5 córners @1.727 (referencia) · p=0.66
-- Lincoln – West Ham · Visitante gana (2) @1.68 (ejecutable) · p=0.66
+- LA Galaxy – Portland Timbers · Más de 2.5 goles @1.38 (referencia) · p=0.73
+- Bodo/Glimt – Borussia Dortmund · Empate o visitante (X2) @1.38 (referencia) · p=0.70
+- Columbus Crew – Charlotte · Ambos anotan: sí @1.415 (referencia) · p=0.65
+- LASK – Liverpool · Ambos anotan: sí @1.7 (referencia) · p=0.64
 
 ## Rankings por grupo de mercado
 
@@ -103,7 +104,7 @@ _REFERENCIA (alguna pata solo tiene precio de agregador: no ejecutable)_
 **Más probables (cuota mínima justa ≤ 2.10)**
 - DC United – New York Red Bulls · 1.ª parte: menos de 2.5 goles · p=0.93 · mínima justa 1.08 · cuota 1.1745 (referencia)
 - San Diego – Houston Dynamo · 1.ª parte: menos de 2.5 goles · p=0.89 · mínima justa 1.122 · cuota 1.125 (referencia)
-- St. Louis City – Vancouver Whitecaps · 1.ª parte: más de 0.5 goles · p=0.89 · mínima justa 1.124 · cuota 1.222 (referencia)
+- St. Louis City – Vancouver Whitecaps · 1.ª parte: más de 0.5 goles · p=0.89 · mínima justa 1.124 · cuota 1.25 (referencia)
 - CF Montréal – Atlanta United FC · 1.ª parte: menos de 2.5 goles · p=0.89 · mínima justa 1.13 · cuota 1.143 (referencia)
 - Shakhtar Donetsk – AEK Athens · 1.ª parte: menos de 2.5 goles · p=0.87 · mínima justa 1.149 · cuota 1.0915 (referencia)
 
@@ -111,8 +112,8 @@ _REFERENCIA (alguna pata solo tiene precio de agregador: no ejecutable)_
 - DC United – New York Red Bulls · 1.ª parte: menos de 1.5 goles · p=0.75 · mínima justa 1.338 · cuota 1.667 (referencia)
 - LA Galaxy – Portland Timbers · 1.ª parte: más de 1.5 goles · p=0.60 · mínima justa 1.667 · cuota 2.0 (referencia)
 - Fluminense – Palmeiras · 1.ª parte: más de 0.5 goles · p=0.71 · mínima justa 1.401 · cuota 1.584 (referencia)
+- St. Louis City – Vancouver Whitecaps · 1.ª parte: más de 0.5 goles · p=0.89 · mínima justa 1.124 · cuota 1.25 (referencia)
 - Manchester City – PSG · 1.ª parte: menos de 1.5 goles · p=0.63 · mínima justa 1.577 · cuota 1.7285 (referencia)
-- Roma – Real Madrid · 1.ª parte: menos de 1.5 goles · p=0.64 · mínima justa 1.561 · cuota 1.7045 (referencia)
 
 ### 1.ª parte resultado (60 entradas con estimador)
 
@@ -123,7 +124,8 @@ _REFERENCIA (alguna pata solo tiene precio de agregador: no ejecutable)_
 - Fluminense – Palmeiras · 1.ª parte: empate · p=0.41 · mínima justa 2.444 · cuota 1.8635000000000002 (referencia)
 - Atlético-MG – Montevideo City Torque · 1.ª parte: local gana · p=0.39 · mínima justa 2.594 · cuota 1.895 (referencia)
 - Slovan Bratislava – Stuttgart · 1.ª parte: visitante gana · p=0.38 · mínima justa 2.667 · cuota 1.7285 (referencia)
-- LASK – Liverpool · 1.ª parte: visitante gana · p=0.30 · mínima justa 3.377 · cuota 1.819 (referencia)
+- LASK – Liverpool · 1.ª parte: visitante gana · p=0.30 · mínima justa 3.377 · cuota 1.8 (referencia)
+- Aston Villa – Fenerbahçe · 1.ª parte: local gana · p=0.21 · mínima justa 4.724 · cuota 2.1 (referencia)
 
 ### córners (1012 entradas con estimador)
 
@@ -147,15 +149,15 @@ _REFERENCIA (alguna pata solo tiene precio de agregador: no ejecutable)_
 - Nashville – Sporting KC · Local o empate (1X) · p=0.87 · mínima justa 1.146 · cuota 1.05 (referencia)
 - Nashville – Sporting KC · Gana alguno, sin empate (12) · p=0.84 · mínima justa 1.186 · cuota 1.1 (referencia)
 - St. Louis City – Vancouver Whitecaps · Gana alguno, sin empate (12) · p=0.80 · mínima justa 1.244 · cuota 1.25 (referencia)
-- Bodo/Glimt – Borussia Dortmund · Gana alguno, sin empate (12) · p=0.80 · mínima justa 1.245 · cuota 1.23 (referencia)
+- Bodo/Glimt – Borussia Dortmund · Gana alguno, sin empate (12) · p=0.80 · mínima justa 1.245 · cuota 1.235 (referencia)
 - Chicago Fire – Philadelphia Union · Gana alguno, sin empate (12) · p=0.79 · mínima justa 1.259 · cuota 1.22 (referencia)
 
 **Mayor EV teórico con precio ≤ 2.10**
-- Betis – Porto · Empate o visitante (X2) · p=0.78 · mínima justa 1.289 · cuota 1.775 (referencia)
-- FC Cincinnati – New England Revolution · Empate o visitante (X2) · p=0.61 · mínima justa 1.633 · cuota 2.08 (referencia)
-- Real Salt Lake – San Jose Earthquakes · Empate o visitante (X2) · p=0.62 · mínima justa 1.603 · cuota 1.94 (referencia)
+- Betis – Porto · Empate o visitante (X2) · p=0.78 · mínima justa 1.289 · cuota 1.765 (referencia)
+- FC Cincinnati – New England Revolution · Empate o visitante (X2) · p=0.61 · mínima justa 1.633 · cuota 2.1 (referencia)
 - Columbus Crew – Charlotte · Empate o visitante (X2) · p=0.67 · mínima justa 1.493 · cuota 1.8 (referencia)
 - Dallas – Seattle Sounders · Empate o visitante (X2) · p=0.63 · mínima justa 1.587 · cuota 1.91 (referencia)
+- Roma – Real Madrid · Local o empate (1X) · p=0.63 · mínima justa 1.595 · cuota 1.875 (referencia)
 
 ### empate no válido (0 entradas con estimador)
 
@@ -178,14 +180,14 @@ _REFERENCIA (alguna pata solo tiene precio de agregador: no ejecutable)_
 **Más probables (cuota mínima justa ≤ 2.10)**
 - Norwich – Southampton · Más de 0.5 goles · p=0.99 · mínima justa 1.014 · cuota 1.03 (referencia)
 - Bodo/Glimt – Borussia Dortmund · Más de 0.5 goles · p=0.98 · mínima justa 1.016 · cuota 1.01 (referencia)
-- Toronto – Orlando City · Más de 0.5 goles · p=0.98 · mínima justa 1.02 · cuota 1.015 (referencia)
+- Toronto – Orlando City · Más de 0.5 goles · p=0.98 · mínima justa 1.02 · cuota 1.012 (referencia)
 - St. Louis City – Vancouver Whitecaps · Más de 0.5 goles · p=0.98 · mínima justa 1.021 · cuota 1.02 (referencia)
 - LA Galaxy – Portland Timbers · Más de 0.5 goles · p=0.98 · mínima justa 1.023 · cuota 1.012 (referencia)
 
 **Mayor EV teórico con precio ≤ 2.10**
 - Norwich – Southampton · Más de 2.5 goles · p=0.80 · mínima justa 1.251 · cuota 1.615 (referencia)
 - DC United – New York Red Bulls · Menos de 3.5 goles · p=0.76 · mínima justa 1.308 · cuota 1.62 (ejecutable)
-- Los Angeles – Austin · Menos de 3.5 goles · p=0.77 · mínima justa 1.304 · cuota 1.555 (referencia)
+- Los Angeles – Austin · Menos de 3.5 goles · p=0.77 · mínima justa 1.304 · cuota 1.61 (referencia)
 - Roma – Real Madrid · Menos de 3.5 goles · p=0.65 · mínima justa 1.54 · cuota 1.81 (ejecutable)
 - QPR – Derby · Menos de 2.5 goles · p=0.56 · mínima justa 1.782 · cuota 2.05 (ejecutable)
 
@@ -216,8 +218,8 @@ _REFERENCIA (alguna pata solo tiene precio de agregador: no ejecutable)_
 ### hándicap (120 entradas con estimador)
 
 **Más probables (cuota mínima justa ≤ 2.10)**
-- Aston Villa – Fenerbahçe · Hándicap visitante +2.5 · p=0.98 · mínima justa 1.022 · cuota 1.14 (referencia)
-- Betis – Porto · Hándicap visitante +2.5 · p=0.98 · mínima justa 1.024 · cuota 1.04 (referencia)
+- Aston Villa – Fenerbahçe · Hándicap visitante +2.5 · p=0.98 · mínima justa 1.022 · cuota 1.135 (referencia)
+- Betis – Porto · Hándicap visitante +2.5 · p=0.98 · mínima justa 1.024 · cuota 1.05 (referencia)
 - Atlético-MG – Montevideo City Torque · Hándicap local +2.5 · p=0.97 · mínima justa 1.034 · cuota — (sin precio)
 - QPR – Derby · Hándicap local +2.5 · p=0.97 · mínima justa 1.036 · cuota 1.01 (referencia)
 - San Diego – Houston Dynamo · Hándicap local +2.5 · p=0.95 · mínima justa 1.058 · cuota 1.03 (referencia)
@@ -225,8 +227,8 @@ _REFERENCIA (alguna pata solo tiene precio de agregador: no ejecutable)_
 **Mayor EV teórico con precio ≤ 2.10**
 - Betis – Porto · Hándicap visitante +0.5 · p=0.78 · mínima justa 1.289 · cuota 1.8255 (referencia)
 - Los Angeles – Austin · Hándicap visitante +1.5 · p=0.82 · mínima justa 1.218 · cuota 1.68 (referencia)
-- Aston Villa – Fenerbahçe · Hándicap visitante +1.5 · p=0.92 · mínima justa 1.086 · cuota 1.49 (referencia)
-- Columbus Crew – Charlotte · Hándicap visitante +0.5 · p=0.67 · mínima justa 1.493 · cuota 1.892 (referencia)
+- Aston Villa – Fenerbahçe · Hándicap visitante +1.5 · p=0.92 · mínima justa 1.086 · cuota 1.45 (referencia)
+- Columbus Crew – Charlotte · Hándicap visitante +0.5 · p=0.67 · mínima justa 1.493 · cuota 1.8824999999999998 (referencia)
 - FC Cincinnati – New England Revolution · Hándicap visitante +0.5 · p=0.61 · mínima justa 1.633 · cuota 2.04 (referencia)
 
 ### hándicap asiático entero (0 entradas con estimador)
@@ -289,7 +291,7 @@ _REFERENCIA (alguna pata solo tiene precio de agregador: no ejecutable)_
 **Mayor EV teórico con precio ≤ 2.10**
 - Fluminense – Palmeiras · Menos de 5.5 tarjetas (A=1, R=2) · p=0.68 · mínima justa 1.461 · cuota 1.909 (referencia)
 - San Diego – Houston Dynamo · Menos de 4.5 tarjetas (A=1, R=2) · p=0.69 · mínima justa 1.449 · cuota 1.833 (referencia)
+- LA Galaxy – Portland Timbers · Menos de 4.5 tarjetas (A=1, R=2) · p=0.73 · mínima justa 1.366 · cuota 1.7 (referencia)
 - San Diego – Houston Dynamo · Menos de 5.5 tarjetas (A=1, R=2) · p=0.83 · mínima justa 1.202 · cuota 1.45 (referencia)
 - Columbus Crew – Charlotte · Menos de 4.5 tarjetas (A=1, R=2) · p=0.73 · mínima justa 1.369 · cuota 1.6435 (referencia)
-- Dallas – Seattle Sounders · Menos de 3.5 tarjetas (A=1, R=2) · p=0.58 · mínima justa 1.716 · cuota 2.04 (referencia)
 

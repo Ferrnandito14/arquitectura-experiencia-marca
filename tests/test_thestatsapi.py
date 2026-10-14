@@ -188,6 +188,10 @@ class EstadoDeAgentes(unittest.TestCase):
         e = us[0]["entradas"][0]["precio"]
         igual = {("m1", OVER[0]): (e["estado"], e["cuota"], e["fuente"])}
         self.assertEqual(cr.agent_status(us, reps, igual)[(us[0]["unit_id"], OVER[0])], "aprobada")
+        movida = {("m1", OVER[0]): (e["estado"], 1.2, e["fuente"])}                      # la misma fuente con otra cuota: sigue aprobada
+        self.assertEqual(cr.agent_status(us, reps, movida)[(us[0]["unit_id"], OVER[0])], "aprobada")
+        legs = cr.legs_from_units(us, {}, movida)
+        self.assertEqual(legs[0]["cuota_revisada"], 1.2)
         otro = {("m1", OVER[0]): ("sin_precio", None, None)}
         self.assertEqual(cr.agent_status(us, reps, otro)[(us[0]["unit_id"], OVER[0])], "precio_nuevo_sin_revisar")
 

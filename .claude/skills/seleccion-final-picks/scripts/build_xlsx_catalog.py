@@ -76,6 +76,8 @@ def alerta(l):
         a.append("EV alto: probable ruido del modelo (no validado)")
     if l["cuota"] and l.get("n_casas") == 1:
         a.append("precio de una sola casa")
+    if l["cuota"] and l.get("cuota_revisada") and abs(l["cuota"] / l["cuota_revisada"] - 1) >= 0.10:
+        a.append(f"la cuota cambió {l['cuota_revisada']} → {l['cuota']} desde la revisión de los agentes")
     if l["agentes"] == "precio_nuevo_sin_revisar":
         a.append("precio nuevo que los agentes no revisaron")
     return "; ".join(a) or None
@@ -116,6 +118,19 @@ LEYENDA = [
     ("Agentes", "precio_nuevo_sin_revisar", "Los agentes revisaron la entrada con otro precio (o sin precio); el precio nuevo no fue revisado. Cuenta como sin aprobar."),
     ("Hora Caracas", "", "America/Caracas (UTC−4)."),
 ]
+
+
+def _freshness(legs):
+    """Última cuota observada por fuente (según la propia fuente; apifootball reporta `odd_date` sin zona y se interpreta como UTC)."""
+    last = {}
+    for l in legs:
+        if l["cuota"] and l.get("observado_utc") and l["fuente_precio"]:
+            k = "thestatsapi" if "thestatsapi" in l["fuente_precio"] else ("apifootball" if "apifootball" in l["fuente_precio"] else l["fuente_precio"])
+            v = str(l["observado_utc"]).replace(" ", "T")
+            if not v.endswith("Z") and "+" not in v:
+                v += "Z"
+            last[k] = max(last.get(k, ""), v)
+    return "; ".join(f"{k}: {caracas(v)}" for k, v in sorted(last.items())) or "sin datos"
 
 
 def _verdicts(consolidated, l):
@@ -175,6 +190,7 @@ def make_workbook(units, summary, legs, rankings, combos, consolidated, rotation
         ["Mercados extra: las cuotas vienen de DOS fuentes de referencia (no ejecutables): apifootball (1X2, doble oportunidad, hándicap asiático, goles totales, ambos anotan) y TheStatsAPI (además córners, tarjetas totales, goles por equipo, 1.ª parte, hándicap europeo, totales y hándicaps enteros, remates; mediana de Bet365, Paddy Power, BetMGM UK, Pinnacle y Betfair Exchange). Muchas líneas las cotiza una sola casa: mira «N.º de casas». «sin cuota en fuente» = ninguna fuente cotiza esa línea (fueras de juego, tarjetas por equipo, la mayoría de remates y las líneas que la casa no ofrece en ese partido); no se inventan ni interpolan cuotas. Las dos fuentes no cubren los 2 partidos de la Copa Uruguay con Boston River y Maldonado ni, en TheStatsAPI, el resto de líneas no cotizadas."],
         ["Tarjetas: la fuente no documenta cómo cuenta las tarjetas; no se asume A=1, R=2. Confirma la regla de tu casa antes de usar esas cuotas."],
         ["Un EV teórico alto (≥ +10 %) con el modelo sin validar suele indicar que el modelo discrepa del mercado, no una ventaja: la columna «Alerta» lo marca. Los «seguros» del ranking de seguridad usan en su mayoría precio de referencia, no ejecutable."],
+        [f"Frescura de las cuotas (hora de Caracas): {_freshness(legs)}. Las cuotas se mueven: confírmalas en tu casa antes de apostar."],
         ["La hoja «Leyenda» explica cada código y columna. Horas en America/Caracas (UTC−4). Alineaciones no publicadas al generar: ver «Resumen por partido»."]])
 
     sheet("Leyenda", ["Tema", "Valor", "Qué significa"], [list(x) for x in LEYENDA])
@@ -303,7 +319,8 @@ def main(argv=None):
     ids = sorted(set(common.read_json(a.ids).values()))
     units, s = ar.build_units(a.run, ids, tuple(a.capture) if a.capture else None)
     reports = ar.load_reports(a.run)
-    legs = cr.legs_from_units(units, cr.agent_status(units, reports, cr.reviewed_prices(a.run)))
+    rev_prices = cr.reviewed_prices(a.run)
+    legs = cr.legs_from_units(units, cr.agent_status(units, reports, rev_prices), rev_prices)
     consolidated = ar.consolidate(units, reports)
     combos = cr.build_combos(legs, s["investigacion_certificada"], targets=CLASSIC_TARGETS + cr.DEFAULT_TARGETS)
     fname, why = workbook_name(a.name, s, s["partidos_ids"], ar.load_gate(a.run))
