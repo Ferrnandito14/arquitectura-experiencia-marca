@@ -225,3 +225,29 @@ class Ruta(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+class Multiplicador(unittest.TestCase):
+    def setUp(self):
+        self.us = [unit(i, [entrada(OVER[0], 1.5, 0.70), entrada(UNDER[1], 1.4, 0.72)], liga="L1" if i < 2 else f"L{i}", hora=f"2026-10-14T{8 + (0 if i < 2 else 3 * i):02d}:00:00Z") for i in range(5)]
+        self.legs = legs_of(self.us)
+
+    def test_cada_combinada_muestra_producto_aporte_y_nota_de_correlacion(self):
+        combo = [l for l in self.legs if l["entry_id"] == OVER[0]][:2]          # dos overs de la misma liga y a la misma hora
+        c = cr._combo_record("x", combo, True)
+        self.assertEqual(c["multiplicador"], "1.5 × 1.5 = 2.25")
+        self.assertAlmostEqual(c["cuota_total"], 2.25)
+        self.assertAlmostEqual(sum(p["aporte_log_pct"] for p in c["patas"]), 100, delta=0.2)
+        self.assertAlmostEqual(c["p_conjunta_independiente"], 0.49, places=3)
+        self.assertIn("overs", c["nota_correlacion"])
+        self.assertIn("misma liga", c["nota_correlacion"])
+        solo = cr._combo_record("x", [self.legs[0], [l for l in self.legs if l["match_id"] == "m4" and l["entry_id"] == UNDER[1]][0]], True)
+        self.assertIsNone(solo["nota_correlacion"])
+
+    def test_entre_alternativas_comparables_se_reparte_por_grupo_y_liga(self):
+        us = [unit(i, [entrada(OVER[0], 1.5, 0.70), entrada(UNDER[1], 1.5, 0.70)], liga=f"L{i}", hora=f"2026-10-14T{8 + 3 * i:02d}:00:00Z", grupo="goles" if i % 2 else "córners") for i in range(6)]
+        legs = cr.legs_from_units(us)
+        out = cr.build_combos(legs, False, targets=(("x2.25", 2.2, 2.3, 2),), policy=dict(cr.POLICY, top_por_objetivo=3, max_reuso_partido=1))
+        usados = [(p["grupo"], p["partido"]) for c in out["x2.25"]["combinadas"] for p in c["patas"]]
+        self.assertEqual(len(usados), len(set(p for _, p in usados)))           # sin repetir partido
+        self.assertEqual({g for g, _ in usados}, {"goles", "córners"})          # ambas familias representadas
+

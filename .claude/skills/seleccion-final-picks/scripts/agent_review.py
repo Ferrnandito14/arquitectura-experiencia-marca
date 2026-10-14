@@ -125,7 +125,8 @@ def build_units(run, match_ids=None, capture=None):
         rec = r["precio"].get("registro") or {}
         u["entradas"].append({"id": e["id"], "linea": e["line"], "direccion": e["direction"], "alcance": e["scope"],
                               "investigacion": {c["canal"]: c["resultado"] for c in r["investigacion"]["canales"]},
-                              "precio": {"estado": r["precio"]["estado"], "cuota": rec.get("odds"), "fuente": rec.get("source"), "tipo": rec.get("source_type"), "cumple_limite_2_10": r["precio"]["cumple_limite"]},
+                              "precio": {"estado": r["precio"]["estado"], "cuota": rec.get("odds"), "fuente": rec.get("source"), "tipo": rec.get("source_type"), "cumple_limite_2_10": r["precio"]["cumple_limite"],
+                                        "observado_utc": rec.get("observed_utc"), "n_casas": rec.get("n_books")},
                               "datos": r["analitica"]["datos"], "estimador": r["analitica"]["estimador"], "validacion": r["analitica"]["validacion"], "p_modelo": pm.get((r["match_id"], e["id"]))})
     for u in units.values():
         es = u["entradas"]

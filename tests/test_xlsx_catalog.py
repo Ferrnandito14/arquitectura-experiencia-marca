@@ -113,6 +113,32 @@ class Libro(unittest.TestCase):
         ok = cr.legs_from_units([unit(1, [entrada(OVER[0], 1.5, 0.66)])])[0]
         self.assertIsNone(bx.alerta(ok))
 
+    def test_mercados_extra_y_sin_precio_dicen_sin_cuota_en_fuente_y_no_cuota_minima(self):
+        us = [unit(1, [entrada(OVER[0], 1.5, 0.70), entrada(OVER[1], None, 0.75)], grupo="córners")]
+        legs = cr.legs_from_units(us)
+        wb = bx.make_workbook(us, summary(["m1"]), legs, cr.build_rankings(legs), {}, ar.consolidate(us, {}), {}, "f.xlsx", [])
+        for n in ("Mercados extra", "Sin precio"):
+            hdr = [c.value for c in wb[n][1]]
+            self.assertIn("Cuota fuente", hdr, n)
+            self.assertNotIn("Cuota mínima justa", hdr, n)
+            self.assertIn("Cuota de tu casa (completar)", hdr, n)
+        vals = [c.value for row in wb["Mercados extra"].iter_rows(min_row=2) for c in row]
+        self.assertIn("sin cuota en fuente", vals)
+        self.assertIn(1.5, vals)                                          # la fila con cuota de fuente muestra la cuota
+        self.assertEqual({c.value for c in wb["Sin precio"]["F"][1:]}, {"sin cuota en fuente"})
+
+    def test_la_hoja_de_combinadas_trae_multiplicador_aporte_y_correlacion(self):
+        us = [unit(i, [entrada(OVER[0], 1.5, 0.70)], liga="L1", hora="2026-10-14T20:00:00Z") for i in range(3)]
+        legs = cr.legs_from_units(us)
+        combos = cr.build_combos(legs, True, targets=(("x2.25", 2.2, 2.3, 2),), policy=dict(cr.POLICY, max_misma_ventana=3))
+        wb = bx.make_workbook(us, summary(["m0", "m1", "m2"]), legs, cr.build_rankings(legs), combos, ar.consolidate(us, {}), {}, "f.xlsx", [])
+        hdr = [c.value for c in wb["Combinadas"][1]]
+        for h in ("Multiplicador (producto de las cuotas)", "Aporte de la pata al multiplicador %", "P gana si fueran independientes %", "Nota de correlación"):
+            self.assertIn(h, hdr)
+        txt = " ".join(str(c.value) for row in wb["Léeme"].iter_rows() for c in row)
+        self.assertIn("1.50 × 1.60 × 1.40 = 3.36", txt)
+        self.assertIn("sin cuota en fuente", txt)
+
     def test_el_script_no_puede_nombrar_el_libro_original_y_la_ruta_esta_registrada(self):
         f = ".claude/skills/seleccion-final-picks/scripts/build_xlsx_catalog.py"
         self.assertIn(f, cov.GENERATION_ROUTES)

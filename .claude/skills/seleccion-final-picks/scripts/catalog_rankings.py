@@ -16,8 +16,10 @@ Cada combinada lleva su `preparacion_para_apostar` (los mismos siete requisitos 
 import argparse
 import itertools
 import json
+import math
 import os
 import sys
+from collections import Counter
 from datetime import datetime
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -30,7 +32,7 @@ MAX_LEG_ODDS = cov.MAX_LEG_ODDS
 EV_ALERT = 0.10       # EV teórico ≥ +10 % con un modelo sin validar se rotula como probable ruido
 MAX_GAP = 0.15      # política heredada de la auditoría del 13-oct: brecha modelo − precio ≥ 15 pp = descarte (efecto de escoger el máximo entre muchas entradas), no «salvedad»
 POLICY = {"max_leg_odds": MAX_LEG_ODDS, "max_brecha_modelo_vs_precio": MAX_GAP, "max_over_o_under_por_combinada": 2, "max_misma_liga": 2, "max_misma_ventana": 3, "ventana_minutos": 120,
-          "max_reuso_pata": 2, "max_reuso_partido": 3, "pool_por_objetivo": 45, "top_por_objetivo": 3, "top_ranking": 5,
+          "max_reuso_pata": 2, "ventana_calidad": 0.95, "max_reuso_partido": 3, "pool_por_objetivo": 45, "top_por_objetivo": 3, "top_ranking": 5,
           "independencia": "p_conjunta = producto de p_modelo (supuesto declarado, no validado)"}
 # (nombre, cuota mínima, cuota máxima, máx. patas)
 DEFAULT_TARGETS = (("x1.2", 1.20, 1.28, 2), ("x3", 2.80, 3.40, 4), ("x4", 4.00, 4.80, 5))
@@ -117,7 +119,7 @@ def legs_from_units(units, status=None):
                 motivos.append(st)
             legs.append({"leg_id": f"{u['match_id']}|{e['id']}", "match_id": u["match_id"], "partido": u["partido"], "equipos": teams, "grupo": u["grupo"], "entry_id": e["id"],
                          "etiqueta": mc.BY_ID[e["id"]]["label"].replace("{home}", teams[0]).replace("{away}", teams[-1]), "direccion": e["direccion"], "linea": e["linea"], "alcance": e["alcance"], "hora_utc": u.get("hora_utc"), "liga": u.get("liga"),
-                         "cuota": odds, "precio_estado": pr["estado"], "precio_tipo": PRICE_OK.get(pr["estado"]), "fuente_precio": pr["fuente"], "limite_2_10": _limite(odds, p),
+                         "cuota": odds, "precio_estado": pr["estado"], "precio_tipo": PRICE_OK.get(pr["estado"]), "fuente_precio": pr["fuente"], "observado_utc": pr.get("observado_utc"), "n_casas": pr.get("n_casas"), "limite_2_10": _limite(odds, p),
                          "p_modelo": p, "brecha_vs_precio": gap, "cuota_minima_justa": None if not p else round(1 / p, 3), "ev_teorico": None if (p is None or odds is None) else round(p * odds - 1, 3),
                          "datos": e["datos"], "validacion": e["validacion"], "modelo_validado": cov.model_validated(mc.BY_ID[e["id"]]), "agentes": st, "motivos_exclusion": motivos})
     return legs
@@ -165,14 +167,36 @@ def combo_readiness(combo, certified):
                            "revision_agentes_completa": all(l["agentes"] == "aprobada" for l in combo)})
 
 
+def correlation_notes(combo):
+    """Avisos de dependencia entre patas (el producto de p las supone independientes): misma dirección de goles, misma liga o inicio cercano."""
+    notes = []
+    for d, txt in (("over", "overs"), ("under", "unders")):
+        n = sum(1 for l in combo if l["direccion"] == d)
+        if n >= 2:
+            notes.append(f"{n} {txt}: comparten el régimen de goles del día (más dependientes de lo que supone el producto)")
+    ligas = Counter(l["liga"] for l in combo if l["liga"])
+    for lg, n in ligas.items():
+        if n >= 2:
+            notes.append(f"{n} patas de la misma liga ({lg}): misma competición, posible dependencia de árbitros/ritmo")
+    for i, a in enumerate(combo):
+        for b in combo[i + 1:]:
+            m = _minutes(a["hora_utc"], b["hora_utc"]) if a["hora_utc"] and b["hora_utc"] else None
+            if m is not None and m <= POLICY["ventana_minutos"]:
+                notes.append(f"{a['partido']} y {b['partido']} empiezan con ≤ {POLICY['ventana_minutos']} min de diferencia (se resuelven a la vez)")
+    return notes
+
+
 def _combo_record(name, combo, certified):
     odds = 1.0
     p = 1.0
     for l in combo:
         odds *= l["cuota"]
         p *= l["p_modelo"]
+    ln_total = math.log(odds)
     all_real = all(l["precio_tipo"] == "ejecutable" for l in combo)
-    return {"objetivo": name, "patas": [{k: l[k] for k in ("leg_id", "partido", "grupo", "etiqueta", "cuota", "precio_tipo", "p_modelo", "cuota_minima_justa", "agentes", "hora_utc")} for l in combo],
+    return {"objetivo": name, "patas": [dict({k: l[k] for k in ("leg_id", "partido", "grupo", "etiqueta", "cuota", "precio_tipo", "p_modelo", "cuota_minima_justa", "agentes", "hora_utc")},
+                                            aporte_log_pct=round(100 * math.log(l["cuota"]) / ln_total, 1) if ln_total else None) for l in combo],
+            "multiplicador": " × ".join(f"{l['cuota']:g}" for l in combo) + f" = {odds:.2f}", "nota_correlacion": "; ".join(correlation_notes(combo)) or None,
             "cuota_total": round(odds, 3), "p_conjunta_independiente": round(p, 4), "p_perdida": round(1 - p, 4), "ev_teorico": round(p * odds - 1, 3) if all_real else None,
             "alerta": "EV alto: probable desacuerdo del modelo (no validado) con el mercado, no ventaja" if (all_real and p * odds - 1 >= EV_ALERT) else None,
             "tipo_cuota": "ejecutable (precios reales)" if all_real else "REFERENCIA (alguna pata solo tiene precio de agregador: no ejecutable)",
@@ -184,6 +208,7 @@ def _combo_record(name, combo, certified):
 def build_combos(legs, certified=False, targets=DEFAULT_TARGETS, policy=POLICY, budget=1_500_000):
     pool_all = eligible(legs)
     taken_leg, taken_match, out = {}, {}, {}
+    used_grupo, used_liga = Counter(), Counter()
     for name, lo, hi, nmax in targets:
         floor = max(1.02, lo ** (1 / nmax))
         pool = sorted([l for l in pool_all if l["cuota"] >= floor], key=lambda l: -l["p_modelo"])[: policy["pool_por_objetivo"]]
@@ -204,15 +229,31 @@ def build_combos(legs, certified=False, targets=DEFAULT_TARGETS, policy=POLICY, 
                 cand.append((0 if all(l["agentes"] == "aprobada" for l in c) else 1, 0 if all(l["precio_tipo"] == "ejecutable" for l in c) else 1, -p, c))
         cand.sort(key=lambda t: t[:3])       # primero aprobadas por agentes, luego con precios ejecutables, luego mayor p_modelo
         cand = [(a, b, c) for a, _, b, c in cand]
-        chosen = []
-        for _, _, c in cand:
-            if len(chosen) >= policy["top_por_objetivo"]:
+        chosen, start = [], 0
+        while len(chosen) < policy["top_por_objetivo"]:
+            window, tier, p_first = [], None, None
+            for i in range(start, len(cand)):
+                if cand[i] is None:
+                    continue
+                tr, negp, c = cand[i]
+                if any(taken_leg.get(l["leg_id"], 0) >= policy["max_reuso_pata"] or taken_match.get(l["match_id"], 0) >= policy["max_reuso_partido"] for l in c):
+                    continue
+                if tier is None:
+                    tier, p_first = tr, -negp
+                    start = i
+                elif tr != tier or -negp < p_first * policy["ventana_calidad"]:
+                    break
+                window.append((i, c))
+            if not window:
                 break
-            if any(taken_leg.get(l["leg_id"], 0) >= policy["max_reuso_pata"] or taken_match.get(l["match_id"], 0) >= policy["max_reuso_partido"] for l in c):
-                continue
+            # entre alternativas de calidad comparable (misma aprobación y p ≥ 95 % de la mejor) se prefiere la que menos repite grupo de mercado y liga ya usados
+            i, c = min(window, key=lambda t: (sum(used_grupo[l["grupo"]] + used_liga[l["liga"]] for l in t[1]), t[0]))
             for l in c:
                 taken_leg[l["leg_id"]] = taken_leg.get(l["leg_id"], 0) + 1
                 taken_match[l["match_id"]] = taken_match.get(l["match_id"], 0) + 1
+                used_grupo[l["grupo"]] += 1
+                used_liga[l["liga"]] += 1
+            cand[i] = None                # ya elegida: no vuelve a entrar en la ventana
             chosen.append(_combo_record(name, c, certified))
         out[name] = {"rango_cuota": [lo, hi], "max_patas": nmax, "candidatas_evaluadas": seen, "pool": len(pool), "combinadas": chosen,
                      "aviso": None if chosen else "ninguna combinación del pool cumple rango, topes de riesgo y exposición"}

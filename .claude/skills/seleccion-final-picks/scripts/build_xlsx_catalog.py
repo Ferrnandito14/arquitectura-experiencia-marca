@@ -100,7 +100,12 @@ LEYENDA = [
     ("Cuota mínima justa", "", "1 / p del modelo: cuota por debajo de la cual el modelo vería precio desfavorable."),
     ("Brecha vs 1/cuota (pp)", "", "p modelo − 1/cuota. |brecha| ≥ 15 pp = desacuerdo fuerte con el mercado (se excluye de rankings y combinadas)."),
     ("EV teórico %", "", "p × cuota − 1 con p del modelo. Con modelo sin validar, un EV alto casi siempre significa que el modelo discrepa del mercado, no que haya ventaja."),
-    ("Combinadas", "P gana / P pierde", "Producto de las p de las patas bajo independencia declarada (no validada) / su complemento."),
+    ("Combinadas", "Multiplicador", "Producto de las cuotas de las patas. Ejemplo: 1.50 × 1.60 × 1.40 = 3.36."),
+    ("Combinadas", "Aporte de la pata al multiplicador %", "ln(cuota de la pata) / ln(multiplicador total): cuánto del multiplicador viene de esa pata."),
+    ("Combinadas", "P gana si fueran independientes / P pierde", "Producto de las p de las patas (0.70 × 0.65 × 0.72 = 33 %) bajo independencia declarada (no validada) / su complemento."),
+    ("Combinadas", "Nota de correlación", "Aviso cuando varias patas comparten dirección de goles (overs/unders), liga u horario cercano: el producto de p puede equivocarse."),
+    ("Mercados extra", "sin cuota en fuente", "La fuente de cuotas no publica ese mercado/selección (córners, tarjetas, goles por equipo, 1.ª parte, remates, fueras de juego, hándicap europeo, totales enteros)."),
+    ("Mercados extra", "Cuota fuente / Fuente de la cuota / Hora", "Mediana de casas de apifootball (referencia, no ejecutable) y la hora que reporta la fuente; confírmala en tu casa."),
     ("Combinadas", "Preparación para apostar", "NO_APTA mientras falte algún requisito (precio real, modelo validado, etc.)."),
     ("Alerta", "", "Aviso automático: desacuerdo con el mercado o EV alto. No cambia la selección, solo advierte."),
     ("Hora Caracas", "", "America/Caracas (UTC−4)."),
@@ -160,6 +165,8 @@ def make_workbook(units, summary, legs, rankings, combos, consolidated, rotation
         ["Solidez deportiva / cuantitativo / verificador / auditor = veredicto de cada agente por entrada (contrato cerrado). BAJA o NO_EVALUABLE = degradada: sale de las combinadas pero se muestra."],
         [f"Tope por pata: {cr.MAX_LEG_ODDS}. Rankings y combinadas usan solo patas con precio de alguna fuente (los rankings, además, cuota ≥ 1.10), no rechazadas ni degradadas y sin brecha ≥ 15 pp. Combinadas: una pata por partido, topes por dirección/liga/ventana horaria y exposición; P(pérdida) = 1 − producto de las p (independencia declarada)."],
         [f"Cifras: {len(units)} unidades, {len(ids)} partidos, {sum(len(u['entradas']) for u in units)} filas partido × entrada; con estimador propio: {sum(1 for l in legs if l['p_modelo'] is not None)}; con precio de alguna fuente: {sum(1 for l in legs if l['cuota'])}; elegibles para rankings/combinadas: {len(elig)}."],
+        ["MULTIPLICADOR de una combinada = producto de las cuotas de sus patas. Ejemplo: patas a 1.50, 1.60 y 1.40 → 1.50 × 1.60 × 1.40 = 3.36 (apostando 100 pagaría 336 si ganan las tres). «Aporte de la pata al multiplicador %» = qué parte del total pone cada pata (en escala logarítmica). «P gana si fueran independientes» = producto de las p del modelo (0.70 × 0.65 × 0.72 = 33 %); si las patas dependen entre sí (misma liga, mismo régimen de goles, horarios cercanos) la probabilidad real puede ser distinta: ver «Nota de correlación»."],
+        ["Mercados extra: córners, tarjetas, goles por equipo, 1.ª parte, remates y fueras de juego NO tienen cuota en la fuente de cuotas (la API de cuotas solo publica 1X2, doble oportunidad, hándicap asiático, goles totales y ambos anotan): dicen «sin cuota en fuente» y se completan con la cuota de tu casa. No se inventan ni interpolan cuotas."],
         ["Un EV teórico alto (≥ +10 %) con el modelo sin validar suele indicar que el modelo discrepa del mercado, no una ventaja: la columna «Alerta» lo marca. Los «seguros» del ranking de seguridad usan en su mayoría precio de referencia, no ejecutable."],
         ["La hoja «Leyenda» explica cada código y columna. Horas en America/Caracas (UTC−4). Alineaciones no publicadas al generar: ver «Resumen por partido»."]])
 
@@ -201,24 +208,31 @@ def make_workbook(units, summary, legs, rankings, combos, consolidated, rotation
     for name, b in combos.items():
         for k, c in enumerate(b["combinadas"], 1):
             for p in c["patas"]:
-                cb.append([name, k, c["cuota_total"], PC(c["p_conjunta_independiente"]), PC(c["p_perdida"]), PC(c["ev_teorico"]) if c["ev_teorico"] is not None else None, c["tipo_cuota"], c["estado_agentes"],
-                           c["preparacion_para_apostar"]["estado"], ", ".join(c["preparacion_para_apostar"]["incumplidos"]), caracas(p["hora_utc"]), p["partido"], p["etiqueta"], p["cuota"], p["precio_tipo"], PC(p["p_modelo"]), p["agentes"], c.get("alerta")])
+                cb.append([name, k, c["cuota_total"], c.get("multiplicador"), PC(c["p_conjunta_independiente"]), PC(c["p_perdida"]), PC(c["ev_teorico"]) if c["ev_teorico"] is not None else None, c["tipo_cuota"], c["estado_agentes"],
+                           c["preparacion_para_apostar"]["estado"], ", ".join(c["preparacion_para_apostar"]["incumplidos"]), caracas(p["hora_utc"]), p["partido"], p["etiqueta"], p["cuota"], p["aporte_log_pct"], p["precio_tipo"], PC(p["p_modelo"]), p["agentes"],
+                           c.get("nota_correlacion"), c.get("alerta")])
         if not b["combinadas"]:
-            cb.append([name, None, None, None, None, None, b["aviso"]] + [None] * 11)
-    sheet("Combinadas", ["Objetivo", "Opción", "Cuota total", "P gana (modelo, independencia) %", "P pierde %", "EV teórico %", "Tipo de cuota", "Estado agentes", "Preparación para apostar", "Requisitos que faltan", "Hora Caracas",
-                         "Partido", "Selección", "Cuota", "Tipo de precio", "P modelo %", "Agentes pata", "Alerta"], cb)
+            cb.append([name, None, None, None, None, None, None, b["aviso"]] + [None] * 13)
+    sheet("Combinadas", ["Objetivo", "Opción", "Cuota total", "Multiplicador (producto de las cuotas)", "P gana si fueran independientes %", "P pierde %", "EV teórico %", "Tipo de cuota", "Estado agentes", "Preparación para apostar",
+                         "Requisitos que faltan", "Hora Caracas", "Partido", "Selección", "Cuota de la pata", "Aporte de la pata al multiplicador %", "Tipo de precio", "P modelo de la pata %", "Agentes pata", "Nota de correlación", "Alerta"], cb)
 
     ex = []
     per_unit = {}
     for l in visible:
-        if l["grupo"] in CORE_GROUPS or l["cuota_minima_justa"] > cr.MAX_LEG_ODDS:
+        if l["grupo"] in CORE_GROUPS:
             continue
         per_unit.setdefault((l["match_id"], l["grupo"]), []).append(l)
+    SIN = "sin cuota en fuente"
     for (mid, g), ls in sorted(per_unit.items(), key=lambda t: (hora(t[1][0]) or "", t[1][0]["partido"], t[0][1])):
-        for l in sorted(ls, key=lambda x: -x["p_modelo"])[:3]:
+        priced = sorted([x for x in ls if x["cuota"] and x["cuota"] <= cr.MAX_LEG_ODDS], key=lambda x: -x["p_modelo"])[:3]
+        unpriced = sorted([x for x in ls if not x["cuota"] and x["cuota_minima_justa"] <= cr.MAX_LEG_ODDS], key=lambda x: -x["p_modelo"])[:3]
+        for l in priced + unpriced:
             v = verd[l["leg_id"]]
-            ex.append([caracas(hora(l)), l["partido"], g, l["etiqueta"], PC(l["p_modelo"]), l["cuota_minima_justa"], l["cuota"], None, v["deportivo"], v["cuantitativo"], v["auditor"]])
-    sheet("Mercados extra", ["Hora Caracas", "Partido", "Mercado", "Selección (top 3 por p)", "P modelo %", "Cuota mínima justa", "Cuota fuente", "Cuota de tu casa (completar)", "Solidez deportiva", "Cuantitativo", "Auditor"], ex)
+            ex.append([caracas(hora(l)), l["partido"], g, l["etiqueta"], l["cuota"] if l["cuota"] else SIN, l["fuente_precio"] if l["cuota"] else None, l["observado_utc"] if l["cuota"] else None,
+                       (l["precio_tipo"] or "") if l["cuota"] else SIN, PC(l["p_modelo"]), None if l["brecha_vs_precio"] is None else round(l["brecha_vs_precio"] * 100, 1), PC(l["ev_teorico"]) if l["ev_teorico"] is not None else None,
+                       "elegible" if not l["motivos_exclusion"] else "; ".join(l["motivos_exclusion"]), None, v["deportivo"], v["cuantitativo"], v["auditor"], alerta(l)])
+    sheet("Mercados extra", ["Hora Caracas", "Partido", "Mercado", "Selección", "Cuota fuente", "Fuente de la cuota", "Hora de la cuota (según la fuente)", "Tipo de precio", "P modelo %", "Brecha vs 1/cuota (pp)", "EV teórico %",
+                             "Elegible para rankings/combinadas", "Cuota de tu casa (completar)", "Solidez deportiva", "Cuantitativo", "Auditor", "Alerta"], ex)
 
     cnt = {}
     for l in legs:
@@ -260,8 +274,8 @@ def make_workbook(units, summary, legs, rankings, combos, consolidated, rotation
 
     sp = sorted([l for l in legs if l["cuota"] is None and l["p_modelo"] is not None and l["cuota_minima_justa"] <= cr.MAX_LEG_ODDS and not any(m.startswith("rechazada") for m in l["motivos_exclusion"])],
                 key=lambda l: (l["grupo"], -l["p_modelo"]))
-    sheet("Sin precio", ["Partido", "Hora Caracas", "Grupo", "Selección", "P modelo %", "Cuota mínima justa", "Cuota de tu casa (completar)"],
-          [[l["partido"], caracas(hora(l)), l["grupo"], l["etiqueta"], PC(l["p_modelo"]), l["cuota_minima_justa"], None] for l in sp])
+    sheet("Sin precio", ["Partido", "Hora Caracas", "Mercado", "Selección", "P modelo %", "Cuota fuente", "Cuota de tu casa (completar)"],
+          [[l["partido"], caracas(hora(l)), l["grupo"], l["etiqueta"], PC(l["p_modelo"]), "sin cuota en fuente", None] for l in sp])
 
     ag = []
     for uid, c in consolidated.items():
