@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Fase 7: libro Excel v2 construido desde el CATÁLOGO COMPLETO (partido × entrada), los tres controles de cobertura, la revisión de agentes y los rankings/combinadas de `catalog_rankings`.
+"""Fase 7: libro Excel con el FORMATO CLÁSICO (una hoja por liga, rankings de seguridad y de atractivo-cuota, top por liga y combinadas) alimentado por el CATÁLOGO COMPLETO de mercados
+(goles totales y por equipo, 1X2, doble oportunidad, empate no válido, hándicaps, córners, tarjetas, 1.ª parte, remates…), los tres controles de cobertura y la revisión de agentes.
 
-No sustituye ni sobrescribe `dist/ligas-14-oct.xlsx` (la versión anterior, de solo 76 patas de la captura). El nombre definitivo `<name>.xlsx` exige a la vez: investigación certificada, revisión de agentes COMPLETA sobre los
-MISMOS partidos y alcance de catálogo; si falta algo sale `<name>-PROVISIONAL.xlsx`. Que el libro tenga nombre definitivo NO significa que algo esté listo para apostar: eso lo dice `preparación para apostar` (siempre NO_APTA con el modelo sin validar).
+No sustituye ni sobrescribe `dist/ligas-14-oct.xlsx` (versión anterior, de solo las patas de las capturas). El nombre definitivo `<name>.xlsx` exige a la vez: investigación certificada, revisión de agentes COMPLETA sobre los
+MISMOS partidos y alcance de catálogo; si falta algo sale `<name>-PROVISIONAL.xlsx`. Un nombre definitivo NO significa que algo esté listo para apostar: eso lo dice `preparación para apostar` (NO_APTA con el modelo sin validar).
 Todas las horas en America/Caracas (UTC−4)."""
 import argparse
 import json
@@ -20,6 +21,9 @@ import market_coverage as cov  # noqa: E402
 
 CCS = ZoneInfo("America/Caracas")
 PC = lambda v: None if v is None else round(v * 100, 1)
+CLASSIC_TARGETS = (("×1.5–1.8", 1.5, 1.8, 2), ("×2–2.6", 2.0, 2.6, 3), ("×3–3.8", 3.0, 3.8, 4))
+CORE_GROUPS = ("resultado", "goles")
+RANK_MIN_ODDS = 1.10      # las patas a ~1.01–1.09 (p ≈ 1) no informan: pagan casi nada y llenarían los rankings de «seguridad»
 
 
 def caracas(iso):
@@ -49,13 +53,36 @@ def _inv_text(entry):
     return ",".join(f"{k[:10]}={ar.RES_CODE.get(v, v)}" for k, v in entry["investigacion"].items())
 
 
-def make_workbook(units, summary, legs, rankings, combos, consolidated, rotation, fname, why):
+def liga_map(units, capture=None):
+    """{match_id: nombre de liga}: de las capturas de la persona usuaria si existen; si no, «Liga <id>»."""
+    out = {u["match_id"]: f"Liga {u.get('liga')}" for u in units}
+    if capture:
+        p = common.read_json(capture[0], {}).get("partidos", [])
+        ids = common.read_json(capture[1], {})
+        for lg, h, a, *_ in p:
+            if f"{h}|{a}" in ids:
+                out[ids[f"{h}|{a}"]] = lg
+    return out
+
+
+def _verdicts(consolidated, l):
+    c = consolidated.get(f"{l['match_id']}|{l['grupo']}") or {"roles": {}}
+    roles = c.get("roles") or {}
+    aud = roles.get("auditor") or {}
+    dep = roles.get("deportivo") or {}
+    return {"deportivo": ar.entry_verdict(c, "deportivo", l["entry_id"]) if dep else None,
+            "cuantitativo": ar.entry_verdict(c, "cuantitativo", l["entry_id"]) if roles.get("cuantitativo") else None,
+            "verificador": ar.entry_verdict(c, "verificador", l["entry_id"]) if roles.get("verificador") else None,
+            "auditor": aud.get("recomendacion"), "escenario": dep.get("escenario_perdida")}
+
+
+def make_workbook(units, summary, legs, rankings, combos, consolidated, rotation, fname, why, ligas=None):
     from openpyxl import Workbook
     from openpyxl.styles import Alignment, Font
     wb = Workbook()
     wb.remove(wb.active)
 
-    def sheet(name, header, rows, widths=None):
+    def sheet(name, header, rows):
         w = wb.create_sheet(name[:31])
         w.append(header)
         for r in rows:
@@ -72,20 +99,102 @@ def make_workbook(units, summary, legs, rankings, combos, consolidated, rotation
             w.auto_filter.ref = w.dimensions
         return w
 
-    bet = summary["preparacion_para_apostar"]
-    rev = summary["revision_agentes"]
-    ids = summary["partidos_ids"]
+    bet, rev, ids = summary["preparacion_para_apostar"], summary["revision_agentes"], summary["partidos_ids"]
     matches = {u["match_id"]: u for u in units}
-    L = [[f"ARCHIVO: {fname}" + ("" if not why else " — PROVISIONAL: " + "; ".join(why))],
-         [f"Estado de las tres dimensiones: {cov.banner(summary)}"],
-         ["Certificación de la investigación ≠ aprobación para apostar: significa solo que, para estos partidos, cada combinación partido × mercado × canal (datos deportivos, precios) fue consultada o consta por qué no se pudo."],
-         ["El modelo propio NO está validado (docs/BACKTEST-modelo-v1.md): sus probabilidades son una segunda opinión, no un veredicto, y por eso ninguna fila ni combinada es «APTA»."],
-         ["Precios: «real» = precio de tu casa/captura; «referencia» = mediana de casas de un agregador (no ejecutable). La mayoría de los mercados (córners, tarjetas, goles por equipo, 1.ª parte) no tienen precio en ninguna fuente: ver hoja «Sin precio» para completarlos con los de tu casa."],
-         ["Cuota mínima justa = 1/p del modelo: la cuota a partir de la cual el modelo no vería precio desfavorable; no es una recomendación. EV teórico = p × cuota − 1 con ese mismo p."],
-         [f"Tope por pata: {cr.MAX_LEG_ODDS}. Combinadas: una pata por partido, topes por dirección/liga/ventana horaria y exposición (ver política en la hoja «Combinadas»); P(pérdida) = 1 − producto de las p (independencia declarada)."],
-         [f"Cifras: {len(units)} unidades, {len(ids)} partidos, {sum(len(u['entradas']) for u in units)} filas partido × entrada ({len(cov.mc.CATALOG)} entradas del catálogo por partido); estimador propio en {sum(1 for l in legs if l['p_modelo'] is not None)}; precio de alguna fuente en {sum(1 for l in legs if l['cuota'])}; elegibles para combinadas: {len(cr.eligible(legs))}."],
-         ["Horas en America/Caracas (UTC−4). Sin alineaciones oficiales garantizadas: ver «Resumen por partido»."]]
-    sheet("Léeme", ["Nota"], L)
+    ligas = ligas or liga_map(units)
+    verd = {l["leg_id"]: _verdicts(consolidated, l) for l in legs}
+    hora = lambda l: matches[l["match_id"]].get("hora_utc")
+    visible = [l for l in legs if l["p_modelo"] is not None and not any(m.startswith("rechazada") for m in l["motivos_exclusion"])]
+    elig = cr.eligible(legs)
+
+    sheet("Léeme", ["Nota"], [
+        [f"ARCHIVO: {fname}" + ("" if not why else " — PROVISIONAL: " + "; ".join(why))],
+        [f"Estado de las tres dimensiones: {cov.banner(summary)}"],
+        ["Cada hoja de liga lista TODOS los mercados investigados de sus partidos (goles totales y por equipo, 1X2, doble oportunidad, empate no válido, hándicaps, córners, tarjetas con A=1/R=2, 1.ª parte, remates…) que tienen probabilidad del modelo propio y no fueron rechazados por los agentes."],
+        ["Certificación de la investigación ≠ aprobación para apostar: significa solo que, para estos partidos, cada combinación partido × mercado × canal (datos deportivos, precios) fue consultada o consta por qué no se pudo."],
+        ["El modelo propio NO está validado (docs/BACKTEST-modelo-v1.md): sus probabilidades son una segunda opinión, no un veredicto; por eso ninguna fila ni combinada es «APTA»."],
+        ["Precios: «real» = tu casa/captura; «referencia» = mediana de casas de un agregador (no ejecutable). Córners, tarjetas, goles por equipo, 1.ª parte y remates no tienen precio en ninguna fuente: usa «Mercados extra» / «Sin precio» y pega la cuota de tu casa."],
+        ["Cuota mínima justa = 1/p del modelo (no es una recomendación). EV teórico = p × cuota − 1 con ese p; es una referencia, no el veredicto. Brecha = p modelo − 1/cuota (pp); ≥ 15 pp = señal de ruido o de información que el modelo no tiene."],
+        ["Solidez deportiva / cuantitativo / verificador / auditor = veredicto de cada agente por entrada (contrato cerrado). BAJA o NO_EVALUABLE = degradada: sale de las combinadas pero se muestra."],
+        [f"Tope por pata: {cr.MAX_LEG_ODDS}. Rankings y combinadas usan solo patas con precio de alguna fuente (los rankings, además, cuota ≥ 1.10), no rechazadas ni degradadas y sin brecha ≥ 15 pp. Combinadas: una pata por partido, topes por dirección/liga/ventana horaria y exposición; P(pérdida) = 1 − producto de las p (independencia declarada)."],
+        [f"Cifras: {len(units)} unidades, {len(ids)} partidos, {sum(len(u['entradas']) for u in units)} filas partido × entrada; con estimador propio: {sum(1 for l in legs if l['p_modelo'] is not None)}; con precio de alguna fuente: {sum(1 for l in legs if l['cuota'])}; elegibles para rankings/combinadas: {len(elig)}."],
+        ["Horas en America/Caracas (UTC−4). Alineaciones no publicadas al generar: ver «Resumen por partido»."]])
+
+    H = ["Hora Caracas", "Partido", "Mercado", "Selección", "Cuota", "Tipo de precio", "P modelo %", "Cuota mínima justa", "Brecha vs 1/cuota (pp)", "EV teórico %", "Límite 2.10", "Agentes",
+         "Solidez deportiva", "Cuantitativo", "Verificador", "Auditor", "Rotación local | visitante", "Escenario de pérdida"]
+
+    def row(l):
+        v = verd[l["leg_id"]]
+        rot = rotation.get(l["match_id"]) or {}
+        return [caracas(hora(l)), l["partido"], l["grupo"], l["etiqueta"], l["cuota"], l["precio_tipo"], PC(l["p_modelo"]), l["cuota_minima_justa"], None if l["brecha_vs_precio"] is None else round(l["brecha_vs_precio"] * 100, 1),
+                PC(l["ev_teorico"]) if l["ev_teorico"] is not None else None, l["limite_2_10"], l["agentes"], v["deportivo"], v["cuantitativo"], v["verificador"], v["auditor"],
+                f"{(rot.get('home') or {}).get('nivel', 's/d')} | {(rot.get('away') or {}).get('nivel', 's/d')}", v["escenario"]]
+
+    order = lambda l: (hora(l) or "", l["partido"], l["grupo"], -(l["p_modelo"] or 0))
+    seen = []
+    for u in units:
+        if ligas[u["match_id"]] not in seen:
+            seen.append(ligas[u["match_id"]])
+    for lg in seen:
+        rows_lg = [row(l) for l in sorted([x for x in visible if ligas[x["match_id"]] == lg], key=order)]
+        if not rows_lg:
+            rows_lg = [[None, "; ".join(sorted({u["partido"] for u in units if ligas[u["match_id"]] == lg})), "sin probabilidad del modelo propio para estos partidos (muestra insuficiente o sin media de liga): ver «Catálogo completo»"] + [None] * (len(H) - 3)]
+        sheet(lg.replace("(", "").replace(")", "").replace("/", "-")[:28], H, rows_lg)
+
+    SEC = sorted([l for l in elig if l["cuota"] >= RANK_MIN_ODDS], key=lambda l: -l["p_modelo"])
+    ATR = sorted([l for l in elig if l["cuota"] >= RANK_MIN_ODDS and l["p_modelo"] >= 0.45 and l["ev_teorico"] is not None], key=lambda l: -l["ev_teorico"])
+    sheet("Ranking seguridad", ["#", "Liga"] + H, [[i, ligas[l["match_id"]]] + row(l) for i, l in enumerate(SEC[:25], 1)])
+    sheet("Ranking atractivo-cuota", ["#", "Liga"] + H, [[i, ligas[l["match_id"]]] + row(l) for i, l in enumerate(ATR[:25], 1)])
+    tops = []
+    for lg in seen:
+        for i, l in enumerate([x for x in SEC if ligas[x["match_id"]] == lg][:3], 1):
+            tops.append(["Seguridad", lg, i] + row(l))
+        for i, l in enumerate([x for x in ATR if ligas[x["match_id"]] == lg][:3], 1):
+            tops.append(["Atractivo", lg, i] + row(l))
+    sheet("Top por liga", ["Ranking", "Liga", "#"] + H, tops)
+
+    cb = []
+    for name, b in combos.items():
+        for k, c in enumerate(b["combinadas"], 1):
+            for p in c["patas"]:
+                cb.append([name, k, c["cuota_total"], PC(c["p_conjunta_independiente"]), PC(c["p_perdida"]), PC(c["ev_teorico"]) if c["ev_teorico"] is not None else None, c["tipo_cuota"], c["estado_agentes"],
+                           c["preparacion_para_apostar"]["estado"], ", ".join(c["preparacion_para_apostar"]["incumplidos"]), caracas(p["hora_utc"]), p["partido"], p["etiqueta"], p["cuota"], p["precio_tipo"], PC(p["p_modelo"]), p["agentes"]])
+        if not b["combinadas"]:
+            cb.append([name, None, None, None, None, None, b["aviso"]] + [None] * 10)
+    sheet("Combinadas", ["Objetivo", "Opción", "Cuota total", "P gana (modelo, independencia) %", "P pierde %", "EV teórico %", "Tipo de cuota", "Estado agentes", "Preparación para apostar", "Requisitos que faltan", "Hora Caracas",
+                         "Partido", "Selección", "Cuota", "Tipo de precio", "P modelo %", "Agentes pata"], cb)
+
+    ex = []
+    per_unit = {}
+    for l in visible:
+        if l["grupo"] in CORE_GROUPS or l["cuota_minima_justa"] > cr.MAX_LEG_ODDS:
+            continue
+        per_unit.setdefault((l["match_id"], l["grupo"]), []).append(l)
+    for (mid, g), ls in sorted(per_unit.items(), key=lambda t: (hora(t[1][0]) or "", t[1][0]["partido"], t[0][1])):
+        for l in sorted(ls, key=lambda x: -x["p_modelo"])[:3]:
+            v = verd[l["leg_id"]]
+            ex.append([caracas(hora(l)), l["partido"], g, l["etiqueta"], PC(l["p_modelo"]), l["cuota_minima_justa"], l["cuota"], None, v["deportivo"], v["cuantitativo"], v["auditor"]])
+    sheet("Mercados extra", ["Hora Caracas", "Partido", "Mercado", "Selección (top 3 por p)", "P modelo %", "Cuota mínima justa", "Cuota fuente", "Cuota de tu casa (completar)", "Solidez deportiva", "Cuantitativo", "Auditor"], ex)
+
+    cnt = {}
+    for l in legs:
+        d = cnt.setdefault(l["match_id"], Counter())
+        d["estimador"] += l["p_modelo"] is not None
+        d["elegibles"] += not l["motivos_exclusion"]
+        d["aprobadas"] += l["agentes"] == "aprobada"
+        d["degradadas"] += l["agentes"].startswith("degradada")
+        d["rechazadas"] += l["agentes"].startswith("rechazada")
+    rs = []
+    for mid in ids:
+        u = matches.get(mid)
+        if not u:
+            continue
+        c = u.get("contexto") or {}
+        rot = rotation.get(mid) or {}
+        mot = "; ".join(f"{k}: {', '.join((rot.get(k) or {}).get('motivos') or [])}" for k in ("home", "away") if (rot.get(k) or {}).get("motivos"))
+        rs.append([caracas(u.get("hora_utc")), u["partido"], ligas[mid], (c.get("arbitro") or {}).get("designado"), (c.get("alineaciones") or {}).get("estado"),
+                   f"{(rot.get('home') or {}).get('nivel', 's/d')} | {(rot.get('away') or {}).get('nivel', 's/d')}", mot, cnt[mid]["estimador"], cnt[mid]["elegibles"], cnt[mid]["aprobadas"], cnt[mid]["degradadas"], cnt[mid]["rechazadas"]])
+    sheet("Resumen por partido", ["Hora Caracas", "Partido", "Liga", "Árbitro", "Alineaciones", "Rotación local | visitante", "Motivos de rotación", "Entradas con estimador", "Elegibles", "Aprobadas", "Degradadas", "Rechazadas"], rs)
 
     inv, ana, pri = summary["investigacion"], summary["analitica"], summary["precios"]
     sheet("Cobertura", ["Control", "Estado", "Detalle"],
@@ -99,61 +208,22 @@ def make_workbook(units, summary, legs, rankings, combos, consolidated, rotation
     rows = []
     for l in legs:
         u, e = uidx[(l["match_id"], l["entry_id"])]
-        rows.append([l["partido"], caracas(u.get("hora_utc")), u.get("liga"), l["grupo"], l["entry_id"], l["etiqueta"], l["precio_estado"], l["cuota"], l["precio_tipo"], l["fuente_precio"], l["limite_2_10"],
+        rows.append([l["partido"], caracas(u.get("hora_utc")), ligas[l["match_id"]], l["grupo"], l["entry_id"], l["etiqueta"], l["precio_estado"], l["cuota"], l["precio_tipo"], l["fuente_precio"], l["limite_2_10"],
                      PC(l["p_modelo"]), l["cuota_minima_justa"], None if l["brecha_vs_precio"] is None else round(l["brecha_vs_precio"] * 100, 1), PC(l["ev_teorico"]) if l["ev_teorico"] is not None else None,
                      e["datos"], e["validacion"], l["agentes"], "; ".join(l["motivos_exclusion"]) or "elegible", _inv_text(e)])
-    sheet("Catálogo completo", ["Partido", "Hora Caracas", "Liga (id)", "Grupo", "Entrada", "Etiqueta", "Precio: estado", "Cuota", "Tipo de precio", "Fuente", "Límite 2.10", "P modelo %", "Cuota mínima justa",
+    sheet("Catálogo completo", ["Partido", "Hora Caracas", "Liga", "Grupo", "Entrada", "Etiqueta", "Precio: estado", "Cuota", "Tipo de precio", "Fuente", "Límite 2.10", "P modelo %", "Cuota mínima justa",
                                 "Brecha vs 1/cuota (pp)", "EV teórico %", "Datos", "Validación", "Agentes", "Motivos de exclusión", "Investigación por canal"], rows)
-
-    rk = []
-    for g, r in rankings["por_grupo"].items():
-        for kind, key in (("más probables (cuota mínima justa ≤ 2.10)", "mas_probables"), ("mayor EV teórico con precio ≤ 2.10", "mayor_ev_teorico_con_precio")):
-            for i, x in enumerate(r[key], 1):
-                rk.append([g, kind, i, x["partido"], x["etiqueta"], x["cuota"], x["precio_tipo"], PC(x["p_modelo"]), x["cuota_minima_justa"], x["ev_teorico"] and PC(x["ev_teorico"]), x["agentes"]])
-    sheet("Rankings por grupo", ["Grupo", "Ranking", "#", "Partido", "Selección", "Cuota", "Tipo de precio", "P modelo %", "Cuota mínima justa", "EV teórico %", "Agentes"], rk)
-    sheet("Ranking general", ["#", "Grupo", "Partido", "Selección", "Cuota", "Tipo de precio", "P modelo %", "Cuota mínima justa", "Agentes"],
-          [[i, x["grupo"], x["partido"], x["etiqueta"], x["cuota"], x["precio_tipo"], PC(x["p_modelo"]), x["cuota_minima_justa"], x["agentes"]] for i, x in enumerate(rankings["general_mas_probables"], 1)])
-
-    cb = []
-    for name, b in combos.items():
-        for k, c in enumerate(b["combinadas"], 1):
-            for p in c["patas"]:
-                cb.append([name, k, c["cuota_total"], PC(c["p_conjunta_independiente"]), PC(c["p_perdida"]), c["ev_teorico"] and PC(c["ev_teorico"]), c["tipo_cuota"], c["estado_agentes"], c["preparacion_para_apostar"]["estado"],
-                           ", ".join(c["preparacion_para_apostar"]["incumplidos"]), caracas(p["hora_utc"]), p["partido"], p["etiqueta"], p["cuota"], p["precio_tipo"], PC(p["p_modelo"]), p["agentes"]])
-        if not b["combinadas"]:
-            cb.append([name, None, None, None, None, None, b["aviso"]] + [None] * 10)
-    sheet("Combinadas", ["Objetivo", "Opción", "Cuota total", "P gana (modelo, independencia) %", "P pierde %", "EV teórico %", "Tipo de cuota", "Estado agentes", "Preparación para apostar", "Requisitos que faltan", "Hora Caracas",
-                         "Partido", "Selección", "Cuota", "Tipo de precio", "P modelo %", "Agentes pata"], cb)
 
     sp = sorted([l for l in legs if l["cuota"] is None and l["p_modelo"] is not None and l["cuota_minima_justa"] <= cr.MAX_LEG_ODDS and not any(m.startswith("rechazada") for m in l["motivos_exclusion"])],
                 key=lambda l: (l["grupo"], -l["p_modelo"]))
     sheet("Sin precio", ["Partido", "Hora Caracas", "Grupo", "Selección", "P modelo %", "Cuota mínima justa", "Cuota de tu casa (completar)"],
-          [[l["partido"], caracas(matches[l["match_id"]].get("hora_utc")), l["grupo"], l["etiqueta"], PC(l["p_modelo"]), l["cuota_minima_justa"], None] for l in sp])
+          [[l["partido"], caracas(hora(l)), l["grupo"], l["etiqueta"], PC(l["p_modelo"]), l["cuota_minima_justa"], None] for l in sp])
 
     ag = []
     for uid, c in consolidated.items():
         if c["conflictos"] or c["objeciones"]:
-            ag.append([c["partido"], c["grupo"], "; ".join(c["conflictos"]), len(c["objeciones"]),
-                       "; ".join(f"{o['agente']}.{o['campo']}:{o['problema']}" for o in c["objeciones"])])
+            ag.append([c["partido"], c["grupo"], "; ".join(c["conflictos"]), len(c["objeciones"]), "; ".join(f"{o['agente']}.{o['campo']}:{o['problema']}" for o in c["objeciones"])])
     sheet("Agentes", ["Partido", "Grupo", "Conflictos", "Objeciones del auditor", "Detalle de objeciones"], ag)
-
-    cnt = {}
-    for l in legs:
-        d = cnt.setdefault(l["match_id"], Counter())
-        d["estimador"] += l["p_modelo"] is not None
-        d["elegibles"] += not l["motivos_exclusion"]
-        d["rechazadas"] += l["agentes"].startswith("rechazada")
-        d["aprobadas"] += l["agentes"] == "aprobada"
-    rs = []
-    for mid in ids:
-        u = matches.get(mid)
-        if not u:
-            continue
-        c = u.get("contexto") or {}
-        rot = rotation.get(mid) or {}
-        rs.append([u["partido"], caracas(u.get("hora_utc")), u.get("liga"), (c.get("arbitro") or {}).get("designado"), (c.get("alineaciones") or {}).get("estado"),
-                   f"{(rot.get('home') or {}).get('nivel', 's/d')} | {(rot.get('away') or {}).get('nivel', 's/d')}", cnt[mid]["estimador"], cnt[mid]["elegibles"], cnt[mid]["aprobadas"], cnt[mid]["rechazadas"]])
-    sheet("Resumen por partido", ["Partido", "Hora Caracas", "Liga (id)", "Árbitro", "Alineaciones", "Rotación local | visitante", "Entradas con estimador", "Elegibles combinadas", "Aprobadas por agentes", "Rechazadas por agentes"], rs)
     return wb
 
 
@@ -170,12 +240,12 @@ def main(argv=None):
     reports = ar.load_reports(a.run)
     legs = cr.legs_from_units(units, cr.agent_status(units, reports))
     consolidated = ar.consolidate(units, reports)
-    combos = cr.build_combos(legs, s["investigacion_certificada"])
+    combos = cr.build_combos(legs, s["investigacion_certificada"], targets=CLASSIC_TARGETS + cr.DEFAULT_TARGETS)
     fname, why = workbook_name(a.name, s, s["partidos_ids"], ar.load_gate(a.run))
     if os.path.basename(fname).startswith("ligas-14-oct.xlsx"):
         raise SystemExit("el libro v2 nunca puede llamarse como el original")
     rotation = common.read_json(os.path.join(a.run, "rotation.json"), {})
-    wb = make_workbook(units, s, legs, cr.build_rankings(legs), combos, consolidated, rotation, fname, why)
+    wb = make_workbook(units, s, legs, cr.build_rankings(legs), combos, consolidated, rotation, fname, why, liga_map(units, a.capture))
     os.makedirs(a.out_dir, exist_ok=True)
     out = os.path.join(a.out_dir, fname)
     wb.save(out)

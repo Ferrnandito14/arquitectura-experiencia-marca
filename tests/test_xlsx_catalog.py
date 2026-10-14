@@ -48,8 +48,30 @@ class Libro(unittest.TestCase):
                                    ar.consolidate(self.us, {}), {"m0": {"home": {"nivel": "alto"}, "away": {"nivel": "bajo"}}}, "ligas-v2.xlsx", [])
 
     def test_hojas_esperadas(self):
-        for n in ("Léeme", "Cobertura", "Catálogo completo", "Rankings por grupo", "Ranking general", "Combinadas", "Sin precio", "Agentes", "Resumen por partido"):
+        for n in ("Léeme", "Ranking seguridad", "Ranking atractivo-cuota", "Top por liga", "Combinadas", "Mercados extra", "Resumen por partido", "Cobertura", "Catálogo completo", "Sin precio", "Agentes"):
             self.assertIn(n, self.wb.sheetnames)
+        self.assertEqual(self.wb.sheetnames[:2], ["Léeme", "Liga L0"])          # formato clásico: Léeme y luego una hoja por liga
+
+    def test_una_hoja_por_liga_con_todos_los_mercados_visibles_de_sus_partidos(self):
+        for i in range(3):
+            w = self.wb[f"Liga L{i}"]
+            partidos = {w.cell(r, 2).value for r in range(2, w.max_row + 1)}
+            self.assertEqual(partidos, {f"A{i} – B{i}"})
+            self.assertEqual(w.max_row - 1, 2)                              # solo las entradas con estimador (la de p=None queda en el catálogo completo)
+        self.assertEqual(self.wb["Liga L0"].cell(1, 3).value, "Mercado")
+
+    def test_rankings_solo_con_precio_dentro_del_limite(self):
+        w = self.wb["Ranking seguridad"]
+        for r in range(2, w.max_row + 1):
+            self.assertIsNotNone(w.cell(r, 7).value)                        # cuota de alguna fuente
+            self.assertLessEqual(w.cell(r, 7).value, 2.10)
+            self.assertGreaterEqual(w.cell(r, 7).value, bx.RANK_MIN_ODDS)
+
+    def test_las_combinadas_traen_los_rangos_clasicos_y_los_objetivos_estandar(self):
+        us = [unit(i, [entrada(OVER[0], 1.4, 0.7), entrada(UNDER[1], 1.3, 0.7)], liga=f"L{i}", hora=f"2026-10-14T{8 + 3 * i:02d}:00:00Z") for i in range(6)]
+        legs = cr.legs_from_units(us)
+        combos = cr.build_combos(legs, True, targets=bx.CLASSIC_TARGETS + cr.DEFAULT_TARGETS)
+        self.assertEqual(list(combos), ["×1.5–1.8", "×2–2.6", "×3–3.8", "x1.2", "x3", "x4"])
 
     def test_el_catalogo_trae_una_fila_por_pata_con_hora_de_caracas(self):
         w = self.wb["Catálogo completo"]
