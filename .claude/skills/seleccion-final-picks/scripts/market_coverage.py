@@ -470,6 +470,7 @@ GENERATION_ROUTES = {
                                                                 "control": "ejecuta run_coverage; escribe investigacion_certificada y preparacion_para_apostar; avisa en cada ranking"},
     "runs/2026-10-14/ligas/build_dataset.py": {"produce": "dataset.json, dataset_meta.json, market_coverage.*", "marker": "MC.run_coverage", "control": "ejecuta run_coverage sobre los partidos del catálogo"},
     "runs/2026-10-14/ligas/build_xlsx.py": {"produce": "ligas-14-oct[-PROVISIONAL].xlsx", "marker": "_certification()", "control": "nombre definitivo solo con certificación vigente del mismo conjunto"},
+    ".claude/skills/seleccion-final-picks/scripts/catalog_rankings.py": {"produce": "ranking_catalogo.json/.md", "marker": "agent_review.build_units", "control": "construye el catálogo con la cobertura (build_units ejecuta run_coverage), exige precio y cuota ≤ 2.10 por pata, topes de riesgo/exposición y estado de agentes; cada combinada lleva su preparación para apostar"},
     ".claude/skills/seleccion-final-picks/scripts/custom_check.py": {"produce": "user_tickets_eval.json/.md", "marker": "NO CERTIFICADO COMO EXHAUSTIVO", "control": "declara que NO evalúa cobertura ni preparación"},
 }
 # Menciona palabras como «ranking»/«combinada» pero no genera candidatos ni libros: motivo explícito.
