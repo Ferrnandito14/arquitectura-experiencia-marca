@@ -1,0 +1,1288 @@
+{
+  "m-73af94aeda13|1.ª parte goles": {
+    "conflictos": [],
+    "grupo": "1.ª parte goles",
+    "objeciones": [],
+    "partido": "FC Cincinnati – New England Revolution",
+    "roles": {
+      "auditor": {
+        "evidencia": [
+          "paquete:m-73af94aeda13|1.ª parte goles",
+          "apif_query:get_events from=2026-08-15 to=2026-10-13 team_id=7952/7956 timezone=UTC",
+          "archivo:data/model_validation.json"
+        ],
+        "excepciones": [],
+        "nota": "Sin precio ni validacion (no_evaluada); n=9/10 mezcla local/visita. Over1.5 1T 8/19 y Over0.5 18/19 son frecuencias, no probabilidad; lineas correlacionadas.",
+        "objecion": "estimador_sin_validar",
+        "recomendacion": "degradar",
+        "severidad": "media",
+        "unit_id": "m-73af94aeda13|1.ª parte goles"
+      },
+      "cuantitativo": {
+        "consistencia_modelo": "datos_insuficientes",
+        "evidencia": [
+          "paquete:m-73af94aeda13|1.ª parte goles",
+          "archivo:data/model_validation.json"
+        ],
+        "nota": "Sin precio en el paquete: no hay contraste con mercado; p_modelo sin validar (IC no supera tasa base). Lineas del mismo partido correlacionadas.",
+        "riesgo_correlacion": "mismo_partido",
+        "unit_id": "m-73af94aeda13|1.ª parte goles",
+        "validacion_aplicable": "no_validado"
+      },
+      "deportivo": {
+        "direccion_favorable": "over",
+        "escenario_perdida": "partido_cerrado",
+        "evidencia": [
+          "paquete:m-73af94aeda13|1.ª parte goles",
+          "apif_query:get_events from=2026-08-15 to=2026-10-13 team_id=7952/7956 timezone=UTC (run 2026-10-14)",
+          "apif_query:get_standings league_id=332 (28 jornadas CIN 27 / NE 28, consulta 2026-10-14)",
+          "apif_query:get_events match_id=711710 timezone=UTC (árbitro Rubiel Vazquez según apifootball; paquete dice designado null; alineaciones vacías)"
+        ],
+        "excepciones": [
+          {
+            "entry_id": "primera_parte.total.over.1.5",
+            "solidez": "BAJA"
+          },
+          {
+            "entry_id": "primera_parte.total.under.1.5",
+            "solidez": "BAJA"
+          }
+        ],
+        "factor_principal": "estilo_ritmo",
+        "nota": "1T con gol en 18/19 partidos recientes (CIN 8/9, NE 10/10, apifootball); >=2 goles solo 3/9 y 5/10: linea 1.5 es moneda al aire.",
+        "solidez": "MEDIA",
+        "unit_id": "m-73af94aeda13|1.ª parte goles"
+      },
+      "verificador": {
+        "discrepancias": [
+          "ninguna"
+        ],
+        "disponibilidad": "no_verificable",
+        "evidencia": [
+          "paquete:m-73af94aeda13|1.ª parte goles",
+          "apif_query:get_events match_id=711710"
+        ],
+        "excepciones": [],
+        "fuentes_consultadas": [
+          "apif_query get_events match_id=711710 (23:30 UTC, MLS, Cincinnati-New England, status vacío)",
+          "apif_query get_odds match_id=711710 (WilliamHill, bet365, Marathon, Betfair; 2026-10-14 03:19:17)"
+        ],
+        "nota": "Sin cuotas en apifootball para este grupo; mercado no confirmado en fuente.",
+        "precio": "sin_precio",
+        "unit_id": "m-73af94aeda13|1.ª parte goles"
+      }
+    },
+    "unit_id": "m-73af94aeda13|1.ª parte goles"
+  },
+  "m-73af94aeda13|1.ª parte resultado": {
+    "conflictos": [],
+    "grupo": "1.ª parte resultado",
+    "objeciones": [],
+    "partido": "FC Cincinnati – New England Revolution",
+    "roles": {
+      "auditor": {
+        "evidencia": [
+          "paquete:m-73af94aeda13|1.ª parte resultado",
+          "apif_query:get_events from=2026-08-15 to=2026-10-13 team_id=7952/7956 timezone=UTC"
+        ],
+        "excepciones": [],
+        "nota": "Deportivo llama 'mercado' a .355/.365/.28, pero son p_modelo (sin precio en paquete). BAJA correcta; sin cuotas 1T en API; lineas 1X2 1T correlacionadas.",
+        "objecion": "estimador_sin_validar",
+        "recomendacion": "degradar",
+        "severidad": "media",
+        "unit_id": "m-73af94aeda13|1.ª parte resultado"
+      },
+      "cuantitativo": {
+        "consistencia_modelo": "datos_insuficientes",
+        "evidencia": [
+          "paquete:m-73af94aeda13|1.ª parte resultado",
+          "archivo:data/model_validation.json"
+        ],
+        "nota": "Sin precio en el paquete: no hay contraste con mercado; p_modelo sin validar (IC no supera tasa base). Lineas del mismo partido correlacionadas.",
+        "riesgo_correlacion": "mismo_partido",
+        "unit_id": "m-73af94aeda13|1.ª parte resultado",
+        "validacion_aplicable": "no_validado"
+      },
+      "deportivo": {
+        "direccion_favorable": "sin_sesgo",
+        "escenario_perdida": "sin_escenario_definido",
+        "evidencia": [
+          "paquete:m-73af94aeda13|1.ª parte resultado",
+          "apif_query:get_events from=2026-08-15 to=2026-10-13 team_id=7952/7956 timezone=UTC (run 2026-10-14)",
+          "apif_query:get_standings league_id=332 (28 jornadas CIN 27 / NE 28, consulta 2026-10-14)",
+          "apif_query:get_events match_id=711710 timezone=UTC (árbitro Rubiel Vazquez según apifootball; paquete dice designado null; alineaciones vacías)"
+        ],
+        "excepciones": [],
+        "factor_principal": "muestra_insuficiente",
+        "nota": "Mercado de 3 vias casi plano (0.355/0.365/0.28); HT del local y visitante recientes sin patron claro; sin alineaciones publicadas.",
+        "solidez": "BAJA",
+        "unit_id": "m-73af94aeda13|1.ª parte resultado"
+      },
+      "verificador": {
+        "discrepancias": [
+          "ninguna"
+        ],
+        "disponibilidad": "no_verificable",
+        "evidencia": [
+          "paquete:m-73af94aeda13|1.ª parte resultado",
+          "apif_query:get_events match_id=711710"
+        ],
+        "excepciones": [],
+        "fuentes_consultadas": [
+          "apif_query get_events match_id=711710 (23:30 UTC, MLS, Cincinnati-New England, status vacío)",
+          "apif_query get_odds match_id=711710 (WilliamHill, bet365, Marathon, Betfair; 2026-10-14 03:19:17)"
+        ],
+        "nota": "Sin cuotas en apifootball para este grupo; mercado no confirmado en fuente.",
+        "precio": "sin_precio",
+        "unit_id": "m-73af94aeda13|1.ª parte resultado"
+      }
+    },
+    "unit_id": "m-73af94aeda13|1.ª parte resultado"
+  },
+  "m-73af94aeda13|córners": {
+    "conflictos": [
+      "auditor_verificar_manualmente"
+    ],
+    "grupo": "córners",
+    "objeciones": [],
+    "partido": "FC Cincinnati – New England Revolution",
+    "roles": {
+      "auditor": {
+        "evidencia": [
+          "paquete:m-73af94aeda13|córners",
+          "apif_query:get_events from=2026-08-15 to=2026-10-13 team_id=7952/7956 timezone=UTC",
+          "archivo:data/model_validation.json"
+        ],
+        "excepciones": [],
+        "nota": "Ceros sospechosos en API: Toronto 0 corners (NE 9) 15-ago y Chicago 0 (13 NE) 13-sep; un solo proveedor. Deportivo dio MEDIA sin senalarlo; afecta lineas por equipo.",
+        "objecion": "dato_defectuoso",
+        "recomendacion": "verificar_manualmente",
+        "severidad": "media",
+        "unit_id": "m-73af94aeda13|córners"
+      },
+      "cuantitativo": {
+        "consistencia_modelo": "datos_insuficientes",
+        "evidencia": [
+          "paquete:m-73af94aeda13|córners",
+          "archivo:data/model_validation.json"
+        ],
+        "nota": "Sin precio; validacion insuficiente (corners_total sin cuotas historicas); arbitro no designado. Lineas over/under del grupo correlacionadas.",
+        "riesgo_correlacion": "mismo_partido",
+        "unit_id": "m-73af94aeda13|córners",
+        "validacion_aplicable": "no_validado"
+      },
+      "deportivo": {
+        "direccion_favorable": "over",
+        "escenario_perdida": "partido_cerrado",
+        "evidencia": [
+          "paquete:m-73af94aeda13|córners",
+          "apif_query:get_events from=2026-08-15 to=2026-10-13 team_id=7952/7956 timezone=UTC (run 2026-10-14)",
+          "apif_query:get_standings league_id=332 (28 jornadas CIN 27 / NE 28, consulta 2026-10-14)",
+          "apif_query:get_events match_id=711710 timezone=UTC (árbitro Rubiel Vazquez según apifootball; paquete dice designado null; alineaciones vacías)"
+        ],
+        "excepciones": [
+          {
+            "entry_id": "corners.total.over.6.5",
+            "solidez": "BAJA"
+          },
+          {
+            "entry_id": "corners.total.under.6.5",
+            "solidez": "BAJA"
+          },
+          {
+            "entry_id": "corners.total.over.13.5",
+            "solidez": "BAJA"
+          },
+          {
+            "entry_id": "corners.total.under.13.5",
+            "solidez": "BAJA"
+          },
+          {
+            "entry_id": "corners.total.over.14.5",
+            "solidez": "BAJA"
+          },
+          {
+            "entry_id": "corners.total.under.14.5",
+            "solidez": "BAJA"
+          },
+          {
+            "entry_id": "corners.equipo.home.over.8.5",
+            "solidez": "BAJA"
+          },
+          {
+            "entry_id": "corners.equipo.home.under.8.5",
+            "solidez": "BAJA"
+          },
+          {
+            "entry_id": "corners.equipo.away.over.8.5",
+            "solidez": "BAJA"
+          },
+          {
+            "entry_id": "corners.equipo.away.under.8.5",
+            "solidez": "BAJA"
+          }
+        ],
+        "factor_principal": "estilo_ritmo",
+        "nota": "Corners totales CIN 15,7,13,10,8,15,10,10,9 (n=9); NE 9,9,10,10,8,16,13,13,12,13 (n=10); >9.5 en 13/19. Un solo proveedor; lineas extremas con cola fina.",
+        "solidez": "MEDIA",
+        "unit_id": "m-73af94aeda13|córners"
+      },
+      "verificador": {
+        "discrepancias": [
+          "ninguna"
+        ],
+        "disponibilidad": "no_verificable",
+        "evidencia": [
+          "paquete:m-73af94aeda13|córners",
+          "apif_query:get_events match_id=711710"
+        ],
+        "excepciones": [],
+        "fuentes_consultadas": [
+          "apif_query get_events match_id=711710 (23:30 UTC, MLS, Cincinnati-New England, status vacío)",
+          "apif_query get_odds match_id=711710 (WilliamHill, bet365, Marathon, Betfair; 2026-10-14 03:19:17)"
+        ],
+        "nota": "Sin cuotas en apifootball para este grupo; mercado no confirmado en fuente.",
+        "precio": "sin_precio",
+        "unit_id": "m-73af94aeda13|córners"
+      }
+    },
+    "unit_id": "m-73af94aeda13|córners"
+  },
+  "m-73af94aeda13|doble oportunidad": {
+    "conflictos": [],
+    "grupo": "doble oportunidad",
+    "objeciones": [],
+    "partido": "FC Cincinnati – New England Revolution",
+    "roles": {
+      "auditor": {
+        "evidencia": [
+          "paquete:m-73af94aeda13|doble oportunidad",
+          "apif_query:get_odds match_id=711710",
+          "apif_query:get_events match_id=711710 timezone=UTC",
+          "archivo:runs/2026-10-14/rotation.json"
+        ],
+        "excepciones": [
+          {
+            "entry_id": "resultado.dc.12",
+            "objecion": "ninguna"
+          },
+          {
+            "entry_id": "resultado.dc.x2",
+            "objecion": "ninguna"
+          }
+        ],
+        "nota": "1X: modelo .67 vs ~.78 (precio medio de 6 casas). Es la misma brecha que 1X2 visitante (+7pp), no senal independiente. Rotacion CIN media (4.3 cambios) sin cuantificar.",
+        "objecion": "brecha_muestra_mercado",
+        "recomendacion": "degradar",
+        "severidad": "media",
+        "unit_id": "m-73af94aeda13|doble oportunidad"
+      },
+      "cuantitativo": {
+        "consistencia_modelo": "discrepa_del_mercado",
+        "evidencia": [
+          "paquete:m-73af94aeda13|doble oportunidad",
+          "archivo:data/model_validation.json"
+        ],
+        "excepciones": [
+          {
+            "consistencia_modelo": "coherente",
+            "entry_id": "resultado.dc.12"
+          },
+          {
+            "consistencia_modelo": "coherente",
+            "entry_id": "resultado.dc.x2"
+          }
+        ],
+        "nota": "1X: modelo .67 vs implicita bruta .78 (brecha ~11pp, precio otra_fuente). 12 y X2 cercanos al mercado. Modelo no validado.",
+        "riesgo_correlacion": "mismo_partido",
+        "unit_id": "m-73af94aeda13|doble oportunidad",
+        "validacion_aplicable": "no_validado"
+      },
+      "deportivo": {
+        "direccion_favorable": "local",
+        "escenario_perdida": "rotacion_inesperada",
+        "evidencia": [
+          "paquete:m-73af94aeda13|doble oportunidad",
+          "apif_query:get_events from=2026-08-15 to=2026-10-13 team_id=7952/7956 timezone=UTC (run 2026-10-14)",
+          "apif_query:get_standings league_id=332 (28 jornadas CIN 27 / NE 28, consulta 2026-10-14)",
+          "apif_query:get_events match_id=711710 timezone=UTC (árbitro Rubiel Vazquez según apifootball; paquete dice designado null; alineaciones vacías)"
+        ],
+        "excepciones": [
+          {
+            "entry_id": "resultado.dc.x2",
+            "solidez": "BAJA"
+          }
+        ],
+        "factor_principal": "localia",
+        "nota": "CIN local 7-3-2 (GF34 GA24) pero 65 GA en 27; NE visitante 5-2-7 aunque en mejor forma reciente. P(empate) 0.21 del modelo parece baja (CIN 4 empates en 9).",
+        "solidez": "MEDIA",
+        "unit_id": "m-73af94aeda13|doble oportunidad"
+      },
+      "verificador": {
+        "discrepancias": [
+          "ninguna"
+        ],
+        "disponibilidad": "verificada_en_fuente",
+        "evidencia": [
+          "paquete:m-73af94aeda13|doble oportunidad",
+          "apif_query:get_odds match_id=711710",
+          "apif_query:get_events match_id=711710"
+        ],
+        "excepciones": [],
+        "fuentes_consultadas": [
+          "apif_query get_events match_id=711710 (23:30 UTC, MLS, Cincinnati-New England, status vacío)",
+          "apif_query get_odds match_id=711710 (WilliamHill, bet365, Marathon, Betfair; 2026-10-14 03:19:17)"
+        ],
+        "nota": "Líneas con precio en apifootball (bet365/Marathon/etc.); agregador, no casa objetivo.",
+        "precio": "referencia_agregador",
+        "unit_id": "m-73af94aeda13|doble oportunidad"
+      }
+    },
+    "unit_id": "m-73af94aeda13|doble oportunidad"
+  },
+  "m-73af94aeda13|empate no válido": {
+    "conflictos": [
+      "auditor_verificar_manualmente"
+    ],
+    "grupo": "empate no válido",
+    "objeciones": [],
+    "partido": "FC Cincinnati – New England Revolution",
+    "roles": {
+      "auditor": {
+        "evidencia": [
+          "paquete:m-73af94aeda13|empate no válido",
+          "apif_query:get_odds match_id=711710",
+          "apif_query:get_events match_id=711710 timezone=UTC"
+        ],
+        "excepciones": [],
+        "nota": "Verificador dice sin cuotas, pero la API trae ah0 (=DNB) en bet365/Marathon/BetVictor/Pinnacle (~1.41/2.75); el paquete ya lo tiene como ah_entero +0. Modelo .58 vs ~.66 sin margen.",
+        "objecion": "brecha_muestra_mercado",
+        "recomendacion": "verificar_manualmente",
+        "severidad": "media",
+        "unit_id": "m-73af94aeda13|empate no válido"
+      },
+      "cuantitativo": {
+        "consistencia_modelo": "datos_insuficientes",
+        "evidencia": [
+          "paquete:m-73af94aeda13|empate no válido",
+          "archivo:data/model_validation.json"
+        ],
+        "nota": "datos sin_extractor y sin precio; estimador calculable pero sin respaldo de datos. Correlacionado con 1X2/hándicap del partido.",
+        "riesgo_correlacion": "mismo_partido",
+        "unit_id": "m-73af94aeda13|empate no válido",
+        "validacion_aplicable": "no_validado"
+      },
+      "deportivo": {
+        "direccion_favorable": "local",
+        "escenario_perdida": "sin_escenario_definido",
+        "evidencia": [
+          "paquete:m-73af94aeda13|empate no válido",
+          "apif_query:get_events from=2026-08-15 to=2026-10-13 team_id=7952/7956 timezone=UTC (run 2026-10-14)",
+          "apif_query:get_standings league_id=332 (28 jornadas CIN 27 / NE 28, consulta 2026-10-14)",
+          "apif_query:get_events match_id=711710 timezone=UTC (árbitro Rubiel Vazquez según apifootball; paquete dice designado null; alineaciones vacías)"
+        ],
+        "excepciones": [],
+        "factor_principal": "localia",
+        "nota": "Paquete marca datos 'sin_extractor' para DNB (p_modelo 0.58/0.42): sin respaldo de extractor; ventaja local moderada y forma reciente dispar.",
+        "solidez": "BAJA",
+        "unit_id": "m-73af94aeda13|empate no válido"
+      },
+      "verificador": {
+        "discrepancias": [
+          "ninguna"
+        ],
+        "disponibilidad": "no_verificable",
+        "evidencia": [
+          "paquete:m-73af94aeda13|empate no válido",
+          "apif_query:get_events match_id=711710"
+        ],
+        "excepciones": [],
+        "fuentes_consultadas": [
+          "apif_query get_events match_id=711710 (23:30 UTC, MLS, Cincinnati-New England, status vacío)",
+          "apif_query get_odds match_id=711710 (WilliamHill, bet365, Marathon, Betfair; 2026-10-14 03:19:17)"
+        ],
+        "nota": "Sin cuotas en apifootball para este grupo; mercado no confirmado en fuente.",
+        "precio": "sin_precio",
+        "unit_id": "m-73af94aeda13|empate no válido"
+      }
+    },
+    "unit_id": "m-73af94aeda13|empate no válido"
+  },
+  "m-73af94aeda13|fueras de juego": {
+    "conflictos": [
+      "auditor_descartar_de_rankings"
+    ],
+    "grupo": "fueras de juego",
+    "objeciones": [],
+    "partido": "FC Cincinnati – New England Revolution",
+    "roles": {
+      "auditor": {
+        "evidencia": [
+          "paquete:m-73af94aeda13|fueras de juego",
+          "apif_query:get_events from=2026-08-15 to=2026-10-13 team_id=7952/7956 timezone=UTC"
+        ],
+        "excepciones": [],
+        "nota": "Sin estimador, sin precio y estadistica Offside ausente en los 19 partidos recientes de la API. Nada contrastable.",
+        "objecion": "estimador_sin_validar",
+        "recomendacion": "descartar_de_rankings",
+        "severidad": "alta",
+        "unit_id": "m-73af94aeda13|fueras de juego"
+      },
+      "cuantitativo": {
+        "consistencia_modelo": "sin_estimador",
+        "evidencia": [
+          "paquete:m-73af94aeda13|fueras de juego",
+          "archivo:data/model_validation.json"
+        ],
+        "nota": "Estimador no implementado, datos sin_extractor y sin precio.",
+        "riesgo_correlacion": "mismo_partido",
+        "unit_id": "m-73af94aeda13|fueras de juego",
+        "validacion_aplicable": "no_validado"
+      },
+      "deportivo": {
+        "direccion_favorable": "sin_sesgo",
+        "escenario_perdida": "sin_escenario_definido",
+        "evidencia": [
+          "paquete:m-73af94aeda13|fueras de juego",
+          "apif_query:get_events from=2026-08-15 to=2026-10-13 team_id=7952/7956 timezone=UTC (run 2026-10-14)",
+          "apif_query:get_standings league_id=332 (28 jornadas CIN 27 / NE 28, consulta 2026-10-14)",
+          "apif_query:get_events match_id=711710 timezone=UTC (árbitro Rubiel Vazquez según apifootball; paquete dice designado null; alineaciones vacías)"
+        ],
+        "excepciones": [],
+        "factor_principal": "muestra_insuficiente",
+        "nota": "Sin extractor ni p_modelo en el paquete; los fueras de juego de apifootball son incompletos (varios partidos sin dato).",
+        "solidez": "NO_EVALUABLE",
+        "unit_id": "m-73af94aeda13|fueras de juego"
+      },
+      "verificador": {
+        "discrepancias": [
+          "ninguna"
+        ],
+        "disponibilidad": "no_verificable",
+        "evidencia": [
+          "paquete:m-73af94aeda13|fueras de juego",
+          "apif_query:get_events match_id=711710"
+        ],
+        "excepciones": [],
+        "fuentes_consultadas": [
+          "apif_query get_events match_id=711710 (23:30 UTC, MLS, Cincinnati-New England, status vacío)",
+          "apif_query get_odds match_id=711710 (WilliamHill, bet365, Marathon, Betfair; 2026-10-14 03:19:17)"
+        ],
+        "nota": "Sin cuotas en apifootball para este grupo; mercado no confirmado en fuente.",
+        "precio": "sin_precio",
+        "unit_id": "m-73af94aeda13|fueras de juego"
+      }
+    },
+    "unit_id": "m-73af94aeda13|fueras de juego"
+  },
+  "m-73af94aeda13|goles": {
+    "conflictos": [],
+    "grupo": "goles",
+    "objeciones": [],
+    "partido": "FC Cincinnati – New England Revolution",
+    "roles": {
+      "auditor": {
+        "evidencia": [
+          "paquete:m-73af94aeda13|goles",
+          "apif_query:get_odds match_id=711710",
+          "apif_query:get_events match_id=711710 timezone=UTC",
+          "archivo:data/model_validation.json"
+        ],
+        "excepciones": [
+          {
+            "entry_id": "goles.total.over.0.5",
+            "objecion": "cuota_no_ejecutable"
+          },
+          {
+            "entry_id": "goles.total.under.0.5",
+            "objecion": "cuota_no_ejecutable"
+          }
+        ],
+        "nota": "Quant y deportivo citan BTTS yes=no=.7024; el paquete trae yes .7024 / no .2976 (coherente): defecto no reproducible. Precios son medias de 6 casas; validacion insuficiente.",
+        "objecion": "estimador_sin_validar",
+        "recomendacion": "degradar",
+        "severidad": "media",
+        "unit_id": "m-73af94aeda13|goles"
+      },
+      "cuantitativo": {
+        "consistencia_modelo": "coherente",
+        "evidencia": [
+          "paquete:m-73af94aeda13|goles",
+          "archivo:data/model_validation.json"
+        ],
+        "excepciones": [
+          {
+            "consistencia_modelo": "discrepa_del_mercado",
+            "entry_id": "goles.btts.no"
+          },
+          {
+            "consistencia_modelo": "datos_insuficientes",
+            "entry_id": "goles.btts.yes"
+          }
+        ],
+        "nota": "Mayoria de lineas cerca de la implicita bruta (precios otra_fuente; 3.5 del usuario). Under 2.5 brecha ~5pp. BTTS: p_modelo igual en yes y no (.7024), incoherente.",
+        "riesgo_correlacion": "mismo_partido",
+        "unit_id": "m-73af94aeda13|goles",
+        "validacion_aplicable": "no_validado"
+      },
+      "deportivo": {
+        "direccion_favorable": "over",
+        "escenario_perdida": "partido_cerrado",
+        "evidencia": [
+          "paquete:m-73af94aeda13|goles",
+          "apif_query:get_events from=2026-08-15 to=2026-10-13 team_id=7952/7956 timezone=UTC (run 2026-10-14)",
+          "apif_query:get_standings league_id=332 (28 jornadas CIN 27 / NE 28, consulta 2026-10-14)",
+          "apif_query:get_H2H firstTeamId=7952 secondTeamId=7956 (2026-03-15 NE 6-1 CIN; 2025 CIN 1-0 y NE 0-1 CIN)",
+          "apif_query:get_events match_id=711710 timezone=UTC (árbitro Rubiel Vazquez según apifootball; paquete dice designado null; alineaciones vacías)"
+        ],
+        "excepciones": [
+          {
+            "entry_id": "goles.btts.yes",
+            "solidez": "BAJA"
+          },
+          {
+            "entry_id": "goles.btts.no",
+            "solidez": "BAJA"
+          },
+          {
+            "entry_id": "goles.total.over.3.5",
+            "solidez": "BAJA"
+          },
+          {
+            "entry_id": "goles.total.under.3.5",
+            "solidez": "BAJA"
+          }
+        ],
+        "factor_principal": "estilo_ritmo",
+        "nota": "Totales CIN ult.9: >=3 en 7/9, >=4 en 6/9; NE ult.10: >=3 en 9/10, >=4 en 2/10. Over 2.5 respaldado (16/19); 3.5 dividido. BTTS si/no con igual p_modelo (0.7024): defecto.",
+        "solidez": "MEDIA",
+        "unit_id": "m-73af94aeda13|goles"
+      },
+      "verificador": {
+        "discrepancias": [
+          "ninguna"
+        ],
+        "disponibilidad": "verificada_en_fuente",
+        "evidencia": [
+          "paquete:m-73af94aeda13|goles",
+          "apif_query:get_odds match_id=711710",
+          "apif_query:get_events match_id=711710"
+        ],
+        "excepciones": [],
+        "fuentes_consultadas": [
+          "apif_query get_events match_id=711710 (23:30 UTC, MLS, Cincinnati-New England, status vacío)",
+          "apif_query get_odds match_id=711710 (WilliamHill, bet365, Marathon, Betfair; 2026-10-14 03:19:17)"
+        ],
+        "nota": "Líneas con precio en apifootball (bet365/Marathon/etc.); agregador, no casa objetivo.",
+        "precio": "referencia_agregador",
+        "unit_id": "m-73af94aeda13|goles"
+      }
+    },
+    "unit_id": "m-73af94aeda13|goles"
+  },
+  "m-73af94aeda13|goles por equipo": {
+    "conflictos": [],
+    "grupo": "goles por equipo",
+    "objeciones": [],
+    "partido": "FC Cincinnati – New England Revolution",
+    "roles": {
+      "auditor": {
+        "evidencia": [
+          "paquete:m-73af94aeda13|goles por equipo",
+          "apif_query:get_events from=2026-08-15 to=2026-10-13 team_id=7952/7956 timezone=UTC",
+          "archivo:data/model_validation.json"
+        ],
+        "excepciones": [],
+        "nota": "Sin precio (API no ofrece goles por equipo) y validacion insuficiente (sin cuotas historicas). Fuerte correlacion con goles/BTTS/1X2 del mismo partido.",
+        "objecion": "estimador_sin_validar",
+        "recomendacion": "degradar",
+        "severidad": "media",
+        "unit_id": "m-73af94aeda13|goles por equipo"
+      },
+      "cuantitativo": {
+        "consistencia_modelo": "datos_insuficientes",
+        "evidencia": [
+          "paquete:m-73af94aeda13|goles por equipo",
+          "archivo:data/model_validation.json"
+        ],
+        "nota": "Sin precio en el paquete: no hay contraste con mercado; p_modelo sin validar (IC no supera tasa base). Lineas del mismo partido correlacionadas. Correlacion con goles/BTTS y resultado.",
+        "riesgo_correlacion": "mismo_partido",
+        "unit_id": "m-73af94aeda13|goles por equipo",
+        "validacion_aplicable": "no_validado"
+      },
+      "deportivo": {
+        "direccion_favorable": "over",
+        "escenario_perdida": "partido_cerrado",
+        "evidencia": [
+          "paquete:m-73af94aeda13|goles por equipo",
+          "apif_query:get_events from=2026-08-15 to=2026-10-13 team_id=7952/7956 timezone=UTC (run 2026-10-14)",
+          "apif_query:get_standings league_id=332 (28 jornadas CIN 27 / NE 28, consulta 2026-10-14)",
+          "apif_query:get_events match_id=711710 timezone=UTC (árbitro Rubiel Vazquez según apifootball; paquete dice designado null; alineaciones vacías)"
+        ],
+        "excepciones": [
+          {
+            "entry_id": "goles.equipo.away.over.1.5",
+            "solidez": "BAJA"
+          },
+          {
+            "entry_id": "goles.equipo.away.under.1.5",
+            "solidez": "BAJA"
+          }
+        ],
+        "factor_principal": "forma",
+        "nota": "CIN local promedia 2.8 GF (34 en 12) y encaja 2.0; NE visitante 1.36 GF y 1.64 GA (14). Over 0.5/1.5 local coherente; visitante 1.5 es 50/50.",
+        "solidez": "MEDIA",
+        "unit_id": "m-73af94aeda13|goles por equipo"
+      },
+      "verificador": {
+        "discrepancias": [
+          "ninguna"
+        ],
+        "disponibilidad": "no_verificable",
+        "evidencia": [
+          "paquete:m-73af94aeda13|goles por equipo",
+          "apif_query:get_events match_id=711710"
+        ],
+        "excepciones": [],
+        "fuentes_consultadas": [
+          "apif_query get_events match_id=711710 (23:30 UTC, MLS, Cincinnati-New England, status vacío)",
+          "apif_query get_odds match_id=711710 (WilliamHill, bet365, Marathon, Betfair; 2026-10-14 03:19:17)"
+        ],
+        "nota": "Sin cuotas en apifootball para este grupo; mercado no confirmado en fuente.",
+        "precio": "sin_precio",
+        "unit_id": "m-73af94aeda13|goles por equipo"
+      }
+    },
+    "unit_id": "m-73af94aeda13|goles por equipo"
+  },
+  "m-73af94aeda13|goles total entero": {
+    "conflictos": [
+      "auditor_descartar_de_rankings"
+    ],
+    "grupo": "goles total entero",
+    "objeciones": [],
+    "partido": "FC Cincinnati – New England Revolution",
+    "roles": {
+      "auditor": {
+        "evidencia": [
+          "paquete:m-73af94aeda13|goles total entero",
+          "apif_query:get_odds match_id=711710",
+          "apif_query:get_events match_id=711710 timezone=UTC"
+        ],
+        "excepciones": [],
+        "nota": "Estimador no implementado, datos sin_extractor; API devuelve lineas enteras vacias. Sin contraste posible.",
+        "objecion": "estimador_sin_validar",
+        "recomendacion": "descartar_de_rankings",
+        "severidad": "media",
+        "unit_id": "m-73af94aeda13|goles total entero"
+      },
+      "cuantitativo": {
+        "consistencia_modelo": "sin_estimador",
+        "evidencia": [
+          "paquete:m-73af94aeda13|goles total entero",
+          "archivo:data/model_validation.json"
+        ],
+        "nota": "Estimador no implementado, sin extractor ni precio.",
+        "riesgo_correlacion": "mismo_partido",
+        "unit_id": "m-73af94aeda13|goles total entero",
+        "validacion_aplicable": "no_validado"
+      },
+      "deportivo": {
+        "direccion_favorable": "sin_sesgo",
+        "escenario_perdida": "sin_escenario_definido",
+        "evidencia": [
+          "paquete:m-73af94aeda13|goles total entero",
+          "apif_query:get_events from=2026-08-15 to=2026-10-13 team_id=7952/7956 timezone=UTC (run 2026-10-14)",
+          "apif_query:get_standings league_id=332 (28 jornadas CIN 27 / NE 28, consulta 2026-10-14)",
+          "apif_query:get_events match_id=711710 timezone=UTC (árbitro Rubiel Vazquez según apifootball; paquete dice designado null; alineaciones vacías)"
+        ],
+        "excepciones": [],
+        "factor_principal": "muestra_insuficiente",
+        "nota": "Lineas enteras (push) sin extractor ni p_modelo en el paquete; no se puede contrastar con la frecuencia.",
+        "solidez": "NO_EVALUABLE",
+        "unit_id": "m-73af94aeda13|goles total entero"
+      },
+      "verificador": {
+        "discrepancias": [
+          "ninguna"
+        ],
+        "disponibilidad": "no_verificable",
+        "evidencia": [
+          "paquete:m-73af94aeda13|goles total entero",
+          "apif_query:get_events match_id=711710"
+        ],
+        "excepciones": [],
+        "fuentes_consultadas": [
+          "apif_query get_events match_id=711710 (23:30 UTC, MLS, Cincinnati-New England, status vacío)",
+          "apif_query get_odds match_id=711710 (WilliamHill, bet365, Marathon, Betfair; 2026-10-14 03:19:17)"
+        ],
+        "nota": "Líneas enteras de goles vacías en apifootball get_odds; sin extractor.",
+        "precio": "sin_precio",
+        "unit_id": "m-73af94aeda13|goles total entero"
+      }
+    },
+    "unit_id": "m-73af94aeda13|goles total entero"
+  },
+  "m-73af94aeda13|hándicap": {
+    "conflictos": [
+      "auditor_verificar_manualmente"
+    ],
+    "grupo": "hándicap",
+    "objeciones": [],
+    "partido": "FC Cincinnati – New England Revolution",
+    "roles": {
+      "auditor": {
+        "evidencia": [
+          "paquete:m-73af94aeda13|hándicap",
+          "apif_query:get_odds match_id=711710",
+          "apif_query:get_events match_id=711710 timezone=UTC",
+          "archivo:data/model_validation.json"
+        ],
+        "excepciones": [],
+        "nota": "Cuotas medias contaminadas por Betfair (ah-1.5_1=1.1, ah-2.5_1=1.02): 2.646 y 4.023 son medias; sin Betfair ~3.0/5.5 (impl .33/.18). Brecha de 10-13pp del cuant se reduce a ~7pp.",
+        "objecion": "dato_defectuoso",
+        "recomendacion": "verificar_manualmente",
+        "severidad": "alta",
+        "unit_id": "m-73af94aeda13|hándicap"
+      },
+      "cuantitativo": {
+        "consistencia_modelo": "discrepa_del_mercado",
+        "evidencia": [
+          "paquete:m-73af94aeda13|hándicap",
+          "archivo:data/model_validation.json"
+        ],
+        "excepciones": [
+          {
+            "consistencia_modelo": "coherente",
+            "entry_id": "resultado.ah.away.+2.5"
+          },
+          {
+            "consistencia_modelo": "coherente",
+            "entry_id": "resultado.ah.away.+1.5"
+          },
+          {
+            "consistencia_modelo": "coherente",
+            "entry_id": "resultado.ah.away.-1.5"
+          }
+        ],
+        "nota": "Local -1.5 y -2.5: modelo .26/.12 vs implicita bruta ~.38/.25 (brecha 10-13pp). Lineas visitante cercanas. Precios otra_fuente; modelo no validado. Correlacion con 1X2.",
+        "riesgo_correlacion": "mismo_partido",
+        "unit_id": "m-73af94aeda13|hándicap",
+        "validacion_aplicable": "no_validado"
+      },
+      "deportivo": {
+        "direccion_favorable": "local",
+        "escenario_perdida": "goleada_visitante",
+        "evidencia": [
+          "paquete:m-73af94aeda13|hándicap",
+          "apif_query:get_events from=2026-08-15 to=2026-10-13 team_id=7952/7956 timezone=UTC (run 2026-10-14)",
+          "apif_query:get_standings league_id=332 (28 jornadas CIN 27 / NE 28, consulta 2026-10-14)",
+          "apif_query:get_H2H firstTeamId=7952 secondTeamId=7956 (2026-03-15 NE 6-1 CIN; 2025 CIN 1-0 y NE 0-1 CIN)",
+          "apif_query:get_events match_id=711710 timezone=UTC (árbitro Rubiel Vazquez según apifootball; paquete dice designado null; alineaciones vacías)"
+        ],
+        "excepciones": [
+          {
+            "entry_id": "resultado.ah.home.-2.5",
+            "solidez": "BAJA"
+          },
+          {
+            "entry_id": "resultado.ah.away.-2.5",
+            "solidez": "BAJA"
+          },
+          {
+            "entry_id": "resultado.ah.home.-1.5",
+            "solidez": "BAJA"
+          },
+          {
+            "entry_id": "resultado.ah.away.-1.5",
+            "solidez": "BAJA"
+          }
+        ],
+        "factor_principal": "localia",
+        "nota": "Margen: CIN local mediocre en defensa y NE visitante flojo (5-2-7); lineas +-0.5 y +-1.5 razonables. Colas +-2.5 y -1.5 local dependen de goleadas (NE 6-1 en marzo, atipico).",
+        "solidez": "MEDIA",
+        "unit_id": "m-73af94aeda13|hándicap"
+      },
+      "verificador": {
+        "discrepancias": [
+          "ninguna"
+        ],
+        "disponibilidad": "verificada_en_fuente",
+        "evidencia": [
+          "paquete:m-73af94aeda13|hándicap",
+          "apif_query:get_odds match_id=711710",
+          "apif_query:get_events match_id=711710"
+        ],
+        "excepciones": [
+          {
+            "disponibilidad": "no_verificable",
+            "entry_id": "resultado.ah.home.-0.5"
+          },
+          {
+            "disponibilidad": "no_verificable",
+            "entry_id": "resultado.ah.away.+0.5"
+          },
+          {
+            "disponibilidad": "no_verificable",
+            "entry_id": "resultado.ah.home.+0.5"
+          },
+          {
+            "disponibilidad": "no_verificable",
+            "entry_id": "resultado.ah.away.-0.5"
+          },
+          {
+            "disponibilidad": "no_verificable",
+            "entry_id": "resultado.ah.home.+2.5"
+          },
+          {
+            "disponibilidad": "no_verificable",
+            "entry_id": "resultado.ah.away.-2.5"
+          }
+        ],
+        "fuentes_consultadas": [
+          "apif_query get_events match_id=711710 (23:30 UTC, MLS, Cincinnati-New England, status vacío)",
+          "apif_query get_odds match_id=711710 (WilliamHill, bet365, Marathon, Betfair; 2026-10-14 03:19:17)"
+        ],
+        "nota": "Líneas con precio en apifootball (bet365/Marathon/etc.); agregador, no casa objetivo.",
+        "precio": "referencia_agregador",
+        "unit_id": "m-73af94aeda13|hándicap"
+      }
+    },
+    "unit_id": "m-73af94aeda13|hándicap"
+  },
+  "m-73af94aeda13|hándicap asiático entero": {
+    "conflictos": [
+      "auditor_descartar_de_rankings"
+    ],
+    "grupo": "hándicap asiático entero",
+    "objeciones": [],
+    "partido": "FC Cincinnati – New England Revolution",
+    "roles": {
+      "auditor": {
+        "evidencia": [
+          "paquete:m-73af94aeda13|hándicap asiático entero",
+          "apif_query:get_odds match_id=711710",
+          "apif_query:get_events match_id=711710 timezone=UTC"
+        ],
+        "excepciones": [],
+        "nota": "Sin p_modelo y validacion nula; solo cuotas parciales (medias de 2-5 casas). Verificador la da por verificada pero no hay contraste de modelo.",
+        "objecion": "estimador_sin_validar",
+        "recomendacion": "descartar_de_rankings",
+        "severidad": "media",
+        "unit_id": "m-73af94aeda13|hándicap asiático entero"
+      },
+      "cuantitativo": {
+        "consistencia_modelo": "sin_estimador",
+        "evidencia": [
+          "paquete:m-73af94aeda13|hándicap asiático entero",
+          "archivo:data/model_validation.json"
+        ],
+        "nota": "Estimador no implementado (p_modelo vacio); hay cuotas parciales sin contraste. Correlacionado con 1X2 y hándicap.",
+        "riesgo_correlacion": "mismo_partido",
+        "unit_id": "m-73af94aeda13|hándicap asiático entero",
+        "validacion_aplicable": "no_validado"
+      },
+      "deportivo": {
+        "direccion_favorable": "sin_sesgo",
+        "escenario_perdida": "sin_escenario_definido",
+        "evidencia": [
+          "paquete:m-73af94aeda13|hándicap asiático entero",
+          "apif_query:get_events from=2026-08-15 to=2026-10-13 team_id=7952/7956 timezone=UTC (run 2026-10-14)",
+          "apif_query:get_standings league_id=332 (28 jornadas CIN 27 / NE 28, consulta 2026-10-14)",
+          "apif_query:get_events match_id=711710 timezone=UTC (árbitro Rubiel Vazquez según apifootball; paquete dice designado null; alineaciones vacías)"
+        ],
+        "excepciones": [],
+        "factor_principal": "muestra_insuficiente",
+        "nota": "Sin extractor ni p_modelo para lineas enteras en el paquete.",
+        "solidez": "NO_EVALUABLE",
+        "unit_id": "m-73af94aeda13|hándicap asiático entero"
+      },
+      "verificador": {
+        "discrepancias": [
+          "ninguna"
+        ],
+        "disponibilidad": "verificada_en_fuente",
+        "evidencia": [
+          "paquete:m-73af94aeda13|hándicap asiático entero",
+          "apif_query:get_odds match_id=711710",
+          "apif_query:get_events match_id=711710"
+        ],
+        "excepciones": [
+          {
+            "disponibilidad": "no_verificable",
+            "entry_id": "resultado.ah_entero.home.+2"
+          },
+          {
+            "disponibilidad": "no_verificable",
+            "entry_id": "resultado.ah_entero.away.-2"
+          }
+        ],
+        "fuentes_consultadas": [
+          "apif_query get_events match_id=711710 (23:30 UTC, MLS, Cincinnati-New England, status vacío)",
+          "apif_query get_odds match_id=711710 (WilliamHill, bet365, Marathon, Betfair; 2026-10-14 03:19:17)"
+        ],
+        "nota": "Líneas con precio en apifootball (bet365/Marathon/etc.); agregador, no casa objetivo.",
+        "precio": "referencia_agregador",
+        "unit_id": "m-73af94aeda13|hándicap asiático entero"
+      }
+    },
+    "unit_id": "m-73af94aeda13|hándicap asiático entero"
+  },
+  "m-73af94aeda13|hándicap europeo": {
+    "conflictos": [
+      "auditor_descartar_de_rankings"
+    ],
+    "grupo": "hándicap europeo",
+    "objeciones": [],
+    "partido": "FC Cincinnati – New England Revolution",
+    "roles": {
+      "auditor": {
+        "evidencia": [
+          "paquete:m-73af94aeda13|hándicap europeo",
+          "apif_query:get_odds match_id=711710",
+          "apif_query:get_events match_id=711710 timezone=UTC"
+        ],
+        "excepciones": [],
+        "nota": "Estimador no implementado, sin extractor ni precio; la API no ofrece hándicap europeo (3 vias).",
+        "objecion": "estimador_sin_validar",
+        "recomendacion": "descartar_de_rankings",
+        "severidad": "media",
+        "unit_id": "m-73af94aeda13|hándicap europeo"
+      },
+      "cuantitativo": {
+        "consistencia_modelo": "sin_estimador",
+        "evidencia": [
+          "paquete:m-73af94aeda13|hándicap europeo",
+          "archivo:data/model_validation.json"
+        ],
+        "nota": "Estimador no implementado, sin extractor ni precio.",
+        "riesgo_correlacion": "mismo_partido",
+        "unit_id": "m-73af94aeda13|hándicap europeo",
+        "validacion_aplicable": "no_validado"
+      },
+      "deportivo": {
+        "direccion_favorable": "sin_sesgo",
+        "escenario_perdida": "sin_escenario_definido",
+        "evidencia": [
+          "paquete:m-73af94aeda13|hándicap europeo",
+          "apif_query:get_events from=2026-08-15 to=2026-10-13 team_id=7952/7956 timezone=UTC (run 2026-10-14)",
+          "apif_query:get_standings league_id=332 (28 jornadas CIN 27 / NE 28, consulta 2026-10-14)",
+          "apif_query:get_events match_id=711710 timezone=UTC (árbitro Rubiel Vazquez según apifootball; paquete dice designado null; alineaciones vacías)"
+        ],
+        "excepciones": [],
+        "factor_principal": "muestra_insuficiente",
+        "nota": "Sin extractor ni p_modelo para hándicap europeo en el paquete.",
+        "solidez": "NO_EVALUABLE",
+        "unit_id": "m-73af94aeda13|hándicap europeo"
+      },
+      "verificador": {
+        "discrepancias": [
+          "ninguna"
+        ],
+        "disponibilidad": "no_verificable",
+        "evidencia": [
+          "paquete:m-73af94aeda13|hándicap europeo",
+          "apif_query:get_events match_id=711710"
+        ],
+        "excepciones": [],
+        "fuentes_consultadas": [
+          "apif_query get_events match_id=711710 (23:30 UTC, MLS, Cincinnati-New England, status vacío)",
+          "apif_query get_odds match_id=711710 (WilliamHill, bet365, Marathon, Betfair; 2026-10-14 03:19:17)"
+        ],
+        "nota": "Sin cuotas en apifootball para este grupo; mercado no confirmado en fuente.",
+        "precio": "sin_precio",
+        "unit_id": "m-73af94aeda13|hándicap europeo"
+      }
+    },
+    "unit_id": "m-73af94aeda13|hándicap europeo"
+  },
+  "m-73af94aeda13|remates": {
+    "conflictos": [
+      "auditor_descartar_de_rankings"
+    ],
+    "grupo": "remates",
+    "objeciones": [],
+    "partido": "FC Cincinnati – New England Revolution",
+    "roles": {
+      "auditor": {
+        "evidencia": [
+          "paquete:m-73af94aeda13|remates",
+          "apif_query:get_events from=2026-08-15 to=2026-10-13 team_id=7952/7956 timezone=UTC"
+        ],
+        "excepciones": [],
+        "nota": "90 lineas 'datos suficientes' sin estimador ni precio; shots ausentes en 3/19 partidos recientes. Deportivo exagera 'erraticos': 20-1 en un 5-0 es plausible.",
+        "objecion": "estimador_sin_validar",
+        "recomendacion": "descartar_de_rankings",
+        "severidad": "alta",
+        "unit_id": "m-73af94aeda13|remates"
+      },
+      "cuantitativo": {
+        "consistencia_modelo": "sin_estimador",
+        "evidencia": [
+          "paquete:m-73af94aeda13|remates",
+          "archivo:data/model_validation.json"
+        ],
+        "nota": "Estimador no implementado (90 lineas), sin precio. Lineas por jugador/equipo correlacionadas entre si y con remates a puerta.",
+        "riesgo_correlacion": "mismo_partido",
+        "unit_id": "m-73af94aeda13|remates",
+        "validacion_aplicable": "no_validado"
+      },
+      "deportivo": {
+        "direccion_favorable": "sin_sesgo",
+        "escenario_perdida": "sin_escenario_definido",
+        "evidencia": [
+          "paquete:m-73af94aeda13|remates",
+          "apif_query:get_events from=2026-08-15 to=2026-10-13 team_id=7952/7956 timezone=UTC (run 2026-10-14)",
+          "apif_query:get_standings league_id=332 (28 jornadas CIN 27 / NE 28, consulta 2026-10-14)",
+          "apif_query:get_events match_id=711710 timezone=UTC (árbitro Rubiel Vazquez según apifootball; paquete dice designado null; alineaciones vacías)"
+        ],
+        "excepciones": [],
+        "factor_principal": "muestra_insuficiente",
+        "nota": "Estimador no implementado. Remates de apifootball erraticos (p. ej. 1 vs 20 en un 0-5) y ausentes en algunos partidos; no verificable.",
+        "solidez": "NO_EVALUABLE",
+        "unit_id": "m-73af94aeda13|remates"
+      },
+      "verificador": {
+        "discrepancias": [
+          "ninguna"
+        ],
+        "disponibilidad": "no_verificable",
+        "evidencia": [
+          "paquete:m-73af94aeda13|remates",
+          "apif_query:get_events match_id=711710"
+        ],
+        "excepciones": [],
+        "fuentes_consultadas": [
+          "apif_query get_events match_id=711710 (23:30 UTC, MLS, Cincinnati-New England, status vacío)",
+          "apif_query get_odds match_id=711710 (WilliamHill, bet365, Marathon, Betfair; 2026-10-14 03:19:17)"
+        ],
+        "nota": "Sin cuotas en apifootball para este grupo; mercado no confirmado en fuente.",
+        "precio": "sin_precio",
+        "unit_id": "m-73af94aeda13|remates"
+      }
+    },
+    "unit_id": "m-73af94aeda13|remates"
+  },
+  "m-73af94aeda13|remates a puerta": {
+    "conflictos": [
+      "auditor_descartar_de_rankings"
+    ],
+    "grupo": "remates a puerta",
+    "objeciones": [],
+    "partido": "FC Cincinnati – New England Revolution",
+    "roles": {
+      "auditor": {
+        "evidencia": [
+          "paquete:m-73af94aeda13|remates a puerta",
+          "apif_query:get_events from=2026-08-15 to=2026-10-13 team_id=7952/7956 timezone=UTC"
+        ],
+        "excepciones": [],
+        "nota": "60 lineas sin estimador ni precio; un solo proveedor, huecos en 3/19 partidos; sin segunda fuente. Correlacion con remates y goles.",
+        "objecion": "estimador_sin_validar",
+        "recomendacion": "descartar_de_rankings",
+        "severidad": "alta",
+        "unit_id": "m-73af94aeda13|remates a puerta"
+      },
+      "cuantitativo": {
+        "consistencia_modelo": "sin_estimador",
+        "evidencia": [
+          "paquete:m-73af94aeda13|remates a puerta",
+          "archivo:data/model_validation.json"
+        ],
+        "nota": "Estimador no implementado (60 lineas), sin precio. Correlacionado con remates y goles.",
+        "riesgo_correlacion": "mismo_partido",
+        "unit_id": "m-73af94aeda13|remates a puerta",
+        "validacion_aplicable": "no_validado"
+      },
+      "deportivo": {
+        "direccion_favorable": "sin_sesgo",
+        "escenario_perdida": "sin_escenario_definido",
+        "evidencia": [
+          "paquete:m-73af94aeda13|remates a puerta",
+          "apif_query:get_events from=2026-08-15 to=2026-10-13 team_id=7952/7956 timezone=UTC (run 2026-10-14)",
+          "apif_query:get_standings league_id=332 (28 jornadas CIN 27 / NE 28, consulta 2026-10-14)",
+          "apif_query:get_events match_id=711710 timezone=UTC (árbitro Rubiel Vazquez según apifootball; paquete dice designado null; alineaciones vacías)"
+        ],
+        "excepciones": [],
+        "factor_principal": "muestra_insuficiente",
+        "nota": "Estimador no implementado; tiros a puerta de un solo proveedor, con huecos; no hay contraste independiente.",
+        "solidez": "NO_EVALUABLE",
+        "unit_id": "m-73af94aeda13|remates a puerta"
+      },
+      "verificador": {
+        "discrepancias": [
+          "ninguna"
+        ],
+        "disponibilidad": "no_verificable",
+        "evidencia": [
+          "paquete:m-73af94aeda13|remates a puerta",
+          "apif_query:get_events match_id=711710"
+        ],
+        "excepciones": [],
+        "fuentes_consultadas": [
+          "apif_query get_events match_id=711710 (23:30 UTC, MLS, Cincinnati-New England, status vacío)",
+          "apif_query get_odds match_id=711710 (WilliamHill, bet365, Marathon, Betfair; 2026-10-14 03:19:17)"
+        ],
+        "nota": "Sin cuotas en apifootball para este grupo; mercado no confirmado en fuente.",
+        "precio": "sin_precio",
+        "unit_id": "m-73af94aeda13|remates a puerta"
+      }
+    },
+    "unit_id": "m-73af94aeda13|remates a puerta"
+  },
+  "m-73af94aeda13|resultado": {
+    "conflictos": [],
+    "grupo": "resultado",
+    "objeciones": [],
+    "partido": "FC Cincinnati – New England Revolution",
+    "roles": {
+      "auditor": {
+        "evidencia": [
+          "paquete:m-73af94aeda13|resultado",
+          "apif_query:get_odds match_id=711710",
+          "apif_query:get_events match_id=711710 timezone=UTC",
+          "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+          "archivo:runs/2026-10-14/rotation.json"
+        ],
+        "excepciones": [
+          {
+            "entry_id": "resultado.1x2.draw",
+            "objecion": "ninguna"
+          }
+        ],
+        "nota": "Visitante: modelo .330 vs ~.26 sin margen (Pinnacle 1.86/4.27/3.7). Empate .215 vs ~.225: no esta infravalorado. 1X2 es cuota del usuario sin casa; CIN rota 4.3 cambios.",
+        "objecion": "brecha_muestra_mercado",
+        "recomendacion": "degradar",
+        "severidad": "media",
+        "unit_id": "m-73af94aeda13|resultado"
+      },
+      "cuantitativo": {
+        "consistencia_modelo": "coherente",
+        "evidencia": [
+          "paquete:m-73af94aeda13|resultado",
+          "archivo:data/model_validation.json"
+        ],
+        "excepciones": [
+          {
+            "consistencia_modelo": "discrepa_del_mercado",
+            "entry_id": "resultado.1x2.away"
+          }
+        ],
+        "nota": "1X2 con precios del usuario (1.85/4.0/3.6): sin margen local .51/empate .23/visit .26 vs modelo .455/.215/.330; visitante +7pp sobre mercado, moderado. Modelo no validado.",
+        "riesgo_correlacion": "mismo_partido",
+        "unit_id": "m-73af94aeda13|resultado",
+        "validacion_aplicable": "no_validado"
+      },
+      "deportivo": {
+        "direccion_favorable": "local",
+        "escenario_perdida": "rotacion_inesperada",
+        "evidencia": [
+          "paquete:m-73af94aeda13|resultado",
+          "apif_query:get_events from=2026-08-15 to=2026-10-13 team_id=7952/7956 timezone=UTC (run 2026-10-14)",
+          "apif_query:get_standings league_id=332 (28 jornadas CIN 27 / NE 28, consulta 2026-10-14)",
+          "apif_query:get_H2H firstTeamId=7952 secondTeamId=7956 (2026-03-15 NE 6-1 CIN; 2025 CIN 1-0 y NE 0-1 CIN)",
+          "apif_query:get_events match_id=711710 timezone=UTC (árbitro Rubiel Vazquez según apifootball; paquete dice designado null; alineaciones vacías)"
+        ],
+        "excepciones": [
+          {
+            "entry_id": "resultado.1x2.draw",
+            "solidez": "BAJA"
+          }
+        ],
+        "factor_principal": "localia",
+        "nota": "Local 0.455/empate 0.215/visitante 0.33. CIN local 7-3-2 pero 2V-4E-3D recientes; NE 5V-1E-4D con derrotas 0-3 y 0-3 en ultimas 2 salidas/partidos. Evidencia cruzada; empate infravalorado.",
+        "solidez": "BAJA",
+        "unit_id": "m-73af94aeda13|resultado"
+      },
+      "verificador": {
+        "discrepancias": [
+          "ninguna"
+        ],
+        "disponibilidad": "verificada_en_fuente",
+        "evidencia": [
+          "paquete:m-73af94aeda13|resultado",
+          "apif_query:get_odds match_id=711710",
+          "apif_query:get_events match_id=711710"
+        ],
+        "excepciones": [],
+        "fuentes_consultadas": [
+          "apif_query get_events match_id=711710 (23:30 UTC, MLS, Cincinnati-New England, status vacío)",
+          "apif_query get_odds match_id=711710 (WilliamHill, bet365, Marathon, Betfair; 2026-10-14 03:19:17)"
+        ],
+        "nota": "1X2 usuario 1.85/4.0/3.6; agregador bet365 1.85/4.2/3.5. Cuota usuario no verificada por mí.",
+        "precio": "referencia_agregador",
+        "unit_id": "m-73af94aeda13|resultado"
+      }
+    },
+    "unit_id": "m-73af94aeda13|resultado"
+  },
+  "m-73af94aeda13|tarjetas": {
+    "conflictos": [
+      "auditor_verificar_manualmente"
+    ],
+    "grupo": "tarjetas",
+    "objeciones": [],
+    "partido": "FC Cincinnati – New England Revolution",
+    "roles": {
+      "auditor": {
+        "evidencia": [
+          "paquete:m-73af94aeda13|tarjetas",
+          "apif_query:get_odds match_id=711710",
+          "apif_query:get_events match_id=711710 timezone=UTC",
+          "apif_query:get_events from=2026-08-15 to=2026-10-13 team_id=7952/7956 timezone=UTC"
+        ],
+        "excepciones": [],
+        "nota": "Arbitro API Rubiel Vazquez vs paquete null (verificador no marco paquete_desactualizado); 0 partidos suyos en muestra MLS; amarillas ausentes en 5/19; regla de puntos no verificada.",
+        "objecion": "muestra_debil",
+        "recomendacion": "verificar_manualmente",
+        "severidad": "media",
+        "unit_id": "m-73af94aeda13|tarjetas"
+      },
+      "cuantitativo": {
+        "consistencia_modelo": "datos_insuficientes",
+        "evidencia": [
+          "paquete:m-73af94aeda13|tarjetas",
+          "archivo:data/model_validation.json"
+        ],
+        "nota": "Sin precio; arbitro no designado (0 partidos de muestra con arbitro asignado); validacion insuficiente. Lineas correlacionadas con faltas/contexto del partido.",
+        "riesgo_correlacion": "mismo_partido",
+        "unit_id": "m-73af94aeda13|tarjetas",
+        "validacion_aplicable": "no_validado"
+      },
+      "deportivo": {
+        "direccion_favorable": "sin_sesgo",
+        "escenario_perdida": "tarjetas_atipicas",
+        "evidencia": [
+          "paquete:m-73af94aeda13|tarjetas",
+          "apif_query:get_events from=2026-08-15 to=2026-10-13 team_id=7952/7956 timezone=UTC (run 2026-10-14)",
+          "apif_query:get_standings league_id=332 (28 jornadas CIN 27 / NE 28, consulta 2026-10-14)",
+          "apif_query:get_events match_id=711710 timezone=UTC (árbitro Rubiel Vazquez según apifootball; paquete dice designado null; alineaciones vacías)"
+        ],
+        "excepciones": [],
+        "factor_principal": "arbitro",
+        "nota": "Arbitro Rubiel Vazquez solo en apifootball (paquete: sin designado, 0 partidos); muestra en liga insuficiente. Amarillas recientes 1-4 por equipo, sin tendencia clara.",
+        "solidez": "BAJA",
+        "unit_id": "m-73af94aeda13|tarjetas"
+      },
+      "verificador": {
+        "discrepancias": [
+          "ninguna"
+        ],
+        "disponibilidad": "no_verificable",
+        "evidencia": [
+          "paquete:m-73af94aeda13|tarjetas",
+          "apif_query:get_events match_id=711710"
+        ],
+        "excepciones": [],
+        "fuentes_consultadas": [
+          "apif_query get_events match_id=711710 (23:30 UTC, MLS, Cincinnati-New England, status vacío)",
+          "apif_query get_odds match_id=711710 (WilliamHill, bet365, Marathon, Betfair; 2026-10-14 03:19:17)"
+        ],
+        "nota": "Sin cuotas en apifootball para este grupo; mercado no confirmado en fuente. Árbitro en API: Rubiel Vazquez; paquete lo tiene null.",
+        "precio": "sin_precio",
+        "unit_id": "m-73af94aeda13|tarjetas"
+      }
+    },
+    "unit_id": "m-73af94aeda13|tarjetas"
+  }
+}

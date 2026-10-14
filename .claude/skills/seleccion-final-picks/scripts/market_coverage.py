@@ -305,7 +305,7 @@ def _pricing(match, entry, providers, found, failed):
     return {"estado": "sin_precio", "registro": None, "cumple_limite": None, "cumple_requisitos_de_precio": False, "nota": "ninguna fuente registrada aporta precio para esta combinación"}
 
 
-def build_records(matches, ev_by_id, providers=(), catalog=None, contexts=None):
+def build_records(matches, ev_by_id, providers=(), catalog=None, contexts=None, revision_ok=False):
     """Un registro por combinación requerida (partido × entrada) con sus tres bloques. Devuelve (filas, errores_de_proveedores)."""
     catalog = mc.CATALOG if catalog is None else catalog
     providers = list(providers)
@@ -333,7 +333,7 @@ def build_records(matches, ev_by_id, providers=(), catalog=None, contexts=None):
                 ml = (contexts.get(m["match_id"]) or {}).get("muestra_liga") or {}
                 campo = "corners" if e["data_requirements"][0] == "corners" else "tarjetas"
                 rows[-1]["analitica"]["muestra_liga"] = {"campo": campo, "ejecutada": ml.get("ejecutada", False), "partidos_liga": ml.get("partidos"), "con_campo": ml.get("con_" + ("corners" if campo == "corners" else "tarjetas"))}
-            rows[-1]["preparacion_para_apostar"] = row_readiness(rows[-1])
+            rows[-1]["preparacion_para_apostar"] = row_readiness(rows[-1], revision_ok)
     return rows, errors
 
 
@@ -479,11 +479,12 @@ NON_GENERATING = {
     ".claude/skills/seleccion-final-picks/scripts/live_prob.py": "imprime la probabilidad en vivo de tickets ya apostados; no genera candidatos",
     ".claude/skills/seleccion-final-picks/scripts/rotation_prior.py": "lee los partidos de tickets.json para calcular rotación; no genera candidatos",
     ".claude/skills/seleccion-final-picks/scripts/seguimiento.py": "liquida tickets ya apostados; «provisional» se refiere a un marcador en juego",
+    ".claude/skills/seleccion-final-picks/scripts/agent_review.py": "genera paquetes y valida los informes de los agentes (contrato cerrado); no genera candidatos",
 }
 
 
 # ── PREPARACIÓN PARA APOSTAR (independiente de la certificación de investigación) ──
-REQUISITOS_APUESTA = ("investigacion_resuelta", "precio_real_verificado", "cuota_dentro_del_limite", "datos_suficientes", "estimador_propio_disponible", "modelo_validado")
+REQUISITOS_APUESTA = ("investigacion_resuelta", "precio_real_verificado", "cuota_dentro_del_limite", "datos_suficientes", "estimador_propio_disponible", "modelo_validado", "revision_agentes_completa")
 
 
 def _readiness(checks):
@@ -492,7 +493,7 @@ def _readiness(checks):
             "nota": "independiente de la certificación de la investigación: una investigación completa no vuelve apta una selección"}
 
 
-def row_readiness(row):
+def row_readiness(row, revision_ok=False):
     """Una fila (partido × entrada) está preparada para apostar solo si CUMPLE A LA VEZ todos los requisitos; el modelo no validado impide recomendarla."""
     p, a = row["precio"], row["analitica"]
     return _readiness({"investigacion_resuelta": bool(row["investigacion"]["resuelta"]),
@@ -500,10 +501,11 @@ def row_readiness(row):
                        "cuota_dentro_del_limite": p.get("cumple_limite") is True,
                        "datos_suficientes": a["datos"] == "suficientes",
                        "estimador_propio_disponible": a["estimador"] == "calculable",
-                       "modelo_validado": model_validated(mc.BY_ID.get(row["entry_id"], {}))})
+                       "modelo_validado": model_validated(mc.BY_ID.get(row["entry_id"], {})),
+                       "revision_agentes_completa": bool(revision_ok)})
 
 
-def ticket_readiness(tk, investigacion_certificada=False):
+def ticket_readiness(tk, investigacion_certificada=False, revision_ok=False):
     """Preparación de un borrador: todas sus patas con precio REAL comunicado (no promedio), cada cuota ≤ límite, datos suficientes por equipo, modelo validado e investigación certificada."""
     legs = [l for it in tk.get("items", []) for l in it["patas"]]
     return _readiness({"investigacion_resuelta": bool(investigacion_certificada),
@@ -511,7 +513,7 @@ def ticket_readiness(tk, investigacion_certificada=False):
                        "cuota_dentro_del_limite": bool(legs) and all((l.get("cuota_media") or 99) <= MAX_LEG_ODDS for l in legs),
                        "datos_suficientes": bool(legs) and all(min(l.get("n") or [0, 0]) >= MIN_N for l in legs),
                        "estimador_propio_disponible": bool(legs) and all(l.get("p_central") is not None or l.get("apoyo_conservador") is not None for l in legs),
-                       "modelo_validado": MODEL_VALIDATION["nivel"] == "suficiente"})
+                       "modelo_validado": MODEL_VALIDATION["nivel"] == "suficiente", "revision_agentes_completa": bool(revision_ok)})
 
 
 def betting_summary(rows):
@@ -527,15 +529,20 @@ def certified(summary):
     return bool(summary.get("modo") == "enforce" and summary.get("investigacion", {}).get("estado") == "INVESTIGACION_COMPLETA")
 
 
-def summarize(rows, authorized_ids, errors=(), catalog=None, channels=None, modo="enforce", contexts=None):
+def summarize(rows, authorized_ids, errors=(), catalog=None, channels=None, modo="enforce", contexts=None, revision=None):
     catalog = mc.CATALOG if catalog is None else catalog
     a = investigation_gate(rows, authorized_ids, catalog, channels)
     authorized_ids = list(authorized_ids)
-    s = {"modo": modo, "partidos_ids": authorized_ids, "partidos_autorizados": len(authorized_ids), "entradas_catalogo": len(catalog), "filas": len(rows), "investigacion": a, "analitica": analytic_report(rows, contexts), "precios": pricing_report(rows), "contexto_partidos": contexts or {},
+    s = {"modo": modo, "partidos_ids": authorized_ids, "partidos_autorizados": len(authorized_ids), "entradas_catalogo": len(catalog), "filas": len(rows), "investigacion": a, "analitica": analytic_report(rows, contexts), "precios": pricing_report(rows), "contexto_partidos": contexts or {}, "revision_agentes": _revision_block(revision),
          "errores_proveedores": list(errors)}
     s["preparacion_para_apostar"] = betting_summary(rows)
     _stamp_certification(s)
     return s
+
+
+def _revision_block(rev):
+    """Estado de la revisión por agentes (agent_review.review_gate): COMPLETA | INCOMPLETA | NO_EJECUTADA. Es un requisito de la preparación para apostar, NO de la certificación de la investigación."""
+    return {"estado": (rev or {}).get("estado", "NO_EJECUTADA"), "incidencias": len((rev or {}).get("incidencias", [])), "unidades_esperadas": (rev or {}).get("unidades_esperadas")}
 
 
 def _stamp_certification(s):
@@ -551,7 +558,7 @@ SEMANTICS = {"investigacion_certificada": "SOLO significa que cada combinación 
 
 
 def omitted_summary():
-    s = {"modo": "omitida", "certificado_investigacion": False, "preparacion_para_apostar": {"estado": "NO_EVALUADA"}, "investigacion": {"estado": "NO_EVALUADA", "incidencias": [{"tipo": "cobertura_omitida_por_el_operador", "cantidad": 1, "ejemplos": []}]},
+    s = {"modo": "omitida", "certificado_investigacion": False, "preparacion_para_apostar": {"estado": "NO_EVALUADA"}, "revision_agentes": {"estado": "NO_EVALUADA"}, "investigacion": {"estado": "NO_EVALUADA", "incidencias": [{"tipo": "cobertura_omitida_por_el_operador", "cantidad": 1, "ejemplos": []}]},
          "analitica": {"estado": "NO_EVALUADA"}, "precios": {"estado": "NO_EVALUADA"}}
     _stamp_certification(s)
     return s
@@ -566,7 +573,7 @@ def banner(s):
     inv = ("INVESTIGACIÓN CERTIFICADA (solo exhaustividad de la investigación; no es una aprobación para apostar)" if s["investigacion_certificada"]
            else f"INVESTIGACIÓN NO CERTIFICADA COMO EXHAUSTIVA — {a['estado']} ({pend} incidencias)")
     bet = s["preparacion_para_apostar"]
-    return " · ".join([inv, f"analítica: {b['estado']}", f"precios: {c['estado']}", f"preparación para apostar: {'NO APTA' if bet['estado'] == 'NINGUNA_FILA_APTA' else bet['estado']} ({bet['filas_aptas']} filas aptas)"])
+    return " · ".join([inv, f"analítica: {b['estado']}", f"precios: {c['estado']}", f"revisión de agentes: {s['revision_agentes']['estado']}", f"preparación para apostar: {'NO APTA' if bet['estado'] == 'NINGUNA_FILA_APTA' else bet['estado']} ({bet['filas_aptas']} filas aptas)"])
 
 
 def render_md(s):
@@ -628,8 +635,15 @@ def run_coverage(run, match_ids=None, price_files=(), out_dir=None, aggregator=T
         matches = authorized_from_run(run)
     providers = default_providers(run, inv, mx, price_files, capture, aggregator)
     contexts = build_contexts(run, matches, inv)
-    rows, errors = build_records(matches, mx, providers, contexts=contexts)
-    s = summarize(rows, [m["match_id"] for m in matches], errors, channels=[CANAL_DATOS] + [p.name for p in providers], contexts=contexts)
+    import agent_review
+    rev = agent_review.load_gate(run)
+    ids_ = [m["match_id"] for m in matches]
+    # la revisión solo vale si cubre ESTOS partidos (un resultado de otro conjunto no habilita nada)
+    rev_ok = bool(rev and rev.get("estado") == "COMPLETA" and set(rev.get("partidos_ids", [])) == set(ids_))
+    if rev and rev.get("estado") == "COMPLETA" and not rev_ok:
+        rev = dict(rev, estado="INCOMPLETA", incidencias=list(rev.get("incidencias", [])) + [{"tipo": "revision_de_otro_conjunto_de_partidos"}])
+    rows, errors = build_records(matches, mx, providers, contexts=contexts, revision_ok=rev_ok)
+    s = summarize(rows, ids_, errors, channels=[CANAL_DATOS] + [p.name for p in providers], contexts=contexts, revision=rev)
     if write:
         out = out_dir or run
         os.makedirs(out, exist_ok=True)

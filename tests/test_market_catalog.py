@@ -440,7 +440,8 @@ class CertificacionNoEsAprobacion(unittest.TestCase):
 
     def test_con_precio_real_dentro_del_limite_y_datos_suficientes_el_modelo_no_validado_impide_apto(self):
         prov = FakeProvider(records={"goles.total.over.1.5": (1.55, "casa", True)})
-        rows, s = self._complete(prov)
+        rows, errs = cov.build_records([match(1)], {"m1": ev()}, [prov], revision_ok=True)            # revisión de agentes completa (requisito aparte)
+        s = cov.summarize(rows, ["m1"], errs, channels=[cov.CANAL_DATOS, "fake"])
         r = by_entry(rows, "goles.total.over.1.5")
         req = r["preparacion_para_apostar"]["requisitos"]
         self.assertTrue(all(req[k] for k in req if k != "modelo_validado"), req)       # todo lo demás se cumple…
@@ -452,9 +453,11 @@ class CertificacionNoEsAprobacion(unittest.TestCase):
     def test_solo_es_apta_si_se_cumplen_todos_los_requisitos_incluida_la_validacion(self):
         prov = FakeProvider(records={"goles.total.over.1.5": (1.55, "casa", True), "goles.total.over.2.5": (2.60, "casa", True), "goles.total.over.3.5": (1.60, "agregador", True)})
         with mock.patch.dict(cov.MODEL_VALIDATION, {"nivel": "suficiente"}):                # hipótesis: modelo validado en el futuro
-            rows, _ = cov.build_records([match(1)], {"m1": ev()}, [prov])
+            rows, _ = cov.build_records([match(1)], {"m1": ev()}, [prov], revision_ok=True)
             apta, alto, agg = (by_entry(rows, f"goles.total.over.{x}")["preparacion_para_apostar"] for x in ("1.5", "2.5", "3.5"))
+            sin_revision, _ = cov.build_records([match(1)], {"m1": ev()}, [prov])
         self.assertEqual(apta["estado"], "APTA")
+        self.assertEqual(by_entry(sin_revision, "goles.total.over.1.5")["preparacion_para_apostar"]["incumplidos"], ["revision_agentes_completa"])       # sin revisión de agentes completa, nunca
         self.assertEqual(alto["incumplidos"], ["cuota_dentro_del_limite"])                 # 2.60 > 2.10
         self.assertIn("precio_real_verificado", agg["incumplidos"])                          # un agregador no es precio real
 
@@ -468,14 +471,15 @@ class CertificacionNoEsAprobacion(unittest.TestCase):
         return {"items": [{"patas": [{"cuota_tipo": tipo, "cuota_media": cuota, "n": list(n), "p_central": 0.7, "apoyo_conservador": 0.7}]}]}
 
     def test_borrador_con_precio_real_cuota_ok_y_datos_suficientes_sigue_no_apto_con_el_modelo_sin_validar(self):
-        r = cov.ticket_readiness(self._ticket(), investigacion_certificada=True)
+        r = cov.ticket_readiness(self._ticket(), investigacion_certificada=True, revision_ok=True)
         self.assertEqual(r["incumplidos"], ["modelo_validado"])
         self.assertEqual(r["estado"], "NO_APTA")
         with mock.patch.dict(cov.MODEL_VALIDATION, {"nivel": "suficiente"}):
-            self.assertEqual(cov.ticket_readiness(self._ticket(), True)["estado"], "APTA")
-            self.assertIn("precio_real_verificado", cov.ticket_readiness(self._ticket("promedio_de_mercado"), True)["incumplidos"])
-            self.assertIn("cuota_dentro_del_limite", cov.ticket_readiness(self._ticket(cuota=2.5), True)["incumplidos"])
-            self.assertIn("investigacion_resuelta", cov.ticket_readiness(self._ticket(), False)["incumplidos"])         # la certificación es necesaria pero no suficiente
+            self.assertEqual(cov.ticket_readiness(self._ticket(), True, True)["estado"], "APTA")
+            self.assertIn("precio_real_verificado", cov.ticket_readiness(self._ticket("promedio_de_mercado"), True, True)["incumplidos"])
+            self.assertIn("cuota_dentro_del_limite", cov.ticket_readiness(self._ticket(cuota=2.5), True, True)["incumplidos"])
+            self.assertIn("investigacion_resuelta", cov.ticket_readiness(self._ticket(), False, True)["incumplidos"])         # la certificación es necesaria pero no suficiente
+            self.assertEqual(cov.ticket_readiness(self._ticket(), True, False)["incumplidos"], ["revision_agentes_completa"])
 
     def test_tickets_json_expone_el_campo_inequivoco_el_alias_y_la_preparacion_por_borrador(self):
         import test_tickets as TT

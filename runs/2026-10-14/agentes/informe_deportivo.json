@@ -1,0 +1,361 @@
+{
+ "agente": "deportivo",
+ "version_contrato": 1,
+ "run": "runs/2026-10-14",
+ "unidades": [
+  {
+   "unit_id": "m-73af94aeda13|1.ª parte goles",
+   "solidez": "MEDIA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "1T con gol en 18/19 partidos recientes (CIN 8/9, NE 10/10, apifootball); >=2 goles solo 3/9 y 5/10: linea 1.5 es moneda al aire.",
+   "excepciones": [
+    {
+     "entry_id": "primera_parte.total.over.1.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "primera_parte.total.under.1.5",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-73af94aeda13|1.ª parte goles",
+    "apif_query:get_events from=2026-08-15 to=2026-10-13 team_id=7952/7956 timezone=UTC (run 2026-10-14)",
+    "apif_query:get_standings league_id=332 (28 jornadas CIN 27 / NE 28, consulta 2026-10-14)",
+    "apif_query:get_events match_id=711710 timezone=UTC (árbitro Rubiel Vazquez según apifootball; paquete dice designado null; alineaciones vacías)"
+   ]
+  },
+  {
+   "unit_id": "m-73af94aeda13|1.ª parte resultado",
+   "solidez": "BAJA",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Mercado de 3 vias casi plano (0.355/0.365/0.28); HT del local y visitante recientes sin patron claro; sin alineaciones publicadas.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-73af94aeda13|1.ª parte resultado",
+    "apif_query:get_events from=2026-08-15 to=2026-10-13 team_id=7952/7956 timezone=UTC (run 2026-10-14)",
+    "apif_query:get_standings league_id=332 (28 jornadas CIN 27 / NE 28, consulta 2026-10-14)",
+    "apif_query:get_events match_id=711710 timezone=UTC (árbitro Rubiel Vazquez según apifootball; paquete dice designado null; alineaciones vacías)"
+   ]
+  },
+  {
+   "unit_id": "m-73af94aeda13|córners",
+   "solidez": "MEDIA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Corners totales CIN 15,7,13,10,8,15,10,10,9 (n=9); NE 9,9,10,10,8,16,13,13,12,13 (n=10); >9.5 en 13/19. Un solo proveedor; lineas extremas con cola fina.",
+   "excepciones": [
+    {
+     "entry_id": "corners.total.over.6.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.total.under.6.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.total.over.13.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.total.under.13.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.total.over.14.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.total.under.14.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.8.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.8.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.8.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.8.5",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-73af94aeda13|córners",
+    "apif_query:get_events from=2026-08-15 to=2026-10-13 team_id=7952/7956 timezone=UTC (run 2026-10-14)",
+    "apif_query:get_standings league_id=332 (28 jornadas CIN 27 / NE 28, consulta 2026-10-14)",
+    "apif_query:get_events match_id=711710 timezone=UTC (árbitro Rubiel Vazquez según apifootball; paquete dice designado null; alineaciones vacías)"
+   ]
+  },
+  {
+   "unit_id": "m-73af94aeda13|doble oportunidad",
+   "solidez": "MEDIA",
+   "factor_principal": "localia",
+   "direccion_favorable": "local",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "CIN local 7-3-2 (GF34 GA24) pero 65 GA en 27; NE visitante 5-2-7 aunque en mejor forma reciente. P(empate) 0.21 del modelo parece baja (CIN 4 empates en 9).",
+   "excepciones": [
+    {
+     "entry_id": "resultado.dc.x2",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-73af94aeda13|doble oportunidad",
+    "apif_query:get_events from=2026-08-15 to=2026-10-13 team_id=7952/7956 timezone=UTC (run 2026-10-14)",
+    "apif_query:get_standings league_id=332 (28 jornadas CIN 27 / NE 28, consulta 2026-10-14)",
+    "apif_query:get_events match_id=711710 timezone=UTC (árbitro Rubiel Vazquez según apifootball; paquete dice designado null; alineaciones vacías)"
+   ]
+  },
+  {
+   "unit_id": "m-73af94aeda13|empate no válido",
+   "solidez": "BAJA",
+   "factor_principal": "localia",
+   "direccion_favorable": "local",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Paquete marca datos 'sin_extractor' para DNB (p_modelo 0.58/0.42): sin respaldo de extractor; ventaja local moderada y forma reciente dispar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-73af94aeda13|empate no válido",
+    "apif_query:get_events from=2026-08-15 to=2026-10-13 team_id=7952/7956 timezone=UTC (run 2026-10-14)",
+    "apif_query:get_standings league_id=332 (28 jornadas CIN 27 / NE 28, consulta 2026-10-14)",
+    "apif_query:get_events match_id=711710 timezone=UTC (árbitro Rubiel Vazquez según apifootball; paquete dice designado null; alineaciones vacías)"
+   ]
+  },
+  {
+   "unit_id": "m-73af94aeda13|fueras de juego",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni p_modelo en el paquete; los fueras de juego de apifootball son incompletos (varios partidos sin dato).",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-73af94aeda13|fueras de juego",
+    "apif_query:get_events from=2026-08-15 to=2026-10-13 team_id=7952/7956 timezone=UTC (run 2026-10-14)",
+    "apif_query:get_standings league_id=332 (28 jornadas CIN 27 / NE 28, consulta 2026-10-14)",
+    "apif_query:get_events match_id=711710 timezone=UTC (árbitro Rubiel Vazquez según apifootball; paquete dice designado null; alineaciones vacías)"
+   ]
+  },
+  {
+   "unit_id": "m-73af94aeda13|goles",
+   "solidez": "MEDIA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Totales CIN ult.9: >=3 en 7/9, >=4 en 6/9; NE ult.10: >=3 en 9/10, >=4 en 2/10. Over 2.5 respaldado (16/19); 3.5 dividido. BTTS si/no con igual p_modelo (0.7024): defecto.",
+   "excepciones": [
+    {
+     "entry_id": "goles.btts.yes",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.btts.no",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.total.over.3.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.total.under.3.5",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-73af94aeda13|goles",
+    "apif_query:get_events from=2026-08-15 to=2026-10-13 team_id=7952/7956 timezone=UTC (run 2026-10-14)",
+    "apif_query:get_standings league_id=332 (28 jornadas CIN 27 / NE 28, consulta 2026-10-14)",
+    "apif_query:get_H2H firstTeamId=7952 secondTeamId=7956 (2026-03-15 NE 6-1 CIN; 2025 CIN 1-0 y NE 0-1 CIN)",
+    "apif_query:get_events match_id=711710 timezone=UTC (árbitro Rubiel Vazquez según apifootball; paquete dice designado null; alineaciones vacías)"
+   ]
+  },
+  {
+   "unit_id": "m-73af94aeda13|goles por equipo",
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "CIN local promedia 2.8 GF (34 en 12) y encaja 2.0; NE visitante 1.36 GF y 1.64 GA (14). Over 0.5/1.5 local coherente; visitante 1.5 es 50/50.",
+   "excepciones": [
+    {
+     "entry_id": "goles.equipo.away.over.1.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.equipo.away.under.1.5",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-73af94aeda13|goles por equipo",
+    "apif_query:get_events from=2026-08-15 to=2026-10-13 team_id=7952/7956 timezone=UTC (run 2026-10-14)",
+    "apif_query:get_standings league_id=332 (28 jornadas CIN 27 / NE 28, consulta 2026-10-14)",
+    "apif_query:get_events match_id=711710 timezone=UTC (árbitro Rubiel Vazquez según apifootball; paquete dice designado null; alineaciones vacías)"
+   ]
+  },
+  {
+   "unit_id": "m-73af94aeda13|goles total entero",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Lineas enteras (push) sin extractor ni p_modelo en el paquete; no se puede contrastar con la frecuencia.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-73af94aeda13|goles total entero",
+    "apif_query:get_events from=2026-08-15 to=2026-10-13 team_id=7952/7956 timezone=UTC (run 2026-10-14)",
+    "apif_query:get_standings league_id=332 (28 jornadas CIN 27 / NE 28, consulta 2026-10-14)",
+    "apif_query:get_events match_id=711710 timezone=UTC (árbitro Rubiel Vazquez según apifootball; paquete dice designado null; alineaciones vacías)"
+   ]
+  },
+  {
+   "unit_id": "m-73af94aeda13|hándicap",
+   "solidez": "MEDIA",
+   "factor_principal": "localia",
+   "direccion_favorable": "local",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Margen: CIN local mediocre en defensa y NE visitante flojo (5-2-7); lineas +-0.5 y +-1.5 razonables. Colas +-2.5 y -1.5 local dependen de goleadas (NE 6-1 en marzo, atipico).",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.home.-2.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "resultado.ah.away.-2.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "resultado.ah.home.-1.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "resultado.ah.away.-1.5",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-73af94aeda13|hándicap",
+    "apif_query:get_events from=2026-08-15 to=2026-10-13 team_id=7952/7956 timezone=UTC (run 2026-10-14)",
+    "apif_query:get_standings league_id=332 (28 jornadas CIN 27 / NE 28, consulta 2026-10-14)",
+    "apif_query:get_H2H firstTeamId=7952 secondTeamId=7956 (2026-03-15 NE 6-1 CIN; 2025 CIN 1-0 y NE 0-1 CIN)",
+    "apif_query:get_events match_id=711710 timezone=UTC (árbitro Rubiel Vazquez según apifootball; paquete dice designado null; alineaciones vacías)"
+   ]
+  },
+  {
+   "unit_id": "m-73af94aeda13|hándicap asiático entero",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni p_modelo para lineas enteras en el paquete.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-73af94aeda13|hándicap asiático entero",
+    "apif_query:get_events from=2026-08-15 to=2026-10-13 team_id=7952/7956 timezone=UTC (run 2026-10-14)",
+    "apif_query:get_standings league_id=332 (28 jornadas CIN 27 / NE 28, consulta 2026-10-14)",
+    "apif_query:get_events match_id=711710 timezone=UTC (árbitro Rubiel Vazquez según apifootball; paquete dice designado null; alineaciones vacías)"
+   ]
+  },
+  {
+   "unit_id": "m-73af94aeda13|hándicap europeo",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni p_modelo para hándicap europeo en el paquete.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-73af94aeda13|hándicap europeo",
+    "apif_query:get_events from=2026-08-15 to=2026-10-13 team_id=7952/7956 timezone=UTC (run 2026-10-14)",
+    "apif_query:get_standings league_id=332 (28 jornadas CIN 27 / NE 28, consulta 2026-10-14)",
+    "apif_query:get_events match_id=711710 timezone=UTC (árbitro Rubiel Vazquez según apifootball; paquete dice designado null; alineaciones vacías)"
+   ]
+  },
+  {
+   "unit_id": "m-73af94aeda13|remates",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Estimador no implementado. Remates de apifootball erraticos (p. ej. 1 vs 20 en un 0-5) y ausentes en algunos partidos; no verificable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-73af94aeda13|remates",
+    "apif_query:get_events from=2026-08-15 to=2026-10-13 team_id=7952/7956 timezone=UTC (run 2026-10-14)",
+    "apif_query:get_standings league_id=332 (28 jornadas CIN 27 / NE 28, consulta 2026-10-14)",
+    "apif_query:get_events match_id=711710 timezone=UTC (árbitro Rubiel Vazquez según apifootball; paquete dice designado null; alineaciones vacías)"
+   ]
+  },
+  {
+   "unit_id": "m-73af94aeda13|remates a puerta",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Estimador no implementado; tiros a puerta de un solo proveedor, con huecos; no hay contraste independiente.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-73af94aeda13|remates a puerta",
+    "apif_query:get_events from=2026-08-15 to=2026-10-13 team_id=7952/7956 timezone=UTC (run 2026-10-14)",
+    "apif_query:get_standings league_id=332 (28 jornadas CIN 27 / NE 28, consulta 2026-10-14)",
+    "apif_query:get_events match_id=711710 timezone=UTC (árbitro Rubiel Vazquez según apifootball; paquete dice designado null; alineaciones vacías)"
+   ]
+  },
+  {
+   "unit_id": "m-73af94aeda13|resultado",
+   "solidez": "BAJA",
+   "factor_principal": "localia",
+   "direccion_favorable": "local",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Local 0.455/empate 0.215/visitante 0.33. CIN local 7-3-2 pero 2V-4E-3D recientes; NE 5V-1E-4D con derrotas 0-3 y 0-3 en ultimas 2 salidas/partidos. Evidencia cruzada; empate infravalorado.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.1x2.draw",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-73af94aeda13|resultado",
+    "apif_query:get_events from=2026-08-15 to=2026-10-13 team_id=7952/7956 timezone=UTC (run 2026-10-14)",
+    "apif_query:get_standings league_id=332 (28 jornadas CIN 27 / NE 28, consulta 2026-10-14)",
+    "apif_query:get_H2H firstTeamId=7952 secondTeamId=7956 (2026-03-15 NE 6-1 CIN; 2025 CIN 1-0 y NE 0-1 CIN)",
+    "apif_query:get_events match_id=711710 timezone=UTC (árbitro Rubiel Vazquez según apifootball; paquete dice designado null; alineaciones vacías)"
+   ]
+  },
+  {
+   "unit_id": "m-73af94aeda13|tarjetas",
+   "solidez": "BAJA",
+   "factor_principal": "arbitro",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "tarjetas_atipicas",
+   "nota": "Arbitro Rubiel Vazquez solo en apifootball (paquete: sin designado, 0 partidos); muestra en liga insuficiente. Amarillas recientes 1-4 por equipo, sin tendencia clara.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-73af94aeda13|tarjetas",
+    "apif_query:get_events from=2026-08-15 to=2026-10-13 team_id=7952/7956 timezone=UTC (run 2026-10-14)",
+    "apif_query:get_standings league_id=332 (28 jornadas CIN 27 / NE 28, consulta 2026-10-14)",
+    "apif_query:get_events match_id=711710 timezone=UTC (árbitro Rubiel Vazquez según apifootball; paquete dice designado null; alineaciones vacías)"
+   ]
+  }
+ ],
+ "limitaciones": [
+  "Alineaciones no publicadas (snapshot 2026-10-14T04:00Z; bajas_registradas=0 no equivale a 'sin bajas').",
+  "Estadisticas (corners, tarjetas, tiros) de un unico proveedor (apifootball) sin segunda fuente; no se abrieron web externas (FBref/Flashscore/Transfermarkt).",
+  "Arbitro: apifootball indica Rubiel Vazquez, el paquete no lo tiene designado; sin muestra de arbitro en MLS.",
+  "Muestra de forma n=9 (CIN) y n=10 (NE) de la temporada 2026; solo ligas MLS regular; ambos con 4 dias de descanso (ambos jugaron 2026-10-10).",
+  "Posiciones de la tabla apifootball inconsistentes entre campos (p. ej. CIN local pos 13 con 7-3-2); se usaron solo W/D/L/GF/GA.",
+  "Campo 'excepciones.entry_id' usa ids de linea, el contrato dice 'id de la unidad': ambiguo."
+ ]
+}

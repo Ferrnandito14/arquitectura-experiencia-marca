@@ -1108,7 +1108,7 @@ def main(argv=None):
     out["top_picks"] = top_picks(eligible)
     _tks = [tk for t in out["targets"] for tk in t["tickets"]]
     for tk in _tks:                                           # preparación para apostar: independiente de la certificación de investigación
-        tk["preparacion_para_apostar"] = market_coverage.ticket_readiness(tk, out["investigacion_certificada"])
+        tk["preparacion_para_apostar"] = market_coverage.ticket_readiness(tk, out["investigacion_certificada"], (out["cobertura_mercados"].get("revision_agentes") or {}).get("estado") == "COMPLETA")
     out["preparacion_para_apostar"] = {"borradores": len(_tks), "aptos": sum(1 for tk in _tks if tk["preparacion_para_apostar"]["estado"] == "APTA"),
                                        "requisitos_incumplidos": {k: sum(1 for tk in _tks if k in tk["preparacion_para_apostar"]["incumplidos"]) for k in market_coverage.REQUISITOS_APUESTA},
                                        "modelo_validacion": market_coverage.MODEL_VALIDATION["nivel"],
