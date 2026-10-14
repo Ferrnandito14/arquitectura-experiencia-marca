@@ -50,7 +50,7 @@ class Libro(unittest.TestCase):
     def test_hojas_esperadas(self):
         for n in ("Léeme", "Ranking seguridad", "Ranking atractivo-cuota", "Top por liga", "Combinadas", "Mercados extra", "Resumen por partido", "Cobertura", "Catálogo completo", "Sin precio", "Agentes"):
             self.assertIn(n, self.wb.sheetnames)
-        self.assertEqual(self.wb.sheetnames[:2], ["Léeme", "Liga L0"])          # formato clásico: Léeme y luego una hoja por liga
+        self.assertEqual(self.wb.sheetnames[:3], ["Léeme", "Leyenda", "Liga L0"])          # formato clásico: Léeme, leyenda y luego una hoja por liga
 
     def test_una_hoja_por_liga_con_todos_los_mercados_visibles_de_sus_partidos(self):
         for i in range(3):
@@ -97,6 +97,21 @@ class Libro(unittest.TestCase):
         txt = " ".join(str(c.value) for c in self.wb["Léeme"]["A"])
         for frag in ("≠ aprobación para apostar", "NO está validado", "Caracas"):
             self.assertIn(frag, txt)
+
+    def test_la_leyenda_cubre_cada_resultado_de_investigacion_y_cada_estado_de_agentes(self):
+        txt = " ".join(str(c.value) for row in self.wb["Leyenda"].iter_rows() for c in row)
+        for v in ("encontrado", "consultado_no_encontrado", "fuente_no_ofrece", "no_verificable", "pendiente", "aprobada", "objetada", "degradada", "rechazada", "sin_revision", "ejecutable", "referencia", "Alerta"):
+            self.assertIn(v, txt)
+        inv = self.wb["Catálogo completo"].cell(2, 20).value
+        self.assertIn("datos_deportivos=encontrado", inv)             # palabras, no letras
+
+    def test_alerta_marca_desacuerdo_y_ev_alto(self):
+        l = cr.legs_from_units([unit(1, [entrada(OVER[0], 2.0, 0.80)])])[0]          # EV +60 %, brecha +30 pp
+        a = bx.alerta(l)
+        self.assertIn("desacuerdo", a)
+        self.assertIn("EV alto", a)
+        ok = cr.legs_from_units([unit(1, [entrada(OVER[0], 1.5, 0.66)])])[0]
+        self.assertIsNone(bx.alerta(ok))
 
     def test_el_script_no_puede_nombrar_el_libro_original_y_la_ruta_esta_registrada(self):
         f = ".claude/skills/seleccion-final-picks/scripts/build_xlsx_catalog.py"

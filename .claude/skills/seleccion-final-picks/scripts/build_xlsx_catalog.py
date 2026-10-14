@@ -50,7 +50,7 @@ def workbook_name(name, summary, ids, review_state, scope="catalog"):
 
 
 def _inv_text(entry):
-    return ",".join(f"{k[:10]}={ar.RES_CODE.get(v, v)}" for k, v in entry["investigacion"].items())
+    return "; ".join(f"{k}={v}" for k, v in entry["investigacion"].items())
 
 
 def liga_map(units, capture=None):
@@ -63,6 +63,48 @@ def liga_map(units, capture=None):
             if f"{h}|{a}" in ids:
                 out[ids[f"{h}|{a}"]] = lg
     return out
+
+
+EV_ALERT = cr.EV_ALERT
+
+
+def alerta(l):
+    a = []
+    if l["brecha_vs_precio"] is not None and abs(l["brecha_vs_precio"]) >= cr.MAX_GAP:
+        a.append("desacuerdo con el mercado (|brecha| ≥ 15 pp)")
+    if l["ev_teorico"] is not None and l["ev_teorico"] >= EV_ALERT:
+        a.append("EV alto: probable ruido del modelo (no validado)")
+    return "; ".join(a) or None
+
+
+LEYENDA = [
+    ("Investigación por canal (Catálogo completo)", "encontrado", "El canal tiene el dato/precio para esa entrada (con evidencia registrada)."),
+    ("Investigación por canal (Catálogo completo)", "consultado_no_encontrado", "Se consultó la fuente y no trajo ese dato/precio."),
+    ("Investigación por canal (Catálogo completo)", "fuente_no_ofrece", "La fuente no publica ese mercado (p. ej. la API de cuotas no trae córners ni tarjetas) o no cubre el partido."),
+    ("Investigación por canal (Catálogo completo)", "no_verificable", "No se pudo comprobar con la fuente disponible."),
+    ("Investigación por canal (Catálogo completo)", "pendiente", "Aún no se consultó (con certificación, siempre 0)."),
+    ("Canales", "datos_deportivos", "Historial del equipo (goles, córners, tarjetas…) de la API."),
+    ("Canales", "apifootball (agregador)", "Mediana de cuotas de varias casas de un agregador: REFERENCIA, no ejecutable."),
+    ("Canales", "football-data (fixtures, Bet365)", "Cuotas de una casa publicadas por football-data, solo donde esa fuente cubre el partido."),
+    ("Canales", "usuario:partidos_usuario.json", "Tus capturas de cuotas (precio real de tu casa)."),
+    ("Tipo de precio", "ejecutable", "Cuota real de tu casa/captura."),
+    ("Tipo de precio", "referencia", "Mediana de agregador: confírmala en tu casa; no se puede apostar tal cual."),
+    ("Precio: estado", "real_verificada / otra_fuente / no_verificable / sin_precio", "Clasificación de la cuota: real de tu casa / agregador / no comprobable / no hay cuota en ninguna fuente."),
+    ("Agentes", "aprobada", "Los 4 roles la revisaron y ninguno la objeta."),
+    ("Agentes", "objetada:<rol>", "El auditor objeta el veredicto de ese rol (dato contradictorio): no cuenta como aprobada."),
+    ("Agentes", "degradada:deportivo:BAJA|NO_EVALUABLE", "Solidez deportiva baja: sale de combinadas y rankings, se muestra en las hojas de liga."),
+    ("Agentes", "rechazada:<rol>:<motivo>", "Defecto de dato o de modelo (no verificable, descarte del auditor, sin estimador…): fuera de combinadas y rankings."),
+    ("Agentes", "sin_revision", "La unidad no entró en la muestra del auditor: revisada por 3 de 4 roles."),
+    ("Límite 2.10", "cumple / excede / sin_precio_justa_ok / sin_precio_justa_excede", "Cuota ≤ 2.10 / mayor / sin precio pero la cuota mínima justa ≤ 2.10 / sin precio y la justa ya supera 2.10."),
+    ("P modelo %", "", "Probabilidad del modelo propio (NO validado): segunda opinión, no veredicto."),
+    ("Cuota mínima justa", "", "1 / p del modelo: cuota por debajo de la cual el modelo vería precio desfavorable."),
+    ("Brecha vs 1/cuota (pp)", "", "p modelo − 1/cuota. |brecha| ≥ 15 pp = desacuerdo fuerte con el mercado (se excluye de rankings y combinadas)."),
+    ("EV teórico %", "", "p × cuota − 1 con p del modelo. Con modelo sin validar, un EV alto casi siempre significa que el modelo discrepa del mercado, no que haya ventaja."),
+    ("Combinadas", "P gana / P pierde", "Producto de las p de las patas bajo independencia declarada (no validada) / su complemento."),
+    ("Combinadas", "Preparación para apostar", "NO_APTA mientras falte algún requisito (precio real, modelo validado, etc.)."),
+    ("Alerta", "", "Aviso automático: desacuerdo con el mercado o EV alto. No cambia la selección, solo advierte."),
+    ("Hora Caracas", "", "America/Caracas (UTC−4)."),
+]
 
 
 def _verdicts(consolidated, l):
@@ -118,17 +160,19 @@ def make_workbook(units, summary, legs, rankings, combos, consolidated, rotation
         ["Solidez deportiva / cuantitativo / verificador / auditor = veredicto de cada agente por entrada (contrato cerrado). BAJA o NO_EVALUABLE = degradada: sale de las combinadas pero se muestra."],
         [f"Tope por pata: {cr.MAX_LEG_ODDS}. Rankings y combinadas usan solo patas con precio de alguna fuente (los rankings, además, cuota ≥ 1.10), no rechazadas ni degradadas y sin brecha ≥ 15 pp. Combinadas: una pata por partido, topes por dirección/liga/ventana horaria y exposición; P(pérdida) = 1 − producto de las p (independencia declarada)."],
         [f"Cifras: {len(units)} unidades, {len(ids)} partidos, {sum(len(u['entradas']) for u in units)} filas partido × entrada; con estimador propio: {sum(1 for l in legs if l['p_modelo'] is not None)}; con precio de alguna fuente: {sum(1 for l in legs if l['cuota'])}; elegibles para rankings/combinadas: {len(elig)}."],
-        ["Horas en America/Caracas (UTC−4). Alineaciones no publicadas al generar: ver «Resumen por partido»."]])
+        ["Un EV teórico alto (≥ +10 %) con el modelo sin validar suele indicar que el modelo discrepa del mercado, no una ventaja: la columna «Alerta» lo marca. Los «seguros» del ranking de seguridad usan en su mayoría precio de referencia, no ejecutable."],
+        ["La hoja «Leyenda» explica cada código y columna. Horas en America/Caracas (UTC−4). Alineaciones no publicadas al generar: ver «Resumen por partido»."]])
 
+    sheet("Leyenda", ["Tema", "Valor", "Qué significa"], [list(x) for x in LEYENDA])
     H = ["Hora Caracas", "Partido", "Mercado", "Selección", "Cuota", "Tipo de precio", "P modelo %", "Cuota mínima justa", "Brecha vs 1/cuota (pp)", "EV teórico %", "Límite 2.10", "Agentes",
-         "Solidez deportiva", "Cuantitativo", "Verificador", "Auditor", "Rotación local | visitante", "Escenario de pérdida"]
+         "Solidez deportiva", "Cuantitativo", "Verificador", "Auditor", "Rotación local | visitante", "Escenario de pérdida", "Alerta"]
 
     def row(l):
         v = verd[l["leg_id"]]
         rot = rotation.get(l["match_id"]) or {}
         return [caracas(hora(l)), l["partido"], l["grupo"], l["etiqueta"], l["cuota"], l["precio_tipo"], PC(l["p_modelo"]), l["cuota_minima_justa"], None if l["brecha_vs_precio"] is None else round(l["brecha_vs_precio"] * 100, 1),
                 PC(l["ev_teorico"]) if l["ev_teorico"] is not None else None, l["limite_2_10"], l["agentes"], v["deportivo"], v["cuantitativo"], v["verificador"], v["auditor"],
-                f"{(rot.get('home') or {}).get('nivel', 's/d')} | {(rot.get('away') or {}).get('nivel', 's/d')}", v["escenario"]]
+                f"{(rot.get('home') or {}).get('nivel', 's/d')} | {(rot.get('away') or {}).get('nivel', 's/d')}", v["escenario"], alerta(l)]
 
     order = lambda l: (hora(l) or "", l["partido"], l["grupo"], -(l["p_modelo"] or 0))
     seen = []
@@ -158,11 +202,11 @@ def make_workbook(units, summary, legs, rankings, combos, consolidated, rotation
         for k, c in enumerate(b["combinadas"], 1):
             for p in c["patas"]:
                 cb.append([name, k, c["cuota_total"], PC(c["p_conjunta_independiente"]), PC(c["p_perdida"]), PC(c["ev_teorico"]) if c["ev_teorico"] is not None else None, c["tipo_cuota"], c["estado_agentes"],
-                           c["preparacion_para_apostar"]["estado"], ", ".join(c["preparacion_para_apostar"]["incumplidos"]), caracas(p["hora_utc"]), p["partido"], p["etiqueta"], p["cuota"], p["precio_tipo"], PC(p["p_modelo"]), p["agentes"]])
+                           c["preparacion_para_apostar"]["estado"], ", ".join(c["preparacion_para_apostar"]["incumplidos"]), caracas(p["hora_utc"]), p["partido"], p["etiqueta"], p["cuota"], p["precio_tipo"], PC(p["p_modelo"]), p["agentes"], c.get("alerta")])
         if not b["combinadas"]:
-            cb.append([name, None, None, None, None, None, b["aviso"]] + [None] * 10)
+            cb.append([name, None, None, None, None, None, b["aviso"]] + [None] * 11)
     sheet("Combinadas", ["Objetivo", "Opción", "Cuota total", "P gana (modelo, independencia) %", "P pierde %", "EV teórico %", "Tipo de cuota", "Estado agentes", "Preparación para apostar", "Requisitos que faltan", "Hora Caracas",
-                         "Partido", "Selección", "Cuota", "Tipo de precio", "P modelo %", "Agentes pata"], cb)
+                         "Partido", "Selección", "Cuota", "Tipo de precio", "P modelo %", "Agentes pata", "Alerta"], cb)
 
     ex = []
     per_unit = {}

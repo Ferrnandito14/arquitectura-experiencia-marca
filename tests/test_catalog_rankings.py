@@ -43,6 +43,8 @@ class Patas(unittest.TestCase):
         self.assertIn(f"cuota_sobre_{cr.MAX_LEG_ODDS}", L[OVER[2]]["motivos_exclusion"])
         self.assertIn("brecha_modelo_vs_precio", L[UNDER[0]]["motivos_exclusion"])          # 0.90 − 1/1.5 = 0.23
         self.assertEqual(L[UNDER[1]]["motivos_exclusion"], [])
+        neg = {l["entry_id"]: l for l in legs_of([unit(2, [entrada(UNDER[2], 1.5, 0.40)])])}          # 0.40 − 1/1.5 = −0.27: el modelo da la pata por perdedora
+        self.assertIn("brecha_modelo_vs_precio", neg[UNDER[2]]["motivos_exclusion"])
         self.assertEqual(L[OVER[0]]["limite_2_10"], "sin_precio_justa_ok")                    # 1/0.7 = 1.43 ≤ 2.10
         self.assertEqual(L[OVER[2]]["limite_2_10"], "excede")
 

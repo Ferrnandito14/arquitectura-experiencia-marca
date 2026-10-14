@@ -27,6 +27,7 @@ import market_catalog as mc  # noqa: E402
 import market_coverage as cov  # noqa: E402
 
 MAX_LEG_ODDS = cov.MAX_LEG_ODDS
+EV_ALERT = 0.10       # EV teórico ≥ +10 % con un modelo sin validar se rotula como probable ruido
 MAX_GAP = 0.15      # política heredada de la auditoría del 13-oct: brecha modelo − precio ≥ 15 pp = descarte (efecto de escoger el máximo entre muchas entradas), no «salvedad»
 POLICY = {"max_leg_odds": MAX_LEG_ODDS, "max_brecha_modelo_vs_precio": MAX_GAP, "max_over_o_under_por_combinada": 2, "max_misma_liga": 2, "max_misma_ventana": 3, "ventana_minutos": 120,
           "max_reuso_pata": 2, "max_reuso_partido": 3, "pool_por_objetivo": 45, "top_por_objetivo": 3, "top_ranking": 5,
@@ -110,7 +111,7 @@ def legs_from_units(units, status=None):
             elif odds > MAX_LEG_ODDS:
                 motivos.append(f"cuota_sobre_{MAX_LEG_ODDS}")
             gap = None if (p is None or odds is None) else round(p - 1 / odds, 3)      # contra 1/cuota (con margen de la fuente): subestima la brecha real frente al mercado sin margen
-            if gap is not None and gap >= MAX_GAP:
+            if gap is not None and abs(gap) >= MAX_GAP:      # simétrico: un modelo MUY por debajo del precio (pata que su propio modelo da por perdedora) tampoco es candidato
                 motivos.append("brecha_modelo_vs_precio")
             if st.startswith(("rechazada", "degradada")):
                 motivos.append(st)
@@ -173,6 +174,7 @@ def _combo_record(name, combo, certified):
     all_real = all(l["precio_tipo"] == "ejecutable" for l in combo)
     return {"objetivo": name, "patas": [{k: l[k] for k in ("leg_id", "partido", "grupo", "etiqueta", "cuota", "precio_tipo", "p_modelo", "cuota_minima_justa", "agentes", "hora_utc")} for l in combo],
             "cuota_total": round(odds, 3), "p_conjunta_independiente": round(p, 4), "p_perdida": round(1 - p, 4), "ev_teorico": round(p * odds - 1, 3) if all_real else None,
+            "alerta": "EV alto: probable desacuerdo del modelo (no validado) con el mercado, no ventaja" if (all_real and p * odds - 1 >= EV_ALERT) else None,
             "tipo_cuota": "ejecutable (precios reales)" if all_real else "REFERENCIA (alguna pata solo tiene precio de agregador: no ejecutable)",
             "estado_agentes": "APROBADA" if all(l["agentes"] == "aprobada" for l in combo) else ("OBJETADA" if any(l["agentes"].startswith("objetada") for l in combo) else "SIN_REVISION"),
             "preparacion_para_apostar": combo_readiness(combo, certified), "nota_p": "p_modelo del modelo propio NO VALIDADO; producto bajo independencia declarada"}
