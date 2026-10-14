@@ -11,7 +11,7 @@ Reglas (política declarada en POLICY; ninguna es un hecho estadístico):
   La probabilidad conjunta es el producto de las p_modelo (independencia declarada, no validada), por eso los topes de arriba.
 - Exposición entre combinadas mostradas: una misma pata en ≤ MAX_LEG_REUSE combinadas y un mismo partido en ≤ MAX_MATCH_REUSE.
 - Brecha: una pata cuyo p_modelo supera a 1/cuota en ≥ 15 pp queda fuera (política heredada de la auditoría del 13-oct).
-- Agentes: una pata que los agentes rechazan no entra; una combinada solo se marca APROBADA si TODAS sus patas tienen los cuatro informes válidos y sin rechazo; si no, SIN_REVISION.
+- Agentes: una pata que los agentes rechazan no entra; una combinada solo se marca APROBADA si TODAS sus patas tienen los cuatro informes válidos, sin rechazo ni objeción abierta del auditor (OBJETADA); si no, SIN_REVISION.
 Cada combinada lleva su `preparacion_para_apostar` (los mismos siete requisitos que las filas)."""
 import argparse
 import itertools
@@ -34,7 +34,10 @@ POLICY = {"max_leg_odds": MAX_LEG_ODDS, "max_brecha_modelo_vs_precio": MAX_GAP, 
 # (nombre, cuota mínima, cuota máxima, máx. patas)
 DEFAULT_TARGETS = (("x1.2", 1.20, 1.28, 2), ("x3", 2.80, 3.40, 4), ("x4", 4.00, 4.80, 5))
 PRICE_OK = {"real_verificada": "ejecutable", "otra_fuente": "referencia"}
-AGENT_BAD = {"deportivo": ("BAJA", "NO_EVALUABLE"), "cuantitativo": ("defecto_del_modelo", "datos_insuficientes", "sin_estimador"), "verificador": ("no_encontrada", "no_ofrecida", "no_verificable")}
+# «rechazada» = defecto de dato o de modelo señalado por los agentes: fuera de combinadas Y de rankings. «degradada» = solidez deportiva BAJA/NO_EVALUABLE: fuera de combinadas, pero visible (rotulada) en los rankings.
+# «no_encontrada/no_ofrecida» del verificador describen la FUENTE DE PRECIOS (la API no publica córners/tarjetas): ya excluyen de combinadas por falta de precio y NO deben ocultar el mercado de los rankings.
+AGENT_BAD = {"cuantitativo": ("defecto_del_modelo", "datos_insuficientes", "sin_estimador"), "verificador": ("no_verificable",)}
+AGENT_SOFT = {"deportivo": ("BAJA", "NO_EVALUABLE")}
 AUDITOR_BAD = ("descartar_de_rankings", "verificar_manualmente")
 VERIFIER_BAD_DISCREPANCIES = ("precio_anomalo", "mercado_mal_etiquetado", "linea_distinta", "identidad_partido", "hora", "calendario")
 AGENT_ORDER = {"APROBADA": 0, "SIN_REVISION": 1}
@@ -64,11 +67,18 @@ def agent_status(units, reports):
                     why = f"{role}:{v}"
                     break
             a, vr = c["roles"]["auditor"], c["roles"]["verificador"]
+            soft = None
+            for role, bad in AGENT_SOFT.items():
+                v = ar.entry_verdict(c, role, e["id"])
+                if v in bad:
+                    soft = f"{role}:{v}"
             if not why and a["recomendacion"] in AUDITOR_BAD:
                 why = f"auditor:{a['recomendacion']}"
             if not why and any(d in VERIFIER_BAD_DISCREPANCIES for d in vr["discrepancias"]):
                 why = "verificador:discrepancia_de_la_unidad"
-            out[(uid, e["id"])] = f"rechazada:{why}" if why else "aprobada"
+            obj = sorted({o["agente"] for o in c["objeciones"] if o["entry_id"] in (None, e["id"])})
+            # una objeción abierta del auditor a otro agente (valor que contradice paquete/fuente) quita la aprobación aunque no rechace la pata
+            out[(uid, e["id"])] = f"rechazada:{why}" if why else (f"degradada:{soft}" if soft else (f"objetada:{','.join(obj)}" if obj else "aprobada"))
     return out
 
 
@@ -102,10 +112,10 @@ def legs_from_units(units, status=None):
             gap = None if (p is None or odds is None) else round(p - 1 / odds, 3)      # contra 1/cuota (con margen de la fuente): subestima la brecha real frente al mercado sin margen
             if gap is not None and gap >= MAX_GAP:
                 motivos.append("brecha_modelo_vs_precio")
-            if st.startswith("rechazada"):
+            if st.startswith(("rechazada", "degradada")):
                 motivos.append(st)
             legs.append({"leg_id": f"{u['match_id']}|{e['id']}", "match_id": u["match_id"], "partido": u["partido"], "equipos": teams, "grupo": u["grupo"], "entry_id": e["id"],
-                         "etiqueta": mc.BY_ID[e["id"]]["label"], "direccion": e["direccion"], "linea": e["linea"], "alcance": e["alcance"], "hora_utc": u.get("hora_utc"), "liga": u.get("liga"),
+                         "etiqueta": mc.BY_ID[e["id"]]["label"].replace("{home}", teams[0]).replace("{away}", teams[-1]), "direccion": e["direccion"], "linea": e["linea"], "alcance": e["alcance"], "hora_utc": u.get("hora_utc"), "liga": u.get("liga"),
                          "cuota": odds, "precio_estado": pr["estado"], "precio_tipo": PRICE_OK.get(pr["estado"]), "fuente_precio": pr["fuente"], "limite_2_10": _limite(odds, p),
                          "p_modelo": p, "brecha_vs_precio": gap, "cuota_minima_justa": None if not p else round(1 / p, 3), "ev_teorico": None if (p is None or odds is None) else round(p * odds - 1, 3),
                          "datos": e["datos"], "validacion": e["validacion"], "modelo_validado": cov.model_validated(mc.BY_ID[e["id"]]), "agentes": st, "motivos_exclusion": motivos})
@@ -164,7 +174,7 @@ def _combo_record(name, combo, certified):
     return {"objetivo": name, "patas": [{k: l[k] for k in ("leg_id", "partido", "grupo", "etiqueta", "cuota", "precio_tipo", "p_modelo", "cuota_minima_justa", "agentes", "hora_utc")} for l in combo],
             "cuota_total": round(odds, 3), "p_conjunta_independiente": round(p, 4), "p_perdida": round(1 - p, 4), "ev_teorico": round(p * odds - 1, 3) if all_real else None,
             "tipo_cuota": "ejecutable (precios reales)" if all_real else "REFERENCIA (alguna pata solo tiene precio de agregador: no ejecutable)",
-            "estado_agentes": "APROBADA" if all(l["agentes"] == "aprobada" for l in combo) else "SIN_REVISION",
+            "estado_agentes": "APROBADA" if all(l["agentes"] == "aprobada" for l in combo) else ("OBJETADA" if any(l["agentes"].startswith("objetada") for l in combo) else "SIN_REVISION"),
             "preparacion_para_apostar": combo_readiness(combo, certified), "nota_p": "p_modelo del modelo propio NO VALIDADO; producto bajo independencia declarada"}
 
 

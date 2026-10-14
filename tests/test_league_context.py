@@ -164,3 +164,31 @@ class SinFuentesDeCuotas(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class ArbitroFresco(unittest.TestCase):
+    def test_la_designacion_de_la_api_prevalece_sobre_el_inventario(self):
+        import hashlib, tempfile, json as _j
+        import common
+        run = tempfile.mkdtemp()
+        os.makedirs(os.path.join(run, "sources")); os.makedirs(os.path.join(run, "cache"))
+        url = "https://apiv3.apifootball.com/?action=get_events&from=2026-10-14&to=2026-10-14&APIkey=***"
+        with open(os.path.join(run, "sources", "consultas.jsonl"), "w", encoding="utf-8") as f:
+            f.write(_j.dumps({"status": 200, "ts": "2026-10-14T10:00:00Z", "url": url}) + "\n")
+        with open(os.path.join(run, "cache", hashlib.sha256(common.redact_url(url).encode()).hexdigest() + ".body"), "w", encoding="utf-8") as f:
+            _j.dump([{"match_id": "100", "match_referee": "Rubiel Vazquez"}, {"match_id": "101", "match_referee": ""}], f)
+        refs = cov.load_api_referees(run)
+        self.assertEqual(refs, {"100": "Rubiel Vazquez"})
+        m = match(referee=None)
+        ctx = cov.match_context(m, [m], {}, {}, refs)
+        self.assertEqual(ctx["arbitro"]["designado"], "Rubiel Vazquez")
+        self.assertIsNone(cov.match_context(m, [m], {}, {}, {})["arbitro"]["designado"])
+
+
+class NombreDeArbitro(unittest.TestCase):
+    def test_variantes_del_mismo_nombre_coinciden_y_personas_distintas_no(self):
+        for a, b in (("Rubiel Vazquez, USA", "R. Vazquez"), ("A. Villarreal", "Armando Villarreal"), ("Tobias Stieler, Germany", "tobias stieler"), ("Jesús Valenzuela", "J. Valenzuela")):
+            self.assertTrue(cov.same_referee(a, b), (a, b))
+        for a, b in (("Rubiel Vazquez", "Carlos Vazquez"), ("A. Villarreal", "B. Villarreal"), (None, "R. Vazquez"), ("", "")):
+            self.assertFalse(cov.same_referee(a, b), (a, b))
+

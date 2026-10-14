@@ -1,0 +1,1454 @@
+{
+ "agente": "deportivo",
+ "version_contrato": 1,
+ "run": "runs/2026-10-14",
+ "unidades": [
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "under",
+   "escenario_perdida": "partido_abierto",
+   "nota": "LASK: 1T con gol en 8/10 (media 1.8); Liverpool 6/10 (media 0.9). Rotacion alta de ambos y modelo 1T sin validar. Under 1T ligero.",
+   "evidencia": [
+    "paquete:m-05a70845a685|1.ª parte goles",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/3.json"
+   ],
+   "unit_id": "m-05a70845a685|1.ª parte goles",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "empate",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Empate 1T es lo mas probable segun modelo (0.39); LASK 2 empates a 0 en 1T, Liverpool 4/10 1T sin goles. Modelo sin validar.",
+   "evidencia": [
+    "paquete:m-05a70845a685|1.ª parte resultado",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/3.json"
+   ],
+   "unit_id": "m-05a70845a685|1.ª parte resultado",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Corners totales: LASK 9.4 (n10), Liverpool 9.9 (n8, 2 sin dato); mezcla ligas/copas y 1-11 aislados. Arbitro sin muestra.",
+   "evidencia": [
+    "paquete:m-05a70845a685|córners",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/3.json"
+   ],
+   "unit_id": "m-05a70845a685|córners",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Modelo da 1X 0.63 pero mercado A3.5 (agregador): contradiccion fuerte. Rotacion alta local y visitante. No usar p sin calibrar.",
+   "evidencia": [
+    "paquete:m-05a70845a685|doble oportunidad",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/3.json"
+   ],
+   "unit_id": "m-05a70845a685|doble oportunidad",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Modelo casi 50/50 vs mercado que ve a Liverpool favorito (1X2 R1.28). Rotacion alta (3 dias descanso) en ambos.",
+   "evidencia": [
+    "paquete:m-05a70845a685|empate no válido",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/3.json"
+   ],
+   "unit_id": "m-05a70845a685|empate no válido",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni estimador de fueras de juego; no evaluable.",
+   "evidencia": [
+    "paquete:m-05a70845a685|fueras de juego",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/3.json"
+   ],
+   "unit_id": "m-05a70845a685|fueras de juego",
+   "excepciones": []
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "LASK GF22/GA14 y Liverpool GF15/GA13 en 10; >=3 goles 7/10 y 6/10. Rotacion alta rebaja unders. Rivales de calidad desigual (Bundesliga AT).",
+   "evidencia": [
+    "paquete:m-05a70845a685|goles",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/3.json"
+   ],
+   "unit_id": "m-05a70845a685|goles",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "LASK anota 8/10 (22 GF), Liverpool 8/10 aprox; mucha rotacion; modelo sin validar por equipo.",
+   "evidencia": [
+    "paquete:m-05a70845a685|goles por equipo",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/3.json"
+   ],
+   "unit_id": "m-05a70845a685|goles por equipo",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Linea entera: sin estimador implementado.",
+   "evidencia": [
+    "paquete:m-05a70845a685|goles total entero",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/3.json"
+   ],
+   "unit_id": "m-05a70845a685|goles total entero",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Modelo AH centrado ~0 pero 1X2 de mercado favorece a Liverpool; discrepancia. Rotacion alta. Valor conservador.",
+   "evidencia": [
+    "paquete:m-05a70845a685|hándicap",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/3.json"
+   ],
+   "unit_id": "m-05a70845a685|hándicap",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "AH entero: sin estimador implementado.",
+   "evidencia": [
+    "paquete:m-05a70845a685|hándicap asiático entero",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/3.json"
+   ],
+   "unit_id": "m-05a70845a685|hándicap asiático entero",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Handicap europeo: sin estimador implementado.",
+   "evidencia": [
+    "paquete:m-05a70845a685|hándicap europeo",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/3.json"
+   ],
+   "unit_id": "m-05a70845a685|hándicap europeo",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Remates: estimador no implementado; datos con huecos (None) en historial.",
+   "evidencia": [
+    "paquete:m-05a70845a685|remates",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/3.json"
+   ],
+   "unit_id": "m-05a70845a685|remates",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Remates a puerta: estimador no implementado.",
+   "evidencia": [
+    "paquete:m-05a70845a685|remates a puerta",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/3.json"
+   ],
+   "unit_id": "m-05a70845a685|remates a puerta",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Modelo 0.40/0.23/0.37 vs cuota real Liverpool 1.28: contradiccion. Liverpool vino de 0-3 vs City (11-oct); ambos rotan mucho (6.3-6.7 cambios).",
+   "evidencia": [
+    "paquete:m-05a70845a685|resultado",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/3.json"
+   ],
+   "unit_id": "m-05a70845a685|resultado",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "arbitro",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "tarjetas_atipicas",
+   "nota": "Stieler sin partidos en la muestra de liga (0). Puntos medios ~3.9 en ambos (n10/n8). Regla de liquidacion de puntos no verificada.",
+   "evidencia": [
+    "paquete:m-05a70845a685|tarjetas",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/3.json"
+   ],
+   "unit_id": "m-05a70845a685|tarjetas",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Columbus 1T medio 1.7 (8/10 con gol), Charlotte 1.4 (7/10). Over 0.5 1T apoyado, modelo 1T sin validar.",
+   "evidencia": [
+    "paquete:m-25c314c87cbc|1.ª parte goles",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/332.json"
+   ],
+   "unit_id": "m-25c314c87cbc|1.ª parte goles",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "empate",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Modelo reparte 0.28/0.36/0.36; Charlotte mejor forma. Mercado 1T sin validar.",
+   "evidencia": [
+    "paquete:m-25c314c87cbc|1.ª parte resultado",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/332.json"
+   ],
+   "unit_id": "m-25c314c87cbc|1.ª parte resultado",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Charlotte media 13.3 corners/partido (n10, inflados por 13,14), Columbus 9.2. Ford (liga MLS n12 en league_samples) media 10.4. Validacion insuficiente.",
+   "evidencia": [
+    "paquete:m-25c314c87cbc|córners",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/332.json"
+   ],
+   "unit_id": "m-25c314c87cbc|córners",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "goleada_local",
+   "nota": "Modelo 1X 0.56 vs mercado A1.30 (implica ~0.77): discrepancia. Columbus 3V-7D en 10; Charlotte 6V-3E-1D.",
+   "evidencia": [
+    "paquete:m-25c314c87cbc|doble oportunidad",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/332.json"
+   ],
+   "unit_id": "m-25c314c87cbc|doble oportunidad",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "goleada_local",
+   "nota": "Modelo favorece Charlotte (0.57); mercado favorece local (R2.0 vs 3.33). Forma pesa mas que localia aqui, pero mercado discrepa.",
+   "evidencia": [
+    "paquete:m-25c314c87cbc|empate no válido",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/332.json"
+   ],
+   "unit_id": "m-25c314c87cbc|empate no válido",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni estimador de fueras de juego.",
+   "evidencia": [
+    "paquete:m-25c314c87cbc|fueras de juego",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/332.json"
+   ],
+   "unit_id": "m-25c314c87cbc|fueras de juego",
+   "excepciones": []
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": ">=3 goles 8/10 (Columbus) y 7/10 (Charlotte); BTTS 7/10 en ambos; Columbus GA18, Charlotte GF21. Rotacion visitante media. Validacion insuficiente.",
+   "evidencia": [
+    "paquete:m-25c314c87cbc|goles",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/332.json"
+   ],
+   "unit_id": "m-25c314c87cbc|goles",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Charlotte GF21 en 10, Columbus GF15 (equipo flojo en casa reciente). Modelo por equipo sin validar.",
+   "evidencia": [
+    "paquete:m-25c314c87cbc|goles por equipo",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/332.json"
+   ],
+   "unit_id": "m-25c314c87cbc|goles por equipo",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Linea entera: sin estimador implementado.",
+   "evidencia": [
+    "paquete:m-25c314c87cbc|goles total entero",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/332.json"
+   ],
+   "unit_id": "m-25c314c87cbc|goles total entero",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "goleada_local",
+   "nota": "Charlotte mejor forma, mercado cuota local favorita; AH con precios A/V no ejecutables. Valor conservador.",
+   "evidencia": [
+    "paquete:m-25c314c87cbc|hándicap",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/332.json"
+   ],
+   "unit_id": "m-25c314c87cbc|hándicap",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "AH entero: sin estimador implementado.",
+   "evidencia": [
+    "paquete:m-25c314c87cbc|hándicap asiático entero",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/332.json"
+   ],
+   "unit_id": "m-25c314c87cbc|hándicap asiático entero",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Handicap europeo: sin estimador implementado.",
+   "evidencia": [
+    "paquete:m-25c314c87cbc|hándicap europeo",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/332.json"
+   ],
+   "unit_id": "m-25c314c87cbc|hándicap europeo",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Remates: estimador no implementado; huecos en datos.",
+   "evidencia": [
+    "paquete:m-25c314c87cbc|remates",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/332.json"
+   ],
+   "unit_id": "m-25c314c87cbc|remates",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Remates a puerta: estimador no implementado.",
+   "evidencia": [
+    "paquete:m-25c314c87cbc|remates a puerta",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/332.json"
+   ],
+   "unit_id": "m-25c314c87cbc|remates a puerta",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "goleada_local",
+   "nota": "Modelo prefiere Charlotte (0.44) pero cuota real da local favorito (2.0 vs 3.33). Columbus perdio 1-3 en Charlotte (15-ago); forma local 3V-7D.",
+   "evidencia": [
+    "paquete:m-25c314c87cbc|resultado",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/332.json"
+   ],
+   "unit_id": "m-25c314c87cbc|resultado",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "arbitro",
+   "direccion_favorable": "under",
+   "escenario_perdida": "tarjetas_atipicas",
+   "nota": "Ford: media 3.67 tarjetas (n12 en league_samples; el paquete dice 0 en muestra: discrepancia). Equipos ~3.1-3.8 puntos. Regla de puntos no verificada.",
+   "evidencia": [
+    "paquete:m-25c314c87cbc|tarjetas",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/332.json"
+   ],
+   "unit_id": "m-25c314c87cbc|tarjetas",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "under",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Houston 1T medio 0.8 (3/10 sin gol); San Diego 1.6. Modelo under 1.5 1T 0.68, sin validar.",
+   "evidencia": [
+    "paquete:m-27cb4c712094|1.ª parte goles",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/332.json"
+   ],
+   "unit_id": "m-27cb4c712094|1.ª parte goles",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "empate",
+   "escenario_perdida": "goleada_local",
+   "nota": "Empate 1T modelo 0.43; Houston muchos 0-0. Sin validacion.",
+   "evidencia": [
+    "paquete:m-27cb4c712094|1.ª parte resultado",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/332.json"
+   ],
+   "unit_id": "m-27cb4c712094|1.ª parte resultado",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Corners totales San Diego 9.2, Houston 8.5 (n10). Arbitro sin designar. Validacion insuficiente.",
+   "evidencia": [
+    "paquete:m-27cb4c712094|córners",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/332.json"
+   ],
+   "unit_id": "m-27cb4c712094|córners",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Sin favorito claro por forma: San Diego 3V-2E-5D (GA22) vs Houston 3V-4E-3D. Precios A no ejecutables.",
+   "evidencia": [
+    "paquete:m-27cb4c712094|doble oportunidad",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/332.json"
+   ],
+   "unit_id": "m-27cb4c712094|doble oportunidad",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Modelo 0.53/0.47: casi neutro. Local con 5 dias de descanso y rotacion media.",
+   "evidencia": [
+    "paquete:m-27cb4c712094|empate no válido",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/332.json"
+   ],
+   "unit_id": "m-27cb4c712094|empate no válido",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni estimador de fueras de juego.",
+   "evidencia": [
+    "paquete:m-27cb4c712094|fueras de juego",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/332.json"
+   ],
+   "unit_id": "m-27cb4c712094|fueras de juego",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "San Diego concede mucho (GA22, >=3 goles 8/10) pero Houston es de pocos goles (GF9/GA10, 4/10). Senales opuestas; arbitro no designado.",
+   "evidencia": [
+    "paquete:m-27cb4c712094|goles",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/332.json"
+   ],
+   "unit_id": "m-27cb4c712094|goles",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Local anota 16 en 10 pero encaja 22; Houston anota solo 9. Modelo por equipo sin validar.",
+   "evidencia": [
+    "paquete:m-27cb4c712094|goles por equipo",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/332.json"
+   ],
+   "unit_id": "m-27cb4c712094|goles por equipo",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Linea entera: sin estimador implementado.",
+   "evidencia": [
+    "paquete:m-27cb4c712094|goles total entero",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/332.json"
+   ],
+   "unit_id": "m-27cb4c712094|goles total entero",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Partido parejo segun modelo y mercado (R2.16/3.5/3.0). Local fragil atras (0-5, 1-4 recientes).",
+   "evidencia": [
+    "paquete:m-27cb4c712094|hándicap",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/332.json"
+   ],
+   "unit_id": "m-27cb4c712094|hándicap",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "AH entero: sin estimador implementado.",
+   "evidencia": [
+    "paquete:m-27cb4c712094|hándicap asiático entero",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/332.json"
+   ],
+   "unit_id": "m-27cb4c712094|hándicap asiático entero",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Handicap europeo: sin estimador implementado.",
+   "evidencia": [
+    "paquete:m-27cb4c712094|hándicap europeo",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/332.json"
+   ],
+   "unit_id": "m-27cb4c712094|hándicap europeo",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Remates: estimador no implementado.",
+   "evidencia": [
+    "paquete:m-27cb4c712094|remates",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/332.json"
+   ],
+   "unit_id": "m-27cb4c712094|remates",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Remates a puerta: estimador no implementado.",
+   "evidencia": [
+    "paquete:m-27cb4c712094|remates a puerta",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/332.json"
+   ],
+   "unit_id": "m-27cb4c712094|remates a puerta",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Parejo: cuotas reales 2.16/3.50/3.00, modelo 0.39/0.26/0.35. Local en mala racha (1-4 en NYRB el 10-oct), Houston con 4 empates en 10.",
+   "evidencia": [
+    "paquete:m-27cb4c712094|resultado",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/332.json"
+   ],
+   "unit_id": "m-27cb4c712094|resultado",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "tarjetas_atipicas",
+   "nota": "Arbitro no designado; puntos de tarjeta con huecos (n7 en cada equipo). Estimacion poco fiable.",
+   "evidencia": [
+    "paquete:m-27cb4c712094|tarjetas",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/332.json"
+   ],
+   "unit_id": "m-27cb4c712094|tarjetas",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "under",
+   "escenario_perdida": "partido_abierto",
+   "nota": "1T medio 1.3 en ambos; City rota mucho (7.0 cambios, 3 dias). Modelo 1T sin validar.",
+   "evidencia": [
+    "paquete:m-2c0594e461a4|1.ª parte goles",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/3.json"
+   ],
+   "unit_id": "m-2c0594e461a4|1.ª parte goles",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "empate",
+   "escenario_perdida": "goleada_local",
+   "nota": "Empate 1T modelo 0.40; City 3/10 y PSG 1/10 sin goles 1T. Sin validacion.",
+   "evidencia": [
+    "paquete:m-2c0594e461a4|1.ª parte resultado",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/3.json"
+   ],
+   "unit_id": "m-2c0594e461a4|1.ª parte resultado",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Corners totales City 9.4, PSG 7.7 (n10). PSG juega contra rivales de nivel muy desigual. Arbitro sin muestra.",
+   "evidencia": [
+    "paquete:m-2c0594e461a4|córners",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/3.json"
+   ],
+   "unit_id": "m-2c0594e461a4|córners",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "City cambia ~7 jugadores por partido y juega con 3 dias de descanso; PSG 5.0 cambios. Precios A no ejecutables.",
+   "evidencia": [
+    "paquete:m-2c0594e461a4|doble oportunidad",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/3.json"
+   ],
+   "unit_id": "m-2c0594e461a4|doble oportunidad",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "local",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Modelo 0.53/0.47. City mejor forma (GF24/GA10, 3-0 a Liverpool el 11-oct) pero rotacion alta.",
+   "evidencia": [
+    "paquete:m-2c0594e461a4|empate no válido",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/3.json"
+   ],
+   "unit_id": "m-2c0594e461a4|empate no válido",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni estimador de fueras de juego.",
+   "evidencia": [
+    "paquete:m-2c0594e461a4|fueras de juego",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/3.json"
+   ],
+   "unit_id": "m-2c0594e461a4|fueras de juego",
+   "excepciones": []
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": ">=3 goles 7/10 en ambos; BTTS PSG 8/10, City 4/10; City GF24, PSG GF20. Rotacion alta de City rebaja unders. Validacion insuficiente.",
+   "evidencia": [
+    "paquete:m-2c0594e461a4|goles",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/3.json"
+   ],
+   "unit_id": "m-2c0594e461a4|goles",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "City GF24 en 10 pero equipo muy rotado; PSG anota 20 con rivales de nivel desigual.",
+   "evidencia": [
+    "paquete:m-2c0594e461a4|goles por equipo",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/3.json"
+   ],
+   "unit_id": "m-2c0594e461a4|goles por equipo",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Linea entera: sin estimador implementado.",
+   "evidencia": [
+    "paquete:m-2c0594e461a4|goles total entero",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/3.json"
+   ],
+   "unit_id": "m-2c0594e461a4|goles total entero",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "local",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Local ligeramente favorito por forma, pero rotacion alta y 1X2 cercano (R2.14/4.0/3.0). Valor conservador.",
+   "evidencia": [
+    "paquete:m-2c0594e461a4|hándicap",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/3.json"
+   ],
+   "unit_id": "m-2c0594e461a4|hándicap",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "AH entero: sin estimador implementado.",
+   "evidencia": [
+    "paquete:m-2c0594e461a4|hándicap asiático entero",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/3.json"
+   ],
+   "unit_id": "m-2c0594e461a4|hándicap asiático entero",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Handicap europeo: sin estimador implementado.",
+   "evidencia": [
+    "paquete:m-2c0594e461a4|hándicap europeo",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/3.json"
+   ],
+   "unit_id": "m-2c0594e461a4|hándicap europeo",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Remates: estimador no implementado.",
+   "evidencia": [
+    "paquete:m-2c0594e461a4|remates",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/3.json"
+   ],
+   "unit_id": "m-2c0594e461a4|remates",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Remates a puerta: estimador no implementado.",
+   "evidencia": [
+    "paquete:m-2c0594e461a4|remates a puerta",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/3.json"
+   ],
+   "unit_id": "m-2c0594e461a4|remates a puerta",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "local",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "City local con mejor forma (3-0 a Liverpool 11-oct) pero 3 dias de descanso y 7.0 cambios por partido; PSG 8/10 BTTS. Modelo 0.40/0.23/0.36.",
+   "evidencia": [
+    "paquete:m-2c0594e461a4|resultado",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/3.json"
+   ],
+   "unit_id": "m-2c0594e461a4|resultado",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "arbitro",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "tarjetas_atipicas",
+   "nota": "Jablonski sin partidos en la muestra de liga (0). City ~2.9 y PSG ~3.9 puntos (n9/n8). Regla de puntos no verificada.",
+   "evidencia": [
+    "paquete:m-2c0594e461a4|tarjetas",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/3.json"
+   ],
+   "unit_id": "m-2c0594e461a4|tarjetas",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_abierto",
+   "nota": "1T medio 1.6 Betis y 1.4 Porto (3/10 y 2/10 sin gol). Modelo 1T sin validar.",
+   "evidencia": [
+    "paquete:m-48991e94a539|1.ª parte goles",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/3.json"
+   ],
+   "unit_id": "m-48991e94a539|1.ª parte goles",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "goleada_local",
+   "nota": "Modelo da ventaja 1T a Porto (0.43) contra mercado que favorece al local; discrepancia. Sin validacion.",
+   "evidencia": [
+    "paquete:m-48991e94a539|1.ª parte resultado",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/3.json"
+   ],
+   "unit_id": "m-48991e94a539|1.ª parte resultado",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Betis 11.6 corners/partido (n10), Porto 9.6; Porto goleo a rivales debiles de Primeira. Arbitro sin muestra.",
+   "evidencia": [
+    "paquete:m-48991e94a539|córners",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/3.json"
+   ],
+   "unit_id": "m-48991e94a539|córners",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Modelo X2 0.78 vs 1X 0.46 contradice mercado (R1X2 local 2.05). Betis rota mucho (3 dias). No usar p sin calibrar.",
+   "evidencia": [
+    "paquete:m-48991e94a539|doble oportunidad",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/3.json"
+   ],
+   "unit_id": "m-48991e94a539|doble oportunidad",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Modelo da 0.71 a Porto; mercado favorece al local. Divergencia grande, p del modelo no fiable.",
+   "evidencia": [
+    "paquete:m-48991e94a539|empate no válido",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/3.json"
+   ],
+   "unit_id": "m-48991e94a539|empate no válido",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni estimador de fueras de juego.",
+   "evidencia": [
+    "paquete:m-48991e94a539|fueras de juego",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/3.json"
+   ],
+   "unit_id": "m-48991e94a539|fueras de juego",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_abierto",
+   "nota": ">=3 goles solo 5/10 en ambos; Porto encaja 6 en 10 (rivales flojos) y Betis metio 5-2 a Osasuna. Rotacion alta de Betis. Senal neutra.",
+   "evidencia": [
+    "paquete:m-48991e94a539|goles",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/3.json"
+   ],
+   "unit_id": "m-48991e94a539|goles",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "calendario_descanso",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Betis GF19/GA12, Porto GF21/GA6 vs rivales de menor nivel; Porto 0-2 en City. Modelo da solo 0.29 a Betis over 1.5.",
+   "evidencia": [
+    "paquete:m-48991e94a539|goles por equipo",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/3.json"
+   ],
+   "unit_id": "m-48991e94a539|goles por equipo",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Linea entera: sin estimador implementado.",
+   "evidencia": [
+    "paquete:m-48991e94a539|goles total entero",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/3.json"
+   ],
+   "unit_id": "m-48991e94a539|goles total entero",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Modelo y mercado discrepan en quien es favorito; rotacion alta del local. Valor conservador.",
+   "evidencia": [
+    "paquete:m-48991e94a539|hándicap",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/3.json"
+   ],
+   "unit_id": "m-48991e94a539|hándicap",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "AH entero: sin estimador implementado.",
+   "evidencia": [
+    "paquete:m-48991e94a539|hándicap asiático entero",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/3.json"
+   ],
+   "unit_id": "m-48991e94a539|hándicap asiático entero",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Handicap europeo: sin estimador implementado.",
+   "evidencia": [
+    "paquete:m-48991e94a539|hándicap europeo",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/3.json"
+   ],
+   "unit_id": "m-48991e94a539|hándicap europeo",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Remates: estimador no implementado.",
+   "evidencia": [
+    "paquete:m-48991e94a539|remates",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/3.json"
+   ],
+   "unit_id": "m-48991e94a539|remates",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Remates a puerta: estimador no implementado.",
+   "evidencia": [
+    "paquete:m-48991e94a539|remates a puerta",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/3.json"
+   ],
+   "unit_id": "m-48991e94a539|remates a puerta",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Modelo 0.22/0.23/0.54 vs cuotas reales 2.05/3.80/3.33 (local favorito): discrepancia de >25pp. Betis 3 dias descanso, 5.3 cambios; Porto ganador por 0-2 en City.",
+   "evidencia": [
+    "paquete:m-48991e94a539|resultado",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/3.json"
+   ],
+   "unit_id": "m-48991e94a539|resultado",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "arbitro",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "tarjetas_atipicas",
+   "nota": "Turpin sin partidos en la muestra de liga (0). Betis ~4.2 y Porto ~4.0 puntos (n9/n6, huecos). Regla de puntos no verificada.",
+   "evidencia": [
+    "paquete:m-48991e94a539|tarjetas",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/3.json"
+   ],
+   "unit_id": "m-48991e94a539|tarjetas",
+   "excepciones": []
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "LA 1T medio 1.9 (9/10 con gol) y Portland 2.1 (10/10). Over 0.5 1T apoyado en ambos; modelo 1T sin validar.",
+   "evidencia": [
+    "paquete:m-49c5bec5b637|1.ª parte goles",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/332.json"
+   ],
+   "unit_id": "m-49c5bec5b637|1.ª parte goles",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "empate",
+   "escenario_perdida": "goleada_local",
+   "nota": "Modelo 0.37/0.31/0.32 casi plano. Sin validacion.",
+   "evidencia": [
+    "paquete:m-49c5bec5b637|1.ª parte resultado",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/332.json"
+   ],
+   "unit_id": "m-49c5bec5b637|1.ª parte resultado",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Corners totales LA 9.7 y Portland 9.1 (n10). Arbitro sin designar. Validacion insuficiente.",
+   "evidencia": [
+    "paquete:m-49c5bec5b637|córners",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/332.json"
+   ],
+   "unit_id": "m-49c5bec5b637|córners",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Local favorito en mercado (R1.93) pero defensa floja de ambos (GA21); partido abierto. Precios A no ejecutables.",
+   "evidencia": [
+    "paquete:m-49c5bec5b637|doble oportunidad",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/332.json"
+   ],
+   "unit_id": "m-49c5bec5b637|doble oportunidad",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Modelo 0.55/0.45: ligera ventaja local, con defensas muy abiertas (GA21 cada uno).",
+   "evidencia": [
+    "paquete:m-49c5bec5b637|empate no válido",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/332.json"
+   ],
+   "unit_id": "m-49c5bec5b637|empate no válido",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni estimador de fueras de juego.",
+   "evidencia": [
+    "paquete:m-49c5bec5b637|fueras de juego",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/332.json"
+   ],
+   "unit_id": "m-49c5bec5b637|fueras de juego",
+   "excepciones": []
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Ambos GA21 en 10; >=3 goles 7/10 (LA) y 8/10 (Portland); BTTS 7/10 y 9/10. Portland 2-6 en St. Louis (11-oct). Validacion insuficiente.",
+   "evidencia": [
+    "paquete:m-49c5bec5b637|goles",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/332.json"
+   ],
+   "unit_id": "m-49c5bec5b637|goles",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "LA GF15 en 10 (8 sin anotar 2+), Portland GF18; ambos encajan mucho. Modelo por equipo sin validar.",
+   "evidencia": [
+    "paquete:m-49c5bec5b637|goles por equipo",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/332.json"
+   ],
+   "unit_id": "m-49c5bec5b637|goles por equipo",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Linea entera: sin estimador implementado.",
+   "evidencia": [
+    "paquete:m-49c5bec5b637|goles total entero",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/332.json"
+   ],
+   "unit_id": "m-49c5bec5b637|goles total entero",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "goleada_local",
+   "nota": "Parejo con defensas abiertas: alta varianza del margen (0-3 y 2-6 recientes). Valor conservador.",
+   "evidencia": [
+    "paquete:m-49c5bec5b637|hándicap",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/332.json"
+   ],
+   "unit_id": "m-49c5bec5b637|hándicap",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "AH entero: sin estimador implementado.",
+   "evidencia": [
+    "paquete:m-49c5bec5b637|hándicap asiático entero",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/332.json"
+   ],
+   "unit_id": "m-49c5bec5b637|hándicap asiático entero",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Handicap europeo: sin estimador implementado.",
+   "evidencia": [
+    "paquete:m-49c5bec5b637|hándicap europeo",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/332.json"
+   ],
+   "unit_id": "m-49c5bec5b637|hándicap europeo",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Remates: estimador no implementado.",
+   "evidencia": [
+    "paquete:m-49c5bec5b637|remates",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/332.json"
+   ],
+   "unit_id": "m-49c5bec5b637|remates",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Remates a puerta: estimador no implementado.",
+   "evidencia": [
+    "paquete:m-49c5bec5b637|remates a puerta",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/332.json"
+   ],
+   "unit_id": "m-49c5bec5b637|remates a puerta",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "localia",
+   "direccion_favorable": "local",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Modelo 0.43/0.21/0.36 y cuota real local 1.93; pero LA perdio 2-6 y 0-3 fuera, y Portland 0-1 en casa. Partido de alta varianza.",
+   "evidencia": [
+    "paquete:m-49c5bec5b637|resultado",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/332.json"
+   ],
+   "unit_id": "m-49c5bec5b637|resultado",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "tarjetas_atipicas",
+   "nota": "Arbitro no designado; puntos 3.6 y 3.3 con huecos (n7/n9). Sin dato de arbitro.",
+   "evidencia": [
+    "paquete:m-49c5bec5b637|tarjetas",
+    "archivo:runs/2026-10-14/matrix.json",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples/332.json"
+   ],
+   "unit_id": "m-49c5bec5b637|tarjetas",
+   "excepciones": []
+  }
+ ],
+ "limitaciones": [
+  "Sin consultas a la API ni fuentes web: solo matrix.json (historial propio de 10 partidos, mezcla de competiciones y rivales), rotation.json y league_samples.",
+  "Alineaciones no publicadas (snapshot 2026-10-14T04:00Z): bajas no verificadas; ausentes del once no se tratan como bajas.",
+  "Arbitro: paquete indica 0 partidos en muestra para todos; league_samples/332 trae T. Ford n12 (discrepancia). San Diego-Houston y LA-Portland sin arbitro designado.",
+  "Modelo discrepa fuertemente del mercado en resultado (LASK-Liverpool, Betis-Porto, Columbus-Charlotte): se trata como BAJA.",
+  "Remates, remates a puerta, fueras de juego, lineas enteras y AH entero/europeo sin estimador: NO_EVALUABLE."
+ ]
+}

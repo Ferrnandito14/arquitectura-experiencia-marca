@@ -68,8 +68,10 @@ def build_catalog():
     for i, (side, lab) in enumerate((("1x", "Local o empate (1X)"), ("12", "Gana alguno, sin empate (12)"), ("x2", "Empate o visitante (X2)"))):
         C.append(_e(f"resultado.dc.{side}", "resultado", "doble oportunidad", "match", lab, direction=side, stats="atoms", model="dc", price_key="resultado.doble_oportunidad", price_idx=i,
                     price_via_api=True, settlement="implementada"))
-    for side in ("home", "away"):
-        C.append(_e(f"resultado.dnb.{side}", "resultado", "empate no válido", "match", f"Empate no válido: {'local' if side == 'home' else 'visitante'}", direction=side))
+    for i, side in enumerate(("home", "away")):
+        # el empate no válido es el hándicap asiático 0 (ah0 de la API): el auditor/verificador de la Fase 5-7 vio que la API sí lo entrega y el catálogo no lo mapeaba
+        C.append(_e(f"resultado.dnb.{side}", "resultado", "empate no válido", "match", f"Empate no válido: {'local' if side == 'home' else 'visitante'}", direction=side,
+                    price_key="resultado.handicap0", price_idx=i, price_via_api=True))
     for L in HANDICAP_HALF_LINES:
         tag = f"{L:+.1f}"
         C.append(_e(f"resultado.ah.home.{tag}", "resultado", "hándicap", "home", f"Hándicap local {tag}", line=L, direction="home", stats="atoms", model="handicap",

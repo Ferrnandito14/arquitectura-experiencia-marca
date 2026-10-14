@@ -1,0 +1,1334 @@
+{
+ "agente": "deportivo",
+ "version_contrato": 1,
+ "run": "runs/2026-10-14",
+ "unidades": [
+  {
+   "unit_id": "m-51b9336655b1|1.ª parte goles",
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "under",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Sin estadistica 1T evaluada en matriz (primera_parte NO_EVALUABLE); modelo sin validar. Rotaciones altas inciertas.",
+   "evidencia": [
+    "paquete:m-51b9336655b1|1.ª parte goles",
+    "archivo:runs/2026-10-14/matrix.json#m-51b9336655b1",
+    "archivo:runs/2026-10-14/rotation.json"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-51b9336655b1|1.ª parte resultado",
+   "solidez": "BAJA",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "empate",
+   "escenario_perdida": "partido_abierto",
+   "nota": "1T no evaluado en matriz; el empate al descanso es el resultado mas probable del modelo (0.40) sin validacion.",
+   "evidencia": [
+    "paquete:m-51b9336655b1|1.ª parte resultado",
+    "archivo:runs/2026-10-14/matrix.json#m-51b9336655b1",
+    "archivo:runs/2026-10-14/rotation.json"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-51b9336655b1|córners",
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Corners solo descriptivos (n=10 por equipo, competiciones mezcladas); corners por equipo NO_EVALUABLE en matriz; modelo sin validar.",
+   "evidencia": [
+    "paquete:m-51b9336655b1|córners",
+    "archivo:runs/2026-10-14/matrix.json#m-51b9336655b1",
+    "archivo:runs/2026-10-14/rotation.json"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-51b9336655b1|doble oportunidad",
+   "solidez": "BAJA",
+   "factor_principal": "contexto_competicion",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "penal_o_expulsion",
+   "nota": "Modelo favorece a AEK (X2 0.76) con muestra ajena a Europa y sin ajuste por rival; mercado implica ~0.68. 8 y 7.7 cambios de media: alineacion incierta.",
+   "evidencia": [
+    "paquete:m-51b9336655b1|doble oportunidad",
+    "archivo:runs/2026-10-14/matrix.json#m-51b9336655b1",
+    "archivo:runs/2026-10-14/rotation.json"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-51b9336655b1|empate no válido",
+   "solidez": "BAJA",
+   "factor_principal": "contexto_competicion",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "AEK 0.68 modelo vs mercado 1X2 casi igualado (2.66/2.62): divergencia grande; sin extractor de datos.",
+   "evidencia": [
+    "paquete:m-51b9336655b1|empate no válido",
+    "archivo:runs/2026-10-14/matrix.json#m-51b9336655b1",
+    "archivo:runs/2026-10-14/rotation.json"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-51b9336655b1|fueras de juego",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin estimador (no_implementado) y matriz otros.fueras_de_juego NO_EVALUABLE.",
+   "evidencia": [
+    "paquete:m-51b9336655b1|fueras de juego",
+    "archivo:runs/2026-10-14/matrix.json#m-51b9336655b1"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-51b9336655b1|goles",
+   "solidez": "BAJA",
+   "factor_principal": "contexto_competicion",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Muestra mezcla Premier ucraniana/copa y liga griega sin ajuste por rival. O2.5 5/10 y 6/10, BTTS 3/10 y 4/10: linea 2.5 al 50%. Ambos rotan 8 cambios.",
+   "evidencia": [
+    "paquete:m-51b9336655b1|goles",
+    "archivo:runs/2026-10-14/matrix.json#m-51b9336655b1",
+    "archivo:runs/2026-10-14/rotation.json"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-51b9336655b1|goles por equipo",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "AEK marco en 10/10 (31 GF) pero contra rivales griegos flojos; Shakhtar encaja 5 en 10 con rival ucraniano. Rotacion alta de ambos.",
+   "evidencia": [
+    "paquete:m-51b9336655b1|goles por equipo",
+    "archivo:runs/2026-10-14/matrix.json#m-51b9336655b1",
+    "archivo:runs/2026-10-14/rotation.json"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-51b9336655b1|goles total entero",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni estimador; lineas enteras con push no evaluadas.",
+   "evidencia": [
+    "paquete:m-51b9336655b1|goles total entero",
+    "archivo:runs/2026-10-14/matrix.json#m-51b9336655b1"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-51b9336655b1|hándicap",
+   "solidez": "BAJA",
+   "factor_principal": "contexto_competicion",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "penal_o_expulsion",
+   "nota": "Lineas +-2.5 casi sin valor (cuota 1.02 no verificable); lineas cercanas dependen del 1X2 con muestra mezclada.",
+   "evidencia": [
+    "paquete:m-51b9336655b1|hándicap",
+    "archivo:runs/2026-10-14/matrix.json#m-51b9336655b1",
+    "archivo:runs/2026-10-14/rotation.json"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-51b9336655b1|hándicap asiático entero",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni estimador; lineas enteras con push no evaluadas.",
+   "evidencia": [
+    "paquete:m-51b9336655b1|hándicap asiático entero",
+    "archivo:runs/2026-10-14/matrix.json#m-51b9336655b1"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-51b9336655b1|hándicap europeo",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni estimador (no_implementado).",
+   "evidencia": [
+    "paquete:m-51b9336655b1|hándicap europeo",
+    "archivo:runs/2026-10-14/matrix.json#m-51b9336655b1"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-51b9336655b1|remates",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Estimador no_implementado; remates solo PARCIAL en matriz, sin p_modelo.",
+   "evidencia": [
+    "paquete:m-51b9336655b1|remates",
+    "archivo:runs/2026-10-14/matrix.json#m-51b9336655b1"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-51b9336655b1|remates a puerta",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Estimador no_implementado; remates a puerta solo PARCIAL en matriz, sin p_modelo.",
+   "evidencia": [
+    "paquete:m-51b9336655b1|remates a puerta",
+    "archivo:runs/2026-10-14/matrix.json#m-51b9336655b1"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-51b9336655b1|resultado",
+   "solidez": "BAJA",
+   "factor_principal": "contexto_competicion",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Modelo AEK 0.51 vs cuotas reales 2.62/2.66 casi iguales: sobreestima. Forma de AEK (31-4) contra rivales griegos y de Shakhtar (22-5) ucranianos; Shakhtar rota 8 cambios.",
+   "evidencia": [
+    "paquete:m-51b9336655b1|resultado",
+    "archivo:runs/2026-10-14/matrix.json#m-51b9336655b1",
+    "archivo:runs/2026-10-14/rotation.json"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-51b9336655b1|tarjetas",
+   "solidez": "BAJA",
+   "factor_principal": "arbitro",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "tarjetas_atipicas",
+   "nota": "Kavanagh: 1 partido en muestra de liga 3 (n insuficiente); media liga 4.25 tarjetas/partido. Tarjetas por equipo NO_EVALUABLE.",
+   "evidencia": [
+    "paquete:m-51b9336655b1|tarjetas",
+    "archivo:runs/2026-10-14/matrix.json#m-51b9336655b1",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-56813410151b|1.ª parte goles",
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "1T no evaluado en matriz; modelo sin validar. Ritmo de partidos abiertos favorece gol temprano pero sin dato 1T propio.",
+   "evidencia": [
+    "paquete:m-56813410151b|1.ª parte goles",
+    "archivo:runs/2026-10-14/matrix.json#m-56813410151b",
+    "archivo:runs/2026-10-14/rotation.json"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-56813410151b|1.ª parte resultado",
+   "solidez": "BAJA",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "empate",
+   "escenario_perdida": "goleada_local",
+   "nota": "Sin dato de resultado al descanso en la muestra; el empate 1T (0.38) cercano a local 0.32 y visitante 0.30.",
+   "evidencia": [
+    "paquete:m-56813410151b|1.ª parte resultado",
+    "archivo:runs/2026-10-14/matrix.json#m-56813410151b",
+    "archivo:runs/2026-10-14/rotation.json"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-56813410151b|córners",
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Corners totales >8.5 en 8/10 y 8/10 (n=10, misma liga; media liga 10.0), pero modelo sin validar y corners por equipo NO_EVALUABLE.",
+   "evidencia": [
+    "paquete:m-56813410151b|córners",
+    "archivo:runs/2026-10-14/matrix.json#m-56813410151b",
+    "archivo:runs/2026-10-14/rotation.json"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-56813410151b|doble oportunidad",
+   "solidez": "MEDIA",
+   "factor_principal": "localia",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Partido parejo (1X2 2.08/3.75/3.14); 12 es la cobertura natural con empate 0.21. Forma local en casa y Orlando fuera mixtas.",
+   "evidencia": [
+    "paquete:m-56813410151b|doble oportunidad",
+    "archivo:runs/2026-10-14/matrix.json#m-56813410151b",
+    "archivo:runs/2026-10-14/rotation.json"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-56813410151b|empate no válido",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Sin extractor de datos; DNB local 0.52 vs visitante 0.48, practicamente moneda. Orlando 21 GF en 10.",
+   "evidencia": [
+    "paquete:m-56813410151b|empate no válido",
+    "archivo:runs/2026-10-14/matrix.json#m-56813410151b",
+    "archivo:runs/2026-10-14/rotation.json"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-56813410151b|fueras de juego",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin estimador (no_implementado) y matriz otros.fueras_de_juego NO_EVALUABLE.",
+   "evidencia": [
+    "paquete:m-56813410151b|fueras de juego",
+    "archivo:runs/2026-10-14/matrix.json#m-56813410151b"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-56813410151b|goles",
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "MLS misma competicion n=10: O2.5 8/10 y 8/10, BTTS 8/10 y 8/10 (Toronto 17-20, Orlando 21-19). Linea real 3.5: >3 goles solo 3/10 y 5/10, mas fragil.",
+   "evidencia": [
+    "paquete:m-56813410151b|goles",
+    "archivo:runs/2026-10-14/matrix.json#m-56813410151b",
+    "archivo:runs/2026-10-14/rotation.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "goles.total.over.3.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.total.under.3.5",
+     "solidez": "BAJA"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-56813410151b|goles por equipo",
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Ambos defensas permeables (20 y 19 GA en 10). Toronto marco 2+ goles en 7/10; descanso 4 dias, rotacion moderada.",
+   "evidencia": [
+    "paquete:m-56813410151b|goles por equipo",
+    "archivo:runs/2026-10-14/matrix.json#m-56813410151b",
+    "archivo:runs/2026-10-14/rotation.json"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-56813410151b|goles total entero",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni estimador; lineas enteras con push no evaluadas.",
+   "evidencia": [
+    "paquete:m-56813410151b|goles total entero",
+    "archivo:runs/2026-10-14/matrix.json#m-56813410151b"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-56813410151b|hándicap",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Lineas +-0.5 equivalen al 1X2/DNB; lineas +-1.5 con muchos goles dependen de goleadas (Toronto 0-3 vs Orlando 09-12).",
+   "evidencia": [
+    "paquete:m-56813410151b|hándicap",
+    "archivo:runs/2026-10-14/matrix.json#m-56813410151b",
+    "archivo:runs/2026-10-14/rotation.json"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-56813410151b|hándicap asiático entero",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni estimador; lineas enteras con push no evaluadas.",
+   "evidencia": [
+    "paquete:m-56813410151b|hándicap asiático entero",
+    "archivo:runs/2026-10-14/matrix.json#m-56813410151b"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-56813410151b|hándicap europeo",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni estimador (no_implementado).",
+   "evidencia": [
+    "paquete:m-56813410151b|hándicap europeo",
+    "archivo:runs/2026-10-14/matrix.json#m-56813410151b"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-56813410151b|remates",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Estimador no_implementado; remates solo PARCIAL en matriz, sin p_modelo.",
+   "evidencia": [
+    "paquete:m-56813410151b|remates",
+    "archivo:runs/2026-10-14/matrix.json#m-56813410151b"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-56813410151b|remates a puerta",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Estimador no_implementado; remates a puerta solo PARCIAL en matriz, sin p_modelo.",
+   "evidencia": [
+    "paquete:m-56813410151b|remates a puerta",
+    "archivo:runs/2026-10-14/matrix.json#m-56813410151b"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-56813410151b|resultado",
+   "solidez": "MEDIA",
+   "factor_principal": "localia",
+   "direccion_favorable": "local",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Toronto favorito leve en casa (2.08) con GD negativa (17-20); Orlando ganó 3-0 en el cruce anterior (09-12). Descanso 4 dias ambos. Validacion insuficiente.",
+   "evidencia": [
+    "paquete:m-56813410151b|resultado",
+    "archivo:runs/2026-10-14/matrix.json#m-56813410151b",
+    "archivo:runs/2026-10-14/rotation.json"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-56813410151b|tarjetas",
+   "solidez": "BAJA",
+   "factor_principal": "arbitro",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "tarjetas_atipicas",
+   "nota": "Arbitro A. Villarreal: 14 partidos MLS 2026, media 4.4 tarjetas (liga 4.38): neutral. Paquete lo registra con 0 por diferencia de nombre. Tarjetas por equipo NO_EVALUABLE.",
+   "evidencia": [
+    "paquete:m-56813410151b|tarjetas",
+    "archivo:runs/2026-10-14/matrix.json#m-56813410151b",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-604783bdf1cd|1.ª parte goles",
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "1T no evaluado en matriz; sin validacion. Dos equipos goleadores pero sin dato por mitades.",
+   "evidencia": [
+    "paquete:m-604783bdf1cd|1.ª parte goles",
+    "archivo:runs/2026-10-14/matrix.json#m-604783bdf1cd",
+    "archivo:runs/2026-10-14/rotation.json"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-604783bdf1cd|1.ª parte resultado",
+   "solidez": "BAJA",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "empate",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Sin dato 1T propio; empate al descanso modelo 0.38 cercano a otras opciones.",
+   "evidencia": [
+    "paquete:m-604783bdf1cd|1.ª parte resultado",
+    "archivo:runs/2026-10-14/matrix.json#m-604783bdf1cd",
+    "archivo:runs/2026-10-14/rotation.json"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-604783bdf1cd|córners",
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Estadistica descriptiva n=10 por equipo, misma competicion; modelo sin validar, corners por equipo NO_EVALUABLE.",
+   "evidencia": [
+    "paquete:m-604783bdf1cd|córners",
+    "archivo:runs/2026-10-14/matrix.json#m-604783bdf1cd",
+    "archivo:runs/2026-10-14/rotation.json"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-604783bdf1cd|doble oportunidad",
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "goleada_local",
+   "nota": "Philadelphia mejor forma ajustada (+19 GD en 10) vs Chicago +1; 1X2 casi parejo (2.45/3.6/2.62), mercado menos convencido que el modelo.",
+   "evidencia": [
+    "paquete:m-604783bdf1cd|doble oportunidad",
+    "archivo:runs/2026-10-14/matrix.json#m-604783bdf1cd",
+    "archivo:runs/2026-10-14/rotation.json"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-604783bdf1cd|empate no válido",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "goleada_local",
+   "nota": "Sin extractor de datos. Cuotas casi igualadas; forma de Philadelphia inflada por goleadas 5-0 sin ajustar por rival.",
+   "evidencia": [
+    "paquete:m-604783bdf1cd|empate no válido",
+    "archivo:runs/2026-10-14/matrix.json#m-604783bdf1cd",
+    "archivo:runs/2026-10-14/rotation.json"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-604783bdf1cd|fueras de juego",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin estimador (no_implementado) y matriz otros.fueras_de_juego NO_EVALUABLE.",
+   "evidencia": [
+    "paquete:m-604783bdf1cd|fueras de juego",
+    "archivo:runs/2026-10-14/matrix.json#m-604783bdf1cd"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-604783bdf1cd|goles",
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "MLS n=10: Chicago BTTS 8/10, O2.5 7/10 (17-16); Philadelphia O2.5 8/10 con 31 GF (5-0, 5-0). Linea real 3.5: 3/10 y 7/10 respectivamente.",
+   "evidencia": [
+    "paquete:m-604783bdf1cd|goles",
+    "archivo:runs/2026-10-14/matrix.json#m-604783bdf1cd",
+    "archivo:runs/2026-10-14/rotation.json"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-604783bdf1cd|goles por equipo",
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Philadelphia 31 GF en 10 (3.1/partido) pese a 6 salidas; Chicago encaja 16. Over visitante respaldado; ojo si Chicago cierra tras ventaja.",
+   "evidencia": [
+    "paquete:m-604783bdf1cd|goles por equipo",
+    "archivo:runs/2026-10-14/matrix.json#m-604783bdf1cd",
+    "archivo:runs/2026-10-14/rotation.json"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-604783bdf1cd|goles total entero",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni estimador; lineas enteras con push no evaluadas.",
+   "evidencia": [
+    "paquete:m-604783bdf1cd|goles total entero",
+    "archivo:runs/2026-10-14/matrix.json#m-604783bdf1cd"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-604783bdf1cd|hándicap",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "goleada_local",
+   "nota": "Muestra con picos (5-0, 5-0) sesgada; handicap +0.5 visitante = DNB sin push; lineas de goleada dependen de pocos partidos.",
+   "evidencia": [
+    "paquete:m-604783bdf1cd|hándicap",
+    "archivo:runs/2026-10-14/matrix.json#m-604783bdf1cd",
+    "archivo:runs/2026-10-14/rotation.json"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-604783bdf1cd|hándicap asiático entero",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni estimador; lineas enteras con push no evaluadas.",
+   "evidencia": [
+    "paquete:m-604783bdf1cd|hándicap asiático entero",
+    "archivo:runs/2026-10-14/matrix.json#m-604783bdf1cd"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-604783bdf1cd|hándicap europeo",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni estimador (no_implementado).",
+   "evidencia": [
+    "paquete:m-604783bdf1cd|hándicap europeo",
+    "archivo:runs/2026-10-14/matrix.json#m-604783bdf1cd"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-604783bdf1cd|remates",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Estimador no_implementado; remates solo PARCIAL en matriz, sin p_modelo.",
+   "evidencia": [
+    "paquete:m-604783bdf1cd|remates",
+    "archivo:runs/2026-10-14/matrix.json#m-604783bdf1cd"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-604783bdf1cd|remates a puerta",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Estimador no_implementado; remates a puerta solo PARCIAL en matriz, sin p_modelo.",
+   "evidencia": [
+    "paquete:m-604783bdf1cd|remates a puerta",
+    "archivo:runs/2026-10-14/matrix.json#m-604783bdf1cd"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-604783bdf1cd|resultado",
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "goleada_local",
+   "nota": "Modelo Philadelphia 0.51 vs cuota 2.62 (implicita 0.38): gran divergencia con forma 31-12 contra rivales MLS; Chicago local con 3-1, 2-1 recientes. Rotacion baja.",
+   "evidencia": [
+    "paquete:m-604783bdf1cd|resultado",
+    "archivo:runs/2026-10-14/matrix.json#m-604783bdf1cd",
+    "archivo:runs/2026-10-14/rotation.json"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-604783bdf1cd|tarjetas",
+   "solidez": "BAJA",
+   "factor_principal": "arbitro",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "tarjetas_atipicas",
+   "nota": "R. Fierro: 10 partidos MLS 2026 (9 con tarjetas), media 4.3 tarjetas (liga 4.38): neutral. Tarjetas por equipo NO_EVALUABLE.",
+   "evidencia": [
+    "paquete:m-604783bdf1cd|tarjetas",
+    "archivo:runs/2026-10-14/matrix.json#m-604783bdf1cd",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-6fc3a13a9a6e|1.ª parte goles",
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "under",
+   "escenario_perdida": "partido_abierto",
+   "nota": "1T no evaluado en matriz; Libertadores a partido unico suele abrir cauteloso pero sin dato 1T propio.",
+   "evidencia": [
+    "paquete:m-6fc3a13a9a6e|1.ª parte goles",
+    "archivo:runs/2026-10-14/matrix.json#m-6fc3a13a9a6e",
+    "archivo:runs/2026-10-14/rotation.json"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-6fc3a13a9a6e|1.ª parte resultado",
+   "solidez": "BAJA",
+   "factor_principal": "contexto_competicion",
+   "direccion_favorable": "empate",
+   "escenario_perdida": "goleada_local",
+   "nota": "Sin dato 1T; empate al descanso favorecido por cautela de eliminatoria, sin validacion.",
+   "evidencia": [
+    "paquete:m-6fc3a13a9a6e|1.ª parte resultado",
+    "archivo:runs/2026-10-14/matrix.json#m-6fc3a13a9a6e",
+    "archivo:runs/2026-10-14/rotation.json"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-6fc3a13a9a6e|córners",
+   "solidez": "BAJA",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "n=8 por equipo, corners por equipo NO_EVALUABLE; arbitro argentino sin muestra suficiente en liga 18.",
+   "evidencia": [
+    "paquete:m-6fc3a13a9a6e|córners",
+    "archivo:runs/2026-10-14/matrix.json#m-6fc3a13a9a6e",
+    "archivo:runs/2026-10-14/rotation.json"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-6fc3a13a9a6e|doble oportunidad",
+   "solidez": "BAJA",
+   "factor_principal": "contexto_competicion",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "1X2 casi parejo (2.88/2.88/2.65 mercado); coberturas 1X/X2 dependen de muestra n=8 con 4 meses de antigüedad.",
+   "evidencia": [
+    "paquete:m-6fc3a13a9a6e|doble oportunidad",
+    "archivo:runs/2026-10-14/matrix.json#m-6fc3a13a9a6e",
+    "archivo:runs/2026-10-14/rotation.json"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-6fc3a13a9a6e|empate no válido",
+   "solidez": "BAJA",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Sin extractor; DNB local 0.46 modelo, sin sesgo claro. Rotacion Fluminense 5.3 cambios (4 dias de descanso).",
+   "evidencia": [
+    "paquete:m-6fc3a13a9a6e|empate no válido",
+    "archivo:runs/2026-10-14/matrix.json#m-6fc3a13a9a6e",
+    "archivo:runs/2026-10-14/rotation.json"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-6fc3a13a9a6e|fueras de juego",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin estimador (no_implementado) y matriz otros.fueras_de_juego NO_EVALUABLE.",
+   "evidencia": [
+    "paquete:m-6fc3a13a9a6e|fueras de juego",
+    "archivo:runs/2026-10-14/matrix.json#m-6fc3a13a9a6e"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-6fc3a13a9a6e|goles",
+   "solidez": "MEDIA",
+   "factor_principal": "contexto_competicion",
+   "direccion_favorable": "under",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Libertadores: Fluminense O2.5 4/8, Palmeiras 2/8, BTTS 5/8 y 4/8; mercado 2.75 al over 2.5. Muestra n=8 con hueco jun-jul (stale 4 meses). Eliminatoria: cautela.",
+   "evidencia": [
+    "paquete:m-6fc3a13a9a6e|goles",
+    "archivo:runs/2026-10-14/matrix.json#m-6fc3a13a9a6e",
+    "archivo:runs/2026-10-14/rotation.json"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-6fc3a13a9a6e|goles por equipo",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_abierto",
+   "nota": "n=8 por equipo, 5/8 y 4/8 BTTS; muestra con fechas desfasadas (abr-sep) y sin liga domestica. Modelo sin validar.",
+   "evidencia": [
+    "paquete:m-6fc3a13a9a6e|goles por equipo",
+    "archivo:runs/2026-10-14/matrix.json#m-6fc3a13a9a6e",
+    "archivo:runs/2026-10-14/rotation.json"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-6fc3a13a9a6e|goles total entero",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni estimador; lineas enteras con push no evaluadas.",
+   "evidencia": [
+    "paquete:m-6fc3a13a9a6e|goles total entero",
+    "archivo:runs/2026-10-14/matrix.json#m-6fc3a13a9a6e"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-6fc3a13a9a6e|hándicap",
+   "solidez": "BAJA",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Partido parejo; lineas de goleada +-1.5 poco probables en eliminatoria. Muestra n=8 y mercado de hándicap con pocas casas.",
+   "evidencia": [
+    "paquete:m-6fc3a13a9a6e|hándicap",
+    "archivo:runs/2026-10-14/matrix.json#m-6fc3a13a9a6e",
+    "archivo:runs/2026-10-14/rotation.json"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-6fc3a13a9a6e|hándicap asiático entero",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni estimador; lineas enteras con push no evaluadas.",
+   "evidencia": [
+    "paquete:m-6fc3a13a9a6e|hándicap asiático entero",
+    "archivo:runs/2026-10-14/matrix.json#m-6fc3a13a9a6e"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-6fc3a13a9a6e|hándicap europeo",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni estimador (no_implementado).",
+   "evidencia": [
+    "paquete:m-6fc3a13a9a6e|hándicap europeo",
+    "archivo:runs/2026-10-14/matrix.json#m-6fc3a13a9a6e"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-6fc3a13a9a6e|remates",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Estimador no_implementado; remates solo PARCIAL en matriz, sin p_modelo.",
+   "evidencia": [
+    "paquete:m-6fc3a13a9a6e|remates",
+    "archivo:runs/2026-10-14/matrix.json#m-6fc3a13a9a6e"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-6fc3a13a9a6e|remates a puerta",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Estimador no_implementado; remates a puerta solo PARCIAL en matriz, sin p_modelo.",
+   "evidencia": [
+    "paquete:m-6fc3a13a9a6e|remates a puerta",
+    "archivo:runs/2026-10-14/matrix.json#m-6fc3a13a9a6e"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-6fc3a13a9a6e|resultado",
+   "solidez": "BAJA",
+   "factor_principal": "contexto_competicion",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Partido muy parejo (2.80/3.10/2.60); muestra n=8 desfasada y sin ajuste por rival. Fluminense rota mucho (5.3 cambios), alineaciones sin publicar.",
+   "evidencia": [
+    "paquete:m-6fc3a13a9a6e|resultado",
+    "archivo:runs/2026-10-14/matrix.json#m-6fc3a13a9a6e",
+    "archivo:runs/2026-10-14/rotation.json"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-6fc3a13a9a6e|tarjetas",
+   "solidez": "BAJA",
+   "factor_principal": "arbitro",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "tarjetas_atipicas",
+   "nota": "Tello Figueroa: 2 partidos en liga 18 (n insuficiente), media liga 4.87. Rivalidad brasileña y fase decisiva elevan faltas, sin dato directo.",
+   "evidencia": [
+    "paquete:m-6fc3a13a9a6e|tarjetas",
+    "archivo:runs/2026-10-14/matrix.json#m-6fc3a13a9a6e",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-70fee7d77044|1.ª parte goles",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin p_modelo (todas las lineas sin estimador numerico) y 1T NO_EVALUABLE en matriz.",
+   "evidencia": [
+    "paquete:m-70fee7d77044|1.ª parte goles",
+    "archivo:runs/2026-10-14/matrix.json#m-70fee7d77044"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-70fee7d77044|1.ª parte resultado",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin p_modelo y 1T NO_EVALUABLE en matriz.",
+   "evidencia": [
+    "paquete:m-70fee7d77044|1.ª parte resultado",
+    "archivo:runs/2026-10-14/matrix.json#m-70fee7d77044"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-70fee7d77044|córners",
+   "solidez": "BAJA",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Sin p_modelo, sin precio. Solo descriptivo n=10 por equipo, historial mezclado (Copa/Primera) y corners por equipo NO_EVALUABLE.",
+   "evidencia": [
+    "paquete:m-70fee7d77044|córners",
+    "archivo:runs/2026-10-14/matrix.json#m-70fee7d77044",
+    "archivo:runs/2026-10-14/rotation.json"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-70fee7d77044|doble oportunidad",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "local",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Matriz: doble oportunidad NO_EVALUABLE, sin p_modelo ni precio.",
+   "evidencia": [
+    "paquete:m-70fee7d77044|doble oportunidad",
+    "archivo:runs/2026-10-14/matrix.json#m-70fee7d77044"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-70fee7d77044|empate no válido",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "local",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor de datos ni p_modelo; solo la forma (Maldonado 18-6 vs Albion 9-13) apunta al local.",
+   "evidencia": [
+    "paquete:m-70fee7d77044|empate no válido",
+    "archivo:runs/2026-10-14/matrix.json#m-70fee7d77044"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-70fee7d77044|fueras de juego",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin estimador (no_implementado) y matriz otros.fueras_de_juego NO_EVALUABLE.",
+   "evidencia": [
+    "paquete:m-70fee7d77044|fueras de juego",
+    "archivo:runs/2026-10-14/matrix.json#m-70fee7d77044"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-70fee7d77044|goles",
+   "solidez": "BAJA",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "under",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Sin p_modelo. Maldonado O2.5 3/10 y BTTS 3/10 (18-6); Albion 5/10 y 9-13. Cuota real over2.5 2.20/under 1.60. Muestra mezcla Copa y liga; sin ajuste por rival.",
+   "evidencia": [
+    "paquete:m-70fee7d77044|goles",
+    "archivo:runs/2026-10-14/matrix.json#m-70fee7d77044",
+    "archivo:runs/2026-10-14/rotation.json"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-70fee7d77044|goles por equipo",
+   "solidez": "BAJA",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "local",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Sin p_modelo. Maldonado marco en 8/10 y encaja 6 en 10; Albion 9 GF en 10. Pocos datos independientes.",
+   "evidencia": [
+    "paquete:m-70fee7d77044|goles por equipo",
+    "archivo:runs/2026-10-14/matrix.json#m-70fee7d77044",
+    "archivo:runs/2026-10-14/rotation.json"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-70fee7d77044|goles total entero",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni estimador; lineas enteras con push no evaluadas.",
+   "evidencia": [
+    "paquete:m-70fee7d77044|goles total entero",
+    "archivo:runs/2026-10-14/matrix.json#m-70fee7d77044"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-70fee7d77044|hándicap",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "local",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Matriz: hándicap NO_EVALUABLE, sin p_modelo ni precio.",
+   "evidencia": [
+    "paquete:m-70fee7d77044|hándicap",
+    "archivo:runs/2026-10-14/matrix.json#m-70fee7d77044"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-70fee7d77044|hándicap asiático entero",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni estimador; lineas enteras con push no evaluadas.",
+   "evidencia": [
+    "paquete:m-70fee7d77044|hándicap asiático entero",
+    "archivo:runs/2026-10-14/matrix.json#m-70fee7d77044"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-70fee7d77044|hándicap europeo",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni estimador (no_implementado).",
+   "evidencia": [
+    "paquete:m-70fee7d77044|hándicap europeo",
+    "archivo:runs/2026-10-14/matrix.json#m-70fee7d77044"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-70fee7d77044|remates",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Estimador no_implementado; remates solo PARCIAL en matriz, sin p_modelo.",
+   "evidencia": [
+    "paquete:m-70fee7d77044|remates",
+    "archivo:runs/2026-10-14/matrix.json#m-70fee7d77044"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-70fee7d77044|remates a puerta",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Estimador no_implementado; remates a puerta solo PARCIAL en matriz, sin p_modelo.",
+   "evidencia": [
+    "paquete:m-70fee7d77044|remates a puerta",
+    "archivo:runs/2026-10-14/matrix.json#m-70fee7d77044"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-70fee7d77044|resultado",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Sin p_modelo. 1X2 real: local 1.96, empate 3.14, visitante 3.80. Maldonado 7V 1E 2D en 10 (5 en casa sin perder); Albion 9 GF y GD negativa. Rivales sin ajustar.",
+   "evidencia": [
+    "paquete:m-70fee7d77044|resultado",
+    "archivo:runs/2026-10-14/matrix.json#m-70fee7d77044",
+    "archivo:runs/2026-10-14/rotation.json"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-70fee7d77044|tarjetas",
+   "solidez": "BAJA",
+   "factor_principal": "arbitro",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "tarjetas_atipicas",
+   "nota": "Arbitro s/d; sin p_modelo. Tarjetas con datos en 6 y 7 de 10 partidos (parcial).",
+   "evidencia": [
+    "paquete:m-70fee7d77044|tarjetas",
+    "archivo:runs/2026-10-14/matrix.json#m-70fee7d77044",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-73af94aeda13|1.ª parte goles",
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "1T no evaluado en matriz; sin validacion.",
+   "evidencia": [
+    "paquete:m-73af94aeda13|1.ª parte goles",
+    "archivo:runs/2026-10-14/matrix.json#m-73af94aeda13",
+    "archivo:runs/2026-10-14/rotation.json"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-73af94aeda13|1.ª parte resultado",
+   "solidez": "BAJA",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "local",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Sin dato 1T propio; local ligeramente favorecido por localia pero empate 1T (0.31 aprox) frecuente.",
+   "evidencia": [
+    "paquete:m-73af94aeda13|1.ª parte resultado",
+    "archivo:runs/2026-10-14/matrix.json#m-73af94aeda13",
+    "archivo:runs/2026-10-14/rotation.json"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-73af94aeda13|córners",
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Descriptivo n=10 misma liga; modelo sin validar y corners por equipo NO_EVALUABLE.",
+   "evidencia": [
+    "paquete:m-73af94aeda13|córners",
+    "archivo:runs/2026-10-14/matrix.json#m-73af94aeda13",
+    "archivo:runs/2026-10-14/rotation.json"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-73af94aeda13|doble oportunidad",
+   "solidez": "MEDIA",
+   "factor_principal": "localia",
+   "direccion_favorable": "local",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Cincinnati favorito de mercado (1.85) pero forma real 3 victorias en 10 con 17-23; 1X con rotacion de 4.3 cambios y descanso corto.",
+   "evidencia": [
+    "paquete:m-73af94aeda13|doble oportunidad",
+    "archivo:runs/2026-10-14/matrix.json#m-73af94aeda13",
+    "archivo:runs/2026-10-14/rotation.json"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-73af94aeda13|empate no válido",
+   "solidez": "BAJA",
+   "factor_principal": "localia",
+   "direccion_favorable": "local",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Sin extractor de datos; Cincinnati con diferencia de goles -6 en 10.",
+   "evidencia": [
+    "paquete:m-73af94aeda13|empate no válido",
+    "archivo:runs/2026-10-14/matrix.json#m-73af94aeda13",
+    "archivo:runs/2026-10-14/rotation.json"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-73af94aeda13|fueras de juego",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin estimador (no_implementado) y matriz otros.fueras_de_juego NO_EVALUABLE.",
+   "evidencia": [
+    "paquete:m-73af94aeda13|fueras de juego",
+    "archivo:runs/2026-10-14/matrix.json#m-73af94aeda13"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-73af94aeda13|goles",
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "MLS n=10: Cincinnati O2.5 8/10, BTTS 8/10 (17-23); NE O2.5 9/10, BTTS 7/10 (17-16). Linea real 3.5: 7/10 y 2/10. Cincinnati 4 partidos de local solo.",
+   "evidencia": [
+    "paquete:m-73af94aeda13|goles",
+    "archivo:runs/2026-10-14/matrix.json#m-73af94aeda13",
+    "archivo:runs/2026-10-14/rotation.json"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-73af94aeda13|goles por equipo",
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Cincinnati encaja 23 en 10 (0-4, 0-5 fuera) y NE anota 17; local con descanso corto y 4.3 cambios de media.",
+   "evidencia": [
+    "paquete:m-73af94aeda13|goles por equipo",
+    "archivo:runs/2026-10-14/matrix.json#m-73af94aeda13",
+    "archivo:runs/2026-10-14/rotation.json"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-73af94aeda13|goles total entero",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni estimador; lineas enteras con push no evaluadas.",
+   "evidencia": [
+    "paquete:m-73af94aeda13|goles total entero",
+    "archivo:runs/2026-10-14/matrix.json#m-73af94aeda13"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-73af94aeda13|hándicap",
+   "solidez": "BAJA",
+   "factor_principal": "localia",
+   "direccion_favorable": "local",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Hándicap local -1.5 exige goleada; Cincinnati solo 2 victorias por 2+ goles en 10; +0.5/+1.5 dependen del 1X2.",
+   "evidencia": [
+    "paquete:m-73af94aeda13|hándicap",
+    "archivo:runs/2026-10-14/matrix.json#m-73af94aeda13",
+    "archivo:runs/2026-10-14/rotation.json"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-73af94aeda13|hándicap asiático entero",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni estimador; lineas enteras con push no evaluadas.",
+   "evidencia": [
+    "paquete:m-73af94aeda13|hándicap asiático entero",
+    "archivo:runs/2026-10-14/matrix.json#m-73af94aeda13"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-73af94aeda13|hándicap europeo",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni estimador (no_implementado).",
+   "evidencia": [
+    "paquete:m-73af94aeda13|hándicap europeo",
+    "archivo:runs/2026-10-14/matrix.json#m-73af94aeda13"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-73af94aeda13|remates",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Estimador no_implementado; remates solo PARCIAL en matriz, sin p_modelo.",
+   "evidencia": [
+    "paquete:m-73af94aeda13|remates",
+    "archivo:runs/2026-10-14/matrix.json#m-73af94aeda13"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-73af94aeda13|remates a puerta",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Estimador no_implementado; remates a puerta solo PARCIAL en matriz, sin p_modelo.",
+   "evidencia": [
+    "paquete:m-73af94aeda13|remates a puerta",
+    "archivo:runs/2026-10-14/matrix.json#m-73af94aeda13"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-73af94aeda13|resultado",
+   "solidez": "MEDIA",
+   "factor_principal": "localia",
+   "direccion_favorable": "local",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Cincinnati cuota 1.85 vs modelo 0.39 (implicita 0.54): divergencia grande; GD -6 y 0-4/0-5 fuera; NE 4 derrotas en 10 con rotacion baja. Validacion insuficiente.",
+   "evidencia": [
+    "paquete:m-73af94aeda13|resultado",
+    "archivo:runs/2026-10-14/matrix.json#m-73af94aeda13",
+    "archivo:runs/2026-10-14/rotation.json"
+   ],
+   "excepciones": []
+  },
+  {
+   "unit_id": "m-73af94aeda13|tarjetas",
+   "solidez": "BAJA",
+   "factor_principal": "arbitro",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "tarjetas_atipicas",
+   "nota": "R. Vazquez: 18 partidos MLS 2026, media 4.1 tarjetas (liga 4.38), rango 1-9: neutral/algo bajo. Tarjetas por equipo NO_EVALUABLE.",
+   "evidencia": [
+    "paquete:m-73af94aeda13|tarjetas",
+    "archivo:runs/2026-10-14/matrix.json#m-73af94aeda13",
+    "archivo:runs/2026-10-14/rotation.json",
+    "archivo:runs/2026-10-14/league_samples"
+   ],
+   "excepciones": []
+  }
+ ],
+ "limitaciones": [
+  "No se consultaron fuentes externas (FotMob, Transfermarkt, etc.) ni la API: analisis solo con matrix.json, rotation.json, league_samples y paquete.",
+  "Alineaciones no publicadas en los 6 partidos: bajas y onces sin verificar; la rotacion es una estimacion a priori.",
+  "Maldonado-Albion: ningun p_modelo ni precio en el paquete salvo 1X2 y 2.5 de usuario; solidez conservadora.",
+  "Fluminense-Palmeiras: muestra de 8 partidos con hueco de meses y solo Libertadores; sin liga domestica.",
+  "Shakhtar-AEK: muestras de ligas domesticas sin ajuste por rival; modelo sobreestima a AEK frente al mercado.",
+  "Arbitros: paquete registra 0 partidos de Villarreal por diferencia de nombre; league_samples muestra 14 (A. Villarreal).",
+  "Corners ceros/tarjetas faltantes excluidos por la matriz (n menor); no se contrastaron con segunda fuente."
+ ]
+}

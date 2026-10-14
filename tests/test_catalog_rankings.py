@@ -46,6 +46,12 @@ class Patas(unittest.TestCase):
         self.assertEqual(L[OVER[0]]["limite_2_10"], "sin_precio_justa_ok")                    # 1/0.7 = 1.43 ≤ 2.10
         self.assertEqual(L[OVER[2]]["limite_2_10"], "excede")
 
+    def test_la_etiqueta_nombra_a_los_equipos(self):
+        eid = next(e["id"] for e in mc.CATALOG if "{home}" in e["label"])
+        l = legs_of([unit(1, [entrada(eid, 1.5, 0.6)])])[0]
+        self.assertNotIn("{", l["etiqueta"])
+        self.assertIn("A1", l["etiqueta"])
+
     def test_sin_precio_con_cuota_justa_sobre_el_limite_se_marca(self):
         self.assertEqual({l["entry_id"]: l for l in legs_of([unit(1, [entrada(OVER[0], None, 0.30)])])}[OVER[0]]["limite_2_10"], "sin_precio_justa_excede")
 
@@ -139,10 +145,10 @@ class Agentes(unittest.TestCase):
 
     def test_estado_por_pata_sin_revision_aprobada_y_rechazada(self):
         us = [unit(1, [entrada(OVER[0], 1.5, 0.7, estado="otra_fuente")]), unit(2, [entrada(OVER[0], 1.5, 0.7, estado="otra_fuente")])]
-        # solo se revisa m1; además el deportivo la rebaja → rechazada
-        solo = self.reports(us[:1], deportivo={"solidez": "BAJA"})
+        # solo se revisa m1; además el deportivo la rebaja → degradada
+        solo = self.reports(us[:1], deportivo={"solidez": "BAJA"})      # BAJA = degradada (fuera de combinadas, visible en rankings)
         st = cr.agent_status(us, solo)
-        self.assertTrue(st[(us[0]["unit_id"], OVER[0])].startswith("rechazada:deportivo:BAJA"))
+        self.assertTrue(st[(us[0]["unit_id"], OVER[0])].startswith("degradada:deportivo:BAJA"))
         self.assertEqual(st[(us[1]["unit_id"], OVER[0])], "sin_revision")
         ok = cr.agent_status(us, self.reports(us[:1]))
         self.assertEqual(ok[(us[0]["unit_id"], OVER[0])], "aprobada")
@@ -156,6 +162,31 @@ class Agentes(unittest.TestCase):
         self.assertTrue(c)
         self.assertEqual(c[0]["estado_agentes"], "APROBADA")          # las dos aprobadas van primero
         self.assertTrue(all(p["agentes"] == "aprobada" for p in c[0]["patas"]))
+
+    def test_objecion_abierta_del_auditor_quita_la_aprobacion(self):
+        us = [unit(1, [entrada(OVER[0], 1.5, 0.7), entrada(OVER[1], 1.5, 0.7)])]
+        reps = self.reports(us)
+        reps["auditor"]["unidades"][0][ar.OBJECTION_FIELD] = [{"entry_id": OVER[0], "agente": "cuantitativo", "campo": "consistencia_modelo", "problema": "dato_citado_incorrecto"}]
+        st = cr.agent_status(us, reps)
+        self.assertEqual(st[(us[0]["unit_id"], OVER[0])], "objetada:cuantitativo")
+        self.assertEqual(st[(us[0]["unit_id"], OVER[1])], "aprobada")
+        legs = legs_of(us, st)
+        self.assertEqual(cr.combo_readiness([l for l in legs if l["entry_id"] == OVER[0]], True)["requisitos"]["revision_agentes_completa"], False)
+        c = cr._combo_record("x", [l for l in legs if l["entry_id"] == OVER[0]], True)
+        self.assertEqual(c["estado_agentes"], "OBJETADA")
+
+    def test_degradada_sale_de_combinadas_pero_sigue_en_rankings_y_rechazada_sale_de_ambos(self):
+        us = [unit(1, [entrada(OVER[0], None, 0.80), entrada(OVER[1], 1.6, 0.66)])]
+        st = {(us[0]["unit_id"], OVER[0]): "degradada:deportivo:BAJA", (us[0]["unit_id"], OVER[1]): "rechazada:verificador:no_verificable"}
+        legs = legs_of(us, st)
+        self.assertEqual(cr.eligible(legs), [])
+        ids = [x["leg_id"].split("|")[1] for x in cr.build_rankings(legs)["por_grupo"]["goles"]["mas_probables"]]
+        self.assertEqual(ids, [OVER[0]])
+
+    def test_mercado_no_ofrecido_por_la_api_no_se_oculta_de_los_rankings(self):
+        us = [unit(1, [entrada(OVER[0], None, 0.80)])]
+        reps = self.reports(us, verificador={"disponibilidad": "no_ofrecida", "precio": "sin_precio"})
+        self.assertEqual(cr.agent_status(us, reps)[(us[0]["unit_id"], OVER[0])], "aprobada")
 
     def test_informe_con_errores_no_aprueba_nada(self):
         us = [unit(1, [entrada(OVER[0], 1.5, 0.7)])]

@@ -1,0 +1,656 @@
+{
+ "agente": "auditor",
+ "version_contrato": 1,
+ "run": "runs/2026-10-14",
+ "unidades": [
+  {
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio ni mercado 1T en API; p 1T sin validar (no_evaluada) y 1T ausente en matriz; n=10 por equipo, sin ajuste por rival. Ambos rotan ~8 cambios.",
+   "evidencia": [
+    "paquete:m-51b9336655b1|1.ª parte goles",
+    "archivo:runs/2026-10-14/matrix.json#m-51b9336655b1"
+   ],
+   "unit_id": "m-51b9336655b1|1.ª parte goles"
+  },
+  {
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio ni mercado 1T en API; p 1T sin validar (no_evaluada) y 1T ausente en matriz; n=10 por equipo, sin ajuste por rival. Empate 0.40 sin contraste.",
+   "evidencia": [
+    "paquete:m-51b9336655b1|1.ª parte resultado",
+    "archivo:runs/2026-10-14/matrix.json#m-51b9336655b1"
+   ],
+   "unit_id": "m-51b9336655b1|1.ª parte resultado"
+  },
+  {
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Historial 0/20 en misma competición (Premier ucraniana y Super League griega); liga 3 incluye clasificatorias (n=107). Sin precio de córners; validación insuficiente.",
+   "evidencia": [
+    "paquete:m-51b9336655b1|córners",
+    "archivo:runs/2026-10-14/matrix.json#m-51b9336655b1",
+    "archivo:runs/2026-10-14/league_samples/3.json"
+   ],
+   "unit_id": "m-51b9336655b1|córners"
+  },
+  {
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "1X modelo .486 vs 1/1.505=.664 (-17.8pp); X2 modelo .76 vs mercado ~.68. Muestra ajena a Europa, 8 cambios de media por equipo. Precio solo agregador.",
+   "evidencia": [
+    "paquete:m-51b9336655b1|doble oportunidad",
+    "apif_query:get_odds match_id=853246"
+   ],
+   "unit_id": "m-51b9336655b1|doble oportunidad"
+  },
+  {
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "DNB AEK modelo .682 vs ~.51 implícito (ah0 bet365 1.95/1.90, coincide con paquete A1.95/A1.90). Gap ~19pp; referencia no ejecutable. Verificador dice sin_precio.",
+   "evidencia": [
+    "paquete:m-51b9336655b1|empate no válido",
+    "apif_query:get_odds match_id=853246"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "verificador",
+     "campo": "precio",
+     "problema": "valor_contradice_paquete"
+    },
+    {
+     "entry_id": null,
+     "agente": "cuantitativo",
+     "campo": "consistencia_modelo",
+     "problema": "omision"
+    }
+   ],
+   "unit_id": "m-51b9336655b1|empate no válido"
+  },
+  {
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Sin p_modelo, sin precio ni mercado en API: nada seleccionable; el veredicto NO_EVALUABLE de los otros agentes se sostiene.",
+   "evidencia": [
+    "paquete:m-51b9336655b1|fueras de juego"
+   ],
+   "unit_id": "m-51b9336655b1|fueras de juego"
+  },
+  {
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Línea 2.5 R1.85/1.96 vs p .496/.504: sin ventaja. BTTS sí A1.65 p.517 (-8.9pp). Ambos rotan ~8 cambios; muestra mezcla ligas ucraniana y griega sin ajuste por rival.",
+   "evidencia": [
+    "paquete:m-51b9336655b1|goles",
+    "apif_query:get_odds match_id=853246",
+    "archivo:runs/2026-10-14/rotation.json"
+   ],
+   "unit_id": "m-51b9336655b1|goles"
+  },
+  {
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "AEK 31 GF en 10 ante rivales griegos flojos; Shakhtar encaja 5 ante ucranianos. 0/20 misma competición; sin precio.",
+   "evidencia": [
+    "paquete:m-51b9336655b1|goles por equipo",
+    "archivo:runs/2026-10-14/matrix.json#m-51b9336655b1"
+   ],
+   "unit_id": "m-51b9336655b1|goles por equipo"
+  },
+  {
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Sin estimador ni precio (o+1/o+2 vacíos en API): nada seleccionable.",
+   "evidencia": [
+    "paquete:m-51b9336655b1|goles total entero",
+    "apif_query:get_odds match_id=853246"
+   ],
+   "unit_id": "m-51b9336655b1|goles total entero"
+  },
+  {
+   "objecion": "dato_defectuoso",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Confirmado: Betfair/1xBet dan ah-2.5_1=1.03/1.01 pero ah+2.5_2=10.5/11.5; -2.5 local ~10x, no 1.02. Línea -2.5 inutilizable; ±1.5 solo 3-4 casas.",
+   "evidencia": [
+    "paquete:m-51b9336655b1|hándicap",
+    "apif_query:get_odds match_id=853246"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.home.+1.5",
+     "objecion": "brecha_muestra_mercado"
+    }
+   ],
+   "unit_id": "m-51b9336655b1|hándicap"
+  },
+  {
+   "objecion": "fuente_unica",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Precios ±2 (10.5/1.02) solo en 1xBet; ±1 pocas casas; sin estimador. Referencia no ejecutable, sin contraste independiente.",
+   "evidencia": [
+    "paquete:m-51b9336655b1|hándicap asiático entero",
+    "apif_query:get_odds match_id=853246"
+   ],
+   "unit_id": "m-51b9336655b1|hándicap asiático entero"
+  },
+  {
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "API solo ofrece AH; sin estimador ni precio: nada seleccionable.",
+   "evidencia": [
+    "paquete:m-51b9336655b1|hándicap europeo",
+    "apif_query:get_odds match_id=853246"
+   ],
+   "unit_id": "m-51b9336655b1|hándicap europeo"
+  },
+  {
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Sin estimador ni mercado en API; datos insuficientes en paquete.",
+   "evidencia": [
+    "paquete:m-51b9336655b1|remates"
+   ],
+   "unit_id": "m-51b9336655b1|remates"
+  },
+  {
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Sin estimador ni mercado en API; datos insuficientes en paquete.",
+   "evidencia": [
+    "paquete:m-51b9336655b1|remates a puerta"
+   ],
+   "unit_id": "m-51b9336655b1|remates a puerta"
+  },
+  {
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "AEK modelo .513 vs 1/2.62=.382 (sin margen ~.363, +15.0pp); local .239 vs .376. Muestra ajena a Europa, 8 cambios/equipo. Cuota 2.62/2.66 de usuario, API coincide.",
+   "evidencia": [
+    "paquete:m-51b9336655b1|resultado",
+    "apif_query:get_odds match_id=853246",
+    "archivo:runs/2026-10-14/rotation.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "cuantitativo",
+     "campo": "consistencia_modelo",
+     "problema": "valor_contradice_paquete"
+    }
+   ],
+   "unit_id": "m-51b9336655b1|resultado"
+  },
+  {
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Kavanagh: 1 partido en liga 3 (clasificatoria, 2026-08-05); sin árbitros en resumen de liga. Puntos de tarjeta: regla de la casa sin verificar; sin precio.",
+   "evidencia": [
+    "paquete:m-51b9336655b1|tarjetas",
+    "archivo:runs/2026-10-14/league_samples/3.json"
+   ],
+   "unit_id": "m-51b9336655b1|tarjetas"
+  },
+  {
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio ni mercado 1T en API; p 1T sin validar (no_evaluada) y 1T ausente en matriz; n=10 por equipo, sin ajuste por rival.",
+   "evidencia": [
+    "paquete:m-56813410151b|1.ª parte goles",
+    "archivo:runs/2026-10-14/matrix.json#m-56813410151b"
+   ],
+   "unit_id": "m-56813410151b|1.ª parte goles"
+  },
+  {
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio ni mercado 1T en API; p 1T sin validar (no_evaluada) y 1T ausente en matriz; n=10 por equipo, sin ajuste por rival. Empate .38 vs local .32.",
+   "evidencia": [
+    "paquete:m-56813410151b|1.ª parte resultado",
+    "archivo:runs/2026-10-14/matrix.json#m-56813410151b"
+   ],
+   "unit_id": "m-56813410151b|1.ª parte resultado"
+  },
+  {
+   "objecion": "dato_defectuoso",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Fila Toronto-NE 2026-08-15 da 0 córners local (API 711561: Throw In 0/0, feed incompleto): sesga córners de Toronto. Sin precio; validación insuficiente.",
+   "evidencia": [
+    "paquete:m-56813410151b|córners",
+    "apif_query:get_statistics match_id=711561",
+    "archivo:runs/2026-10-14/matrix.json#m-56813410151b"
+   ],
+   "unit_id": "m-56813410151b|córners"
+  },
+  {
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "DNB solo agregador (A1.635/2.2), modelo .524/.476 casi moneda; verificador lo da sin_precio pese a precio A en el paquete.",
+   "evidencia": [
+    "paquete:m-56813410151b|empate no válido"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "verificador",
+     "campo": "precio",
+     "problema": "valor_contradice_paquete"
+    }
+   ],
+   "unit_id": "m-56813410151b|empate no válido"
+  },
+  {
+   "objecion": "dato_defectuoso",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "-2.5 local V1.04 / +2.5 visitante V1.06: pares imposibles (mismo error de campo ah-2.5_1 que en otros partidos). ±1.5 con goleadas 0-3; gap modelo-mercado bajo.",
+   "evidencia": [
+    "paquete:m-56813410151b|hándicap",
+    "apif_query:get_odds match_id=853246"
+   ],
+   "unit_id": "m-56813410151b|hándicap"
+  },
+  {
+   "objecion": "dato_defectuoso",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Paquete registra árbitro con n=0 por nombre (Villarrea vs A. Villarreal: 14 partidos, media 4.43, >3.5 en 78.6%). Estimador pudo ignorarlo; regla de puntos sin verificar.",
+   "evidencia": [
+    "paquete:m-56813410151b|tarjetas",
+    "archivo:runs/2026-10-14/league_samples/332.json"
+   ],
+   "unit_id": "m-56813410151b|tarjetas"
+  },
+  {
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio ni mercado 1T en API; p 1T sin validar (no_evaluada) y 1T ausente en matriz; n=10 por equipo, sin ajuste por rival. Picos 5-0 sesgan.",
+   "evidencia": [
+    "paquete:m-604783bdf1cd|1.ª parte goles",
+    "archivo:runs/2026-10-14/matrix.json#m-604783bdf1cd"
+   ],
+   "unit_id": "m-604783bdf1cd|1.ª parte goles"
+  },
+  {
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio ni mercado 1T en API; p 1T sin validar (no_evaluada) y 1T ausente en matriz; n=10 por equipo, sin ajuste por rival.",
+   "evidencia": [
+    "paquete:m-604783bdf1cd|1.ª parte resultado",
+    "archivo:runs/2026-10-14/matrix.json#m-604783bdf1cd"
+   ],
+   "unit_id": "m-604783bdf1cd|1.ª parte resultado"
+  },
+  {
+   "objecion": "dato_defectuoso",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Chicago-NE 2026-09-13 da NE 0 córners vs 13 (API 711659: Throw In 0/0, feed incompleto): infla córners a favor/deprime en contra de Chicago. Sin precio.",
+   "evidencia": [
+    "paquete:m-604783bdf1cd|córners",
+    "apif_query:get_statistics match_id=711659",
+    "archivo:runs/2026-10-14/matrix.json#m-604783bdf1cd"
+   ],
+   "unit_id": "m-604783bdf1cd|córners"
+  },
+  {
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Gap -19.1pp en dnb.home (agregador); forma de Philadelphia inflada por 5-0 sin ajuste por rival. Verificador dice sin_precio, pero el paquete trae A.",
+   "evidencia": [
+    "paquete:m-604783bdf1cd|empate no válido"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "verificador",
+     "campo": "precio",
+     "problema": "valor_contradice_paquete"
+    },
+    {
+     "entry_id": null,
+     "agente": "cuantitativo",
+     "campo": "consistencia_modelo",
+     "problema": "omision"
+    }
+   ],
+   "unit_id": "m-604783bdf1cd|empate no válido"
+  },
+  {
+   "objecion": "dato_defectuoso",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "-2.5 local V1.025 / +2.5 visitante V1.03: par imposible, mismo error de campo. Líneas ±1.5 dependen de goleadas 5-0 (2 de 10).",
+   "evidencia": [
+    "paquete:m-604783bdf1cd|hándicap"
+   ],
+   "unit_id": "m-604783bdf1cd|hándicap"
+  },
+  {
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Fierro: 9 partidos con tarjetas (media 4.33, >3.5 en 78%). Estimador de puntos sin validar; regla de liquidación (roja, doble amarilla) sin verificar; sin precio.",
+   "evidencia": [
+    "paquete:m-604783bdf1cd|tarjetas",
+    "archivo:runs/2026-10-14/league_samples/332.json"
+   ],
+   "unit_id": "m-604783bdf1cd|tarjetas"
+  },
+  {
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio ni mercado 1T en API; p 1T sin validar (no_evaluada) y 1T ausente en matriz; n=10 por equipo, sin ajuste por rival. D asume partido único: la ronda es Semi-finals, ida/vuelta no verificada.",
+   "evidencia": [
+    "paquete:m-6fc3a13a9a6e|1.ª parte goles",
+    "apif_query:get_events match_id=857088"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "nota",
+     "problema": "afirmacion_sin_evidencia"
+    }
+   ],
+   "unit_id": "m-6fc3a13a9a6e|1.ª parte goles"
+  },
+  {
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio ni mercado 1T en API; p 1T sin validar (no_evaluada) y 1T ausente en matriz; n=10 por equipo, sin ajuste por rival. Cautela de eliminatoria sin evidencia de ida o vuelta.",
+   "evidencia": [
+    "paquete:m-6fc3a13a9a6e|1.ª parte resultado",
+    "apif_query:get_events match_id=857088"
+   ],
+   "unit_id": "m-6fc3a13a9a6e|1.ª parte resultado"
+  },
+  {
+   "objecion": "dato_defectuoso",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Palmeiras 0 córners vs Junior 2026-05-28 con 17 remates (API 754486: Throw In 0/0, feed incompleto). n=8 con hueco jun-jul; Fluminense rota 5.3 cambios.",
+   "evidencia": [
+    "paquete:m-6fc3a13a9a6e|córners",
+    "apif_query:get_statistics match_id=754486",
+    "archivo:runs/2026-10-14/matrix.json#m-6fc3a13a9a6e"
+   ],
+   "unit_id": "m-6fc3a13a9a6e|córners"
+  },
+  {
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "n=8 (abr-sep, hueco jun-jul, sin liga doméstica), sin ajuste por rival; solo agregador (gap -10pp). Fluminense rota 5.3 cambios, 4 días de descanso.",
+   "evidencia": [
+    "paquete:m-6fc3a13a9a6e|doble oportunidad",
+    "apif_query:get_odds match_id=857088"
+   ],
+   "unit_id": "m-6fc3a13a9a6e|doble oportunidad"
+  },
+  {
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "DNB solo agregador (ah0 bet365 2.0/1.85); n=8 y rotación de Fluminense. Verificador lo da sin_precio pese a precio A en paquete.",
+   "evidencia": [
+    "paquete:m-6fc3a13a9a6e|empate no válido",
+    "apif_query:get_odds match_id=857088"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "verificador",
+     "campo": "precio",
+     "problema": "valor_contradice_paquete"
+    }
+   ],
+   "unit_id": "m-6fc3a13a9a6e|empate no válido"
+  },
+  {
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "O1.5 R1.58 (API 1.50-1.62, precio coherente) con p .726 vs ~.59 sin margen (+13pp). Base: n=8 antigua, fase de grupos incluida; semi con cautela. D da MEDIA con n=8.",
+   "evidencia": [
+    "paquete:m-6fc3a13a9a6e|goles",
+    "apif_query:get_odds match_id=857088",
+    "archivo:runs/2026-10-14/matrix.json#m-6fc3a13a9a6e"
+   ],
+   "unit_id": "m-6fc3a13a9a6e|goles"
+  },
+  {
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "n=8 por equipo con fechas desfasadas (abr-sep), sin liga doméstica; sin precio; modelo sin validar.",
+   "evidencia": [
+    "paquete:m-6fc3a13a9a6e|goles por equipo",
+    "archivo:runs/2026-10-14/matrix.json#m-6fc3a13a9a6e"
+   ],
+   "unit_id": "m-6fc3a13a9a6e|goles por equipo"
+  },
+  {
+   "objecion": "dato_defectuoso",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "-2.5 local V1.02 / +2.5 visitante V1.01: par imposible, mismo error de campo. ±1.5 con pocas casas y n=8.",
+   "evidencia": [
+    "paquete:m-6fc3a13a9a6e|hándicap",
+    "apif_query:get_odds match_id=853246"
+   ],
+   "unit_id": "m-6fc3a13a9a6e|hándicap"
+  },
+  {
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "n=8 antigua sin ajuste por rival; cuotas usuario 2.80/3.10/2.60 coherentes con API (bet365 2.88/3.1/2.62); Fluminense rota 5.3 cambios; alineaciones sin publicar.",
+   "evidencia": [
+    "paquete:m-6fc3a13a9a6e|resultado",
+    "apif_query:get_odds match_id=857088"
+   ],
+   "unit_id": "m-6fc3a13a9a6e|resultado"
+  },
+  {
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Paquete: árbitro con n=0 en liga 18; D afirma 2 partidos (no localizable en league_samples/18). Sin dato de rivalidad cuantificado; sin precio.",
+   "evidencia": [
+    "paquete:m-6fc3a13a9a6e|tarjetas",
+    "archivo:runs/2026-10-14/league_samples/18.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "nota",
+     "problema": "valor_contradice_paquete"
+    }
+   ],
+   "unit_id": "m-6fc3a13a9a6e|tarjetas"
+  },
+  {
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Paquete marca estimador calculable pero 46/46 líneas sin p_modelo. Historial mezcla Copa y Primera (n=10); fila Cerrito con 0 córners sin contrastar.",
+   "evidencia": [
+    "paquete:m-70fee7d77044|córners"
+   ],
+   "unit_id": "m-70fee7d77044|córners"
+  },
+  {
+   "objecion": "fuente_unica",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin cuotas en API (404) ni p_modelo; solo forma sugiere local. Nada contrastable.",
+   "evidencia": [
+    "paquete:m-70fee7d77044|empate no válido"
+   ],
+   "unit_id": "m-70fee7d77044|empate no válido"
+  },
+  {
+   "objecion": "fuente_unica",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Solo línea 2.5 de la captura del usuario (O2.2/U1.6), sin API ni p_modelo; muestra mezcla Copa y liga; sin contraste independiente.",
+   "evidencia": [
+    "paquete:m-70fee7d77044|goles"
+   ],
+   "unit_id": "m-70fee7d77044|goles"
+  },
+  {
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin p_modelo; muestras mezcladas Copa/Primera n=10 y fuente única; sin precio.",
+   "evidencia": [
+    "paquete:m-70fee7d77044|goles por equipo"
+   ],
+   "unit_id": "m-70fee7d77044|goles por equipo"
+  },
+  {
+   "objecion": "fuente_unica",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "1X2 solo de la captura del usuario (1.96/3.14/3.80); API 404 y sin p_modelo: sin contraste ni estimador. Rivales sin ajustar.",
+   "evidencia": [
+    "paquete:m-70fee7d77044|resultado"
+   ],
+   "unit_id": "m-70fee7d77044|resultado"
+  },
+  {
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Árbitro sin designar; liga con 3 partidos con tarjetas y 0 con árbitro; equipos con tarjetas en 6-7 de 10; sin p_modelo ni precio.",
+   "evidencia": [
+    "paquete:m-70fee7d77044|tarjetas",
+    "archivo:runs/2026-10-14/league_samples/7542.json"
+   ],
+   "unit_id": "m-70fee7d77044|tarjetas"
+  },
+  {
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio ni mercado 1T en API; p 1T sin validar (no_evaluada) y 1T ausente en matriz; n=10 por equipo, sin ajuste por rival.",
+   "evidencia": [
+    "paquete:m-73af94aeda13|1.ª parte goles",
+    "archivo:runs/2026-10-14/matrix.json#m-73af94aeda13"
+   ],
+   "unit_id": "m-73af94aeda13|1.ª parte goles"
+  },
+  {
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio ni mercado 1T en API; p 1T sin validar (no_evaluada) y 1T ausente en matriz; n=10 por equipo, sin ajuste por rival. Empate 1T ~.31.",
+   "evidencia": [
+    "paquete:m-73af94aeda13|1.ª parte resultado",
+    "archivo:runs/2026-10-14/matrix.json#m-73af94aeda13"
+   ],
+   "unit_id": "m-73af94aeda13|1.ª parte resultado"
+  },
+  {
+   "objecion": "dato_defectuoso",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "NE 0 córners en Chicago-NE 2026-09-13 (API 711659: Throw In 0/0, feed incompleto) deprime córners de NE y de rivales. Sin precio; validación insuficiente.",
+   "evidencia": [
+    "paquete:m-73af94aeda13|córners",
+    "apif_query:get_statistics match_id=711659",
+    "archivo:runs/2026-10-14/matrix.json#m-73af94aeda13"
+   ],
+   "unit_id": "m-73af94aeda13|córners"
+  },
+  {
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "DNB local modelo .495 vs A1.37 (.73, ~.68 sin margen): -23.5pp, mayor del lote. Agregador no ejecutable; verificador dice sin_precio pese a precio A.",
+   "evidencia": [
+    "paquete:m-73af94aeda13|empate no válido"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "verificador",
+     "campo": "precio",
+     "problema": "valor_contradice_paquete"
+    },
+    {
+     "entry_id": null,
+     "agente": "cuantitativo",
+     "campo": "consistencia_modelo",
+     "problema": "omision"
+    }
+   ],
+   "unit_id": "m-73af94aeda13|empate no válido"
+  },
+  {
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "ah.home.-1.5 modelo .204 vs A2.77 (.361): -15.7pp; -2.5 A5.0 vs .089. GD -6 de Cincinnati pesa en modelo; precios agregador de pocas casas.",
+   "evidencia": [
+    "paquete:m-73af94aeda13|hándicap"
+   ],
+   "unit_id": "m-73af94aeda13|hándicap"
+  },
+  {
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Usuario 1.85 vs API 1.70-1.78 (probable transcripción) y modelo .388 vs .541 (-15.3pp). Si 1.85 es erróneo la ventaja desaparece. GD -6, 0-4/0-5 en muestra.",
+   "evidencia": [
+    "paquete:m-73af94aeda13|resultado"
+   ],
+   "unit_id": "m-73af94aeda13|resultado"
+  },
+  {
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Vazquez: 17-18 partidos MLS, media 4.11 (liga 4.38). Estimador de puntos sin validar; regla de liquidación sin verificar; sin precio.",
+   "evidencia": [
+    "paquete:m-73af94aeda13|tarjetas",
+    "archivo:runs/2026-10-14/league_samples/332.json"
+   ],
+   "unit_id": "m-73af94aeda13|tarjetas"
+  }
+ ],
+ "limitaciones": [
+  "Lote 2/6: cubiertas las 51 unidades de must del lote (de 96); resto no revisado por el auditor.",
+  "Solo 7 consultas a la API; sin acceso a fuentes web independientes de córners/tarjetas.",
+  "Los ceros de córners se contrastaron solo con get_statistics (misma API): marcan feed incompleto, no prueba de dato correcto.",
+  "Datos 1T, tarjetas por puntos y regla de liquidación de la casa no verificables en el paquete."
+ ]
+}

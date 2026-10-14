@@ -1,0 +1,2173 @@
+{
+ "agente": "verificador",
+ "version_contrato": 1,
+ "run": "runs/2026-10-14",
+ "unidades": [
+  {
+   "unit_id": "m-bc2c15fb4320|1.ª parte goles",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 853254 (UTC, ficha del partido)",
+    "apifootball get_odds 853254 (esquema solo 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "El agregador no ofrece este mercado (esquema de odds sin él); sin precio. Ver estadística propia solo como modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-bc2c15fb4320|1.ª parte goles",
+    "apif_query:get_events match_id=853254",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=853254"
+   ]
+  },
+  {
+   "unit_id": "m-bc2c15fb4320|1.ª parte resultado",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 853254 (UTC, ficha del partido)",
+    "apifootball get_odds 853254 (esquema solo 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "El agregador no ofrece este mercado (esquema de odds sin él); sin precio. Ver estadística propia solo como modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-bc2c15fb4320|1.ª parte resultado",
+    "apif_query:get_events match_id=853254",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=853254"
+   ]
+  },
+  {
+   "unit_id": "m-bc2c15fb4320|córners",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 853254 (UTC, ficha del partido)",
+    "apifootball get_odds 853254 (esquema solo 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "El agregador no ofrece este mercado (esquema de odds sin él); sin precio. Ver estadística propia solo como modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-bc2c15fb4320|córners",
+    "apif_query:get_events match_id=853254",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=853254"
+   ]
+  },
+  {
+   "unit_id": "m-bc2c15fb4320|doble oportunidad",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 853254 (UTC, ficha del partido)",
+    "apifootball get_odds 853254 (10 casas, 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "DC (odd_1x/12/x2) existe en API; precios del paquete son mediana de casas, referencia no ejecutable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-bc2c15fb4320|doble oportunidad",
+    "apif_query:get_events match_id=853254",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=853254"
+   ]
+  },
+  {
+   "unit_id": "m-bc2c15fb4320|empate no válido",
+   "disponibilidad": "no_verificable",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "paquete_desactualizado_vs_fuente"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 853254 (UTC, ficha del partido)",
+    "apifootball get_odds 853254 (ah0 = empate no válido)"
+   ],
+   "nota": "DNB existe en API como ah0 con cuota; el paquete lo dio como no ofrecido y el precio aparece bajo ah_entero +0. Líneas dnb sin precio en paquete; referencia no ejecutable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-bc2c15fb4320|empate no válido",
+    "apif_query:get_events match_id=853254",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=853254"
+   ]
+  },
+  {
+   "unit_id": "m-bc2c15fb4320|fueras de juego",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 853254 (UTC, ficha del partido)",
+    "apifootball get_odds 853254 (esquema solo 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "El agregador no ofrece este mercado (esquema de odds sin él); sin precio. Ver estadística propia solo como modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-bc2c15fb4320|fueras de juego",
+    "apif_query:get_events match_id=853254",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=853254"
+   ]
+  },
+  {
+   "unit_id": "m-bc2c15fb4320|goles",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 853254 (UTC, ficha del partido)",
+    "apifootball get_odds 853254 (10 casas, 1X2/DC/BTTS/AH/OU)",
+    "partidos_usuario.json (capturas TriunfoBet)"
+   ],
+   "nota": "Solo la línea del usuario (O/U 3.5 o 2.5) es comunicada por el usuario; resto y BTTS son mediana de casas (referencia, no ejecutable). BTTS coincide con API.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-bc2c15fb4320|goles",
+    "apif_query:get_events match_id=853254",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=853254"
+   ]
+  },
+  {
+   "unit_id": "m-bc2c15fb4320|goles por equipo",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 853254 (UTC, ficha del partido)",
+    "apifootball get_odds 853254 (esquema solo 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "El agregador no ofrece este mercado (esquema de odds sin él); sin precio. Ver estadística propia solo como modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-bc2c15fb4320|goles por equipo",
+    "apif_query:get_events match_id=853254",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=853254"
+   ]
+  },
+  {
+   "unit_id": "m-bc2c15fb4320|goles total entero",
+   "disponibilidad": "no_encontrada",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 853254 (UTC, ficha del partido)",
+    "apifootball get_odds 853254 (campos o+1..o+5 vacíos)"
+   ],
+   "nota": "Líneas enteras O/U no halladas en las casas del API; sin precio.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-bc2c15fb4320|goles total entero",
+    "apif_query:get_events match_id=853254",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=853254"
+   ]
+  },
+  {
+   "unit_id": "m-bc2c15fb4320|hándicap",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo",
+    "mercado_mal_etiquetado"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 853254 (UTC, ficha del partido)",
+    "apifootball get_odds 853254 (10 casas, 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "AH existe en API; mediana de casas (referencia). -1.5 local 2.0 / +1.5 visit 1.01 es incoherente con 1X2 9.5/1.28: posible etiqueta invertida; usar con cautela.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.home.-2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "resultado.ah.away.+2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "resultado.ah.home.-0.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "resultado.ah.away.+0.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "resultado.ah.home.+0.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "resultado.ah.away.-0.5",
+     "disponibilidad": "no_encontrada"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-bc2c15fb4320|hándicap",
+    "apif_query:get_events match_id=853254",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=853254"
+   ]
+  },
+  {
+   "unit_id": "m-bc2c15fb4320|hándicap asiático entero",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 853254 (UTC, ficha del partido)",
+    "apifootball get_odds 853254 (10 casas, 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "AH existe en API (ah*/ah0); precios = mediana de casas, referencia no ejecutable.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah_entero.home.-2",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "resultado.ah_entero.away.+2",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "resultado.ah_entero.home.-1",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "resultado.ah_entero.away.+1",
+     "disponibilidad": "no_encontrada"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-bc2c15fb4320|hándicap asiático entero",
+    "apif_query:get_events match_id=853254",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=853254"
+   ]
+  },
+  {
+   "unit_id": "m-bc2c15fb4320|hándicap europeo",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 853254 (UTC, ficha del partido)",
+    "apifootball get_odds 853254 (esquema solo 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "El agregador no ofrece este mercado (esquema de odds sin él); sin precio. Ver estadística propia solo como modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-bc2c15fb4320|hándicap europeo",
+    "apif_query:get_events match_id=853254",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=853254"
+   ]
+  },
+  {
+   "unit_id": "m-bc2c15fb4320|remates",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 853254 (UTC, ficha del partido)",
+    "apifootball get_odds 853254 (esquema solo 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "El agregador no ofrece este mercado (esquema de odds sin él); sin precio. Ver estadística propia solo como modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-bc2c15fb4320|remates",
+    "apif_query:get_events match_id=853254",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=853254"
+   ]
+  },
+  {
+   "unit_id": "m-bc2c15fb4320|remates a puerta",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 853254 (UTC, ficha del partido)",
+    "apifootball get_odds 853254 (esquema solo 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "El agregador no ofrece este mercado (esquema de odds sin él); sin precio. Ver estadística propia solo como modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-bc2c15fb4320|remates a puerta",
+    "apif_query:get_events match_id=853254",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=853254"
+   ]
+  },
+  {
+   "unit_id": "m-bc2c15fb4320|resultado",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "comunicado_usuario",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 853254 (UTC, ficha del partido)",
+    "apifootball get_odds 853254 (10 casas, 1X2/DC/BTTS/AH/OU)",
+    "partidos_usuario.json (capturas TriunfoBet)"
+   ],
+   "nota": "Partido, hora y árbitro confirmados en API (mismo UTC). Cuotas 1X2 = capturas TriunfoBet, comunicadas por el usuario; coinciden con partidos_usuario.json; agregador solo como contraste.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-bc2c15fb4320|resultado",
+    "apif_query:get_events match_id=853254",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=853254"
+   ]
+  },
+  {
+   "unit_id": "m-bc2c15fb4320|tarjetas",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 853254 (UTC, ficha del partido)",
+    "apifootball get_odds 853254 (esquema solo 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "El agregador no ofrece este mercado (esquema de odds sin él); sin precio. Ver estadística propia solo como modelo. Liquidación (amarillas vs puntos) no verificable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-bc2c15fb4320|tarjetas",
+    "apif_query:get_events match_id=853254",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=853254"
+   ]
+  },
+  {
+   "unit_id": "m-beb0fbd9b4c8|1.ª parte goles",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 853135 (UTC, ficha del partido)",
+    "apifootball get_odds 853135 (esquema solo 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "El agregador no ofrece este mercado (esquema de odds sin él); sin precio. Ver estadística propia solo como modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-beb0fbd9b4c8|1.ª parte goles",
+    "apif_query:get_events match_id=853135",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=853135"
+   ]
+  },
+  {
+   "unit_id": "m-beb0fbd9b4c8|1.ª parte resultado",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 853135 (UTC, ficha del partido)",
+    "apifootball get_odds 853135 (esquema solo 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "El agregador no ofrece este mercado (esquema de odds sin él); sin precio. Ver estadística propia solo como modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-beb0fbd9b4c8|1.ª parte resultado",
+    "apif_query:get_events match_id=853135",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=853135"
+   ]
+  },
+  {
+   "unit_id": "m-beb0fbd9b4c8|córners",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 853135 (UTC, ficha del partido)",
+    "apifootball get_odds 853135 (esquema solo 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "El agregador no ofrece este mercado (esquema de odds sin él); sin precio. Ver estadística propia solo como modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-beb0fbd9b4c8|córners",
+    "apif_query:get_events match_id=853135",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=853135"
+   ]
+  },
+  {
+   "unit_id": "m-beb0fbd9b4c8|doble oportunidad",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 853135 (UTC, ficha del partido)",
+    "apifootball get_odds 853135 (10 casas, 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "DC (odd_1x/12/x2) existe en API; precios del paquete son mediana de casas, referencia no ejecutable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-beb0fbd9b4c8|doble oportunidad",
+    "apif_query:get_events match_id=853135",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=853135"
+   ]
+  },
+  {
+   "unit_id": "m-beb0fbd9b4c8|empate no válido",
+   "disponibilidad": "no_verificable",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "paquete_desactualizado_vs_fuente"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 853135 (UTC, ficha del partido)",
+    "apifootball get_odds 853135 (ah0 = empate no válido)"
+   ],
+   "nota": "DNB existe en API como ah0 con cuota; el paquete lo dio como no ofrecido y el precio aparece bajo ah_entero +0. Líneas dnb sin precio en paquete; referencia no ejecutable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-beb0fbd9b4c8|empate no válido",
+    "apif_query:get_events match_id=853135",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=853135"
+   ]
+  },
+  {
+   "unit_id": "m-beb0fbd9b4c8|fueras de juego",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 853135 (UTC, ficha del partido)",
+    "apifootball get_odds 853135 (esquema solo 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "El agregador no ofrece este mercado (esquema de odds sin él); sin precio. Ver estadística propia solo como modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-beb0fbd9b4c8|fueras de juego",
+    "apif_query:get_events match_id=853135",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=853135"
+   ]
+  },
+  {
+   "unit_id": "m-beb0fbd9b4c8|goles",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 853135 (UTC, ficha del partido)",
+    "apifootball get_odds 853135 (10 casas, 1X2/DC/BTTS/AH/OU)",
+    "partidos_usuario.json (capturas TriunfoBet)"
+   ],
+   "nota": "Solo la línea del usuario (O/U 3.5 o 2.5) es comunicada por el usuario; resto y BTTS son mediana de casas (referencia, no ejecutable). BTTS coincide con API.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-beb0fbd9b4c8|goles",
+    "apif_query:get_events match_id=853135",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=853135"
+   ]
+  },
+  {
+   "unit_id": "m-beb0fbd9b4c8|goles por equipo",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 853135 (UTC, ficha del partido)",
+    "apifootball get_odds 853135 (esquema solo 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "El agregador no ofrece este mercado (esquema de odds sin él); sin precio. Ver estadística propia solo como modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-beb0fbd9b4c8|goles por equipo",
+    "apif_query:get_events match_id=853135",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=853135"
+   ]
+  },
+  {
+   "unit_id": "m-beb0fbd9b4c8|goles total entero",
+   "disponibilidad": "no_encontrada",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 853135 (UTC, ficha del partido)",
+    "apifootball get_odds 853135 (campos o+1..o+5 vacíos)"
+   ],
+   "nota": "Líneas enteras O/U no halladas en las casas del API; sin precio.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-beb0fbd9b4c8|goles total entero",
+    "apif_query:get_events match_id=853135",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=853135"
+   ]
+  },
+  {
+   "unit_id": "m-beb0fbd9b4c8|hándicap",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 853135 (UTC, ficha del partido)",
+    "apifootball get_odds 853135 (10 casas, 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "AH existe en API (ah*/ah0); precios = mediana de casas, referencia no ejecutable. 2 líneas marcadas no verificables (precio extremo/incoherente con 1X2).",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.home.-0.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "resultado.ah.away.+0.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "resultado.ah.home.+0.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "resultado.ah.away.-0.5",
+     "disponibilidad": "no_encontrada"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-beb0fbd9b4c8|hándicap",
+    "apif_query:get_events match_id=853135",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=853135"
+   ]
+  },
+  {
+   "unit_id": "m-beb0fbd9b4c8|hándicap asiático entero",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 853135 (UTC, ficha del partido)",
+    "apifootball get_odds 853135 (10 casas, 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "AH existe en API (ah*/ah0); precios = mediana de casas, referencia no ejecutable. 2 líneas marcadas no verificables (precio extremo/incoherente con 1X2).",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-beb0fbd9b4c8|hándicap asiático entero",
+    "apif_query:get_events match_id=853135",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=853135"
+   ]
+  },
+  {
+   "unit_id": "m-beb0fbd9b4c8|hándicap europeo",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 853135 (UTC, ficha del partido)",
+    "apifootball get_odds 853135 (esquema solo 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "El agregador no ofrece este mercado (esquema de odds sin él); sin precio. Ver estadística propia solo como modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-beb0fbd9b4c8|hándicap europeo",
+    "apif_query:get_events match_id=853135",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=853135"
+   ]
+  },
+  {
+   "unit_id": "m-beb0fbd9b4c8|remates",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 853135 (UTC, ficha del partido)",
+    "apifootball get_odds 853135 (esquema solo 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "El agregador no ofrece este mercado (esquema de odds sin él); sin precio. Ver estadística propia solo como modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-beb0fbd9b4c8|remates",
+    "apif_query:get_events match_id=853135",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=853135"
+   ]
+  },
+  {
+   "unit_id": "m-beb0fbd9b4c8|remates a puerta",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 853135 (UTC, ficha del partido)",
+    "apifootball get_odds 853135 (esquema solo 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "El agregador no ofrece este mercado (esquema de odds sin él); sin precio. Ver estadística propia solo como modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-beb0fbd9b4c8|remates a puerta",
+    "apif_query:get_events match_id=853135",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=853135"
+   ]
+  },
+  {
+   "unit_id": "m-beb0fbd9b4c8|resultado",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "comunicado_usuario",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 853135 (UTC, ficha del partido)",
+    "apifootball get_odds 853135 (10 casas, 1X2/DC/BTTS/AH/OU)",
+    "partidos_usuario.json (capturas TriunfoBet)"
+   ],
+   "nota": "Partido, hora y árbitro confirmados en API (mismo UTC). Cuotas 1X2 = capturas TriunfoBet, comunicadas por el usuario; coinciden con partidos_usuario.json; agregador solo como contraste.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-beb0fbd9b4c8|resultado",
+    "apif_query:get_events match_id=853135",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=853135"
+   ]
+  },
+  {
+   "unit_id": "m-beb0fbd9b4c8|tarjetas",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 853135 (UTC, ficha del partido)",
+    "apifootball get_odds 853135 (esquema solo 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "El agregador no ofrece este mercado (esquema de odds sin él); sin precio. Ver estadística propia solo como modelo. Liquidación (amarillas vs puntos) no verificable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-beb0fbd9b4c8|tarjetas",
+    "apif_query:get_events match_id=853135",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=853135"
+   ]
+  },
+  {
+   "unit_id": "m-bf0fff12b0b1|1.ª parte goles",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 711707 (UTC, ficha del partido)",
+    "apifootball get_odds 711707 (esquema solo 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "El agregador no ofrece este mercado (esquema de odds sin él); sin precio. Ver estadística propia solo como modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-bf0fff12b0b1|1.ª parte goles",
+    "apif_query:get_events match_id=711707",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=711707"
+   ]
+  },
+  {
+   "unit_id": "m-bf0fff12b0b1|1.ª parte resultado",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 711707 (UTC, ficha del partido)",
+    "apifootball get_odds 711707 (esquema solo 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "El agregador no ofrece este mercado (esquema de odds sin él); sin precio. Ver estadística propia solo como modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-bf0fff12b0b1|1.ª parte resultado",
+    "apif_query:get_events match_id=711707",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=711707"
+   ]
+  },
+  {
+   "unit_id": "m-bf0fff12b0b1|córners",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 711707 (UTC, ficha del partido)",
+    "apifootball get_odds 711707 (esquema solo 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "El agregador no ofrece este mercado (esquema de odds sin él); sin precio. Ver estadística propia solo como modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-bf0fff12b0b1|córners",
+    "apif_query:get_events match_id=711707",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=711707"
+   ]
+  },
+  {
+   "unit_id": "m-bf0fff12b0b1|doble oportunidad",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 711707 (UTC, ficha del partido)",
+    "apifootball get_odds 711707 (10 casas, 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "DC (odd_1x/12/x2) existe en API; precios del paquete son mediana de casas, referencia no ejecutable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-bf0fff12b0b1|doble oportunidad",
+    "apif_query:get_events match_id=711707",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=711707"
+   ]
+  },
+  {
+   "unit_id": "m-bf0fff12b0b1|empate no válido",
+   "disponibilidad": "no_verificable",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "paquete_desactualizado_vs_fuente"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 711707 (UTC, ficha del partido)",
+    "apifootball get_odds 711707 (ah0 = empate no válido)"
+   ],
+   "nota": "DNB existe en API como ah0 con cuota; el paquete lo dio como no ofrecido y el precio aparece bajo ah_entero +0. Líneas dnb sin precio en paquete; referencia no ejecutable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-bf0fff12b0b1|empate no válido",
+    "apif_query:get_events match_id=711707",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=711707"
+   ]
+  },
+  {
+   "unit_id": "m-bf0fff12b0b1|fueras de juego",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 711707 (UTC, ficha del partido)",
+    "apifootball get_odds 711707 (esquema solo 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "El agregador no ofrece este mercado (esquema de odds sin él); sin precio. Ver estadística propia solo como modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-bf0fff12b0b1|fueras de juego",
+    "apif_query:get_events match_id=711707",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=711707"
+   ]
+  },
+  {
+   "unit_id": "m-bf0fff12b0b1|goles",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 711707 (UTC, ficha del partido)",
+    "apifootball get_odds 711707 (10 casas, 1X2/DC/BTTS/AH/OU)",
+    "partidos_usuario.json (capturas TriunfoBet)"
+   ],
+   "nota": "Solo la línea del usuario (O/U 3.5 o 2.5) es comunicada por el usuario; resto y BTTS son mediana de casas (referencia, no ejecutable). BTTS coincide con API.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-bf0fff12b0b1|goles",
+    "apif_query:get_events match_id=711707",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=711707"
+   ]
+  },
+  {
+   "unit_id": "m-bf0fff12b0b1|goles por equipo",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 711707 (UTC, ficha del partido)",
+    "apifootball get_odds 711707 (esquema solo 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "El agregador no ofrece este mercado (esquema de odds sin él); sin precio. Ver estadística propia solo como modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-bf0fff12b0b1|goles por equipo",
+    "apif_query:get_events match_id=711707",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=711707"
+   ]
+  },
+  {
+   "unit_id": "m-bf0fff12b0b1|goles total entero",
+   "disponibilidad": "no_encontrada",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 711707 (UTC, ficha del partido)",
+    "apifootball get_odds 711707 (campos o+1..o+5 vacíos)"
+   ],
+   "nota": "Líneas enteras O/U no halladas en las casas del API; sin precio.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-bf0fff12b0b1|goles total entero",
+    "apif_query:get_events match_id=711707",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=711707"
+   ]
+  },
+  {
+   "unit_id": "m-bf0fff12b0b1|hándicap",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 711707 (UTC, ficha del partido)",
+    "apifootball get_odds 711707 (10 casas, 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "AH existe en API (ah*/ah0); precios = mediana de casas, referencia no ejecutable. 4 líneas marcadas no verificables (precio extremo/incoherente con 1X2).",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.home.-0.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "resultado.ah.away.+0.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "resultado.ah.home.+0.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "resultado.ah.away.-0.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "resultado.ah.home.+2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "resultado.ah.away.-2.5",
+     "disponibilidad": "no_encontrada"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-bf0fff12b0b1|hándicap",
+    "apif_query:get_events match_id=711707",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=711707"
+   ]
+  },
+  {
+   "unit_id": "m-bf0fff12b0b1|hándicap asiático entero",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 711707 (UTC, ficha del partido)",
+    "apifootball get_odds 711707 (10 casas, 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "AH existe en API (ah*/ah0); precios = mediana de casas, referencia no ejecutable. 4 líneas marcadas no verificables (precio extremo/incoherente con 1X2).",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah_entero.home.+2",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "resultado.ah_entero.away.-2",
+     "disponibilidad": "no_encontrada"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-bf0fff12b0b1|hándicap asiático entero",
+    "apif_query:get_events match_id=711707",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=711707"
+   ]
+  },
+  {
+   "unit_id": "m-bf0fff12b0b1|hándicap europeo",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 711707 (UTC, ficha del partido)",
+    "apifootball get_odds 711707 (esquema solo 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "El agregador no ofrece este mercado (esquema de odds sin él); sin precio. Ver estadística propia solo como modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-bf0fff12b0b1|hándicap europeo",
+    "apif_query:get_events match_id=711707",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=711707"
+   ]
+  },
+  {
+   "unit_id": "m-bf0fff12b0b1|remates",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 711707 (UTC, ficha del partido)",
+    "apifootball get_odds 711707 (esquema solo 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "El agregador no ofrece este mercado (esquema de odds sin él); sin precio. Ver estadística propia solo como modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-bf0fff12b0b1|remates",
+    "apif_query:get_events match_id=711707",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=711707"
+   ]
+  },
+  {
+   "unit_id": "m-bf0fff12b0b1|remates a puerta",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 711707 (UTC, ficha del partido)",
+    "apifootball get_odds 711707 (esquema solo 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "El agregador no ofrece este mercado (esquema de odds sin él); sin precio. Ver estadística propia solo como modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-bf0fff12b0b1|remates a puerta",
+    "apif_query:get_events match_id=711707",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=711707"
+   ]
+  },
+  {
+   "unit_id": "m-bf0fff12b0b1|resultado",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "comunicado_usuario",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 711707 (UTC, ficha del partido)",
+    "apifootball get_odds 711707 (10 casas, 1X2/DC/BTTS/AH/OU)",
+    "partidos_usuario.json (capturas TriunfoBet)"
+   ],
+   "nota": "Partido, hora y árbitro confirmados en API (mismo UTC). Cuotas 1X2 = capturas TriunfoBet, comunicadas por el usuario; coinciden con partidos_usuario.json; agregador solo como contraste.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-bf0fff12b0b1|resultado",
+    "apif_query:get_events match_id=711707",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=711707"
+   ]
+  },
+  {
+   "unit_id": "m-bf0fff12b0b1|tarjetas",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 711707 (UTC, ficha del partido)",
+    "apifootball get_odds 711707 (esquema solo 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "El agregador no ofrece este mercado (esquema de odds sin él); sin precio. Ver estadística propia solo como modelo. Liquidación (amarillas vs puntos) no verificable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-bf0fff12b0b1|tarjetas",
+    "apif_query:get_events match_id=711707",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=711707"
+   ]
+  },
+  {
+   "unit_id": "m-c542a517b2b7|1.ª parte goles",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 857298 (UTC, ficha del partido)",
+    "apifootball get_odds 857298 (esquema solo 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "El agregador no ofrece este mercado (esquema de odds sin él); sin precio. Ver estadística propia solo como modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c542a517b2b7|1.ª parte goles",
+    "apif_query:get_events match_id=857298",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=857298"
+   ]
+  },
+  {
+   "unit_id": "m-c542a517b2b7|1.ª parte resultado",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 857298 (UTC, ficha del partido)",
+    "apifootball get_odds 857298 (esquema solo 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "El agregador no ofrece este mercado (esquema de odds sin él); sin precio. Ver estadística propia solo como modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c542a517b2b7|1.ª parte resultado",
+    "apif_query:get_events match_id=857298",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=857298"
+   ]
+  },
+  {
+   "unit_id": "m-c542a517b2b7|córners",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 857298 (UTC, ficha del partido)",
+    "apifootball get_odds 857298 (esquema solo 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "El agregador no ofrece este mercado (esquema de odds sin él); sin precio. Ver estadística propia solo como modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c542a517b2b7|córners",
+    "apif_query:get_events match_id=857298",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=857298"
+   ]
+  },
+  {
+   "unit_id": "m-c542a517b2b7|doble oportunidad",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 857298 (UTC, ficha del partido)",
+    "apifootball get_odds 857298 (10 casas, 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "DC (odd_1x/12/x2) existe en API; precios del paquete son mediana de casas, referencia no ejecutable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c542a517b2b7|doble oportunidad",
+    "apif_query:get_events match_id=857298",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=857298"
+   ]
+  },
+  {
+   "unit_id": "m-c542a517b2b7|empate no válido",
+   "disponibilidad": "no_verificable",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "paquete_desactualizado_vs_fuente"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 857298 (UTC, ficha del partido)",
+    "apifootball get_odds 857298 (ah0 = empate no válido)"
+   ],
+   "nota": "DNB existe en API como ah0 con cuota; el paquete lo dio como no ofrecido y el precio aparece bajo ah_entero +0. Líneas dnb sin precio en paquete; referencia no ejecutable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c542a517b2b7|empate no válido",
+    "apif_query:get_events match_id=857298",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=857298"
+   ]
+  },
+  {
+   "unit_id": "m-c542a517b2b7|fueras de juego",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 857298 (UTC, ficha del partido)",
+    "apifootball get_odds 857298 (esquema solo 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "El agregador no ofrece este mercado (esquema de odds sin él); sin precio. Ver estadística propia solo como modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c542a517b2b7|fueras de juego",
+    "apif_query:get_events match_id=857298",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=857298"
+   ]
+  },
+  {
+   "unit_id": "m-c542a517b2b7|goles",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 857298 (UTC, ficha del partido)",
+    "apifootball get_odds 857298 (10 casas, 1X2/DC/BTTS/AH/OU)",
+    "partidos_usuario.json (capturas TriunfoBet)"
+   ],
+   "nota": "Solo la línea del usuario (O/U 3.5 o 2.5) es comunicada por el usuario; resto y BTTS son mediana de casas (referencia, no ejecutable). BTTS coincide con API.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c542a517b2b7|goles",
+    "apif_query:get_events match_id=857298",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=857298"
+   ]
+  },
+  {
+   "unit_id": "m-c542a517b2b7|goles por equipo",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 857298 (UTC, ficha del partido)",
+    "apifootball get_odds 857298 (esquema solo 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "El agregador no ofrece este mercado (esquema de odds sin él); sin precio. Ver estadística propia solo como modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c542a517b2b7|goles por equipo",
+    "apif_query:get_events match_id=857298",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=857298"
+   ]
+  },
+  {
+   "unit_id": "m-c542a517b2b7|goles total entero",
+   "disponibilidad": "no_encontrada",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 857298 (UTC, ficha del partido)",
+    "apifootball get_odds 857298 (campos o+1..o+5 vacíos)"
+   ],
+   "nota": "Líneas enteras O/U no halladas en las casas del API; sin precio.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c542a517b2b7|goles total entero",
+    "apif_query:get_events match_id=857298",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=857298"
+   ]
+  },
+  {
+   "unit_id": "m-c542a517b2b7|hándicap",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 857298 (UTC, ficha del partido)",
+    "apifootball get_odds 857298 (10 casas, 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "AH existe en API (ah*/ah0); precios = mediana de casas, referencia no ejecutable.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.home.-0.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "resultado.ah.away.+0.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "resultado.ah.home.+0.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "resultado.ah.away.-0.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "resultado.ah.home.+1.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "resultado.ah.away.-1.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "resultado.ah.home.+2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "resultado.ah.away.-2.5",
+     "disponibilidad": "no_encontrada"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-c542a517b2b7|hándicap",
+    "apif_query:get_events match_id=857298",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=857298"
+   ]
+  },
+  {
+   "unit_id": "m-c542a517b2b7|hándicap asiático entero",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 857298 (UTC, ficha del partido)",
+    "apifootball get_odds 857298 (10 casas, 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "AH existe en API (ah*/ah0); precios = mediana de casas, referencia no ejecutable.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah_entero.home.+1",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "resultado.ah_entero.away.-1",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "resultado.ah_entero.home.+2",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "resultado.ah_entero.away.-2",
+     "disponibilidad": "no_encontrada"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-c542a517b2b7|hándicap asiático entero",
+    "apif_query:get_events match_id=857298",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=857298"
+   ]
+  },
+  {
+   "unit_id": "m-c542a517b2b7|hándicap europeo",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 857298 (UTC, ficha del partido)",
+    "apifootball get_odds 857298 (esquema solo 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "El agregador no ofrece este mercado (esquema de odds sin él); sin precio. Ver estadística propia solo como modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c542a517b2b7|hándicap europeo",
+    "apif_query:get_events match_id=857298",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=857298"
+   ]
+  },
+  {
+   "unit_id": "m-c542a517b2b7|remates",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 857298 (UTC, ficha del partido)",
+    "apifootball get_odds 857298 (esquema solo 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "El agregador no ofrece este mercado (esquema de odds sin él); sin precio. Ver estadística propia solo como modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c542a517b2b7|remates",
+    "apif_query:get_events match_id=857298",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=857298"
+   ]
+  },
+  {
+   "unit_id": "m-c542a517b2b7|remates a puerta",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 857298 (UTC, ficha del partido)",
+    "apifootball get_odds 857298 (esquema solo 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "El agregador no ofrece este mercado (esquema de odds sin él); sin precio. Ver estadística propia solo como modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c542a517b2b7|remates a puerta",
+    "apif_query:get_events match_id=857298",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=857298"
+   ]
+  },
+  {
+   "unit_id": "m-c542a517b2b7|resultado",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "comunicado_usuario",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 857298 (UTC, ficha del partido)",
+    "apifootball get_odds 857298 (10 casas, 1X2/DC/BTTS/AH/OU)",
+    "partidos_usuario.json (capturas TriunfoBet)"
+   ],
+   "nota": "Partido, hora y árbitro confirmados en API (mismo UTC). Cuotas 1X2 = capturas TriunfoBet, comunicadas por el usuario; coinciden con partidos_usuario.json; agregador solo como contraste. Sudamericana s",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c542a517b2b7|resultado",
+    "apif_query:get_events match_id=857298",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=857298"
+   ]
+  },
+  {
+   "unit_id": "m-c542a517b2b7|tarjetas",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 857298 (UTC, ficha del partido)",
+    "apifootball get_odds 857298 (esquema solo 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "El agregador no ofrece este mercado (esquema de odds sin él); sin precio. Ver estadística propia solo como modelo. Liquidación (amarillas vs puntos) no verificable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c542a517b2b7|tarjetas",
+    "apif_query:get_events match_id=857298",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=857298"
+   ]
+  },
+  {
+   "unit_id": "m-c840427bbe9a|1.ª parte goles",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 853141 (UTC, ficha del partido)",
+    "apifootball get_odds 853141 (esquema solo 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "El agregador no ofrece este mercado (esquema de odds sin él); sin precio. Ver estadística propia solo como modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c840427bbe9a|1.ª parte goles",
+    "apif_query:get_events match_id=853141",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=853141"
+   ]
+  },
+  {
+   "unit_id": "m-c840427bbe9a|1.ª parte resultado",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 853141 (UTC, ficha del partido)",
+    "apifootball get_odds 853141 (esquema solo 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "El agregador no ofrece este mercado (esquema de odds sin él); sin precio. Ver estadística propia solo como modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c840427bbe9a|1.ª parte resultado",
+    "apif_query:get_events match_id=853141",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=853141"
+   ]
+  },
+  {
+   "unit_id": "m-c840427bbe9a|córners",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 853141 (UTC, ficha del partido)",
+    "apifootball get_odds 853141 (esquema solo 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "El agregador no ofrece este mercado (esquema de odds sin él); sin precio. Ver estadística propia solo como modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c840427bbe9a|córners",
+    "apif_query:get_events match_id=853141",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=853141"
+   ]
+  },
+  {
+   "unit_id": "m-c840427bbe9a|doble oportunidad",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 853141 (UTC, ficha del partido)",
+    "apifootball get_odds 853141 (10 casas, 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "DC (odd_1x/12/x2) existe en API; precios del paquete son mediana de casas, referencia no ejecutable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c840427bbe9a|doble oportunidad",
+    "apif_query:get_events match_id=853141",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=853141"
+   ]
+  },
+  {
+   "unit_id": "m-c840427bbe9a|empate no válido",
+   "disponibilidad": "no_verificable",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "paquete_desactualizado_vs_fuente"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 853141 (UTC, ficha del partido)",
+    "apifootball get_odds 853141 (ah0 = empate no válido)"
+   ],
+   "nota": "DNB existe en API como ah0 con cuota; el paquete lo dio como no ofrecido y el precio aparece bajo ah_entero +0. Líneas dnb sin precio en paquete; referencia no ejecutable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c840427bbe9a|empate no válido",
+    "apif_query:get_events match_id=853141",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=853141"
+   ]
+  },
+  {
+   "unit_id": "m-c840427bbe9a|fueras de juego",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 853141 (UTC, ficha del partido)",
+    "apifootball get_odds 853141 (esquema solo 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "El agregador no ofrece este mercado (esquema de odds sin él); sin precio. Ver estadística propia solo como modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c840427bbe9a|fueras de juego",
+    "apif_query:get_events match_id=853141",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=853141"
+   ]
+  },
+  {
+   "unit_id": "m-c840427bbe9a|goles",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 853141 (UTC, ficha del partido)",
+    "apifootball get_odds 853141 (10 casas, 1X2/DC/BTTS/AH/OU)",
+    "partidos_usuario.json (capturas TriunfoBet)"
+   ],
+   "nota": "Solo la línea del usuario (O/U 3.5 o 2.5) es comunicada por el usuario; resto y BTTS son mediana de casas (referencia, no ejecutable). BTTS coincide con API.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c840427bbe9a|goles",
+    "apif_query:get_events match_id=853141",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=853141"
+   ]
+  },
+  {
+   "unit_id": "m-c840427bbe9a|goles por equipo",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 853141 (UTC, ficha del partido)",
+    "apifootball get_odds 853141 (esquema solo 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "El agregador no ofrece este mercado (esquema de odds sin él); sin precio. Ver estadística propia solo como modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c840427bbe9a|goles por equipo",
+    "apif_query:get_events match_id=853141",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=853141"
+   ]
+  },
+  {
+   "unit_id": "m-c840427bbe9a|goles total entero",
+   "disponibilidad": "no_encontrada",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 853141 (UTC, ficha del partido)",
+    "apifootball get_odds 853141 (campos o+1..o+5 vacíos)"
+   ],
+   "nota": "Líneas enteras O/U no halladas en las casas del API; sin precio.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c840427bbe9a|goles total entero",
+    "apif_query:get_events match_id=853141",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=853141"
+   ]
+  },
+  {
+   "unit_id": "m-c840427bbe9a|hándicap",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 853141 (UTC, ficha del partido)",
+    "apifootball get_odds 853141 (10 casas, 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "AH existe en API (ah*/ah0); precios = mediana de casas, referencia no ejecutable.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.home.-0.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "resultado.ah.away.+0.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "resultado.ah.home.+0.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "resultado.ah.away.-0.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "resultado.ah.home.+1.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "resultado.ah.away.-1.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "resultado.ah.home.+2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "resultado.ah.away.-2.5",
+     "disponibilidad": "no_encontrada"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-c840427bbe9a|hándicap",
+    "apif_query:get_events match_id=853141",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=853141"
+   ]
+  },
+  {
+   "unit_id": "m-c840427bbe9a|hándicap asiático entero",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 853141 (UTC, ficha del partido)",
+    "apifootball get_odds 853141 (10 casas, 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "AH existe en API (ah*/ah0); precios = mediana de casas, referencia no ejecutable.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah_entero.home.+1",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "resultado.ah_entero.away.-1",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "resultado.ah_entero.home.+2",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "resultado.ah_entero.away.-2",
+     "disponibilidad": "no_encontrada"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-c840427bbe9a|hándicap asiático entero",
+    "apif_query:get_events match_id=853141",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=853141"
+   ]
+  },
+  {
+   "unit_id": "m-c840427bbe9a|hándicap europeo",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 853141 (UTC, ficha del partido)",
+    "apifootball get_odds 853141 (esquema solo 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "El agregador no ofrece este mercado (esquema de odds sin él); sin precio. Ver estadística propia solo como modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c840427bbe9a|hándicap europeo",
+    "apif_query:get_events match_id=853141",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=853141"
+   ]
+  },
+  {
+   "unit_id": "m-c840427bbe9a|remates",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 853141 (UTC, ficha del partido)",
+    "apifootball get_odds 853141 (esquema solo 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "El agregador no ofrece este mercado (esquema de odds sin él); sin precio. Ver estadística propia solo como modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c840427bbe9a|remates",
+    "apif_query:get_events match_id=853141",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=853141"
+   ]
+  },
+  {
+   "unit_id": "m-c840427bbe9a|remates a puerta",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 853141 (UTC, ficha del partido)",
+    "apifootball get_odds 853141 (esquema solo 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "El agregador no ofrece este mercado (esquema de odds sin él); sin precio. Ver estadística propia solo como modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c840427bbe9a|remates a puerta",
+    "apif_query:get_events match_id=853141",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=853141"
+   ]
+  },
+  {
+   "unit_id": "m-c840427bbe9a|resultado",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "comunicado_usuario",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 853141 (UTC, ficha del partido)",
+    "apifootball get_odds 853141 (10 casas, 1X2/DC/BTTS/AH/OU)",
+    "partidos_usuario.json (capturas TriunfoBet)"
+   ],
+   "nota": "Partido, hora y árbitro confirmados en API (mismo UTC). Cuotas 1X2 = capturas TriunfoBet, comunicadas por el usuario; coinciden con partidos_usuario.json; agregador solo como contraste.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c840427bbe9a|resultado",
+    "apif_query:get_events match_id=853141",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=853141"
+   ]
+  },
+  {
+   "unit_id": "m-c840427bbe9a|tarjetas",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 853141 (UTC, ficha del partido)",
+    "apifootball get_odds 853141 (esquema solo 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "El agregador no ofrece este mercado (esquema de odds sin él); sin precio. Ver estadística propia solo como modelo. Liquidación (amarillas vs puntos) no verificable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c840427bbe9a|tarjetas",
+    "apif_query:get_events match_id=853141",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=853141"
+   ]
+  },
+  {
+   "unit_id": "m-ca4144a67961|1.ª parte goles",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 711709 (UTC, ficha del partido)",
+    "apifootball get_odds 711709 (esquema solo 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "El agregador no ofrece este mercado (esquema de odds sin él); sin precio. Ver estadística propia solo como modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ca4144a67961|1.ª parte goles",
+    "apif_query:get_events match_id=711709",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=711709"
+   ]
+  },
+  {
+   "unit_id": "m-ca4144a67961|1.ª parte resultado",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 711709 (UTC, ficha del partido)",
+    "apifootball get_odds 711709 (esquema solo 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "El agregador no ofrece este mercado (esquema de odds sin él); sin precio. Ver estadística propia solo como modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ca4144a67961|1.ª parte resultado",
+    "apif_query:get_events match_id=711709",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=711709"
+   ]
+  },
+  {
+   "unit_id": "m-ca4144a67961|córners",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 711709 (UTC, ficha del partido)",
+    "apifootball get_odds 711709 (esquema solo 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "El agregador no ofrece este mercado (esquema de odds sin él); sin precio. Ver estadística propia solo como modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ca4144a67961|córners",
+    "apif_query:get_events match_id=711709",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=711709"
+   ]
+  },
+  {
+   "unit_id": "m-ca4144a67961|doble oportunidad",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 711709 (UTC, ficha del partido)",
+    "apifootball get_odds 711709 (10 casas, 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "DC (odd_1x/12/x2) existe en API; precios del paquete son mediana de casas, referencia no ejecutable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ca4144a67961|doble oportunidad",
+    "apif_query:get_events match_id=711709",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=711709"
+   ]
+  },
+  {
+   "unit_id": "m-ca4144a67961|empate no válido",
+   "disponibilidad": "no_verificable",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "paquete_desactualizado_vs_fuente"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 711709 (UTC, ficha del partido)",
+    "apifootball get_odds 711709 (ah0 = empate no válido)"
+   ],
+   "nota": "DNB existe en API como ah0 con cuota; el paquete lo dio como no ofrecido y el precio aparece bajo ah_entero +0. Líneas dnb sin precio en paquete; referencia no ejecutable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ca4144a67961|empate no válido",
+    "apif_query:get_events match_id=711709",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=711709"
+   ]
+  },
+  {
+   "unit_id": "m-ca4144a67961|fueras de juego",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 711709 (UTC, ficha del partido)",
+    "apifootball get_odds 711709 (esquema solo 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "El agregador no ofrece este mercado (esquema de odds sin él); sin precio. Ver estadística propia solo como modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ca4144a67961|fueras de juego",
+    "apif_query:get_events match_id=711709",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=711709"
+   ]
+  },
+  {
+   "unit_id": "m-ca4144a67961|goles",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 711709 (UTC, ficha del partido)",
+    "apifootball get_odds 711709 (10 casas, 1X2/DC/BTTS/AH/OU)",
+    "partidos_usuario.json (capturas TriunfoBet)"
+   ],
+   "nota": "Solo la línea del usuario (O/U 3.5 o 2.5) es comunicada por el usuario; resto y BTTS son mediana de casas (referencia, no ejecutable). BTTS coincide con API.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ca4144a67961|goles",
+    "apif_query:get_events match_id=711709",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=711709"
+   ]
+  },
+  {
+   "unit_id": "m-ca4144a67961|goles por equipo",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 711709 (UTC, ficha del partido)",
+    "apifootball get_odds 711709 (esquema solo 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "El agregador no ofrece este mercado (esquema de odds sin él); sin precio. Ver estadística propia solo como modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ca4144a67961|goles por equipo",
+    "apif_query:get_events match_id=711709",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=711709"
+   ]
+  },
+  {
+   "unit_id": "m-ca4144a67961|goles total entero",
+   "disponibilidad": "no_encontrada",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 711709 (UTC, ficha del partido)",
+    "apifootball get_odds 711709 (campos o+1..o+5 vacíos)"
+   ],
+   "nota": "Líneas enteras O/U no halladas en las casas del API; sin precio.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ca4144a67961|goles total entero",
+    "apif_query:get_events match_id=711709",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=711709"
+   ]
+  },
+  {
+   "unit_id": "m-ca4144a67961|hándicap",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 711709 (UTC, ficha del partido)",
+    "apifootball get_odds 711709 (10 casas, 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "AH existe en API (ah*/ah0); precios = mediana de casas, referencia no ejecutable. 2 líneas marcadas no verificables (precio extremo/incoherente con 1X2).",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.home.-0.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "resultado.ah.away.+0.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "resultado.ah.home.+0.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "resultado.ah.away.-0.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "resultado.ah.home.+2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "resultado.ah.away.-2.5",
+     "disponibilidad": "no_encontrada"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-ca4144a67961|hándicap",
+    "apif_query:get_events match_id=711709",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=711709"
+   ]
+  },
+  {
+   "unit_id": "m-ca4144a67961|hándicap asiático entero",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 711709 (UTC, ficha del partido)",
+    "apifootball get_odds 711709 (10 casas, 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "AH existe en API (ah*/ah0); precios = mediana de casas, referencia no ejecutable. 4 líneas marcadas no verificables (precio extremo/incoherente con 1X2).",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah_entero.home.+2",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "resultado.ah_entero.away.-2",
+     "disponibilidad": "no_encontrada"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-ca4144a67961|hándicap asiático entero",
+    "apif_query:get_events match_id=711709",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=711709"
+   ]
+  },
+  {
+   "unit_id": "m-ca4144a67961|hándicap europeo",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 711709 (UTC, ficha del partido)",
+    "apifootball get_odds 711709 (esquema solo 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "El agregador no ofrece este mercado (esquema de odds sin él); sin precio. Ver estadística propia solo como modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ca4144a67961|hándicap europeo",
+    "apif_query:get_events match_id=711709",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=711709"
+   ]
+  },
+  {
+   "unit_id": "m-ca4144a67961|remates",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 711709 (UTC, ficha del partido)",
+    "apifootball get_odds 711709 (esquema solo 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "El agregador no ofrece este mercado (esquema de odds sin él); sin precio. Ver estadística propia solo como modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ca4144a67961|remates",
+    "apif_query:get_events match_id=711709",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=711709"
+   ]
+  },
+  {
+   "unit_id": "m-ca4144a67961|remates a puerta",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 711709 (UTC, ficha del partido)",
+    "apifootball get_odds 711709 (esquema solo 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "El agregador no ofrece este mercado (esquema de odds sin él); sin precio. Ver estadística propia solo como modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ca4144a67961|remates a puerta",
+    "apif_query:get_events match_id=711709",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=711709"
+   ]
+  },
+  {
+   "unit_id": "m-ca4144a67961|resultado",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "comunicado_usuario",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 711709 (UTC, ficha del partido)",
+    "apifootball get_odds 711709 (10 casas, 1X2/DC/BTTS/AH/OU)",
+    "partidos_usuario.json (capturas TriunfoBet)"
+   ],
+   "nota": "Partido, hora y árbitro confirmados en API (mismo UTC). Cuotas 1X2 = capturas TriunfoBet, comunicadas por el usuario; coinciden con partidos_usuario.json; agregador solo como contraste.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ca4144a67961|resultado",
+    "apif_query:get_events match_id=711709",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=711709"
+   ]
+  },
+  {
+   "unit_id": "m-ca4144a67961|tarjetas",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 711709 (UTC, ficha del partido)",
+    "apifootball get_odds 711709 (esquema solo 1X2/DC/BTTS/AH/OU)"
+   ],
+   "nota": "El agregador no ofrece este mercado (esquema de odds sin él); sin precio. Ver estadística propia solo como modelo. Liquidación (amarillas vs puntos) no verificable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ca4144a67961|tarjetas",
+    "apif_query:get_events match_id=711709",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "apif_query:get_odds match_id=711709"
+   ]
+  }
+ ],
+ "limitaciones": [
+  "Solo apifootball (get_events/get_odds) y capturas del usuario; no se abrieron web de casas ni OddsPortal/Oddschecker: sin 2.ª fuente independiente de cuotas.",
+  "Precios de agregador son medianas de casas, no ejecutables; las cuotas TriunfoBet son comunicadas por el usuario, no verificadas.",
+  "Alineaciones no publicadas; estado de los partidos \"sin iniciar\" según API a 2026-10-14.",
+  "Liquidación de córners/tarjetas/remates no verificable: ninguna fuente consultada ofrece esos mercados con precio."
+ ]
+}

@@ -1,0 +1,2056 @@
+{
+ "agente": "verificador",
+ "version_contrato": 1,
+ "run": "runs/2026-10-14",
+ "unidades": [
+  {
+   "unit_id": "m-d5fa02cb096b|1.ª parte goles",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)"
+   ],
+   "nota": "La API de cuotas no trae mercados de 1.ª parte.",
+   "evidencia": [
+    "paquete:m-d5fa02cb096b|1.ª parte goles",
+    "apif_query:get_events match_id=711719",
+    "apif_query:get_odds match_id=711719"
+   ]
+  },
+  {
+   "unit_id": "m-d5fa02cb096b|1.ª parte resultado",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)"
+   ],
+   "nota": "La API de cuotas no trae mercados de 1.ª parte.",
+   "evidencia": [
+    "paquete:m-d5fa02cb096b|1.ª parte resultado",
+    "apif_query:get_events match_id=711719",
+    "apif_query:get_odds match_id=711719"
+   ]
+  },
+  {
+   "unit_id": "m-d5fa02cb096b|córners",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)"
+   ],
+   "nota": "La API de cuotas no trae córners.",
+   "evidencia": [
+    "paquete:m-d5fa02cb096b|córners",
+    "apif_query:get_events match_id=711719",
+    "apif_query:get_odds match_id=711719"
+   ]
+  },
+  {
+   "unit_id": "m-d5fa02cb096b|doble oportunidad",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)"
+   ],
+   "nota": "1X/12/X2 existen en la API (mediana de casas): referencia, no ejecutable.",
+   "evidencia": [
+    "paquete:m-d5fa02cb096b|doble oportunidad",
+    "apif_query:get_events match_id=711719",
+    "apif_query:get_odds match_id=711719"
+   ]
+  },
+  {
+   "unit_id": "m-d5fa02cb096b|empate no válido",
+   "disponibilidad": "no_verificable",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "paquete_desactualizado_vs_fuente"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)"
+   ],
+   "nota": "Existe como ah0 en la API (varias casas); el paquete dice que no lo ofrece y no trae cuota (no verificable por paquete).",
+   "evidencia": [
+    "paquete:m-d5fa02cb096b|empate no válido",
+    "apif_query:get_events match_id=711719",
+    "apif_query:get_odds match_id=711719"
+   ]
+  },
+  {
+   "unit_id": "m-d5fa02cb096b|fueras de juego",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)"
+   ],
+   "nota": "La API de cuotas no trae fueras de juego.",
+   "evidencia": [
+    "paquete:m-d5fa02cb096b|fueras de juego",
+    "apif_query:get_events match_id=711719",
+    "apif_query:get_odds match_id=711719"
+   ]
+  },
+  {
+   "unit_id": "m-d5fa02cb096b|goles",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)",
+    "partidos_usuario.json (capturas TriunfoBet)"
+   ],
+   "nota": "Totales .5 y BTTS en la API (mediana, no ejecutable); la línea 2.5/3.5 del usuario es comunicada. BTTS no = complemento de yes.",
+   "evidencia": [
+    "paquete:m-d5fa02cb096b|goles",
+    "apif_query:get_events match_id=711719",
+    "apif_query:get_odds match_id=711719",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json"
+   ]
+  },
+  {
+   "unit_id": "m-d5fa02cb096b|goles por equipo",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)"
+   ],
+   "nota": "La API solo trae totales del partido, no por equipo.",
+   "evidencia": [
+    "paquete:m-d5fa02cb096b|goles por equipo",
+    "apif_query:get_events match_id=711719",
+    "apif_query:get_odds match_id=711719"
+   ]
+  },
+  {
+   "unit_id": "m-d5fa02cb096b|goles total entero",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)"
+   ],
+   "nota": "La API solo trae totales .5, no líneas enteras.",
+   "evidencia": [
+    "paquete:m-d5fa02cb096b|goles total entero",
+    "apif_query:get_events match_id=711719",
+    "apif_query:get_odds match_id=711719"
+   ]
+  },
+  {
+   "unit_id": "m-d5fa02cb096b|hándicap",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)"
+   ],
+   "nota": "Líneas ah en la API (mediana, no ejecutable); lineas sin cuota o con una sola casa quedan no verificables.",
+   "evidencia": [
+    "paquete:m-d5fa02cb096b|hándicap",
+    "apif_query:get_events match_id=711719",
+    "apif_query:get_odds match_id=711719"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.home.-0.5",
+     "disponibilidad": "no_verificable"
+    },
+    {
+     "entry_id": "resultado.ah.away.+0.5",
+     "disponibilidad": "no_verificable"
+    },
+    {
+     "entry_id": "resultado.ah.home.+0.5",
+     "disponibilidad": "no_verificable"
+    },
+    {
+     "entry_id": "resultado.ah.away.-0.5",
+     "disponibilidad": "no_verificable"
+    },
+    {
+     "entry_id": "resultado.ah.home.+1.5",
+     "disponibilidad": "no_verificable"
+    },
+    {
+     "entry_id": "resultado.ah.away.-1.5",
+     "disponibilidad": "no_verificable"
+    },
+    {
+     "entry_id": "resultado.ah.home.+2.5",
+     "disponibilidad": "no_verificable"
+    },
+    {
+     "entry_id": "resultado.ah.away.-2.5",
+     "disponibilidad": "no_verificable"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-d5fa02cb096b|hándicap asiático entero",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)"
+   ],
+   "nota": "Líneas ah en la API (mediana, no ejecutable); lineas sin cuota o con una sola casa quedan no verificables.",
+   "evidencia": [
+    "paquete:m-d5fa02cb096b|hándicap asiático entero",
+    "apif_query:get_events match_id=711719",
+    "apif_query:get_odds match_id=711719"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah_entero.home.+0",
+     "disponibilidad": "no_verificable"
+    },
+    {
+     "entry_id": "resultado.ah_entero.away.+0",
+     "disponibilidad": "no_verificable"
+    },
+    {
+     "entry_id": "resultado.ah_entero.home.+1",
+     "disponibilidad": "no_verificable"
+    },
+    {
+     "entry_id": "resultado.ah_entero.away.-1",
+     "disponibilidad": "no_verificable"
+    },
+    {
+     "entry_id": "resultado.ah_entero.home.+2",
+     "disponibilidad": "no_verificable"
+    },
+    {
+     "entry_id": "resultado.ah_entero.away.-2",
+     "disponibilidad": "no_verificable"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-d5fa02cb096b|hándicap europeo",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)"
+   ],
+   "nota": "La API solo trae hándicap asiático, no europeo.",
+   "evidencia": [
+    "paquete:m-d5fa02cb096b|hándicap europeo",
+    "apif_query:get_events match_id=711719",
+    "apif_query:get_odds match_id=711719"
+   ]
+  },
+  {
+   "unit_id": "m-d5fa02cb096b|remates",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)"
+   ],
+   "nota": "La API de cuotas no trae remates.",
+   "evidencia": [
+    "paquete:m-d5fa02cb096b|remates",
+    "apif_query:get_events match_id=711719",
+    "apif_query:get_odds match_id=711719"
+   ]
+  },
+  {
+   "unit_id": "m-d5fa02cb096b|remates a puerta",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)"
+   ],
+   "nota": "La API de cuotas no trae remates a puerta.",
+   "evidencia": [
+    "paquete:m-d5fa02cb096b|remates a puerta",
+    "apif_query:get_events match_id=711719",
+    "apif_query:get_odds match_id=711719"
+   ]
+  },
+  {
+   "unit_id": "m-d5fa02cb096b|resultado",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "comunicado_usuario",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)",
+    "partidos_usuario.json (capturas TriunfoBet)"
+   ],
+   "nota": "1X2 comunicado por el usuario; API (WilliamHill, bet365 y otras) da 1X2 similar, solo referencia.",
+   "evidencia": [
+    "paquete:m-d5fa02cb096b|resultado",
+    "apif_query:get_events match_id=711719",
+    "apif_query:get_odds match_id=711719",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json"
+   ]
+  },
+  {
+   "unit_id": "m-d5fa02cb096b|tarjetas",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)"
+   ],
+   "nota": "La API de cuotas no trae tarjetas; liquidación (puntos) no verificable.",
+   "evidencia": [
+    "paquete:m-d5fa02cb096b|tarjetas",
+    "apif_query:get_events match_id=711719",
+    "apif_query:get_odds match_id=711719"
+   ]
+  },
+  {
+   "unit_id": "m-d738c8b430be|1.ª parte goles",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)"
+   ],
+   "nota": "La API de cuotas no trae mercados de 1.ª parte.",
+   "evidencia": [
+    "paquete:m-d738c8b430be|1.ª parte goles",
+    "apif_query:get_events match_id=711711",
+    "apif_query:get_odds match_id=711711"
+   ]
+  },
+  {
+   "unit_id": "m-d738c8b430be|1.ª parte resultado",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)"
+   ],
+   "nota": "La API de cuotas no trae mercados de 1.ª parte.",
+   "evidencia": [
+    "paquete:m-d738c8b430be|1.ª parte resultado",
+    "apif_query:get_events match_id=711711",
+    "apif_query:get_odds match_id=711711"
+   ]
+  },
+  {
+   "unit_id": "m-d738c8b430be|córners",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)"
+   ],
+   "nota": "La API de cuotas no trae córners.",
+   "evidencia": [
+    "paquete:m-d738c8b430be|córners",
+    "apif_query:get_events match_id=711711",
+    "apif_query:get_odds match_id=711711"
+   ]
+  },
+  {
+   "unit_id": "m-d738c8b430be|doble oportunidad",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)"
+   ],
+   "nota": "1X/12/X2 existen en la API (mediana de casas): referencia, no ejecutable.",
+   "evidencia": [
+    "paquete:m-d738c8b430be|doble oportunidad",
+    "apif_query:get_events match_id=711711",
+    "apif_query:get_odds match_id=711711"
+   ]
+  },
+  {
+   "unit_id": "m-d738c8b430be|empate no válido",
+   "disponibilidad": "no_verificable",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "paquete_desactualizado_vs_fuente"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)"
+   ],
+   "nota": "Existe como ah0 en la API (varias casas); el paquete dice que no lo ofrece y no trae cuota (no verificable por paquete).",
+   "evidencia": [
+    "paquete:m-d738c8b430be|empate no válido",
+    "apif_query:get_events match_id=711711",
+    "apif_query:get_odds match_id=711711"
+   ]
+  },
+  {
+   "unit_id": "m-d738c8b430be|fueras de juego",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)"
+   ],
+   "nota": "La API de cuotas no trae fueras de juego.",
+   "evidencia": [
+    "paquete:m-d738c8b430be|fueras de juego",
+    "apif_query:get_events match_id=711711",
+    "apif_query:get_odds match_id=711711"
+   ]
+  },
+  {
+   "unit_id": "m-d738c8b430be|goles",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)",
+    "partidos_usuario.json (capturas TriunfoBet)"
+   ],
+   "nota": "Totales .5 y BTTS en la API (mediana, no ejecutable); la línea 2.5/3.5 del usuario es comunicada. BTTS no = complemento de yes.",
+   "evidencia": [
+    "paquete:m-d738c8b430be|goles",
+    "apif_query:get_events match_id=711711",
+    "apif_query:get_odds match_id=711711",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "goles.total.over.0.5",
+     "disponibilidad": "no_verificable"
+    },
+    {
+     "entry_id": "goles.total.under.0.5",
+     "disponibilidad": "no_verificable"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-d738c8b430be|goles por equipo",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)"
+   ],
+   "nota": "La API solo trae totales del partido, no por equipo.",
+   "evidencia": [
+    "paquete:m-d738c8b430be|goles por equipo",
+    "apif_query:get_events match_id=711711",
+    "apif_query:get_odds match_id=711711"
+   ]
+  },
+  {
+   "unit_id": "m-d738c8b430be|goles total entero",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)"
+   ],
+   "nota": "La API solo trae totales .5, no líneas enteras.",
+   "evidencia": [
+    "paquete:m-d738c8b430be|goles total entero",
+    "apif_query:get_events match_id=711711",
+    "apif_query:get_odds match_id=711711"
+   ]
+  },
+  {
+   "unit_id": "m-d738c8b430be|hándicap",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)"
+   ],
+   "nota": "Líneas ah en la API (mediana, no ejecutable); lineas sin cuota o con una sola casa quedan no verificables.",
+   "evidencia": [
+    "paquete:m-d738c8b430be|hándicap",
+    "apif_query:get_events match_id=711711",
+    "apif_query:get_odds match_id=711711"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.home.-0.5",
+     "disponibilidad": "no_verificable"
+    },
+    {
+     "entry_id": "resultado.ah.away.+0.5",
+     "disponibilidad": "no_verificable"
+    },
+    {
+     "entry_id": "resultado.ah.home.+0.5",
+     "disponibilidad": "no_verificable"
+    },
+    {
+     "entry_id": "resultado.ah.away.-0.5",
+     "disponibilidad": "no_verificable"
+    },
+    {
+     "entry_id": "resultado.ah.home.+1.5",
+     "disponibilidad": "no_verificable"
+    },
+    {
+     "entry_id": "resultado.ah.away.-1.5",
+     "disponibilidad": "no_verificable"
+    },
+    {
+     "entry_id": "resultado.ah.home.+2.5",
+     "disponibilidad": "no_verificable"
+    },
+    {
+     "entry_id": "resultado.ah.away.-2.5",
+     "disponibilidad": "no_verificable"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-d738c8b430be|hándicap asiático entero",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)"
+   ],
+   "nota": "Líneas ah en la API (mediana, no ejecutable); lineas sin cuota o con una sola casa quedan no verificables.",
+   "evidencia": [
+    "paquete:m-d738c8b430be|hándicap asiático entero",
+    "apif_query:get_events match_id=711711",
+    "apif_query:get_odds match_id=711711"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah_entero.home.+1",
+     "disponibilidad": "no_verificable"
+    },
+    {
+     "entry_id": "resultado.ah_entero.away.-1",
+     "disponibilidad": "no_verificable"
+    },
+    {
+     "entry_id": "resultado.ah_entero.home.+2",
+     "disponibilidad": "no_verificable"
+    },
+    {
+     "entry_id": "resultado.ah_entero.away.-2",
+     "disponibilidad": "no_verificable"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-d738c8b430be|hándicap europeo",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)"
+   ],
+   "nota": "La API solo trae hándicap asiático, no europeo.",
+   "evidencia": [
+    "paquete:m-d738c8b430be|hándicap europeo",
+    "apif_query:get_events match_id=711711",
+    "apif_query:get_odds match_id=711711"
+   ]
+  },
+  {
+   "unit_id": "m-d738c8b430be|remates",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)"
+   ],
+   "nota": "La API de cuotas no trae remates.",
+   "evidencia": [
+    "paquete:m-d738c8b430be|remates",
+    "apif_query:get_events match_id=711711",
+    "apif_query:get_odds match_id=711711"
+   ]
+  },
+  {
+   "unit_id": "m-d738c8b430be|remates a puerta",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)"
+   ],
+   "nota": "La API de cuotas no trae remates a puerta.",
+   "evidencia": [
+    "paquete:m-d738c8b430be|remates a puerta",
+    "apif_query:get_events match_id=711711",
+    "apif_query:get_odds match_id=711711"
+   ]
+  },
+  {
+   "unit_id": "m-d738c8b430be|resultado",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "comunicado_usuario",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)",
+    "partidos_usuario.json (capturas TriunfoBet)"
+   ],
+   "nota": "1X2 comunicado por el usuario; API (WilliamHill, bet365 y otras) da 1X2 similar, solo referencia.",
+   "evidencia": [
+    "paquete:m-d738c8b430be|resultado",
+    "apif_query:get_events match_id=711711",
+    "apif_query:get_odds match_id=711711",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json"
+   ]
+  },
+  {
+   "unit_id": "m-d738c8b430be|tarjetas",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)"
+   ],
+   "nota": "La API de cuotas no trae tarjetas; liquidación (puntos) no v Árbitro confirmado en get_events.",
+   "evidencia": [
+    "paquete:m-d738c8b430be|tarjetas",
+    "apif_query:get_events match_id=711711",
+    "apif_query:get_odds match_id=711711"
+   ]
+  },
+  {
+   "unit_id": "m-d9dbd0b2d716|1.ª parte goles",
+   "disponibilidad": "no_verificable",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "inventory.json (football-data E1 Bet365)",
+    "partidos_usuario.json (capturas TriunfoBet)"
+   ],
+   "nota": "Sin fuente de cuotas para este mercado en este partido.",
+   "evidencia": [
+    "paquete:m-d9dbd0b2d716|1.ª parte goles",
+    "archivo:runs/2026-10-14/inventory.json",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json"
+   ]
+  },
+  {
+   "unit_id": "m-d9dbd0b2d716|1.ª parte resultado",
+   "disponibilidad": "no_verificable",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "inventory.json (football-data E1 Bet365)",
+    "partidos_usuario.json (capturas TriunfoBet)"
+   ],
+   "nota": "Sin fuente de cuotas para este mercado en este partido.",
+   "evidencia": [
+    "paquete:m-d9dbd0b2d716|1.ª parte resultado",
+    "archivo:runs/2026-10-14/inventory.json",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json"
+   ]
+  },
+  {
+   "unit_id": "m-d9dbd0b2d716|córners",
+   "disponibilidad": "no_verificable",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "inventory.json (football-data E1 Bet365)",
+    "partidos_usuario.json (capturas TriunfoBet)"
+   ],
+   "nota": "Sin fuente de cuotas para este mercado en este partido.",
+   "evidencia": [
+    "paquete:m-d9dbd0b2d716|córners",
+    "archivo:runs/2026-10-14/inventory.json",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json"
+   ]
+  },
+  {
+   "unit_id": "m-d9dbd0b2d716|doble oportunidad",
+   "disponibilidad": "no_verificable",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "inventory.json (football-data E1 Bet365)",
+    "partidos_usuario.json (capturas TriunfoBet)"
+   ],
+   "nota": "Sin fuente de cuotas para doble oportunidad en este partido.",
+   "evidencia": [
+    "paquete:m-d9dbd0b2d716|doble oportunidad",
+    "archivo:runs/2026-10-14/inventory.json",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json"
+   ]
+  },
+  {
+   "unit_id": "m-d9dbd0b2d716|empate no válido",
+   "disponibilidad": "no_verificable",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "inventory.json (football-data E1 Bet365)",
+    "partidos_usuario.json (capturas TriunfoBet)"
+   ],
+   "nota": "Sin fuente de cuotas ni de ah0 en este partido.",
+   "evidencia": [
+    "paquete:m-d9dbd0b2d716|empate no válido",
+    "archivo:runs/2026-10-14/inventory.json",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json"
+   ]
+  },
+  {
+   "unit_id": "m-d9dbd0b2d716|fueras de juego",
+   "disponibilidad": "no_verificable",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "inventory.json (football-data E1 Bet365)",
+    "partidos_usuario.json (capturas TriunfoBet)"
+   ],
+   "nota": "Sin fuente de cuotas para este mercado en este partido.",
+   "evidencia": [
+    "paquete:m-d9dbd0b2d716|fueras de juego",
+    "archivo:runs/2026-10-14/inventory.json",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json"
+   ]
+  },
+  {
+   "unit_id": "m-d9dbd0b2d716|goles",
+   "disponibilidad": "no_verificable",
+   "precio": "comunicado_usuario",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "inventory.json (football-data E1 Bet365)",
+    "partidos_usuario.json (capturas TriunfoBet)"
+   ],
+   "nota": "Solo la línea 2.5 viene de la captura del usuario (football-data B365 2.2/1.67 similar); resto de líneas y BTTS sin fuente.",
+   "evidencia": [
+    "paquete:m-d9dbd0b2d716|goles",
+    "archivo:runs/2026-10-14/inventory.json",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "goles.total.over.2.5",
+     "disponibilidad": "verificada_en_fuente"
+    },
+    {
+     "entry_id": "goles.total.under.2.5",
+     "disponibilidad": "verificada_en_fuente"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-d9dbd0b2d716|goles por equipo",
+   "disponibilidad": "no_verificable",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "inventory.json (football-data E1 Bet365)",
+    "partidos_usuario.json (capturas TriunfoBet)"
+   ],
+   "nota": "Sin fuente de cuotas para este mercado en este partido.",
+   "evidencia": [
+    "paquete:m-d9dbd0b2d716|goles por equipo",
+    "archivo:runs/2026-10-14/inventory.json",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json"
+   ]
+  },
+  {
+   "unit_id": "m-d9dbd0b2d716|goles total entero",
+   "disponibilidad": "no_verificable",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "inventory.json (football-data E1 Bet365)",
+    "partidos_usuario.json (capturas TriunfoBet)"
+   ],
+   "nota": "Sin fuente de cuotas para este mercado en este partido.",
+   "evidencia": [
+    "paquete:m-d9dbd0b2d716|goles total entero",
+    "archivo:runs/2026-10-14/inventory.json",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json"
+   ]
+  },
+  {
+   "unit_id": "m-d9dbd0b2d716|hándicap",
+   "disponibilidad": "no_verificable",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "inventory.json (football-data E1 Bet365)",
+    "partidos_usuario.json (capturas TriunfoBet)"
+   ],
+   "nota": "Sin fuente de cuotas de hándicap en este partido.",
+   "evidencia": [
+    "paquete:m-d9dbd0b2d716|hándicap",
+    "archivo:runs/2026-10-14/inventory.json",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json"
+   ]
+  },
+  {
+   "unit_id": "m-d9dbd0b2d716|hándicap asiático entero",
+   "disponibilidad": "no_verificable",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "inventory.json (football-data E1 Bet365)",
+    "partidos_usuario.json (capturas TriunfoBet)"
+   ],
+   "nota": "Sin fuente de cuotas de hándicap en este partido.",
+   "evidencia": [
+    "paquete:m-d9dbd0b2d716|hándicap asiático entero",
+    "archivo:runs/2026-10-14/inventory.json",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json"
+   ]
+  },
+  {
+   "unit_id": "m-d9dbd0b2d716|hándicap europeo",
+   "disponibilidad": "no_verificable",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "inventory.json (football-data E1 Bet365)",
+    "partidos_usuario.json (capturas TriunfoBet)"
+   ],
+   "nota": "Sin fuente de cuotas para este mercado en este partido.",
+   "evidencia": [
+    "paquete:m-d9dbd0b2d716|hándicap europeo",
+    "archivo:runs/2026-10-14/inventory.json",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json"
+   ]
+  },
+  {
+   "unit_id": "m-d9dbd0b2d716|remates",
+   "disponibilidad": "no_verificable",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "inventory.json (football-data E1 Bet365)",
+    "partidos_usuario.json (capturas TriunfoBet)"
+   ],
+   "nota": "Sin fuente de cuotas para este mercado en este partido.",
+   "evidencia": [
+    "paquete:m-d9dbd0b2d716|remates",
+    "archivo:runs/2026-10-14/inventory.json",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json"
+   ]
+  },
+  {
+   "unit_id": "m-d9dbd0b2d716|remates a puerta",
+   "disponibilidad": "no_verificable",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "inventory.json (football-data E1 Bet365)",
+    "partidos_usuario.json (capturas TriunfoBet)"
+   ],
+   "nota": "Sin fuente de cuotas para este mercado en este partido.",
+   "evidencia": [
+    "paquete:m-d9dbd0b2d716|remates a puerta",
+    "archivo:runs/2026-10-14/inventory.json",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json"
+   ]
+  },
+  {
+   "unit_id": "m-d9dbd0b2d716|resultado",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "comunicado_usuario",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "inventory.json (football-data E1 Bet365)",
+    "partidos_usuario.json (capturas TriunfoBet)"
+   ],
+   "nota": "1X2 solo de la captura del usuario y football-data Bet365 (similar).",
+   "evidencia": [
+    "paquete:m-d9dbd0b2d716|resultado",
+    "archivo:runs/2026-10-14/inventory.json",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json"
+   ]
+  },
+  {
+   "unit_id": "m-d9dbd0b2d716|tarjetas",
+   "disponibilidad": "no_verificable",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "inventory.json (football-data E1 Bet365)",
+    "partidos_usuario.json (capturas TriunfoBet)"
+   ],
+   "nota": "Sin cuotas; árbitro R Madley solo del paquete, no verificado en esta ejecución.",
+   "evidencia": [
+    "paquete:m-d9dbd0b2d716|tarjetas",
+    "archivo:runs/2026-10-14/inventory.json",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json"
+   ]
+  },
+  {
+   "unit_id": "m-e2f088481ee5|1.ª parte goles",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)"
+   ],
+   "nota": "La API de cuotas no trae mercados de 1.ª parte.",
+   "evidencia": [
+    "paquete:m-e2f088481ee5|1.ª parte goles",
+    "apif_query:get_events match_id=715135",
+    "apif_query:get_odds match_id=715135"
+   ]
+  },
+  {
+   "unit_id": "m-e2f088481ee5|1.ª parte resultado",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)"
+   ],
+   "nota": "La API de cuotas no trae mercados de 1.ª parte.",
+   "evidencia": [
+    "paquete:m-e2f088481ee5|1.ª parte resultado",
+    "apif_query:get_events match_id=715135",
+    "apif_query:get_odds match_id=715135"
+   ]
+  },
+  {
+   "unit_id": "m-e2f088481ee5|córners",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)"
+   ],
+   "nota": "La API de cuotas no trae córners.",
+   "evidencia": [
+    "paquete:m-e2f088481ee5|córners",
+    "apif_query:get_events match_id=715135",
+    "apif_query:get_odds match_id=715135"
+   ]
+  },
+  {
+   "unit_id": "m-e2f088481ee5|doble oportunidad",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)"
+   ],
+   "nota": "1X/12/X2 existen en la API (mediana de casas): referencia, no ejecutable.",
+   "evidencia": [
+    "paquete:m-e2f088481ee5|doble oportunidad",
+    "apif_query:get_events match_id=715135",
+    "apif_query:get_odds match_id=715135"
+   ]
+  },
+  {
+   "unit_id": "m-e2f088481ee5|empate no válido",
+   "disponibilidad": "no_verificable",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "paquete_desactualizado_vs_fuente"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)"
+   ],
+   "nota": "Existe como ah0 en la API (varias casas); el paquete dice que no lo ofrece y no trae cuota (no verificable por paquete).",
+   "evidencia": [
+    "paquete:m-e2f088481ee5|empate no válido",
+    "apif_query:get_events match_id=715135",
+    "apif_query:get_odds match_id=715135"
+   ]
+  },
+  {
+   "unit_id": "m-e2f088481ee5|fueras de juego",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)"
+   ],
+   "nota": "La API de cuotas no trae fueras de juego.",
+   "evidencia": [
+    "paquete:m-e2f088481ee5|fueras de juego",
+    "apif_query:get_events match_id=715135",
+    "apif_query:get_odds match_id=715135"
+   ]
+  },
+  {
+   "unit_id": "m-e2f088481ee5|goles",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)",
+    "partidos_usuario.json (capturas TriunfoBet)"
+   ],
+   "nota": "Totales .5 y BTTS en la API (mediana, no ejecutable); la línea 2.5/3.5 del usuario es comunicada. BTTS no = complemento de yes.",
+   "evidencia": [
+    "paquete:m-e2f088481ee5|goles",
+    "apif_query:get_events match_id=715135",
+    "apif_query:get_odds match_id=715135",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json"
+   ]
+  },
+  {
+   "unit_id": "m-e2f088481ee5|goles por equipo",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)"
+   ],
+   "nota": "La API solo trae totales del partido, no por equipo.",
+   "evidencia": [
+    "paquete:m-e2f088481ee5|goles por equipo",
+    "apif_query:get_events match_id=715135",
+    "apif_query:get_odds match_id=715135"
+   ]
+  },
+  {
+   "unit_id": "m-e2f088481ee5|goles total entero",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)"
+   ],
+   "nota": "La API solo trae totales .5, no líneas enteras.",
+   "evidencia": [
+    "paquete:m-e2f088481ee5|goles total entero",
+    "apif_query:get_events match_id=715135",
+    "apif_query:get_odds match_id=715135"
+   ]
+  },
+  {
+   "unit_id": "m-e2f088481ee5|hándicap",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)"
+   ],
+   "nota": "Líneas ah en la API (mediana, no ejecutable); lineas sin cuota o con una sola casa quedan no verificables.",
+   "evidencia": [
+    "paquete:m-e2f088481ee5|hándicap",
+    "apif_query:get_events match_id=715135",
+    "apif_query:get_odds match_id=715135"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.home.-2.5",
+     "disponibilidad": "no_verificable"
+    },
+    {
+     "entry_id": "resultado.ah.away.+2.5",
+     "disponibilidad": "no_verificable"
+    },
+    {
+     "entry_id": "resultado.ah.home.-1.5",
+     "disponibilidad": "no_verificable"
+    },
+    {
+     "entry_id": "resultado.ah.away.+1.5",
+     "disponibilidad": "no_verificable"
+    },
+    {
+     "entry_id": "resultado.ah.home.-0.5",
+     "disponibilidad": "no_verificable"
+    },
+    {
+     "entry_id": "resultado.ah.away.+0.5",
+     "disponibilidad": "no_verificable"
+    },
+    {
+     "entry_id": "resultado.ah.home.+0.5",
+     "disponibilidad": "no_verificable"
+    },
+    {
+     "entry_id": "resultado.ah.away.-0.5",
+     "disponibilidad": "no_verificable"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-e2f088481ee5|hándicap asiático entero",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)"
+   ],
+   "nota": "Líneas ah en la API (mediana, no ejecutable); lineas sin cuota o con una sola casa quedan no verificables.",
+   "evidencia": [
+    "paquete:m-e2f088481ee5|hándicap asiático entero",
+    "apif_query:get_events match_id=715135",
+    "apif_query:get_odds match_id=715135"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah_entero.home.-2",
+     "disponibilidad": "no_verificable"
+    },
+    {
+     "entry_id": "resultado.ah_entero.away.+2",
+     "disponibilidad": "no_verificable"
+    },
+    {
+     "entry_id": "resultado.ah_entero.home.-1",
+     "disponibilidad": "no_verificable"
+    },
+    {
+     "entry_id": "resultado.ah_entero.away.+1",
+     "disponibilidad": "no_verificable"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-e2f088481ee5|hándicap europeo",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)"
+   ],
+   "nota": "La API solo trae hándicap asiático, no europeo.",
+   "evidencia": [
+    "paquete:m-e2f088481ee5|hándicap europeo",
+    "apif_query:get_events match_id=715135",
+    "apif_query:get_odds match_id=715135"
+   ]
+  },
+  {
+   "unit_id": "m-e2f088481ee5|remates",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)"
+   ],
+   "nota": "La API de cuotas no trae remates.",
+   "evidencia": [
+    "paquete:m-e2f088481ee5|remates",
+    "apif_query:get_events match_id=715135",
+    "apif_query:get_odds match_id=715135"
+   ]
+  },
+  {
+   "unit_id": "m-e2f088481ee5|remates a puerta",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)"
+   ],
+   "nota": "La API de cuotas no trae remates a puerta.",
+   "evidencia": [
+    "paquete:m-e2f088481ee5|remates a puerta",
+    "apif_query:get_events match_id=715135",
+    "apif_query:get_odds match_id=715135"
+   ]
+  },
+  {
+   "unit_id": "m-e2f088481ee5|resultado",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "comunicado_usuario",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)",
+    "partidos_usuario.json (capturas TriunfoBet)"
+   ],
+   "nota": "1X2 comunicado por el usuario; API (WilliamHill, bet365 y otras) da 1X2 similar, solo referencia.",
+   "evidencia": [
+    "paquete:m-e2f088481ee5|resultado",
+    "apif_query:get_events match_id=715135",
+    "apif_query:get_odds match_id=715135",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json"
+   ]
+  },
+  {
+   "unit_id": "m-e2f088481ee5|tarjetas",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)"
+   ],
+   "nota": "La API de cuotas no trae tarjetas; liquidación (puntos) no verificable.",
+   "evidencia": [
+    "paquete:m-e2f088481ee5|tarjetas",
+    "apif_query:get_events match_id=715135",
+    "apif_query:get_odds match_id=715135"
+   ]
+  },
+  {
+   "unit_id": "m-e36e53949297|1.ª parte goles",
+   "disponibilidad": "no_verificable",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (404 sin cuotas)",
+    "partidos_usuario.json (capturas TriunfoBet)"
+   ],
+   "nota": "Sin fuente de cuotas para este mercado en este partido.",
+   "evidencia": [
+    "paquete:m-e36e53949297|1.ª parte goles",
+    "apif_query:get_events match_id=860340",
+    "apif_query:get_odds match_id=860340",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json"
+   ]
+  },
+  {
+   "unit_id": "m-e36e53949297|1.ª parte resultado",
+   "disponibilidad": "no_verificable",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (404 sin cuotas)",
+    "partidos_usuario.json (capturas TriunfoBet)"
+   ],
+   "nota": "Sin fuente de cuotas para este mercado en este partido.",
+   "evidencia": [
+    "paquete:m-e36e53949297|1.ª parte resultado",
+    "apif_query:get_events match_id=860340",
+    "apif_query:get_odds match_id=860340",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json"
+   ]
+  },
+  {
+   "unit_id": "m-e36e53949297|córners",
+   "disponibilidad": "no_verificable",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (404 sin cuotas)",
+    "partidos_usuario.json (capturas TriunfoBet)"
+   ],
+   "nota": "Sin fuente de cuotas para este mercado en este partido.",
+   "evidencia": [
+    "paquete:m-e36e53949297|córners",
+    "apif_query:get_events match_id=860340",
+    "apif_query:get_odds match_id=860340",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json"
+   ]
+  },
+  {
+   "unit_id": "m-e36e53949297|doble oportunidad",
+   "disponibilidad": "no_verificable",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (404 sin cuotas)",
+    "partidos_usuario.json (capturas TriunfoBet)"
+   ],
+   "nota": "Sin fuente de cuotas para doble oportunidad en este partido.",
+   "evidencia": [
+    "paquete:m-e36e53949297|doble oportunidad",
+    "apif_query:get_events match_id=860340",
+    "apif_query:get_odds match_id=860340",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json"
+   ]
+  },
+  {
+   "unit_id": "m-e36e53949297|empate no válido",
+   "disponibilidad": "no_verificable",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (404 sin cuotas)",
+    "partidos_usuario.json (capturas TriunfoBet)"
+   ],
+   "nota": "Sin fuente de cuotas ni de ah0 en este partido.",
+   "evidencia": [
+    "paquete:m-e36e53949297|empate no válido",
+    "apif_query:get_events match_id=860340",
+    "apif_query:get_odds match_id=860340",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json"
+   ]
+  },
+  {
+   "unit_id": "m-e36e53949297|fueras de juego",
+   "disponibilidad": "no_verificable",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (404 sin cuotas)",
+    "partidos_usuario.json (capturas TriunfoBet)"
+   ],
+   "nota": "Sin fuente de cuotas para este mercado en este partido.",
+   "evidencia": [
+    "paquete:m-e36e53949297|fueras de juego",
+    "apif_query:get_events match_id=860340",
+    "apif_query:get_odds match_id=860340",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json"
+   ]
+  },
+  {
+   "unit_id": "m-e36e53949297|goles",
+   "disponibilidad": "no_verificable",
+   "precio": "comunicado_usuario",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (404 sin cuotas)",
+    "partidos_usuario.json (capturas TriunfoBet)"
+   ],
+   "nota": "Solo la línea 2.5 viene de la captura del usuario; resto de líneas y BTTS sin fuente.",
+   "evidencia": [
+    "paquete:m-e36e53949297|goles",
+    "apif_query:get_events match_id=860340",
+    "apif_query:get_odds match_id=860340",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "goles.total.over.2.5",
+     "disponibilidad": "verificada_en_fuente"
+    },
+    {
+     "entry_id": "goles.total.under.2.5",
+     "disponibilidad": "verificada_en_fuente"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-e36e53949297|goles por equipo",
+   "disponibilidad": "no_verificable",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (404 sin cuotas)",
+    "partidos_usuario.json (capturas TriunfoBet)"
+   ],
+   "nota": "Sin fuente de cuotas para este mercado en este partido.",
+   "evidencia": [
+    "paquete:m-e36e53949297|goles por equipo",
+    "apif_query:get_events match_id=860340",
+    "apif_query:get_odds match_id=860340",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json"
+   ]
+  },
+  {
+   "unit_id": "m-e36e53949297|goles total entero",
+   "disponibilidad": "no_verificable",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (404 sin cuotas)",
+    "partidos_usuario.json (capturas TriunfoBet)"
+   ],
+   "nota": "Sin fuente de cuotas para este mercado en este partido.",
+   "evidencia": [
+    "paquete:m-e36e53949297|goles total entero",
+    "apif_query:get_events match_id=860340",
+    "apif_query:get_odds match_id=860340",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json"
+   ]
+  },
+  {
+   "unit_id": "m-e36e53949297|hándicap",
+   "disponibilidad": "no_verificable",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (404 sin cuotas)",
+    "partidos_usuario.json (capturas TriunfoBet)"
+   ],
+   "nota": "Sin fuente de cuotas de hándicap en este partido.",
+   "evidencia": [
+    "paquete:m-e36e53949297|hándicap",
+    "apif_query:get_events match_id=860340",
+    "apif_query:get_odds match_id=860340",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json"
+   ]
+  },
+  {
+   "unit_id": "m-e36e53949297|hándicap asiático entero",
+   "disponibilidad": "no_verificable",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (404 sin cuotas)",
+    "partidos_usuario.json (capturas TriunfoBet)"
+   ],
+   "nota": "Sin fuente de cuotas de hándicap en este partido.",
+   "evidencia": [
+    "paquete:m-e36e53949297|hándicap asiático entero",
+    "apif_query:get_events match_id=860340",
+    "apif_query:get_odds match_id=860340",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json"
+   ]
+  },
+  {
+   "unit_id": "m-e36e53949297|hándicap europeo",
+   "disponibilidad": "no_verificable",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (404 sin cuotas)",
+    "partidos_usuario.json (capturas TriunfoBet)"
+   ],
+   "nota": "Sin fuente de cuotas para este mercado en este partido.",
+   "evidencia": [
+    "paquete:m-e36e53949297|hándicap europeo",
+    "apif_query:get_events match_id=860340",
+    "apif_query:get_odds match_id=860340",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json"
+   ]
+  },
+  {
+   "unit_id": "m-e36e53949297|remates",
+   "disponibilidad": "no_verificable",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (404 sin cuotas)",
+    "partidos_usuario.json (capturas TriunfoBet)"
+   ],
+   "nota": "Sin fuente de cuotas para este mercado en este partido.",
+   "evidencia": [
+    "paquete:m-e36e53949297|remates",
+    "apif_query:get_events match_id=860340",
+    "apif_query:get_odds match_id=860340",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json"
+   ]
+  },
+  {
+   "unit_id": "m-e36e53949297|remates a puerta",
+   "disponibilidad": "no_verificable",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (404 sin cuotas)",
+    "partidos_usuario.json (capturas TriunfoBet)"
+   ],
+   "nota": "Sin fuente de cuotas para este mercado en este partido.",
+   "evidencia": [
+    "paquete:m-e36e53949297|remates a puerta",
+    "apif_query:get_events match_id=860340",
+    "apif_query:get_odds match_id=860340",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json"
+   ]
+  },
+  {
+   "unit_id": "m-e36e53949297|resultado",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "comunicado_usuario",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (404 sin cuotas)",
+    "partidos_usuario.json (capturas TriunfoBet)"
+   ],
+   "nota": "1X2 solo de la captura del usuario; la API no devuelve cuotas. Copa Uruguay 1/8: 1X2 a 90 minutos, posible prórroga.",
+   "evidencia": [
+    "paquete:m-e36e53949297|resultado",
+    "apif_query:get_events match_id=860340",
+    "apif_query:get_odds match_id=860340",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json"
+   ]
+  },
+  {
+   "unit_id": "m-e36e53949297|tarjetas",
+   "disponibilidad": "no_verificable",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (404 sin cuotas)",
+    "partidos_usuario.json (capturas TriunfoBet)"
+   ],
+   "nota": "Sin cuotas; muestra de tarjetas de la competición: 3 de 37 partidos, datos pobres.",
+   "evidencia": [
+    "paquete:m-e36e53949297|tarjetas",
+    "apif_query:get_events match_id=860340",
+    "apif_query:get_odds match_id=860340",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json"
+   ]
+  },
+  {
+   "unit_id": "m-e9b6f695af8d|1.ª parte goles",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)"
+   ],
+   "nota": "La API de cuotas no trae mercados de 1.ª parte.",
+   "evidencia": [
+    "paquete:m-e9b6f695af8d|1.ª parte goles",
+    "apif_query:get_events match_id=711715",
+    "apif_query:get_odds match_id=711715"
+   ]
+  },
+  {
+   "unit_id": "m-e9b6f695af8d|1.ª parte resultado",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)"
+   ],
+   "nota": "La API de cuotas no trae mercados de 1.ª parte.",
+   "evidencia": [
+    "paquete:m-e9b6f695af8d|1.ª parte resultado",
+    "apif_query:get_events match_id=711715",
+    "apif_query:get_odds match_id=711715"
+   ]
+  },
+  {
+   "unit_id": "m-e9b6f695af8d|córners",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)"
+   ],
+   "nota": "La API de cuotas no trae córners.",
+   "evidencia": [
+    "paquete:m-e9b6f695af8d|córners",
+    "apif_query:get_events match_id=711715",
+    "apif_query:get_odds match_id=711715"
+   ]
+  },
+  {
+   "unit_id": "m-e9b6f695af8d|doble oportunidad",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)"
+   ],
+   "nota": "1X/12/X2 existen en la API (mediana de casas): referencia, no ejecutable.",
+   "evidencia": [
+    "paquete:m-e9b6f695af8d|doble oportunidad",
+    "apif_query:get_events match_id=711715",
+    "apif_query:get_odds match_id=711715"
+   ]
+  },
+  {
+   "unit_id": "m-e9b6f695af8d|empate no válido",
+   "disponibilidad": "no_verificable",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "paquete_desactualizado_vs_fuente"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)"
+   ],
+   "nota": "Existe como ah0 en la API (solo Marathon); el paquete dice que no lo ofrece y no trae cuota (no verificable por paquete).",
+   "evidencia": [
+    "paquete:m-e9b6f695af8d|empate no válido",
+    "apif_query:get_events match_id=711715",
+    "apif_query:get_odds match_id=711715"
+   ]
+  },
+  {
+   "unit_id": "m-e9b6f695af8d|fueras de juego",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)"
+   ],
+   "nota": "La API de cuotas no trae fueras de juego.",
+   "evidencia": [
+    "paquete:m-e9b6f695af8d|fueras de juego",
+    "apif_query:get_events match_id=711715",
+    "apif_query:get_odds match_id=711715"
+   ]
+  },
+  {
+   "unit_id": "m-e9b6f695af8d|goles",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)",
+    "partidos_usuario.json (capturas TriunfoBet)"
+   ],
+   "nota": "Totales .5 y BTTS en la API (mediana, no ejecutable); la línea 2.5/3.5 del usuario es comunicada. BTTS no = complemento de yes.",
+   "evidencia": [
+    "paquete:m-e9b6f695af8d|goles",
+    "apif_query:get_events match_id=711715",
+    "apif_query:get_odds match_id=711715",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "goles.total.over.0.5",
+     "disponibilidad": "no_verificable"
+    },
+    {
+     "entry_id": "goles.total.under.0.5",
+     "disponibilidad": "no_verificable"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-e9b6f695af8d|goles por equipo",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)"
+   ],
+   "nota": "La API solo trae totales del partido, no por equipo.",
+   "evidencia": [
+    "paquete:m-e9b6f695af8d|goles por equipo",
+    "apif_query:get_events match_id=711715",
+    "apif_query:get_odds match_id=711715"
+   ]
+  },
+  {
+   "unit_id": "m-e9b6f695af8d|goles total entero",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)"
+   ],
+   "nota": "La API solo trae totales .5, no líneas enteras.",
+   "evidencia": [
+    "paquete:m-e9b6f695af8d|goles total entero",
+    "apif_query:get_events match_id=711715",
+    "apif_query:get_odds match_id=711715"
+   ]
+  },
+  {
+   "unit_id": "m-e9b6f695af8d|hándicap",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)"
+   ],
+   "nota": "Líneas ah en la API (mediana, no ejecutable); lineas sin cuota o con una sola casa quedan no verificables.",
+   "evidencia": [
+    "paquete:m-e9b6f695af8d|hándicap",
+    "apif_query:get_events match_id=711715",
+    "apif_query:get_odds match_id=711715"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.home.-0.5",
+     "disponibilidad": "no_verificable"
+    },
+    {
+     "entry_id": "resultado.ah.away.+0.5",
+     "disponibilidad": "no_verificable"
+    },
+    {
+     "entry_id": "resultado.ah.home.+0.5",
+     "disponibilidad": "no_verificable"
+    },
+    {
+     "entry_id": "resultado.ah.away.-0.5",
+     "disponibilidad": "no_verificable"
+    },
+    {
+     "entry_id": "resultado.ah.home.+1.5",
+     "disponibilidad": "no_verificable"
+    },
+    {
+     "entry_id": "resultado.ah.away.-1.5",
+     "disponibilidad": "no_verificable"
+    },
+    {
+     "entry_id": "resultado.ah.home.+2.5",
+     "disponibilidad": "no_verificable"
+    },
+    {
+     "entry_id": "resultado.ah.away.-2.5",
+     "disponibilidad": "no_verificable"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-e9b6f695af8d|hándicap asiático entero",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)"
+   ],
+   "nota": "Líneas ah en la API (mediana, no ejecutable); lineas sin cuota o con una sola casa quedan no verificables.",
+   "evidencia": [
+    "paquete:m-e9b6f695af8d|hándicap asiático entero",
+    "apif_query:get_events match_id=711715",
+    "apif_query:get_odds match_id=711715"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah_entero.home.+0",
+     "disponibilidad": "no_verificable"
+    },
+    {
+     "entry_id": "resultado.ah_entero.away.+0",
+     "disponibilidad": "no_verificable"
+    },
+    {
+     "entry_id": "resultado.ah_entero.home.+1",
+     "disponibilidad": "no_verificable"
+    },
+    {
+     "entry_id": "resultado.ah_entero.away.-1",
+     "disponibilidad": "no_verificable"
+    },
+    {
+     "entry_id": "resultado.ah_entero.home.+2",
+     "disponibilidad": "no_verificable"
+    },
+    {
+     "entry_id": "resultado.ah_entero.away.-2",
+     "disponibilidad": "no_verificable"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-e9b6f695af8d|hándicap europeo",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)"
+   ],
+   "nota": "La API solo trae hándicap asiático, no europeo.",
+   "evidencia": [
+    "paquete:m-e9b6f695af8d|hándicap europeo",
+    "apif_query:get_events match_id=711715",
+    "apif_query:get_odds match_id=711715"
+   ]
+  },
+  {
+   "unit_id": "m-e9b6f695af8d|remates",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)"
+   ],
+   "nota": "La API de cuotas no trae remates.",
+   "evidencia": [
+    "paquete:m-e9b6f695af8d|remates",
+    "apif_query:get_events match_id=711715",
+    "apif_query:get_odds match_id=711715"
+   ]
+  },
+  {
+   "unit_id": "m-e9b6f695af8d|remates a puerta",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)"
+   ],
+   "nota": "La API de cuotas no trae remates a puerta.",
+   "evidencia": [
+    "paquete:m-e9b6f695af8d|remates a puerta",
+    "apif_query:get_events match_id=711715",
+    "apif_query:get_odds match_id=711715"
+   ]
+  },
+  {
+   "unit_id": "m-e9b6f695af8d|resultado",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "comunicado_usuario",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)",
+    "partidos_usuario.json (capturas TriunfoBet)"
+   ],
+   "nota": "1X2 comunicado por el usuario; API (WilliamHill, bet365 y otras) da 1X2 similar, solo referencia.",
+   "evidencia": [
+    "paquete:m-e9b6f695af8d|resultado",
+    "apif_query:get_events match_id=711715",
+    "apif_query:get_odds match_id=711715",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json"
+   ]
+  },
+  {
+   "unit_id": "m-e9b6f695af8d|tarjetas",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (fixture)",
+    "apifootball get_odds (9-10 casas, mediana)"
+   ],
+   "nota": "La API de cuotas no trae tarjetas; liquidación (puntos) no v Árbitro confirmado en get_events.",
+   "evidencia": [
+    "paquete:m-e9b6f695af8d|tarjetas",
+    "apif_query:get_events match_id=711715",
+    "apif_query:get_odds match_id=711715"
+   ]
+  }
+ ],
+ "limitaciones": [
+  "No se abrió ninguna web externa; solo API (get_events y get_odds de 5 partidos) y archivos del run.",
+  "Lincoln-West Ham no está en la API: solo football-data (inventory) y captura del usuario; árbitro R Madley no verificado.",
+  "Boston River-River Plate: la API no devuelve cuotas (404); solo cuotas de la captura del usuario, sin segunda fuente.",
+  "Las cuotas de la API son mediana de casas (WilliamHill, bet365, Marathon, Betfair, BetVictor, Pinnacle, etc.): referencia, no ejecutable; la casa del usuario es TriunfoBet.",
+  "Algunas líneas ah de casas sueltas son incoherentes (ej. ah-1.5 local a 1.0-1.03 en Betfair/Marathon) y pueden sesgar la mediana.",
+  "Horas coherentes: captura (Caracas, UTC-4) = hora UTC del paquete en los 6 partidos; Sarmiento-River con match_status vacío en la API.",
+  "Mercados de 1.ª parte, córners, tarjetas, remates, fueras de juego, por equipo y europeo marcados no_ofrecida solo respecto a la API; TriunfoBet podría ofrecerlos sin captura."
+ ]
+}

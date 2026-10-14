@@ -215,8 +215,12 @@ class ApifootballOddsProvider(PriceProvider):
         pr = ((self.avg.get(mid) or {}).get(entry["price_key"])) if mid and entry["price_key"] else None
         if not pr or self._cover(match) is None:
             return []
-        return [make_record(match["match_id"], entry["id"], pr["cuotas_medias"][entry["price_idx"]], self.name, "agregador", bookmaker="media", observed_utc=self.last_odd.get(mid) or None,
-                            verified=False, n_books=pr["n_casas"], note="promedio de mercado vía agregador: referencia, no cuota ejecutable")]
+        i = entry["price_idx"]
+        # MEDIANA entre casas (no la media): una casa con precios atípicos (p. ej. Betfair en hándicap, 1.02–1.10) no debe inflar la referencia (observación del auditor, piloto de la Fase 5)
+        odds = (pr.get("cuotas_medianas") or pr["cuotas_medias"])[i]
+        spread = pr.get("minmax", [[None, None]] * (i + 1))[i]
+        return [make_record(match["match_id"], entry["id"], odds, self.name, "agregador", bookmaker="mediana", observed_utc=self.last_odd.get(mid) or None,
+                            verified=False, n_books=pr["n_casas"], note=f"mediana de mercado vía agregador ({pr['n_casas']} casas, rango {spread[0]}–{spread[1]}): referencia, no cuota ejecutable")]
 
 
 class FootballDataOddsProvider(PriceProvider):

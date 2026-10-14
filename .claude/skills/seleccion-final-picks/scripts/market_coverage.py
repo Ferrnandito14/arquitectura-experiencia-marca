@@ -238,15 +238,58 @@ def league_of(match, inv_matches):
     return max(c, key=c.get) if c else None
 
 
-def match_context(match, inv_matches, samples, lineups):
+def load_api_referees(run):
+    """{id de apifootball: árbitro} desde el cuerpo MÁS RECIENTE de cada consulta `get_events` guardada en la caché del run (sin red). El inventario puede ser anterior a la designación."""
+    import hashlib
+    log = os.path.join(run, "sources", "consultas.jsonl")
+    out, seen = {}, set()
+    if not os.path.exists(log):
+        return out
+    with open(log, encoding="utf-8") as fh:
+        for line in fh:
+            try:
+                j = json.loads(line)
+            except ValueError:
+                continue
+            url = j.get("url", "")
+            if "action=get_events" not in url or j.get("status") != 200 or url in seen:
+                continue
+            seen.add(url)
+            path = os.path.join(run, "cache", hashlib.sha256(common.redact_url(url).encode()).hexdigest() + ".body")
+            try:
+                with open(path, encoding="utf-8") as bf:
+                    body = json.load(bf)
+            except (OSError, ValueError):
+                continue
+            for e in body if isinstance(body, list) else []:
+                if isinstance(e, dict) and e.get("match_id") and e.get("match_referee"):
+                    out[str(e["match_id"])] = e["match_referee"]
+    return out
+
+
+def _ref_key(name):
+    """(apellido, inicial) normalizado: «Rubiel Vazquez, USA», «R. Vazquez» y «rubiel vázquez» son la misma persona; «País» tras la coma se ignora."""
+    import unicodedata
+    t = unicodedata.normalize("NFKD", str(name or "").split(",")[0]).encode("ascii", "ignore").decode().lower().replace(".", " ").split()
+    return (t[-1], t[0][0]) if t else None
+
+
+def same_referee(a, b):
+    ka, kb = _ref_key(a), _ref_key(b)
+    return bool(ka and kb and ka == kb)
+
+
+def match_context(match, inv_matches, samples, lineups, referees=None):
     lid = league_of(match, inv_matches)
     smp = samples.get(lid) if lid else None
     rows = (smp or {}).get("filas") or []
     ref = ((match.get("extra") or {}).get("api") or {}).get("referee") or (match.get("extra") or {}).get("referee")
+    fresh = (referees or {}).get(str((match.get("source_match_ids") or {}).get("apifootball")))
+    ref = fresh or ref      # la designación más reciente de la API prevalece sobre el inventario
     ctx = {"liga_id": lid,
            "muestra_liga": {"ejecutada": smp is not None, "partidos": len(rows), "con_tarjetas": sum(1 for r in rows if r.get("tarjetas") is not None),
                             "con_corners": sum(1 for r in rows if r.get("corners") is not None), "con_arbitro": sum(1 for r in rows if r.get("arbitro"))},
-           "arbitro": {"designado": ref or None, "partidos_en_muestra_liga": sum(1 for r in rows if ref and r.get("arbitro") == ref) if smp is not None else None}}
+           "arbitro": {"designado": ref or None, "partidos_en_muestra_liga": sum(1 for r in rows if ref and same_referee(r.get("arbitro"), ref)) if smp is not None else None}}
     snap = lineups.get(match["match_id"])
     ctx["alineaciones"] = ({"estado": "sin_snapshot"} if snap is None else
                            {"estado": "consulta_no_realizada" if snap.get("consulta") != "realizada" else ("publicada" if snap.get("publicada") else "no_publicada"),
@@ -256,7 +299,8 @@ def match_context(match, inv_matches, samples, lineups):
 
 def build_contexts(run, matches, inv_matches):
     samples, lineups = load_league_samples(run), load_lineup_snapshots(run)
-    return {m["match_id"]: match_context(m, inv_matches, samples, lineups) for m in matches}
+    refs = load_api_referees(run)
+    return {m["match_id"]: match_context(m, inv_matches, samples, lineups, refs) for m in matches}
 
 
 # ── analítica ──
@@ -471,6 +515,7 @@ GENERATION_ROUTES = {
     "runs/2026-10-14/ligas/build_dataset.py": {"produce": "dataset.json, dataset_meta.json, market_coverage.*", "marker": "MC.run_coverage", "control": "ejecuta run_coverage sobre los partidos del catálogo"},
     "runs/2026-10-14/ligas/build_xlsx.py": {"produce": "ligas-14-oct[-PROVISIONAL].xlsx", "marker": "_certification()", "control": "nombre definitivo solo con certificación vigente del mismo conjunto"},
     ".claude/skills/seleccion-final-picks/scripts/catalog_rankings.py": {"produce": "ranking_catalogo.json/.md", "marker": "agent_review.build_units", "control": "construye el catálogo con la cobertura (build_units ejecuta run_coverage), exige precio y cuota ≤ 2.10 por pata, topes de riesgo/exposición y estado de agentes; cada combinada lleva su preparación para apostar"},
+    ".claude/skills/seleccion-final-picks/scripts/build_xlsx_catalog.py": {"produce": "ligas-14-oct-v2[-PROVISIONAL].xlsx", "marker": "def workbook_name", "control": "nombre definitivo solo con investigación certificada, revisión COMPLETA del mismo conjunto y alcance de catálogo; nunca sobrescribe ligas-14-oct.xlsx"},
     ".claude/skills/seleccion-final-picks/scripts/custom_check.py": {"produce": "user_tickets_eval.json/.md", "marker": "NO CERTIFICADO COMO EXHAUSTIVO", "control": "declara que NO evalúa cobertura ni preparación"},
 }
 # Menciona palabras como «ranking»/«combinada» pero no genera candidatos ni libros: motivo explícito.

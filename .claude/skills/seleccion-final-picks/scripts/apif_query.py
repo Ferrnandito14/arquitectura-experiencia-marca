@@ -18,7 +18,7 @@ import adapters  # noqa: E402
 import common  # noqa: E402
 
 ALLOWED = {"get_events", "get_standings", "get_H2H", "get_lineups", "get_statistics", "get_odds", "get_teams", "get_leagues"}
-AGENT_CAP = 250   # subido el 13-oct por autorización expresa de la persona usuaria (pidió no limitar las consultas nuevas)
+AGENT_CAP = 700   # 13-oct: la persona usuaria pidió no limitar las consultas nuevas; 14-oct: la revisión por agentes de los 34 partidos (Fase 7) usa ~24 agentes que verifican contra la API
 
 
 def main(argv=None):

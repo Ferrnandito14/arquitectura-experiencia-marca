@@ -1,0 +1,1535 @@
+{
+ "agente": "cuantitativo",
+ "version_contrato": 1,
+ "run": "runs/2026-10-14",
+ "unidades": [
+  {
+   "unit_id": "m-bc2c15fb4320|1.ª parte goles",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Hay p_modelo pero ninguna cuota en el paquete: no contrastable ni EV. Modelo no validado (insuficiente).",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-bc2c15fb4320|1.ª parte goles",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-bc2c15fb4320|1.ª parte resultado",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Hay p_modelo pero ninguna cuota en el paquete: no contrastable ni EV. Modelo no validado (insuficiente).",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-bc2c15fb4320|1.ª parte resultado",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-bc2c15fb4320|córners",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Hay p_modelo pero ninguna cuota en el paquete: no contrastable ni EV. Modelo no validado (insuficiente).",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-bc2c15fb4320|córners",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-bc2c15fb4320|doble oportunidad",
+   "consistencia_modelo": "discrepa_del_mercado",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "2/3 lineas con precio difieren >=15pp (1/cuota incluye margen). dc.1x p51% vs 1/cuota 28% (agregador, ref.) | dc.x2 p71% vs 1/cuota 93% (agregador, ref.)",
+   "excepciones": [
+    {
+     "entry_id": "resultado.dc.12",
+     "consistencia_modelo": "coherente"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-bc2c15fb4320|doble oportunidad",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-bc2c15fb4320|empate no válido",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "p_modelo derivada del 1X2 del modelo; sin cuota para contrastar ni EV. Modelo no validado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-bc2c15fb4320|empate no válido",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-bc2c15fb4320|fueras de juego",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin estimador propio en el paquete (no_implementado/sin extractor): no hay p_modelo que contrastar; no se calcula EV.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-bc2c15fb4320|fueras de juego",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-bc2c15fb4320|goles",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "0/14 lineas con precio difieren >=15pp (1/cuota incluye margen). btts.no p35% vs 1/cuota 45% (agregador, ref.) | total.over.3.5 p44% vs 1/cuota 54% (usuario)",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-bc2c15fb4320|goles",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-bc2c15fb4320|goles por equipo",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Hay p_modelo pero ninguna cuota en el paquete: no contrastable ni EV. Modelo no validado (insuficiente).",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-bc2c15fb4320|goles por equipo",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-bc2c15fb4320|goles total entero",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin estimador propio en el paquete (no_implementado/sin extractor): no hay p_modelo que contrastar; no se calcula EV.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-bc2c15fb4320|goles total entero",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-bc2c15fb4320|hándicap",
+   "consistencia_modelo": "discrepa_del_mercado",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "5/6 lineas con precio difieren >=15pp (1/cuota incluye margen). Precios de agregador/no verificables con pares de lado incoherentes (p.ej. -2.5/-1.5 local): posible mapeo erroneo; solo referencia.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.home.-2.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "resultado.ah.away.+2.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "resultado.ah.away.+1.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah.home.-0.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "resultado.ah.away.+0.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "resultado.ah.home.+0.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "resultado.ah.away.-0.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-bc2c15fb4320|hándicap",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-bc2c15fb4320|hándicap asiático entero",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin estimador propio en el paquete (no_implementado/sin extractor): no hay p_modelo que contrastar; no se calcula EV. Hay cuotas solo de referencia.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-bc2c15fb4320|hándicap asiático entero",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-bc2c15fb4320|hándicap europeo",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin estimador propio en el paquete (no_implementado/sin extractor): no hay p_modelo que contrastar; no se calcula EV.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-bc2c15fb4320|hándicap europeo",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-bc2c15fb4320|remates",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin estimador propio en el paquete (no_implementado/sin extractor): no hay p_modelo que contrastar; no se calcula EV.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-bc2c15fb4320|remates",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-bc2c15fb4320|remates a puerta",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin estimador propio en el paquete (no_implementado/sin extractor): no hay p_modelo que contrastar; no se calcula EV.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-bc2c15fb4320|remates a puerta",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-bc2c15fb4320|resultado",
+   "consistencia_modelo": "discrepa_del_mercado",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "2/3 lineas con precio difieren >=15pp (1/cuota incluye margen). 1x2.away p49% vs 1/cuota 78% (usuario) | 1x2.home p29% vs 1/cuota 11% (usuario)",
+   "excepciones": [
+    {
+     "entry_id": "resultado.1x2.draw",
+     "consistencia_modelo": "coherente"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-bc2c15fb4320|resultado",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-bc2c15fb4320|tarjetas",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Hay p_modelo pero ninguna cuota en el paquete: no contrastable ni EV. Modelo no validado (insuficiente).",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-bc2c15fb4320|tarjetas",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-beb0fbd9b4c8|1.ª parte goles",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Hay p_modelo pero ninguna cuota en el paquete: no contrastable ni EV. Modelo no validado (insuficiente).",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-beb0fbd9b4c8|1.ª parte goles",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-beb0fbd9b4c8|1.ª parte resultado",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Hay p_modelo pero ninguna cuota en el paquete: no contrastable ni EV. Modelo no validado (insuficiente).",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-beb0fbd9b4c8|1.ª parte resultado",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-beb0fbd9b4c8|córners",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Hay p_modelo pero ninguna cuota en el paquete: no contrastable ni EV. Modelo no validado (insuficiente).",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-beb0fbd9b4c8|córners",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-beb0fbd9b4c8|doble oportunidad",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "1/3 lineas con precio difieren >=15pp (1/cuota incluye margen). dc.x2 p62% vs 1/cuota 78% (agregador, ref.) | dc.1x p63% vs 1/cuota 54% (agregador, ref.)",
+   "excepciones": [
+    {
+     "entry_id": "resultado.dc.x2",
+     "consistencia_modelo": "discrepa_del_mercado"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-beb0fbd9b4c8|doble oportunidad",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-beb0fbd9b4c8|empate no válido",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "p_modelo derivada del 1X2 del modelo; sin cuota para contrastar ni EV. Modelo no validado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-beb0fbd9b4c8|empate no válido",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-beb0fbd9b4c8|fueras de juego",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin estimador propio en el paquete (no_implementado/sin extractor): no hay p_modelo que contrastar; no se calcula EV.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-beb0fbd9b4c8|fueras de juego",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-beb0fbd9b4c8|goles",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "0/14 lineas con precio difieren >=15pp (1/cuota incluye margen). total.over.3.5 p35% vs 1/cuota 50% (usuario) | total.over.2.5 p57% vs 1/cuota 70% (agregador, ref.)",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-beb0fbd9b4c8|goles",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-beb0fbd9b4c8|goles por equipo",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Hay p_modelo pero ninguna cuota en el paquete: no contrastable ni EV. Modelo no validado (insuficiente).",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-beb0fbd9b4c8|goles por equipo",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-beb0fbd9b4c8|goles total entero",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin estimador propio en el paquete (no_implementado/sin extractor): no hay p_modelo que contrastar; no se calcula EV.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-beb0fbd9b4c8|goles total entero",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-beb0fbd9b4c8|hándicap",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "1/8 lineas con precio difieren >=15pp (1/cuota incluye margen). Precios de agregador/no verificables con pares de lado incoherentes (p.ej. -2.5/-1.5 local): posible mapeo erroneo; solo referencia.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.home.-2.5",
+     "consistencia_modelo": "discrepa_del_mercado"
+    },
+    {
+     "entry_id": "resultado.ah.home.-0.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "resultado.ah.away.+0.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "resultado.ah.home.+0.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "resultado.ah.away.-0.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-beb0fbd9b4c8|hándicap",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-beb0fbd9b4c8|hándicap asiático entero",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin estimador propio en el paquete (no_implementado/sin extractor): no hay p_modelo que contrastar; no se calcula EV. Hay cuotas solo de referencia.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-beb0fbd9b4c8|hándicap asiático entero",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-beb0fbd9b4c8|hándicap europeo",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin estimador propio en el paquete (no_implementado/sin extractor): no hay p_modelo que contrastar; no se calcula EV.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-beb0fbd9b4c8|hándicap europeo",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-beb0fbd9b4c8|remates",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin estimador propio en el paquete (no_implementado/sin extractor): no hay p_modelo que contrastar; no se calcula EV.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-beb0fbd9b4c8|remates",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-beb0fbd9b4c8|remates a puerta",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin estimador propio en el paquete (no_implementado/sin extractor): no hay p_modelo que contrastar; no se calcula EV.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-beb0fbd9b4c8|remates a puerta",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-beb0fbd9b4c8|resultado",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "1/3 lineas con precio difieren >=15pp (1/cuota incluye margen). 1x2.away p37% vs 1/cuota 53% (usuario) | 1x2.home p38% vs 1/cuota 27% (usuario)",
+   "excepciones": [
+    {
+     "entry_id": "resultado.1x2.away",
+     "consistencia_modelo": "discrepa_del_mercado"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-beb0fbd9b4c8|resultado",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-beb0fbd9b4c8|tarjetas",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Hay p_modelo pero ninguna cuota en el paquete: no contrastable ni EV. Modelo no validado (insuficiente).",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-beb0fbd9b4c8|tarjetas",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-bf0fff12b0b1|1.ª parte goles",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Hay p_modelo pero ninguna cuota en el paquete: no contrastable ni EV. Modelo no validado (insuficiente).",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-bf0fff12b0b1|1.ª parte goles",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-bf0fff12b0b1|1.ª parte resultado",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Hay p_modelo pero ninguna cuota en el paquete: no contrastable ni EV. Modelo no validado (insuficiente).",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-bf0fff12b0b1|1.ª parte resultado",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-bf0fff12b0b1|córners",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Hay p_modelo pero ninguna cuota en el paquete: no contrastable ni EV. Modelo no validado (insuficiente).",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-bf0fff12b0b1|córners",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-bf0fff12b0b1|doble oportunidad",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "0/3 lineas con precio difieren >=15pp (1/cuota incluye margen). dc.1x p59% vs 1/cuota 71% (agregador, ref.) | dc.12 p76% vs 1/cuota 80% (agregador, ref.)",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-bf0fff12b0b1|doble oportunidad",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-bf0fff12b0b1|empate no válido",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "p_modelo derivada del 1X2 del modelo; sin cuota para contrastar ni EV. Modelo no validado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-bf0fff12b0b1|empate no válido",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-bf0fff12b0b1|fueras de juego",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin estimador propio en el paquete (no_implementado/sin extractor): no hay p_modelo que contrastar; no se calcula EV.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-bf0fff12b0b1|fueras de juego",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-bf0fff12b0b1|goles",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "0/14 lineas con precio difieren >=15pp (1/cuota incluye margen). total.over.3.5 p35% vs 1/cuota 43% (usuario) | btts.yes p60% vs 1/cuota 68% (agregador, ref.)",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-bf0fff12b0b1|goles",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-bf0fff12b0b1|goles por equipo",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Hay p_modelo pero ninguna cuota en el paquete: no contrastable ni EV. Modelo no validado (insuficiente).",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-bf0fff12b0b1|goles por equipo",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-bf0fff12b0b1|goles total entero",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin estimador propio en el paquete (no_implementado/sin extractor): no hay p_modelo que contrastar; no se calcula EV.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-bf0fff12b0b1|goles total entero",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-bf0fff12b0b1|hándicap",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "1/6 lineas con precio difieren >=15pp (1/cuota incluye margen). Precios de agregador/no verificables con pares de lado incoherentes (p.ej. -2.5/-1.5 local): posible mapeo erroneo; solo referencia.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.home.-2.5",
+     "consistencia_modelo": "discrepa_del_mercado"
+    },
+    {
+     "entry_id": "resultado.ah.home.-0.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "resultado.ah.away.+0.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "resultado.ah.home.+0.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "resultado.ah.away.-0.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "resultado.ah.home.+2.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "resultado.ah.away.-2.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-bf0fff12b0b1|hándicap",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-bf0fff12b0b1|hándicap asiático entero",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin estimador propio en el paquete (no_implementado/sin extractor): no hay p_modelo que contrastar; no se calcula EV. Hay cuotas solo de referencia.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-bf0fff12b0b1|hándicap asiático entero",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-bf0fff12b0b1|hándicap europeo",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin estimador propio en el paquete (no_implementado/sin extractor): no hay p_modelo que contrastar; no se calcula EV.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-bf0fff12b0b1|hándicap europeo",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-bf0fff12b0b1|remates",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin estimador propio en el paquete (no_implementado/sin extractor): no hay p_modelo que contrastar; no se calcula EV.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-bf0fff12b0b1|remates",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-bf0fff12b0b1|remates a puerta",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin estimador propio en el paquete (no_implementado/sin extractor): no hay p_modelo que contrastar; no se calcula EV.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-bf0fff12b0b1|remates a puerta",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-bf0fff12b0b1|resultado",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "0/3 lineas con precio difieren >=15pp (1/cuota incluye margen). 1x2.home p34% vs 1/cuota 44% (usuario) | 1x2.away p41% vs 1/cuota 36% (usuario)",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-bf0fff12b0b1|resultado",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-bf0fff12b0b1|tarjetas",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Hay p_modelo pero ninguna cuota en el paquete: no contrastable ni EV. Modelo no validado (insuficiente).",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-bf0fff12b0b1|tarjetas",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-c542a517b2b7|1.ª parte goles",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Hay p_modelo pero ninguna cuota en el paquete: no contrastable ni EV. Modelo no validado (insuficiente).",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c542a517b2b7|1.ª parte goles",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-c542a517b2b7|1.ª parte resultado",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Hay p_modelo pero ninguna cuota en el paquete: no contrastable ni EV. Modelo no validado (insuficiente).",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c542a517b2b7|1.ª parte resultado",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-c542a517b2b7|córners",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Hay p_modelo pero ninguna cuota en el paquete: no contrastable ni EV. Modelo no validado (insuficiente).",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c542a517b2b7|córners",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-c542a517b2b7|doble oportunidad",
+   "consistencia_modelo": "discrepa_del_mercado",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "2/3 lineas con precio difieren >=15pp (1/cuota incluye margen). dc.1x p73% vs 1/cuota 94% (agregador, ref.) | dc.x2 p51% vs 1/cuota 33% (agregador, ref.)",
+   "excepciones": [
+    {
+     "entry_id": "resultado.dc.12",
+     "consistencia_modelo": "coherente"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-c542a517b2b7|doble oportunidad",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-c542a517b2b7|empate no válido",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "p_modelo derivada del 1X2 del modelo; sin cuota para contrastar ni EV. Modelo no validado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c542a517b2b7|empate no válido",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-c542a517b2b7|fueras de juego",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin estimador propio en el paquete (no_implementado/sin extractor): no hay p_modelo que contrastar; no se calcula EV.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c542a517b2b7|fueras de juego",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-c542a517b2b7|goles",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "1/14 lineas con precio difieren >=15pp (1/cuota incluye margen). btts.no p44% vs 1/cuota 64% (agregador, ref.) | btts.yes p56% vs 1/cuota 43% (agregador, ref.)",
+   "excepciones": [
+    {
+     "entry_id": "goles.btts.no",
+     "consistencia_modelo": "discrepa_del_mercado"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-c542a517b2b7|goles",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-c542a517b2b7|goles por equipo",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Hay p_modelo pero ninguna cuota en el paquete: no contrastable ni EV. Modelo no validado (insuficiente).",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c542a517b2b7|goles por equipo",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-c542a517b2b7|goles total entero",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin estimador propio en el paquete (no_implementado/sin extractor): no hay p_modelo que contrastar; no se calcula EV.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c542a517b2b7|goles total entero",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-c542a517b2b7|hándicap",
+   "consistencia_modelo": "discrepa_del_mercado",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "2/4 lineas con precio difieren >=15pp (1/cuota incluye margen). Precios de agregador/no verificables con pares de lado incoherentes (p.ej. -2.5/-1.5 local): posible mapeo erroneo; solo referencia.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.away.+2.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah.away.+1.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah.home.-0.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "resultado.ah.away.+0.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "resultado.ah.home.+0.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "resultado.ah.away.-0.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "resultado.ah.home.+1.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "resultado.ah.away.-1.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "resultado.ah.home.+2.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "resultado.ah.away.-2.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-c542a517b2b7|hándicap",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-c542a517b2b7|hándicap asiático entero",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin estimador propio en el paquete (no_implementado/sin extractor): no hay p_modelo que contrastar; no se calcula EV. Hay cuotas solo de referencia.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c542a517b2b7|hándicap asiático entero",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-c542a517b2b7|hándicap europeo",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin estimador propio en el paquete (no_implementado/sin extractor): no hay p_modelo que contrastar; no se calcula EV.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c542a517b2b7|hándicap europeo",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-c542a517b2b7|remates",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin estimador propio en el paquete (no_implementado/sin extractor): no hay p_modelo que contrastar; no se calcula EV.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c542a517b2b7|remates",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-c542a517b2b7|remates a puerta",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin estimador propio en el paquete (no_implementado/sin extractor): no hay p_modelo que contrastar; no se calcula EV.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c542a517b2b7|remates a puerta",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-c542a517b2b7|resultado",
+   "consistencia_modelo": "discrepa_del_mercado",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "2/3 lineas con precio difieren >=15pp (1/cuota incluye margen). 1x2.home p49% vs 1/cuota 75% (usuario) | 1x2.away p27% vs 1/cuota 11% (usuario)",
+   "excepciones": [
+    {
+     "entry_id": "resultado.1x2.draw",
+     "consistencia_modelo": "coherente"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-c542a517b2b7|resultado",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-c542a517b2b7|tarjetas",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Hay p_modelo pero ninguna cuota en el paquete: no contrastable ni EV. Modelo no validado (insuficiente).",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c542a517b2b7|tarjetas",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-c840427bbe9a|1.ª parte goles",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Hay p_modelo pero ninguna cuota en el paquete: no contrastable ni EV. Modelo no validado (insuficiente).",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c840427bbe9a|1.ª parte goles",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-c840427bbe9a|1.ª parte resultado",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Hay p_modelo pero ninguna cuota en el paquete: no contrastable ni EV. Modelo no validado (insuficiente).",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c840427bbe9a|1.ª parte resultado",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-c840427bbe9a|córners",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Hay p_modelo pero ninguna cuota en el paquete: no contrastable ni EV. Modelo no validado (insuficiente).",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c840427bbe9a|córners",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-c840427bbe9a|doble oportunidad",
+   "consistencia_modelo": "discrepa_del_mercado",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "2/3 lineas con precio difieren >=15pp (1/cuota incluye margen). dc.1x p47% vs 1/cuota 85% (agregador, ref.) | dc.x2 p77% vs 1/cuota 43% (agregador, ref.)",
+   "excepciones": [
+    {
+     "entry_id": "resultado.dc.12",
+     "consistencia_modelo": "coherente"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-c840427bbe9a|doble oportunidad",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-c840427bbe9a|empate no válido",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "p_modelo derivada del 1X2 del modelo; sin cuota para contrastar ni EV. Modelo no validado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c840427bbe9a|empate no válido",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-c840427bbe9a|fueras de juego",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin estimador propio en el paquete (no_implementado/sin extractor): no hay p_modelo que contrastar; no se calcula EV.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c840427bbe9a|fueras de juego",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-c840427bbe9a|goles",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "1/14 lineas con precio difieren >=15pp (1/cuota incluye margen). total.over.2.5 p48% vs 1/cuota 63% (usuario) | total.over.3.5 p26% vs 1/cuota 40% (agregador, ref.)",
+   "excepciones": [
+    {
+     "entry_id": "goles.total.over.2.5",
+     "consistencia_modelo": "discrepa_del_mercado"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-c840427bbe9a|goles",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-c840427bbe9a|goles por equipo",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Hay p_modelo pero ninguna cuota en el paquete: no contrastable ni EV. Modelo no validado (insuficiente).",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c840427bbe9a|goles por equipo",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-c840427bbe9a|goles total entero",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin estimador propio en el paquete (no_implementado/sin extractor): no hay p_modelo que contrastar; no se calcula EV.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c840427bbe9a|goles total entero",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-c840427bbe9a|hándicap",
+   "consistencia_modelo": "discrepa_del_mercado",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "3/4 lineas con precio difieren >=15pp (1/cuota incluye margen). Precios de agregador/no verificables con pares de lado incoherentes (p.ej. -2.5/-1.5 local): posible mapeo erroneo; solo referencia.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.away.+2.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah.home.-0.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "resultado.ah.away.+0.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "resultado.ah.home.+0.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "resultado.ah.away.-0.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "resultado.ah.home.+1.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "resultado.ah.away.-1.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "resultado.ah.home.+2.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "resultado.ah.away.-2.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-c840427bbe9a|hándicap",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-c840427bbe9a|hándicap asiático entero",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin estimador propio en el paquete (no_implementado/sin extractor): no hay p_modelo que contrastar; no se calcula EV. Hay cuotas solo de referencia.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c840427bbe9a|hándicap asiático entero",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-c840427bbe9a|hándicap europeo",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin estimador propio en el paquete (no_implementado/sin extractor): no hay p_modelo que contrastar; no se calcula EV.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c840427bbe9a|hándicap europeo",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-c840427bbe9a|remates",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin estimador propio en el paquete (no_implementado/sin extractor): no hay p_modelo que contrastar; no se calcula EV.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c840427bbe9a|remates",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-c840427bbe9a|remates a puerta",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin estimador propio en el paquete (no_implementado/sin extractor): no hay p_modelo que contrastar; no se calcula EV.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c840427bbe9a|remates a puerta",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-c840427bbe9a|resultado",
+   "consistencia_modelo": "discrepa_del_mercado",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "2/3 lineas con precio difieren >=15pp (1/cuota incluye margen). 1x2.home p23% vs 1/cuota 62% (usuario) | 1x2.away p53% vs 1/cuota 20% (usuario)",
+   "excepciones": [
+    {
+     "entry_id": "resultado.1x2.draw",
+     "consistencia_modelo": "coherente"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-c840427bbe9a|resultado",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-c840427bbe9a|tarjetas",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Hay p_modelo pero ninguna cuota en el paquete: no contrastable ni EV. Modelo no validado (insuficiente).",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c840427bbe9a|tarjetas",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-ca4144a67961|1.ª parte goles",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Hay p_modelo pero ninguna cuota en el paquete: no contrastable ni EV. Modelo no validado (insuficiente).",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ca4144a67961|1.ª parte goles",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-ca4144a67961|1.ª parte resultado",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Hay p_modelo pero ninguna cuota en el paquete: no contrastable ni EV. Modelo no validado (insuficiente).",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ca4144a67961|1.ª parte resultado",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-ca4144a67961|córners",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Hay p_modelo pero ninguna cuota en el paquete: no contrastable ni EV. Modelo no validado (insuficiente).",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ca4144a67961|córners",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-ca4144a67961|doble oportunidad",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "0/3 lineas con precio difieren >=15pp (1/cuota incluye margen). dc.1x p65% vs 1/cuota 78% (agregador, ref.) | dc.12 p73% vs 1/cuota 82% (agregador, ref.)",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ca4144a67961|doble oportunidad",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-ca4144a67961|empate no válido",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "p_modelo derivada del 1X2 del modelo; sin cuota para contrastar ni EV. Modelo no validado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ca4144a67961|empate no válido",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-ca4144a67961|fueras de juego",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin estimador propio en el paquete (no_implementado/sin extractor): no hay p_modelo que contrastar; no se calcula EV.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ca4144a67961|fueras de juego",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-ca4144a67961|goles",
+   "consistencia_modelo": "discrepa_del_mercado",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "6/14 lineas con precio difieren >=15pp (1/cuota incluye margen). total.over.2.5 p45% vs 1/cuota 67% (agregador, ref.) | total.over.3.5 p24% vs 1/cuota 45% (usuario)",
+   "excepciones": [
+    {
+     "entry_id": "goles.total.over.0.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "goles.total.under.0.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "goles.total.under.1.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "goles.total.under.3.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "goles.total.under.4.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "goles.total.over.5.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "goles.total.under.5.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "goles.btts.no",
+     "consistencia_modelo": "coherente"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-ca4144a67961|goles",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-ca4144a67961|goles por equipo",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Hay p_modelo pero ninguna cuota en el paquete: no contrastable ni EV. Modelo no validado (insuficiente).",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ca4144a67961|goles por equipo",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-ca4144a67961|goles total entero",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin estimador propio en el paquete (no_implementado/sin extractor): no hay p_modelo que contrastar; no se calcula EV.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ca4144a67961|goles total entero",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-ca4144a67961|hándicap",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "1/6 lineas con precio difieren >=15pp (1/cuota incluye margen). Precios de agregador/no verificables con pares de lado incoherentes (p.ej. -2.5/-1.5 local): posible mapeo erroneo; solo referencia.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.home.-1.5",
+     "consistencia_modelo": "discrepa_del_mercado"
+    },
+    {
+     "entry_id": "resultado.ah.home.-0.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "resultado.ah.away.+0.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "resultado.ah.home.+0.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "resultado.ah.away.-0.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "resultado.ah.home.+2.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "resultado.ah.away.-2.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-ca4144a67961|hándicap",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-ca4144a67961|hándicap asiático entero",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin estimador propio en el paquete (no_implementado/sin extractor): no hay p_modelo que contrastar; no se calcula EV. Hay cuotas solo de referencia.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ca4144a67961|hándicap asiático entero",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-ca4144a67961|hándicap europeo",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin estimador propio en el paquete (no_implementado/sin extractor): no hay p_modelo que contrastar; no se calcula EV.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ca4144a67961|hándicap europeo",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-ca4144a67961|remates",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin estimador propio en el paquete (no_implementado/sin extractor): no hay p_modelo que contrastar; no se calcula EV.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ca4144a67961|remates",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-ca4144a67961|remates a puerta",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin estimador propio en el paquete (no_implementado/sin extractor): no hay p_modelo que contrastar; no se calcula EV.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ca4144a67961|remates a puerta",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-ca4144a67961|resultado",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "1/3 lineas con precio difieren >=15pp (1/cuota incluye margen). 1x2.home p38% vs 1/cuota 53% (usuario) | 1x2.away p35% vs 1/cuota 27% (usuario)",
+   "excepciones": [
+    {
+     "entry_id": "resultado.1x2.home",
+     "consistencia_modelo": "discrepa_del_mercado"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-ca4144a67961|resultado",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-ca4144a67961|tarjetas",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Hay p_modelo pero ninguna cuota en el paquete: no contrastable ni EV. Modelo no validado (insuficiente).",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ca4144a67961|tarjetas",
+    "archivo:docs/BACKTEST-modelo-v1.md",
+    "archivo:data/model_validation.json"
+   ]
+  }
+ ],
+ "limitaciones": [
+  "Modelo propio no validado (nivel insuficiente en todas las familias; backtest no concluyente frente a tasa base y mercado).",
+  "Precios de agregador son referencia, no ejecutables; las cuotas \"usuario\" no se verifican de forma independiente. 1/cuota incluye margen (no se quito).",
+  "Sin consultas a la API; juicio solo con hechos del paquete. Brechas >=15pp pueden reflejar fuerza relativa entre ligas/competicion mal modelada, no ventaja.",
+  "Riesgo de correlacion: todas las lineas de una unidad son del mismo partido; no se calculan combinadas ni EV."
+ ]
+}

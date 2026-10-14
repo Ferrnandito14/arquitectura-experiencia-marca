@@ -1,0 +1,230 @@
+{
+ "agente": "cuantitativo",
+ "version_contrato": 1,
+ "run": "runs/2026-10-14",
+ "unidades": [
+  {
+   "unit_id": "m-73af94aeda13|1.ª parte goles",
+   "consistencia_modelo": "datos_insuficientes",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin precio en el paquete: no hay contraste con mercado; p_modelo sin validar (IC no supera tasa base). Lineas del mismo partido correlacionadas.",
+   "evidencia": [
+    "paquete:m-73af94aeda13|1.ª parte goles",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-73af94aeda13|1.ª parte resultado",
+   "consistencia_modelo": "datos_insuficientes",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin precio en el paquete: no hay contraste con mercado; p_modelo sin validar (IC no supera tasa base). Lineas del mismo partido correlacionadas.",
+   "evidencia": [
+    "paquete:m-73af94aeda13|1.ª parte resultado",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-73af94aeda13|córners",
+   "consistencia_modelo": "datos_insuficientes",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin precio; validacion insuficiente (corners_total sin cuotas historicas); arbitro no designado. Lineas over/under del grupo correlacionadas.",
+   "evidencia": [
+    "paquete:m-73af94aeda13|córners",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-73af94aeda13|doble oportunidad",
+   "consistencia_modelo": "discrepa_del_mercado",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "1X: modelo .67 vs implicita bruta .78 (brecha ~11pp, precio otra_fuente). 12 y X2 cercanos al mercado. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-73af94aeda13|doble oportunidad",
+    "archivo:data/model_validation.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "resultado.dc.12",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.dc.x2",
+     "consistencia_modelo": "coherente"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-73af94aeda13|empate no válido",
+   "consistencia_modelo": "datos_insuficientes",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "datos sin_extractor y sin precio; estimador calculable pero sin respaldo de datos. Correlacionado con 1X2/hándicap del partido.",
+   "evidencia": [
+    "paquete:m-73af94aeda13|empate no válido",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-73af94aeda13|fueras de juego",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Estimador no implementado, datos sin_extractor y sin precio.",
+   "evidencia": [
+    "paquete:m-73af94aeda13|fueras de juego",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-73af94aeda13|goles",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Mayoria de lineas cerca de la implicita bruta (precios otra_fuente; 3.5 del usuario). Under 2.5 brecha ~5pp. BTTS: p_modelo igual en yes y no (.7024), incoherente.",
+   "evidencia": [
+    "paquete:m-73af94aeda13|goles",
+    "archivo:data/model_validation.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "goles.btts.no",
+     "consistencia_modelo": "discrepa_del_mercado"
+    },
+    {
+     "entry_id": "goles.btts.yes",
+     "consistencia_modelo": "datos_insuficientes"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-73af94aeda13|goles por equipo",
+   "consistencia_modelo": "datos_insuficientes",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin precio en el paquete: no hay contraste con mercado; p_modelo sin validar (IC no supera tasa base). Lineas del mismo partido correlacionadas. Correlacion con goles/BTTS y resultado.",
+   "evidencia": [
+    "paquete:m-73af94aeda13|goles por equipo",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-73af94aeda13|goles total entero",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Estimador no implementado, sin extractor ni precio.",
+   "evidencia": [
+    "paquete:m-73af94aeda13|goles total entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-73af94aeda13|hándicap",
+   "consistencia_modelo": "discrepa_del_mercado",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Local -1.5 y -2.5: modelo .26/.12 vs implicita bruta ~.38/.25 (brecha 10-13pp). Lineas visitante cercanas. Precios otra_fuente; modelo no validado. Correlacion con 1X2.",
+   "evidencia": [
+    "paquete:m-73af94aeda13|hándicap",
+    "archivo:data/model_validation.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.away.+2.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah.away.+1.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah.away.-1.5",
+     "consistencia_modelo": "coherente"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-73af94aeda13|hándicap asiático entero",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Estimador no implementado (p_modelo vacio); hay cuotas parciales sin contraste. Correlacionado con 1X2 y hándicap.",
+   "evidencia": [
+    "paquete:m-73af94aeda13|hándicap asiático entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-73af94aeda13|hándicap europeo",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Estimador no implementado, sin extractor ni precio.",
+   "evidencia": [
+    "paquete:m-73af94aeda13|hándicap europeo",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-73af94aeda13|remates",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Estimador no implementado (90 lineas), sin precio. Lineas por jugador/equipo correlacionadas entre si y con remates a puerta.",
+   "evidencia": [
+    "paquete:m-73af94aeda13|remates",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-73af94aeda13|remates a puerta",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Estimador no implementado (60 lineas), sin precio. Correlacionado con remates y goles.",
+   "evidencia": [
+    "paquete:m-73af94aeda13|remates a puerta",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-73af94aeda13|resultado",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "1X2 con precios del usuario (1.85/4.0/3.6): sin margen local .51/empate .23/visit .26 vs modelo .455/.215/.330; visitante +7pp sobre mercado, moderado. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-73af94aeda13|resultado",
+    "archivo:data/model_validation.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "resultado.1x2.away",
+     "consistencia_modelo": "discrepa_del_mercado"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-73af94aeda13|tarjetas",
+   "consistencia_modelo": "datos_insuficientes",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin precio; arbitro no designado (0 partidos de muestra con arbitro asignado); validacion insuficiente. Lineas correlacionadas con faltas/contexto del partido.",
+   "evidencia": [
+    "paquete:m-73af94aeda13|tarjetas",
+    "archivo:data/model_validation.json"
+   ]
+  }
+ ],
+ "limitaciones": [
+  "Modelo propio no validado: ninguna familia supera con IC la tasa base; frente a mercado no concluyente o no evaluable.",
+  "Alineaciones no publicadas y arbitro sin designar al snapshot 2026-10-14T04:00Z.",
+  "Precios reales verificados solo en 1X2 y goles 3.5 (usuario); el resto otra_fuente o sin precio; comparacion con implicita bruta solo referencial.",
+  "BTTS yes/no con p_modelo identica (.7024): salida del modelo defectuosa.",
+  "Remates, remates a puerta, fueras de juego, goles total entero, AH entero y europeo sin estimador."
+ ]
+}

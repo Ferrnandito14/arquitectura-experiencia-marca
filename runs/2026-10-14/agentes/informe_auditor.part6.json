@@ -1,0 +1,466 @@
+{
+ "agente": "auditor",
+ "version_contrato": 1,
+ "run": "runs/2026-10-14",
+ "unidades": [
+  {
+   "unit_id": "m-f53e831a729b|1.ª parte goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "p 1T sin validar ni precio; muestra n10 liga sin ajuste por rival, alineaciones sin publicar. Under 1.5 0.57 no es frecuencia contrastada.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-f53e831a729b|1.ª parte goles",
+    "archivo:runs/2026-10-14/league_samples/332.json"
+   ]
+  },
+  {
+   "unit_id": "m-f53e831a729b|1.ª parte resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "1X2 de 1T casi plano (0.31/0.37/0.31), sin precio ni validación: no hay ventaja medible.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-f53e831a729b|1.ª parte resultado"
+   ]
+  },
+  {
+   "unit_id": "m-f53e831a729b|córners",
+   "objecion": "dato_defectuoso",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Muestra SJ-LA 19-sep con 18 córners de un equipo (total 21) es outlier probable; sube media SJ de ~8.1 a 9.4. Over 9.5 0.514 depende de ello. Sin precio.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-f53e831a729b|córners",
+    "archivo:runs/2026-10-14/league_samples/332.json"
+   ]
+  },
+  {
+   "unit_id": "m-f53e831a729b|doble oportunidad",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "dc.1x p 0.622 vs mercado ~0.80 bruto (A1.25, agregador no ejecutable); modelo infravalora al local pese a 1X2 usuario 1.88. Validación insuficiente.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-f53e831a729b|doble oportunidad",
+    "apif_query:get_odds match_id=711718"
+   ]
+  },
+  {
+   "unit_id": "m-f53e831a729b|empate no válido",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Modelo 0.499 vs DNB mercado ~0.68 normalizado (A1.355/2.925, ah0 bet365 1.35/3.1). Verificador dice sin_precio y cuantitativo sin cuota, pero el paquete trae precio agregador.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-f53e831a729b|empate no válido",
+    "apif_query:get_odds match_id=711718"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "verificador",
+     "campo": "precio",
+     "problema": "valor_contradice_paquete"
+    },
+    {
+     "entry_id": null,
+     "agente": "cuantitativo",
+     "campo": "consistencia_modelo",
+     "problema": "valor_contradice_paquete"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-f53e831a729b|goles por equipo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio; over/under por equipo desde n10 sin ajuste por rival y sin validación; home y away casi idénticos (0.769/0.769) sospechoso de modelo poco discriminante.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-f53e831a729b|goles por equipo"
+   ]
+  },
+  {
+   "unit_id": "m-f53e831a729b|hándicap",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "ah.home.-1.5 p 0.178 vs 1/2.845 bruto 0.35 (bet365 2.85, Marathon 2.84). Betfair ah-2.5/-1.5 1.02/1.07 basura. +0.5/-0.5 sin precio. Modelo no validado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-f53e831a729b|hándicap",
+    "apif_query:get_odds match_id=711718"
+   ]
+  },
+  {
+   "unit_id": "m-f53e831a729b|resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Modelo local 0.376 vs 1/1.88 (0.53 bruto, usuario) y visitante 0.378 vs 3.5. Bet365 1.80/4.10/4.00: el usuario da visitante mas corto. Sesgo de forma 2-9 GD sin ajuste de rival.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-f53e831a729b|resultado",
+    "apif_query:get_odds match_id=711718"
+   ]
+  },
+  {
+   "unit_id": "m-f53e831a729b|tarjetas",
+   "objecion": "dato_defectuoso",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Árbitro sin designar (n=0). SJ ultimos 10: tarjetas 0/1, 1/0 y 4/6 en la muestra, n8 con datos; puntos RSL 5.3 vs SJ 2.9 no comparables. Sin precio ni validación.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-f53e831a729b|tarjetas",
+    "archivo:runs/2026-10-14/league_samples/332.json"
+   ]
+  },
+  {
+   "unit_id": "m-f7205bb046c7|doble oportunidad",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Taça 1/32 (API 858783); sin p del modelo, Santarém rota 5 cambios/partido, Gil puede rotar; liquidación 90 min vs prórroga no verificada. Precios solo agregador.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-f7205bb046c7|doble oportunidad",
+    "apif_query:get_odds match_id=858783",
+    "archivo:runs/2026-10-14/rotation.json",
+    "apif_query:get_events match_id=858783 timezone=UTC"
+   ]
+  },
+  {
+   "unit_id": "m-f7205bb046c7|empate no válido",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin p; el paquete trae DNB A5.4/1.09 (ah0 Marathon) pero verificador dice sin_precio. Copa con rotación; liquidación 90 min no verificada.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-f7205bb046c7|empate no válido",
+    "apif_query:get_odds match_id=858783",
+    "archivo:runs/2026-10-14/rotation.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "verificador",
+     "campo": "precio",
+     "problema": "valor_contradice_paquete"
+    },
+    {
+     "entry_id": null,
+     "agente": "cuantitativo",
+     "campo": "consistencia_modelo",
+     "problema": "omision"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-f7205bb046c7|goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin p en ninguna línea (calculable declarado). Cuota 2.5 1.9/1.8 es del usuario; resto agregador. Rotación y copa abren varianza; prórroga no verificada.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-f7205bb046c7|goles",
+    "archivo:runs/2026-10-14/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-f7205bb046c7|hándicap",
+   "objecion": "dato_defectuoso",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Betfair ah-1.5 1.57/1.01 (suma 1.63) es etiquetado erróneo (duplica +1.5 local 1.56); paquete lo marca V sin discrepancia. API no ofrece -1.5 local. Sin p.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-f7205bb046c7|hándicap",
+    "apif_query:get_odds match_id=858783"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "verificador",
+     "campo": "discrepancias",
+     "problema": "omision"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-f7205bb046c7|resultado",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Gil 1.41 (usuario) en Taça vs Liga 3 sin p del modelo; Santarém rota 5 cambios/partido (medio) y Gil sin once publicado. Prórroga/penaltis fuera del 1X2 90 min no verificado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-f7205bb046c7|resultado",
+    "archivo:runs/2026-10-14/rotation.json",
+    "apif_query:get_odds match_id=858783"
+   ]
+  },
+  {
+   "unit_id": "m-fdc7eca95de0|1.ª parte goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Over 0.5 1T 0.76 sin precio ni validación; 20 GF en 10 sin ajustar por rival; rotación media (3.7/3.3 cambios) sin cuantificar efecto.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-fdc7eca95de0|1.ª parte goles",
+    "archivo:runs/2026-10-14/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-fdc7eca95de0|1.ª parte resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "1T 0.30/0.38/0.32 casi plano; sin precio ni validación, sin ventaja medible.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-fdc7eca95de0|1.ª parte resultado"
+   ]
+  },
+  {
+   "unit_id": "m-fdc7eca95de0|doble oportunidad",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "dc.1x p 0.596 vs 1/1.25=0.80 (agregador), gap ~20pp; 1X2 usuario local 1.81 implica ~0.55 vs modelo 0.37. Validación insuficiente.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-fdc7eca95de0|doble oportunidad"
+   ]
+  },
+  {
+   "unit_id": "m-fdc7eca95de0|empate no válido",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Modelo 0.478 vs DNB mercado ~0.67 normalizado (A1.4/2.86). Verificador sin_precio y cuantitativo sin cuota contradicen el paquete.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-fdc7eca95de0|empate no válido"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "verificador",
+     "campo": "precio",
+     "problema": "valor_contradice_paquete"
+    },
+    {
+     "entry_id": null,
+     "agente": "cuantitativo",
+     "campo": "consistencia_modelo",
+     "problema": "valor_contradice_paquete"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-fdc7eca95de0|goles por equipo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio; muestra n10 sin ajuste por rival; Seattle visitante 18 GF/11 GC; validación insuficiente.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-fdc7eca95de0|goles por equipo"
+   ]
+  },
+  {
+   "unit_id": "m-fdc7eca95de0|hándicap",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Modelo infravalora márgenes del local: -1.5 0.185 vs 1/3.01 0.33; -2.5 0.076 vs 0.18. Cuantitativo lo da coherente (<15pp) sin avisar del sesgo sistemático. +0.5 sin precio.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-fdc7eca95de0|hándicap"
+   ]
+  },
+  {
+   "unit_id": "m-fdc7eca95de0|resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Modelo local 0.37 vs 1/1.81=0.55 bruto (usuario) y visitante 0.404 vs 3.75; basado en 0-5 vs Vancouver y n10 sin ajustar por rival.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-fdc7eca95de0|resultado"
+   ]
+  },
+  {
+   "unit_id": "m-fdc7eca95de0|tarjetas",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Freemon n17 en liga, 5.18 vs 4.38 liga; equipos en sentido contrario (Dallas 3.9, Seattle 2.8 pts). Sin precio, validación insuficiente, liquidación de puntos no verificada.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-fdc7eca95de0|tarjetas",
+    "archivo:runs/2026-10-14/league_samples/332.json"
+   ]
+  },
+  {
+   "unit_id": "m-fe43bd39afc0|1.ª parte goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Over 1.5 1T 0.65 sin precio ni validación; 30 GF local en 10 sin ajustar por rival; descanso 4d.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-fe43bd39afc0|1.ª parte goles",
+    "archivo:runs/2026-10-14/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-fe43bd39afc0|1.ª parte resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "1T local 0.47/empate 0.28 sin precio ni validación; Vancouver rotación media (3.3 cambios, descanso 4d) no cuantificada.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-fe43bd39afc0|1.ª parte resultado",
+    "archivo:runs/2026-10-14/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-fe43bd39afc0|córners",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Over 9.5 0.42 cerca del límite; árbitro n17 media 8.6 vs equipos 9.9/9.1 (n27-28 liga). Sin precio, validación insuficiente, medias no son probabilidad.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-fe43bd39afc0|córners",
+    "archivo:runs/2026-10-14/league_samples/332.json"
+   ]
+  },
+  {
+   "unit_id": "m-fe43bd39afc0|doble oportunidad",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "dc.x2 p 0.451 vs 1/1.62=0.62 (gap 17pp); 1X2 usuario local 2.22 implica 0.45 vs modelo 0.549. Deportivo MEDIA sin respaldo; Vancouver rotación media.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-fe43bd39afc0|doble oportunidad",
+    "archivo:runs/2026-10-14/rotation.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "solidez",
+     "problema": "afirmacion_sin_evidencia"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-fe43bd39afc0|empate no válido",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Modelo local 0.683 vs DNB mercado ~0.56 normalizado (A1.68/2.135), gap ~12pp. Verificador y cuantitativo ignoran el precio presente en el paquete.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-fe43bd39afc0|empate no válido",
+    "archivo:runs/2026-10-14/rotation.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "verificador",
+     "campo": "precio",
+     "problema": "valor_contradice_paquete"
+    },
+    {
+     "entry_id": null,
+     "agente": "cuantitativo",
+     "campo": "consistencia_modelo",
+     "problema": "valor_contradice_paquete"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-fe43bd39afc0|goles",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Over 3.5 p 0.548 vs 2.16 (usuario, 0.46 bruto); under 3.5 0.452 vs 0.61. Basado en 9/10 over 2.5 local n10 sin rival-ajuste. Deportivo MEDIA sin validar; correlación goles-BTTS-1X2.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-fe43bd39afc0|goles"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "solidez",
+     "problema": "afirmacion_sin_evidencia"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-fe43bd39afc0|goles por equipo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio; muestra n10 sin ajuste por rival; validación insuficiente.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-fe43bd39afc0|goles por equipo"
+   ]
+  },
+  {
+   "unit_id": "m-fe43bd39afc0|hándicap",
+   "objecion": "dato_defectuoso",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "ah.home.-2.5 V1.03 y away.+2.5 V1.06 son precios absurdos (suma 1.9, incoherentes con p 0.18); verificador solo marca el primero. Resto agregador y +0.5 sin precio.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-fe43bd39afc0|hándicap"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": "resultado.ah.away.+2.5",
+     "agente": "verificador",
+     "campo": "excepciones",
+     "problema": "omision"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-fe43bd39afc0|tarjetas",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio; árbitro Dujic n17 en liga, media 4.47 ~ liga 4.38 sin sesgo; p de puntos sin validar y regla de liquidación de puntos no verificada.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-fe43bd39afc0|tarjetas",
+    "archivo:runs/2026-10-14/league_samples/332.json"
+   ]
+  }
+ ],
+ "limitaciones": [
+  "Lote 6/6: cubiertas las unidades must del lote; las demás no se auditaron.",
+  "Sin once confirmado ni árbitro (RSL-SJ) en ningún partido; rotación basada en 4 partidos previos.",
+  "Precios de agregador (mediana de casas) no son ejecutables; solo 1X2 y línea 3.5/2.5 de goles son comunicados por el usuario.",
+  "Consultas API: get_events 858783, get_odds 858783, get_odds 711718. Liquidación de Taça (90 min vs prórroga) y de puntos de tarjetas no verificada."
+ ]
+}

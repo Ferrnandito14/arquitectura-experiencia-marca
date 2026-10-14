@@ -198,6 +198,15 @@ class AuditorYGate(unittest.TestCase):
         self.assertEqual(g["estado"], "INCOMPLETA")
         self.assertIn({"tipo": "informe_ausente", "rol": "verificador"}, g["incidencias"])
 
+    def test_el_auditor_no_necesita_cubrir_todas_las_unidades_solo_la_muestra(self):
+        must, _ = ar.audit_sample_required(self.us, {r: self.base[r] for r in ("deportivo", "cuantitativo", "verificador")})
+        self.assertLess(len(must), len(self.us))                       # la muestra es menor que el total
+        reps = copy.deepcopy(self.base)
+        reps["auditor"]["unidades"] = [u for u in reps["auditor"]["unidades"] if u["unit_id"] in set(must)]
+        self.assertEqual(ar.review_gate(self.us, reps, "runs/x")["estado"], "COMPLETA")
+        reps["auditor"]["unidades"][0]["objecion"] = "inventada"       # pero un error de esquema sí la deja incompleta
+        self.assertEqual(ar.review_gate(self.us, reps, "runs/x")["estado"], "INCOMPLETA")
+
     def test_el_auditor_con_muestra_insuficiente_deja_la_revision_incompleta(self):
         reps = copy.deepcopy(self.base)
         reps["deportivo"]["unidades"][2]["solidez"] = "BAJA"
@@ -269,6 +278,46 @@ def _run(match_ids=("m1", "m2")):
     filas = [TL.fila(i, tarjetas=(1 + i % 3, 2), corners=(4 + i % 4, 3 + i % 3)) | {"fecha": f"2026-08-{1 + i % 28:02d}"} for i in range(60)]
     TL._dump(os.path.join(run, "league_samples", "7.json"), {"league_id": "7", "filas": filas, "resumen": {}})
     return run
+
+
+class LotesYMezcla(unittest.TestCase):
+    def test_lotes_reparten_partidos_completos_sin_perder_unidades(self):
+        us = units(n_matches=7)
+        got = [ar.batch_units(us, k, 3) for k in (1, 2, 3)]
+        self.assertEqual(sorted(u["unit_id"] for b in got for u in b), sorted(u["unit_id"] for u in us))
+        self.assertEqual(len({u["match_id"] for u in got[0]}), 3)
+        for b in got:
+            self.assertEqual(len(b) % len(GRUPOS), 0)          # partidos completos
+        with self.assertRaises(ValueError):
+            ar.batch_units(us, 4, 3)
+
+    def test_vista_compacta_trae_todas_las_lineas_y_es_mas_corta_que_el_paquete(self):
+        us = units(n_matches=2)
+        txt = ar.digest_text(us)
+        for u in us:
+            self.assertIn(u["unit_id"], txt)
+            for e in u["entradas"]:
+                self.assertIn(e["id"], txt)
+        self.assertLess(len(txt), len(json.dumps(us)))
+
+    def test_merge_une_partes_y_rechaza_repetidas_o_de_otro_rol(self):
+        us = units(n_matches=4)
+        full = valid_report("deportivo", us)
+        a, b = dict(full, unidades=full["unidades"][:5]), dict(full, unidades=full["unidades"][5:])
+        m = ar.merge_parts("deportivo", [b, a])
+        self.assertEqual(len(m["unidades"]), len(us))
+        self.assertTrue(ar.validate_report("deportivo", m, us, "runs/x")["completo"])
+        with self.assertRaises(ValueError):
+            ar.merge_parts("deportivo", [a, a])
+        with self.assertRaises(ValueError):
+            ar.merge_parts("auditor", [a])
+
+    def test_validar_un_lote_solo_exige_sus_unidades(self):
+        us = units(n_matches=4)
+        bu = ar.batch_units(us, 1, 2)
+        part = valid_report("deportivo", bu)
+        self.assertTrue(ar.validate_report("deportivo", part, bu, "runs/x")["completo"])
+        self.assertFalse(ar.validate_report("deportivo", part, us, "runs/x")["completo"])
 
 
 class Paquetes(unittest.TestCase):

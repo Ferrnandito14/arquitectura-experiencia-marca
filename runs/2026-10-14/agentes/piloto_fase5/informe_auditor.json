@@ -1,0 +1,249 @@
+{
+ "agente": "auditor",
+ "version_contrato": 1,
+ "run": "runs/2026-10-14",
+ "unidades": [
+  {
+   "unit_id": "m-73af94aeda13|1.ª parte goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio ni validacion (no_evaluada); n=9/10 mezcla local/visita. Over1.5 1T 8/19 y Over0.5 18/19 son frecuencias, no probabilidad; lineas correlacionadas.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-73af94aeda13|1.ª parte goles",
+    "apif_query:get_events from=2026-08-15 to=2026-10-13 team_id=7952/7956 timezone=UTC",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-73af94aeda13|1.ª parte resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Deportivo llama 'mercado' a .355/.365/.28, pero son p_modelo (sin precio en paquete). BAJA correcta; sin cuotas 1T en API; lineas 1X2 1T correlacionadas.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-73af94aeda13|1.ª parte resultado",
+    "apif_query:get_events from=2026-08-15 to=2026-10-13 team_id=7952/7956 timezone=UTC"
+   ]
+  },
+  {
+   "unit_id": "m-73af94aeda13|córners",
+   "objecion": "dato_defectuoso",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Ceros sospechosos en API: Toronto 0 corners (NE 9) 15-ago y Chicago 0 (13 NE) 13-sep; un solo proveedor. Deportivo dio MEDIA sin senalarlo; afecta lineas por equipo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-73af94aeda13|córners",
+    "apif_query:get_events from=2026-08-15 to=2026-10-13 team_id=7952/7956 timezone=UTC",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-73af94aeda13|doble oportunidad",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "1X: modelo .67 vs ~.78 (precio medio de 6 casas). Es la misma brecha que 1X2 visitante (+7pp), no senal independiente. Rotacion CIN media (4.3 cambios) sin cuantificar.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.dc.12",
+     "objecion": "ninguna"
+    },
+    {
+     "entry_id": "resultado.dc.x2",
+     "objecion": "ninguna"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-73af94aeda13|doble oportunidad",
+    "apif_query:get_odds match_id=711710",
+    "apif_query:get_events match_id=711710 timezone=UTC",
+    "archivo:runs/2026-10-14/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-73af94aeda13|empate no válido",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Verificador dice sin cuotas, pero la API trae ah0 (=DNB) en bet365/Marathon/BetVictor/Pinnacle (~1.41/2.75); el paquete ya lo tiene como ah_entero +0. Modelo .58 vs ~.66 sin margen.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-73af94aeda13|empate no válido",
+    "apif_query:get_odds match_id=711710",
+    "apif_query:get_events match_id=711710 timezone=UTC"
+   ]
+  },
+  {
+   "unit_id": "m-73af94aeda13|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador, sin precio y estadistica Offside ausente en los 19 partidos recientes de la API. Nada contrastable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-73af94aeda13|fueras de juego",
+    "apif_query:get_events from=2026-08-15 to=2026-10-13 team_id=7952/7956 timezone=UTC"
+   ]
+  },
+  {
+   "unit_id": "m-73af94aeda13|goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Quant y deportivo citan BTTS yes=no=.7024; el paquete trae yes .7024 / no .2976 (coherente): defecto no reproducible. Precios son medias de 6 casas; validacion insuficiente.",
+   "excepciones": [
+    {
+     "entry_id": "goles.total.over.0.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "goles.total.under.0.5",
+     "objecion": "cuota_no_ejecutable"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-73af94aeda13|goles",
+    "apif_query:get_odds match_id=711710",
+    "apif_query:get_events match_id=711710 timezone=UTC",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-73af94aeda13|goles por equipo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio (API no ofrece goles por equipo) y validacion insuficiente (sin cuotas historicas). Fuerte correlacion con goles/BTTS/1X2 del mismo partido.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-73af94aeda13|goles por equipo",
+    "apif_query:get_events from=2026-08-15 to=2026-10-13 team_id=7952/7956 timezone=UTC",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-73af94aeda13|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no implementado, datos sin_extractor; API devuelve lineas enteras vacias. Sin contraste posible.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-73af94aeda13|goles total entero",
+    "apif_query:get_odds match_id=711710",
+    "apif_query:get_events match_id=711710 timezone=UTC"
+   ]
+  },
+  {
+   "unit_id": "m-73af94aeda13|hándicap",
+   "objecion": "dato_defectuoso",
+   "severidad": "alta",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Cuotas medias contaminadas por Betfair (ah-1.5_1=1.1, ah-2.5_1=1.02): 2.646 y 4.023 son medias; sin Betfair ~3.0/5.5 (impl .33/.18). Brecha de 10-13pp del cuant se reduce a ~7pp.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-73af94aeda13|hándicap",
+    "apif_query:get_odds match_id=711710",
+    "apif_query:get_events match_id=711710 timezone=UTC",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-73af94aeda13|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin p_modelo y validacion nula; solo cuotas parciales (medias de 2-5 casas). Verificador la da por verificada pero no hay contraste de modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-73af94aeda13|hándicap asiático entero",
+    "apif_query:get_odds match_id=711710",
+    "apif_query:get_events match_id=711710 timezone=UTC"
+   ]
+  },
+  {
+   "unit_id": "m-73af94aeda13|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no implementado, sin extractor ni precio; la API no ofrece hándicap europeo (3 vias).",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-73af94aeda13|hándicap europeo",
+    "apif_query:get_odds match_id=711710",
+    "apif_query:get_events match_id=711710 timezone=UTC"
+   ]
+  },
+  {
+   "unit_id": "m-73af94aeda13|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "90 lineas 'datos suficientes' sin estimador ni precio; shots ausentes en 3/19 partidos recientes. Deportivo exagera 'erraticos': 20-1 en un 5-0 es plausible.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-73af94aeda13|remates",
+    "apif_query:get_events from=2026-08-15 to=2026-10-13 team_id=7952/7956 timezone=UTC"
+   ]
+  },
+  {
+   "unit_id": "m-73af94aeda13|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "60 lineas sin estimador ni precio; un solo proveedor, huecos en 3/19 partidos; sin segunda fuente. Correlacion con remates y goles.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-73af94aeda13|remates a puerta",
+    "apif_query:get_events from=2026-08-15 to=2026-10-13 team_id=7952/7956 timezone=UTC"
+   ]
+  },
+  {
+   "unit_id": "m-73af94aeda13|resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Visitante: modelo .330 vs ~.26 sin margen (Pinnacle 1.86/4.27/3.7). Empate .215 vs ~.225: no esta infravalorado. 1X2 es cuota del usuario sin casa; CIN rota 4.3 cambios.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.1x2.draw",
+     "objecion": "ninguna"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-73af94aeda13|resultado",
+    "apif_query:get_odds match_id=711710",
+    "apif_query:get_events match_id=711710 timezone=UTC",
+    "archivo:runs/2026-10-14/ligas/partidos_usuario.json",
+    "archivo:runs/2026-10-14/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-73af94aeda13|tarjetas",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Arbitro API Rubiel Vazquez vs paquete null (verificador no marco paquete_desactualizado); 0 partidos suyos en muestra MLS; amarillas ausentes en 5/19; regla de puntos no verificada.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-73af94aeda13|tarjetas",
+    "apif_query:get_odds match_id=711710",
+    "apif_query:get_events match_id=711710 timezone=UTC",
+    "apif_query:get_events from=2026-08-15 to=2026-10-13 team_id=7952/7956 timezone=UTC"
+   ]
+  }
+ ],
+ "limitaciones": [
+  "Toda la evidencia (eventos, cuotas, estadisticas, arbitro) viene de apifootball; no se abrio ninguna fuente web independiente.",
+  "Cuotas de API del 2026-10-14 03:19Z (~20h antes del partido): obsoletas y son medias de varias casas, no precios ejecutables en una casa.",
+  "Un solo partido: las 16 unidades estan correlacionadas entre si; cualquier combinada es mismo_partido.",
+  "Cuota 1X2/Over3.5 'real_verificada' es del usuario (partidos_usuario.json) sin casa identificada; no reproducida por ninguna casa de la API.",
+  "Verificador marco discrepancias=['ninguna'] pese a arbitro distinto; cuant y deportivo repiten un defecto BTTS que el paquete no muestra.",
+  "Alineaciones no publicadas; muestra de forma n=9/10, ambos equipos jugaron 10-oct.",
+  "Contrato: no hay campo para registrar errores de otros agentes por entrada salvo excepciones/nota."
+ ]
+}

@@ -70,6 +70,16 @@ class LineasDelAdaptador(unittest.TestCase):
         self.assertFalse([e["id"] for e in mc.CATALOG if not e["price_via_api"] and e["price_key"]], "price_key declarado para un mercado que la API no publica")
 
 
+class Mediana(unittest.TestCase):
+    def test_una_casa_atipica_no_infla_la_referencia_del_agregador(self):
+        rows = [odds_row("100", b, **{"ah-1.5_1": v, "ah-1.5_2": "1.3"}) for b, v in (("A", "2.9"), ("B", "3.0"), ("C", "3.1"), ("D", "1.02"))]      # D = precio absurdo de una casa
+        run = make_run([("from=2026-10-14&to=2026-10-15", rows)])
+        p = ps.ApifootballOddsProvider(run)
+        r = p.prices(match(), ent("resultado.ah.home.-1.5"))[0]
+        self.assertAlmostEqual(r["odds"], 2.95, places=2)                   # mediana de 1.02, 2.9, 3.0, 3.1; la media sería 2.505
+        self.assertIn("mediana", r["note"])
+
+
 class ApifootballCache(unittest.TestCase):
     def test_promedia_por_casa_con_lineas_enteras_y_deja_evidencia_de_la_consulta(self):
         rows = [odds_row("100", "A"), odds_row("100", "B", **{"ah-1_1": "3.1"}), odds_row("100", "C", **{"ah-1_1": "3.0"})]

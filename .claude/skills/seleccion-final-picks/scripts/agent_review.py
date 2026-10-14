@@ -12,6 +12,7 @@ Problema que resuelve: la revisión anterior devolvía texto libre sobre las pat
   ningún resultado cumple el requisito `revision_agentes_completa` de la preparación para apostar.
 Uso:  agent_review.py packages --run runs/<fecha> [--matches ids.json] [--only m-…,m-…]   ·   validate --run … --role R --file informe.json   ·   gate --run …   ·   contract"""
 import argparse
+import glob
 import json
 import os
 import sys
@@ -128,6 +129,10 @@ def build_units(run, match_ids=None, capture=None):
                               "datos": r["analitica"]["datos"], "estimador": r["analitica"]["estimador"], "validacion": r["analitica"]["validacion"], "p_modelo": pm.get((r["match_id"], e["id"]))})
     for u in units.values():
         es = u["entradas"]
+        for x in es:
+            # coherencia con la realidad: «estimador calculable» sin probabilidad calculada (p. ej. sin media de liga para ese torneo) NO es calculable (hallazgo de los agentes, Fase 7)
+            if x["estimador"] == "calculable" and x["p_modelo"] is None:
+                x["estimador"] = "sin_probabilidad_calculada"
         cnt = lambda f: {k: sum(1 for x in es if f(x) == k) for k in sorted({f(x) for x in es})}
         u["resumen"] = {"entradas": len(es), "precio": cnt(lambda x: x["precio"]["estado"]), "datos": cnt(lambda x: x["datos"]), "estimador": cnt(lambda x: x["estimador"]),
                         "validacion": cnt(lambda x: x["validacion"] or "sin_estimador"), "investigacion": cnt(lambda x: "resuelta" if all(v != "pendiente" for v in x["investigacion"].values()) else "pendiente")}
@@ -294,7 +299,7 @@ def review_gate(units, reports, run=None, pilot_ids=None):
         v = por_agente.get(r)
         if v is None:
             inc.append({"tipo": "informe_ausente", "rol": r})
-        elif not v["completo"]:
+        elif not (v["valido"] if r == "auditor" else v["completo"]):      # el auditor solo debe cubrir la muestra mínima (se comprueba abajo), no todas las unidades
             inc.append({"tipo": "informe_incompleto_o_invalido", "rol": r, "faltantes": len(v["faltantes"]), "errores": len(v["errores"]), "duplicadas": len(v["duplicadas"]), "no_esperadas": len(v["no_esperadas"])})
     must, flagged = audit_sample_required(units, {r: reports.get(r) for r in ROLES if r != "auditor"})
     aud = reports.get("auditor")
@@ -361,6 +366,63 @@ def load_gate(run):
     return common.read_json(p) if os.path.exists(p) else None
 
 
+# ── lotes y vista compacta (Fase 7): el paquete completo de un partido pesa ~270 KB; los agentes leen esta vista, el contrato no cambia ──
+RES_CODE = {"encontrado": "E", "consultado_no_encontrado": "N", "fuente_no_ofrece": "O", "no_verificable": "V", "pendiente": "P"}
+
+
+def batch_units(units, k, n):
+    """Unidades del lote k de n (1-indexado): los partidos, ordenados por id, se reparten en n bloques contiguos; una unidad nunca se parte entre lotes."""
+    if not (1 <= k <= n):
+        raise ValueError("lote fuera de rango")
+    ms = sorted({u["match_id"] for u in units})
+    size = -(-len(ms) // n)
+    mine = set(ms[(k - 1) * size: k * size])
+    return [u for u in units if u["match_id"] in mine]
+
+
+PRICE_CODE = {"real_verificada": "R", "otra_fuente": "A", "no_verificable": "V", "sin_precio": "-", "no_consultado": "?"}
+
+
+def digest_text(units):
+    """Vista compacta: por unidad, las firmas (datos/estimador/validación/investigación) que comparten sus líneas se definen UNA vez (S1, S2…) y cada línea solo trae id, firma, precio y p_modelo."""
+    L = ["# Vista compacta del paquete (mismos hechos que paquete.json; el contrato de salida es el de contrato_<rol>.md)",
+         "Línea: `id | firma | precio | p`. Precio: letra+cuota; R real_verificada (casa/usuario), A otra_fuente (agregador: referencia, NO ejecutable), V no_verificable, `-` sin precio. `p` = probabilidad del modelo propio (`-` si no hay estimador).",
+         "Investigación por canal: E encontrado · N consultado_no_encontrado · O la fuente no lo ofrece · V no verificable · P pendiente.", ""]
+    for u in units:
+        c = u.get("contexto") or {}
+        arb = (c.get("arbitro") or {}).get("designado")
+        al = (c.get("alineaciones") or {}).get("estado")
+        sigs, rows = {}, []
+        for e in u["entradas"]:
+            inv = ",".join(f"{k[:10]}={RES_CODE.get(v, v)}" for k, v in e["investigacion"].items())
+            sg = (e["datos"], e["estimador"], e["validacion"], inv)
+            sigs.setdefault(sg, f"S{len(sigs) + 1}")
+            pr = e["precio"]
+            price = PRICE_CODE.get(pr["estado"], pr["estado"]) + (str(pr["cuota"]) if pr["cuota"] else "")
+            rows.append(f"- {e['id']} | {sigs[sg]} | {price} | {'-' if e['p_modelo'] is None else round(e['p_modelo'], 3)}")
+        L += [f"## {u['unit_id']} · {u['partido']} · {u['grupo']} · {u.get('hora_utc')} · liga {u.get('liga')} · árbitro {arb or 's/d'} · alineaciones {al or 's/d'}"]
+        L += [f"  {name}: datos {sg[0]} · estimador {sg[1]} · validación {sg[2]} · inv {sg[3]}" for sg, name in sigs.items()] + rows + [""]
+    return "\n".join(L) + "\n"
+
+
+def merge_parts(role, parts):
+    """Une informes parciales del mismo rol; rechaza cabeceras distintas y unidades repetidas."""
+    if not parts:
+        raise ValueError("no hay partes")
+    head = {k: parts[0].get(k) for k in ("agente", "version_contrato", "run")}
+    out, seen, lim = [], set(), []
+    for pt in parts:
+        if {k: pt.get(k) for k in head} != head or head["agente"] != role:
+            raise ValueError("las partes tienen cabeceras distintas o de otro rol")
+        for u in pt.get("unidades", []):
+            if u.get("unit_id") in seen:
+                raise ValueError(f"unidad repetida entre partes: {u.get('unit_id')}")
+            seen.add(u.get("unit_id"))
+            out.append(u)
+        lim += [x for x in pt.get("limitaciones", []) if x not in lim]
+    return dict(head, unidades=sorted(out, key=lambda u: u["unit_id"]), limitaciones=lim)
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -374,6 +436,13 @@ def main(argv=None):
     v.add_argument("--run", required=True)
     v.add_argument("--role", required=True, choices=ROLES)
     v.add_argument("--file", required=True)
+    v.add_argument("--batch", help="k/n: valida solo las unidades de ese lote")
+    dg = sub.add_parser("digest")
+    dg.add_argument("--run", required=True)
+    dg.add_argument("--batch", required=True, help="k/n")
+    mg = sub.add_parser("merge")
+    mg.add_argument("--run", required=True)
+    mg.add_argument("--role", required=True, choices=ROLES)
     g = sub.add_parser("gate")
     g.add_argument("--run", required=True)
     sub.add_parser("contract")
@@ -397,8 +466,25 @@ def main(argv=None):
         print(f"{len(units)} unidades ({len({u['match_id'] for u in units})} partidos × grupos) -> {d}/paquete.json")
         return 0
     pack = common.read_json(os.path.join(d, "paquete.json"))
+    if a.cmd == "digest":
+        k, n = (int(x) for x in a.batch.split("/"))
+        bu = batch_units(pack["unidades"], k, n)
+        path = os.path.join(d, f"lote_{k}_de_{n}.md")
+        with open(path, "w", encoding="utf-8") as f:
+            f.write(digest_text(bu))
+        print(f"{path}: {len(bu)} unidades de {len({u['match_id'] for u in bu})} partidos")
+        return 0
+    if a.cmd == "merge":
+        files = sorted(glob.glob(os.path.join(d, f"informe_{a.role}.part*.json")))
+        merged = merge_parts(a.role, [common.read_json(f) for f in files])
+        common.write_json_atomic(os.path.join(d, f"informe_{a.role}.json"), merged)
+        print(f"{a.role}: {len(files)} partes -> {len(merged['unidades'])} unidades")
+        return 0
     if a.cmd == "validate":
-        res = validate_report(a.role, common.read_json(a.file), pack["unidades"], pack["run"])
+        us = pack["unidades"]
+        if a.batch:
+            us = batch_units(us, *(int(x) for x in a.batch.split("/")))
+        res = validate_report(a.role, common.read_json(a.file), us, pack["run"])
         print(json.dumps({k: (v if k != "errores" else v[:25]) for k, v in res.items()}, ensure_ascii=False, indent=1))
         return 0 if res["valido"] else 1
     reports = load_reports(a.run)
