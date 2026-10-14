@@ -25,4 +25,4 @@ Reglas añadidas tras la auditoría del 13-oct-2026 (obligatorias):
 - Probabilidad central = **encogimiento hacia el mercado**: p = (n·f + m·p_mercado)/(n + m) con m≈30–50 (di el m que usas). Con n≈10 casi todo el peso es del mercado. Prefiere muestras de liga/temporada completa (n>30 por equipo) antes que los últimos 10; Wilson solo como intervalo, nunca como ranking.
 - Una brecha muestra−mercado ≥15 pp NO es ventaja: con n pequeño es el artefacto esperado de escoger el máximo entre muchas patas (maldición del ganador). Márcala «sospechosa».
 - Correlación de dirección: varias patas under (o over) del mismo día comparten el régimen de goles; no uses el producto simple como si fueran independientes, aplica descuento o límite (máx. 2 de la misma dirección por ticket).
-- Si el EV es < 0 en todos los escenarios, el veredicto es «NO APOSTAR» (no «aceptable»).
+- Si el EV es < 0 en todos los escenarios, repórtalo con su P(pérdida) y no lo llames «aceptable»; la decisión de apostar es de la persona usuaria, tú informas el riesgo.

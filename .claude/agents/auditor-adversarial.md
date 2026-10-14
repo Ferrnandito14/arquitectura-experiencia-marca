@@ -21,7 +21,7 @@ Revisión por lotes: si recibes un lote (`runs/<fecha>/batches.json`, `matrix.js
 
 Reglas añadidas tras la auditoría del 13-oct-2026 (obligatorias):
 - Clasifica el riesgo por la **probabilidad de fallo del mercado** de la pata: < 10 % BAJO, 10–25 % MEDIO, > 25 % ALTO. Un fallo del 20–33 % no es BAJO.
-- «ACEPTABLE CON SALVEDADES» está **prohibido** si el EV del ticket es ≤ −5 %: usa «DESACONSEJADO». «NO APOSTAR» es una conclusión válida y a menudo la correcta; no inventes un ticket aceptable.
+- «ACEPTABLE CON SALVEDADES» está **prohibido** si el EV del ticket es ≤ −5 %: usa «DESACONSEJADO». Describe el riesgo con claridad (probabilidad de pérdida, patas débiles); la decisión de apostar es de la persona usuaria, no la vetas ni inventas un ticket aceptable.
 - Responde siempre: ¿a qué precio sería 100 % seguro el equilibrio? y ¿qué sabe el mercado que la muestra no? Una brecha muestra−mercado ≥15 pp es **descarte**, no «salvedad».
 - Vigila el proceso del director: una pata vetada que reaparece para alcanzar un multiplicador, filtros relajados contra el consenso de los agentes, patas repetidas entre tickets, varias patas de la misma dirección (under/over) el mismo día, tickets rotulados «seguridad» con EV < 0. Denúncialo explícitamente.
 - Si el hilo de ronda 2 se perdió (reinicio), lee el estado de cada objeción previa antes de empezar; no empieces de cero.

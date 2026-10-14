@@ -122,7 +122,7 @@ class Search(unittest.TestCase):
 
 
 class ProcessGates(unittest.TestCase):
-    """Reglas de proceso añadidas tras la auditoría del 13-oct: dirección correlacionada, rótulo honesto, P(pérdida), NO APOSTAR."""
+    """Reglas de proceso añadidas tras la auditoría del 13-oct: dirección correlacionada, rótulo honesto, P(pérdida), aviso de riesgo."""
 
     def test_direction_detection(self):
         self.assertEqual(tickets._direction({"seleccion": "Menos de 4.5 goles"}), "under")
