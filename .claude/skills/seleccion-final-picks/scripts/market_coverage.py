@@ -141,6 +141,70 @@ def _price_records(match, entry, providers, found, failed):
     return out
 
 
+# ── contexto por partido: muestra de liga, árbitro y alineaciones (Fase 3). Son datos y limitaciones, NO puertas: no deciden la certificación ──
+def load_league_samples(run):
+    out = {}
+    d = os.path.join(run, "league_samples")
+    if os.path.isdir(d):
+        for f in os.listdir(d):
+            if f.endswith(".json"):
+                try:
+                    out[f[:-5]] = common.read_json(os.path.join(d, f))
+                except (OSError, ValueError):
+                    pass
+    return out
+
+
+def load_lineup_snapshots(run):
+    """Última instantánea de alineaciones por partido (los archivos nuevos nunca sobrescriben a los anteriores)."""
+    out = {}
+    d = os.path.join(run, "lineups")
+    if os.path.isdir(d):
+        for f in sorted(os.listdir(d)):
+            if f.endswith(".json"):
+                try:
+                    for r in common.read_json(os.path.join(d, f)).get("partidos", []):
+                        out[r["match_id"]] = r
+                except (OSError, ValueError, KeyError):
+                    pass
+    return out
+
+
+def league_of(match, inv_matches):
+    """league_id de apifootball del partido; si falta (p. ej. partidos que solo figuran en football-data) se toma el de otros partidos del inventario con la MISMA competición."""
+    lid = ((match.get("extra") or {}).get("api") or {}).get("league_id")
+    if lid:
+        return str(lid)
+    comp = str(match.get("competition", "")).lower()
+    c = {}
+    for m in inv_matches:
+        l2 = ((m.get("extra") or {}).get("api") or {}).get("league_id")
+        if l2 and str(m.get("competition", "")).lower() == comp:
+            c[str(l2)] = c.get(str(l2), 0) + 1
+    return max(c, key=c.get) if c else None
+
+
+def match_context(match, inv_matches, samples, lineups):
+    lid = league_of(match, inv_matches)
+    smp = samples.get(lid) if lid else None
+    rows = (smp or {}).get("filas") or []
+    ref = ((match.get("extra") or {}).get("api") or {}).get("referee") or (match.get("extra") or {}).get("referee")
+    ctx = {"liga_id": lid,
+           "muestra_liga": {"ejecutada": smp is not None, "partidos": len(rows), "con_tarjetas": sum(1 for r in rows if r.get("tarjetas") is not None),
+                            "con_corners": sum(1 for r in rows if r.get("corners") is not None), "con_arbitro": sum(1 for r in rows if r.get("arbitro"))},
+           "arbitro": {"designado": ref or None, "partidos_en_muestra_liga": sum(1 for r in rows if ref and r.get("arbitro") == ref) if smp is not None else None}}
+    snap = lineups.get(match["match_id"])
+    ctx["alineaciones"] = ({"estado": "sin_snapshot"} if snap is None else
+                           {"estado": "consulta_no_realizada" if snap.get("consulta") != "realizada" else ("publicada" if snap.get("publicada") else "no_publicada"),
+                            "snapshot_utc": snap.get("consultado_utc"), "bajas_registradas": snap.get("bajas_registradas")})
+    return ctx
+
+
+def build_contexts(run, matches, inv_matches):
+    samples, lineups = load_league_samples(run), load_lineup_snapshots(run)
+    return {m["match_id"]: match_context(m, inv_matches, samples, lineups) for m in matches}
+
+
 # ── analítica ──
 def _datos_status(entry, atoms_by_label, ev, home, away):
     if entry["stats"] is None:
@@ -185,7 +249,7 @@ def _pricing(match, entry, providers, found, failed):
     return {"estado": "sin_precio", "registro": None, "cumple_limite": None, "cumple_requisitos_de_precio": False, "nota": "ninguna fuente registrada aporta precio para esta combinación"}
 
 
-def build_records(matches, ev_by_id, providers=(), catalog=None):
+def build_records(matches, ev_by_id, providers=(), catalog=None, contexts=None):
     """Un registro por combinación requerida (partido × entrada) con sus tres bloques. Devuelve (filas, errores_de_proveedores)."""
     catalog = mc.CATALOG if catalog is None else catalog
     providers = list(providers)
@@ -209,6 +273,10 @@ def build_records(matches, ev_by_id, providers=(), catalog=None):
                          "investigacion": {"canales": canales, "resuelta": all(c["resultado"] != "pendiente" and c["evidencia"] for c in canales)},
                          "analitica": {"datos": datos, "datos_n": n, "estimador": est, "clave_modelo": mk, "validacion": MODEL_VALIDATION["nivel"] if est != "no_implementado" else None},
                          "precio": _pricing(m, e, providers, found, failed)})
+            if contexts and e["data_requirements"][0] in ("corners", "cards_pts"):
+                ml = (contexts.get(m["match_id"]) or {}).get("muestra_liga") or {}
+                campo = "corners" if e["data_requirements"][0] == "corners" else "tarjetas"
+                rows[-1]["analitica"]["muestra_liga"] = {"campo": campo, "ejecutada": ml.get("ejecutada", False), "partidos_liga": ml.get("partidos"), "con_campo": ml.get("con_" + ("corners" if campo == "corners" else "tarjetas"))}
             rows[-1]["preparacion_para_apostar"] = row_readiness(rows[-1])
     return rows, errors
 
@@ -268,7 +336,7 @@ def investigation_gate(rows, authorized_ids, catalog=None, channels=None):
 
 
 # ── B. analítica ──
-def analytic_report(rows):
+def analytic_report(rows, contexts=None):
     ent = {}
     for r in rows:
         a = r["analitica"]
@@ -292,6 +360,34 @@ def analytic_report(rows):
         inc.append({"tipo": "datos_insuficientes", "cantidad": len(insuf), "por_familia": fam, "ejemplos": []})
     if any(r["analitica"]["estimador"] != "no_implementado" for r in rows):
         inc.append({"tipo": "modelo_sin_validacion_suficiente", "cantidad": sum(1 for r in rows if r["analitica"]["validacion"]), **MODEL_VALIDATION})
+    if contexts:
+        cx = list(contexts.values())
+        ids = lambda f: [k for k, c in contexts.items() if f(c)]
+        no_ej = ids(lambda c: not c["muestra_liga"]["ejecutada"])
+        if no_ej:
+            inc.append({"tipo": "muestra_de_liga_no_ejecutada", "cantidad": len(no_ej), "ejemplos": no_ej[:3]})
+        for campo, key in (("tarjetas", "con_tarjetas"), ("corners", "con_corners")):
+            por_liga = {}
+            for c in cx:
+                m_ = c["muestra_liga"]
+                if m_["ejecutada"] and m_["partidos"] and m_[key] < m_["partidos"]:
+                    por_liga[c["liga_id"]] = f"{m_[key]}/{m_['partidos']}"
+            if por_liga:                                    # informativo, sin umbral: dónde la muestra de liga NO trae el dato en todos los partidos
+                inc.append({"tipo": f"liga_con_registro_incompleto_de_{campo}", "cantidad": len(por_liga), "por_liga": por_liga, "ejemplos": sorted(por_liga),
+                            "nota": "partidos de la muestra de liga con el dato / partidos de la muestra"})
+        sin_ref = ids(lambda c: not c["arbitro"]["designado"])
+        if sin_ref:
+            inc.append({"tipo": "arbitro_no_designado", "cantidad": len(sin_ref), "ejemplos": sin_ref[:3]})
+        ref_sin = ids(lambda c: c["arbitro"]["designado"] and not c["arbitro"]["partidos_en_muestra_liga"])
+        if ref_sin:
+            inc.append({"tipo": "arbitro_designado_sin_partidos_en_la_muestra", "cantidad": len(ref_sin), "ejemplos": ref_sin[:3]})
+        no_pub = ids(lambda c: c["alineaciones"]["estado"] != "publicada")
+        if no_pub:
+            estados = {}
+            for k in no_pub:
+                e_ = contexts[k]["alineaciones"]["estado"]
+                estados[e_] = estados.get(e_, 0) + 1
+            inc.append({"tipo": "alineaciones_no_publicadas", "cantidad": len(no_pub), "por_estado": estados, "ejemplos": no_pub[:3]})
     cnt = lambda key, vals: {v: sum(1 for r in rows if r["analitica"][key] == v) for v in vals}
     return {"estado": "CON_LIMITACIONES" if inc else "SIN_LIMITACIONES", "incidencias": inc,
             "datos": cnt("datos", ("suficientes", "parciales", "insuficientes", "sin_datos", "sin_extractor")), "estimador": cnt("estimador", ("calculable", "datos_insuficientes", "no_implementado")),
@@ -375,11 +471,11 @@ def certified(summary):
     return bool(summary.get("modo") == "enforce" and summary.get("investigacion", {}).get("estado") == "INVESTIGACION_COMPLETA")
 
 
-def summarize(rows, authorized_ids, errors=(), catalog=None, channels=None, modo="enforce"):
+def summarize(rows, authorized_ids, errors=(), catalog=None, channels=None, modo="enforce", contexts=None):
     catalog = mc.CATALOG if catalog is None else catalog
     a = investigation_gate(rows, authorized_ids, catalog, channels)
     authorized_ids = list(authorized_ids)
-    s = {"modo": modo, "partidos_ids": authorized_ids, "partidos_autorizados": len(authorized_ids), "entradas_catalogo": len(catalog), "filas": len(rows), "investigacion": a, "analitica": analytic_report(rows), "precios": pricing_report(rows),
+    s = {"modo": modo, "partidos_ids": authorized_ids, "partidos_autorizados": len(authorized_ids), "entradas_catalogo": len(catalog), "filas": len(rows), "investigacion": a, "analitica": analytic_report(rows, contexts), "precios": pricing_report(rows), "contexto_partidos": contexts or {},
          "errores_proveedores": list(errors)}
     s["preparacion_para_apostar"] = betting_summary(rows)
     _stamp_certification(s)
@@ -475,8 +571,9 @@ def run_coverage(run, match_ids=None, price_files=(), out_dir=None, aggregator=T
     else:
         matches = authorized_from_run(run)
     providers = default_providers(run, inv, mx, price_files, capture, aggregator)
-    rows, errors = build_records(matches, mx, providers)
-    s = summarize(rows, [m["match_id"] for m in matches], errors, channels=[CANAL_DATOS] + [p.name for p in providers])
+    contexts = build_contexts(run, matches, inv)
+    rows, errors = build_records(matches, mx, providers, contexts=contexts)
+    s = summarize(rows, [m["match_id"] for m in matches], errors, channels=[CANAL_DATOS] + [p.name for p in providers], contexts=contexts)
     if write:
         out = out_dir or run
         os.makedirs(out, exist_ok=True)
