@@ -85,6 +85,61 @@ def provisional(final_fn, e, leg):
     return None
 
 
+def _corners(e):
+    for x in e.get("statistics") or []:
+        if x.get("type") == "Corners":
+            try:
+                return int(x.get("home") or 0) + int(x.get("away") or 0)
+            except ValueError:
+                return None
+    return None
+
+
+def _first_goal_side(e):
+    def side_of(g):
+        if g.get("home_scorer"):
+            return "home"
+        if g.get("away_scorer"):
+            return "away"
+        return g.get("info") if g.get("info") in ("home", "away") else None
+    gs = [dict(g, info=side_of(g)) for g in (e.get("goalscorer") or []) if side_of(g)]
+    if not gs:
+        return None
+    def t(g):
+        try:
+            return float(str(g.get("time")).split("+")[0])
+        except ValueError:
+            return 999
+    return min(gs, key=t)["info"]
+
+
+def _sub_status(sub, e, h, a, fin):
+    """Sub-pata de una 'Crear apuesta': (win|lose|pending, texto). Con partido en juego, win/lose son PROVISIONALES salvo el primer gol."""
+    k = sub["tipo"]
+    if k == "primer_gol":
+        side = _first_goal_side(e)
+        if side is None:
+            return ("lose", "terminó sin goles") if fin else ("pending", "aún sin goles")
+        return ("win" if side == sub["lado"] else "lose"), f"primer gol: {side}"
+    if k in ("total", "tarjetas", "corners"):
+        if k == "total":
+            v, nm = h + a, "goles"
+        elif k == "tarjetas":
+            pts = adapters._card_points(e) or (0, 0)
+            v, nm = pts[0] + pts[1], "pts tarjetas"
+        else:
+            v, nm = _corners(e), "córners"
+            if v is None:
+                return "pending", "córners no disponibles"
+        res = settle_total(v, sub["op"], sub["linea"])
+        if fin:
+            return res, f"{v} {nm}"
+        if sub["op"] == "over":
+            return ("win", f"{v}/{sub['linea']} {nm} (cumplida provisional)") if res == "win" else ("pending", f"{v} {nm}, falta superar {sub['linea']}")
+        return ("lose", f"{v} {nm}: ya superó {sub['linea']} (provisional)") if res == "lose" else ("pending", f"{v} {nm} (menos de {sub['linea']} va bien)")
+    return "pending", f"sub-mercado {k} no soportado"
+
+
 def eval_leg(leg, e):
     """Devuelve (estado, detalle). e = evento de la API (dict) o None."""
     if not e:
@@ -152,6 +207,23 @@ def eval_leg(leg, e):
         if fin:
             return ("ACERTADA" if both else "FALLADA"), f"{tag}: {goals} goles y {cur_p} pts de tarjetas (A=1,R=2)"
         return "EN_JUEGO", f"{tag}: {goals}/{leg['min_goles']} goles, {cur_p}/{leg['min_puntos']} pts de tarjetas" + (" — CUMPLIDA PROVISIONAL hasta el final (VAR)" if both else "")
+    if mk == "tarjetas":
+        pts = adapters._card_points(e) or (0, 0)
+        tot = pts[0] + pts[1]
+        res = settle_total(tot, leg["op"], leg["linea"])
+        if fin:
+            return final(res), f"{tag}: {tot} pts de tarjetas (A=1,R=2)"
+        if leg["op"] == "under" and res == "lose":
+            return "EN_JUEGO", f"{tag}: {tot} pts, ya superó la línea — FALLO PROVISIONAL (revisar tarjetas al final)"
+        return "EN_JUEGO", f"{tag}: {tot} pts de tarjetas (línea {leg['op']} {leg['linea']})"
+    if mk == "combo":
+        rs = [(_sub_status(sb, e, h, a, fin), sb) for sb in leg["subs"]]
+        det = " · ".join(f"{sb['tipo']}: {t[1]}" for t, sb in rs)
+        if any(t[0] == "lose" for t, _ in rs):
+            return ("FALLADA" if fin or any(sb["tipo"] == "primer_gol" and t[0] == "lose" for t, sb in rs) else "EN_JUEGO"), f"{tag}: {det}" + ("" if fin else " — alguna sub-pata va perdida")
+        if fin and all(t[0] == "win" for t, _ in rs):
+            return "ACERTADA", f"{tag}: {det}"
+        return "EN_JUEGO", f"{tag}: {det}"
     if mk == "cards_dc":
         pts = adapters._card_points(e)
         if pts is None:
