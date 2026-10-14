@@ -134,14 +134,8 @@ def _drange(lo, hi, step=1.0):
     return [round(lo + i * step, 1) for i in range(n)]
 
 
-# Escalera COMPLETA de líneas por mercado (las casas ofrecen cada número): (clave de fila, mercado, nombre en la etiqueta, líneas del total, líneas por equipo).
-# Tarjetas = PUNTOS con la regla de la casa (amarilla 1, roja 2, máx. 3 por jugador). Mismo proceso y mismos filtros que goles/hándicaps.
-STAT_MARKETS = [
-    ("corners", "córners", "córners", _drange(6.5, 14.5), _drange(2.5, 8.5)),
-    ("cards_pts", "tarjetas", "tarjetas (A=1, R=2)", _drange(1.5, 9.5), _drange(0.5, 5.5)),
-    ("sot", "remates a puerta", "remates a puerta", _drange(3.5, 14.5), _drange(1.5, 9.5)),
-    ("shots", "remates", "remates totales", _drange(14.5, 32.5), _drange(6.5, 18.5)),
-]
+# Escalera COMPLETA de líneas por mercado: viven en market_catalog.py (fuente única; tickets.py no las duplica).
+from market_catalog import STAT_MARKETS, TEAM_GOAL_LINES, FIRST_HALF_TOTAL_LINES  # noqa: E402
 
 
 def _both(h):
@@ -152,8 +146,10 @@ def _pred(f, test):
     return lambda h: (lambda v: None if v is None else test(v))(f(h))
 
 
-def atoms(ev, names=("Local", "Visitante")):
-    """[(clave_cuota|None, índice, mercado, etiqueta, pred_local, pred_visit)] — pred_* se aplican a las filas de cada equipo."""
+def atoms(ev, names=("Local", "Visitante"), extended=False):
+    """[(clave_cuota|None, índice, mercado, etiqueta, pred_local, pred_visit)] — pred_* se aplican a las filas de cada equipo.
+    extended=True añade goles por equipo y mercados de 1.ª parte (estadística disponible en las filas; sin precio): los usa la puerta de cobertura (market_coverage.py);
+    los tickets siguen sin ellos por defecto para no cambiar los borradores."""
     A = []
 
     def add(price_key, idx, market, label, ph, pa):
@@ -193,6 +189,31 @@ def atoms(ev, names=("Local", "Visitante")):
             for who, (fh_f, fa_f) in ((home, (own, opp)), (away, (opp, own))):
                 add(None, 0, market, f"{who}: más de {line} {nm}", _pred(fh_f, lambda v, l=line: v > l), _pred(fa_f, lambda v, l=line: v > l))
                 add(None, 1, market, f"{who}: menos de {line} {nm}", _pred(fh_f, lambda v, l=line: v < l), _pred(fa_f, lambda v, l=line: v < l))
+    if extended:
+        gown = lambda h: None if h["gf"] is None else h["gf"]
+        gopp = lambda h: None if h["ga"] is None else h["ga"]
+        for line in TEAM_GOAL_LINES:                     # goles por equipo: producción propia + lo que concede el rival (misma lógica que córners/tarjetas por equipo)
+            for who, (fh_f, fa_f) in ((home, (gown, gopp)), (away, (gopp, gown))):
+                add(None, 0, "goles por equipo", f"{who}: más de {line} goles", _pred(fh_f, lambda v, l=line: v > l), _pred(fa_f, lambda v, l=line: v > l))
+                add(None, 1, "goles por equipo", f"{who}: menos de {line} goles", _pred(fh_f, lambda v, l=line: v < l), _pred(fa_f, lambda v, l=line: v < l))
+
+        def ht_own(h):
+            t = h.get("ht_goals")
+            return None if not t or None in t else t[0 if h.get("venue") == "local" else 1]
+
+        def ht_opp(h):
+            t = h.get("ht_goals")
+            return None if not t or None in t else t[1 if h.get("venue") == "local" else 0]
+
+        ht_tot = lambda h: None if ht_own(h) is None else ht_own(h) + ht_opp(h)
+        ht_diff = lambda h: None if ht_own(h) is None else ht_own(h) - ht_opp(h)
+        for line in FIRST_HALF_TOTAL_LINES:
+            o, u = _pred(ht_tot, lambda v, l=line: v > l), _pred(ht_tot, lambda v, l=line: v < l)
+            add(None, 0, "1.ª parte goles", f"1.ª parte: más de {line} goles", o, o)
+            add(None, 1, "1.ª parte goles", f"1.ª parte: menos de {line} goles", u, u)
+        add(None, 0, "1.ª parte resultado", "1.ª parte: local gana", _pred(ht_diff, lambda v: v > 0), _pred(ht_diff, lambda v: v < 0))
+        add(None, 1, "1.ª parte resultado", "1.ª parte: empate", _pred(ht_diff, lambda v: v == 0), _pred(ht_diff, lambda v: v == 0))
+        add(None, 2, "1.ª parte resultado", "1.ª parte: visitante gana", _pred(ht_diff, lambda v: v < 0), _pred(ht_diff, lambda v: v > 0))
     return A
 
 
@@ -752,7 +773,7 @@ def unpriced(legs, top=60, min_support=0.5, per_match=3):
     return out
 
 
-def write_stat_candidates_csv(run, legs):
+def write_stat_candidates_csv(run, legs, cobertura=None):
     """candidatos_estadisticos.csv: TODAS las líneas de córners/tarjetas/remates evaluadas (la escalera completa) con su apoyo y la cuota real mínima a exigir;
     manual_odds_plantilla.csv: las candidatas principales con la columna `cuota` vacía para que la persona usuaria pegue la real de su casa (--manual-odds)."""
     import csv
@@ -760,10 +781,11 @@ def write_stat_candidates_csv(run, legs):
     rows.sort(key=lambda l: (l["partido"], l["mercado"], l["seleccion"]))
     with open(os.path.join(run, "candidatos_estadisticos.csv"), "w", encoding="utf-8", newline="") as f:
         w = csv.writer(f)
-        w.writerow(["partido", "inicio_utc", "competicion", "mercado", "seleccion", "apoyo", "apoyo_min_equipo", "n_local", "n_visitante", "cuota_minima_a_exigir", "cuota_estimada_modelo"])
+        w.writerow(["partido", "inicio_utc", "competicion", "mercado", "seleccion", "apoyo", "apoyo_min_equipo", "n_local", "n_visitante", "cuota_minima_a_exigir", "cuota_estimada_modelo", "investigacion_certificada", "preparacion_para_apostar"])
+        cert = "no_evaluada" if cobertura is None else str(bool(cobertura.get("investigacion_certificada"))).lower()
         for l in rows:
             w.writerow([l["partido"], l["inicio_utc"], l["competicion"], l["mercado"], l["seleccion"], l["apoyo_conservador"], l.get("apoyo_min_equipo"), l["n"][0], l["n"][1],
-                        l["cuota_equilibrio_minima"], l["cuota_media"] if l.get("cuota_tipo") == "estimada_por_modelo" else ""])
+                        l["cuota_equilibrio_minima"], l["cuota_media"] if l.get("cuota_tipo") == "estimada_por_modelo" else "", cert, "NO_APTA"])
     return len(rows)
 
 
@@ -814,6 +836,15 @@ def render(result):
     L += [f"> **Puertas de calidad de datos.** (1) Veracidad: {len(result.get('bloqueadas_por_calidad', []))} mercados bloqueados automáticamente por avisos graves de los agentes (cifras defectuosas/imposibles/sospechosas). "
           f"(2) Representatividad: {result.get('excluidas_por_historial_mixto', 0)} patas con historial MIXTO (otra competición, copas, pretemporada) quedan fuera de los tickets y rankings principales; "
           "las de Champions pasan a las variantes `*_champions`, rotuladas de menor respaldo.", ""]
+    cm = result.get("cobertura_mercados")
+    if cm and not cm.get("investigacion_certificada", cm.get("certificado_investigacion")):
+        L += [f"> # ⚠ {cm['aviso']}", "> Tres controles separados (investigación · analítica · precios); detalle por partido y mercado en `market_coverage.md` (`market_coverage.py --run <run>`). Los precios no bloquean la investigación.", ""]
+    elif cm:
+        L += [f"> Cobertura de mercados: {cm['aviso']}", ""]
+    pb = result.get("preparacion_para_apostar")
+    if pb:
+        L += [f"> **Preparación para apostar (estado independiente de la certificación): {pb['aptos']} de {pb['borradores']} borradores aptos.** Requisitos incumplidos (borradores): "
+              + ", ".join(f"{k}: {v}" for k, v in pb["requisitos_incumplidos"].items()) + f". Modelo: validación {pb['modelo_validacion']}. {pb['nota']}.", ""]
     fj = result.get("filtros_jornada") or {}
     if fj.get("despues_de_utc") or fj.get("partidos_excluidos_manualmente"):
         L += [f"> **Filtros de jornada:** solo partidos que empiezan después de {fj.get('despues_de_utc')} ({fj.get('partidos_descartados_por_hora', 0)} partidos descartados por hora); excluidos a mano: {', '.join(fj.get('partidos_excluidos_manualmente') or []) or 'ninguno'}. "
@@ -902,6 +933,13 @@ def render(result):
         L.append("")
     L += ["---", f"Partidos usados en borradores de perfiles previos: {len(result.get('partidos_usados_en_principales', []))}; sin partidos repetidos entre multiplicadores: {result.get('sin_partidos_repetidos_entre_perfiles')}; cuotas manuales aplicadas: {result.get('cuotas_manuales_aplicadas', 0)}.",
           f"Patas evaluadas: {result['n_legs']} (con cuota media: {result['n_priced_legs']}) en {result['n_matches_with_legs']} partidos."]
+    if cm and not cm.get("investigacion_certificada", cm.get("certificado_investigacion")):               # la advertencia acompaña a CADA ranking y perfil, no solo a la cabecera
+        L2 = []
+        for line in L:
+            L2.append(line)
+            if line.startswith(("## Ranking general", "## Perfil", "## Top de picks", "## Favoritos")):
+                L2 += ["", f"> ⚠ {cm['aviso']}"]
+        L = L2
     return "\n".join(L)
 
 
@@ -917,7 +955,8 @@ def write_snapshots(run, out, now_iso=None):
                 f.write(json.dumps({"ts_utc": now_iso, "perfil": t["name"], "borrador": i, "cuota_media": tk["cuota_combinada_media"], "cuota_conservadora": tk["cuota_combinada_conservadora"],
                                     "p_mercado": tk.get("p_mercado_conjunta"), "p_central": tk.get("p_central_conjunta"), "ev_mercado": tk.get("ev_mercado"), "ev_central": tk.get("ev_central"),
                                     "max_brecha": tk.get("max_brecha_muestra_mercado"), "etiqueta": tk.get("etiqueta_riesgo"), "direcciones": tk.get("direcciones"),
-                                    "n_vetos_vigentes": len(out.get("patas_vetadas", [])),
+                                    "n_vetos_vigentes": len(out.get("patas_vetadas", [])), "cobertura_modo": (out.get("cobertura_mercados") or {}).get("modo"), "investigacion_certificada": out.get("investigacion_certificada", False), "certificado": out.get("certificado", False),
+                                    "preparacion_para_apostar": (tk.get("preparacion_para_apostar") or {}).get("estado", "NO_EVALUADA"),
                                     "patas": [{"partido": l["partido"], "seleccion": l["seleccion"], "cuota": l["cuota_media"], "tipo_cuota": l.get("cuota_tipo"), "p_mercado": l.get("prob_implicita_sin_margen"),
                                                "frec": l.get("frec"), "n": l.get("n"), "inicio_utc": l.get("inicio_utc")} for it in tk["items"] for l in it["patas"]]}, ensure_ascii=False) + "\n")
                 n += 1
@@ -936,6 +975,7 @@ def main(argv=None):
     ap.add_argument("--only-profile", action="append", default=[], help="NOMBRE de perfil a generar (repetible): seguridad, amplio (las variantes champions siguen a --champions)")
     ap.add_argument("--relax-champions-once", action="store_true", help="EXPERIMENTO ÚNICO a pedido: añade un borrador solo-UEFA Champions League y una combinada Champions + otras ligas con filtros relajados SOLO para las patas de Champions (apoyo 0.40, piso por equipo 0.30, ≥4 partidos de los últimos 100 días, sin pares); el resto de reglas se mantiene")
     ap.add_argument("--max-gap", type=float, default=None, help="brecha muestra−mercado máxima de las patas de TICKET (por defecto MAX_GAP=0.15). Subirla es una RELAJACIÓN explícita a petición de la persona usuaria: el ticket sale rotulado y no es recomendable")
+    ap.add_argument("--skip-coverage", action="store_true", help="SOLO DEPURACIÓN: omite los tres controles de market_coverage.py; queda registrado en tickets.json/tickets.md/snapshots y la salida se marca «NO VALIDADO» (nunca certificada)")
     ap.add_argument("--champions", action="store_true", help="añade las variantes solo-UEFA Champions League (apoyo y piso por equipo relajados y rotulados)")
     a = ap.parse_args(argv)
     targets = DEFAULT_TARGETS
@@ -969,6 +1009,19 @@ def main(argv=None):
     legs_tk, big_gap = drop_big_gap(legs_tk, a.max_gap)                                                  # auditoría 13-oct: brecha muestra−mercado ≥ 15 pp = descarte, no «salvedad"
     out = {"targets": [], "n_legs": len(legs), "n_priced_legs": sum(1 for l in legs if l["cuota_media"] is not None),
            "n_matches_with_legs": len({l["match_id"] for l in legs})}
+    import market_coverage
+    if a.skip_coverage:                                      # uso de depuración: queda REGISTRADO y la salida nunca se presenta como exhaustiva ni definitiva
+        out["cobertura_mercados"] = market_coverage.omitted_summary()
+    else:
+        try:
+            out["cobertura_mercados"] = market_coverage.run_coverage(a.run, price_files=[a.manual_odds] if a.manual_odds else ())         # tres controles (investigación / analítica / precios) sobre las combinaciones requeridas
+        except Exception as exc:
+            out["cobertura_mercados"] = {"modo": "error", "investigacion_certificada": False, "certificado_investigacion": False, "investigacion": {"estado": "NO_EVALUADA", "incidencias": []},
+                                         "preparacion_para_apostar": {"estado": "NO_EVALUADA"},
+                                         "aviso": f"NO VALIDADO — no se pudo comprobar la cobertura de mercados ({type(exc).__name__}: {exc})"}
+    out["investigacion_certificada"] = bool(out["cobertura_mercados"].get("investigacion_certificada"))
+    out["certificado"] = out["investigacion_certificada"]          # ALIAS antiguo (compatibilidad): significa SOLO exhaustividad de la investigación
+    out["certificado_significa"] = "alias de investigacion_certificada: solo la exhaustividad de la investigación de mercados; NO es una aprobación para apostar (ver preparacion_para_apostar)"
     results = [dict(name=n, lo=lo, hi=hi, max_legs=mx, min_support=ms, buffer=bf) for n, lo, hi, mx, ms, bf in targets]
     if a.champions:
         results += [dict(name=n, lo=lo, hi=hi, max_legs=mx, min_support=ms, buffer=bf, solo_champions=True) for n, lo, hi, mx, ms, bf in CHAMPIONS_TARGETS
@@ -1044,7 +1097,7 @@ def main(argv=None):
     out["usuario"] = common.read_json(up, []) if os.path.exists(up) else []
     stat_pool = [l for l in legs if l.get("calendario_2_fuentes") and l.get("categoria", "men") not in EXCLUDE_TICKET_CATEGORIES]
     out["unpriced"] = unpriced(stat_pool)
-    out["candidatos_estadisticos"] = {"lineas_evaluadas": write_stat_candidates_csv(a.run, stat_pool), "archivo": "candidatos_estadisticos.csv"}
+    out["candidatos_estadisticos"] = {"lineas_evaluadas": write_stat_candidates_csv(a.run, stat_pool, out), "archivo": "candidatos_estadisticos.csv"}
     with open(os.path.join(a.run, "manual_odds_plantilla.csv"), "w", encoding="utf-8", newline="") as fh_:
         import csv as _csv
         w_ = _csv.writer(fh_)
@@ -1053,6 +1106,13 @@ def main(argv=None):
             h_, a_ = u["partido"].split(" – ")
             w_.writerow([h_, a_, u["seleccion"], "", u["mercado"], u["apoyo_conservador"], u["cuota_equilibrio_minima"]])
     out["top_picks"] = top_picks(eligible)
+    _tks = [tk for t in out["targets"] for tk in t["tickets"]]
+    for tk in _tks:                                           # preparación para apostar: independiente de la certificación de investigación
+        tk["preparacion_para_apostar"] = market_coverage.ticket_readiness(tk, out["investigacion_certificada"])
+    out["preparacion_para_apostar"] = {"borradores": len(_tks), "aptos": sum(1 for tk in _tks if tk["preparacion_para_apostar"]["estado"] == "APTA"),
+                                       "requisitos_incumplidos": {k: sum(1 for tk in _tks if k in tk["preparacion_para_apostar"]["incumplidos"]) for k in market_coverage.REQUISITOS_APUESTA},
+                                       "modelo_validacion": market_coverage.MODEL_VALIDATION["nivel"],
+                                       "nota": "independiente de investigacion_certificada: exige precio real comunicado en cada pata, cuota ≤ 2.10, datos suficientes, estimador y modelo validado"}
     common.write_json_atomic(os.path.join(a.run, "tickets.json"), out)
     write_snapshots(a.run, out)
     text = render(out)

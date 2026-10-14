@@ -137,8 +137,13 @@ def main(argv=None):
     ap.add_argument("--spec", required=True)
     a = ap.parse_args(argv)
     res = evaluate(a.run, common.read_json(a.spec))
+    for r in (res if isinstance(res, list) else [res]):          # esta ruta NO ejecuta la cobertura de mercados: nunca presenta su salida como exhaustiva ni como apta para apostar
+        r["investigacion_certificada"] = False
+        r["preparacion_para_apostar"] = "NO_EVALUADA"
+        r["cobertura_mercados"] = "no evaluada por esta ruta (market_coverage.py no se ejecuta aquí)"
     common.write_json_atomic(os.path.join(a.run, "user_tickets_eval.json"), res)
-    text = render(res)
+    text = ("> ⚠ NO CERTIFICADO COMO EXHAUSTIVO — evaluación descriptiva de las patas que aportó la persona usuaria; no ejecuta la cobertura de mercados ni evalúa la preparación para apostar.\n\n"
+            + render(res))
     with open(os.path.join(a.run, "user_tickets_eval.md"), "w", encoding="utf-8") as f:
         f.write(text + "\n")
     print(text)

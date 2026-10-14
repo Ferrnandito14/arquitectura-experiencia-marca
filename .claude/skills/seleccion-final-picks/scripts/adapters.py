@@ -273,10 +273,21 @@ def apif_events(client, key, day_from, day_to):
 
 _ODDS_PAIRS = {"resultado.1x2": ("odd_1", "odd_x", "odd_2"), "resultado.doble_oportunidad": ("odd_1x", "odd_12", "odd_x2"),
                "goles.btts": ("bts_yes", "bts_no")}
-for _l in ("0.5", "1.5", "2.5", "3.5", "4.5", "5.5"):
-    _ODDS_PAIRS["goles.over_" + _l.replace(".", "_")] = ("o+" + _l, "u+" + _l)
-for _l in ("-2.5", "-1.5", "-0.5", "+0.5", "+1.5", "+2.5"):          # hándicap asiático de media línea (sin devolución): local con _l, visitante con -_l
-    _ODDS_PAIRS["resultado.handicap" + _l] = ("ah" + _l + "_1", "ah" + _l + "_2")
+def line_tag(x, signed=False):
+    """Formato de línea como en los campos de la API: 2.5 / 1 / 0 ; con signo para hándicaps (+1.5, -1, 0)."""
+    x = float(x)
+    t = f"{abs(x):g}"
+    if signed:
+        return "0" if x == 0 else (("+" if x > 0 else "-") + t)
+    return t
+
+
+for _i in range(1, 12):                                           # totales de goles 0.5, 1, 1.5 … 5.5 (los enteros devuelven la apuesta si el total es exacto)
+    _l = _i / 2
+    _ODDS_PAIRS["goles.over_" + line_tag(_l).replace(".", "_")] = ("o+" + line_tag(_l), "u+" + line_tag(_l))
+for _i in range(-9, 10):                                          # hándicap asiático −4.5 … +4.5 en pasos de 0.5 (enteros incluidos): local con la línea, visitante con la contraria
+    _t = line_tag(_i / 2, signed=True)
+    _ODDS_PAIRS["resultado.handicap" + _t] = ("ah" + _t + "_1", "ah" + _t + "_2")
 
 
 def apif_odds_average(rows, min_books=2):

@@ -118,7 +118,7 @@ def compute(run):
     elif truncated:
         verdict, code = "RANKING PROVISIONAL RESTRINGIDO — " + trunc_note, 4
     else:
-        verdict, code = "COBERTURA DE NIVEL 1 COMPLETA — ranking definitivo permitido, sujeto al Nivel 2", 0
+        verdict, code = "COBERTURA DE NIVEL 1 COMPLETA — Nivel 1 permite avanzar, sujeto al Nivel 2; NO certifica la investigación de mercados (market_coverage.py) ni autoriza apostar", 0
     return {
         "raw_by_source": inv["meta"]["raw_counts"], "raw_duplicates_within_source": len(inv.get("raw_duplicates", [])),
         "unique_matches": len(ms), "calendar_status": dict(cal),

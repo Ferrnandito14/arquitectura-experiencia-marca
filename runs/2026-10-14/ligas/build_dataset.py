@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 """Catálogo de patas por partido a partir de las capturas de la persona usuaria (cuotas REALES de su casa, solo patas ≤ 2.10) + modelo pata por pata + mercado + rotación.
 Salida: runs/2026-10-14/ligas/dataset.json. p_central = 0.8·p_mercado(sin margen, su casa) + 0.2·p_modelo (el backtest muestra que el mercado predice mejor); brecha = modelo − mercado."""
-import json, os, sys
-sys.path.insert(0, ".claude/skills/seleccion-final-picks/scripts")
-import leg_model as L, rotation_risk as R, tickets as T  # noqa: E402
+import argparse, json, os, sys
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", ".claude", "skills", "seleccion-final-picks", "scripts"))
+import leg_model as L, market_coverage as MC, rotation_risk as R, tickets as T  # noqa: E402
 
-MAX_ODDS, W_MODEL = 2.10, 0.2
-RUN = "runs/2026-10-14"
+MAX_ODDS, W_MODEL = MC.MAX_LEG_ODDS, 0.2
+_ap = argparse.ArgumentParser(description=__doc__)
+_ap.add_argument("--run", default="runs/2026-10-14", help="carpeta del run (inventory.json, matrix.json, rotation.json y ligas/partidos_usuario.json + ligas/ids.json)")
+RUN = _ap.parse_args().run
 P = json.load(open(f"{RUN}/ligas/partidos_usuario.json"))["partidos"]
 ids = json.load(open(f"{RUN}/ligas/ids.json"))
 mx = json.load(open(f"{RUN}/matrix.json"))["matches"]
@@ -61,5 +63,12 @@ for lg, h, a, hora, o1x2, line, ou in P:
     out.append({"liga": lg, "match_id": mid, "apif_match_id": (m.get("source_match_ids") or {}).get("apifootball"), "partido": f"{h} – {a}", "hora_caracas": hora, "cuotas_1x2": o1x2, "linea_goles": line, "cuotas_ou": ou, "competicion_api": m["competition"],
                 "lambda": None if not mp else [mp["lambda_local"], mp["lambda_visit"]], "rotacion": lv, "rot_motivos": {k: (r.get(k) or {}).get("motivos") for k in ("home", "away")},
                 "n_muestra": [len(form.get("local", [])), len(form.get("visitante", []))], "historial": v.get("history_kind"), "freq_linea": freq_for(v, fkey, "total>"), "patas": legs})
-json.dump(out, open(f"{RUN}/ligas/dataset.json", "w"), ensure_ascii=False, indent=1)
-print(len(out), "partidos;", sum(len(x["patas"]) for x in out), "patas ≤", MAX_ODDS)
+with open(f"{RUN}/ligas/dataset.json", "w", encoding="utf-8") as fh:
+    json.dump(out, fh, ensure_ascii=False, indent=1)
+# Los tres controles de cobertura se EJECUTAN aquí, sobre los partidos autorizados del catálogo, y su resultado viaja con el dataset (lo exige build_xlsx.py).
+cov = MC.run_coverage(RUN, [x["match_id"] for x in out], out_dir=f"{RUN}/ligas", capture=(f"{RUN}/ligas/partidos_usuario.json", f"{RUN}/ligas/ids.json"))
+with open(f"{RUN}/ligas/dataset_meta.json", "w", encoding="utf-8") as fh:
+    json.dump({"partidos_ids": [x["match_id"] for x in out], "investigacion_certificada": cov["investigacion_certificada"], "certificado_investigacion": cov["investigacion_certificada"],
+               "preparacion_para_apostar": cov["preparacion_para_apostar"]["estado"], "aviso": cov["aviso"], "investigacion": cov["investigacion"]["estado"],
+               "analitica": cov["analitica"]["estado"], "precios": cov["precios"]["estado"]}, fh, ensure_ascii=False, indent=1)
+print(len(out), "partidos;", sum(len(x["patas"]) for x in out), "patas ≤", MAX_ODDS, "|", cov["aviso"])
