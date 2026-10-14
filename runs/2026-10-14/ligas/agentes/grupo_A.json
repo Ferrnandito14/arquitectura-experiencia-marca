@@ -1,0 +1,698 @@
+{
+ "Norwich – Southampton": {
+  "resumen": "Championship, 14:45 Caracas (19:45 UK). Norwich 19o (9 pts, 3V-0E-6D, GF17-GC19, 0 porterias a cero en 10 partidos) vs Southampton 13o (13 pts en tabla API con 5V-2E-2D: parece haber deduccion o dato desfasado, no verificado; GF20-GC10). Es un partido abierto por parte de Norwich (4,1 goles/partido en sus ultimos 10: 41 goles; 9/10 con 3+ goles) pero Southampton fuera ha marcado solo 4 goles en 4 partidos de liga (0/4 con 4+ goles). Under 3.5 (unica pata): totales de 4+ goles en 5/10 Norwich y 5/10 Southampton (ult.10 todas las comp.; liga 4/9 y 4/9); H2H ultimos 5: 4/5 con 3 o menos goles (el 4-4 es de 2023). Modelo Poisson (p=.38) usa lambda visitante 2.84, muy por encima del rendimiento real de Southampton fuera: no lo tomaria como evidencia. Lectura: moneda al aire inclinada a Under por el contexto visitante, con cola de riesgo por la defensa de Norwich. Fuentes: apifootball (get_events por equipo, get_H2H, get_standings; consultado 14-oct-2026 ~02:00 UTC; Consultada y util; marcadores de partidos con penales corregidos con ft_score). Previas de prensa solo via WebSearch (paginas no abiertas: WebFetch fallo por DNS => Acceso parcial).",
+  "patas": {
+   "Menos de 3.5": {
+    "solidez": "MEDIA",
+    "escenario_perdida": "Partido de 4+ goles: Norwich concede 2,3/partido (todas comp.) y no ha dejado la porteria a cero en 10 (todas las comp.), ha jugado 5/10 partidos con 4+ goles y en casa 2/4 (4-1 Burnley, 3-4 Bolton); Southampton marca en 10/10 y sus rivales anotan en 9/10 (BTTS 9/10). Una apertura temprana o expulsion (Southampton ya sufrio una roja el 11-oct; Bragg sancionado) abre el partido: resultados tipo 3-1, 2-2 o 3-2 pierden la pata. Sin Toure (hombro, hasta enero) Norwich pierde un delantero, lo que reduce algo su techo goleador, pero no su fragilidad defensiva."
+   }
+  },
+  "mercados_extra": [
+   {
+    "mercado": "Goles totales",
+    "linea": "Mas de 1.5",
+    "frecuencia": "Norwich 9/10, Southampton 9/10 (ult.10 todas comp.); Championship (muestra cache) 54/70; H2H 4/5",
+    "solidez": "ALTA",
+    "nota": "Solo falla con 0-0, 1-0 o 0-1. Sin cuota en la casa: informativo."
+   },
+   {
+    "mercado": "Goles totales",
+    "linea": "Mas de 2.5",
+    "frecuencia": "Norwich 9/10, Southampton 7/10 (liga: 8/9 y 6/9); Championship 45/70; H2H 2/5",
+    "solidez": "MEDIA",
+    "nota": "Norwich supera 2.5 en casi todo; Southampton fuera 2/4 en liga. Sin cuota (la casa solo ofrece 3.5)."
+   },
+   {
+    "mercado": "Goles totales",
+    "linea": "Mas de 3.5",
+    "frecuencia": "Norwich 5/10, Southampton 5/10 (liga 4/9 y 4/9); Norwich local liga 2/4, Southampton visitante liga 0/4; Championship 25/70",
+    "solidez": "BAJA",
+    "nota": "Es la cara contraria de la pata Menos de 3.5 de la casa (cuota 2.22)."
+   },
+   {
+    "mercado": "Goles totales",
+    "linea": "Mas de 4.5",
+    "frecuencia": "Norwich 4/10, Southampton 3/10; Championship 11/70",
+    "solidez": "BAJA",
+    "nota": "Cola alta solo por la defensa de Norwich (7 goles en 2 partidos ante Boro y Bolton)."
+   },
+   {
+    "mercado": "BTTS",
+    "linea": "Si",
+    "frecuencia": "Norwich 7/10, Southampton 9/10 (liga 7/9 y 8/9); Norwich local liga 4/4, Southampton visitante liga 4/4; Championship 46/70",
+    "solidez": "MEDIA",
+    "nota": "Southampton ha marcado en los 10 ultimos; Norwich se quedo en blanco 3/10 (0-3, 0-1, 0-5, todos fuera/copa). Local n=4: muestra corta. Si BTTS=Si, Under 3.5 se vuelve mas exigente (necesita 1-1, 2-1, 1-2)."
+   },
+   {
+    "mercado": "1X2 / Doble oportunidad",
+    "linea": "X2 (Southampton o empate) / 1X",
+    "frecuencia": "Southampton no pierde 7/10 (fuera liga 2/4 no pierde); Norwich no pierde 4/10 (local liga 2/4)",
+    "solidez": "MEDIA",
+    "nota": "Mercado favorece a Norwich (2.45) pese a 6 derrotas en 10; Southampton gano sus 5 en casa pero 0 de 4 fuera. Forma ajustada: partido parejo; no hay ventaja clara. Bajas: Norwich Toure (hasta enero), Mahovo, McLean, Topic, Ahmed, Diallo; Southampton sin Bragg (sancion)."
+   },
+   {
+    "mercado": "Córners totales",
+    "linea": "Mas de 9.5",
+    "frecuencia": "Norwich 3/10, Southampton 4/10 (ult.10); Championship muestra 43/70",
+    "solidez": "BAJA",
+    "nota": "Ambos juegan por debajo de la media de la categoria (10.6/partido en muestra cache): Norwich media 8.3, Southampton 9.1 de totales. Sin cuota."
+   },
+   {
+    "mercado": "Córners totales",
+    "linea": "Menos de 10.5",
+    "frecuencia": "Norwich 7/10, Southampton 7/10; Championship muestra 35/70 superan 10.5",
+    "solidez": "MEDIA",
+    "nota": "Fuente unica (apifootball statistics). Sin cuota."
+   },
+   {
+    "mercado": "Tarjetas (A=1,R=2)",
+    "linea": "Mas de 4.5 puntos",
+    "frecuencia": "Norwich 4/10, Southampton 5/10 (puntos totales del partido); Championship 29/67",
+    "solidez": "BAJA",
+    "nota": "Southampton tuvo tres partidos de 9-10 puntos totales en sus ultimos 10 (incluida una roja el 11-oct). Arbitro no designado aun. Sin cuota."
+   }
+  ],
+  "arbitro": "No designado en las fuentes consultadas (apifootball match_referee vacio; busqueda web sin resultado a 14-oct). Estado: no confirmado.",
+  "alineaciones_bajas": "Previas del 13-14 oct (WebSearch, snippets de Sports Mole/SportsGambler/Compare.bet; no abiertas): Norwich sin Mohamed Toure (hombro, hasta enero), Lucien Mahovo, Kenny McLean, Mirko Topic, Ali Ahmed, Papa Diallo; Southampton sin Bragg (un partido de sancion tras roja el 11-oct). Alineaciones: no publicadas (apifootball lineups vacio). Estado: una sola fuente / no oficial."
+ },
+ "Portsmouth – Sheffield Utd": {
+  "resumen": "Championship, 14:45 Caracas. Portsmouth 20o (8 pts en 8 partidos, GF9-GC11, 3 partidos sin marcar) vs Sheffield Utd 15o (12 pts en 9, GF12-GC11). Linea 2.5 al 50/50 en cuotas (1.90/1.92). Over 2.5: Portsmouth 4/8 en liga (local 2/4), Sheffield 6/9 (fuera 3/4) = 10/17 liga; Championship muestra 45/70. Under 2.5: 7/17 liga. Ninguna de las dos patas tiene ventaja: la mezcla de un ataque local pobre (1,1 g/partido) con un visitante que concede (5 en 4 fuera) deja el total esperado en torno a 2.5. Portsmouth domina los corners (7,8 a favor de media en casa, n=4) pero marca poco; Sheffield viene de ganar 3-0 a Lincoln y Portsmouth de perder 0-1 en Southampton pese a jugar contra 10 (roja a Bragg, segun prensa). H2H ultimos 4: tres victorias del Sheffield y un empate; 2/4 con 3+ goles. Fuentes: apifootball (get_events por equipo, get_H2H, get_standings; consultado 14-oct-2026 ~02:00 UTC; Consultada y util; marcadores de partidos con penales corregidos con ft_score). Previas de prensa solo via WebSearch (paginas no abiertas: WebFetch fallo por DNS => Acceso parcial).",
+  "patas": {
+   "Más de 2.5": {
+    "solidez": "BAJA",
+    "escenario_perdida": "Partido cerrado de 2 goles o menos (1-0, 1-1, 0-2): Portsmouth no marca en 3/8 de liga y 4/10 en total, solo 9 goles en 8; Sheffield tiene 2 porterias a cero en 10 (todas comp.; 3 en 9 de liga). Portsmouth jugo 4 de 8 partidos de liga con 2 o menos goles y su ultimo partido (0-1 en Southampton) fue Under. Si Portsmouth no recupera ataque (Josh Murphy, Ogilvie fuera) el Over depende solo de Sheffield."
+   },
+   "Menos de 2.5": {
+    "solidez": "BAJA",
+    "escenario_perdida": "Partido de 3+ goles: los partidos de Sheffield acaban con 3+ goles totales en 7/10 (liga 6/9) y fuera concede 1,25 y marca 1,25 por partido; Portsmouth local 2/4 con 3+ goles totales (1-3 QPR, 2-2 Blackburn). Un gol temprano de cualquiera rompe el guion defensivo. El mercado lo da 50/50 y la muestra (Sheffield 6/9 Over) no favorece al Under."
+   }
+  },
+  "mercados_extra": [
+   {
+    "mercado": "Goles totales",
+    "linea": "Mas de 1.5",
+    "frecuencia": "Portsmouth liga 6/8, Sheffield liga 6/9; H2H 3/4; Championship 54/70",
+    "solidez": "MEDIA",
+    "nota": "Falla con 0-0, 1-0, 0-1. Portsmouth: 0-0 en Charlton y 0-1 en Southampton recientes."
+   },
+   {
+    "mercado": "Goles totales",
+    "linea": "Mas de 3.5",
+    "frecuencia": "Portsmouth liga 3/8 (local 2/4), Sheffield liga 3/9 (fuera 1/4); Championship 25/70",
+    "solidez": "BAJA",
+    "nota": "Informativo; cuota no ofrecida."
+   },
+   {
+    "mercado": "BTTS",
+    "linea": "Si",
+    "frecuencia": "Portsmouth liga 4/8 (local 2/4), Sheffield liga 5/9 (fuera 3/4); H2H 1/4; Championship 46/70",
+    "solidez": "BAJA",
+    "nota": "Portsmouth FTS 3/8 en liga; Sheffield porteria a cero 3/9. Moneda al aire."
+   },
+   {
+    "mercado": "1X2 / Doble oportunidad",
+    "linea": "X2 (Sheffield o empate)",
+    "frecuencia": "Sheffield no pierde 6/9 liga (fuera 3/4); Portsmouth local no pierde 2/4 (1V-1E-2D); H2H: Sheffield no perdio ninguno de los ultimos 4",
+    "solidez": "MEDIA",
+    "nota": "El mercado pone favorito al local (2.16) pese a ser 20o y no ganar en casa mas que 1 de 4. Bajas Portsmouth: Ogilvie, Josh Murphy, Shaughnessy; Sheffield: Seriki, Kalvin Phillips dudoso (fuentes discrepan)."
+   },
+   {
+    "mercado": "Hándicap asiatico",
+    "linea": "Sheffield +0.5 (= X2)",
+    "frecuencia": "ver X2",
+    "solidez": "MEDIA",
+    "nota": "Equivale a doble oportunidad."
+   },
+   {
+    "mercado": "Córners totales",
+    "linea": "Mas de 8.5",
+    "frecuencia": "Portsmouth liga 7/8, Sheffield liga 8/9; Championship muestra 51/70",
+    "solidez": "ALTA",
+    "nota": "Portsmouth 6,6 a favor/4,9 en contra de media (n=8); Sheffield 2,8 a favor/6,9 en contra (n=9). Total esperado alto aunque el desequilibrio sea de un solo lado. Sin cuota."
+   },
+   {
+    "mercado": "Córners totales",
+    "linea": "Mas de 10.5",
+    "frecuencia": "Portsmouth liga 6/8 (local 3/4), Sheffield liga 2/9; Championship 35/70",
+    "solidez": "BAJA",
+    "nota": "Depende casi solo de Portsmouth; Sheffield ofrece pocos corners propios."
+   },
+   {
+    "mercado": "Tarjetas (A=1,R=2)",
+    "linea": "Menos de 4.5 puntos",
+    "frecuencia": "Portsmouth liga 7/8 (media 3,9), Sheffield liga 6/9; Championship 38/67 por debajo de 4.5",
+    "solidez": "MEDIA",
+    "nota": "Portsmouth media 3,9 puntos por partido de liga, con un partido de 10 (0-1 en Southampton, con roja a Bragg). Arbitro no designado."
+   }
+  ],
+  "arbitro": "No designado en las fuentes consultadas (match_referee vacio en apifootball, no encontrado en busqueda web a 14-oct). No se puede dar frecuencia de arbitro.",
+  "alineaciones_bajas": "Previas del 13-14 oct (WebSearch: Sports Mole, SportsGambler, WhoScored, portsmouth.co.uk; no abiertas): Portsmouth sin Connor Ogilvie, Josh Murphy y Conor Shaughnessy; Sheffield sin Femi Seriki, Kalvin Phillips dudoso (WhoScored lo da dudoso, otras fuentes viaja con el equipo). Once no publicado. Estado: una sola linea de fuentes / no oficial."
+ },
+ "QPR – Derby": {
+  "resumen": "Championship, 14:45 Caracas (apif 812217). QPR 8o (14 pts, 3V-5E-1D, GF11-GC8) vs Derby 23o (6 pts, 1V-3E-5D, GF8-GC15). QPR lleva 6 empates en sus ultimos 10 (marcadores a 90 min: 3V-6E-1D; el 1-3 de la Copa de Liga fue 1-1 + penales) y solo 1V-2E-1D en casa; no ha ganado a Preston (24o, 2-2) ni Bolton (0-0) en casa. Derby recibe 1,7 goles por partido y viene muy mermado atras (Cashin, Clarke, Taylor, Agyemang fuera; Johnston golpeado; Chair dudoso en QPR). Hay dos lecturas: 'QPR no pierde' (9/10) frente a 'QPR gana' (3/10 y 1/4 local). La a priori de rotacion 'copa/Europa <=4 dias' no aplica: el siguiente partido de ambos (17-oct) es de liga (QPR en Birmingham, Derby vs Stoke); el descanso es de 5 dias (QPR, jugo el 9) y 4 (Derby, 10-oct). Modelo (p=.43 para QPR) ignora que Derby es 23o; mercado 57%: mi lectura queda en medio. Fuentes: apifootball (get_events por equipo, get_H2H, get_standings; consultado 14-oct-2026 ~02:00 UTC; Consultada y util; marcadores de partidos con penales corregidos con ft_score). Previas de prensa solo via WebSearch (paginas no abiertas: WebFetch fallo por DNS => Acceso parcial).",
+  "patas": {
+   "Gana QPR": {
+    "solidez": "BAJA",
+    "escenario_perdida": "Empate (4.00): QPR empata 6 de sus ultimos 10 (0-0 Bolton y 2-2 Preston en casa, 1-1 Millwall en copa, 0-0 Charlton, 1-1 West Brom y West Ham fuera). Tambien un 0-1 como el de Boro en casa (FTS 3/10 de QPR): su ataque (1,2 g/partido) no garantiza gol. Derby solo gano 1 de 10 pero empato 3 y solo marco 0 en 3/10; QPR convierte ventajas minimas en 1-0, no en holgura. Si Chair (dudoso) no juega, pierde su unico creador."
+   },
+   "Más de 2.5": {
+    "solidez": "BAJA",
+    "escenario_perdida": "Partido de 2 goles o menos: QPR 4/10 con 3+ goles totales (liga 4/9; local 2/4), Derby 6/10 (liga 5/9; fuera 2/4); H2H 2/4. Si QPR gana 1-0 o empatan 1-1 la pata falla. El mejor argumento a favor es la fragilidad defensiva de Derby (GC15 en 9) frente a un QPR que domina corners (8,5 a favor en casa); en contra, QPR concede poco (0,9/partido)."
+   },
+   "Menos de 2.5": {
+    "solidez": "BAJA",
+    "escenario_perdida": "Partido de 3+ goles: Derby concede 17 en 10 y QPR tiene 4 partidos de 3+ goles totales en 10 (el H2H de abril termino 2-3 en Loftus Road). Una apertura temprana de Derby (gano 2-0 en Portsmouth) o una ventaja de QPR que obligue a Derby a abrirse rompe el guion. La rotacion a priori ('rebajar') es debil: no hay copa de por medio."
+   }
+  },
+  "mercados_extra": [
+   {
+    "mercado": "Goles totales",
+    "linea": "Mas de 1.5",
+    "frecuencia": "QPR liga 6/9, Derby liga 8/9; ult.10 todas comp. QPR 7/10, Derby 9/10; H2H 3/4; Championship 54/70",
+    "solidez": "MEDIA",
+    "nota": "Falla con 0-0 o 1-0/0-1; QPR tiene 2 empates 0-0 y un 0-1 en 9."
+   },
+   {
+    "mercado": "Goles totales",
+    "linea": "Mas de 3.5",
+    "frecuencia": "QPR 2/10, Derby 1/10; Championship 25/70; H2H 1/4",
+    "solidez": "BAJA",
+    "nota": "Ninguno supera 3 goles con regularidad."
+   },
+   {
+    "mercado": "BTTS",
+    "linea": "Si",
+    "frecuencia": "QPR liga 6/9, Derby liga 5/9; QPR local 2/4, Derby visitante 2/4; H2H 1/4",
+    "solidez": "BAJA",
+    "nota": "FTS: QPR 3/10, Derby 3/10. Cuota no ofrecida."
+   },
+   {
+    "mercado": "1X2 / Doble oportunidad",
+    "linea": "1X (QPR gana o empata)",
+    "frecuencia": "QPR no pierde 9/10 (liga 8/9; local liga 3/4); Derby pierde 6/10",
+    "solidez": "ALTA",
+    "nota": "Es la lectura mas solida del partido: QPR cayo solo 0-1 ante Middlesbrough (2o) en 90 min. Sin cuota de la casa."
+   },
+   {
+    "mercado": "Hándicap",
+    "linea": "QPR -1 (gana por 2+)",
+    "frecuencia": "QPR gana por 2+ 1/10 (3-1 en Portsmouth); Derby pierde por 2+ 2/10 (0-3 Swansea, 0-3 West Ham)",
+    "solidez": "BAJA",
+    "nota": "QPR solo gano por dos goles una vez en la muestra: cuidado con atribuirle comodidad."
+   },
+   {
+    "mercado": "Córners totales",
+    "linea": "Mas de 8.5",
+    "frecuencia": "QPR liga 5/9, Derby liga 9/9; QPR local 3/4, Derby visitante 4/4; Championship muestra 51/70",
+    "solidez": "MEDIA",
+    "nota": "Derby juega partidos de muchos corners (media 11,7 de totales en liga, n=9); QPR local 8.5 a favor (n=4). Sin cuota."
+   },
+   {
+    "mercado": "Córners totales",
+    "linea": "Mas de 10.5",
+    "frecuencia": "QPR liga 4/9, Derby liga 6/9; QPR local 3/4, Derby visitante 2/4",
+    "solidez": "BAJA",
+    "nota": "Dispersion alta (5 a 16). Sin cuota."
+   },
+   {
+    "mercado": "Tarjetas (A=1,R=2)",
+    "linea": "Mas de 4.5 puntos",
+    "frecuencia": "QPR liga 4/9, Derby liga 5/9; Championship 29/67",
+    "solidez": "BAJA",
+    "nota": "Arbitro no designado. QPR–Preston sumo 7 puntos y West Ham–QPR 6."
+   }
+  ],
+  "arbitro": "No designado (apifootball match_referee vacio; sin resultado en busqueda a 14-oct). Estado: no confirmado.",
+  "alineaciones_bajas": "Previas 13-14 oct (WebSearch: Sports Mole, The Hard Tackle, SportsGambler, Statz; no abiertas): QPR con Ilias Chair dudoso (muscular), Karamoko Dembele baja; probable 4-2-3-1/4-3-3 con Kone arriba. Derby: Max Johnston (golpe), Eiran Cashin y Matt Clarke (gemelos), Charlie Taylor (isquios), Patrick Agyemang (aquiles) fuera; Carlton Morris de 9. Once no publicado. Estado: una sola linea de fuentes / no oficial. Descanso: QPR jugo el 9-oct (5 dias), Derby el 10-oct (4 dias)."
+ },
+ "Lincoln – West Ham": {
+  "resumen": "Championship, 15:00 Caracas. West Ham 5o (16 pts en 9, GF23 = mejor ataque, GC12; liga V4-E4-D1) visita a Lincoln 17o (11 pts, GF7 = peor ataque del grupo, GC11, 4 porterias a cero en 9). West Ham ha marcado en 10/10 (27 goles en 10 partidos todas comp.), pero 4 empates de 9 en liga (fuera 1V-3E-0D): el riesgo de 'Gana West Ham' es el empate (4.33) mas que la derrota (no pierde 8 de 10). Lincoln en casa: 0V-2E-2D, GF3-GC6, y viene de 0-3 en Sheffield Utd. Over 2.5: West Ham 8/10 (fuera liga 3/4) y Lincoln 5/10 (local 2/4); el Over viene casi todo de West Ham. Bajas: Lincoln sin Darikwa (cruzado), Melia (muslo) y Hamer dudoso; West Ham con Soucek y Kante de vuelta, solo Lamadrid fuera. El modelo (p=.66) y el mercado (.57) apuntan al mismo lado; la cuota 1.68 es la mas 'justa' del bloque. Fuentes: apifootball (get_events por equipo, get_H2H, get_standings; consultado 14-oct-2026 ~02:00 UTC; Consultada y util; marcadores de partidos con penales corregidos con ft_score). Previas de prensa solo via WebSearch (paginas no abiertas: WebFetch fallo por DNS => Acceso parcial).",
+  "patas": {
+   "Gana West Ham": {
+    "solidez": "MEDIA",
+    "escenario_perdida": "Empate (4.33) o derrota: West Ham empato 3 de sus 4 visitas de liga (entre ellas 1-1 en Watford y 2-2 en Millwall; ademas 1-1 en casa con QPR el 9-oct) y encaja casi en cada partido (GC en 8/10). Lincoln empata 2 de 4 en casa (0-0 Blackburn, 1-1 Southampton) y mantiene la porteria a cero en 4/9; un 0-0/1-1 con Lincoln defendiendo bajo y West Ham sin acierto (xG no disponible) basta. Si Veltman es baja y hay rotacion en la linea defensiva, aumentan las concesiones."
+   },
+   "Más de 2.5": {
+    "solidez": "MEDIA",
+    "escenario_perdida": "Partido de 2 goles o menos: ocurre en 2/10 de West Ham (todas comp.) y 5/10 de Lincoln; Lincoln marca 0,8 g/partido y 4/9 porterias a cero. Escenarios: 1-0 West Ham (Lincoln gano 3 partidos por 1-0: Bolton, Preston, Bristol City), 1-1, 0-0. Si West Ham marca pronto y gestiona, el total se queda en 2. El 6-0 a Wrexham y 4-2 a Wolves pesan en la media de West Ham pero no son representativos de visitas ante defensas bajas."
+   }
+  },
+  "mercados_extra": [
+   {
+    "mercado": "Goles totales",
+    "linea": "Mas de 1.5",
+    "frecuencia": "West Ham 10/10 (liga 9/9); Lincoln 6/10 (liga 5/9); Championship 54/70",
+    "solidez": "ALTA",
+    "nota": "West Ham no ha jugado un solo partido de menos de 2 goles. Sin cuota."
+   },
+   {
+    "mercado": "Goles totales",
+    "linea": "Mas de 3.5",
+    "frecuencia": "West Ham 6/10 (liga 5/9, fuera liga 3/4), Lincoln 3/10 (liga 1/9, local 1/4); Championship 25/70",
+    "solidez": "BAJA",
+    "nota": "Todo depende de West Ham; Lincoln aporta pocos goles."
+   },
+   {
+    "mercado": "BTTS",
+    "linea": "Si",
+    "frecuencia": "West Ham 8/10 (liga 7/9; fuera liga 4/4), Lincoln 4/10 (liga 4/9; local 3/4)",
+    "solidez": "MEDIA",
+    "nota": "Lincoln no marca en 3/10; West Ham concede en 8/10. Los 4 partidos de West Ham fuera en liga fueron BTTS."
+   },
+   {
+    "mercado": "1X2 / Doble oportunidad",
+    "linea": "X2 (West Ham o empate)",
+    "frecuencia": "West Ham no pierde 8/10 (liga 8/9; fuera liga 4/4); Lincoln local nunca ha ganado (0/4)",
+    "solidez": "ALTA",
+    "nota": "Perdio solo con Charlton (1-2 en casa) y Fulham en Copa de Liga (2-3). Sin cuota ofrecida."
+   },
+   {
+    "mercado": "Hándicap",
+    "linea": "West Ham -1 (gana por 2+)",
+    "frecuencia": "West Ham 4/10 (todas comp.), 0/4 fuera en liga; Lincoln pierde por 2+ 3/10 (3-0 Sheffield, 0-4 Bournemouth copa)",
+    "solidez": "BAJA",
+    "nota": "Su ataque es de 2,7 g/partido pero fuera solo gana por la minima o empata."
+   },
+   {
+    "mercado": "Córners totales",
+    "linea": "Mas de 9.5",
+    "frecuencia": "West Ham liga 6/9, Lincoln liga 7/9; West Ham fuera 3/4, Lincoln local 3/4; Championship muestra 43/70",
+    "solidez": "MEDIA",
+    "nota": "Lincoln concede 7,4 corners/partido (n=9) y West Ham gana 6,3: encaje alto. Hay dispersion (3 a 19). Sin cuota."
+   },
+   {
+    "mercado": "Tarjetas (A=1,R=2)",
+    "linea": "Mas de 4.5 puntos",
+    "frecuencia": "Lincoln liga 3/9, West Ham liga 4/9; Championship 29/67",
+    "solidez": "BAJA",
+    "nota": "Lincoln tuvo 3 partidos de 7 puntos (Blackburn, Bristol City, Sheffield Utd), media 4,4. Arbitro no designado."
+   }
+  ],
+  "arbitro": "No designado (apifootball match_referee vacio; la busqueda web solo devolvio un partido de Copa de 2023 con otro arbitro, no aplicable).",
+  "alineaciones_bajas": "Previas 12-13 oct (WebSearch: Sports Mole, The Hard Tackle, Read West Ham, SportsGambler, Statz; no abiertas): Lincoln sin Tendayi Darikwa (ligamento cruzado) ni Mason Melia (muslo), Tom Hamer dudoso; probable 3-4-2-1 (Wickens; Elerewe, Bradley, Towler...). West Ham: Soucek apto, Kante cumplio sancion, solo Keiber Lamadrid baja confirmada, Veltman en duda segun una previa; probable 4-4-2 con Castellanos y Piroe. Once no publicado. Estado: una sola linea de fuentes / no oficial."
+ },
+ "Fluminense – Palmeiras": {
+  "resumen": "Libertadores, semifinal de IDA (vuelta el 21-oct en el campo de Palmeiras), Maracana, 20:30 Caracas. Cuotas 2.80/3.10/2.60: igualadas. Fluminense local: 3V-1E-0D en Libertadores en casa (GF7-GC2), 6V-3E-1D en 10 de casa (todas comp.), pero sin Cano y John Kennedy (delanteros) y con fuentes discrepantes sobre Alisson/Matheus Reis/Riquelmi. Palmeiras: 5V-4E-1D en 90 min en sus ultimos 10 (7 porterias a cero) pero fuera 3V-4E-3D, con Vitor Roque baja, Jefte baja, Sosa en duda y Abel Ferreira SANCIONADO (dirige el auxiliar Joao Martins). Over 1.5: Fluminense en casa 7/10, Palmeiras fuera 6/10, Libertadores de ambos 7/8 y 5/8; ultimos 8 H2H 4/8 (3/5 los 5 mas recientes). Es una ida de semifinal con dos equipos que pierden a sus delanteros: la probabilidad de 0-0/1-0 es real (3 de los ultimos 10 partidos de Palmeiras acabaron 0-0). Rotacion a priori 'medio' (4 dias de descanso; Flu rota ~5,3 jugadores por partido) menos relevante en semifinal: Thiago Silva, Hulk y Guga volvian tras descansar vs Flamengo. Fuentes: apifootball (get_events por equipo, get_H2H, get_standings; consultado 14-oct-2026 ~02:00 UTC; Consultada y util; marcadores de partidos con penales corregidos con ft_score). Previas de prensa solo via WebSearch (paginas no abiertas: WebFetch fallo por DNS => Acceso parcial).",
+  "patas": {
+   "Más de 1.5": {
+    "solidez": "MEDIA",
+    "escenario_perdida": "0-0 o 1-0/0-1 en una ida muy cauta: Palmeiras ha acabado 3 de sus ultimos 10 sin marcar y 7/10 con porteria a cero (bloque bajo y sin Roque, su fuente de gol), Fluminense tiene 6 porterias a cero en sus ultimos 10 de local y le faltan Cano y Kennedy. Con el entrenador palmeirense sancionado y la vuelta en 7 dias, ambos pueden priorizar no perder la ida. En Libertadores eliminatorias de la muestra cache (n=8) el 1.5 solo se superó 5/8 y la media fue 2,0 goles."
+   }
+  },
+  "mercados_extra": [
+   {
+    "mercado": "Goles totales",
+    "linea": "Mas de 2.5",
+    "frecuencia": "Flu 6/10 (casa 4/10), Palmeiras 3/10 (fuera 5/10); Libertadores Flu 3/8, Pal 2/8; H2H 4/8",
+    "solidez": "BAJA",
+    "nota": "Sin cuota de la casa. Muestra de ambos es mixta."
+   },
+   {
+    "mercado": "Goles totales",
+    "linea": "Menos de 2.5",
+    "frecuencia": "Flu 4/10, Pal 7/10; H2H 4/8; eliminatorias Libertadores (cache) 6/8",
+    "solidez": "MEDIA",
+    "nota": "Es la cara contraria de la linea 2.5; el 1X2 igualado y la cautela de la ida favorecen pocos goles. Sin cuota en esa linea."
+   },
+   {
+    "mercado": "BTTS",
+    "linea": "Si",
+    "frecuencia": "Flu 6/10, Palmeiras 3/10 (fuera 5/10); Libertadores Flu 5/8, Pal 4/8; H2H 4/8",
+    "solidez": "BAJA",
+    "nota": "Palmeiras tiene 7 porterias a cero en 10; Fluminense 3."
+   },
+   {
+    "mercado": "1X2 / Doble oportunidad",
+    "linea": "Empate (3.10)",
+    "frecuencia": "Palmeiras 4 empates en 10 (todos 0-0 o 1-1), Flu 2/10; H2H 1 empate en 8; empates en eliminatorias Libertadores de la cache: no calculado",
+    "solidez": "BAJA",
+    "nota": "Informativo: en una ida igualada el empate es el resultado modal para Palmeiras. 1X Fluminense: no pierde 9/10 en casa (todas comp.); X2 Palmeiras: no pierde 7/10 fuera."
+   },
+   {
+    "mercado": "Hándicap",
+    "linea": "Fluminense +0.5 / Palmeiras +0.5",
+    "frecuencia": "Flu casa liga/copa W6-D3-L1; Palmeiras fuera W3-D4-L3",
+    "solidez": "MEDIA",
+    "nota": "Solo informativo; mercado ya los iguala."
+   },
+   {
+    "mercado": "Córners totales",
+    "linea": "Mas de 9.5",
+    "frecuencia": "Flu casa 4/8 (media 9.6), Palmeiras fuera 6/7; Libertadores 2026 (muestra cache) 15/30, eliminatorias 6/8",
+    "solidez": "MEDIA",
+    "nota": "Palmeiras es el equipo con mas corners totales en sus partidos de visita (media 11.3, n=7). Dispersion 5-15. Sin cuota."
+   },
+   {
+    "mercado": "Tarjetas (A=1,R=2)",
+    "linea": "Mas de 4.5 puntos",
+    "frecuencia": "Flu ult.10 5/10 (Libertadores 5/8), Palmeiras ult.10 7/10 (Libertadores 3/8); Libertadores 2026 (cache) 14/29; arbitro Tello: 4,4,2,4 puntos en 4 partidos cache (n muy pequeno)",
+    "solidez": "MEDIA",
+    "nota": "Los partidos de Palmeiras suman 6,3 puntos totales de media (fuera 6,0). Abel Ferreira ya fue expulsado en cuartos (LDU); la tension de semifinal aumenta el riesgo. A=1, R=2; arbitro de Libertadores asignado: Facundo Tello (Argentina)."
+   }
+  ],
+  "arbitro": "Facundo Raul Tello Figueroa (Argentina), segun apifootball match_referee (14-oct). Estado: designacion de la API, una sola fuente. En la cache aparece en 4 partidos 2026 (Liga Profesional x2 [4 y 4 puntos], Libertadores Cerro-Palmeiras [4 puntos], Sudamericana Atletico-MG–Santos [2 puntos]): media 3,5 puntos de tarjeta, n=4, no extrapolable entre ligas.",
+  "alineaciones_bajas": "Previas 13-14 oct (WebSearch: Gazeta Esportiva, Metropoles, boca.com.br, OneFootball; paginas no abiertas): Fluminense sin German Cano y John Kennedy (lesion); una fuente anade Alisson, Matheus Reis y Riquelmi (discrepancia entre fuentes); Rene vuelve de torcedura, Thiago Silva, Guga, Hulk y Hercules regresan tras descansar vs Flamengo. Palmeiras sin Vitor Roque (esguince de tobillo vs Corinthians) y Jefte (rodilla/doping); Ramon Sosa dudoso; Abel Ferreira sancionado tras su expulsion contra LDU, dirige el auxiliar Joao Martins. Once no publicado. Estado: una sola linea de fuentes / no oficial."
+ },
+ "Atlético-MG – Torque": {
+  "resumen": "Sudamericana, semifinal de IDA (vuelta el 21-oct en el Centenario, Montevideo), Arena MRV, 18:00 Caracas. Atletico-MG local: 6V-2E-0D en sus ultimos 8 en casa (todas comp., 90 min), GF17-GC9, marca en 8/8 y encaja en 7/8. Torque (Montevideo City Torque): visitante 5V-0E-3D en 8 (GF12-GC8) y en Sudamericana fuera 1V-1E-2D (perdio 0-2 en Cienciano). Cuota 1.33: p_mercado .704; el modelo (.49) subestima la diferencia de nivel. Hay una nota importante sobre rotacion: la a priori marca 'alto/veto' por 3 dias de descanso (jugo el 11-oct) y 4,7 cambios de media. La previa de prensa (13-oct) da un once casi completo para la ida (Cuello vuelve de sancion, Vitao, Lodi y Bernard regresan; sin tarjetas acumuladas por reinicio de la Conmebol), aunque faltan Everson (portero), Tressoldi, Scarpa, Cassierra y Fred. No encontre prueba de rotacion masiva en una semifinal, pero la a priori queda como riesgo. Riesgos: 1X2 (empate: Atletico-MG empato 2 de 8 en casa; Torque con contragolpe) y portero suplente (Gabriel Delfim). Goles: Over 2.5 en casa de Atletico 6/8; Torque fuera 3/8. Fuentes: apifootball (get_events por equipo, get_H2H, get_standings; consultado 14-oct-2026 ~02:00 UTC; Consultada y util; marcadores de partidos con penales corregidos con ft_score). Previas de prensa solo via WebSearch (paginas no abiertas: WebFetch fallo por DNS => Acceso parcial).",
+  "patas": {
+   "Gana Atlético-MG": {
+    "solidez": "MEDIA",
+    "escenario_perdida": "Empate o derrota en la ida: Atletico-MG empato 2 de sus 8 ultimos en casa (2-2 Bragantino en Sudamericana, 1-1 Chapecoense) y encaja en 7/8; Torque como visitante gana 5 de 8 (4-1 en Central Espanol, 3-1 en Juventud) y sin ser un equipo goleador fuera en competicion continental (4 GF-6 GC en 4). Con Everson, Scarpa, Tressoldi, Cassierra y Fred fuera, un once mas defensivo o un error del portero suplente permite 1-1 o 0-1. Si el entrenador gestiona la ida pensando en la vuelta en el Centenario, se queda en 1-0/1-1."
+   },
+   "Más de 2.5": {
+    "solidez": "MEDIA",
+    "escenario_perdida": "Partido de 2 goles o menos (1-0, 1-1, 2-0): Atletico-MG tiene 2/8 en casa con 2 goles totales o menos (1-0 Bragantino, 1-1 Chapecoense) y Torque 5/10 con 2.5 o menos; eliminatorias de Sudamericana (muestra cache, n=16) Over 2.5 solo 6/16 y media de 2,25 goles. Si Atletico se adelanta y baja ritmo por la vuelta o juega con rotacion alta (la a priori), el total queda corto."
+   },
+   "Menos de 2.5": {
+    "solidez": "BAJA",
+    "escenario_perdida": "3 o mas goles: Atletico-MG en casa 6/8 con 3+ goles totales (2-2 Bragantino, 2-1 Vitoria, 2-1 Cruzeiro, 3-1 Fluminense, 4-2 Santos, 2-1 Santos), BTTS 7/8; esta defensa ha concedido 9 goles en 8. Si Torque marca un gol de contra, el partido se abre. La a priori 'veto' de rotacion es un riesgo extra: con un once cambiado el Under no gana solidez, la pierde."
+   }
+  },
+  "mercados_extra": [
+   {
+    "mercado": "Goles totales",
+    "linea": "Mas de 1.5",
+    "frecuencia": "Atletico-MG casa 7/8, Torque fuera 5/8 (ult.10: 9/10 y 9/10); Sudamericana eliminatorias (cache) 11/16",
+    "solidez": "ALTA",
+    "nota": "Solo falla con 1-0, 0-1 o 0-0. Sin cuota."
+   },
+   {
+    "mercado": "Goles totales",
+    "linea": "Mas de 3.5",
+    "frecuencia": "Atletico-MG casa 3/8, Torque fuera 3/8; ult.10 Atletico 3/10, Torque 3/10; Sudamericana eliminatorias 3/16",
+    "solidez": "BAJA",
+    "nota": "Sin cuota."
+   },
+   {
+    "mercado": "BTTS",
+    "linea": "Si",
+    "frecuencia": "Atletico-MG casa 7/8 (ult.10: 7/10), Torque fuera 3/8 (ult.10: 5/10); Sudamericana eliminatorias 5/16",
+    "solidez": "MEDIA",
+    "nota": "Atletico concede casi siempre en casa; Torque puede no marcar (FTS 3/10)."
+   },
+   {
+    "mercado": "1X2 / Doble oportunidad",
+    "linea": "1X (Atletico-MG gana o empata)",
+    "frecuencia": "Atletico-MG no pierde 8/8 en casa en los ultimos 8 y 10/10 en los ultimos 10 de local (7V-3E)",
+    "solidez": "ALTA",
+    "nota": "Cuota ofrecida solo a 1X2; dato informativo. Torque como visitante pierde 3/8 (incluye 0-2 en Nacional y 0-2 Cienciano)."
+   },
+   {
+    "mercado": "Hándicap",
+    "linea": "Atletico-MG -1 (gana por 2+)",
+    "frecuencia": "Atletico-MG en casa gana por 2+ 2/8 (4-2 Santos, 3-1 Flu); Torque pierde por 2+ fuera 2/8",
+    "solidez": "BAJA",
+    "nota": "Muchos 2-1 y 1-0 en casa; evita sobreestimar la diferencia de nivel."
+   },
+   {
+    "mercado": "Córners totales",
+    "linea": "Mas de 8.5",
+    "frecuencia": "Atletico-MG casa 7/8 (media 11,6 totales; 6,6 a favor), Torque fuera 7/8; Sudamericana eliminatorias (cache) 8/16",
+    "solidez": "MEDIA",
+    "nota": "Atletico domina corners en casa (6,6 vs 5,0 en contra). Sin cuota. Fuente unica."
+   },
+   {
+    "mercado": "Tarjetas (A=1,R=2)",
+    "linea": "Mas de 4.5 puntos",
+    "frecuencia": "Atletico-MG ult.10 2/10 (en casa 2/8), Torque ult.10 7/10 (fuera 4/8); Sudamericana eliminatorias (cache) 4/13; arbitro Betancur: 8 partidos cache (7 liga colombiana + 1 Sudamericana): 6, 13, 3, 5, 9, 3, 3, 5 puntos",
+    "solidez": "BAJA",
+    "nota": "Torque acumula muchas tarjetas en partidos de Primera uruguaya (media 6,6 puntos totales por partido en sus ultimos 10; los ceros son partidos de Copa sin tarjetas registradas) mientras que los partidos de Atletico en casa suman pocas. Betancur en la cache: mezcla de ligas, n pequeño."
+   }
+  ],
+  "arbitro": "Carlos Betancur (Colombia) segun apifootball (14-oct). Estado: designacion de la API, una sola fuente. En la cache: 8 partidos 2026 (7 de Primera A colombiana y 1 de Sudamericana, fase de grupos), puntos de tarjeta 6, 13, 3, 5, 9, 3, 3, 5 (media 5,9): solo 1 de 8 en la competicion; no extrapolable.",
+  "alineaciones_bajas": "Previas del 13-oct (WebSearch: O Tempo, Band, Exame, noataque, Gazeta Esportiva; paginas no abiertas): Atletico-MG sin Everson, Ruan Tressoldi, Gustavo Scarpa, Mateo Cassierra; Fred (isquios) casi seguro fuera; regresan Vitao, Renan Lodi, Bernard; Cuello vuelve de sancion; sin sancionados por amarillas (reinicio Conmebol tras cuartos). Probable: Gabriel Delfim; Natanael/Alan Franco, Lyanco, Vitao, Lodi; Castano, Maycon, Victor Hugo, Bernard; Cuello, Reinier. Torque: sin bajas nuevas segun prensa; 'solo gano 1 de los ultimos 5' (la API da 2 victorias en los ultimos 5, discrepancia menor). Once oficial no publicado. Estado: una sola linea de fuentes / no oficial."
+ },
+ "Sarmiento – River Plate": {
+  "resumen": "Liga Profesional (Clausura, partido aplazado de la fecha 11), Eva Peron, Junin, 18:00 Caracas. Sarmiento 4o de su zona (19 pts en 11; en casa 5 partidos: 3V-1E-1D, GF9-GC5) vs River 9o (16 pts en 11; fuera 4: 2V-0E-2D, GF5-GC5). River tiene entrenador interino (Leonardo Ponzio, tras la salida de Coudet) y viene de ganar 1-0 a Estudiantes (RC) hace 3 dias (descanso corto); la prensa da un once casi titular (Montiel, Quarta, Otamendi, Acuna, Vera, Almada, Correa, Driussi). Sarmiento ha marcado en 11/11 partidos de Clausura (1,8 g/partido) y concede 1,5: 7/11 con 3+ goles. Eso contradice el Under: Sarmiento 4/11 Under 2.5, River 6/11. Pero el H2H ultimos 5 son todos de 2 o menos goles. El modelo (River .37) y la cuota (.55) estan lejos: la evidencia de forma (River 5V-1E-5D en liga, perdio sus 4 primeros partidos sin marcar) no respalda un favorito de 1.71 con claridad. Fuentes: apifootball (get_events por equipo, get_H2H, get_standings; consultado 14-oct-2026 ~02:00 UTC; Consultada y util; marcadores de partidos con penales corregidos con ft_score). Previas de prensa solo via WebSearch (paginas no abiertas: WebFetch fallo por DNS => Acceso parcial).",
+  "patas": {
+   "Gana River Plate": {
+    "solidez": "BAJA",
+    "escenario_perdida": "Empate (3.25) o victoria local: River solo ganó 2 de 4 fuera (Banfield 3-2, Tucuman 2-1; perdió 0-1 en Tigre) y fuera solo marco en 2 de 4; Sarmiento gana 3 de 5 en casa y ya le gano 1-0 en el Monumental en octubre de 2025. Con 3 dias de descanso, tecnico interino y ritmo (Sarmiento marca siempre), River puede quedarse en 1-1 o 1-2. Rotacion a priori 'rebajar' por descanso corto, aunque el once previsto es el titular."
+   },
+   "Menos de 2.5": {
+    "solidez": "BAJA",
+    "escenario_perdida": "3 o mas goles: Sarmiento marcó en 11/11 y superó 2.5 en 7/11 partidos de Clausura (fuera 1-4 Union, 1-3 Racing, 2-3 Banfield); River 5/11 y, cuando ganó fuera, lo hizo por 3-2 y 2-1. Si Sarmiento abre con un gol, River (Correa, Driussi, Almada) responde. El H2H de 5/5 con 2 o menos goles es de equipos con otra plantilla; en la Argentina el Clausura muestra 12/22 Over 2.5 (muestra de conveniencia)."
+   }
+  },
+  "mercados_extra": [
+   {
+    "mercado": "Goles totales",
+    "linea": "Mas de 1.5",
+    "frecuencia": "Sarmiento Clausura 11/11, River Clausura 7/11 (ult.10 todas comp. 7/10); H2H 3/5; Liga Argentina Clausura (muestra) 17/22",
+    "solidez": "MEDIA",
+    "nota": "River juega 1-0 con frecuencia (5 de 11 Clausura con 1 gol o menos); Sarmiento no falla."
+   },
+   {
+    "mercado": "Goles totales",
+    "linea": "Mas de 2.5",
+    "frecuencia": "Sarmiento 7/11 (casa 2/5), River 5/11 (fuera 2/4); H2H 0/5; Liga Argentina muestra 12/22",
+    "solidez": "BAJA",
+    "nota": "La casa ofrece Over 2.5 a 2.25 (informativo)."
+   },
+   {
+    "mercado": "BTTS",
+    "linea": "Si",
+    "frecuencia": "Sarmiento ult.10 7/10, River 6/10; Sarmiento casa 3/5, River fuera 2/4; H2H 1/5",
+    "solidez": "MEDIA",
+    "nota": "Sarmiento marca siempre: la clave es si River marca (FTS 2-3/10)."
+   },
+   {
+    "mercado": "1X2 / Doble oportunidad",
+    "linea": "1X Sarmiento (gana o empata)",
+    "frecuencia": "Sarmiento casa no pierde 4/5 (Clausura), River fuera no gana 2/4; H2H: Sarmiento no perdio 2 de 5",
+    "solidez": "MEDIA",
+    "nota": "Cuota de Sarmiento 5.75. Informativo. 'Sarmiento +1 de hándicap' tendria solidez parecida."
+   },
+   {
+    "mercado": "Hándicap",
+    "linea": "River -1 (gana por 2+)",
+    "frecuencia": "River gana por 2+ 2/11 en Clausura (2-0 Argentinos, 3-1 Ind. Rivadavia), fuera 0/4",
+    "solidez": "BAJA",
+    "nota": "Informativo."
+   },
+   {
+    "mercado": "Córners totales",
+    "linea": "Mas de 8.5",
+    "frecuencia": "Sarmiento ult.10 6/10, River ult.10 1/10 (dato sospechoso: totales de 2-8 en 9 de 10); Liga Argentina muestra 10/22",
+    "solidez": "BAJA",
+    "nota": "Los totales de River (4, 2, 5...) parecen incompletos en apifootball; fuente unica, no usar como evidencia firme."
+   },
+   {
+    "mercado": "Tarjetas (A=1,R=2)",
+    "linea": "Mas de 4.5 puntos",
+    "frecuencia": "Sarmiento ult.10 5/10, River 4/10; Liga Argentina Clausura (muestra) 11/22; arbitro Zunino: 2 partidos cache (9 y 5 puntos)",
+    "solidez": "BAJA",
+    "nota": "Arbitro con discrepancia entre fuentes (Zunino vs Dovalo). n pequeno."
+   }
+  ],
+  "arbitro": "Sebastian Zunino (designacion publicada el 12-oct segun medios locales/Sarmiento: asistentes Navarro y Castelli, 4o Gimenez, VAR Carreras). Discrepancia: Noticias Argentinas (13-oct) cita a Pablo Dovalo. Estado: Discrepante. En la cache Zunino figura en 2 partidos 2026 de Liga Profesional (9 puntos en Sarmiento–Tigre, 5 puntos en River–San Lorenzo): n=2, no usar como frecuencia.",
+  "alineaciones_bajas": "Previas 13-14 oct (WebSearch: La Pagina Millonaria, Infobae, Noticias Argentinas; paginas no abiertas): River (DT interino Leonardo Ponzio): Beltran; Montiel, Martinez Quarta, Otamendi, Acuna; Vera; Andrada, Galvan; Almada; Correa, Driussi. Sarmiento: Ayala; Salle, Orihuela, Insaurralde, L. Suarez; Contrera, Zabala, E. Gimenez, Mavilla; Renteria, Marabel. No se encontro un parte de bajas confirmado para este partido. Once oficial no publicado. Estado: una sola linea de fuentes / no oficial. River jugo el 11-oct (3 dias), Sarmiento el 9-oct (5 dias)."
+ },
+ "Santarém – Gil Vicente": {
+  "resumen": "Taça de Portugal, 3a eliminatoria (1/32 segun apifootball), Campo Cha das Padeiras, Santarem, 14:00 Caracas (19:00 Portugal). UD Santarem (Liga 3, tercer nivel) vs Gil Vicente (Primeira Liga, 3V-2E-2D en 7 de liga, GF6-GC5, 4 porterias a cero). Gil Vicente marca poco: nunca supero 2 goles en sus ultimos 10 (incluye amistosos). Santarem local (Liga 3): 1V-1E-1D, GF4-GC2; ha perdido 0-5 (Belenenses), 0-2 y 0-1 fuera/casa en 3 de 6 partidos de Liga 3. Hay a priori: Gil Vicente 'bajo' pero la prensa (A Bola) anuncia novedades en el once, con el portero Samuel Portugal debutando; en 90 minutos no se sabe cuantas. Mismatch real de categoria, aunque la cuota 1.41 (devigada 64%) no es de goleada. Under 2.5 tiene la mejor evidencia de partido (Gil Vicente 6/7 Under en liga). No hay datos de tarjetas de Liga 3 ni de arbitro verificables. Fuentes: apifootball (get_events por equipo, get_H2H, get_standings; consultado 14-oct-2026 ~02:00 UTC; Consultada y util; marcadores de partidos con penales corregidos con ft_score). Previas de prensa solo via WebSearch (paginas no abiertas: WebFetch fallo por DNS => Acceso parcial).",
+  "patas": {
+   "Gana Gil Vicente": {
+    "solidez": "MEDIA",
+    "escenario_perdida": "Empate a 90 minutos (4.00) con paso a prorroga/penales, o sorpresa de copa: Gil Vicente empata 2 y pierde 2 de sus 7 de liga, marca 0,86 g/partido y solo gano 3; los novedades en el once (Samuel Portugal, mas cambios de lo previsto) reducen su ritmo. Santarem en casa (Liga 3) solo perdio 0-1 y empato 1-1 en 3 partidos. Campo pequeno y rival motivado: un 0-0/1-1 es el escenario modal de perdida."
+   },
+   "Más de 2.5": {
+    "solidez": "BAJA",
+    "escenario_perdida": "Partido de 2 goles o menos: Gil Vicente 1/7 de liga Over 2.5 (2/10 con amistosos), Santarem 3/6 en Liga 3. Para el Over necesita que Santarem anote (3/6 de sus partidos de Liga 3) o que Gil Vicente haga 3 por primera vez en la muestra. Un 1-0 o 2-0 de Gil Vicente, lo habitual, lo pierde."
+   },
+   "Menos de 2.5": {
+    "solidez": "MEDIA",
+    "escenario_perdida": "3 o mas goles: Santarem concede en 5/6 de Liga 3 y encajo 5 en Belenenses; si Gil Vicente golea (3-0, 3-1) por la diferencia de nivel o Santarem marca de contra, falla. Gil Vicente no pasó de 2 goles en 10 partidos, y su Under en liga es 6/7, lo que sostiene la pata, pero el mismatch aumenta la varianza (rotacion a priori 'rebajar')."
+   }
+  },
+  "mercados_extra": [
+   {
+    "mercado": "Goles totales",
+    "linea": "Mas de 1.5",
+    "frecuencia": "Gil Vicente liga 3/7 (ult.10 con amistosos 5/10), Santarem Liga 3 5/6; Taça de Portugal 26/27 (muestra cache, 3 partidos) 2/3",
+    "solidez": "MEDIA",
+    "nota": "3 de los 7 partidos de liga de Gil Vicente acabaron 1-0 o 0-1. Sin cuota."
+   },
+   {
+    "mercado": "Goles totales",
+    "linea": "Mas de 3.5",
+    "frecuencia": "Gil Vicente 0/7 (liga), Santarem 1/6 (Liga 3: solo el 0-5)",
+    "solidez": "BAJA",
+    "nota": "Gil Vicente no pasa de 2 goles en 10."
+   },
+   {
+    "mercado": "BTTS",
+    "linea": "Si",
+    "frecuencia": "Gil Vicente liga 2/7, Santarem Liga 3 2/6 (local 1/3)",
+    "solidez": "BAJA",
+    "nota": "Gil Vicente 4 porterias a cero en 7; Santarem FTS 3/6."
+   },
+   {
+    "mercado": "1X2 / Doble oportunidad",
+    "linea": "X2 (Gil Vicente o empate)",
+    "frecuencia": "Gil Vicente no pierde 5/7 en liga (fuera 2/3); Santarem local no pierde 2/3",
+    "solidez": "ALTA",
+    "nota": "Si se cuenta el 90 min, la unica cara que importa es el empate. Sin cuota."
+   },
+   {
+    "mercado": "Hándicap",
+    "linea": "Gil Vicente -1 (gana por 2+)",
+    "frecuencia": "Gil Vicente gano por 2+ 1/7 en liga (2-0 Casa Pia); Santarem pierde por 2+ 2/6 en Liga 3 (0-2, 0-5)",
+    "solidez": "BAJA",
+    "nota": "Cuota no ofrecida; pese a la categoria, Gil Vicente rara vez golea."
+   },
+   {
+    "mercado": "Córners totales",
+    "linea": "Mas de 8.5",
+    "frecuencia": "Santarem Liga 3 (n=6) 5/6, Gil Vicente liga (n=7) 2/7 (media 7,6)",
+    "solidez": "BAJA",
+    "nota": "Datos de Liga 3 de una sola fuente; Gil Vicente genera pocos corners (4,1 a favor). Sin cuota."
+   },
+   {
+    "mercado": "Tarjetas (A=1,R=2)",
+    "linea": "Mas de 4.5 puntos",
+    "frecuencia": "Gil Vicente liga 4/7; Santarem datos de Liga 3 incompletos (n=6, 0 puntos en varios partidos); arbitro C. Pereira: 1 partido en cache (Porto–Tondela, 10 puntos)",
+    "solidez": "BAJA",
+    "nota": "No verificable: la API no registra tarjetas fiables en Liga 3/Taça. Arbitro Claudio Pereira segun radio local, una sola fuente."
+   }
+  ],
+  "arbitro": "Claudio Pereira (segun Radio Barcelos via busqueda web, 14-oct; no confirmado en federacion). Estado: una sola fuente. En la cache solo 1 partido 2026 con 'C. Pereira' (Porto–Tondela, 10 puntos de tarjeta): no se puede dar frecuencia de arbitro.",
+  "alineaciones_bajas": "Gil Vicente: A Bola (12-oct) anuncia al portero Samuel Portugal en la Taça 'finalmente' y mas novedades en el once de Luis Pinto (rotacion posible). Santarem: sin informacion verificable. No se encontraron bajas confirmadas. Once no publicado. Estado: una sola fuente / no oficial. Gil Vicente juega el 19-oct en Braga."
+ },
+ "Boston River – River Plate-URU": {
+  "resumen": "Copa Uruguay (octavos, a partido unico probable: no verificado el formato), 14:30 Caracas. Boston River (Primera, Clausura; 4V-2E-4D en 10 todas comp. y 4V-4E-2D en 10 de local) vs River Plate de Montevideo (Segunda Division; 3V-3E-4D, GF15-GC12; en la Copa Uruguay empato 0-0 con Albion, perdio 2-3 con Nacional y gano 2-0 en Progreso). H2H: Boston River gano 5 de los ultimos 8 (el ultimo 2-0 en sept-2025, cuando River aun estaba en Primera). Cuota Boston 1.78 (devigada 51%): sin ventaja clara en forma; empata mucho en casa (4/10) y ha perdido 3 de sus ultimos 5 como local/visitante en Primera. Goles: ambos 5/10 en Over 2.5; Boston local 4/10, River fuera 4/10 (6/10 y 6/10 Under); Copa Uruguay (muestra cache n=14) 6/14 Over 2.5, media 2,64. Datos de tarjetas no registrados en Copa Uruguay ni Segunda: no verificable. Fuentes: apifootball (get_events por equipo, get_H2H, get_standings; consultado 14-oct-2026 ~02:00 UTC; Consultada y util; marcadores de partidos con penales corregidos con ft_score). Previas de prensa solo via WebSearch (paginas no abiertas: WebFetch fallo por DNS => Acceso parcial).",
+  "patas": {
+   "Gana Boston River": {
+    "solidez": "BAJA",
+    "escenario_perdida": "Empate a 90 minutos (3.40, penales en la copa) o victoria del equipo de Segunda: Boston empata 4 de 10 en casa, solo gana 4, perdio 1-2 con Progreso y 0-1 con Liverpool en casa/visita recientes; River Plate empato 0-0 a Albion (Primera) en la Copa y gano a Progreso a domicilio. Boston FTS 4/10 en casa; un partido cerrado 0-0/1-1 es el escenario modal. Rotacion a priori 'bajo'."
+   },
+   "Más de 2.5": {
+    "solidez": "BAJA",
+    "escenario_perdida": "2 goles o menos: Boston 6/10 de local con 2 o menos (4 porterias a cero), River Plate 6/10 fuera Under, Copa Uruguay (cache) 8/14 Under y H2H 4/8 Under. Una victoria de Boston por 1-0 o 2-0 o un 0-0 lo pierde."
+   },
+   "Menos de 2.5": {
+    "solidez": "MEDIA",
+    "escenario_perdida": "3 o mas goles: ambos equipos tienen 5/10 con 3+ en sus ultimos 10 (Boston 3-2 a Fenix en Copa, 2-3 Racing; River Plate 2-3 con Nacional, 3-1 Oriental); River Plate de Segunda concede 1,2 y Boston 1,2. Un gol temprano que obligue a abrirse, o un partido de prorroga no cuenta (90 min). La muestra de 10 se mezcla con partidos de Segunda para River: calidad de rival desigual."
+   }
+  },
+  "mercados_extra": [
+   {
+    "mercado": "Goles totales",
+    "linea": "Mas de 1.5",
+    "frecuencia": "Boston ult.10 7/10 (local 6/10), River ult.10 7/10 (fuera 7/10); H2H 6/8; Copa Uruguay (muestra) 10/14",
+    "solidez": "MEDIA",
+    "nota": "Sin cuota."
+   },
+   {
+    "mercado": "Goles totales",
+    "linea": "Mas de 3.5",
+    "frecuencia": "Boston 3/10 (local 3/10), River 4/10; H2H 1/8; Copa Uruguay 4/14",
+    "solidez": "BAJA",
+    "nota": "Sin cuota."
+   },
+   {
+    "mercado": "BTTS",
+    "linea": "Si",
+    "frecuencia": "Boston ult.10 6/10 (local 5/10), River 5/10 (fuera 6/10); H2H 4/8",
+    "solidez": "BAJA",
+    "nota": "FTS: Boston 2/10, River 3/10."
+   },
+   {
+    "mercado": "1X2 / Doble oportunidad",
+    "linea": "1X Boston River",
+    "frecuencia": "Boston no pierde en casa 8/10 (4V-4E-2D); H2H Boston no perdio 6 de los ultimos 8",
+    "solidez": "MEDIA",
+    "nota": "Cuota ofrecida solo al 1X2. River Plate fuera: no pierde 6/10 en total."
+   },
+   {
+    "mercado": "Hándicap",
+    "linea": "Boston -1 (gana por 2+)",
+    "frecuencia": "H2H: Boston gano por 2+ 3/8 (2-0, 2-0, 3-1)",
+    "solidez": "BAJA",
+    "nota": "Informativo."
+   },
+   {
+    "mercado": "Córners totales",
+    "linea": "Mas de 8.5",
+    "frecuencia": "Boston 5/10, River 6/10; Copa Uruguay (muestra) 7/14",
+    "solidez": "BAJA",
+    "nota": "Fuente unica (apifootball). Sin cuota."
+   },
+   {
+    "mercado": "Tarjetas (A=1,R=2)",
+    "linea": "Cualquiera",
+    "frecuencia": "Boston ult.10: 7/10 con 3.5+ puntos (3 de esos 10 son de Copa sin tarjetas registradas); River Plate (Segunda/Copa Uruguay) 0 puntos registrados en 8/10 partidos",
+    "solidez": "BAJA",
+    "nota": "No verificable: apifootball no registra tarjetas en Copa Uruguay ni en Segunda; no hay arbitro designado."
+   }
+  ],
+  "arbitro": "No designado (apifootball match_referee vacio; sin resultado en busqueda web). Estado: no confirmado. Sin datos de tarjetas en Copa Uruguay (K=0 en 10 de 10 partidos de la copa de la cache).",
+  "alineaciones_bajas": "No se encontraron noticias de bajas ni once para este partido (apifootball lineups vacio; WebSearch sin resultados de 2026 para estos clubes). Estado: no investigado con exito / no verificable. Boston jugo el 10-oct (4 dias), River el 10-oct (4 dias)."
+ },
+ "Maldonado – Albion": {
+  "resumen": "Copa Uruguay (octavos), Estadio Domingo Burgueno Miguel (Maldonado), 20:00 Caracas (24:00 UTC). Maldonado (Primera) lleva 5V-5E-0D en sus 10 ultimos de local (todas comp. desde enero, GF18-GC5, 6 porterias a cero) y 7V-1E-2D en los 10 totales (GF18-GC6, 5 porterias a cero, 3/10 Over 2.5). Albion (Primera): 3V-2E-5D, GF9-GC13, fuera 2V-2E-6D (GF7-GC12) y 4/10 sin marcar. Peligro del favorito: el H2H es de Albion: 3V-1E en los ultimos 4 (1-2 en Maldonado en abril y 1-1 en julio de 2026), todos con 3 o menos goles. Maldonado empata mucho de local (5/10), por eso 'Gana' es mas fragil que 'No pierde'. Under 2.5 (cuota 1.60): Maldonado 7/10, Albion 5/10; local Maldonado 6/10, Albion fuera 6/10; H2H 3/4; Copa Uruguay (muestra) 8/14. Fuentes: apifootball (get_events por equipo, get_H2H, get_standings; consultado 14-oct-2026 ~02:00 UTC; Consultada y util; marcadores de partidos con penales corregidos con ft_score). Previas de prensa solo via WebSearch (paginas no abiertas: WebFetch fallo por DNS => Acceso parcial).",
+  "patas": {
+   "Gana Maldonado": {
+    "solidez": "BAJA",
+    "escenario_perdida": "Empate (3.14, penales en la copa) o victoria de Albion: Maldonado empata la mitad de sus partidos de local, Albion le gano 2-1 en abril y empataron 1-1 en julio, y 2025 fue 1-0 y 1-0 para Albion. Si Albion defiende con 4/10 sin marcar pero cierra espacios, el partido acaba 0-0/1-1 (Maldonado 5 empates en 10 de local, ultimo 1-1 con Liverpool el 9-oct). Rotacion a priori 'bajo'."
+   },
+   "Menos de 2.5": {
+    "solidez": "MEDIA",
+    "escenario_perdida": "3 o mas goles: ocurre en 3/10 de Maldonado y 5/10 de Albion; Maldonado marco 4 en la Copa (4-1 a Wanderers) y Albion encaja en 8/10 de sus partidos fuera (media 1,2). Un gol temprano de Maldonado que obligue a Albion a abrirse, o un partido de errores defensivos (Albion gano 3-2 a Defensor). H2H 3/4 Under; 2-1 en abril fue 3 goles."
+   }
+  },
+  "mercados_extra": [
+   {
+    "mercado": "Goles totales",
+    "linea": "Mas de 1.5",
+    "frecuencia": "Maldonado ult.10 9/10 (casa 8/10), Albion 5/10 (fuera 5/10); H2H 2/4; Copa Uruguay muestra 10/14",
+    "solidez": "MEDIA",
+    "nota": "Albion 4/10 sin marcar y 3 porterias a cero; el 1-0/0-1 es posible."
+   },
+   {
+    "mercado": "Goles totales",
+    "linea": "Mas de 2.5",
+    "frecuencia": "Maldonado 3/10, Albion 5/10 (fuera 4/10); H2H 1/4; Copa Uruguay 6/14",
+    "solidez": "BAJA",
+    "nota": "La casa ofrece Over 2.5 a 2.20 (45% implicita, 42% sin margen); la frecuencia combinada (8/20 = 40%) queda por debajo."
+   },
+   {
+    "mercado": "BTTS",
+    "linea": "Si",
+    "frecuencia": "Maldonado 3/10 (casa 4/10), Albion 5/10 (fuera 5/10); H2H 2/4",
+    "solidez": "BAJA",
+    "nota": "Maldonado deja la porteria a cero 5/10 y 6/10 en casa."
+   },
+   {
+    "mercado": "1X2 / Doble oportunidad",
+    "linea": "1X Maldonado",
+    "frecuencia": "Maldonado no pierde 8/10 (casa 10/10 sin perder desde enero: 5V-5E); Albion fuera pierde 6/10; H2H: Maldonado perdio 3 y empato 1 de los ultimos 4",
+    "solidez": "ALTA",
+    "nota": "Es la lectura mas estable (Maldonado invicto de local en 10). Sin cuota ofrecida."
+   },
+   {
+    "mercado": "Hándicap",
+    "linea": "Maldonado -1 (gana por 2+)",
+    "frecuencia": "Maldonado gana por 2+ 6/10 (todas comp.), H2H 0/4",
+    "solidez": "BAJA",
+    "nota": "Informativo."
+   },
+   {
+    "mercado": "Córners totales",
+    "linea": "Mas de 8.5",
+    "frecuencia": "Maldonado 4/10, Albion 7/10 (fuera 7/10); Copa Uruguay muestra 7/14",
+    "solidez": "BAJA",
+    "nota": "Los partidos de Maldonado suman pocos corners (media 7,8 de totales); fuente unica."
+   },
+   {
+    "mercado": "Tarjetas (A=1,R=2)",
+    "linea": "Mas de 4.5 puntos",
+    "frecuencia": "Maldonado Primera 6/10, Albion Primera 5/10; Copa Uruguay no registra tarjetas",
+    "solidez": "BAJA",
+    "nota": "Datos solo de partidos de Primera (media Maldonado 4,5; Albion 3,8 pero 5,8 fuera). Arbitro no designado: sin frecuencias."
+   }
+  ],
+  "arbitro": "No designado (apifootball match_referee vacio; sin resultado en busqueda web). Estado: no confirmado.",
+  "alineaciones_bajas": "No se encontraron noticias de bajas ni once (apifootball lineups vacio; WebSearch sin resultados utiles de 2026). Estado: no investigado con exito / no verificable. Descanso: Maldonado jugo el 9-oct (5 dias), Albion el 11-oct (3-4 dias)."
+ }
+}
