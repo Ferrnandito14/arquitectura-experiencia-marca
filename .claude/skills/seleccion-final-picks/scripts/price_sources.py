@@ -15,19 +15,21 @@ import csv
 import hashlib
 import json
 import os
+import re
+import statistics
 from urllib.parse import parse_qs, urlparse
 
 SOURCE_TYPES = ("casa", "usuario", "agregador", "estimacion_modelo")
 
 
-def make_record(match_id, entry_id, odds, source, source_type, bookmaker=None, observed_utc=None, verified=False, n_books=None, note=None):
+def make_record(match_id, entry_id, odds, source, source_type, bookmaker=None, observed_utc=None, verified=False, n_books=None, note=None, min_books=None):
     if source_type not in SOURCE_TYPES:
         raise ValueError(f"source_type inválido: {source_type}")
     odds = float(odds)
     if odds <= 1.0:
         raise ValueError("una cuota decimal debe ser > 1.0")
     return {"match_id": match_id, "entry_id": entry_id, "odds": odds, "source": source, "source_type": source_type, "bookmaker": bookmaker,
-            "observed_utc": observed_utc, "verified": bool(verified), "n_books": n_books, "note": note}
+            "observed_utc": observed_utc, "verified": bool(verified), "n_books": n_books, "note": note, "min_books": min_books}
 
 
 def is_real_price(rec):
@@ -310,3 +312,186 @@ def collect_prices(providers, matches, entries):
         except Exception as exc:                 # un proveedor roto no detiene el catálogo ni los cálculos deportivos
             errors.append({"provider": getattr(prov, "name", str(prov)), "error": f"{type(exc).__name__}: {exc}"})
     return out, errors
+
+
+
+# ── TheStatsAPI: cuotas pre-partido de varias casas (córners, tarjetas, goles por equipo, 1.ª parte, hándicap europeo, remates y también los mercados clásicos) ──
+TSA_VOCABULARY = ("match_odds, double_chance, draw_no_bet, btts, total_goals (con enteros y cuartos), asian_handicap (con enteros y cuartos), handicap_result (europeo), first_half_result, first_half_total_goals, "
+                  "team_total_goals, match_corners, team_corners, total_cards, match_shots, team_shots, match_shots_on_target, team_shots_on_target. Un mercado aparece solo si esa casa lo cotiza. NO publica fueras de juego ni tarjetas por equipo.")
+_TSA_DC = {"1x": "home_draw", "12": "home_away", "x2": "draw_away"}
+
+
+def tsa_lookup(entry):
+    """Entrada del catálogo -> (mercado TSA, lado|None, línea|None, selección) con coincidencia EXACTA de línea y selección; None si la fuente no publica ese mercado."""
+    i = entry["id"]
+    m = re.fullmatch(r"corners\.total\.(over|under)\.([\d.]+)", i)
+    if m:
+        return "match_corners", None, m[2], m[1]
+    m = re.fullmatch(r"corners\.equipo\.(home|away)\.(over|under)\.([\d.]+)", i)
+    if m:
+        return "team_corners", m[1], m[3], m[2]
+    m = re.fullmatch(r"cards_pts\.total\.(over|under)\.([\d.]+)", i)
+    if m:
+        return "total_cards", None, m[2], m[1]
+    m = re.fullmatch(r"goles\.equipo\.(home|away)\.(over|under)\.([\d.]+)", i)
+    if m:
+        return "team_total_goals", m[1], m[3], m[2]
+    m = re.fullmatch(r"goles\.total(?:_entero)?\.(over|under)\.([\d.]+)", i)
+    if m:
+        return "total_goals", None, m[2], m[1]
+    m = re.fullmatch(r"goles\.btts\.(yes|no)", i)
+    if m:
+        return "btts", None, None, m[1]
+    m = re.fullmatch(r"primera_parte\.1x2\.(home|draw|away)", i)
+    if m:
+        return "first_half_result", None, None, m[1]
+    m = re.fullmatch(r"primera_parte\.total\.(over|under)\.([\d.]+)", i)
+    if m:
+        return "first_half_total_goals", None, m[2], m[1]
+    m = re.fullmatch(r"resultado\.1x2\.(home|draw|away)", i)
+    if m:
+        return "match_odds", None, None, m[1]
+    m = re.fullmatch(r"resultado\.dc\.(1x|12|x2)", i)
+    if m:
+        return "double_chance", None, None, _TSA_DC[m[1]]
+    m = re.fullmatch(r"resultado\.dnb\.(home|away)", i)
+    if m:
+        return "draw_no_bet", None, None, m[1]
+    m = re.fullmatch(r"resultado\.ah(?:_entero)?\.(home|away)\.([+-][\d.]+)", i)
+    if m:
+        return "asian_handicap", m[1], m[2], None
+    m = re.fullmatch(r"resultado\.eh\.(home|draw|away)\.([+-]\d+)", i)
+    if m:
+        return "handicap_result", None, m[2], m[1]
+    m = re.fullmatch(r"sot\.total\.(over|under)\.([\d.]+)", i)
+    if m:
+        return "match_shots_on_target", None, m[2], m[1]
+    m = re.fullmatch(r"sot\.equipo\.(home|away)\.(over|under)\.([\d.]+)", i)
+    if m:
+        return "team_shots_on_target", m[1], m[3], m[2]
+    m = re.fullmatch(r"shots\.total\.(over|under)\.([\d.]+)", i)
+    if m:
+        return "match_shots", None, m[2], m[1]
+    m = re.fullmatch(r"shots\.equipo\.(home|away)\.(over|under)\.([\d.]+)", i)
+    if m:
+        return "team_shots", m[1], m[3], m[2]
+    return None
+
+
+def _tsa_leaf(markets, mk, side, line, sel):
+    v = markets.get(mk)
+    if not isinstance(v, dict):
+        return None
+    if mk == "asian_handicap":
+        v = (v.get(side) or {}).get(line)
+    elif mk in ("team_corners", "team_total_goals", "team_shots", "team_shots_on_target"):
+        v = ((v.get(side) or {}).get(line) or {}).get(sel)
+    elif line is not None:
+        v = (v.get(line) or {}).get(sel)
+    else:
+        v = v.get(sel)
+    try:
+        x = float((v or {}).get("last_seen"))
+    except (TypeError, ValueError):
+        return None
+    return x if x > 1.0 else None
+
+
+def _flip(tag):
+    """'+1.5' <-> '-1.5'; '+0.0' <-> '+0.0' (el hándicap del lado contrario)."""
+    f = float(tag)
+    if f == 0:
+        return tag
+    return ("-" if f > 0 else "+") + tag.lstrip("+-")
+
+
+def _tsa_overround(markets, mk, side, line, sel):
+    """Suma de probabilidades implícitas del grupo de resultados mutuamente excluyentes al que pertenece la selección en ESA casa, o None si el grupo no está completo o no es comprobable."""
+    if mk in ("total_goals", "match_corners", "total_cards", "first_half_total_goals", "match_shots", "match_shots_on_target", "team_corners", "team_total_goals", "team_shots", "team_shots_on_target"):
+        other = "under" if sel == "over" else "over"
+        a, b = _tsa_leaf(markets, mk, side, line, sel), _tsa_leaf(markets, mk, side, line, other)
+        return None if not (a and b) else 1 / a + 1 / b
+    if mk in ("btts", "draw_no_bet"):
+        keys = ("yes", "no") if mk == "btts" else ("home", "away")
+        vals = [_tsa_leaf(markets, mk, None, None, k) for k in keys]
+        return None if not all(vals) else sum(1 / v for v in vals)
+    if mk in ("match_odds", "first_half_result"):
+        vals = [_tsa_leaf(markets, mk, None, None, k) for k in ("home", "draw", "away")]
+        return None if not all(vals) else sum(1 / v for v in vals)
+    if mk == "handicap_result":
+        vals = [_tsa_leaf(markets, mk, None, line, k) for k in ("home", "draw", "away")]
+        return None if not all(vals) else sum(1 / v for v in vals)
+    if mk == "asian_handicap":
+        a = _tsa_leaf(markets, mk, side, line, None)
+        b = _tsa_leaf(markets, mk, "away" if side == "home" else "home", _flip(line), None)
+        return None if not (a and b) else 1 / a + 1 / b
+    return None          # double_chance: no hay un grupo de dos o tres salidas comprobable
+
+
+OVERROUND_RANGE = {"2": (0.97, 1.15), "3": (0.97, 1.20)}      # un par/trío de una casa fuera de este rango es un precio roto (p. ej. 1.01/10.5 en hándicap), no una cuota real
+
+
+class TheStatsApiOddsProvider(PriceProvider):
+    """Mediana entre casas del último precio visto (tipo «agregador»: referencia, nunca ejecutable). Lee lo que dejó `tsa_fetch.py` (<run>/thestatsapi). Con una sola casa en la línea el precio se acepta pero lo marca `n_books`."""
+    name = "thestatsapi (agregador)"
+    vocabulary = TSA_VOCABULARY
+
+    def __init__(self, run):
+        self.run, self.map, self.bodies, self.unmatched = run, {}, {}, {}
+        base = os.path.join(run, "thestatsapi")
+        mp = os.path.join(base, "map.json")
+        if os.path.exists(mp):
+            with open(mp, encoding="utf-8") as fh:
+                d = json.load(fh)
+            self.map, self.unmatched = d.get("partidos", {}), d.get("sin_emparejar", {})
+            self.generated = d.get("generado_utc")
+            for mid, e in self.map.items():
+                path = os.path.join(base, "odds", f"{e['tsa_id']}.json")
+                if os.path.exists(path):
+                    with open(path, encoding="utf-8") as fh:
+                        w = json.load(fh)
+                    self.bodies[mid] = {"fetched_utc": w.get("fetched_utc"), "books": (w.get("response") or {}).get("data", {}).get("bookmakers", []), "tsa_id": e["tsa_id"]}
+
+    def covers(self, match):
+        mid = match["match_id"]
+        if mid in self.bodies:
+            return True, None
+        why = (self.unmatched.get(mid) or {}).get("motivo") or ("el partido no tiene cuotas en la fuente" if mid in self.map else "partido no emparejado con la fuente")
+        return False, {"fuente": self.name, "referencia": "thestatsapi/map.json", "detalle": why}
+
+    def supports(self, entry):
+        if tsa_lookup(entry) is None:
+            return False, "la_fuente_no_publica_este_mercado"
+        return True, None
+
+    def consulted(self, match):
+        b = self.bodies.get(match["match_id"])
+        if not b:
+            return False, None
+        return True, {"fuente": "thestatsapi /football/matches/{id}/odds", "referencia": f"thestatsapi/odds/{b['tsa_id']}.json", "consultado_utc": b["fetched_utc"], "casas_en_la_respuesta": len(b["books"])}
+
+    def prices(self, match, entry):
+        b = self.bodies.get(match["match_id"])
+        look = tsa_lookup(entry)
+        if not b or look is None:
+            return []
+        mk, side, line, sel = look
+        got, dropped = [], []
+        for bk in b["books"]:
+            mkts = bk.get("markets") or {}
+            x = _tsa_leaf(mkts, mk, side, line, sel)
+            if not x:
+                continue
+            ov = _tsa_overround(mkts, mk, side, line, sel)
+            if ov is not None:
+                lo, hi = OVERROUND_RANGE["3" if mk in ("match_odds", "first_half_result", "handicap_result") else "2"]
+                if not lo <= ov <= hi:
+                    dropped.append(bk["bookmaker"])
+                    continue
+            got.append((bk["bookmaker"], x))
+        if not got:
+            return []
+        xs = [x for _, x in got]
+        extra = f"; descartado por precios incoherentes de su par/trío: {', '.join(dropped)}" if dropped else ""
+        return [make_record(match["match_id"], entry["id"], statistics.median(xs), self.name, "agregador", bookmaker="mediana", observed_utc=b["fetched_utc"], verified=False, n_books=len(xs), min_books=1,
+                            note=f"mediana de {len(xs)} casa(s) ({', '.join(n for n, _ in got)}), rango {min(xs)}–{max(xs)}{extra}; último precio visto: referencia, no cuota ejecutable")]

@@ -74,6 +74,10 @@ def alerta(l):
         a.append("desacuerdo con el mercado (|brecha| ≥ 15 pp)")
     if l["ev_teorico"] is not None and l["ev_teorico"] >= EV_ALERT:
         a.append("EV alto: probable ruido del modelo (no validado)")
+    if l["cuota"] and l.get("n_casas") == 1:
+        a.append("precio de una sola casa")
+    if l["agentes"] == "precio_nuevo_sin_revisar":
+        a.append("precio nuevo que los agentes no revisaron")
     return "; ".join(a) or None
 
 
@@ -104,10 +108,12 @@ LEYENDA = [
     ("Combinadas", "Aporte de la pata al multiplicador %", "ln(cuota de la pata) / ln(multiplicador total): cuánto del multiplicador viene de esa pata."),
     ("Combinadas", "P gana si fueran independientes / P pierde", "Producto de las p de las patas (0.70 × 0.65 × 0.72 = 33 %) bajo independencia declarada (no validada) / su complemento."),
     ("Combinadas", "Nota de correlación", "Aviso cuando varias patas comparten dirección de goles (overs/unders), liga u horario cercano: el producto de p puede equivocarse."),
-    ("Mercados extra", "sin cuota en fuente", "La fuente de cuotas no publica ese mercado/selección (córners, tarjetas, goles por equipo, 1.ª parte, remates, fueras de juego, hándicap europeo, totales enteros)."),
-    ("Mercados extra", "Cuota fuente / Fuente de la cuota / Hora", "Mediana de casas de apifootball (referencia, no ejecutable) y la hora que reporta la fuente; confírmala en tu casa."),
+    ("Mercados extra", "sin cuota en fuente", "Ninguna fuente (apifootball, TheStatsAPI) cotiza esa línea/selección en ese partido."),
+    ("Mercados extra", "Cuota fuente / Fuente de la cuota / Hora", "Mediana de las casas que cotizan exactamente esa línea (apifootball o thestatsapi: referencia, no ejecutable) y la hora de consulta; confírmala en tu casa."),
     ("Combinadas", "Preparación para apostar", "NO_APTA mientras falte algún requisito (precio real, modelo validado, etc.)."),
     ("Alerta", "", "Aviso automático: desacuerdo con el mercado o EV alto. No cambia la selección, solo advierte."),
+    ("N.º de casas", "", "Cuántas casas cotizan EXACTAMENTE esa línea y selección (la cuota es su mediana). Con 1 casa es el precio de esa casa; confírmalo en la tuya."),
+    ("Agentes", "precio_nuevo_sin_revisar", "Los agentes revisaron la entrada con otro precio (o sin precio); el precio nuevo no fue revisado. Cuenta como sin aprobar."),
     ("Hora Caracas", "", "America/Caracas (UTC−4)."),
 ]
 
@@ -166,18 +172,19 @@ def make_workbook(units, summary, legs, rankings, combos, consolidated, rotation
         [f"Tope por pata: {cr.MAX_LEG_ODDS}. Rankings y combinadas usan solo patas con precio de alguna fuente (los rankings, además, cuota ≥ 1.10), no rechazadas ni degradadas y sin brecha ≥ 15 pp. Combinadas: una pata por partido, topes por dirección/liga/ventana horaria y exposición; P(pérdida) = 1 − producto de las p (independencia declarada)."],
         [f"Cifras: {len(units)} unidades, {len(ids)} partidos, {sum(len(u['entradas']) for u in units)} filas partido × entrada; con estimador propio: {sum(1 for l in legs if l['p_modelo'] is not None)}; con precio de alguna fuente: {sum(1 for l in legs if l['cuota'])}; elegibles para rankings/combinadas: {len(elig)}."],
         ["MULTIPLICADOR de una combinada = producto de las cuotas de sus patas. Ejemplo: patas a 1.50, 1.60 y 1.40 → 1.50 × 1.60 × 1.40 = 3.36 (apostando 100 pagaría 336 si ganan las tres). «Aporte de la pata al multiplicador %» = qué parte del total pone cada pata (en escala logarítmica). «P gana si fueran independientes» = producto de las p del modelo (0.70 × 0.65 × 0.72 = 33 %); si las patas dependen entre sí (misma liga, mismo régimen de goles, horarios cercanos) la probabilidad real puede ser distinta: ver «Nota de correlación»."],
-        ["Mercados extra: córners, tarjetas, goles por equipo, 1.ª parte, remates y fueras de juego NO tienen cuota en la fuente de cuotas (la API de cuotas solo publica 1X2, doble oportunidad, hándicap asiático, goles totales y ambos anotan): dicen «sin cuota en fuente» y se completan con la cuota de tu casa. No se inventan ni interpolan cuotas."],
+        ["Mercados extra: las cuotas vienen de DOS fuentes de referencia (no ejecutables): apifootball (1X2, doble oportunidad, hándicap asiático, goles totales, ambos anotan) y TheStatsAPI (además córners, tarjetas totales, goles por equipo, 1.ª parte, hándicap europeo, totales y hándicaps enteros, remates; mediana de Bet365, Paddy Power, BetMGM UK, Pinnacle y Betfair Exchange). Muchas líneas las cotiza una sola casa: mira «N.º de casas». «sin cuota en fuente» = ninguna fuente cotiza esa línea (fueras de juego, tarjetas por equipo, la mayoría de remates y las líneas que la casa no ofrece en ese partido); no se inventan ni interpolan cuotas. Las dos fuentes no cubren los 2 partidos de la Copa Uruguay con Boston River y Maldonado ni, en TheStatsAPI, el resto de líneas no cotizadas."],
+        ["Tarjetas: la fuente no documenta cómo cuenta las tarjetas; no se asume A=1, R=2. Confirma la regla de tu casa antes de usar esas cuotas."],
         ["Un EV teórico alto (≥ +10 %) con el modelo sin validar suele indicar que el modelo discrepa del mercado, no una ventaja: la columna «Alerta» lo marca. Los «seguros» del ranking de seguridad usan en su mayoría precio de referencia, no ejecutable."],
         ["La hoja «Leyenda» explica cada código y columna. Horas en America/Caracas (UTC−4). Alineaciones no publicadas al generar: ver «Resumen por partido»."]])
 
     sheet("Leyenda", ["Tema", "Valor", "Qué significa"], [list(x) for x in LEYENDA])
-    H = ["Hora Caracas", "Partido", "Mercado", "Selección", "Cuota", "Tipo de precio", "P modelo %", "Cuota mínima justa", "Brecha vs 1/cuota (pp)", "EV teórico %", "Límite 2.10", "Agentes",
+    H = ["Hora Caracas", "Partido", "Mercado", "Selección", "Cuota", "Tipo de precio", "N.º de casas", "P modelo %", "Cuota mínima justa", "Brecha vs 1/cuota (pp)", "EV teórico %", "Límite 2.10", "Agentes",
          "Solidez deportiva", "Cuantitativo", "Verificador", "Auditor", "Rotación local | visitante", "Escenario de pérdida", "Alerta"]
 
     def row(l):
         v = verd[l["leg_id"]]
         rot = rotation.get(l["match_id"]) or {}
-        return [caracas(hora(l)), l["partido"], l["grupo"], l["etiqueta"], l["cuota"], l["precio_tipo"], PC(l["p_modelo"]), l["cuota_minima_justa"], None if l["brecha_vs_precio"] is None else round(l["brecha_vs_precio"] * 100, 1),
+        return [caracas(hora(l)), l["partido"], l["grupo"], l["etiqueta"], l["cuota"], l["precio_tipo"], l.get("n_casas"), PC(l["p_modelo"]), l["cuota_minima_justa"], None if l["brecha_vs_precio"] is None else round(l["brecha_vs_precio"] * 100, 1),
                 PC(l["ev_teorico"]) if l["ev_teorico"] is not None else None, l["limite_2_10"], l["agentes"], v["deportivo"], v["cuantitativo"], v["verificador"], v["auditor"],
                 f"{(rot.get('home') or {}).get('nivel', 's/d')} | {(rot.get('away') or {}).get('nivel', 's/d')}", v["escenario"], alerta(l)]
 
@@ -229,9 +236,9 @@ def make_workbook(units, summary, legs, rankings, combos, consolidated, rotation
         for l in priced + unpriced:
             v = verd[l["leg_id"]]
             ex.append([caracas(hora(l)), l["partido"], g, l["etiqueta"], l["cuota"] if l["cuota"] else SIN, l["fuente_precio"] if l["cuota"] else None, l["observado_utc"] if l["cuota"] else None,
-                       (l["precio_tipo"] or "") if l["cuota"] else SIN, PC(l["p_modelo"]), None if l["brecha_vs_precio"] is None else round(l["brecha_vs_precio"] * 100, 1), PC(l["ev_teorico"]) if l["ev_teorico"] is not None else None,
+                       (l["precio_tipo"] or "") if l["cuota"] else SIN, l.get("n_casas") if l["cuota"] else None, PC(l["p_modelo"]), None if l["brecha_vs_precio"] is None else round(l["brecha_vs_precio"] * 100, 1), PC(l["ev_teorico"]) if l["ev_teorico"] is not None else None,
                        "elegible" if not l["motivos_exclusion"] else "; ".join(l["motivos_exclusion"]), None, v["deportivo"], v["cuantitativo"], v["auditor"], alerta(l)])
-    sheet("Mercados extra", ["Hora Caracas", "Partido", "Mercado", "Selección", "Cuota fuente", "Fuente de la cuota", "Hora de la cuota (según la fuente)", "Tipo de precio", "P modelo %", "Brecha vs 1/cuota (pp)", "EV teórico %",
+    sheet("Mercados extra", ["Hora Caracas", "Partido", "Mercado", "Selección", "Cuota fuente", "Fuente de la cuota", "Hora de la cuota (según la fuente)", "Tipo de precio", "N.º de casas", "P modelo %", "Brecha vs 1/cuota (pp)", "EV teórico %",
                              "Elegible para rankings/combinadas", "Cuota de tu casa (completar)", "Solidez deportiva", "Cuantitativo", "Auditor", "Alerta"], ex)
 
     cnt = {}
@@ -296,7 +303,7 @@ def main(argv=None):
     ids = sorted(set(common.read_json(a.ids).values()))
     units, s = ar.build_units(a.run, ids, tuple(a.capture) if a.capture else None)
     reports = ar.load_reports(a.run)
-    legs = cr.legs_from_units(units, cr.agent_status(units, reports))
+    legs = cr.legs_from_units(units, cr.agent_status(units, reports, cr.reviewed_prices(a.run)))
     consolidated = ar.consolidate(units, reports)
     combos = cr.build_combos(legs, s["investigacion_certificada"], targets=CLASSIC_TARGETS + cr.DEFAULT_TARGETS)
     fname, why = workbook_name(a.name, s, s["partidos_ids"], ar.load_gate(a.run))

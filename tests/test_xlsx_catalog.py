@@ -138,6 +138,7 @@ class Libro(unittest.TestCase):
         txt = " ".join(str(c.value) for row in wb["Léeme"].iter_rows() for c in row)
         self.assertIn("1.50 × 1.60 × 1.40 = 3.36", txt)
         self.assertIn("sin cuota en fuente", txt)
+        self.assertIn("TheStatsAPI", txt)
 
     def test_el_script_no_puede_nombrar_el_libro_original_y_la_ruta_esta_registrada(self):
         f = ".claude/skills/seleccion-final-picks/scripts/build_xlsx_catalog.py"

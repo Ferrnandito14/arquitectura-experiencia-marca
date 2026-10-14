@@ -32,7 +32,7 @@ MAX_LEG_ODDS = cov.MAX_LEG_ODDS
 EV_ALERT = 0.10       # EV teórico ≥ +10 % con un modelo sin validar se rotula como probable ruido
 MAX_GAP = 0.15      # política heredada de la auditoría del 13-oct: brecha modelo − precio ≥ 15 pp = descarte (efecto de escoger el máximo entre muchas entradas), no «salvedad»
 POLICY = {"max_leg_odds": MAX_LEG_ODDS, "max_brecha_modelo_vs_precio": MAX_GAP, "max_over_o_under_por_combinada": 2, "max_misma_liga": 2, "max_misma_ventana": 3, "ventana_minutos": 120,
-          "max_reuso_pata": 2, "ventana_calidad": 0.95, "max_reuso_partido": 3, "pool_por_objetivo": 45, "top_por_objetivo": 3, "top_ranking": 5,
+          "max_reuso_pata": 2, "ventana_calidad": 0.95, "max_reuso_partido": 3, "pool_por_banda": 6, "top_por_objetivo": 3, "top_ranking": 5,
           "independencia": "p_conjunta = producto de p_modelo (supuesto declarado, no validado)"}
 # (nombre, cuota mínima, cuota máxima, máx. patas)
 DEFAULT_TARGETS = (("x1.2", 1.20, 1.28, 2), ("x3", 2.80, 3.40, 4), ("x4", 4.00, 4.80, 5))
@@ -47,7 +47,18 @@ AGENT_ORDER = {"APROBADA": 0, "SIN_REVISION": 1}
 
 
 # ── revisión de agentes por entrada ──
-def agent_status(units, reports):
+def reviewed_prices(run):
+    """{(match_id, entry_id): (estado, cuota, fuente)} del paquete CON EL QUE los agentes hicieron su revisión (agentes/paquete.json). Si el precio de una entrada cambió después, esa revisión ya no la cubre."""
+    pack = common.read_json(os.path.join(run, "agentes", "paquete.json"), None)
+    out = {}
+    for u in (pack or {}).get("unidades", []):
+        for e in u["entradas"]:
+            pr = e["precio"]
+            out[(u["match_id"], e["id"])] = (pr["estado"], pr["cuota"], pr["fuente"])
+    return out
+
+
+def agent_status(units, reports, reviewed=None):
     """{(unit_id, entry_id): 'aprobada' | 'sin_revision' | 'rechazada:<motivo>'}. Una unidad cuenta como revisada solo si los cuatro roles la cubren y su informe no tiene errores."""
     pk = {u["unit_id"]: u for u in units}
     valid = {}
@@ -57,10 +68,10 @@ def agent_status(units, reports):
     cons = ar.consolidate(units, {r: reports.get(r) for r in ar.ROLES})
     out = {}
     for uid, u in pk.items():
-        reviewed = all(uid in valid[r] for r in ar.ROLES)
+        unit_reviewed = all(uid in valid[r] for r in ar.ROLES)
         c = cons[uid]
         for e in u["entradas"]:
-            if not reviewed:
+            if not unit_reviewed:
                 out[(uid, e["id"])] = "sin_revision"
                 continue
             why = None
@@ -81,7 +92,12 @@ def agent_status(units, reports):
                 why = "verificador:discrepancia_de_la_unidad"
             obj = sorted({o["agente"] for o in c["objeciones"] if o["entry_id"] in (None, e["id"])})
             # una objeción abierta del auditor a otro agente (valor que contradice paquete/fuente) quita la aprobación aunque no rechace la pata
-            out[(uid, e["id"])] = f"rechazada:{why}" if why else (f"degradada:{soft}" if soft else (f"objetada:{','.join(obj)}" if obj else "aprobada"))
+            st = f"rechazada:{why}" if why else (f"degradada:{soft}" if soft else (f"objetada:{','.join(obj)}" if obj else "aprobada"))
+            if reviewed is not None and st in ("aprobada",) or (reviewed is not None and st.startswith("objetada")):
+                pr = e["precio"]
+                if reviewed.get((u["match_id"], e["id"])) != (pr["estado"], pr["cuota"], pr["fuente"]):
+                    st = "precio_nuevo_sin_revisar"          # los agentes revisaron otro precio (o ninguno) para esta entrada
+            out[(uid, e["id"])] = st
     return out
 
 
@@ -211,7 +227,14 @@ def build_combos(legs, certified=False, targets=DEFAULT_TARGETS, policy=POLICY, 
     used_grupo, used_liga = Counter(), Counter()
     for name, lo, hi, nmax in targets:
         floor = max(1.02, lo ** (1 / nmax))
-        pool = sorted([l for l in pool_all if l["cuota"] >= floor], key=lambda l: -l["p_modelo"])[: policy["pool_por_objetivo"]]
+        # pool ESTRATIFICADO por banda de cuota (top por p dentro de cada banda): ordenar solo por p llenaría el pool de patas casi seguras y baratas y dejaría fuera las de cuota media que un ×4 necesita
+        cands = sorted([l for l in pool_all if l["cuota"] >= floor], key=lambda l: -l["p_modelo"])
+        edges = (0.0, 1.25, 1.4, 1.6, 99.0)
+        pool = []
+        for lo_b, hi_b in zip(edges, edges[1:]):
+            band = [l for l in cands if lo_b <= l["cuota"] < hi_b]
+            # dentro de cada banda caben las mejores patas YA APROBADAS por los agentes y las mejores del resto: sin esto, las patas sin revisión (muy numerosas) desplazarían a las aprobadas
+            pool += [l for l in band if l["agentes"] == "aprobada"][: policy["pool_por_banda"]] + [l for l in band if l["agentes"] != "aprobada"][: policy["pool_por_banda"]]
         cand, seen = [], 0
         for n in range(1, nmax + 1):
             for c in itertools.combinations(pool, n):
@@ -320,7 +343,7 @@ def main(argv=None):
     ids = sorted(set(common.read_json(a.ids).values())) if a.ids else None
     units, s = ar.build_units(a.run, ids, tuple(a.capture) if a.capture else None)
     reports = ar.load_reports(a.run)
-    legs = legs_from_units(units, agent_status(units, reports))
+    legs = legs_from_units(units, agent_status(units, reports, reviewed_prices(a.run)))
     targets = tuple((n, float(lo), float(hi), int(k)) for n, lo, hi, k in (t.split(":") for t in a.targets.split(","))) if a.targets else DEFAULT_TARGETS
     res = {"run": a.run, "banner": cov.banner(s), "investigacion_certificada": s["investigacion_certificada"], "politica": POLICY, "resumen": summary(legs),
            "rankings": build_rankings(legs), "combinadas": build_combos(legs, s["investigacion_certificada"], targets)}

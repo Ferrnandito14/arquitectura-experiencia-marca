@@ -1,105 +1,132 @@
 {
-  "reviewed_at": "2026-10-12",
-  "nota": "Política de fuentes para acceso AUTOMATIZADO. Denegado por defecto: un host que no figura aquí no se consulta. 'excluida' = prohibido por condiciones de uso o robots.txt, o bloqueo anti-bot que no se evade. 'condicional' = permitido con límites indicados (lectura puntual, bajo volumen, uso privado). Esta revisión no es asesoría legal: sólo se leyeron robots.txt y los términos enlazados desde cada sitio.",
-  "providers": {
-    "apifootball": {
-      "hosts": ["apiv3.apifootball.com"],
-      "status": "condicional",
-      "reason": "API de pago/prueba con clave propia de la persona usuaria (cuenta en apifootball.com, plan gratuito en período de prueba). Uso previsto por el proveedor: peticiones autenticadas con APIkey. La clave NUNCA se escribe en logs, caché ni artefactos (common.redact_url).",
-      "limits": {"min_interval": 2.0, "max_files_per_run": 700},
-      "evidence": ["https://apifootball.com/documentation/", "https://apifootball.com/robots.txt"],
-      "reliability": "estructurada",
-      "independence_group": "apifootball",
-      "risk_note": "Pendiente: condiciones de uso y límite real del plan no leídos (la página de términos devolvió 404). Límite de peticiones del plan por medir con una prueba acotada. Fecha de pago indicada por el panel: 2026-10-28."
-    },
-    "fotmob": {
-      "hosts": [
-        "fotmob.com"
-      ],
-      "status": "excluida",
-      "reason": "Términos (fotmob.com/tos.txt): prohíben scraping y la recuperación sistemática/masiva/automática; robots.txt: 'Disallow: /api/*'.",
-      "evidence": [
-        "https://www.fotmob.com/tos.txt",
-        "https://www.fotmob.com/robots.txt"
-      ]
-    },
-    "betexplorer": {
-      "hosts": [
-        "betexplorer.com"
-      ],
-      "status": "excluida",
-      "reason": "Términos (terms-of-service.php, operador Livesport): prohíben 'embedding, aggregating, scraping or recreating' el contenido sin consentimiento y cargar el servidor con peticiones automatizadas; robots.txt desautoriza /*?year= y /*?month=.",
-      "evidence": [
-        "https://www.betexplorer.com/terms-of-service.php",
-        "https://www.betexplorer.com/robots.txt"
-      ]
-    },
-    "transfermarkt": {
-      "hosts": [
-        "transfermarkt.com"
-      ],
-      "status": "excluida",
-      "reason": "Términos (intern/anb §11.1): 'not permitted to access or copy the Digital Content using bots, spiders, screen scraping or other automated processes' (aunque robots.txt permita /).",
-      "evidence": [
-        "https://www.transfermarkt.com/intern/anb"
-      ]
-    },
-    "understat": {
-      "hosts": [
-        "understat.com"
-      ],
-      "status": "excluida",
-      "reason": "robots.txt: 'User-agent: * / Disallow: /'.",
-      "evidence": [
-        "https://understat.com/robots.txt"
-      ]
-    },
-    "soccerstats": {
-      "hosts": [
-        "soccerstats.com"
-      ],
-      "status": "excluida",
-      "reason": "Inaccesible: con el User-Agent honesto responde con un desafío anti-bot de Cloudflare («Just a moment») incluso en robots.txt; no se evade. Sus condiciones de uso NO se han leído.",
-      "evidence": [
-        "GET https://www.soccerstats.com/robots.txt -> HTTP 403 desafío"
-      ]
-    },
-    "football-data": {
-      "hosts": [
-        "football-data.co.uk"
-      ],
-      "status": "condicional",
-      "reason": "Datos CSV gratuitos 'for use with spreadsheet applications'; uso destinado a particulares, NO a productos comerciales o de entrenamiento de datos con bots/scrapers/IA. Se descargan solo ficheros CSV concretos (fixtures.csv y temporadas), sin rastreo, a ritmo bajo, para análisis privado.",
-      "limits": {
-        "min_interval": 3.0,
-        "max_files_per_run": 20
-      },
-      "evidence": [
-        "https://www.football-data.co.uk/data.php",
-        "https://www.football-data.co.uk/robots.txt"
-      ],
-      "reliability": "estructurada",
-      "independence_group": "football-data",
-      "risk_note": "Riesgo medio-bajo, decisión de la persona usuaria: su robots.txt bloquea por nombre crawlers de IA (GPTBot, ClaudeBot, Anthropic-AI, Claude-Web, PerplexityBot, CCBot…) y permite a '*'. Este cliente se identifica con su propio UA, no es un crawler: descarga ≤20 CSV concretos por ejecución para análisis privado. Cita de data.php (2026-10-12): «its use is intended for private individuals only, NOT commerical or data training products using automated bots/scrapers/AI»."
-    },
-    "apwin": {
-      "hosts": [
-        "apwin.com"
-      ],
-      "status": "condicional",
-      "reason": "robots.txt permite la portada (prohíbe /calendar/*, /search/*, /s/*); sus términos (terms-conditions) no contienen cláusula explícita sobre acceso automatizado pero reservan derechos sobre el contenido. Sólo lectura puntual de la portada del día (HTML público), sin rastreo.",
-      "limits": {
-        "min_interval": 5.0,
-        "max_pages_per_run": 48
-      },
-      "evidence": [
-        "https://www.apwin.com/robots.txt",
-        "https://www.apwin.com/terms-conditions/"
-      ],
-      "reliability": "estructurada",
-      "independence_group": "apwin",
-      "reliability_note": "Feed JSON embebido con kickoff en época UTC y estado; fiabilidad de calendario no verificada contra fuente oficial: basta para ENTRAR al universo de evaluación, no para una selección final.",
-      "risk_note": "Riesgo medio, decisión de la persona usuaria: sus términos (terms-conditions) son los de la suscripción Premium y dicen que «any unauthorized, commercial or non-commercial use is prohibited»; no mencionan acceso automatizado pero reservan los derechos de forma amplia. Solo se lee la portada pública con ?date= (3 páginas por ejecución). El HTML trae la PÁGINA 1 de una lista paginada (total declarado 166 el 13-oct): NO se amplía a paginación sin decisión expresa."
-    }
+ "reviewed_at": "2026-10-12",
+ "nota": "Política de fuentes para acceso AUTOMATIZADO. Denegado por defecto: un host que no figura aquí no se consulta. 'excluida' = prohibido por condiciones de uso o robots.txt, o bloqueo anti-bot que no se evade. 'condicional' = permitido con límites indicados (lectura puntual, bajo volumen, uso privado). Esta revisión no es asesoría legal: sólo se leyeron robots.txt y los términos enlazados desde cada sitio.",
+ "providers": {
+  "apifootball": {
+   "hosts": [
+    "apiv3.apifootball.com"
+   ],
+   "status": "condicional",
+   "reason": "API de pago/prueba con clave propia de la persona usuaria (cuenta en apifootball.com, plan gratuito en período de prueba). Uso previsto por el proveedor: peticiones autenticadas con APIkey. La clave NUNCA se escribe en logs, caché ni artefactos (common.redact_url).",
+   "limits": {
+    "min_interval": 2.0,
+    "max_files_per_run": 700
+   },
+   "evidence": [
+    "https://apifootball.com/documentation/",
+    "https://apifootball.com/robots.txt"
+   ],
+   "reliability": "estructurada",
+   "independence_group": "apifootball",
+   "risk_note": "Pendiente: condiciones de uso y límite real del plan no leídos (la página de términos devolvió 404). Límite de peticiones del plan por medir con una prueba acotada. Fecha de pago indicada por el panel: 2026-10-28."
+  },
+  "fotmob": {
+   "hosts": [
+    "fotmob.com"
+   ],
+   "status": "excluida",
+   "reason": "Términos (fotmob.com/tos.txt): prohíben scraping y la recuperación sistemática/masiva/automática; robots.txt: 'Disallow: /api/*'.",
+   "evidence": [
+    "https://www.fotmob.com/tos.txt",
+    "https://www.fotmob.com/robots.txt"
+   ]
+  },
+  "betexplorer": {
+   "hosts": [
+    "betexplorer.com"
+   ],
+   "status": "excluida",
+   "reason": "Términos (terms-of-service.php, operador Livesport): prohíben 'embedding, aggregating, scraping or recreating' el contenido sin consentimiento y cargar el servidor con peticiones automatizadas; robots.txt desautoriza /*?year= y /*?month=.",
+   "evidence": [
+    "https://www.betexplorer.com/terms-of-service.php",
+    "https://www.betexplorer.com/robots.txt"
+   ]
+  },
+  "transfermarkt": {
+   "hosts": [
+    "transfermarkt.com"
+   ],
+   "status": "excluida",
+   "reason": "Términos (intern/anb §11.1): 'not permitted to access or copy the Digital Content using bots, spiders, screen scraping or other automated processes' (aunque robots.txt permita /).",
+   "evidence": [
+    "https://www.transfermarkt.com/intern/anb"
+   ]
+  },
+  "understat": {
+   "hosts": [
+    "understat.com"
+   ],
+   "status": "excluida",
+   "reason": "robots.txt: 'User-agent: * / Disallow: /'.",
+   "evidence": [
+    "https://understat.com/robots.txt"
+   ]
+  },
+  "soccerstats": {
+   "hosts": [
+    "soccerstats.com"
+   ],
+   "status": "excluida",
+   "reason": "Inaccesible: con el User-Agent honesto responde con un desafío anti-bot de Cloudflare («Just a moment») incluso en robots.txt; no se evade. Sus condiciones de uso NO se han leído.",
+   "evidence": [
+    "GET https://www.soccerstats.com/robots.txt -> HTTP 403 desafío"
+   ]
+  },
+  "football-data": {
+   "hosts": [
+    "football-data.co.uk"
+   ],
+   "status": "condicional",
+   "reason": "Datos CSV gratuitos 'for use with spreadsheet applications'; uso destinado a particulares, NO a productos comerciales o de entrenamiento de datos con bots/scrapers/IA. Se descargan solo ficheros CSV concretos (fixtures.csv y temporadas), sin rastreo, a ritmo bajo, para análisis privado.",
+   "limits": {
+    "min_interval": 3.0,
+    "max_files_per_run": 20
+   },
+   "evidence": [
+    "https://www.football-data.co.uk/data.php",
+    "https://www.football-data.co.uk/robots.txt"
+   ],
+   "reliability": "estructurada",
+   "independence_group": "football-data",
+   "risk_note": "Riesgo medio-bajo, decisión de la persona usuaria: su robots.txt bloquea por nombre crawlers de IA (GPTBot, ClaudeBot, Anthropic-AI, Claude-Web, PerplexityBot, CCBot…) y permite a '*'. Este cliente se identifica con su propio UA, no es un crawler: descarga ≤20 CSV concretos por ejecución para análisis privado. Cita de data.php (2026-10-12): «its use is intended for private individuals only, NOT commerical or data training products using automated bots/scrapers/AI»."
+  },
+  "apwin": {
+   "hosts": [
+    "apwin.com"
+   ],
+   "status": "condicional",
+   "reason": "robots.txt permite la portada (prohíbe /calendar/*, /search/*, /s/*); sus términos (terms-conditions) no contienen cláusula explícita sobre acceso automatizado pero reservan derechos sobre el contenido. Sólo lectura puntual de la portada del día (HTML público), sin rastreo.",
+   "limits": {
+    "min_interval": 5.0,
+    "max_pages_per_run": 48
+   },
+   "evidence": [
+    "https://www.apwin.com/robots.txt",
+    "https://www.apwin.com/terms-conditions/"
+   ],
+   "reliability": "estructurada",
+   "independence_group": "apwin",
+   "reliability_note": "Feed JSON embebido con kickoff en época UTC y estado; fiabilidad de calendario no verificada contra fuente oficial: basta para ENTRAR al universo de evaluación, no para una selección final.",
+   "risk_note": "Riesgo medio, decisión de la persona usuaria: sus términos (terms-conditions) son los de la suscripción Premium y dicen que «any unauthorized, commercial or non-commercial use is prohibited»; no mencionan acceso automatizado pero reservan los derechos de forma amplia. Solo se lee la portada pública con ?date= (3 páginas por ejecución). El HTML trae la PÁGINA 1 de una lista paginada (total declarado 166 el 13-oct): NO se amplía a paginación sin decisión expresa."
+  },
+  "thestatsapi": {
+   "hosts": [
+    "api.thestatsapi.com"
+   ],
+   "status": "condicional",
+   "reason": "API de pago con clave propia de la persona usuaria (plan contratado el 14-oct-2026). Uso permitido por sus términos: herramientas internas propias; prohíbe compartir la clave con terceros, redistribuir datos en bloque y almacenar más de lo necesario. Auth por cabecera Authorization: Bearer; la clave NUNCA se escribe en logs, caché ni artefactos.",
+   "limits": {
+    "min_interval": 2.3,
+    "max_files_per_run": 200
+   },
+   "evidence": [
+    "https://www.thestatsapi.com/terms",
+    "https://api.thestatsapi.com/llms.txt",
+    "https://www.thestatsapi.com/robots.txt"
+   ],
+   "reliability": "estructurada",
+   "independence_group": "thestatsapi",
+   "risk_note": "Cuotas pre-partido de Bet365, Paddy Power, BetMGM UK, Pinnacle y Betfair Exchange con apertura y último precio; un mercado aparece solo si esa casa lo cotiza (muchas líneas traen 1–3 casas). La definición de «tarjetas» de la fuente no está documentada."
   }
+ }
 }

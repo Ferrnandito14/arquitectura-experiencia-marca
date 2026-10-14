@@ -342,7 +342,7 @@ def _pricing(match, entry, providers, found, failed):
         cumple = best["odds"] <= MAX_LEG_ODDS
         return {"estado": "real_verificada", "registro": best, "cumple_limite": cumple, "cumple_requisitos_de_precio": bool(cumple and best.get("source")), "nota": None}
     if recs:
-        agg = [r for r in recs if r["source_type"] == "agregador" and (r.get("n_books") or 0) >= tickets.MIN_BOOKS]
+        agg = [r for r in recs if r["source_type"] == "agregador" and (r.get("n_books") or 0) >= (r.get("min_books") or tickets.MIN_BOOKS)]
         if agg:
             return {"estado": "otra_fuente", "registro": agg[0], "cumple_limite": agg[0]["odds"] <= MAX_LEG_ODDS, "cumple_requisitos_de_precio": False, "nota": "promedio de agregador: referencia, no precio ejecutable"}
         return {"estado": "no_verificable", "registro": recs[0], "cumple_limite": None, "cumple_requisitos_de_precio": False, "nota": "precio sin verificar o con pocas casas"}
@@ -660,6 +660,8 @@ def default_providers(run, inv, mx, price_files=(), capture=None, aggregator=Tru
         odds = ps.ApifootballOddsProvider(run)
         provs.append(odds if odds.queries else ps.MatrixAggregatorProvider(mx))
         provs.append(ps.FootballDataOddsProvider({m["match_id"]: m for m in inv}))
+        if os.path.exists(os.path.join(run, "thestatsapi", "map.json")):         # segunda fuente de cuotas, opcional: solo si `tsa_fetch.py` dejó sus archivos en el run
+            provs.append(ps.TheStatsApiOddsProvider(run))
     if capture:
         provs.append(ps.UserCaptureProvider(*capture))
     provs += [ps.ManualCsvProvider(p) for p in price_files]
