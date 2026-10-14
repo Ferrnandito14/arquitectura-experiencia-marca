@@ -50,6 +50,13 @@ MAX_SAME_DIRECTION = 2    # auditoría 13-oct: máx. 2 patas under (o over) por 
 SAFE_P_MIN = 0.85         # un ticket solo se rotula «seguridad» si P(mercado, sin margen) ≥ 85 % y EV ≥ 0; si no, «bajo riesgo (EV<0)» con su P(pérdida)
 SHRINK_M = 40             # peso del mercado en el encogimiento p = (N·f + m·p_mercado)/(N + m): con n≈10–20 casi todo el peso es del mercado
 MAX_GAP = 0.15            # brecha muestra−mercado ≥ 15 pp = DESCARTE (artefacto de escoger el máximo entre muchas patas), no «salvedad»
+# Niveles de entrega (la persona usuaria decide; el sistema informa los riesgos): si el nivel estándar no da ≥ MIN_DRAFTS borradores para un multiplicador, se completan con
+# niveles de RIESGO EXPLÍCITO y cada borrador sale rotulado con su nivel, su P(pérdida) y la brecha de cada pata. Los vetos y los defectos de veracidad NO se relajan nunca.
+TIERS = ({"n": 1, "nombre": "estándar", "gap": 0.15, "max_dir": 2, "extra_legs": 0, "soporte": 0.0},
+         {"n": 2, "nombre": "riesgo explícito", "gap": 0.30, "max_dir": 3, "extra_legs": 1, "soporte": -0.10},
+         {"n": 3, "nombre": "riesgo alto", "gap": 9.99, "max_dir": 4, "extra_legs": 2, "soporte": -0.15})
+MIN_DRAFTS = 3
+TIER_BUDGET = 300000    # nodos máx. por búsqueda de nivel de riesgo
 TICKET_MIN_BOOKS = 4    # revisión por lotes: cuotas medias de 2–3 casas son frágiles (precios repetidos/extremos); las patas de TICKET exigen ≥4 casas (rankings: ≥3)
 ODDS_MIN, ODDS_MAX = 1.03, 2.6
 PAIR_TOP_PER_MATCH = 10
@@ -607,7 +614,8 @@ def _hi_odds(it):
     return it["cuota_cons"] if it["mismo_partido"] else it["cuota"]
 
 
-def search(legs, lo, hi, max_legs, min_support, top=5, pool=60, exclude=frozenset(), require_calendar=True, exclude_categories=EXCLUDE_TICKET_CATEGORIES, buffer=0.0, team_floor=TEAM_FLOOR, max_overlap=None, max_reuse=None, items_override=None, require=None, with_pairs=True, min_recent=MIN_N, max_estimated=None):
+def search(legs, lo, hi, max_legs, min_support, top=5, pool=60, exclude=frozenset(), require_calendar=True, exclude_categories=EXCLUDE_TICKET_CATEGORIES, buffer=0.0, team_floor=TEAM_FLOOR, max_overlap=None, max_reuse=None, items_override=None, require=None, with_pairs=True, min_recent=MIN_N, max_estimated=None, max_dir=None, budget=None):
+    max_dir = MAX_SAME_DIRECTION if max_dir is None else max_dir
     max_est = MAX_ESTIMATED_LEGS if max_estimated is None else max_estimated
     max_overlap = MAX_OVERLAP if max_overlap is None else max_overlap
     max_reuse = MAX_LEG_REUSE if max_reuse is None else max_reuse
@@ -629,7 +637,12 @@ def search(legs, lo, hi, max_legs, min_support, top=5, pool=60, exclude=frozense
 
     lo_cons = lo * (1 + buffer)
 
+    nodes = [0]
+
     def rec(start, chosen, prod, prod_cons, nlegs, nest):
+        nodes[0] += 1
+        if budget is not None and nodes[0] > budget:       # tope de nodos: la búsqueda de niveles de riesgo (más patas) crece exponencialmente
+            return
         if prod_cons >= lo_cons and prod <= hi and chosen and any(l.get("cuota_tipo") != "estimada_por_modelo" for c_ in chosen for l in c_["patas"]) and (require is None or require(chosen)):   # un ticket sin NINGUNA cuota real no se propone
             res.append((calc.joint_prob([c["apoyo"] for c in chosen]), -nlegs, prod, tuple(chosen)))
         for i in range(start, len(cand)):
@@ -638,7 +651,7 @@ def search(legs, lo, hi, max_legs, min_support, top=5, pool=60, exclude=frozense
                 continue
             n = nlegs + len(it["patas"])
             dc = _direction_counts(chosen + [it])
-            if dc["under"] > MAX_SAME_DIRECTION or dc["over"] > MAX_SAME_DIRECTION:
+            if dc["under"] > max_dir or dc["over"] > max_dir:
                 continue
             e = nest + sum(1 for l in it["patas"] if l.get("cuota_tipo") == "estimada_por_modelo")
             p = prod * _hi_odds(it)
@@ -705,9 +718,9 @@ def top_picks(legs, top=15, min_attr_support=0.55):
             if len(out) >= top:
                 break
         return out
-    return {"seguridad": pick(lambda l: (-(l["p_central"] if l["p_central"] is not None else l["apoyo_conservador"]), -l["cuota_media"]), lambda l: not l["sospechosa_por_brecha"]),
+    return {"seguridad": pick(lambda l: (-(l["p_central"] if l["p_central"] is not None else l["apoyo_conservador"]), -l["cuota_media"]), lambda l: True),
             "atractivo": pick(lambda l: (-(l["ev_central"] if l["ev_central"] is not None else -9), -l["apoyo_conservador"]),
-                              lambda l: l["apoyo_conservador"] >= min_attr_support and l["ev_descriptivo_conservador"] is not None and not l["sospechosa_por_brecha"])}
+                              lambda l: l["apoyo_conservador"] >= min_attr_support and l["ev_descriptivo_conservador"] is not None)}
 
 
 STAT_MARKET_NAMES = ("córners", "tarjetas", "remates a puerta", "remates")
@@ -783,6 +796,11 @@ def _ranking_general(result):
     return L
 
 
+def _gapflag(p):
+    g = p_central(p)[1]
+    return f" ⚠ brecha {g}" if g is not None and g >= MAX_GAP else ""
+
+
 def render(result):
     L = ["# Tickets provisionales por multiplicador objetivo", "",
          "> **Cuotas = promedio de ≥3 casas vía agregador (NO ejecutables); la casa recalcula las combinadas del mismo partido (cuota real menor). "
@@ -806,9 +824,9 @@ def render(result):
     _all = [tk for t in result["targets"] for tk in t["tickets"]]
     _evs = [tk["ev_mercado"] for tk in _all if tk.get("ev_mercado") is not None]
     if _all and (not _evs or max(_evs) < 0):
-        L += ["> # ⛔ NO APOSTAR", "> Con las probabilidades de mercado sin margen, **ningún borrador tiene EV ≥ 0** "
-              f"(mejor EV {max(_evs) if _evs else 'n/d'}). Los borradores se entregan como INFORMATIVOS: cada ticket muestra su probabilidad de pérdida. "
-              "Una pata con cuota 1.25 falla 1 de cada 5 veces; un ticket no es «seguro» por tener mucho apoyo histórico.", ""]
+        L += ["> # ⚠ AVISO DE RIESGO (la decisión de apostar es tuya)",
+              f"> Con las probabilidades de mercado sin margen, ningún borrador tiene EV ≥ 0 (mejor EV {max(_evs) if _evs else 'n/d'}). Cada ticket muestra su probabilidad de pérdida y cada pata su brecha muestra−mercado (⚠ si ≥ 0.15). "
+              "Una pata con cuota 1.25 falla 1 de cada 5 veces; un ticket no es «seguro» por tener mucho apoyo histórico. Los borradores de nivel «riesgo explícito» o «riesgo alto» se entregan porque se pidió ese multiplicador, rotulados.", ""]
     L += _ranking_general(result)
     for t in result["targets"]:
         L += [f"## Perfil «{t['name']}»: ×{t['lo']}–{t['hi']} (≤{t['max_legs']} patas, apoyo mínimo por ítem {t['min_support']}, colchón {int(t.get('buffer', 0) * 100)} %) — {len(t['tickets'])} borradores", ""]
@@ -818,13 +836,13 @@ def render(result):
             L += ["Sin combinación posible con las patas disponibles: no se fuerza ningún ticket.", ""]
         for i, tk in enumerate(t["tickets"], 1):
             flag = (" · ⚠ incluye cuota ESTIMADA (córners/tarjetas): verifícala en tu casa" if tk.get("usa_cuota_estimada") else "") + (" · incluye cuota aportada por ti" if tk.get("usa_cuota_manual") else "")
-            L += [f"**Rótulo honesto: {tk.get('etiqueta_riesgo')} · P(mercado, sin margen) {tk.get('p_mercado_conjunta')} · P(pérdida) {tk.get('p_perdida_mercado')} · EV(mercado) {tk.get('ev_mercado')} · P central (encogida) {tk.get('p_central_conjunta')} · EV central {tk.get('ev_central')} · mayor brecha muestra−mercado {tk.get('max_brecha_muestra_mercado')} · direcciones {tk.get('direcciones')}**", ""]
+            L += [f"**Nivel de entrega: {tk.get('nivel_nombre', 'estándar')} · Rótulo honesto: {tk.get('etiqueta_riesgo')} · P(mercado, sin margen) {tk.get('p_mercado_conjunta')} · P(pérdida) {tk.get('p_perdida_mercado')} · EV(mercado) {tk.get('ev_mercado')} · P central (encogida) {tk.get('p_central_conjunta')} · EV central {tk.get('ev_central')} · mayor brecha muestra−mercado {tk.get('max_brecha_muestra_mercado')} · direcciones {tk.get('direcciones')}**", ""]
             L += [f"### Puesto {i} · Borrador {i}{flag}: ×{tk['cuota_combinada_media']} (conservadora ×{tk['cuota_combinada_conservadora']}) · {tk['n_patas']} pata(s) en {tk['n_partidos']} partido(s) · apoyo conjunto descriptivo {tk['apoyo_conjunto_descriptivo']} "
                   f"(implícita de mercado sin margen {tk['prob_implicita_conjunta_sin_margen']})", "",
                   "| Partido | Inicio UTC | Selección | Cuota media (mín–máx, casas) | Apoyo cons. | n |", "|---|---|---|---|---|---|"]
             for it in tk["items"]:
                 for p in it["patas"]:
-                    L.append(f"| {p['partido']} ({p['competicion']}) | {p['inicio_utc']} | {p['seleccion']}{' ⚑' if it['mismo_partido'] else ''} | {p['cuota_media']}{(' ✎est. (cuota por confirmar: exige ≥ ' + str(p['cuota_equilibrio_minima']) + ')') if p.get('cuota_tipo') == 'estimada_por_modelo' else ''} "
+                    L.append(f"| {p['partido']} ({p['competicion']}) | {p['inicio_utc']} | {p['seleccion']}{' ⚑' if it['mismo_partido'] else ''}{_gapflag(p)} | {p['cuota_media']}{(' ✎est. (cuota por confirmar: exige ≥ ' + str(p['cuota_equilibrio_minima']) + ')') if p.get('cuota_tipo') == 'estimada_por_modelo' else ''} "
                              f"({p['minmax_casas'][0]}–{p['minmax_casas'][1]}, {p['n_casas']}) | {p['apoyo_conservador']} (mín. equipo {p.get('apoyo_min_equipo', '—')}) | {p['n'][0]}/{p['n'][1]} |")
                 if it["mismo_partido"]:
                     L.append(f"| ⚑ *dos patas del mismo partido (cuota combinada media {it['cuota']}; la casa suele pagar menos).* {it.get('justificacion') or ''} | | | | | |")
@@ -832,7 +850,7 @@ def render(result):
     tp = result.get("top_picks")
     if tp:
         hdr = ["| # | Partido | Categoría | Inicio UTC | Calendario | Selección | Cuota media (mín–máx, casas) | Apoyo cons. | n | Implícita s/margen | EV desc. cons. |", "|---|---|---|---|---|---|---|---|---|---|---|"]
-        rows = lambda lst: [f"| {i} | {p['partido']} ({p['competicion']}) | {p.get('categoria', 'men')}{' ⚠' if p.get('categoria', 'men') in EXCLUDE_TICKET_CATEGORIES else ''} | {p['inicio_utc']} | {'2 fuentes' if p.get('calendario_2_fuentes') else '1 fuente'} | {p['seleccion']}{' ✎est.' if p.get('cuota_tipo') == 'estimada_por_modelo' else ''} | {p['cuota_media']} ({p['minmax_casas'][0]}–{p['minmax_casas'][1]}, {p['n_casas']}) | "
+        rows = lambda lst: [f"| {i} | {p['partido']} ({p['competicion']}){_gapflag(p)} | {p.get('categoria', 'men')}{' ⚠' if p.get('categoria', 'men') in EXCLUDE_TICKET_CATEGORIES else ''} | {p['inicio_utc']} | {'2 fuentes' if p.get('calendario_2_fuentes') else '1 fuente'} | {p['seleccion']}{' ✎est.' if p.get('cuota_tipo') == 'estimada_por_modelo' else ''} | {p['cuota_media']} ({p['minmax_casas'][0]}–{p['minmax_casas'][1]}, {p['n_casas']}) | "
                             f"{p['apoyo_conservador']} | {p['n'][0]}/{p['n'][1]} | {p['prob_implicita_sin_margen']} | {p['ev_descriptivo_conservador'] if p['ev_descriptivo_conservador'] is not None else '—'} |" for i, p in enumerate(lst, 1)]
         L += ["## Top de picks por SEGURIDAD (mayor apoyo conservador; una pata por partido)", ""] + hdr + rows(tp["seguridad"]) + [""]
         L += ["## Top de picks por ATRACTIVO (rentabilidad-cuota: EV descriptivo conservador = apoyo × cuota − 1, apoyo ≥ 0.55; ordenado de mayor a menor; EV negativo = la estadística conservadora no cubre el precio)", ""] + hdr + rows(tp["atractivo"]) + [
@@ -947,6 +965,7 @@ def main(argv=None):
     mixed_champ = [l for l in legs_all if l["history_kind"] not in SAME_COMPETITION_KINDS and "champions league" in (l.get("competicion") or "").lower()
                    and common.norm_name(l["partido"]) not in excluded_names]
     legs_tk = [l for l in legs if common.norm_name(l["partido"]) not in excluded_names]      # patas para TICKETS (sin los partidos excluidos a mano)
+    legs_tk_all = legs_tk
     legs_tk, big_gap = drop_big_gap(legs_tk, a.max_gap)                                                  # auditoría 13-oct: brecha muestra−mercado ≥ 15 pp = descarte, no «salvedad"
     out = {"targets": [], "n_legs": len(legs), "n_priced_legs": sum(1 for l in legs if l["cuota_media"] is not None),
            "n_matches_with_legs": len({l["match_id"] for l in legs})}
@@ -958,7 +977,24 @@ def main(argv=None):
     ucl = mixed_champ
     for r in results:                                   # perfiles en orden: el primero (seguridad) fija partidos que los demás NO pueden usar
         r_legs, r_floor = (ucl, CHAMPIONS_TEAM_FLOOR) if r.get("solo_champions") else (legs_tk, TEAM_FLOOR_BY_PROFILE.get(r["name"], TEAM_FLOOR))
-        tk, npool = search(r_legs, r["lo"], r["hi"], r["max_legs"], r["min_support"], a.top, a.pool, exclude=used, buffer=r["buffer"], team_floor=r_floor, **dict(zip(("max_overlap", "max_reuse"), PROFILE_DIVERSITY.get(r["name"], (None, None)))))
+        _div = dict(zip(("max_overlap", "max_reuse"), PROFILE_DIVERSITY.get(r["name"], (None, None))))
+        tk, npool = search(r_legs, r["lo"], r["hi"], r["max_legs"], r["min_support"], a.top, a.pool, exclude=used, buffer=r["buffer"], team_floor=r_floor, **_div)
+        for t_ in tk:
+            t_["nivel"], t_["nivel_nombre"] = 1, TIERS[0]["nombre"]
+        if not r.get("solo_champions") and a.max_gap is None:
+            seen_ = {frozenset((l["match_id"], l["seleccion"]) for it in t_["items"] for l in it["patas"]) for t_ in tk}
+            for tr in TIERS[1:]:
+                if len(tk) >= MIN_DRAFTS:
+                    break
+                lg_ = [l for l in legs_tk_all if (p_central(l)[1] is None or p_central(l)[1] < tr["gap"])]
+                more, _ = search(lg_, r["lo"], r["hi"], r["max_legs"] + tr["extra_legs"], max(0.30, r["min_support"] + tr["soporte"]), a.top, a.pool, exclude=used, buffer=r["buffer"],
+                                 team_floor=max(0.30, r_floor + tr["soporte"]), max_dir=tr["max_dir"], budget=TIER_BUDGET, **_div)
+                for t_ in more:
+                    key_ = frozenset((l["match_id"], l["seleccion"]) for it in t_["items"] for l in it["patas"])
+                    if key_ not in seen_ and len(tk) < max(a.top, MIN_DRAFTS):
+                        t_["nivel"], t_["nivel_nombre"] = tr["n"], tr["nombre"]
+                        tk.append(t_)
+                        seen_.add(key_)
         r.update(pool=npool, tickets=tk)
         r["_singles"] = [i for i in _items(r_legs, r["min_support"], with_pairs=False, require_calendar=True, exclude_categories=EXCLUDE_TICKET_CATEGORIES, team_floor=r_floor)]
         if tk:                                           # CUALQUIER borrador de un perfil queda excluido de los perfiles siguientes:

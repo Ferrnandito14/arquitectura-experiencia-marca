@@ -4,10 +4,10 @@
 
 > **Puertas de calidad de datos.** (1) Veracidad: 0 mercados bloqueados automáticamente por avisos graves de los agentes (cifras defectuosas/imposibles/sospechosas). (2) Representatividad: 8218 patas con historial MIXTO (otra competición, copas, pretemporada) quedan fuera de los tickets y rankings principales; las de Champions pasan a las variantes `*_champions`, rotuladas de menor respaldo.
 
-> **Filtros de jornada:** solo partidos que empiezan después de 2026-10-13T23:51:37Z (0 partidos descartados por hora); excluidos a mano: ninguno. Comprueba en tu casa que cada partido siga prepartido.
+> **Filtros de jornada:** solo partidos que empiezan después de 2026-10-14T00:41:45Z (0 partidos descartados por hora); excluidos a mano: ninguno. Comprueba en tu casa que cada partido siga prepartido.
 
-> # ⛔ NO APOSTAR
-> Con las probabilidades de mercado sin margen, **ningún borrador tiene EV ≥ 0** (mejor EV -0.115). Los borradores se entregan como INFORMATIVOS: cada ticket muestra su probabilidad de pérdida. Una pata con cuota 1.25 falla 1 de cada 5 veces; un ticket no es «seguro» por tener mucho apoyo histórico.
+> # ⚠ AVISO DE RIESGO (la decisión de apostar es tuya)
+> Con las probabilidades de mercado sin margen, ningún borrador tiene EV ≥ 0 (mejor EV -0.085). Cada ticket muestra su probabilidad de pérdida y cada pata su brecha muestra−mercado (⚠ si ≥ 0.15). Una pata con cuota 1.25 falla 1 de cada 5 veces; un ticket no es «seguro» por tener mucho apoyo histórico. Los borradores de nivel «riesgo explícito» o «riesgo alto» se entregan porque se pidió ese multiplicador, rotulados.
 
 ## Ranking general — familia ×1.2–1.28 (seguridad) (de primero a último)
 
@@ -15,12 +15,25 @@ Criterio: mayor apoyo conjunto descriptivo; a igual apoyo, menor distancia al eq
 
 | Puesto | Perfil | Borrador | Cuota (cons.) | Patas | Apoyo conjunto | Equilibrio 1/cuota | Margen |
 |---|---|---|---|---|---|---|---|
-| 1 | seguridad | 1 | ×1.249 (1.249) | 2 | 0.476 | 0.801 | -0.325 |
-| 2 | seguridad | 2 | ×1.238 (1.238) | 2 | 0.434 | 0.808 | -0.374 |
+| 1 | seguridad | 3 | ×1.25 (1.25) | 1 | 0.659 | 0.8 | -0.141 |
+| 2 | seguridad | 1 | ×1.249 (1.249) | 2 | 0.476 | 0.801 | -0.325 |
+| 3 | seguridad | 2 | ×1.238 (1.238) | 2 | 0.434 | 0.808 | -0.374 |
 
-## Perfil «seguridad»: ×1.2–1.28 (≤2 patas, apoyo mínimo por ítem 0.65, colchón 1 %) — 2 borradores
+## Ranking general — familia ×4.0–4.8 (amplio) (de primero a último)
 
-**Rótulo honesto: RIESGO MEDIO (EV<0) · P(mercado, sin margen) 0.709 · P(pérdida) 0.291 · EV(mercado) -0.115 · P central (encogida) 0.785 · EV central -0.02 · mayor brecha muestra−mercado 0.145 · direcciones {'under': 0, 'over': 2}**
+Criterio: mayor apoyo conjunto descriptivo; a igual apoyo, menor distancia al equilibrio 1/cuota. Un margen negativo = la frecuencia histórica no cubre lo que paga el ticket. NO es EV real.
+
+| Puesto | Perfil | Borrador | Cuota (cons.) | Patas | Apoyo conjunto | Equilibrio 1/cuota | Margen |
+|---|---|---|---|---|---|---|---|
+| 1 | x3 | 2 | ×3.086 (2.933) | 5 | 0.228 | 0.341 | -0.113 |
+| 2 | x3 | 1 | ×2.856 (2.856) | 5 | 0.117 | 0.35 | -0.233 |
+| 3 | amplio | 1 | ×4.173 (4.173) | 7 | 0.032 | 0.24 | -0.208 |
+| 4 | amplio | 2 | ×4.163 (4.163) | 7 | 0.031 | 0.24 | -0.209 |
+| 5 | amplio | 3 | ×4.321 (4.321) | 8 | 0.019 | 0.231 | -0.212 |
+
+## Perfil «seguridad»: ×1.2–1.28 (≤2 patas, apoyo mínimo por ítem 0.65, colchón 1 %) — 3 borradores
+
+**Nivel de entrega: estándar · Rótulo honesto: RIESGO MEDIO (EV<0) · P(mercado, sin margen) 0.709 · P(pérdida) 0.291 · EV(mercado) -0.115 · P central (encogida) 0.785 · EV central -0.02 · mayor brecha muestra−mercado 0.145 · direcciones {'under': 0, 'over': 2}**
 
 ### Puesto 1 · Borrador 1: ×1.249 (conservadora ×1.249) · 2 pata(s) en 2 partido(s) · apoyo conjunto descriptivo 0.476 (implícita de mercado sin margen 0.709)
 
@@ -29,7 +42,7 @@ Criterio: mayor apoyo conjunto descriptivo; a igual apoyo, menor distancia al eq
 | FC Cincinnati – New England Revolution (mls) | 2026-10-14T23:30:00Z | Más de 1.5 goles | 1.1 (1.06–1.12, 6) | 0.722 (mín. equipo 0.722) | 10/10 |
 | St. Louis City – Vancouver Whitecaps (mls) | 2026-10-15T00:30:00Z | Más de 1.5 goles | 1.135 (1.11–1.17, 6) | 0.659 (mín. equipo 0.596) | 10/10 |
 
-**Rótulo honesto: RIESGO MEDIO (EV<0) · P(mercado, sin margen) 0.705 · P(pérdida) 0.295 · EV(mercado) -0.127 · P central (encogida) 0.768 · EV central -0.049 · mayor brecha muestra−mercado 0.112 · direcciones {'under': 0, 'over': 2}**
+**Nivel de entrega: estándar · Rótulo honesto: RIESGO MEDIO (EV<0) · P(mercado, sin margen) 0.705 · P(pérdida) 0.295 · EV(mercado) -0.127 · P central (encogida) 0.768 · EV central -0.049 · mayor brecha muestra−mercado 0.112 · direcciones {'under': 0, 'over': 2}**
 
 ### Puesto 2 · Borrador 2: ×1.238 (conservadora ×1.238) · 2 pata(s) en 2 partido(s) · apoyo conjunto descriptivo 0.434 (implícita de mercado sin margen 0.705)
 
@@ -38,13 +51,85 @@ Criterio: mayor apoyo conjunto descriptivo; a igual apoyo, menor distancia al eq
 | Chicago Fire – Philadelphia Union (mls) | 2026-10-15T00:30:00Z | Más de 1.5 goles | 1.115 (1.08–1.15, 6) | 0.659 (mín. equipo 0.596) | 10/10 |
 | Strømmen – Asane (first division) | 2026-10-14T13:00:00Z | Más de 1.5 goles | 1.11 (1.08–1.14, 7) | 0.659 (mín. equipo 0.596) | 10/10 |
 
-## Perfil «x3»: ×2.8–3.3 (≤5 patas, apoyo mínimo por ítem 0.55, colchón 0 %) — 0 borradores
+**Nivel de entrega: riesgo explícito · Rótulo honesto: RIESGO MEDIO (EV<0) · P(mercado, sin margen) 0.732 · P(pérdida) 0.268 · EV(mercado) -0.085 · P central (encogida) 0.805 · EV central 0.006 · mayor brecha muestra−mercado 0.218 · direcciones {'under': 0, 'over': 0}**
 
-Sin combinación posible con las patas disponibles: no se fuerza ningún ticket.
+### Puesto 3 · Borrador 3: ×1.25 (conservadora ×1.25) · 1 pata(s) en 1 partido(s) · apoyo conjunto descriptivo 0.659 (implícita de mercado sin margen 0.732)
 
-## Perfil «amplio»: ×4.0–4.8 (≤6 patas, apoyo mínimo por ítem 0.55, colchón 4 %) — 0 borradores
+| Partido | Inicio UTC | Selección | Cuota media (mín–máx, casas) | Apoyo cons. | n |
+|---|---|---|---|---|---|
+| Santa Fe – Jaguares de Córdoba (categoria primera a) | 2026-10-14T23:30:00Z | Hándicap visitante +2.5 ⚠ brecha 0.218 | 1.25 (1.22–1.27, 4) | 0.659 (mín. equipo 0.596) | 10/10 |
 
-Sin combinación posible con las patas disponibles: no se fuerza ningún ticket.
+## Perfil «x3»: ×2.8–3.3 (≤5 patas, apoyo mínimo por ítem 0.55, colchón 0 %) — 2 borradores
+
+**Nivel de entrega: riesgo explícito · Rótulo honesto: RIESGO MUY ALTO (EV<0) · P(mercado, sin margen) 0.244 · P(pérdida) 0.756 · EV(mercado) -0.303 · P central (encogida) 0.369 · EV central 0.054 · mayor brecha muestra−mercado 0.239 · direcciones {'under': 2, 'over': 1}**
+
+### Puesto 1 · Borrador 1: ×2.856 (conservadora ×2.856) · 5 pata(s) en 5 partido(s) · apoyo conjunto descriptivo 0.117 (implícita de mercado sin margen 0.244)
+
+| Partido | Inicio UTC | Selección | Cuota media (mín–máx, casas) | Apoyo cons. | n |
+|---|---|---|---|---|---|
+| Moss – Egersund (first division) | 2026-10-14T17:00:00Z | Más de 1.5 goles ⚠ brecha 0.15 | 1.1 (1.07–1.12, 7) | 0.722 (mín. equipo 0.722) | 10/10 |
+| QPR – Derby (Championship) | 2026-10-14T18:45:00Z | Menos de 4.5 goles ⚠ brecha 0.17 | 1.13 (1.09–1.15, 7) | 0.672 (mín. equipo 0.722) | 10/10 |
+| LA Galaxy – Portland Timbers (mls) | 2026-10-15T02:30:00Z | Hándicap visitante +1.5 ⚠ brecha 0.239 | 1.295 (1.26–1.39, 4) | 0.659 (mín. equipo 0.596) | 10/10 |
+| Bryne – Raufoss (first division) | 2026-10-14T17:00:00Z | Menos de 4.5 goles ⚠ brecha 0.223 | 1.37 (1.35–1.4, 7) | 0.606 (mín. equipo 0.49) | 10/10 |
+| Columbus Crew – Charlotte (mls) | 2026-10-14T23:30:00Z | Hándicap visitante +1.5 ⚠ brecha 0.18 | 1.295 (1.26–1.32, 4) | 0.606 (mín. equipo 0.49) | 10/10 |
+
+**Nivel de entrega: riesgo alto · Rótulo honesto: RIESGO MUY ALTO (EV<0) · P(mercado, sin margen) 0.237 · P(pérdida) 0.763 · EV(mercado) -0.269 · P central (encogida) 0.381 · EV central 0.176 · mayor brecha muestra−mercado 0.329 · direcciones {'under': 1, 'over': 2}**
+
+### Puesto 2 · Borrador 2: ×3.086 (conservadora ×2.933) · 5 pata(s) en 4 partido(s) · apoyo conjunto descriptivo 0.228 (implícita de mercado sin margen 0.237)
+
+| Partido | Inicio UTC | Selección | Cuota media (mín–máx, casas) | Apoyo cons. | n |
+|---|---|---|---|---|---|
+| Dallas – Seattle Sounders (mls) | 2026-10-15T00:30:00Z | Hándicap visitante +1.5 ⚠ brecha 0.312 | 1.365 (1.3–1.39, 6) | 0.722 (mín. equipo 0.722) | 10/10 |
+| Moss – Egersund (first division) | 2026-10-14T17:00:00Z | Más de 1.5 goles ⚠ brecha 0.15 | 1.1 (1.07–1.12, 7) | 0.722 (mín. equipo 0.722) | 10/10 |
+| Sarmiento – River Plate (primera division) | 2026-10-14T22:00:00Z | Más de 0.5 goles | 1.065 (1.05–1.1, 6) | 0.722 (mín. equipo 0.722) | 10/10 |
+| Inter Miami – New York City FC (mls) | 2026-10-14T23:30:00Z | Menos de 5.5 goles ⚑ | 1.17 (1.13–1.19, 6) | 0.609 (mín. equipo 0.596) | 10/10 |
+| Inter Miami – New York City FC (mls) | 2026-10-14T23:30:00Z | Hándicap visitante +1.5 ⚑ ⚠ brecha 0.329 | 1.65 (1.6–1.7, 5) | 0.606 (mín. equipo 0.49) | 10/10 |
+| ⚑ *dos patas del mismo partido (cuota combinada media 1.93; la casa suele pagar menos).* Conjunto medido en los mismos partidos pasados: local 0.8 (n=10), visitante 1.0 (n=10); apoyo conservador conjunto 0.606 (límite inferior de Wilson; techo 0.722 con n=10), frente a 0.369 como producto de los apoyos individuales (0.609 × 0.606). Referencia descriptiva: no prueba dependencia ni es una probabilidad. | | | | | |
+
+## Perfil «amplio»: ×4.0–4.8 (≤6 patas, apoyo mínimo por ítem 0.55, colchón 4 %) — 3 borradores
+
+**Nivel de entrega: riesgo alto · Rótulo honesto: RIESGO MUY ALTO (EV<0) · P(mercado, sin margen) 0.149 · P(pérdida) 0.851 · EV(mercado) -0.378 · P central (encogida) 0.242 · EV central 0.01 · mayor brecha muestra−mercado 0.336 · direcciones {'under': 2, 'over': 4}**
+
+### Puesto 1 · Borrador 1: ×4.173 (conservadora ×4.173) · 7 pata(s) en 7 partido(s) · apoyo conjunto descriptivo 0.032 (implícita de mercado sin margen 0.149)
+
+| Partido | Inicio UTC | Selección | Cuota media (mín–máx, casas) | Apoyo cons. | n |
+|---|---|---|---|---|---|
+| Toronto – Orlando City (mls) | 2026-10-14T23:30:00Z | Más de 1.5 goles | 1.105 (1.08–1.14, 6) | 0.659 (mín. equipo 0.596) | 10/10 |
+| Sporting JAX – Birmingham Legion (usl championship) | 2026-10-14T23:00:00Z | Menos de 5.5 goles | 1.12 (1.08–1.13, 7) | 0.609 (mín. equipo 0.596) | 10/10 |
+| DC United – New York Red Bulls (mls) | 2026-10-14T23:30:00Z | Menos de 5.5 goles | 1.1 (1.06–1.12, 6) | 0.609 (mín. equipo 0.596) | 10/10 |
+| Bohemians 1905 – Mladá Boleslav (first league) | 2026-10-14T16:00:00Z | Más de 1.5 goles | 1.2 (1.16–1.25, 7) | 0.606 (mín. equipo 0.49) | 10/10 |
+| Hartford Athletic – Charleston Battery (usl championship) | 2026-10-14T23:00:00Z | Más de 1.5 goles | 1.2 (1.17–1.22, 7) | 0.606 (mín. equipo 0.49) | 10/10 |
+| Los Angeles – Austin (mls) | 2026-10-15T02:30:00Z | Hándicap visitante +1.5 ⚠ brecha 0.336 | 1.65 (1.61–1.7, 6) | 0.596 (mín. equipo 0.596) | 10/10 |
+| Hodd – Ranheim (first division) | 2026-10-14T17:00:00Z | Más de 2.5 goles ⚠ brecha 0.181 | 1.29 (1.26–1.33, 7) | 0.596 (mín. equipo 0.596) | 10/10 |
+
+**Nivel de entrega: riesgo alto · Rótulo honesto: RIESGO MUY ALTO (EV<0) · P(mercado, sin margen) 0.151 · P(pérdida) 0.849 · EV(mercado) -0.373 · P central (encogida) 0.237 · EV central -0.013 · mayor brecha muestra−mercado 0.336 · direcciones {'under': 3, 'over': 3}**
+
+### Puesto 2 · Borrador 2: ×4.163 (conservadora ×4.163) · 7 pata(s) en 7 partido(s) · apoyo conjunto descriptivo 0.031 (implícita de mercado sin margen 0.151)
+
+| Partido | Inicio UTC | Selección | Cuota media (mín–máx, casas) | Apoyo cons. | n |
+|---|---|---|---|---|---|
+| Toronto – Orlando City (mls) | 2026-10-14T23:30:00Z | Más de 1.5 goles | 1.105 (1.08–1.14, 6) | 0.659 (mín. equipo 0.596) | 10/10 |
+| Bohemians 1905 – Mladá Boleslav (first league) | 2026-10-14T16:00:00Z | Menos de 4.5 goles | 1.14 (1.12–1.17, 7) | 0.609 (mín. equipo 0.596) | 10/10 |
+| Hartford Athletic – Charleston Battery (usl championship) | 2026-10-14T23:00:00Z | Más de 1.5 goles | 1.2 (1.17–1.22, 7) | 0.606 (mín. equipo 0.49) | 10/10 |
+| Los Angeles – Austin (mls) | 2026-10-15T02:30:00Z | Hándicap visitante +1.5 ⚠ brecha 0.336 | 1.65 (1.61–1.7, 6) | 0.596 (mín. equipo 0.596) | 10/10 |
+| CF Montréal – Atlanta United FC (mls) | 2026-10-14T23:30:00Z | Menos de 4.5 goles | 1.22 (1.17–1.26, 6) | 0.596 (mín. equipo 0.596) | 10/10 |
+| Batman Petrolspor – Istanbulspor (1 lig) | 2026-10-14T11:30:00Z | Más de 1.5 goles | 1.2 (1.17–1.23, 7) | 0.596 (mín. equipo 0.49) | 9/10 |
+| Umraniyespor – Boluspor (1 lig) | 2026-10-14T14:00:00Z | Menos de 4.5 goles | 1.14 (1.08–1.16, 7) | 0.596 (mín. equipo 0.596) | 10/10 |
+
+**Nivel de entrega: riesgo alto · Rótulo honesto: RIESGO MUY ALTO (EV<0) · P(mercado, sin margen) 0.127 · P(pérdida) 0.873 · EV(mercado) -0.45 · P central (encogida) 0.205 · EV central -0.114 · mayor brecha muestra−mercado 0.336 · direcciones {'under': 4, 'over': 3}**
+
+### Puesto 3 · Borrador 3 · ⚠ incluye cuota ESTIMADA (córners/tarjetas): verifícala en tu casa: ×4.321 (conservadora ×4.321) · 8 pata(s) en 8 partido(s) · apoyo conjunto descriptivo 0.019 (implícita de mercado sin margen 0.127)
+
+| Partido | Inicio UTC | Selección | Cuota media (mín–máx, casas) | Apoyo cons. | n |
+|---|---|---|---|---|---|
+| Toronto – Orlando City (mls) | 2026-10-14T23:30:00Z | Más de 1.5 goles | 1.105 (1.08–1.14, 6) | 0.659 (mín. equipo 0.596) | 10/10 |
+| Bohemians 1905 – Mladá Boleslav (first league) | 2026-10-14T16:00:00Z | Menos de 4.5 goles | 1.14 (1.12–1.17, 7) | 0.609 (mín. equipo 0.596) | 10/10 |
+| Waldhof Mannheim – Ingolstadt (3 liga) | 2026-10-14T17:00:00Z | Menos de 14.5 córners | 1.11 ✎est. (cuota por confirmar: exige ≥ 1.65) (1.11–1.11, 0) | 0.606 (mín. equipo 0.49) | 10/10 |
+| Wehen Wiesbaden – Alemannia Aachen (3 liga) | 2026-10-14T17:00:00Z | Menos de 12.5 córners | 1.11 ✎est. (cuota por confirmar: exige ≥ 1.65) (1.11–1.11, 0) | 0.606 (mín. equipo 0.49) | 10/10 |
+| Al Raed – Jeddah (first division) | 2026-10-14T17:00:00Z | Menos de 4.5 goles | 1.09 (1.08–1.13, 4) | 0.606 (mín. equipo 0.49) | 10/10 |
+| Los Angeles – Austin (mls) | 2026-10-15T02:30:00Z | Hándicap visitante +1.5 ⚠ brecha 0.336 | 1.65 (1.61–1.7, 6) | 0.596 (mín. equipo 0.596) | 10/10 |
+| Hodd – Ranheim (first division) | 2026-10-14T17:00:00Z | Más de 2.5 goles ⚠ brecha 0.181 | 1.29 (1.26–1.33, 7) | 0.596 (mín. equipo 0.596) | 10/10 |
+| Batman Petrolspor – Istanbulspor (1 lig) | 2026-10-14T11:30:00Z | Más de 1.5 goles | 1.2 (1.17–1.23, 7) | 0.596 (mín. equipo 0.49) | 9/10 |
 
 ## Top de picks por SEGURIDAD (mayor apoyo conservador; una pata por partido)
 
@@ -70,21 +155,21 @@ Sin combinación posible con las patas disponibles: no se fuerza ningún ticket.
 
 | # | Partido | Categoría | Inicio UTC | Calendario | Selección | Cuota media (mín–máx, casas) | Apoyo cons. | n | Implícita s/margen | EV desc. cons. |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 1 | Inter Miami – New York City FC (mls) | men | 2026-10-14T23:30:00Z | 2 fuentes | Menos de 5.5 goles | 1.17 (1.13–1.19, 6) | 0.609 | 10/10 | 0.8104 | -0.287 |
-| 2 | FC Cincinnati – New England Revolution (mls) | men | 2026-10-14T23:30:00Z | 2 fuentes | Más de 1.5 goles | 1.1 (1.06–1.12, 6) | 0.722 | 10/10 | 0.8549 | -0.206 |
-| 3 | CF Montréal – Atlanta United FC (mls) | men | 2026-10-14T23:30:00Z | 2 fuentes | Menos de 4.5 goles | 1.22 (1.17–1.26, 6) | 0.596 | 10/10 | 0.7687 | -0.273 |
-| 4 | Bohemians 1905 – Mladá Boleslav (first league) | men | 2026-10-14T16:00:00Z | 2 fuentes | Menos de 4.5 goles | 1.14 (1.12–1.17, 7) | 0.609 | 10/10 | 0.8246 | -0.306 |
-| 5 | St. Louis City – Vancouver Whitecaps (mls) | men | 2026-10-15T00:30:00Z | 2 fuentes | Más de 1.5 goles | 1.135 (1.11–1.17, 6) | 0.659 | 10/10 | 0.8289 | -0.252 |
-| 6 | Los Angeles – Austin (mls) | men | 2026-10-15T02:30:00Z | 2 fuentes | Menos de 4.5 goles | 1.2 (1.17–1.24, 6) | 0.606 | 10/10 | 0.783 | -0.273 |
-| 7 | Toronto – Orlando City (mls) | men | 2026-10-14T23:30:00Z | 2 fuentes | Más de 1.5 goles | 1.105 (1.08–1.14, 6) | 0.659 | 10/10 | 0.8541 | -0.272 |
-| 8 | DC United – New York Red Bulls (mls) | men | 2026-10-14T23:30:00Z | 2 fuentes | Menos de 5.5 goles | 1.1 (1.06–1.12, 6) | 0.609 | 10/10 | 0.8599 | -0.33 |
-| 9 | Hartford Athletic – Charleston Battery (usl championship) | men | 2026-10-14T23:00:00Z | 2 fuentes | Más de 1.5 goles | 1.2 (1.17–1.22, 7) | 0.606 | 10/10 | 0.7736 | -0.273 |
-| 10 | Chicago Fire – Philadelphia Union (mls) | men | 2026-10-15T00:30:00Z | 2 fuentes | Más de 1.5 goles | 1.115 (1.08–1.15, 6) | 0.659 | 10/10 | 0.8412 | -0.265 |
-| 11 | Sporting JAX – Birmingham Legion (usl championship) | men | 2026-10-14T23:00:00Z | 2 fuentes | Menos de 5.5 goles | 1.12 (1.08–1.13, 7) | 0.609 | 10/10 | 0.8346 | -0.318 |
-| 12 | Batman Petrolspor – Istanbulspor (1 lig) | men | 2026-10-14T11:30:00Z | 2 fuentes | Más de 0.5 goles | 1.03 (1.01–1.04, 4) | 0.712 | 9/10 | 0.9244 | -0.267 |
-| 13 | Columbus Crew – Charlotte (mls) | men | 2026-10-14T23:30:00Z | 2 fuentes | Gana alguno, sin empate (12) | 1.24 (1.18–1.26, 7) | 0.56 | 10/10 | 0.7571 | -0.306 |
-| 14 | Sarmiento – River Plate (primera division) | men | 2026-10-14T22:00:00Z | 2 fuentes | Más de 0.5 goles | 1.065 (1.05–1.1, 6) | 0.722 | 10/10 | 0.8749 | -0.231 |
-| 15 | Bryne – Raufoss (first division) | men | 2026-10-14T17:00:00Z | 2 fuentes | Menos de 5.5 goles | 1.16 (1.12–1.17, 7) | 0.606 | 10/10 | 0.8117 | -0.297 |
+| 1 | Inter Miami – New York City FC (mls) ⚠ brecha 0.329 | men | 2026-10-14T23:30:00Z | 2 fuentes | Hándicap visitante +1.5 | 1.65 (1.6–1.7, 5) | 0.606 | 10/10 | 0.5714 | -0.0 |
+| 2 | Los Angeles – Austin (mls) ⚠ brecha 0.336 | men | 2026-10-15T02:30:00Z | 2 fuentes | Hándicap visitante +1.5 | 1.65 (1.61–1.7, 6) | 0.596 | 10/10 | 0.5641 | -0.017 |
+| 3 | Dallas – Seattle Sounders (mls) ⚠ brecha 0.312 | men | 2026-10-15T00:30:00Z | 2 fuentes | Hándicap visitante +1.5 | 1.365 (1.3–1.39, 6) | 0.722 | 10/10 | 0.688 | -0.014 |
+| 4 | Bryne – Raufoss (first division) ⚠ brecha 0.223 | men | 2026-10-14T17:00:00Z | 2 fuentes | Menos de 4.5 goles | 1.37 (1.35–1.4, 7) | 0.606 | 10/10 | 0.6769 | -0.17 |
+| 5 | LA Galaxy – Portland Timbers (mls) ⚠ brecha 0.239 | men | 2026-10-15T02:30:00Z | 2 fuentes | Hándicap visitante +1.5 | 1.295 (1.26–1.39, 4) | 0.659 | 10/10 | 0.7109 | -0.147 |
+| 6 | Antalyaspor – Kayserispor (1 lig) ⚠ brecha 0.224 | men | 2026-10-14T17:00:00Z | 2 fuentes | Gana alguno, sin empate (12) | 1.295 (1.24–1.36, 8) | 0.633 | 9/9 | 0.7205 | -0.18 |
+| 7 | Sarmiento – River Plate (primera division) ⚠ brecha 0.179 | men | 2026-10-14T22:00:00Z | 2 fuentes | Gana alguno, sin empate (12) | 1.305 (1.19–1.33, 8) | 0.596 | 10/10 | 0.7205 | -0.222 |
+| 8 | Columbus Crew – Charlotte (mls) ⚠ brecha 0.18 | men | 2026-10-14T23:30:00Z | 2 fuentes | Hándicap visitante +1.5 | 1.295 (1.26–1.32, 4) | 0.606 | 10/10 | 0.7197 | -0.215 |
+| 9 | Santa Fe – Jaguares de Córdoba (categoria primera a) ⚠ brecha 0.218 | men | 2026-10-14T23:30:00Z | 2 fuentes | Hándicap visitante +2.5 | 1.25 (1.22–1.27, 4) | 0.659 | 10/10 | 0.732 | -0.176 |
+| 10 | Hodd – Ranheim (first division) ⚠ brecha 0.181 | men | 2026-10-14T17:00:00Z | 2 fuentes | Más de 2.5 goles | 1.29 (1.26–1.33, 7) | 0.596 | 10/10 | 0.719 | -0.231 |
+| 11 | QPR – Derby (Championship) ⚠ brecha 0.17 | men | 2026-10-14T18:45:00Z | 2 fuentes | Menos de 4.5 goles | 1.13 (1.09–1.15, 7) | 0.672 | 10/10 | 0.8296 | -0.241 |
+| 12 | DC United – New York Red Bulls (mls) ⚠ brecha 0.151 | men | 2026-10-14T23:30:00Z | 2 fuentes | Hándicap visitante +1.5 | 1.33 (1.29–1.38, 6) | 0.56 | 10/10 | 0.6994 | -0.255 |
+| 13 | FC Cincinnati – New England Revolution (mls) | men | 2026-10-14T23:30:00Z | 2 fuentes | Más de 1.5 goles | 1.1 (1.06–1.12, 6) | 0.722 | 10/10 | 0.8549 | -0.206 |
+| 14 | CF Montréal – Atlanta United FC (mls) | men | 2026-10-14T23:30:00Z | 2 fuentes | Menos de 4.5 goles | 1.22 (1.17–1.26, 6) | 0.596 | 10/10 | 0.7687 | -0.273 |
+| 15 | Moss – Egersund (first division) ⚠ brecha 0.15 | men | 2026-10-14T17:00:00Z | 2 fuentes | Más de 1.5 goles | 1.1 (1.07–1.12, 7) | 0.722 | 10/10 | 0.8497 | -0.206 |
 
 *EV descriptivo conservador NO es valor esperado real: usa el límite inferior de frecuencias pasadas como «probabilidad», y al escoger lo mejor entre cientos de patas tiende a sobrestimar. Estos rankings acompañan a los tickets y no los reemplazan; pueden repetir partidos que estén en un ticket.*
 
@@ -271,11 +356,36 @@ Ningún favorito pasa todos los filtros (o falta `rotation.json` / `league_sampl
 
 | Perfil | Borrador | Pata | Cuota | Alternativa 1 | → multiplicador | Alternativa 2 | → multiplicador |
 |---|---|---|---|---|---|---|---|
-| seguridad | 1 | FC Cincinnati – New England Revolution → Más de 1.5 goles | 1.1 | Sarmiento – River Plate → Más de 0.5 goles @1.065 (apoyo 0.722) | ×1.209 | Hodd – Ranheim → Más de 1.5 goles @1.06 (apoyo 0.722) | ×1.204 |
-| seguridad | 1 | St. Louis City – Vancouver Whitecaps → Más de 1.5 goles | 1.135 | Sarmiento – River Plate → Más de 0.5 goles @1.065 (apoyo 0.722) | ×1.172 ⚠ fuera de rango | Hodd – Ranheim → Más de 1.5 goles @1.06 (apoyo 0.722) | ×1.166 ⚠ fuera de rango |
-| seguridad | 2 | Chicago Fire – Philadelphia Union → Más de 1.5 goles | 1.115 | Sarmiento – River Plate → Más de 0.5 goles @1.065 (apoyo 0.722) | ×1.182 ⚠ fuera de rango | Hodd – Ranheim → Más de 1.5 goles @1.06 (apoyo 0.722) | ×1.177 ⚠ fuera de rango |
-| seguridad | 2 | Strømmen – Asane → Más de 1.5 goles | 1.11 | Sarmiento – River Plate → Más de 0.5 goles @1.065 (apoyo 0.722) | ×1.188 ⚠ fuera de rango | Hodd – Ranheim → Más de 1.5 goles @1.06 (apoyo 0.722) | ×1.182 ⚠ fuera de rango |
+| seguridad | 1 | FC Cincinnati – New England Revolution → Más de 1.5 goles | 1.1 | Comunicaciones – Aurora → Más de 0.5 goles @1.035 (apoyo 0.722) | ×1.175 ⚠ fuera de rango | Mezőkövesd-Zsóry – Ajka → Más de 0.5 goles @1.03 (apoyo 0.722) | ×1.17 ⚠ fuera de rango |
+| seguridad | 1 | St. Louis City – Vancouver Whitecaps → Más de 1.5 goles | 1.135 | Comunicaciones – Aurora → Más de 0.5 goles @1.035 (apoyo 0.722) | ×1.139 ⚠ fuera de rango | Mezőkövesd-Zsóry – Ajka → Más de 0.5 goles @1.03 (apoyo 0.722) | ×1.133 ⚠ fuera de rango |
+| seguridad | 2 | Chicago Fire – Philadelphia Union → Más de 1.5 goles | 1.115 | Comunicaciones – Aurora → Más de 0.5 goles @1.035 (apoyo 0.722) | ×1.149 ⚠ fuera de rango | Mezőkövesd-Zsóry – Ajka → Más de 0.5 goles @1.03 (apoyo 0.722) | ×1.144 ⚠ fuera de rango |
+| seguridad | 2 | Strømmen – Asane → Más de 1.5 goles | 1.11 | Comunicaciones – Aurora → Más de 0.5 goles @1.035 (apoyo 0.722) | ×1.154 ⚠ fuera de rango | Mezőkövesd-Zsóry – Ajka → Más de 0.5 goles @1.03 (apoyo 0.722) | ×1.149 ⚠ fuera de rango |
+| x3 | 1 | Moss – Egersund → Más de 1.5 goles | 1.1 | Comunicaciones – Aurora → Más de 0.5 goles @1.035 (apoyo 0.722) | ×2.687 ⚠ fuera de rango | Mezőkövesd-Zsóry – Ajka → Más de 0.5 goles @1.03 (apoyo 0.722) | ×2.674 ⚠ fuera de rango |
+| x3 | 1 | QPR – Derby → Menos de 4.5 goles | 1.13 | Comunicaciones – Aurora → Más de 0.5 goles @1.035 (apoyo 0.722) | ×2.616 ⚠ fuera de rango | Mezőkövesd-Zsóry – Ajka → Más de 0.5 goles @1.03 (apoyo 0.722) | ×2.603 ⚠ fuera de rango |
+| x3 | 1 | LA Galaxy – Portland Timbers → Hándicap visitante +1.5 | 1.295 | Paide – Tammeka → Paide: más de 2.5 córners @1.11 ✎ (apoyo 0.596) | ×2.448 ⚠ fuera de rango | Paide – Tammeka → Paide: menos de 8.5 córners @1.11 ✎ (apoyo 0.596) | ×2.448 ⚠ fuera de rango |
+| x3 | 1 | Columbus Crew – Charlotte → Hándicap visitante +1.5 | 1.295 | Paide – Tammeka → Paide: más de 2.5 córners @1.11 ✎ (apoyo 0.596) | ×2.448 ⚠ fuera de rango | Paide – Tammeka → Paide: menos de 8.5 córners @1.11 ✎ (apoyo 0.596) | ×2.448 ⚠ fuera de rango |
+| x3 | 2 | Moss – Egersund → Más de 1.5 goles | 1.1 | Comunicaciones – Aurora → Más de 0.5 goles @1.035 (apoyo 0.722) | ×2.76 ⚠ fuera de rango | Mezőkövesd-Zsóry – Ajka → Más de 0.5 goles @1.03 (apoyo 0.722) | ×2.746 ⚠ fuera de rango |
+| x3 | 2 | Sarmiento – River Plate → Más de 0.5 goles | 1.065 | Comunicaciones – Aurora → Más de 0.5 goles @1.035 (apoyo 0.722) | ×2.85 | Mezőkövesd-Zsóry – Ajka → Más de 0.5 goles @1.03 (apoyo 0.722) | ×2.837 |
+| amplio | 1 | Toronto – Orlando City → Más de 1.5 goles | 1.105 | Comunicaciones – Aurora → Más de 0.5 goles @1.035 (apoyo 0.722) | ×3.909 ⚠ fuera de rango | Mezőkövesd-Zsóry – Ajka → Más de 0.5 goles @1.03 (apoyo 0.722) | ×3.89 ⚠ fuera de rango |
+| amplio | 1 | Sporting JAX – Birmingham Legion → Menos de 5.5 goles | 1.12 | Comunicaciones – Aurora → Más de 0.5 goles @1.035 (apoyo 0.722) | ×3.856 ⚠ fuera de rango | Mezőkövesd-Zsóry – Ajka → Más de 0.5 goles @1.03 (apoyo 0.722) | ×3.838 ⚠ fuera de rango |
+| amplio | 1 | DC United – New York Red Bulls → Menos de 5.5 goles | 1.1 | Comunicaciones – Aurora → Más de 0.5 goles @1.035 (apoyo 0.722) | ×3.926 ⚠ fuera de rango | Mezőkövesd-Zsóry – Ajka → Más de 0.5 goles @1.03 (apoyo 0.722) | ×3.907 ⚠ fuera de rango |
+| amplio | 1 | Bohemians 1905 – Mladá Boleslav → Más de 1.5 goles | 1.2 | Comunicaciones – Aurora → Más de 0.5 goles @1.035 (apoyo 0.722) | ×3.599 ⚠ fuera de rango | Mezőkövesd-Zsóry – Ajka → Más de 0.5 goles @1.03 (apoyo 0.722) | ×3.582 ⚠ fuera de rango |
+| amplio | 1 | Hartford Athletic – Charleston Battery → Más de 1.5 goles | 1.2 | Comunicaciones – Aurora → Más de 0.5 goles @1.035 (apoyo 0.722) | ×3.599 ⚠ fuera de rango | Mezőkövesd-Zsóry – Ajka → Más de 0.5 goles @1.03 (apoyo 0.722) | ×3.582 ⚠ fuera de rango |
+| amplio | 1 | Hodd – Ranheim → Más de 2.5 goles | 1.29 | Stabaek – Sandnes Ulf → Más de 6.5 córners @1.11 ✎ (apoyo 0.606) | ×3.591 ⚠ fuera de rango | Stabaek – Sandnes Ulf → Más de 7.5 córners @1.11 ✎ (apoyo 0.606) | ×3.591 ⚠ fuera de rango |
+| amplio | 2 | Toronto – Orlando City → Más de 1.5 goles | 1.105 | Comunicaciones – Aurora → Más de 0.5 goles @1.035 (apoyo 0.722) | ×3.899 ⚠ fuera de rango | Mezőkövesd-Zsóry – Ajka → Más de 0.5 goles @1.03 (apoyo 0.722) | ×3.88 ⚠ fuera de rango |
+| amplio | 2 | Bohemians 1905 – Mladá Boleslav → Menos de 4.5 goles | 1.14 | Comunicaciones – Aurora → Más de 0.5 goles @1.035 (apoyo 0.722) | ×3.78 ⚠ fuera de rango | Mezőkövesd-Zsóry – Ajka → Más de 0.5 goles @1.03 (apoyo 0.722) | ×3.761 ⚠ fuera de rango |
+| amplio | 2 | Hartford Athletic – Charleston Battery → Más de 1.5 goles | 1.2 | Comunicaciones – Aurora → Más de 0.5 goles @1.035 (apoyo 0.722) | ×3.591 ⚠ fuera de rango | Mezőkövesd-Zsóry – Ajka → Más de 0.5 goles @1.03 (apoyo 0.722) | ×3.573 ⚠ fuera de rango |
+| amplio | 2 | CF Montréal – Atlanta United FC → Menos de 4.5 goles | 1.22 | Antalyaspor – Kayserispor → Más de 0.5 goles @1.04 (apoyo 0.701) | ×3.549 ⚠ fuera de rango | Stabaek – Sandnes Ulf → Más de 1.5 goles @1.06 (apoyo 0.659) | ×3.617 ⚠ fuera de rango |
+| amplio | 2 | Batman Petrolspor – Istanbulspor → Más de 1.5 goles | 1.2 | Comunicaciones – Aurora → Más de 0.5 goles @1.035 (apoyo 0.722) | ×3.591 ⚠ fuera de rango | Mezőkövesd-Zsóry – Ajka → Más de 0.5 goles @1.03 (apoyo 0.722) | ×3.573 ⚠ fuera de rango |
+| amplio | 2 | Umraniyespor – Boluspor → Menos de 4.5 goles | 1.14 | Comunicaciones – Aurora → Más de 0.5 goles @1.035 (apoyo 0.722) | ×3.78 ⚠ fuera de rango | Mezőkövesd-Zsóry – Ajka → Más de 0.5 goles @1.03 (apoyo 0.722) | ×3.761 ⚠ fuera de rango |
+| amplio | 3 | Toronto – Orlando City → Más de 1.5 goles | 1.105 | Comunicaciones – Aurora → Más de 0.5 goles @1.035 (apoyo 0.722) | ×4.047 | Mezőkövesd-Zsóry – Ajka → Más de 0.5 goles @1.03 (apoyo 0.722) | ×4.028 |
+| amplio | 3 | Bohemians 1905 – Mladá Boleslav → Menos de 4.5 goles | 1.14 | Comunicaciones – Aurora → Más de 0.5 goles @1.035 (apoyo 0.722) | ×3.923 ⚠ fuera de rango | Mezőkövesd-Zsóry – Ajka → Más de 0.5 goles @1.03 (apoyo 0.722) | ×3.904 ⚠ fuera de rango |
+| amplio | 3 | Waldhof Mannheim – Ingolstadt → Menos de 14.5 córners | 1.11 | Comunicaciones – Aurora → Más de 0.5 goles @1.035 (apoyo 0.722) | ×4.029 | Mezőkövesd-Zsóry – Ajka → Más de 0.5 goles @1.03 (apoyo 0.722) | ×4.01 |
+| amplio | 3 | Wehen Wiesbaden – Alemannia Aachen → Menos de 12.5 córners | 1.11 | Comunicaciones – Aurora → Más de 0.5 goles @1.035 (apoyo 0.722) | ×4.029 | Mezőkövesd-Zsóry – Ajka → Más de 0.5 goles @1.03 (apoyo 0.722) | ×4.01 |
+| amplio | 3 | Al Raed – Jeddah → Menos de 4.5 goles | 1.09 | Comunicaciones – Aurora → Más de 0.5 goles @1.035 (apoyo 0.722) | ×4.103 | Mezőkövesd-Zsóry – Ajka → Más de 0.5 goles @1.03 (apoyo 0.722) | ×4.083 |
+| amplio | 3 | Hodd – Ranheim → Más de 2.5 goles | 1.29 | Real Salt Lake – San Jose Earthquakes → Menos de 5.5 goles @1.105 (apoyo 0.596) | ×3.701 ⚠ fuera de rango | — | — |
+| amplio | 3 | Batman Petrolspor – Istanbulspor → Más de 1.5 goles | 1.2 | Comunicaciones – Aurora → Más de 0.5 goles @1.035 (apoyo 0.722) | ×3.727 ⚠ fuera de rango | Mezőkövesd-Zsóry – Ajka → Más de 0.5 goles @1.03 (apoyo 0.722) | ×3.709 ⚠ fuera de rango |
 
 ---
-Partidos usados en borradores de perfiles previos: 4; sin partidos repetidos entre multiplicadores: True; cuotas manuales aplicadas: 0.
+Partidos usados en borradores de perfiles previos: 26; sin partidos repetidos entre multiplicadores: True; cuotas manuales aplicadas: 0.
 Patas evaluadas: 14095 (con cuota media: 6526) en 125 partidos.

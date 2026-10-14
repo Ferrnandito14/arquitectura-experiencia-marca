@@ -148,13 +148,13 @@ class ProcessGates(unittest.TestCase):
         self.assertGreaterEqual(gap, tickets.MAX_GAP)
         self.assertEqual(tickets.p_central({"prob_implicita_sin_margen": None, "frec": [1, 1], "n": [10, 10]}), (None, None))
 
-    def test_top_picks_exclude_suspicious_gap_from_rankings(self):
+    def test_top_picks_flag_suspicious_gap_instead_of_hiding(self):
         base = ev(fh=form(10, 3, 0), fa=form(10, 0, 3), prices={"goles.over_5_5": avg([8.0, 1.1]), "resultado.doble_oportunidad": avg([1.15, 1.2, 4.0])})
         legs = tickets.legs_for_match(mm(0), base)
         tp = tickets.top_picks(legs, top=50, min_attr_support=0.0)
         for lst in tp.values():
             for l in lst:
-                self.assertFalse(l["sospechosa_por_brecha"])
+                self.assertIn("sospechosa_por_brecha", l)          # los tops muestran TODAS las patas y marcan la brecha (no la esconden)
 
     def test_search_never_exceeds_same_direction_limit(self):
         legs = []
@@ -176,12 +176,12 @@ class ProcessGates(unittest.TestCase):
                 self.assertAlmostEqual(t["p_mercado_conjunta"] + t["p_perdida_mercado"], 1.0, places=2)
             self.assertIn(t["etiqueta_riesgo"].split(" ")[0], ("SEGURIDAD", "BAJO", "RIESGO", "SIN"))
 
-    def test_render_opens_with_no_apostar_when_every_ev_negative(self):
+    def test_render_opens_with_risk_notice_when_every_ev_negative(self):
         tk = {"cuota_combinada_media": 1.25, "cuota_combinada_conservadora": 1.2, "n_patas": 1, "n_partidos": 1, "usa_cuota_estimada": False, "usa_cuota_manual": False,
               "apoyo_conjunto_descriptivo": 0.7, "prob_implicita_conjunta_sin_margen": 0.8, "p_mercado_conjunta": 0.8, "p_perdida_mercado": 0.2, "ev_mercado": -0.11,
               "etiqueta_riesgo": "BAJO RIESGO (EV<0)", "direcciones": {"under": 1, "over": 0}, "items": []}
         res = {"targets": [{"name": "seguridad", "lo": 1.2, "hi": 1.28, "max_legs": 2, "min_support": 0.6, "tickets": [tk]}], "unpriced": [], "n_legs": 0, "n_priced_legs": 0, "n_matches_with_legs": 0}
-        self.assertIn("NO APOSTAR", tickets.render(res))
+        self.assertIn("AVISO DE RIESGO", tickets.render(res))
 
 
 if __name__ == "__main__":
@@ -250,7 +250,7 @@ class TopPicks(unittest.TestCase):
         self.assertEqual(sup, sorted(sup, reverse=True))              # ranking por probabilidad central (encogida), no por Wilson
         ev_ = [p["ev_central"] if p["ev_central"] is not None else -9 for p in tp["atractivo"]]
         self.assertEqual(ev_, sorted(ev_, reverse=True))
-        self.assertTrue(all(p["apoyo_conservador"] >= 0.55 and not p["sospechosa_por_brecha"] for p in tp["atractivo"]))
+        self.assertTrue(all(p["apoyo_conservador"] >= 0.55 for p in tp["atractivo"]))
 
     def test_render_has_both_tables_and_disclaimer(self):
         import tempfile, common

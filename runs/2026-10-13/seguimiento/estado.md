@@ -5,6 +5,6 @@
 | Pata | Cuota | Estado | Detalle |
 |---|---|---|---|
 | Boca Juniors – Vasco · total | 1.57 | PENDIENTE | no ha empezado |
-| Athletic-MG – Londrina · goles_tarjetas | 1.92 | EN_JUEGO | 1-1 (48): 2/2 goles, 1/4 pts de tarjetas |
+| Athletic-MG – Londrina · goles_tarjetas | 1.92 | EN_JUEGO | 2-2 (90+): 4/2 goles, 3/4 pts de tarjetas |
 | San Carlos – Inter San Carlos · total | 1.3 | PENDIENTE | no ha empezado |
-| Atlético Bucaramanga – Águilas Doradas · dc | 1.25 | EN_JUEGO | 0-0 (8): va cumpliendo provisional |
+| Atlético Bucaramanga – Águilas Doradas · dc | 1.25 | EN_JUEGO | 1-0 (Half Time): va cumpliendo provisional |
