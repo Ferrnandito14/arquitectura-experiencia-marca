@@ -525,6 +525,7 @@ NON_GENERATING = {
     ".claude/skills/seleccion-final-picks/scripts/live_prob.py": "imprime la probabilidad en vivo de tickets ya apostados; no genera candidatos",
     ".claude/skills/seleccion-final-picks/scripts/rotation_prior.py": "lee los partidos de tickets.json para calcular rotación; no genera candidatos",
     ".claude/skills/seleccion-final-picks/scripts/seguimiento.py": "liquida tickets ya apostados; «provisional» se refiere a un marcador en juego",
+    ".claude/skills/seleccion-final-picks/scripts/registrar_tickets.py": "registra resultados ya liquidados de los tickets de la persona usuaria (medición); no genera candidatos ni rankings",
     ".claude/skills/seleccion-final-picks/scripts/auditoria_filtros.py": "mide filtros ya aplicados contra resultados liquidados (auditoría); no genera candidatos ni rankings",
     ".claude/skills/seleccion-final-picks/scripts/comparativo_resultados.py": "compara un libro YA entregado con los resultados reales (post-mortem); no genera candidatos ni rankings nuevos",
     ".claude/skills/seleccion-final-picks/scripts/agent_review.py": "genera paquetes y valida los informes de los agentes (contrato cerrado); no genera candidatos",
