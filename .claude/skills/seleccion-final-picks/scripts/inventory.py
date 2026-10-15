@@ -25,10 +25,11 @@ CLUSTER_HOURS = 36            # ventana para considerar que dos registros pueden
 
 _WOMEN = re.compile(r"\b(women|woman|femin\w*|ladies|w)\b|\(w\)|\bfem\b")
 _YOUTH = re.compile(r"\bu-?(1[5-9]|20)\b|\b(youth|juvenil|junior\w*|academy)\b")
+_YOUTH_TEAM = re.compile(r"\bu-?(1[5-9]|20)\b|\b(youth|juvenil|academy)\b")      # «Juniors» en el nombre de un equipo (Boca Juniors, Argentinos Juniors) NO es categoría juvenil
 _U23 = re.compile(r"\bu-?(2[1-3])\b")
 _RESERVE_TEAM = re.compile(r"(\s(b|ii|iii)$|\bb team\b|\breserves?\b|\bcastilla\b)")
 _RESERVE_COMP = re.compile(r"\b(reserves?|reserva\w*|development)\b")
-_FIRST_TEAM_EXCEPTIONS = {"willem ii"}      # clubes de primer equipo cuyo nombre termina en II
+_FIRST_TEAM_EXCEPTIONS = {"willem ii", "juan pablo ii"}      # clubes de primer equipo cuyo nombre termina en II
 
 
 def detect_category(home, away, competition, hint=None):
@@ -40,7 +41,7 @@ def detect_category(home, away, competition, hint=None):
     text = " ".join(teams + [(competition or "").lower()])
     if _WOMEN.search(text):
         return "women"
-    if _YOUTH.search(text):
+    if _YOUTH_TEAM.search(" ".join(teams)) or _YOUTH.search((competition or "").lower()):
         return "youth"
     if _U23.search(text):
         return "u23"

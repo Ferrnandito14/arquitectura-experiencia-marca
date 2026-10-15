@@ -1,0 +1,1269 @@
+{
+ "agente": "cuantitativo",
+ "version_contrato": 1,
+ "run": "runs/2026-10-16",
+ "unidades": [
+  {
+   "unit_id": "m-6430ac19af8e|1.ª parte goles",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Hay p_modelo (modelo no validado) pero ninguna línea con precio R/A en el paquete; sin cuota no hay contraste ni EV.",
+   "evidencia": [
+    "paquete:m-6430ac19af8e|1.ª parte goles",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6430ac19af8e|1.ª parte resultado",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Hay p_modelo (modelo no validado) pero ninguna línea con precio R/A en el paquete; sin cuota no hay contraste ni EV.",
+   "evidencia": [
+    "paquete:m-6430ac19af8e|1.ª parte resultado",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6430ac19af8e|córners",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Hay p_modelo (modelo no validado) pero ninguna línea con precio R/A en el paquete; sin cuota no hay contraste ni EV.",
+   "evidencia": [
+    "paquete:m-6430ac19af8e|córners",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6430ac19af8e|doble oportunidad",
+   "consistencia_modelo": "discrepa_del_mercado",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "1/3 líneas con brecha >=15 pp vs 1/cuota (incl. margen), p.ej. resultado.dc.1x -20 pp; precios de agregador/no ejecutables. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-6430ac19af8e|doble oportunidad",
+    "archivo:data/model_validation.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "resultado.dc.12",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.dc.x2",
+     "consistencia_modelo": "coherente"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-6430ac19af8e|empate no válido",
+   "consistencia_modelo": "datos_insuficientes",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Datos sin_extractor: hay p_modelo pero la base de datos no es suficiente; no se contrasta con precio ni EV.",
+   "evidencia": [
+    "paquete:m-6430ac19af8e|empate no válido",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6430ac19af8e|fueras de juego",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "ninguno",
+   "validacion_aplicable": "no_validado",
+   "nota": "Estimador no implementado: sin p_modelo, no hay contraste con precio ni EV.",
+   "evidencia": [
+    "paquete:m-6430ac19af8e|fueras de juego",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6430ac19af8e|goles",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "0/12 líneas con brecha >=15 pp vs 1/cuota (incl. margen; máx 8 pp). Precios de referencia, no ejecutables; coherencia no implica validez del modelo.",
+   "evidencia": [
+    "paquete:m-6430ac19af8e|goles",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6430ac19af8e|goles por equipo",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Hay p_modelo (modelo no validado) pero ninguna línea con precio R/A en el paquete; sin cuota no hay contraste ni EV.",
+   "evidencia": [
+    "paquete:m-6430ac19af8e|goles por equipo",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6430ac19af8e|goles total entero",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Estimador no implementado: sin p_modelo, no hay contraste con precio ni EV.",
+   "evidencia": [
+    "paquete:m-6430ac19af8e|goles total entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6430ac19af8e|hándicap",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Hay p_modelo, solo precios no verificables (V) o ninguno; no contrastable ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-6430ac19af8e|hándicap",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6430ac19af8e|hándicap asiático entero",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Estimador no implementado: sin p_modelo. Hay cuotas de agregador solo como referencia; no hay contraste ni EV.",
+   "evidencia": [
+    "paquete:m-6430ac19af8e|hándicap asiático entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6430ac19af8e|hándicap europeo",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Estimador no implementado: sin p_modelo, no hay contraste con precio ni EV.",
+   "evidencia": [
+    "paquete:m-6430ac19af8e|hándicap europeo",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6430ac19af8e|remates",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Estimador no implementado: sin p_modelo, no hay contraste con precio ni EV.",
+   "evidencia": [
+    "paquete:m-6430ac19af8e|remates",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6430ac19af8e|remates a puerta",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Estimador no implementado: sin p_modelo, no hay contraste con precio ni EV.",
+   "evidencia": [
+    "paquete:m-6430ac19af8e|remates a puerta",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6430ac19af8e|resultado",
+   "consistencia_modelo": "discrepa_del_mercado",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "1/3 líneas con brecha >=15 pp vs 1/cuota (incl. margen), p.ej. resultado.1x2.home -16 pp; precios de agregador/no ejecutables. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-6430ac19af8e|resultado",
+    "archivo:data/model_validation.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "resultado.1x2.draw",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.1x2.away",
+     "consistencia_modelo": "coherente"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-6430ac19af8e|tarjetas",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Hay p_modelo (modelo no validado) pero ninguna línea con precio R/A en el paquete; sin cuota no hay contraste ni EV.",
+   "evidencia": [
+    "paquete:m-6430ac19af8e|tarjetas",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6ecf399413a5|1.ª parte goles",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "0/6 líneas con brecha >=15 pp vs 1/cuota (incl. margen; máx 12 pp). Precios de referencia, no ejecutables; coherencia no implica validez del modelo.",
+   "evidencia": [
+    "paquete:m-6ecf399413a5|1.ª parte goles",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6ecf399413a5|1.ª parte resultado",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "0/3 líneas con brecha >=15 pp vs 1/cuota (incl. margen; máx 7 pp). Precios de referencia, no ejecutables; coherencia no implica validez del modelo.",
+   "evidencia": [
+    "paquete:m-6ecf399413a5|1.ª parte resultado",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6ecf399413a5|córners",
+   "consistencia_modelo": "discrepa_del_mercado",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "4/6 líneas con brecha >=15 pp vs 1/cuota (incl. margen), p.ej. corners.equipo.home.under.5.5 -27 pp; precios de agregador/no ejecutables. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-6ecf399413a5|córners",
+    "archivo:data/model_validation.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "corners.total.over.10.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.4.5",
+     "consistencia_modelo": "coherente"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-6ecf399413a5|doble oportunidad",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "0/3 líneas con brecha >=15 pp vs 1/cuota (incl. margen; máx 9 pp). Precios de referencia, no ejecutables; coherencia no implica validez del modelo.",
+   "evidencia": [
+    "paquete:m-6ecf399413a5|doble oportunidad",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6ecf399413a5|empate no válido",
+   "consistencia_modelo": "datos_insuficientes",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Datos sin_extractor: hay p_modelo pero la base de datos no es suficiente; no se contrasta con precio ni EV.",
+   "evidencia": [
+    "paquete:m-6ecf399413a5|empate no válido",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6ecf399413a5|fueras de juego",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "ninguno",
+   "validacion_aplicable": "no_validado",
+   "nota": "Estimador no implementado: sin p_modelo, no hay contraste con precio ni EV.",
+   "evidencia": [
+    "paquete:m-6ecf399413a5|fueras de juego",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6ecf399413a5|goles",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "0/14 líneas con brecha >=15 pp vs 1/cuota (incl. margen; máx 11 pp). Precios de referencia, no ejecutables; coherencia no implica validez del modelo.",
+   "evidencia": [
+    "paquete:m-6ecf399413a5|goles",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6ecf399413a5|goles por equipo",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "0/12 líneas con brecha >=15 pp vs 1/cuota (incl. margen; máx 11 pp). Precios de referencia, no ejecutables; coherencia no implica validez del modelo.",
+   "evidencia": [
+    "paquete:m-6ecf399413a5|goles por equipo",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6ecf399413a5|goles total entero",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Estimador no implementado: sin p_modelo. Hay cuotas de agregador solo como referencia; no hay contraste ni EV.",
+   "evidencia": [
+    "paquete:m-6ecf399413a5|goles total entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6ecf399413a5|hándicap",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "0/8 líneas con brecha >=15 pp vs 1/cuota (incl. margen; máx 9 pp). Precios de referencia, no ejecutables; coherencia no implica validez del modelo.",
+   "evidencia": [
+    "paquete:m-6ecf399413a5|hándicap",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6ecf399413a5|hándicap asiático entero",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Estimador no implementado: sin p_modelo. Hay cuotas de agregador solo como referencia; no hay contraste ni EV.",
+   "evidencia": [
+    "paquete:m-6ecf399413a5|hándicap asiático entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6ecf399413a5|hándicap europeo",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Estimador no implementado: sin p_modelo. Hay cuotas de agregador solo como referencia; no hay contraste ni EV.",
+   "evidencia": [
+    "paquete:m-6ecf399413a5|hándicap europeo",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6ecf399413a5|remates",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Estimador no implementado: sin p_modelo, no hay contraste con precio ni EV.",
+   "evidencia": [
+    "paquete:m-6ecf399413a5|remates",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6ecf399413a5|remates a puerta",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Estimador no implementado: sin p_modelo, no hay contraste con precio ni EV.",
+   "evidencia": [
+    "paquete:m-6ecf399413a5|remates a puerta",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6ecf399413a5|resultado",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "0/3 líneas con brecha >=15 pp vs 1/cuota (incl. margen; máx 9 pp). Precios de referencia, no ejecutables; coherencia no implica validez del modelo.",
+   "evidencia": [
+    "paquete:m-6ecf399413a5|resultado",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6ecf399413a5|tarjetas",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Hay p_modelo (modelo no validado) pero ninguna línea con precio R/A en el paquete; sin cuota no hay contraste ni EV.",
+   "evidencia": [
+    "paquete:m-6ecf399413a5|tarjetas",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-81ee8c86b970|1.ª parte goles",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "0/6 líneas con brecha >=15 pp vs 1/cuota (incl. margen; máx 7 pp). Precios de referencia, no ejecutables; coherencia no implica validez del modelo.",
+   "evidencia": [
+    "paquete:m-81ee8c86b970|1.ª parte goles",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-81ee8c86b970|1.ª parte resultado",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "0/3 líneas con brecha >=15 pp vs 1/cuota (incl. margen; máx 4 pp). Precios de referencia, no ejecutables; coherencia no implica validez del modelo.",
+   "evidencia": [
+    "paquete:m-81ee8c86b970|1.ª parte resultado",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-81ee8c86b970|córners",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "0/6 líneas con brecha >=15 pp vs 1/cuota (incl. margen; máx 12 pp). Precios de referencia, no ejecutables; coherencia no implica validez del modelo.",
+   "evidencia": [
+    "paquete:m-81ee8c86b970|córners",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-81ee8c86b970|doble oportunidad",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "0/3 líneas con brecha >=15 pp vs 1/cuota (incl. margen; máx 5 pp). Precios de referencia, no ejecutables; coherencia no implica validez del modelo.",
+   "evidencia": [
+    "paquete:m-81ee8c86b970|doble oportunidad",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-81ee8c86b970|empate no válido",
+   "consistencia_modelo": "datos_insuficientes",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Datos sin_extractor: hay p_modelo pero la base de datos no es suficiente; no se contrasta con precio ni EV.",
+   "evidencia": [
+    "paquete:m-81ee8c86b970|empate no válido",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-81ee8c86b970|fueras de juego",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "ninguno",
+   "validacion_aplicable": "no_validado",
+   "nota": "Estimador no implementado: sin p_modelo, no hay contraste con precio ni EV.",
+   "evidencia": [
+    "paquete:m-81ee8c86b970|fueras de juego",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-81ee8c86b970|goles",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "0/14 líneas con brecha >=15 pp vs 1/cuota (incl. margen; máx 8 pp). Precios de referencia, no ejecutables; coherencia no implica validez del modelo.",
+   "evidencia": [
+    "paquete:m-81ee8c86b970|goles",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-81ee8c86b970|goles por equipo",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Hay p_modelo (modelo no validado) pero ninguna línea con precio R/A en el paquete; sin cuota no hay contraste ni EV.",
+   "evidencia": [
+    "paquete:m-81ee8c86b970|goles por equipo",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-81ee8c86b970|goles total entero",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Estimador no implementado: sin p_modelo, no hay contraste con precio ni EV.",
+   "evidencia": [
+    "paquete:m-81ee8c86b970|goles total entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-81ee8c86b970|hándicap",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "0/8 líneas con brecha >=15 pp vs 1/cuota (incl. margen; máx 7 pp). Precios de referencia, no ejecutables; coherencia no implica validez del modelo.",
+   "evidencia": [
+    "paquete:m-81ee8c86b970|hándicap",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-81ee8c86b970|hándicap asiático entero",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Estimador no implementado: sin p_modelo. Hay cuotas de agregador solo como referencia; no hay contraste ni EV.",
+   "evidencia": [
+    "paquete:m-81ee8c86b970|hándicap asiático entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-81ee8c86b970|hándicap europeo",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Estimador no implementado: sin p_modelo. Hay cuotas de agregador solo como referencia; no hay contraste ni EV.",
+   "evidencia": [
+    "paquete:m-81ee8c86b970|hándicap europeo",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-81ee8c86b970|remates",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Estimador no implementado: sin p_modelo, no hay contraste con precio ni EV.",
+   "evidencia": [
+    "paquete:m-81ee8c86b970|remates",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-81ee8c86b970|remates a puerta",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Estimador no implementado: sin p_modelo, no hay contraste con precio ni EV.",
+   "evidencia": [
+    "paquete:m-81ee8c86b970|remates a puerta",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-81ee8c86b970|resultado",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "0/3 líneas con brecha >=15 pp vs 1/cuota (incl. margen; máx 4 pp). Precios de referencia, no ejecutables; coherencia no implica validez del modelo.",
+   "evidencia": [
+    "paquete:m-81ee8c86b970|resultado",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-81ee8c86b970|tarjetas",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Hay p_modelo (modelo no validado) pero ninguna línea con precio R/A en el paquete; sin cuota no hay contraste ni EV.",
+   "evidencia": [
+    "paquete:m-81ee8c86b970|tarjetas",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-8d239930409a|1.ª parte goles",
+   "consistencia_modelo": "discrepa_del_mercado",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "1/6 líneas con brecha >=15 pp vs 1/cuota (incl. margen), p.ej. primera_parte.total.under.1.5 -17 pp; precios de agregador/no ejecutables. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-8d239930409a|1.ª parte goles",
+    "archivo:data/model_validation.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "primera_parte.total.over.0.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "primera_parte.total.under.0.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "primera_parte.total.over.1.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "primera_parte.total.over.2.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "primera_parte.total.under.2.5",
+     "consistencia_modelo": "coherente"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-8d239930409a|1.ª parte resultado",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "0/3 líneas con brecha >=15 pp vs 1/cuota (incl. margen; máx 10 pp). Precios de referencia, no ejecutables; coherencia no implica validez del modelo.",
+   "evidencia": [
+    "paquete:m-8d239930409a|1.ª parte resultado",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-8d239930409a|córners",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "0/10 líneas con brecha >=15 pp vs 1/cuota (incl. margen; máx 11 pp). Precios de referencia, no ejecutables; coherencia no implica validez del modelo.",
+   "evidencia": [
+    "paquete:m-8d239930409a|córners",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-8d239930409a|doble oportunidad",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "0/3 líneas con brecha >=15 pp vs 1/cuota (incl. margen; máx 14 pp). Precios de referencia, no ejecutables; coherencia no implica validez del modelo.",
+   "evidencia": [
+    "paquete:m-8d239930409a|doble oportunidad",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-8d239930409a|empate no válido",
+   "consistencia_modelo": "datos_insuficientes",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Datos sin_extractor: hay p_modelo pero la base de datos no es suficiente; no se contrasta con precio ni EV.",
+   "evidencia": [
+    "paquete:m-8d239930409a|empate no válido",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-8d239930409a|fueras de juego",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "ninguno",
+   "validacion_aplicable": "no_validado",
+   "nota": "Estimador no implementado: sin p_modelo, no hay contraste con precio ni EV.",
+   "evidencia": [
+    "paquete:m-8d239930409a|fueras de juego",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-8d239930409a|goles",
+   "consistencia_modelo": "discrepa_del_mercado",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "2/14 líneas con brecha >=15 pp vs 1/cuota (incl. margen), p.ej. goles.total.under.3.5 -18 pp; precios de agregador/no ejecutables. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-8d239930409a|goles",
+    "archivo:data/model_validation.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "goles.total.over.0.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "goles.total.under.0.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "goles.total.over.1.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "goles.total.under.1.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "goles.total.over.2.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "goles.total.over.3.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "goles.total.over.4.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "goles.total.under.4.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "goles.total.over.5.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "goles.total.under.5.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "goles.btts.yes",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "goles.btts.no",
+     "consistencia_modelo": "coherente"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-8d239930409a|goles por equipo",
+   "consistencia_modelo": "discrepa_del_mercado",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "2/12 líneas con brecha >=15 pp vs 1/cuota (incl. margen), p.ej. goles.equipo.home.under.1.5 -20 pp; precios de agregador/no ejecutables. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-8d239930409a|goles por equipo",
+    "archivo:data/model_validation.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "goles.equipo.home.over.0.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "goles.equipo.home.under.0.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "goles.equipo.home.over.1.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "goles.equipo.home.over.2.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "goles.equipo.away.over.0.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "goles.equipo.away.under.0.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "goles.equipo.away.over.1.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "goles.equipo.away.under.1.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "goles.equipo.away.over.2.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "goles.equipo.away.under.2.5",
+     "consistencia_modelo": "coherente"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-8d239930409a|goles total entero",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Estimador no implementado: sin p_modelo. Hay cuotas de agregador solo como referencia; no hay contraste ni EV.",
+   "evidencia": [
+    "paquete:m-8d239930409a|goles total entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-8d239930409a|hándicap",
+   "consistencia_modelo": "discrepa_del_mercado",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "1/12 líneas con brecha >=15 pp vs 1/cuota (incl. margen), p.ej. resultado.ah.away.+1.5 -16 pp; precios de agregador/no ejecutables. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-8d239930409a|hándicap",
+    "archivo:data/model_validation.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.home.-2.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah.away.+2.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah.home.-1.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah.home.-0.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah.away.+0.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah.home.+0.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah.away.-0.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah.home.+1.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah.away.-1.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah.home.+2.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah.away.-2.5",
+     "consistencia_modelo": "coherente"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-8d239930409a|hándicap asiático entero",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Estimador no implementado: sin p_modelo. Hay cuotas de agregador solo como referencia; no hay contraste ni EV.",
+   "evidencia": [
+    "paquete:m-8d239930409a|hándicap asiático entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-8d239930409a|hándicap europeo",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Estimador no implementado: sin p_modelo. Hay cuotas de agregador solo como referencia; no hay contraste ni EV.",
+   "evidencia": [
+    "paquete:m-8d239930409a|hándicap europeo",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-8d239930409a|remates",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Estimador no implementado: sin p_modelo. Hay cuotas de agregador solo como referencia; no hay contraste ni EV.",
+   "evidencia": [
+    "paquete:m-8d239930409a|remates",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-8d239930409a|remates a puerta",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Estimador no implementado: sin p_modelo. Hay cuotas de agregador solo como referencia; no hay contraste ni EV.",
+   "evidencia": [
+    "paquete:m-8d239930409a|remates a puerta",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-8d239930409a|resultado",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "0/3 líneas con brecha >=15 pp vs 1/cuota (incl. margen; máx 9 pp). Precios de referencia, no ejecutables; coherencia no implica validez del modelo.",
+   "evidencia": [
+    "paquete:m-8d239930409a|resultado",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-8d239930409a|tarjetas",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Hay p_modelo (modelo no validado) pero ninguna línea con precio R/A en el paquete; sin cuota no hay contraste ni EV.",
+   "evidencia": [
+    "paquete:m-8d239930409a|tarjetas",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-92187c251cb6|1.ª parte goles",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "0/6 líneas con brecha >=15 pp vs 1/cuota (incl. margen; máx 12 pp). Precios de referencia, no ejecutables; coherencia no implica validez del modelo.",
+   "evidencia": [
+    "paquete:m-92187c251cb6|1.ª parte goles",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-92187c251cb6|1.ª parte resultado",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "0/3 líneas con brecha >=15 pp vs 1/cuota (incl. margen; máx 7 pp). Precios de referencia, no ejecutables; coherencia no implica validez del modelo.",
+   "evidencia": [
+    "paquete:m-92187c251cb6|1.ª parte resultado",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-92187c251cb6|córners",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "0/6 líneas con brecha >=15 pp vs 1/cuota (incl. margen; máx 13 pp). Precios de referencia, no ejecutables; coherencia no implica validez del modelo.",
+   "evidencia": [
+    "paquete:m-92187c251cb6|córners",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-92187c251cb6|doble oportunidad",
+   "consistencia_modelo": "discrepa_del_mercado",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "1/3 líneas con brecha >=15 pp vs 1/cuota (incl. margen), p.ej. resultado.dc.1x -17 pp; precios de agregador/no ejecutables. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-92187c251cb6|doble oportunidad",
+    "archivo:data/model_validation.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "resultado.dc.12",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.dc.x2",
+     "consistencia_modelo": "coherente"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-92187c251cb6|empate no válido",
+   "consistencia_modelo": "datos_insuficientes",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Datos sin_extractor: hay p_modelo pero la base de datos no es suficiente; no se contrasta con precio ni EV.",
+   "evidencia": [
+    "paquete:m-92187c251cb6|empate no válido",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-92187c251cb6|fueras de juego",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "ninguno",
+   "validacion_aplicable": "no_validado",
+   "nota": "Estimador no implementado: sin p_modelo, no hay contraste con precio ni EV.",
+   "evidencia": [
+    "paquete:m-92187c251cb6|fueras de juego",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-92187c251cb6|goles",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "0/14 líneas con brecha >=15 pp vs 1/cuota (incl. margen; máx 12 pp). Precios de referencia, no ejecutables; coherencia no implica validez del modelo.",
+   "evidencia": [
+    "paquete:m-92187c251cb6|goles",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-92187c251cb6|goles por equipo",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Hay p_modelo (modelo no validado) pero ninguna línea con precio R/A en el paquete; sin cuota no hay contraste ni EV.",
+   "evidencia": [
+    "paquete:m-92187c251cb6|goles por equipo",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-92187c251cb6|goles total entero",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Estimador no implementado: sin p_modelo. Hay cuotas de agregador solo como referencia; no hay contraste ni EV.",
+   "evidencia": [
+    "paquete:m-92187c251cb6|goles total entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-92187c251cb6|hándicap",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "0/12 líneas con brecha >=15 pp vs 1/cuota (incl. margen; máx 14 pp). Precios de referencia, no ejecutables; coherencia no implica validez del modelo.",
+   "evidencia": [
+    "paquete:m-92187c251cb6|hándicap",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-92187c251cb6|hándicap asiático entero",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Estimador no implementado: sin p_modelo. Hay cuotas de agregador solo como referencia; no hay contraste ni EV.",
+   "evidencia": [
+    "paquete:m-92187c251cb6|hándicap asiático entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-92187c251cb6|hándicap europeo",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Estimador no implementado: sin p_modelo. Hay cuotas de agregador solo como referencia; no hay contraste ni EV.",
+   "evidencia": [
+    "paquete:m-92187c251cb6|hándicap europeo",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-92187c251cb6|remates",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Estimador no implementado: sin p_modelo. Hay cuotas de agregador solo como referencia; no hay contraste ni EV.",
+   "evidencia": [
+    "paquete:m-92187c251cb6|remates",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-92187c251cb6|remates a puerta",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Estimador no implementado: sin p_modelo. Hay cuotas de agregador solo como referencia; no hay contraste ni EV.",
+   "evidencia": [
+    "paquete:m-92187c251cb6|remates a puerta",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-92187c251cb6|resultado",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "0/3 líneas con brecha >=15 pp vs 1/cuota (incl. margen; máx 11 pp). Precios de referencia, no ejecutables; coherencia no implica validez del modelo.",
+   "evidencia": [
+    "paquete:m-92187c251cb6|resultado",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-92187c251cb6|tarjetas",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Hay p_modelo (modelo no validado) pero ninguna línea con precio R/A en el paquete; sin cuota no hay contraste ni EV.",
+   "evidencia": [
+    "paquete:m-92187c251cb6|tarjetas",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-9857c260069b|1.ª parte goles",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "0/6 líneas con brecha >=15 pp vs 1/cuota (incl. margen; máx 7 pp). Precios de referencia, no ejecutables; coherencia no implica validez del modelo.",
+   "evidencia": [
+    "paquete:m-9857c260069b|1.ª parte goles",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-9857c260069b|1.ª parte resultado",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "0/3 líneas con brecha >=15 pp vs 1/cuota (incl. margen; máx 3 pp). Precios de referencia, no ejecutables; coherencia no implica validez del modelo.",
+   "evidencia": [
+    "paquete:m-9857c260069b|1.ª parte resultado",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-9857c260069b|córners",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "0/6 líneas con brecha >=15 pp vs 1/cuota (incl. margen; máx 14 pp). Precios de referencia, no ejecutables; coherencia no implica validez del modelo.",
+   "evidencia": [
+    "paquete:m-9857c260069b|córners",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-9857c260069b|doble oportunidad",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "0/3 líneas con brecha >=15 pp vs 1/cuota (incl. margen; máx 7 pp). Precios de referencia, no ejecutables; coherencia no implica validez del modelo.",
+   "evidencia": [
+    "paquete:m-9857c260069b|doble oportunidad",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-9857c260069b|empate no válido",
+   "consistencia_modelo": "datos_insuficientes",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Datos sin_extractor: hay p_modelo pero la base de datos no es suficiente; no se contrasta con precio ni EV.",
+   "evidencia": [
+    "paquete:m-9857c260069b|empate no válido",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-9857c260069b|fueras de juego",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "ninguno",
+   "validacion_aplicable": "no_validado",
+   "nota": "Estimador no implementado: sin p_modelo, no hay contraste con precio ni EV.",
+   "evidencia": [
+    "paquete:m-9857c260069b|fueras de juego",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-9857c260069b|goles",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "0/14 líneas con brecha >=15 pp vs 1/cuota (incl. margen; máx 6 pp). Precios de referencia, no ejecutables; coherencia no implica validez del modelo.",
+   "evidencia": [
+    "paquete:m-9857c260069b|goles",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-9857c260069b|goles por equipo",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "0/12 líneas con brecha >=15 pp vs 1/cuota (incl. margen; máx 6 pp). Precios de referencia, no ejecutables; coherencia no implica validez del modelo.",
+   "evidencia": [
+    "paquete:m-9857c260069b|goles por equipo",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-9857c260069b|goles total entero",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Estimador no implementado: sin p_modelo. Hay cuotas de agregador solo como referencia; no hay contraste ni EV.",
+   "evidencia": [
+    "paquete:m-9857c260069b|goles total entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-9857c260069b|hándicap",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "0/8 líneas con brecha >=15 pp vs 1/cuota (incl. margen; máx 5 pp). Precios de referencia, no ejecutables; coherencia no implica validez del modelo.",
+   "evidencia": [
+    "paquete:m-9857c260069b|hándicap",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-9857c260069b|hándicap asiático entero",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Estimador no implementado: sin p_modelo. Hay cuotas de agregador solo como referencia; no hay contraste ni EV.",
+   "evidencia": [
+    "paquete:m-9857c260069b|hándicap asiático entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-9857c260069b|hándicap europeo",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Estimador no implementado: sin p_modelo. Hay cuotas de agregador solo como referencia; no hay contraste ni EV.",
+   "evidencia": [
+    "paquete:m-9857c260069b|hándicap europeo",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-9857c260069b|remates",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Estimador no implementado: sin p_modelo, no hay contraste con precio ni EV.",
+   "evidencia": [
+    "paquete:m-9857c260069b|remates",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-9857c260069b|remates a puerta",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Estimador no implementado: sin p_modelo, no hay contraste con precio ni EV.",
+   "evidencia": [
+    "paquete:m-9857c260069b|remates a puerta",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-9857c260069b|resultado",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "0/3 líneas con brecha >=15 pp vs 1/cuota (incl. margen; máx 5 pp). Precios de referencia, no ejecutables; coherencia no implica validez del modelo.",
+   "evidencia": [
+    "paquete:m-9857c260069b|resultado",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-9857c260069b|tarjetas",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Hay p_modelo (modelo no validado) pero ninguna línea con precio R/A en el paquete; sin cuota no hay contraste ni EV.",
+   "evidencia": [
+    "paquete:m-9857c260069b|tarjetas",
+    "archivo:data/model_validation.json"
+   ]
+  }
+ ],
+ "limitaciones": [
+  "Modelo propio no validado (validación insuficiente/no_evaluada/None en el paquete): p_modelo es estimación, no probabilidad calibrada; no se calculó EV.",
+  "Brecha = p_modelo - 1/cuota con margen incluido; solo líneas con precio R o A y datos suficientes; precios de agregador son referencia, no ejecutables; precios V no se usaron.",
+  "Unidades sin estimador (fueras de juego, goles total entero, hándicap europeo/asiático entero, remates) no estimables; sin EV.",
+  "Correlación: líneas de una unidad comparten partido (mismo_partido); no se usó producto de probabilidades. Sin consultas a la API; juicio solo con el paquete."
+ ]
+}

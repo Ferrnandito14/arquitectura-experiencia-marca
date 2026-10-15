@@ -1,0 +1,1284 @@
+{
+ "agente": "auditor",
+ "version_contrato": 1,
+ "run": "runs/2026-10-16",
+ "unidades": [
+  {
+   "unit_id": "m-1bb96fd241c0|1.ª parte goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Modelo 1T con validación no evaluada; solo referencia de agregador del 14-oct (no ejecutable). Gap máx 8.9pp con n10 por equipo sin ajuste de rival.",
+   "evidencia": [
+    "paquete:m-1bb96fd241c0|1.ª parte goles",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-16/matrix.json",
+    "apif_query:get_events match_id=861966"
+   ]
+  },
+  {
+   "unit_id": "m-1bb96fd241c0|1.ª parte resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Modelo 1T con validación no evaluada; solo referencia de agregador del 14-oct (no ejecutable). Gap máx 7.8pp con n10 por equipo sin ajuste de rival.",
+   "evidencia": [
+    "paquete:m-1bb96fd241c0|1.ª parte resultado",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-16/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-1bb96fd241c0|córners",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Hasta 13pp modelo-mercado (equipo.home.over.4.5 2.20@1c p0.32 (-13pp)); solo 6 de 46 líneas con precio, todas Bet365 (1 casa). Muestras n9-10 sin ajuste de rival ni árbitro.",
+   "evidencia": [
+    "paquete:m-1bb96fd241c0|córners",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-16/thestatsapi/odds/mt_649398182.json"
+   ]
+  },
+  {
+   "unit_id": "m-1bb96fd241c0|doble oportunidad",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Gap 14pp (dc.x2 1.50@5c p0.52 (-14pp)). Validación insuficiente/no concluyente (103 partidos vs mercado).",
+   "evidencia": [
+    "paquete:m-1bb96fd241c0|doble oportunidad",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-16/matrix.json",
+    "archivo:runs/2026-10-16/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-1bb96fd241c0|empate no válido",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Gap 14pp (dnb.away 2.10@1c p0.34 (-14pp)). Validación insuficiente/no concluyente (103 partidos vs mercado).",
+   "evidencia": [
+    "paquete:m-1bb96fd241c0|empate no válido",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-16/matrix.json",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/thestatsapi/odds/mt_649398182.json"
+   ]
+  },
+  {
+   "unit_id": "m-1bb96fd241c0|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador implementado ni validación para este mercado; sin precio en ninguna fuente (1 línea). Nada que contrastar con datos propios.",
+   "evidencia": [
+    "paquete:m-1bb96fd241c0|fueras de juego",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-1bb96fd241c0|goles",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "14 líneas con precio, mayormente referencia de agregador (14-oct) y solo 2.5 comunicada por la persona usuaria; gap máx 9.0pp. Validación insuficiente.",
+   "evidencia": [
+    "paquete:m-1bb96fd241c0|goles",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-16/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-1bb96fd241c0|goles por equipo",
+   "objecion": "fuente_unica",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Las 12 líneas con precio son de 1 casa (Bet365, 14-oct); gap máx 9.7pp. Equipos n10 sin ajuste de rival; validación team_goals sin comparación con mercado.",
+   "evidencia": [
+    "paquete:m-1bb96fd241c0|goles por equipo",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-16/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-1bb96fd241c0|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador implementado ni validación para este mercado; 2 de 10 líneas con precio solo de agregador (referencia, no ejecutable). Nada que contrastar con datos propios.",
+   "evidencia": [
+    "paquete:m-1bb96fd241c0|goles total entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-1bb96fd241c0|hándicap",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Gap 12pp (ah.away.+0.5 1.54@2c p0.52 (-12pp)). Validación insuficiente/no concluyente (103 partidos vs mercado).",
+   "evidencia": [
+    "paquete:m-1bb96fd241c0|hándicap",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-16/matrix.json",
+    "archivo:runs/2026-10-16/rotation.json",
+    "apif_query:get_events match_id=861966"
+   ]
+  },
+  {
+   "unit_id": "m-1bb96fd241c0|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador implementado ni validación para este mercado; 4 de 10 líneas con precio de agregador (referencia) y 2 no verificables. Nada que contrastar con datos propios.",
+   "evidencia": [
+    "paquete:m-1bb96fd241c0|hándicap asiático entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-1bb96fd241c0|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador implementado ni validación para este mercado; 12 de 12 líneas con precio solo de agregador (referencia, no ejecutable). Nada que contrastar con datos propios.",
+   "evidencia": [
+    "paquete:m-1bb96fd241c0|hándicap europeo",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-1bb96fd241c0|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador implementado ni validación para este mercado; sin precio en ninguna fuente (90 líneas). Nada que contrastar con datos propios.",
+   "evidencia": [
+    "paquete:m-1bb96fd241c0|remates",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-1bb96fd241c0|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador implementado ni validación para este mercado; sin precio en ninguna fuente (60 líneas). Nada que contrastar con datos propios.",
+   "evidencia": [
+    "paquete:m-1bb96fd241c0|remates a puerta",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-1bb96fd241c0|resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Gap máx 10.4pp con precio comunicado por la persona usuaria (sin verificar); validación 1X2 insuficiente y n10 sin ajuste de rival. Misma salida que DC/DNB.",
+   "evidencia": [
+    "paquete:m-1bb96fd241c0|resultado",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-16/matrix.json",
+    "archivo:runs/2026-10-16/rotation.json",
+    "apif_query:get_events match_id=861966"
+   ]
+  },
+  {
+   "unit_id": "m-1bb96fd241c0|tarjetas",
+   "objecion": "dato_defectuoso",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio en ninguna fuente. Puntos nulos en partidos con roja: n válido 8/10 y 8/10, sesgo a la baja; árbitro s/d. C. Largo tuvo roja en 4 de 10 partidos.",
+   "evidencia": [
+    "paquete:m-1bb96fd241c0|tarjetas",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-16/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-2bb88caad079|1.ª parte goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Deportivo cita copa ≤4 d para Wolves: CUP_RE (rotation_prior.py) casa \"champions\" con \"Championship\"; su próximo partido (20-oct, Portsmouth) es liga. Sigue: 3 d de descanso, 5.0 cambios.",
+   "evidencia": [
+    "paquete:m-2bb88caad079|1.ª parte goles",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-16/matrix.json",
+    "apif_query:get_events match_id=812220",
+    "apif_query:get_events from=2026-10-16 to=2026-10-21 team_id=3077",
+    "archivo:.claude/skills/seleccion-final-picks/scripts/rotation_prior.py"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "nota",
+     "problema": "valor_contradice_fuente"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-2bb88caad079|1.ª parte resultado",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio en ninguna fuente. Ambos con 3 días de descanso; Wolves 5.0 cambios/partido (rotation.json, a priori); p 1T no incorpora rotación ni once. Validación 1T no evaluada.",
+   "evidencia": [
+    "paquete:m-2bb88caad079|1.ª parte resultado",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-16/matrix.json",
+    "apif_query:get_events from=2026-10-16 to=2026-10-21 team_id=3077"
+   ]
+  },
+  {
+   "unit_id": "m-2bb88caad079|córners",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio en ninguna fuente (TheStatsAPI no emparejó el partido); córners validación insuficiente, sin comparación con mercado histórico. L. Smith n11, medias n9-10.",
+   "evidencia": [
+    "paquete:m-2bb88caad079|córners",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-2bb88caad079|doble oportunidad",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Deportivo cita copa ≤4 d para Wolves: CUP_RE (rotation_prior.py) casa \"champions\" con \"Championship\"; su próximo partido (20-oct, Portsmouth) es liga. Sigue: 3 d de descanso, 5.0 cambios.",
+   "evidencia": [
+    "paquete:m-2bb88caad079|doble oportunidad",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-16/matrix.json",
+    "archivo:runs/2026-10-16/rotation.json",
+    "apif_query:get_events from=2026-10-16 to=2026-10-21 team_id=3077",
+    "archivo:.claude/skills/seleccion-final-picks/scripts/rotation_prior.py"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "nota",
+     "problema": "valor_contradice_fuente"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-2bb88caad079|empate no válido",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Wolves 5.0 cambios y ambos a 3 d de descanso (rotation.json a priori); p del modelo no incorpora rotación ni once. Gap máx 5.3pp.",
+   "evidencia": [
+    "paquete:m-2bb88caad079|empate no válido",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-16/matrix.json",
+    "archivo:runs/2026-10-16/rotation.json",
+    "apif_query:get_events from=2026-10-16 to=2026-10-21 team_id=3077"
+   ]
+  },
+  {
+   "unit_id": "m-2bb88caad079|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador implementado ni validación para este mercado; sin precio en ninguna fuente (1 línea). Nada que contrastar con datos propios.",
+   "evidencia": [
+    "paquete:m-2bb88caad079|fueras de juego",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-2bb88caad079|goles",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "2 línea(s) ≥15pp, máx 16.9pp (total.under.2.5 1.95 p0.34 (-17pp)). Wolves rota; L. Smith modera (2.36 g, n11). Validación insuficiente.",
+   "evidencia": [
+    "paquete:m-2bb88caad079|goles",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-16/matrix.json",
+    "apif_query:get_events from=2026-10-16 to=2026-10-21 team_id=3077"
+   ]
+  },
+  {
+   "unit_id": "m-2bb88caad079|goles por equipo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio en ninguna fuente; goles por equipo sin comparación con mercado histórico (team_goals vs_mercado no evaluable). Burnley 10/10 y Wolves 8/9 marcan; n9-10.",
+   "evidencia": [
+    "paquete:m-2bb88caad079|goles por equipo",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-16/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-2bb88caad079|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador implementado ni validación para este mercado; sin precio en ninguna fuente (10 líneas). Nada que contrastar con datos propios.",
+   "evidencia": [
+    "paquete:m-2bb88caad079|goles total entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-2bb88caad079|hándicap",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Wolves 5.0 cambios y ambos a 3 d de descanso (rotation.json a priori); p del modelo no incorpora rotación ni once. Gap máx 5.8pp.",
+   "evidencia": [
+    "paquete:m-2bb88caad079|hándicap",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-16/matrix.json",
+    "archivo:runs/2026-10-16/rotation.json",
+    "apif_query:get_events match_id=812220",
+    "apif_query:get_events from=2026-10-16 to=2026-10-21 team_id=3077"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.home.-2.5",
+     "objecion": "dato_defectuoso"
+    },
+    {
+     "entry_id": "resultado.ah.away.+2.5",
+     "objecion": "dato_defectuoso"
+    },
+    {
+     "entry_id": "resultado.ah.home.+1.5",
+     "objecion": "dato_defectuoso"
+    },
+    {
+     "entry_id": "resultado.ah.away.-1.5",
+     "objecion": "dato_defectuoso"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-2bb88caad079|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador implementado ni validación para este mercado; 4 de 10 líneas con precio de agregador (referencia) y 4 no verificables. Nada que contrastar con datos propios.",
+   "evidencia": [
+    "paquete:m-2bb88caad079|hándicap asiático entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-2bb88caad079|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador implementado ni validación para este mercado; sin precio en ninguna fuente (12 líneas). Nada que contrastar con datos propios.",
+   "evidencia": [
+    "paquete:m-2bb88caad079|hándicap europeo",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-2bb88caad079|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador implementado ni validación para este mercado; sin precio en ninguna fuente (90 líneas). Nada que contrastar con datos propios.",
+   "evidencia": [
+    "paquete:m-2bb88caad079|remates",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-2bb88caad079|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador implementado ni validación para este mercado; sin precio en ninguna fuente (60 líneas). Nada que contrastar con datos propios.",
+   "evidencia": [
+    "paquete:m-2bb88caad079|remates a puerta",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-2bb88caad079|resultado",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Deportivo cita copa ≤4 d para Wolves: CUP_RE (rotation_prior.py) casa \"champions\" con \"Championship\"; su próximo partido (20-oct, Portsmouth) es liga. Sigue: 3 d de descanso, 5.0 cambios.",
+   "evidencia": [
+    "paquete:m-2bb88caad079|resultado",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-16/matrix.json",
+    "archivo:runs/2026-10-16/rotation.json",
+    "apif_query:get_events match_id=812220",
+    "apif_query:get_events from=2026-10-16 to=2026-10-21 team_id=3077",
+    "archivo:.claude/skills/seleccion-final-picks/scripts/rotation_prior.py"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "nota",
+     "problema": "valor_contradice_fuente"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-2bb88caad079|tarjetas",
+   "objecion": "dato_defectuoso",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio en ninguna fuente. Puntos nulos en partidos con roja: n válido 7/10 y 7/9, sesgo a la baja; L. Smith confirmado (apif) n10 en liga 153.",
+   "evidencia": [
+    "paquete:m-2bb88caad079|tarjetas",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-16/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-34ded7dcdccd|1.ª parte goles",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Abha n7 y Qadsiah con 2 partidos de mayo; 1T validación no evaluada; precios de agregador 14-oct. Gap máx 5.2pp.",
+   "evidencia": [
+    "paquete:m-34ded7dcdccd|1.ª parte goles",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-16/matrix.json",
+    "apif_query:get_events match_id=825176"
+   ]
+  },
+  {
+   "unit_id": "m-34ded7dcdccd|1.ª parte resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Gap hasta 20pp (1x2.home 1.42@2c p0.51 (-20pp)); 1T con validación no evaluada. Abha n7; ventaja local al descanso menos fiable.",
+   "evidencia": [
+    "paquete:m-34ded7dcdccd|1.ª parte resultado",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-16/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-34ded7dcdccd|córners",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Hasta 23pp modelo-mercado (equipo.home.over.7.5 2.10@1c p0.25 (-23pp)); solo 6 de 46 líneas con precio, todas Bet365 (1 casa). Muestras n7 sin ajuste de rival ni árbitro.",
+   "evidencia": [
+    "paquete:m-34ded7dcdccd|córners",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-16/thestatsapi/odds/mt_895924725.json"
+   ]
+  },
+  {
+   "unit_id": "m-34ded7dcdccd|doble oportunidad",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Gap 20pp (dc.x2 6.00@3c p0.37 (+20pp)). X2 = visit.+empate del 1X2 del modelo (p0.37 vs 0.17 implícita); Abha n7. Validación insuficiente/no concluyente (103 partidos vs mercado).",
+   "evidencia": [
+    "paquete:m-34ded7dcdccd|doble oportunidad",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-16/matrix.json",
+    "archivo:runs/2026-10-16/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-34ded7dcdccd|empate no válido",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Gap 17pp (dnb.home 1.04@1c p0.79 (-17pp)). DNB local 1.04 y visitante 13.0 de 1 casa; p DNB = 1X2 local/(local+visit.). Validación insuficiente/no concluyente (103 partidos vs mercado).",
+   "evidencia": [
+    "paquete:m-34ded7dcdccd|empate no válido",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-16/matrix.json",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/thestatsapi/odds/mt_895924725.json"
+   ]
+  },
+  {
+   "unit_id": "m-34ded7dcdccd|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador implementado ni validación para este mercado; sin precio en ninguna fuente (1 línea). Nada que contrastar con datos propios.",
+   "evidencia": [
+    "paquete:m-34ded7dcdccd|fueras de juego",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-34ded7dcdccd|goles",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "2 línea(s) ≥15pp, máx 15.8pp (total.over.3.5 1.78 p0.40 (-16pp)). Abha n7; Qadsiah GF 2.8 incluye 5-0. Validación insuficiente.",
+   "evidencia": [
+    "paquete:m-34ded7dcdccd|goles",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-16/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-34ded7dcdccd|goles por equipo",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "5 línea(s) ≥15pp, máx 26.3pp (equipo.home.over.2.5 1.57@1c p0.37 (-26pp)). Abha n7; Qadsiah GF 2.8 incluye 5-0. Precios de 1 casa (Bet365). Validación insuficiente.",
+   "evidencia": [
+    "paquete:m-34ded7dcdccd|goles por equipo",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-16/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-34ded7dcdccd|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador implementado ni validación para este mercado; sin precio en ninguna fuente (10 líneas). Nada que contrastar con datos propios.",
+   "evidencia": [
+    "paquete:m-34ded7dcdccd|goles total entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-34ded7dcdccd|hándicap",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Gap 31pp (ah.home.-1.5 1.40@5c p0.40 (-31pp)). Modelo 1X2 local 0.63 vs 1.14 comunicado (0.88 implícita); Abha n7. Validación insuficiente/no concluyente (103 partidos vs mercado).",
+   "evidencia": [
+    "paquete:m-34ded7dcdccd|hándicap",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-16/matrix.json",
+    "archivo:runs/2026-10-16/rotation.json",
+    "apif_query:get_events match_id=825176"
+   ]
+  },
+  {
+   "unit_id": "m-34ded7dcdccd|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador implementado ni validación para este mercado; 4 de 10 líneas con precio solo de agregador (referencia, no ejecutable). Nada que contrastar con datos propios.",
+   "evidencia": [
+    "paquete:m-34ded7dcdccd|hándicap asiático entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-34ded7dcdccd|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador implementado ni validación para este mercado; 9 de 12 líneas con precio solo de agregador (referencia, no ejecutable). Nada que contrastar con datos propios.",
+   "evidencia": [
+    "paquete:m-34ded7dcdccd|hándicap europeo",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-34ded7dcdccd|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador implementado ni validación para este mercado; sin precio en ninguna fuente (90 líneas). Nada que contrastar con datos propios.",
+   "evidencia": [
+    "paquete:m-34ded7dcdccd|remates",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-34ded7dcdccd|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador implementado ni validación para este mercado; sin precio en ninguna fuente (60 líneas). Nada que contrastar con datos propios.",
+   "evidencia": [
+    "paquete:m-34ded7dcdccd|remates a puerta",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-34ded7dcdccd|resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Gap 24pp (1x2.home 1.14 p0.63 (-24pp)). Modelo 0.63 vs 0.88 implícita; Abha n7, 2 partidos de mayo. Validación insuficiente/no concluyente (103 partidos vs mercado).",
+   "evidencia": [
+    "paquete:m-34ded7dcdccd|resultado",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-16/matrix.json",
+    "archivo:runs/2026-10-16/rotation.json",
+    "apif_query:get_events match_id=825176"
+   ]
+  },
+  {
+   "unit_id": "m-34ded7dcdccd|tarjetas",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio en ninguna fuente; Abha n7/7 y árbitro s/d; Qadsiah n9/10 incluye 2 de mayo (temporada previa). Regla de puntos de la casa sin cruzar.",
+   "evidencia": [
+    "paquete:m-34ded7dcdccd|tarjetas",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-16/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-34fafe0b502a|1.ª parte goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Modelo 1T con validación no evaluada; solo referencia de agregador del 14-oct (no ejecutable). Gap máx 6.2pp con n10 por equipo sin ajuste de rival.",
+   "evidencia": [
+    "paquete:m-34fafe0b502a|1.ª parte goles",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-16/matrix.json",
+    "apif_query:get_events match_id=774772"
+   ]
+  },
+  {
+   "unit_id": "m-34fafe0b502a|1.ª parte resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Modelo 1T con validación no evaluada; solo referencia de agregador del 14-oct (no ejecutable). Gap máx 10.7pp con n10 por equipo sin ajuste de rival.",
+   "evidencia": [
+    "paquete:m-34fafe0b502a|1.ª parte resultado",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-16/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-34fafe0b502a|córners",
+   "objecion": "fuente_unica",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "6 de 46 líneas con precio, todas de Bet365 (1 casa) del 14-oct; gap máx 11.4pp. Árbitro s/d. Validación córners insuficiente.",
+   "evidencia": [
+    "paquete:m-34fafe0b502a|córners",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-16/thestatsapi/odds/mt_511317648.json"
+   ]
+  },
+  {
+   "unit_id": "m-34fafe0b502a|doble oportunidad",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Gap 15pp (dc.1x 1.22@5c p0.67 (-15pp)). Validación insuficiente/no concluyente (103 partidos vs mercado).",
+   "evidencia": [
+    "paquete:m-34fafe0b502a|doble oportunidad",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-16/matrix.json",
+    "archivo:runs/2026-10-16/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-34fafe0b502a|empate no válido",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Gap 18pp (dnb.home 1.37@3c p0.55 (-18pp)). Validación insuficiente/no concluyente (103 partidos vs mercado).",
+   "evidencia": [
+    "paquete:m-34fafe0b502a|empate no válido",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-16/matrix.json",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/thestatsapi/odds/mt_511317648.json"
+   ]
+  },
+  {
+   "unit_id": "m-34fafe0b502a|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador implementado ni validación para este mercado; sin precio en ninguna fuente (1 línea). Nada que contrastar con datos propios.",
+   "evidencia": [
+    "paquete:m-34fafe0b502a|fueras de juego",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-34fafe0b502a|goles",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "14 líneas con precio, mayormente referencia de agregador (14-oct) y solo 2.5 comunicada por la persona usuaria; gap máx 7.9pp. Validación insuficiente.",
+   "evidencia": [
+    "paquete:m-34fafe0b502a|goles",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-16/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-34fafe0b502a|goles por equipo",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "máx 14.8pp (equipo.home.over.1.5 1.80@1c p0.41 (-15pp)). Precios de 1 casa (Bet365). Validación insuficiente.",
+   "evidencia": [
+    "paquete:m-34fafe0b502a|goles por equipo",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-16/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-34fafe0b502a|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador implementado ni validación para este mercado; 2 de 10 líneas con precio solo de agregador (referencia, no ejecutable). Nada que contrastar con datos propios.",
+   "evidencia": [
+    "paquete:m-34fafe0b502a|goles total entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-34fafe0b502a|hándicap",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Gap 14pp (ah.home.-0.5 1.83@2c p0.41 (-14pp)). Validación insuficiente/no concluyente (103 partidos vs mercado).",
+   "evidencia": [
+    "paquete:m-34fafe0b502a|hándicap",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-16/matrix.json",
+    "archivo:runs/2026-10-16/rotation.json",
+    "apif_query:get_events match_id=774772"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.home.+1.5",
+     "objecion": "dato_defectuoso"
+    },
+    {
+     "entry_id": "resultado.ah.away.-1.5",
+     "objecion": "dato_defectuoso"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-34fafe0b502a|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador implementado ni validación para este mercado; 6 de 10 líneas con precio de agregador (referencia) y 2 no verificables. Nada que contrastar con datos propios.",
+   "evidencia": [
+    "paquete:m-34fafe0b502a|hándicap asiático entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-34fafe0b502a|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador implementado ni validación para este mercado; 12 de 12 líneas con precio solo de agregador (referencia, no ejecutable). Nada que contrastar con datos propios.",
+   "evidencia": [
+    "paquete:m-34fafe0b502a|hándicap europeo",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-34fafe0b502a|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador implementado ni validación para este mercado; sin precio en ninguna fuente (90 líneas). Nada que contrastar con datos propios.",
+   "evidencia": [
+    "paquete:m-34fafe0b502a|remates",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-34fafe0b502a|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador implementado ni validación para este mercado; sin precio en ninguna fuente (60 líneas). Nada que contrastar con datos propios.",
+   "evidencia": [
+    "paquete:m-34fafe0b502a|remates a puerta",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-34fafe0b502a|resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Gap 13pp (1x2.home 1.85 p0.41 (-13pp)). Validación insuficiente/no concluyente (103 partidos vs mercado).",
+   "evidencia": [
+    "paquete:m-34fafe0b502a|resultado",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-16/matrix.json",
+    "archivo:runs/2026-10-16/rotation.json",
+    "apif_query:get_events match_id=774772"
+   ]
+  },
+  {
+   "unit_id": "m-34fafe0b502a|tarjetas",
+   "objecion": "dato_defectuoso",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio en ninguna fuente. Puntos nulos en partidos con roja: n válido 10/10 y 8/10, sesgo a la baja; árbitro s/d (Liga MX dispar).",
+   "evidencia": [
+    "paquete:m-34fafe0b502a|tarjetas",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-16/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-37c9828d6570|1.ª parte goles",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Gap hasta 19pp (total.under.1.5 1.80@3c p0.37 (-19pp)); 1T con validación no evaluada. 1T con gol 7/7 y 10/10: muestras saturadas, Cottbus n7.",
+   "evidencia": [
+    "paquete:m-37c9828d6570|1.ª parte goles",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-16/matrix.json",
+    "apif_query:get_events match_id=809665"
+   ]
+  },
+  {
+   "unit_id": "m-37c9828d6570|1.ª parte resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Modelo 1T con validación no evaluada; solo referencia de agregador del 14-oct (no ejecutable). Gap máx 8.0pp con n10 por equipo sin ajuste de rival.",
+   "evidencia": [
+    "paquete:m-37c9828d6570|1.ª parte resultado",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-16/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-37c9828d6570|córners",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Hasta 22pp modelo-mercado (equipo.home.under.5.5 1.73@1c p0.36 (-22pp)); solo 6 de 46 líneas con precio, todas Bet365 (1 casa). Muestras n7 sin ajuste de rival ni árbitro.",
+   "evidencia": [
+    "paquete:m-37c9828d6570|córners",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-16/thestatsapi/odds/mt_022017320.json"
+   ]
+  },
+  {
+   "unit_id": "m-37c9828d6570|doble oportunidad",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Nurnberg 5.0 cambios (a priori, sin once) y sin ajuste en la p; muestra Cottbus n7. Gap máx 11.9pp.",
+   "evidencia": [
+    "paquete:m-37c9828d6570|doble oportunidad",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-16/matrix.json",
+    "archivo:runs/2026-10-16/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-37c9828d6570|empate no válido",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Gap 13pp (dnb.away 1.53@3c p0.52 (-13pp)). Cottbus n7. Validación insuficiente/no concluyente (103 partidos vs mercado).",
+   "evidencia": [
+    "paquete:m-37c9828d6570|empate no válido",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-16/matrix.json",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/thestatsapi/odds/mt_022017320.json"
+   ]
+  },
+  {
+   "unit_id": "m-37c9828d6570|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador implementado ni validación para este mercado; sin precio en ninguna fuente (1 línea). Nada que contrastar con datos propios.",
+   "evidencia": [
+    "paquete:m-37c9828d6570|fueras de juego",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-37c9828d6570|goles",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "máx 13.8pp (total.under.4.5 1.37@4c p0.59 (-14pp)). Cottbus n7; Nurnberg con 3 de mayo. Validación insuficiente.",
+   "evidencia": [
+    "paquete:m-37c9828d6570|goles",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-16/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-37c9828d6570|goles por equipo",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "2 línea(s) ≥15pp, máx 18.7pp (equipo.home.under.1.5 1.73@1c p0.39 (-19pp)). Cottbus n7; Nurnberg con 3 de mayo. Precios de 1 casa (Bet365). Validación insuficiente.",
+   "evidencia": [
+    "paquete:m-37c9828d6570|goles por equipo",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-16/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-37c9828d6570|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador implementado ni validación para este mercado; sin precio en ninguna fuente (10 líneas). Nada que contrastar con datos propios.",
+   "evidencia": [
+    "paquete:m-37c9828d6570|goles total entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-37c9828d6570|hándicap",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Gap 14pp (ah.away.+0.5 1.32@1c p0.62 (-14pp)). Cottbus n7. Validación insuficiente/no concluyente (103 partidos vs mercado).",
+   "evidencia": [
+    "paquete:m-37c9828d6570|hándicap",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-16/matrix.json",
+    "archivo:runs/2026-10-16/rotation.json",
+    "apif_query:get_events match_id=809665"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.home.-2.5",
+     "objecion": "dato_defectuoso"
+    },
+    {
+     "entry_id": "resultado.ah.away.+2.5",
+     "objecion": "dato_defectuoso"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-37c9828d6570|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador implementado ni validación para este mercado; 8 de 10 líneas con precio solo de agregador (referencia, no ejecutable). Nada que contrastar con datos propios.",
+   "evidencia": [
+    "paquete:m-37c9828d6570|hándicap asiático entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-37c9828d6570|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador implementado ni validación para este mercado; 12 de 12 líneas con precio solo de agregador (referencia, no ejecutable). Nada que contrastar con datos propios.",
+   "evidencia": [
+    "paquete:m-37c9828d6570|hándicap europeo",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-37c9828d6570|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador implementado ni validación para este mercado; sin precio en ninguna fuente (90 líneas). Nada que contrastar con datos propios.",
+   "evidencia": [
+    "paquete:m-37c9828d6570|remates",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-37c9828d6570|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador implementado ni validación para este mercado; sin precio en ninguna fuente (60 líneas). Nada que contrastar con datos propios.",
+   "evidencia": [
+    "paquete:m-37c9828d6570|remates a puerta",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-37c9828d6570|resultado",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Nurnberg rota 5.0 cambios sin once; Cottbus n7. Deportivo cita 'Cottbus 1V en 7': matrix.json da 2V 2E 3D (3-1 Hannover, 3-0 Karlsruher).",
+   "evidencia": [
+    "paquete:m-37c9828d6570|resultado",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-16/matrix.json",
+    "archivo:runs/2026-10-16/rotation.json",
+    "apif_query:get_events match_id=809665"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "nota",
+     "problema": "dato_citado_incorrecto"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-37c9828d6570|tarjetas",
+   "objecion": "dato_defectuoso",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Datos parciales y estimador datos_insuficientes; sin precio en ninguna fuente; árbitro s/d. Puntos nulos en partidos con roja (Cottbus 2 de 7) recortan la muestra.",
+   "evidencia": [
+    "paquete:m-37c9828d6570|tarjetas",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-16/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-3ff5b52751d9|1.ª parte goles",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Gap hasta 15pp (total.over.1.5 2.10@3c p0.32 (-15pp)); 1T con validación no evaluada. Frosinone n6 (6/6 con gol al 1T).",
+   "evidencia": [
+    "paquete:m-3ff5b52751d9|1.ª parte goles",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-16/matrix.json",
+    "apif_query:get_events match_id=807917"
+   ]
+  },
+  {
+   "unit_id": "m-3ff5b52751d9|1.ª parte resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Gap hasta 14pp (1x2.away 3.00@3c p0.19 (-14pp)); 1T con validación no evaluada. Frosinone n6 (6/6 con gol al 1T).",
+   "evidencia": [
+    "paquete:m-3ff5b52751d9|1.ª parte resultado",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-16/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-3ff5b52751d9|córners",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "10 de 46 líneas con precio (Bet365/Paddy Power), gap máx 9.0pp. Frosinone n6 (12.8 de media); Marchetti sin muestra. Validación córners insuficiente.",
+   "evidencia": [
+    "paquete:m-3ff5b52751d9|córners",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-16/thestatsapi/odds/mt_200713123.json"
+   ]
+  },
+  {
+   "unit_id": "m-3ff5b52751d9|doble oportunidad",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Gap 23pp (dc.x2 1.50@5c p0.44 (-23pp)). Frosinone n6, rota 4.3 cambios. Validación insuficiente/no concluyente (103 partidos vs mercado).",
+   "evidencia": [
+    "paquete:m-3ff5b52751d9|doble oportunidad",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-16/matrix.json",
+    "archivo:runs/2026-10-16/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-3ff5b52751d9|empate no válido",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Gap 23pp (dnb.away 1.98@3c p0.28 (-23pp)). Frosinone n6, rota 4.3 cambios. Validación insuficiente/no concluyente (103 partidos vs mercado).",
+   "evidencia": [
+    "paquete:m-3ff5b52751d9|empate no válido",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-16/matrix.json",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/thestatsapi/odds/mt_200713123.json"
+   ]
+  },
+  {
+   "unit_id": "m-3ff5b52751d9|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador implementado ni validación para este mercado; sin precio en ninguna fuente (1 línea). Nada que contrastar con datos propios.",
+   "evidencia": [
+    "paquete:m-3ff5b52751d9|fueras de juego",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-3ff5b52751d9|goles",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "máx 14.7pp (btts.yes 1.40@4c p0.57 (-15pp)). Frosinone n6; Marchetti sin muestra. Validación insuficiente.",
+   "evidencia": [
+    "paquete:m-3ff5b52751d9|goles",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-16/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-3ff5b52751d9|goles por equipo",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "4 línea(s) ≥15pp, máx 24.4pp (equipo.away.over.1.5 1.83@1c p0.30 (-24pp)). Frosinone n6; Marchetti sin muestra. Precios de 1 casa (Bet365). Validación insuficiente.",
+   "evidencia": [
+    "paquete:m-3ff5b52751d9|goles por equipo",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-16/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-3ff5b52751d9|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador implementado ni validación para este mercado; 10 de 10 líneas con precio solo de agregador (referencia, no ejecutable). Nada que contrastar con datos propios.",
+   "evidencia": [
+    "paquete:m-3ff5b52751d9|goles total entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-3ff5b52751d9|hándicap",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Gap 21pp (ah.away.+0.5 1.55@2c p0.44 (-21pp)). Líneas ±2.5 solo Betfair Exchange (margen 1-2%). Validación insuficiente/no concluyente (103 partidos vs mercado).",
+   "evidencia": [
+    "paquete:m-3ff5b52751d9|hándicap",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-16/matrix.json",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/thestatsapi/odds/mt_200713123.json",
+    "apif_query:get_events match_id=807917"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.home.-2.5",
+     "objecion": "dato_defectuoso"
+    },
+    {
+     "entry_id": "resultado.ah.away.+2.5",
+     "objecion": "dato_defectuoso"
+    },
+    {
+     "entry_id": "resultado.ah.home.+2.5",
+     "objecion": "dato_defectuoso"
+    },
+    {
+     "entry_id": "resultado.ah.away.-2.5",
+     "objecion": "dato_defectuoso"
+    }
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "verificador",
+     "campo": "discrepancias",
+     "problema": "omision"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-3ff5b52751d9|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador implementado ni validación para este mercado; 10 de 10 líneas con precio solo de agregador (referencia, no ejecutable). Nada que contrastar con datos propios.",
+   "evidencia": [
+    "paquete:m-3ff5b52751d9|hándicap asiático entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-3ff5b52751d9|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador implementado ni validación para este mercado; 12 de 12 líneas con precio solo de agregador (referencia, no ejecutable). Nada que contrastar con datos propios.",
+   "evidencia": [
+    "paquete:m-3ff5b52751d9|hándicap europeo",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-3ff5b52751d9|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador implementado ni validación para este mercado; 6 de 90 líneas con precio solo de agregador (referencia, no ejecutable). Nada que contrastar con datos propios.",
+   "evidencia": [
+    "paquete:m-3ff5b52751d9|remates",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-3ff5b52751d9|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador implementado ni validación para este mercado; 2 de 60 líneas con precio solo de agregador (referencia, no ejecutable). Nada que contrastar con datos propios.",
+   "evidencia": [
+    "paquete:m-3ff5b52751d9|remates a puerta",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-3ff5b52751d9|resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Gap 17pp (1x2.home 2.57 p0.56 (+17pp)). Frosinone n6, rota 4.3 cambios. Validación insuficiente/no concluyente (103 partidos vs mercado).",
+   "evidencia": [
+    "paquete:m-3ff5b52751d9|resultado",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-16/matrix.json",
+    "archivo:runs/2026-10-16/rotation.json",
+    "apif_query:get_events match_id=807917"
+   ]
+  },
+  {
+   "unit_id": "m-3ff5b52751d9|tarjetas",
+   "objecion": "dato_defectuoso",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Datos parciales y estimador datos_insuficientes; sin precio en ninguna fuente; Marchetti sin muestra en liga 207. Puntos nulos en partidos con roja (Frosinone-Genoa) recortan la muestra.",
+   "evidencia": [
+    "paquete:m-3ff5b52751d9|tarjetas",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-16/matrix.json"
+   ]
+  }
+ ],
+ "limitaciones": [
+  "Lote 1: 96 unidades (6 partidos); veredictos por reglas deterministas con umbrales de gap modelo-1/cuota (12pp media, 20pp o 15pp con muestra n<=7 alta), revisados por partido y grupo.",
+  "Gap = p_modelo - 1/cuota con margen incluido y sin quitar vig; precios de agregador del 14-oct (2 dias antes), no ejecutables; modelo con validacion insuficiente (103 partidos vs mercado, no concluyente).",
+  "DNB y DC son transformaciones exactas del 1X2 del modelo (verificado en los 6 partidos): no son evidencias independientes entre si ni de AH 0.5.",
+  "Rotacion de rotation.json es a priori; CUP_RE casa 'champions' con 'Championship' (falso positivo 'copa' en Wolves; proximo partido 20-oct es liga segun apifootball). Sin alineaciones ni once.",
+  "Cards_pts nulos en partidos con roja recortan n de tarjetas; no se pudo reconstruir la cifra desde otra fuente (solo apifootball); sin precio de tarjetas en ninguna fuente.",
+  "Solo se consultaron apifootball (get_events de 3 partidos y fixtures de Wolves) y archivos del run; sin webs externas ni casas; hora/arbitro Frosinone (Marchetti) y Burnley (L. Smith) confirmados, Qadsiah sin arbitro."
+ ]
+}

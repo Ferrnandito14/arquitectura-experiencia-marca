@@ -1,0 +1,218 @@
+{
+ "agente": "auditor",
+ "version_contrato": 1,
+ "run": "runs/2026-10-15",
+ "unidades": [
+  {
+   "unit_id": "m-1679d20c403a|1.ª parte goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio ni mercado en feed apifootball; modelo 1T no evaluado, muestra n10 por equipo sin ajustar por rival; sin alineaciones. Sin cuota no hay valor medible.",
+   "evidencia": [
+    "paquete:m-1679d20c403a|1.ª parte goles",
+    "apif_query:get_odds match_id=825173"
+   ]
+  },
+  {
+   "unit_id": "m-1679d20c403a|1.ª parte resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio ni oferta verificada; 1T de 3 resultados con p 0.44/0.39/0.18 de modelo no evaluado; apoyado en forma de 10 partidos sin ajuste por rival.",
+   "evidencia": [
+    "paquete:m-1679d20c403a|1.ª parte resultado",
+    "apif_query:get_odds match_id=825173"
+   ]
+  },
+  {
+   "unit_id": "m-1679d20c403a|córners",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Validación insuficiente, sin precio ni oferta en feed; dispersión alta (6-17 córners/partido, n9-10) y árbitro sin designar: medias no equivalen a probabilidad de línea.",
+   "evidencia": [
+    "paquete:m-1679d20c403a|córners",
+    "apif_query:get_odds match_id=825173"
+   ]
+  },
+  {
+   "unit_id": "m-1679d20c403a|doble oportunidad",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Mercado casi simétrico (WH 1X 1.44 / X2 1.44; 1/2 2.45/2.45) vs modelo 1X 0.81 y X2 0.445: brecha ~13-25 pp sobre estimador sin validar; cuotas de agregador no ejecutables.",
+   "evidencia": [
+    "paquete:m-1679d20c403a|doble oportunidad",
+    "apif_query:get_odds match_id=825173"
+   ]
+  },
+  {
+   "unit_id": "m-1679d20c403a|empate no válido",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "DNB local p 0.75 vs ~50% implícito (AH0 bet365 1.88/1.92, Marathon 1.86/1.80); datos sin extractor, validación no evaluada; precio de agregador no ejecutable.",
+   "evidencia": [
+    "paquete:m-1679d20c403a|empate no válido",
+    "apif_query:get_odds match_id=825173"
+   ]
+  },
+  {
+   "unit_id": "m-1679d20c403a|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor, sin estimador y sin precio u oferta verificada; no hay base cuantitativa para el mercado.",
+   "evidencia": [
+    "paquete:m-1679d20c403a|fueras de juego"
+   ]
+  },
+  {
+   "unit_id": "m-1679d20c403a|goles",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Modelo over2.5 0.40, BTTS sí 0.42 vs mercado ~58-61% y ~64% (bet365 1.73/1.57; Marathon 1.64/1.53): brecha 16-22 pp con validación insuficiente; 1.63/2.12 es dato del usuario.",
+   "evidencia": [
+    "paquete:m-1679d20c403a|goles",
+    "apif_query:get_odds match_id=825173"
+   ]
+  },
+  {
+   "unit_id": "m-1679d20c403a|goles por equipo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio ni oferta en feed; modelo con validación insuficiente. Correlación con goles/BTTS/resultado del mismo partido; Al Fateh marcó en 4/10 (n10, sin ajuste por rival).",
+   "evidencia": [
+    "paquete:m-1679d20c403a|goles por equipo",
+    "apif_query:get_odds match_id=825173"
+   ]
+  },
+  {
+   "unit_id": "m-1679d20c403a|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor, sin estimador y sin precio; líneas enteras con devolución (push) no modeladas ni encontradas en el feed.",
+   "evidencia": [
+    "paquete:m-1679d20c403a|goles total entero",
+    "apif_query:get_odds match_id=825173"
+   ]
+  },
+  {
+   "unit_id": "m-1679d20c403a|hándicap",
+   "objecion": "dato_defectuoso",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Precios anómalos: Marathon ah+2.5 1.00, Betfair ah-2.5 1.04/1.03 y ah-1.5 1.14/1.14 vs 4.7-4.9 de otras casas; paquete V1.025 no fiable. Modelo no evaluado; mitad de líneas sin precio.",
+   "evidencia": [
+    "paquete:m-1679d20c403a|hándicap",
+    "apif_query:get_odds match_id=825173"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.home.-0.5",
+     "objecion": "estimador_sin_validar"
+    },
+    {
+     "entry_id": "resultado.ah.away.+0.5",
+     "objecion": "estimador_sin_validar"
+    },
+    {
+     "entry_id": "resultado.ah.home.+0.5",
+     "objecion": "estimador_sin_validar"
+    },
+    {
+     "entry_id": "resultado.ah.away.-0.5",
+     "objecion": "estimador_sin_validar"
+    },
+    {
+     "entry_id": "resultado.ah.home.+2.5",
+     "objecion": "estimador_sin_validar"
+    },
+    {
+     "entry_id": "resultado.ah.away.-2.5",
+     "objecion": "estimador_sin_validar"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-1679d20c403a|hándicap asiático entero",
+   "objecion": "dato_defectuoso",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador (p '-'); líneas -2/+2 8.3/1.03 de una sola casa y Marathon ah+2 con 1.00: anómalo. Sólo ah0 tiene referencia sólida (agregador, no ejecutable).",
+   "evidencia": [
+    "paquete:m-1679d20c403a|hándicap asiático entero",
+    "apif_query:get_odds match_id=825173"
+   ]
+  },
+  {
+   "unit_id": "m-1679d20c403a|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor, estimador ni precio; mercado no ofrecido en feed apifootball. Nada que contrastar.",
+   "evidencia": [
+    "paquete:m-1679d20c403a|hándicap europeo",
+    "apif_query:get_odds match_id=825173"
+   ]
+  },
+  {
+   "unit_id": "m-1679d20c403a|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Hay datos pero estimador no implementado; sin precio ni oferta verificada en feed. Sin p ni cuota no es evaluable.",
+   "evidencia": [
+    "paquete:m-1679d20c403a|remates",
+    "apif_query:get_odds match_id=825173"
+   ]
+  },
+  {
+   "unit_id": "m-1679d20c403a|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Hay datos pero estimador no implementado; sin precio ni oferta verificada en feed. Sin p ni cuota no es evaluable.",
+   "evidencia": [
+    "paquete:m-1679d20c403a|remates a puerta",
+    "apif_query:get_odds match_id=825173"
+   ]
+  },
+  {
+   "unit_id": "m-1679d20c403a|resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "1X2 de mercado ~equilibrado (2.45/3.66/2.50 usuario; WH 2.45/3.25/2.45) vs modelo 0.56/0.26/0.19: visitante -21 pp. Forma local 3V-3E-4D; validación insuficiente; sin alineaciones.",
+   "evidencia": [
+    "paquete:m-1679d20c403a|resultado",
+    "apif_query:get_odds match_id=825173"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "resultado.1x2.draw",
+     "objecion": "estimador_sin_validar"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-1679d20c403a|tarjetas",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Árbitro sin designar (0 partidos en muestra), puntos de tarjeta con huecos, validación insuficiente, sin precio ni oferta en feed: p del modelo sin contraste.",
+   "evidencia": [
+    "paquete:m-1679d20c403a|tarjetas",
+    "apif_query:get_odds match_id=825173"
+   ]
+  }
+ ],
+ "limitaciones": [
+  "Re-revisión de un partido (vínculo manual apifootball 825173); sin fuentes web, sólo paquete, informes fusionados y 1 consulta get_odds.",
+  "No se verificaron alineaciones ni árbitro; muestras n9-10 no reabiertas. Cuotas de agregador son referencia, no ejecutables."
+ ]
+}

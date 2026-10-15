@@ -1,0 +1,1498 @@
+{
+ "agente": "deportivo",
+ "version_contrato": 1,
+ "run": "runs/2026-10-17",
+ "unidades": [
+  {
+   "unit_id": "m-151b3f3436d5|1.ª parte goles",
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Gol en 1T: HSV 7/9, Stuttgart 8/9 (misma competicion, mezcla L/V). Modelo 1T sin validar; sin alineaciones.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-151b3f3436d5|1.ª parte goles",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/175.json"
+   ]
+  },
+  {
+   "unit_id": "m-151b3f3436d5|1.ª parte resultado",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Empate al descanso: HSV 4/9, Stuttgart 1/9. Mercado 1T sin ventaja clara; modelo 1T sin validar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-151b3f3436d5|1.ª parte resultado",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/175.json"
+   ]
+  },
+  {
+   "unit_id": "m-151b3f3436d5|córners",
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Corners totales >=10: HSV 5/9 (med 9.8), Stuttgart 7/9 (med 12.4); liga 10.3 (n140). Sin ajuste por rival.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-151b3f3436d5|córners",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/175.json"
+   ]
+  },
+  {
+   "unit_id": "m-151b3f3436d5|doble oportunidad",
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Mismo contexto que el 1X2: Stuttgart rotacion media (europea <=4d, ~4 cambios)",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-151b3f3436d5|doble oportunidad",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/175.json"
+   ]
+  },
+  {
+   "unit_id": "m-151b3f3436d5|empate no válido",
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Sin extractor propio de DNB; lectura del 1X2: Stuttgart rotacion media (europea <=4d, ~4 cambios)",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-151b3f3436d5|empate no válido",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/175.json"
+   ]
+  },
+  {
+   "unit_id": "m-151b3f3436d5|fueras de juego",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin datos de fueras de juego ni estimador en el paquete: no evaluable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-151b3f3436d5|fueras de juego",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/175.json"
+   ]
+  },
+  {
+   "unit_id": "m-151b3f3436d5|goles",
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Over 2.5: HSV 7/9, Stuttgart 6/9; liga 97/140 (3.5 g/p). BTTS 13/18. Alineaciones sin publicar.",
+   "excepciones": [
+    {
+     "entry_id": "goles.total.over.5.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.total.over.4.5",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-151b3f3436d5|goles",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/175.json"
+   ]
+  },
+  {
+   "unit_id": "m-151b3f3436d5|goles por equipo",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "GF/partido: HSV 12/9, Stuttgart 17/9; marcaron 6/9 y 8/9; porteria a cero 0/9 y 1/9.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-151b3f3436d5|goles por equipo",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/175.json"
+   ]
+  },
+  {
+   "unit_id": "m-151b3f3436d5|goles total entero",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Datos sin extractor y estimador no implementado en el paquete para esta variante: no evaluable. Ver goles/resultado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-151b3f3436d5|goles total entero",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/175.json"
+   ]
+  },
+  {
+   "unit_id": "m-151b3f3436d5|hándicap",
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Hándicap sin validar: depende de la diferencia de goles. Stuttgart rotacion media (europea <=4d, ~4 cambios)",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-151b3f3436d5|hándicap",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/175.json"
+   ]
+  },
+  {
+   "unit_id": "m-151b3f3436d5|hándicap asiático entero",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Datos sin extractor y estimador no implementado en el paquete para esta variante: no evaluable. Ver goles/resultado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-151b3f3436d5|hándicap asiático entero",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/175.json"
+   ]
+  },
+  {
+   "unit_id": "m-151b3f3436d5|hándicap europeo",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Datos sin extractor y estimador no implementado en el paquete para esta variante: no evaluable. Ver goles/resultado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-151b3f3436d5|hándicap europeo",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/175.json"
+   ]
+  },
+  {
+   "unit_id": "m-151b3f3436d5|remates",
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Remates a favor/contra: HSV 11.8/16 (n9), Stuttgart 16.2/16.3 (n9). Sin estimador: solo descriptivo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-151b3f3436d5|remates",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/175.json"
+   ]
+  },
+  {
+   "unit_id": "m-151b3f3436d5|remates a puerta",
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Tiros a puerta a favor: HSV 4.2 (n9), Stuttgart 6.1 (n9). Sin estimador ni validacion: solo descriptivo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-151b3f3436d5|remates a puerta",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/175.json"
+   ]
+  },
+  {
+   "unit_id": "m-151b3f3436d5|resultado",
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Stuttgart rotacion media (europea <=4d, ~4 cambios); HSV encaja 21 en 9 (G4 E1 P4). Modelo local 0.43 contradice al mercado. Sin alineaciones",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-151b3f3436d5|resultado",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/175.json"
+   ]
+  },
+  {
+   "unit_id": "m-151b3f3436d5|tarjetas",
+   "solidez": "BAJA",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "tarjetas_atipicas",
+   "nota": "Pts por partido: HSV 4.1 (n7), Stuttgart 3.6 (n9). Arbitro sin muestra en la liga o no designado en el paquete.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-151b3f3436d5|tarjetas",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/175.json"
+   ]
+  },
+  {
+   "unit_id": "m-1955e92ed445|1.ª parte goles",
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Gol en 1T: Tucuman 3/10, Rosario C. 7/10 (misma competicion, mezcla L/V). Modelo 1T sin validar; sin alineaciones.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-1955e92ed445|1.ª parte goles",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/44.json"
+   ]
+  },
+  {
+   "unit_id": "m-1955e92ed445|1.ª parte resultado",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "empate",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Empate al descanso: Tucuman 7/10, Rosario C. 3/10. Mercado 1T sin ventaja clara; modelo 1T sin validar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-1955e92ed445|1.ª parte resultado",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/44.json"
+   ]
+  },
+  {
+   "unit_id": "m-1955e92ed445|córners",
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Corners totales >=10: Tucuman 6/10 (med 10.2), Rosario C. 8/10 (med 11.8); liga 9.0 (n325). Sin ajuste por rival.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-1955e92ed445|córners",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/44.json"
+   ]
+  },
+  {
+   "unit_id": "m-1955e92ed445|doble oportunidad",
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "X2: Rosario 6G3E1P (GC7) con rotacion baja; Tucuman marco 8 en 10. Riesgo: 1-0 local en liga de pocos goles. Sin alineaciones.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.dc.1x",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "resultado.dc.12",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-1955e92ed445|doble oportunidad",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/44.json"
+   ]
+  },
+  {
+   "unit_id": "m-1955e92ed445|empate no válido",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Sin extractor propio de DNB; lectura del 1X2: Rosario 6G3E1P (GF16 GC7, n10) vs Tucuman 2G4E4P",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-1955e92ed445|empate no válido",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/44.json"
+   ]
+  },
+  {
+   "unit_id": "m-1955e92ed445|fueras de juego",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin datos de fueras de juego ni estimador en el paquete: no evaluable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-1955e92ed445|fueras de juego",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/44.json"
+   ]
+  },
+  {
+   "unit_id": "m-1955e92ed445|goles",
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "under",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Over 2.5: Tucuman 4/10, Rosario C. 4/10; liga 129/325 (2.2 g/p). BTTS 10/20. Alineaciones sin publicar.",
+   "excepciones": [
+    {
+     "entry_id": "goles.total.under.0.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.total.under.1.5",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-1955e92ed445|goles",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/44.json"
+   ]
+  },
+  {
+   "unit_id": "m-1955e92ed445|goles por equipo",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "GF/partido: Tucuman 8/10, Rosario C. 16/10; marcaron 6/10 y 10/10; porteria a cero 4/10 y 5/10.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-1955e92ed445|goles por equipo",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/44.json"
+   ]
+  },
+  {
+   "unit_id": "m-1955e92ed445|goles total entero",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Datos sin extractor y estimador no implementado en el paquete para esta variante: no evaluable. Ver goles/resultado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-1955e92ed445|goles total entero",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/44.json"
+   ]
+  },
+  {
+   "unit_id": "m-1955e92ed445|hándicap",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Hándicap sin validar: depende de la diferencia de goles. Rosario 6G3E1P (GF16 GC7, n10) vs Tucuman 2G4E4P",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-1955e92ed445|hándicap",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/44.json"
+   ]
+  },
+  {
+   "unit_id": "m-1955e92ed445|hándicap asiático entero",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Datos sin extractor y estimador no implementado en el paquete para esta variante: no evaluable. Ver goles/resultado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-1955e92ed445|hándicap asiático entero",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/44.json"
+   ]
+  },
+  {
+   "unit_id": "m-1955e92ed445|hándicap europeo",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Datos sin extractor y estimador no implementado en el paquete para esta variante: no evaluable. Ver goles/resultado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-1955e92ed445|hándicap europeo",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/44.json"
+   ]
+  },
+  {
+   "unit_id": "m-1955e92ed445|remates",
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Remates a favor/contra: Tucuman 10.7/13.7 (n10), Rosario C. 15.2/12.3 (n10). Sin estimador: solo descriptivo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-1955e92ed445|remates",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/44.json"
+   ]
+  },
+  {
+   "unit_id": "m-1955e92ed445|remates a puerta",
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Tiros a puerta a favor: Tucuman 3.4 (n10), Rosario C. 5.3 (n10). Sin estimador ni validacion: solo descriptivo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-1955e92ed445|remates a puerta",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/44.json"
+   ]
+  },
+  {
+   "unit_id": "m-1955e92ed445|resultado",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Rosario 6G3E1P (GF16 GC7, n10) vs Tucuman 2G4E4P; pero liga con 29% empates y 2.2 goles: el empate pesa. Rotacion baja",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-1955e92ed445|resultado",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/44.json"
+   ]
+  },
+  {
+   "unit_id": "m-1955e92ed445|tarjetas",
+   "solidez": "BAJA",
+   "factor_principal": "arbitro",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "tarjetas_atipicas",
+   "nota": "Pts por partido: Tucuman 3.6 (n7), Rosario C. 4.9 (n7). Arbitro Carranza: 4.9 pts/partido (n7) vs liga 5.1.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-1955e92ed445|tarjetas",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/44.json"
+   ]
+  },
+  {
+   "unit_id": "m-1a83b4836168|1.ª parte goles",
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Gol en 1T: Melgar 7/10, Garcilaso 7/10 (misma competicion, mezcla L/V). Modelo 1T sin validar; sin alineaciones.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-1a83b4836168|1.ª parte goles",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/257.json"
+   ]
+  },
+  {
+   "unit_id": "m-1a83b4836168|1.ª parte resultado",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Empate al descanso: Melgar 6/10, Garcilaso 3/10. Mercado 1T sin ventaja clara; modelo 1T sin validar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-1a83b4836168|1.ª parte resultado",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/257.json"
+   ]
+  },
+  {
+   "unit_id": "m-1a83b4836168|córners",
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Corners totales >=10: Melgar 6/10 (med 9.9), Garcilaso 6/10 (med 10.3); liga 8.7 (n211). Sin ajuste por rival.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-1a83b4836168|córners",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/257.json"
+   ]
+  },
+  {
+   "unit_id": "m-1a83b4836168|doble oportunidad",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Mismo contexto que el 1X2: Forma y localia chocan: Garcilaso 7G1E2P (GC6) vs Melgar 4G4E2P (mezcla L/V)",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-1a83b4836168|doble oportunidad",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/257.json"
+   ]
+  },
+  {
+   "unit_id": "m-1a83b4836168|empate no válido",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Sin extractor propio de DNB; lectura del 1X2: Forma y localia chocan: Garcilaso 7G1E2P (GC6) vs Melgar 4G4E2P (mezcla L/V)",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-1a83b4836168|empate no válido",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/257.json"
+   ]
+  },
+  {
+   "unit_id": "m-1a83b4836168|fueras de juego",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin datos de fueras de juego ni estimador en el paquete: no evaluable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-1a83b4836168|fueras de juego",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/257.json"
+   ]
+  },
+  {
+   "unit_id": "m-1a83b4836168|goles",
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Over 2.5: Melgar 5/10, Garcilaso 4/10; liga 117/211 (2.8 g/p). BTTS 8/20. Alineaciones sin publicar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-1a83b4836168|goles",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/257.json"
+   ]
+  },
+  {
+   "unit_id": "m-1a83b4836168|goles por equipo",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "GF/partido: Melgar 15/10, Garcilaso 18/10; marcaron 8/10 y 7/10; porteria a cero 4/10 y 5/10.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-1a83b4836168|goles por equipo",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/257.json"
+   ]
+  },
+  {
+   "unit_id": "m-1a83b4836168|goles total entero",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Datos sin extractor y estimador no implementado en el paquete para esta variante: no evaluable. Ver goles/resultado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-1a83b4836168|goles total entero",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/257.json"
+   ]
+  },
+  {
+   "unit_id": "m-1a83b4836168|hándicap",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Hándicap sin validar: depende de la diferencia de goles. Forma y localia chocan: Garcilaso 7G1E2P (GC6) vs Melgar 4G4E2P (mezcla L/V)",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-1a83b4836168|hándicap",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/257.json"
+   ]
+  },
+  {
+   "unit_id": "m-1a83b4836168|hándicap asiático entero",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Datos sin extractor y estimador no implementado en el paquete para esta variante: no evaluable. Ver goles/resultado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-1a83b4836168|hándicap asiático entero",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/257.json"
+   ]
+  },
+  {
+   "unit_id": "m-1a83b4836168|hándicap europeo",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Datos sin extractor y estimador no implementado en el paquete para esta variante: no evaluable. Ver goles/resultado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-1a83b4836168|hándicap europeo",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/257.json"
+   ]
+  },
+  {
+   "unit_id": "m-1a83b4836168|remates",
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Remates a favor/contra: Melgar 16.8/11.7 (n9), Garcilaso 14.6/13.2 (n9). Sin estimador: solo descriptivo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-1a83b4836168|remates",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/257.json"
+   ]
+  },
+  {
+   "unit_id": "m-1a83b4836168|remates a puerta",
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Tiros a puerta a favor: Melgar 5.8 (n9), Garcilaso 5.4 (n9). Sin estimador ni validacion: solo descriptivo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-1a83b4836168|remates a puerta",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/257.json"
+   ]
+  },
+  {
+   "unit_id": "m-1a83b4836168|resultado",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Forma y localia chocan: Garcilaso 7G1E2P (GC6) vs Melgar 4G4E2P (mezcla L/V); mercado favorece a Melgar y el modelo al visitante. Sin sesgo claro",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-1a83b4836168|resultado",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/257.json"
+   ]
+  },
+  {
+   "unit_id": "m-1a83b4836168|tarjetas",
+   "solidez": "BAJA",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "tarjetas_atipicas",
+   "nota": "Pts por partido: Melgar 3.8 (n10), Garcilaso 5.6 (n9). Arbitro sin muestra en la liga o no designado en el paquete.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-1a83b4836168|tarjetas",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/257.json"
+   ]
+  },
+  {
+   "unit_id": "m-20e8f7f2c225|1.ª parte goles",
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Gol en 1T: Dundee 7/10, Rangers 8/10 (misma competicion, mezcla L/V). Modelo 1T sin validar; sin alineaciones.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-20e8f7f2c225|1.ª parte goles",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/279.json"
+   ]
+  },
+  {
+   "unit_id": "m-20e8f7f2c225|1.ª parte resultado",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Empate al descanso: Dundee 3/10, Rangers 4/10. Mercado 1T sin ventaja clara; modelo 1T sin validar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-20e8f7f2c225|1.ª parte resultado",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/279.json"
+   ]
+  },
+  {
+   "unit_id": "m-20e8f7f2c225|córners",
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Corners totales >=10: Dundee 5/10 (med 11.3), Rangers 10/10 (med 11.7); liga 10.6 (n112). Sin ajuste por rival.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-20e8f7f2c225|córners",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/279.json"
+   ]
+  },
+  {
+   "unit_id": "m-20e8f7f2c225|doble oportunidad",
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "penal_o_expulsion",
+   "nota": "X2: Rangers 7G1E2P (GC9), rotacion baja. Riesgo: expulsion/penal o gol local temprano. Sin alineaciones.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.dc.1x",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "resultado.dc.12",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-20e8f7f2c225|doble oportunidad",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/279.json"
+   ]
+  },
+  {
+   "unit_id": "m-20e8f7f2c225|empate no válido",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Sin extractor propio de DNB; lectura del 1X2: Rangers 7G1E2P (GC9, remates 19.9 a favor/9.0 en contra) vs Dundee 5G1E4P (GC13)",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-20e8f7f2c225|empate no válido",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/279.json"
+   ]
+  },
+  {
+   "unit_id": "m-20e8f7f2c225|fueras de juego",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin datos de fueras de juego ni estimador en el paquete: no evaluable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-20e8f7f2c225|fueras de juego",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/279.json"
+   ]
+  },
+  {
+   "unit_id": "m-20e8f7f2c225|goles",
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Over 2.5: Dundee 6/10, Rangers 5/10; liga 63/112 (2.8 g/p). BTTS 13/20. Alineaciones sin publicar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-20e8f7f2c225|goles",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/279.json"
+   ]
+  },
+  {
+   "unit_id": "m-20e8f7f2c225|goles por equipo",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "GF/partido: Dundee 15/10, Rangers 17/10; marcaron 9/10 y 10/10; porteria a cero 2/10 y 4/10.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-20e8f7f2c225|goles por equipo",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/279.json"
+   ]
+  },
+  {
+   "unit_id": "m-20e8f7f2c225|goles total entero",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Datos sin extractor y estimador no implementado en el paquete para esta variante: no evaluable. Ver goles/resultado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-20e8f7f2c225|goles total entero",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/279.json"
+   ]
+  },
+  {
+   "unit_id": "m-20e8f7f2c225|hándicap",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Hándicap sin validar: depende de la diferencia de goles. Rangers 7G1E2P (GC9, remates 19.9 a favor/9.0 en contra) vs Dundee 5G1E4P (GC13)",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-20e8f7f2c225|hándicap",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/279.json"
+   ]
+  },
+  {
+   "unit_id": "m-20e8f7f2c225|hándicap asiático entero",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Datos sin extractor y estimador no implementado en el paquete para esta variante: no evaluable. Ver goles/resultado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-20e8f7f2c225|hándicap asiático entero",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/279.json"
+   ]
+  },
+  {
+   "unit_id": "m-20e8f7f2c225|hándicap europeo",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Datos sin extractor y estimador no implementado en el paquete para esta variante: no evaluable. Ver goles/resultado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-20e8f7f2c225|hándicap europeo",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/279.json"
+   ]
+  },
+  {
+   "unit_id": "m-20e8f7f2c225|remates",
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Remates a favor/contra: Dundee 12.1/17.9 (n9), Rangers 19.9/9 (n9). Sin estimador: solo descriptivo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-20e8f7f2c225|remates",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/279.json"
+   ]
+  },
+  {
+   "unit_id": "m-20e8f7f2c225|remates a puerta",
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Tiros a puerta a favor: Dundee 4.7 (n9), Rangers 6.8 (n9). Sin estimador ni validacion: solo descriptivo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-20e8f7f2c225|remates a puerta",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/279.json"
+   ]
+  },
+  {
+   "unit_id": "m-20e8f7f2c225|resultado",
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Rangers 7G1E2P (GC9, remates 19.9 a favor/9.0 en contra) vs Dundee 5G1E4P (GC13); rotacion Rangers baja, 7d de descanso. Riesgo: empate o 1-0 local",
+   "excepciones": [
+    {
+     "entry_id": "resultado.1x2.home",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "resultado.1x2.draw",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-20e8f7f2c225|resultado",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/279.json"
+   ]
+  },
+  {
+   "unit_id": "m-20e8f7f2c225|tarjetas",
+   "solidez": "BAJA",
+   "factor_principal": "arbitro",
+   "direccion_favorable": "under",
+   "escenario_perdida": "tarjetas_atipicas",
+   "nota": "Pts por partido: Dundee 4 (n8), Rangers 3.9 (n9). Arbitro Nicolson: 3.4 pts/partido (n8) vs liga 4.2.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-20e8f7f2c225|tarjetas",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/279.json"
+   ]
+  },
+  {
+   "unit_id": "m-22160a4d200d|1.ª parte goles",
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Gol en 1T: Watford 10/10, Charlton 6/10 (misma competicion, mezcla L/V). Modelo 1T sin validar; sin alineaciones.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-22160a4d200d|1.ª parte goles",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/153.json"
+   ]
+  },
+  {
+   "unit_id": "m-22160a4d200d|1.ª parte resultado",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Empate al descanso: Watford 2/10, Charlton 5/10. Mercado 1T sin ventaja clara; modelo 1T sin validar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-22160a4d200d|1.ª parte resultado",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/153.json"
+   ]
+  },
+  {
+   "unit_id": "m-22160a4d200d|córners",
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Corners totales >=10: Watford 4/10 (med 9.6), Charlton 7/10 (med 10.9); liga 10.6 (n254). Sin ajuste por rival.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-22160a4d200d|córners",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/153.json"
+   ]
+  },
+  {
+   "unit_id": "m-22160a4d200d|doble oportunidad",
+   "solidez": "BAJA",
+   "factor_principal": "calendario_descanso",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Mismo contexto que el 1X2: Watford 2G2E6P (GF8 GC19) y descanso 4d con ~4 cambios",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-22160a4d200d|doble oportunidad",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/153.json"
+   ]
+  },
+  {
+   "unit_id": "m-22160a4d200d|empate no válido",
+   "solidez": "BAJA",
+   "factor_principal": "calendario_descanso",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Sin extractor propio de DNB; lectura del 1X2: Watford 2G2E6P (GF8 GC19) y descanso 4d con ~4 cambios",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-22160a4d200d|empate no válido",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/153.json"
+   ]
+  },
+  {
+   "unit_id": "m-22160a4d200d|fueras de juego",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin datos de fueras de juego ni estimador en el paquete: no evaluable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-22160a4d200d|fueras de juego",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/153.json"
+   ]
+  },
+  {
+   "unit_id": "m-22160a4d200d|goles",
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Over 2.5: Watford 5/10, Charlton 5/10; liga 139/254 (2.7 g/p). BTTS 12/20. Alineaciones sin publicar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-22160a4d200d|goles",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/153.json"
+   ]
+  },
+  {
+   "unit_id": "m-22160a4d200d|goles por equipo",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "under",
+   "escenario_perdida": "partido_abierto",
+   "nota": "GF/partido: Watford 8/10, Charlton 10/10; marcaron 6/10 y 7/10; porteria a cero 0/10 y 3/10.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-22160a4d200d|goles por equipo",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/153.json"
+   ]
+  },
+  {
+   "unit_id": "m-22160a4d200d|goles total entero",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Datos sin extractor y estimador no implementado en el paquete para esta variante: no evaluable. Ver goles/resultado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-22160a4d200d|goles total entero",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/153.json"
+   ]
+  },
+  {
+   "unit_id": "m-22160a4d200d|hándicap",
+   "solidez": "BAJA",
+   "factor_principal": "calendario_descanso",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Hándicap sin validar: depende de la diferencia de goles. Watford 2G2E6P (GF8 GC19) y descanso 4d con ~4 cambios",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-22160a4d200d|hándicap",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/153.json"
+   ]
+  },
+  {
+   "unit_id": "m-22160a4d200d|hándicap asiático entero",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Datos sin extractor y estimador no implementado en el paquete para esta variante: no evaluable. Ver goles/resultado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-22160a4d200d|hándicap asiático entero",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/153.json"
+   ]
+  },
+  {
+   "unit_id": "m-22160a4d200d|hándicap europeo",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Datos sin extractor y estimador no implementado en el paquete para esta variante: no evaluable. Ver goles/resultado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-22160a4d200d|hándicap europeo",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/153.json"
+   ]
+  },
+  {
+   "unit_id": "m-22160a4d200d|remates",
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Remates a favor/contra: Watford 11.4/15.1 (n9), Charlton 9.4/14.4 (n9). Sin estimador: solo descriptivo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-22160a4d200d|remates",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/153.json"
+   ]
+  },
+  {
+   "unit_id": "m-22160a4d200d|remates a puerta",
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Tiros a puerta a favor: Watford 3.4 (n9), Charlton 2.7 (n9). Sin estimador ni validacion: solo descriptivo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-22160a4d200d|remates a puerta",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/153.json"
+   ]
+  },
+  {
+   "unit_id": "m-22160a4d200d|resultado",
+   "solidez": "BAJA",
+   "factor_principal": "calendario_descanso",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Watford 2G2E6P (GF8 GC19) y descanso 4d con ~4 cambios; Charlton 3G5E2P, 5 empates. Ninguno domina; empate plausible",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-22160a4d200d|resultado",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/153.json"
+   ]
+  },
+  {
+   "unit_id": "m-22160a4d200d|tarjetas",
+   "solidez": "BAJA",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "tarjetas_atipicas",
+   "nota": "Pts por partido: Watford 5 (n8), Charlton 3.4 (n7). Arbitro sin muestra en la liga o no designado en el paquete.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-22160a4d200d|tarjetas",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/153.json"
+   ]
+  },
+  {
+   "unit_id": "m-285c3ff45e18|1.ª parte goles",
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Gol en 1T: Troyes 4/6, Lens 7/10 (misma competicion, mezcla L/V). Modelo 1T sin validar; sin alineaciones.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-285c3ff45e18|1.ª parte goles",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/168.json"
+   ]
+  },
+  {
+   "unit_id": "m-285c3ff45e18|1.ª parte resultado",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Empate al descanso: Troyes 2/6, Lens 3/10. Mercado 1T sin ventaja clara; modelo 1T sin validar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-285c3ff45e18|1.ª parte resultado",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/168.json"
+   ]
+  },
+  {
+   "unit_id": "m-285c3ff45e18|córners",
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Corners totales >=10: Troyes 2/6 (med 9.2), Lens 7/10 (med 12.4); liga 10.0 (n151). Sin ajuste por rival.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-285c3ff45e18|córners",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/168.json"
+   ]
+  },
+  {
+   "unit_id": "m-285c3ff45e18|doble oportunidad",
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Mismo contexto que el 1X2: Lens con rotacion alta (europea <=4d, 4d descanso, ~5 cambios) puede mermar al favorito",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-285c3ff45e18|doble oportunidad",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/168.json"
+   ]
+  },
+  {
+   "unit_id": "m-285c3ff45e18|empate no válido",
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Sin extractor propio de DNB; lectura del 1X2: Lens con rotacion alta (europea <=4d, 4d descanso, ~5 cambios) puede mermar al favorito",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-285c3ff45e18|empate no válido",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/168.json"
+   ]
+  },
+  {
+   "unit_id": "m-285c3ff45e18|fueras de juego",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin datos de fueras de juego ni estimador en el paquete: no evaluable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-285c3ff45e18|fueras de juego",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/168.json"
+   ]
+  },
+  {
+   "unit_id": "m-285c3ff45e18|goles",
+   "solidez": "BAJA",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Over 2.5: Troyes 2/6 (solo n6), Lens 6/10; liga 88/151. Lens rotacion alta: riesgo en ambas direcciones.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-285c3ff45e18|goles",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/168.json"
+   ]
+  },
+  {
+   "unit_id": "m-285c3ff45e18|goles por equipo",
+   "solidez": "BAJA",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "GF/partido: Troyes 4/6, Lens 17/10; marcaron 2/6 y 8/10; porteria a cero 1/6 y 2/10.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-285c3ff45e18|goles por equipo",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/168.json"
+   ]
+  },
+  {
+   "unit_id": "m-285c3ff45e18|goles total entero",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Datos sin extractor y estimador no implementado en el paquete para esta variante: no evaluable. Ver goles/resultado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-285c3ff45e18|goles total entero",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/168.json"
+   ]
+  },
+  {
+   "unit_id": "m-285c3ff45e18|hándicap",
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Hándicap sin validar: depende de la diferencia de goles. Lens con rotacion alta (europea <=4d, 4d descanso, ~5 cambios) puede mermar al favorito",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-285c3ff45e18|hándicap",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/168.json"
+   ]
+  },
+  {
+   "unit_id": "m-285c3ff45e18|hándicap asiático entero",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Datos sin extractor y estimador no implementado en el paquete para esta variante: no evaluable. Ver goles/resultado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-285c3ff45e18|hándicap asiático entero",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/168.json"
+   ]
+  },
+  {
+   "unit_id": "m-285c3ff45e18|hándicap europeo",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Datos sin extractor y estimador no implementado en el paquete para esta variante: no evaluable. Ver goles/resultado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-285c3ff45e18|hándicap europeo",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/168.json"
+   ]
+  },
+  {
+   "unit_id": "m-285c3ff45e18|remates",
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Remates a favor/contra: Troyes 14.5/12 (n6), Lens 15.9/11.9 (n10). Sin estimador: solo descriptivo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-285c3ff45e18|remates",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/168.json"
+   ]
+  },
+  {
+   "unit_id": "m-285c3ff45e18|remates a puerta",
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Tiros a puerta a favor: Troyes 2.8 (n6), Lens 6.2 (n10). Sin estimador ni validacion: solo descriptivo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-285c3ff45e18|remates a puerta",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/168.json"
+   ]
+  },
+  {
+   "unit_id": "m-285c3ff45e18|resultado",
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Lens con rotacion alta (europea <=4d, 4d descanso, ~5 cambios) puede mermar al favorito; Troyes solo n6 en liga (1G1E4P, GC13). Sin alineaciones",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-285c3ff45e18|resultado",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/168.json"
+   ]
+  },
+  {
+   "unit_id": "m-285c3ff45e18|tarjetas",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Datos de tarjetas parciales y estimador sin datos suficientes (n5 y n9). Arbitro Ben El Hadj: n7 en liga.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-285c3ff45e18|tarjetas",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/league_samples/168.json"
+   ]
+  }
+ ],
+ "limitaciones": [
+  "Alineaciones sin_snapshot en los 6 partidos: bajas y onces no verificados; rotacion estimada a priori con rotation.json.",
+  "Muestras de matrix.json mezclan local y visitante sin ajustar por rival; Troyes solo n6 en la misma competicion.",
+  "Sin estimador validado ni cuotas de casa verificadas en la mayoria de lineas; remates, tiros a puerta y variantes enteras/europeas sin estimador.",
+  "Arbitro: sin muestra en liga para Bramall (Watford) y sin designacion en el paquete para HSV, Melgar."
+ ]
+}

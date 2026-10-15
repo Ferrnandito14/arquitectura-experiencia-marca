@@ -1,0 +1,3094 @@
+{
+ "agente": "verificador",
+ "version_contrato": 1,
+ "run": "runs/2026-10-17",
+ "unidades": [
+  {
+   "unit_id": "m-de8f83e94d53|1.ª parte goles",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "6 lineas, 6 con cuota. Cuotas de agregador (referencia, no ejecutable), obs. 14-oct.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-de8f83e94d53|1.ª parte goles",
+    "apif_query:get_events match_id=812716",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-de8f83e94d53|1.ª parte resultado",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "3 lineas, 3 con cuota. Cuotas de agregador (referencia, no ejecutable), obs. 14-oct.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-de8f83e94d53|1.ª parte resultado",
+    "apif_query:get_events match_id=812716",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-de8f83e94d53|córners",
+   "disponibilidad": "no_encontrada",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "46 lineas, 6 con cuota. Cuotas de agregador (referencia, no ejecutable), obs. 14-oct. Linea no hallada en feeds.",
+   "excepciones": [
+    {
+     "entry_id": "corners.total.over.10.5",
+     "disponibilidad": "verificada_en_fuente"
+    },
+    {
+     "entry_id": "corners.total.under.10.5",
+     "disponibilidad": "verificada_en_fuente"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.7.5",
+     "disponibilidad": "verificada_en_fuente"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.7.5",
+     "disponibilidad": "verificada_en_fuente"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.2.5",
+     "disponibilidad": "verificada_en_fuente"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.2.5",
+     "disponibilidad": "verificada_en_fuente"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-de8f83e94d53|córners",
+    "apif_query:get_events match_id=812716",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-de8f83e94d53|doble oportunidad",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "3 lineas, 3 con cuota. Cuotas de agregador (referencia, no ejecutable), obs. 14-oct.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-de8f83e94d53|doble oportunidad",
+    "apif_query:get_events match_id=812716",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-de8f83e94d53|empate no válido",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "2 lineas, 2 con cuota. Cuotas de agregador (referencia, no ejecutable), obs. 14-oct.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-de8f83e94d53|empate no válido",
+    "apif_query:get_events match_id=812716",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-de8f83e94d53|fueras de juego",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "1 lineas, 0 con cuota. Feeds no ofrecen el mercado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-de8f83e94d53|fueras de juego",
+    "apif_query:get_events match_id=812716",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-de8f83e94d53|goles",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "14 lineas, 14 con cuota. 2 del usuario (TriunfoBet, comunicadas); resto agregador.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-de8f83e94d53|goles",
+    "apif_query:get_events match_id=812716",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-de8f83e94d53|goles por equipo",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "12 lineas, 12 con cuota. Cuotas de agregador (referencia, no ejecutable), obs. 14-oct. Colas extremas de 1 sola casa.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-de8f83e94d53|goles por equipo",
+    "apif_query:get_events match_id=812716",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-de8f83e94d53|goles total entero",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "10 lineas, 10 con cuota. Cuotas de agregador (referencia, no ejecutable), obs. 14-oct. Colas extremas de 1 sola casa.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-de8f83e94d53|goles total entero",
+    "apif_query:get_events match_id=812716",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-de8f83e94d53|hándicap",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "12 lineas, 11 con cuota. Cuotas de agregador (referencia, no ejecutable), obs. 14-oct. Colas extremas de 1 sola casa.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.home.+2.5",
+     "disponibilidad": "no_encontrada"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-de8f83e94d53|hándicap",
+    "apif_query:get_events match_id=812716",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-de8f83e94d53|hándicap asiático entero",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "10 lineas, 9 con cuota. Cuotas de agregador (referencia, no ejecutable), obs. 14-oct. Colas extremas de 1 sola casa.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah_entero.home.+0",
+     "disponibilidad": "no_verificable"
+    },
+    {
+     "entry_id": "resultado.ah_entero.away.+0",
+     "disponibilidad": "no_verificable"
+    },
+    {
+     "entry_id": "resultado.ah_entero.home.+2",
+     "disponibilidad": "no_encontrada"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-de8f83e94d53|hándicap asiático entero",
+    "apif_query:get_events match_id=812716",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-de8f83e94d53|hándicap europeo",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "12 lineas, 9 con cuota. Cuotas de agregador (referencia, no ejecutable), obs. 14-oct.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.eh.home.+2",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "resultado.eh.draw.+2",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "resultado.eh.away.+2",
+     "disponibilidad": "no_encontrada"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-de8f83e94d53|hándicap europeo",
+    "apif_query:get_events match_id=812716",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-de8f83e94d53|remates",
+   "disponibilidad": "no_encontrada",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "90 lineas, 4 con cuota. Cuotas de agregador (referencia, no ejecutable), obs. 14-oct. Linea no hallada en feeds.",
+   "excepciones": [
+    {
+     "entry_id": "shots.total.over.30.5",
+     "disponibilidad": "verificada_en_fuente"
+    },
+    {
+     "entry_id": "shots.total.under.30.5",
+     "disponibilidad": "verificada_en_fuente"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.8.5",
+     "disponibilidad": "verificada_en_fuente"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.8.5",
+     "disponibilidad": "verificada_en_fuente"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-de8f83e94d53|remates",
+    "apif_query:get_events match_id=812716",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-de8f83e94d53|remates a puerta",
+   "disponibilidad": "no_encontrada",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "60 lineas, 6 con cuota. Cuotas de agregador (referencia, no ejecutable), obs. 14-oct. Linea no hallada en feeds.",
+   "excepciones": [
+    {
+     "entry_id": "sot.total.over.10.5",
+     "disponibilidad": "verificada_en_fuente"
+    },
+    {
+     "entry_id": "sot.total.under.10.5",
+     "disponibilidad": "verificada_en_fuente"
+    },
+    {
+     "entry_id": "sot.equipo.home.over.7.5",
+     "disponibilidad": "verificada_en_fuente"
+    },
+    {
+     "entry_id": "sot.equipo.home.under.7.5",
+     "disponibilidad": "verificada_en_fuente"
+    },
+    {
+     "entry_id": "sot.equipo.away.over.2.5",
+     "disponibilidad": "verificada_en_fuente"
+    },
+    {
+     "entry_id": "sot.equipo.away.under.2.5",
+     "disponibilidad": "verificada_en_fuente"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-de8f83e94d53|remates a puerta",
+    "apif_query:get_events match_id=812716",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-de8f83e94d53|resultado",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "comunicado_usuario",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "3 lineas, 3 con cuota. Cuotas comunicadas por el usuario, no verificadas de forma independiente.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-de8f83e94d53|resultado",
+    "apif_query:get_events match_id=812716",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-de8f83e94d53|tarjetas",
+   "disponibilidad": "no_ofrecida",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "42 lineas, 2 con cuota. Cuotas de agregador (referencia, no ejecutable), obs. 14-oct. Def. tarjetas TSA (puntos) no verificada. Feeds no ofrecen el mercado.",
+   "excepciones": [
+    {
+     "entry_id": "cards_pts.total.over.1.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.1.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.over.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.over.3.5",
+     "disponibilidad": "verificada_en_fuente"
+    },
+    {
+     "entry_id": "cards_pts.total.under.3.5",
+     "disponibilidad": "verificada_en_fuente"
+    },
+    {
+     "entry_id": "cards_pts.total.over.4.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.4.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.over.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.over.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.over.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.over.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.over.9.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.9.5",
+     "disponibilidad": "no_encontrada"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-de8f83e94d53|tarjetas",
+    "apif_query:get_events match_id=812716",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e1bfc37ec8e6|1.ª parte goles",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "calendario"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json"
+   ],
+   "nota": "6 lineas, 0 con cuota. Sin thestatsapi; calendario de 1 fuente. Feeds no ofrecen el mercado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-e1bfc37ec8e6|1.ª parte goles",
+    "apif_query:get_events match_id=862849",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e1bfc37ec8e6|1.ª parte resultado",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "calendario"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json"
+   ],
+   "nota": "3 lineas, 0 con cuota. Sin thestatsapi; calendario de 1 fuente. Feeds no ofrecen el mercado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-e1bfc37ec8e6|1.ª parte resultado",
+    "apif_query:get_events match_id=862849",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e1bfc37ec8e6|córners",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "calendario"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json"
+   ],
+   "nota": "46 lineas, 0 con cuota. Sin thestatsapi; calendario de 1 fuente. Feeds no ofrecen el mercado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-e1bfc37ec8e6|córners",
+    "apif_query:get_events match_id=862849",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e1bfc37ec8e6|doble oportunidad",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "calendario"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json"
+   ],
+   "nota": "3 lineas, 3 con cuota. Cuotas de agregador (referencia, no ejecutable), obs. 14-oct. Sin thestatsapi; calendario de 1 fuente.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-e1bfc37ec8e6|doble oportunidad",
+    "apif_query:get_events match_id=862849",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e1bfc37ec8e6|empate no válido",
+   "disponibilidad": "no_verificable",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "calendario"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json"
+   ],
+   "nota": "2 lineas, 2 con cuota. Sin thestatsapi; calendario de 1 fuente.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-e1bfc37ec8e6|empate no válido",
+    "apif_query:get_events match_id=862849",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e1bfc37ec8e6|fueras de juego",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "calendario"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json"
+   ],
+   "nota": "1 lineas, 0 con cuota. Sin thestatsapi; calendario de 1 fuente. Feeds no ofrecen el mercado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-e1bfc37ec8e6|fueras de juego",
+    "apif_query:get_events match_id=862849",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e1bfc37ec8e6|goles",
+   "disponibilidad": "no_verificable",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "calendario"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json"
+   ],
+   "nota": "14 lineas, 14 con cuota. 2 del usuario (TriunfoBet, comunicadas); resto agregador. Sin thestatsapi; calendario de 1 fuente.",
+   "excepciones": [
+    {
+     "entry_id": "goles.total.over.2.5",
+     "disponibilidad": "verificada_en_fuente"
+    },
+    {
+     "entry_id": "goles.total.under.2.5",
+     "disponibilidad": "verificada_en_fuente"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-e1bfc37ec8e6|goles",
+    "apif_query:get_events match_id=862849",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e1bfc37ec8e6|goles por equipo",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "calendario"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json"
+   ],
+   "nota": "12 lineas, 0 con cuota. Sin thestatsapi; calendario de 1 fuente. Feeds no ofrecen el mercado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-e1bfc37ec8e6|goles por equipo",
+    "apif_query:get_events match_id=862849",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e1bfc37ec8e6|goles total entero",
+   "disponibilidad": "no_encontrada",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "calendario"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json"
+   ],
+   "nota": "10 lineas, 0 con cuota. Sin thestatsapi; calendario de 1 fuente. Linea no hallada en feeds.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-e1bfc37ec8e6|goles total entero",
+    "apif_query:get_events match_id=862849",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e1bfc37ec8e6|hándicap",
+   "disponibilidad": "no_encontrada",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "calendario"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json"
+   ],
+   "nota": "12 lineas, 4 con cuota. Sin thestatsapi; calendario de 1 fuente. Linea no hallada en feeds.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.home.-2.5",
+     "disponibilidad": "no_verificable"
+    },
+    {
+     "entry_id": "resultado.ah.away.+2.5",
+     "disponibilidad": "no_verificable"
+    },
+    {
+     "entry_id": "resultado.ah.home.-1.5",
+     "disponibilidad": "no_verificable"
+    },
+    {
+     "entry_id": "resultado.ah.away.+1.5",
+     "disponibilidad": "no_verificable"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-e1bfc37ec8e6|hándicap",
+    "apif_query:get_events match_id=862849",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e1bfc37ec8e6|hándicap asiático entero",
+   "disponibilidad": "no_verificable",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "calendario"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json"
+   ],
+   "nota": "10 lineas, 6 con cuota. Sin thestatsapi; calendario de 1 fuente.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah_entero.home.+1",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "resultado.ah_entero.away.-1",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "resultado.ah_entero.home.+2",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "resultado.ah_entero.away.-2",
+     "disponibilidad": "no_encontrada"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-e1bfc37ec8e6|hándicap asiático entero",
+    "apif_query:get_events match_id=862849",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e1bfc37ec8e6|hándicap europeo",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "calendario"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json"
+   ],
+   "nota": "12 lineas, 0 con cuota. Sin thestatsapi; calendario de 1 fuente. Feeds no ofrecen el mercado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-e1bfc37ec8e6|hándicap europeo",
+    "apif_query:get_events match_id=862849",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e1bfc37ec8e6|remates",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "calendario"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json"
+   ],
+   "nota": "90 lineas, 0 con cuota. Sin thestatsapi; calendario de 1 fuente. Feeds no ofrecen el mercado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-e1bfc37ec8e6|remates",
+    "apif_query:get_events match_id=862849",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e1bfc37ec8e6|remates a puerta",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "calendario"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json"
+   ],
+   "nota": "60 lineas, 0 con cuota. Sin thestatsapi; calendario de 1 fuente. Feeds no ofrecen el mercado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-e1bfc37ec8e6|remates a puerta",
+    "apif_query:get_events match_id=862849",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e1bfc37ec8e6|resultado",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "comunicado_usuario",
+   "discrepancias": [
+    "calendario"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json"
+   ],
+   "nota": "3 lineas, 3 con cuota. Cuotas comunicadas por el usuario, no verificadas de forma independiente. Sin thestatsapi; calendario de 1 fuente.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-e1bfc37ec8e6|resultado",
+    "apif_query:get_events match_id=862849",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e1bfc37ec8e6|tarjetas",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "calendario"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json"
+   ],
+   "nota": "42 lineas, 0 con cuota. Def. tarjetas TSA (puntos) no verificada. Sin thestatsapi; calendario de 1 fuente. Feeds no ofrecen el mercado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-e1bfc37ec8e6|tarjetas",
+    "apif_query:get_events match_id=862849",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e2a773a2f354|1.ª parte goles",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "6 lineas, 6 con cuota. Cuotas de agregador (referencia, no ejecutable), obs. 14-oct.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-e2a773a2f354|1.ª parte goles",
+    "apif_query:get_events match_id=812713",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e2a773a2f354|1.ª parte resultado",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "3 lineas, 3 con cuota. Cuotas de agregador (referencia, no ejecutable), obs. 14-oct.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-e2a773a2f354|1.ª parte resultado",
+    "apif_query:get_events match_id=812713",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e2a773a2f354|córners",
+   "disponibilidad": "no_encontrada",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "46 lineas, 6 con cuota. Cuotas de agregador (referencia, no ejecutable), obs. 14-oct. Linea no hallada en feeds.",
+   "excepciones": [
+    {
+     "entry_id": "corners.total.over.10.5",
+     "disponibilidad": "verificada_en_fuente"
+    },
+    {
+     "entry_id": "corners.total.under.10.5",
+     "disponibilidad": "verificada_en_fuente"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.4.5",
+     "disponibilidad": "verificada_en_fuente"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.4.5",
+     "disponibilidad": "verificada_en_fuente"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.5.5",
+     "disponibilidad": "verificada_en_fuente"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.5.5",
+     "disponibilidad": "verificada_en_fuente"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-e2a773a2f354|córners",
+    "apif_query:get_events match_id=812713",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e2a773a2f354|doble oportunidad",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "3 lineas, 3 con cuota. Cuotas de agregador (referencia, no ejecutable), obs. 14-oct.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-e2a773a2f354|doble oportunidad",
+    "apif_query:get_events match_id=812713",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e2a773a2f354|empate no válido",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "2 lineas, 2 con cuota. Cuotas de agregador (referencia, no ejecutable), obs. 14-oct.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-e2a773a2f354|empate no válido",
+    "apif_query:get_events match_id=812713",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e2a773a2f354|fueras de juego",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "1 lineas, 0 con cuota. Feeds no ofrecen el mercado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-e2a773a2f354|fueras de juego",
+    "apif_query:get_events match_id=812713",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e2a773a2f354|goles",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "14 lineas, 14 con cuota. 2 del usuario (TriunfoBet, comunicadas); resto agregador.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-e2a773a2f354|goles",
+    "apif_query:get_events match_id=812713",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e2a773a2f354|goles por equipo",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "12 lineas, 12 con cuota. Cuotas de agregador (referencia, no ejecutable), obs. 14-oct.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-e2a773a2f354|goles por equipo",
+    "apif_query:get_events match_id=812713",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e2a773a2f354|goles total entero",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "10 lineas, 10 con cuota. Cuotas de agregador (referencia, no ejecutable), obs. 14-oct. Colas extremas de 1 sola casa.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-e2a773a2f354|goles total entero",
+    "apif_query:get_events match_id=812713",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e2a773a2f354|hándicap",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "12 lineas, 12 con cuota. Cuotas de agregador (referencia, no ejecutable), obs. 14-oct. Colas extremas de 1 sola casa.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-e2a773a2f354|hándicap",
+    "apif_query:get_events match_id=812713",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e2a773a2f354|hándicap asiático entero",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "10 lineas, 10 con cuota. Cuotas de agregador (referencia, no ejecutable), obs. 14-oct. Colas extremas de 1 sola casa.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-e2a773a2f354|hándicap asiático entero",
+    "apif_query:get_events match_id=812713",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e2a773a2f354|hándicap europeo",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "12 lineas, 12 con cuota. Cuotas de agregador (referencia, no ejecutable), obs. 14-oct.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-e2a773a2f354|hándicap europeo",
+    "apif_query:get_events match_id=812713",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e2a773a2f354|remates",
+   "disponibilidad": "no_encontrada",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "90 lineas, 6 con cuota. Cuotas de agregador (referencia, no ejecutable), obs. 14-oct. Linea no hallada en feeds.",
+   "excepciones": [
+    {
+     "entry_id": "shots.total.over.26.5",
+     "disponibilidad": "verificada_en_fuente"
+    },
+    {
+     "entry_id": "shots.total.under.26.5",
+     "disponibilidad": "verificada_en_fuente"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.13.5",
+     "disponibilidad": "verificada_en_fuente"
+    },
+    {
+     "entry_id": "shots.equipo.home.under.13.5",
+     "disponibilidad": "verificada_en_fuente"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.13.5",
+     "disponibilidad": "verificada_en_fuente"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.13.5",
+     "disponibilidad": "verificada_en_fuente"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-e2a773a2f354|remates",
+    "apif_query:get_events match_id=812713",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e2a773a2f354|remates a puerta",
+   "disponibilidad": "no_encontrada",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "60 lineas, 6 con cuota. Cuotas de agregador (referencia, no ejecutable), obs. 14-oct. Linea no hallada en feeds.",
+   "excepciones": [
+    {
+     "entry_id": "sot.total.over.9.5",
+     "disponibilidad": "verificada_en_fuente"
+    },
+    {
+     "entry_id": "sot.total.under.9.5",
+     "disponibilidad": "verificada_en_fuente"
+    },
+    {
+     "entry_id": "sot.equipo.home.over.4.5",
+     "disponibilidad": "verificada_en_fuente"
+    },
+    {
+     "entry_id": "sot.equipo.home.under.4.5",
+     "disponibilidad": "verificada_en_fuente"
+    },
+    {
+     "entry_id": "sot.equipo.away.over.4.5",
+     "disponibilidad": "verificada_en_fuente"
+    },
+    {
+     "entry_id": "sot.equipo.away.under.4.5",
+     "disponibilidad": "verificada_en_fuente"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-e2a773a2f354|remates a puerta",
+    "apif_query:get_events match_id=812713",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e2a773a2f354|resultado",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "comunicado_usuario",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "3 lineas, 3 con cuota. Cuotas comunicadas por el usuario, no verificadas de forma independiente.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-e2a773a2f354|resultado",
+    "apif_query:get_events match_id=812713",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e2a773a2f354|tarjetas",
+   "disponibilidad": "no_ofrecida",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "42 lineas, 2 con cuota. Cuotas de agregador (referencia, no ejecutable), obs. 14-oct. Def. tarjetas TSA (puntos) no verificada. Feeds no ofrecen el mercado.",
+   "excepciones": [
+    {
+     "entry_id": "cards_pts.total.over.1.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.1.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.over.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.over.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.over.4.5",
+     "disponibilidad": "verificada_en_fuente"
+    },
+    {
+     "entry_id": "cards_pts.total.under.4.5",
+     "disponibilidad": "verificada_en_fuente"
+    },
+    {
+     "entry_id": "cards_pts.total.over.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.over.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.over.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.over.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.over.9.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.9.5",
+     "disponibilidad": "no_encontrada"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-e2a773a2f354|tarjetas",
+    "apif_query:get_events match_id=812713",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e3272bfdb2cf|1.ª parte goles",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "6 lineas, 6 con cuota. Cuotas de agregador (referencia, no ejecutable), obs. 14-oct.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-e3272bfdb2cf|1.ª parte goles",
+    "apif_query:get_events match_id=711722",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e3272bfdb2cf|1.ª parte resultado",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "3 lineas, 3 con cuota. Cuotas de agregador (referencia, no ejecutable), obs. 14-oct.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-e3272bfdb2cf|1.ª parte resultado",
+    "apif_query:get_events match_id=711722",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e3272bfdb2cf|córners",
+   "disponibilidad": "no_encontrada",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "46 lineas, 6 con cuota. Cuotas de agregador (referencia, no ejecutable), obs. 14-oct. Linea no hallada en feeds.",
+   "excepciones": [
+    {
+     "entry_id": "corners.total.over.9.5",
+     "disponibilidad": "verificada_en_fuente"
+    },
+    {
+     "entry_id": "corners.total.under.9.5",
+     "disponibilidad": "verificada_en_fuente"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.6.5",
+     "disponibilidad": "verificada_en_fuente"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.6.5",
+     "disponibilidad": "verificada_en_fuente"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.3.5",
+     "disponibilidad": "verificada_en_fuente"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.3.5",
+     "disponibilidad": "verificada_en_fuente"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-e3272bfdb2cf|córners",
+    "apif_query:get_events match_id=711722",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e3272bfdb2cf|doble oportunidad",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "3 lineas, 3 con cuota. Cuotas de agregador (referencia, no ejecutable), obs. 14-oct.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-e3272bfdb2cf|doble oportunidad",
+    "apif_query:get_events match_id=711722",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e3272bfdb2cf|empate no válido",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "2 lineas, 2 con cuota. Cuotas de agregador (referencia, no ejecutable), obs. 14-oct.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-e3272bfdb2cf|empate no válido",
+    "apif_query:get_events match_id=711722",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e3272bfdb2cf|fueras de juego",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "1 lineas, 0 con cuota. Feeds no ofrecen el mercado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-e3272bfdb2cf|fueras de juego",
+    "apif_query:get_events match_id=711722",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e3272bfdb2cf|goles",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "14 lineas, 14 con cuota. 2 del usuario (TriunfoBet, comunicadas); resto agregador.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-e3272bfdb2cf|goles",
+    "apif_query:get_events match_id=711722",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e3272bfdb2cf|goles por equipo",
+   "disponibilidad": "no_encontrada",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "12 lineas, 0 con cuota. Linea no hallada en feeds.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-e3272bfdb2cf|goles por equipo",
+    "apif_query:get_events match_id=711722",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e3272bfdb2cf|goles total entero",
+   "disponibilidad": "no_encontrada",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "10 lineas, 0 con cuota. Linea no hallada en feeds.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-e3272bfdb2cf|goles total entero",
+    "apif_query:get_events match_id=711722",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e3272bfdb2cf|hándicap",
+   "disponibilidad": "no_encontrada",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "12 lineas, 4 con cuota. Cuotas de agregador (referencia, no ejecutable), obs. 14-oct. Linea no hallada en feeds.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.home.-2.5",
+     "disponibilidad": "verificada_en_fuente"
+    },
+    {
+     "entry_id": "resultado.ah.away.+2.5",
+     "disponibilidad": "verificada_en_fuente"
+    },
+    {
+     "entry_id": "resultado.ah.home.-1.5",
+     "disponibilidad": "verificada_en_fuente"
+    },
+    {
+     "entry_id": "resultado.ah.away.+1.5",
+     "disponibilidad": "verificada_en_fuente"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-e3272bfdb2cf|hándicap",
+    "apif_query:get_events match_id=711722",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e3272bfdb2cf|hándicap asiático entero",
+   "disponibilidad": "no_verificable",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "10 lineas, 8 con cuota. Cuotas de agregador (referencia, no ejecutable), obs. 14-oct. Colas extremas de 1 sola casa.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah_entero.home.-1",
+     "disponibilidad": "verificada_en_fuente"
+    },
+    {
+     "entry_id": "resultado.ah_entero.away.+1",
+     "disponibilidad": "verificada_en_fuente"
+    },
+    {
+     "entry_id": "resultado.ah_entero.home.+2",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "resultado.ah_entero.away.-2",
+     "disponibilidad": "no_encontrada"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-e3272bfdb2cf|hándicap asiático entero",
+    "apif_query:get_events match_id=711722",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e3272bfdb2cf|hándicap europeo",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "12 lineas, 12 con cuota. Cuotas de agregador (referencia, no ejecutable), obs. 14-oct. Colas extremas de 1 sola casa.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-e3272bfdb2cf|hándicap europeo",
+    "apif_query:get_events match_id=711722",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e3272bfdb2cf|remates",
+   "disponibilidad": "no_encontrada",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "90 lineas, 0 con cuota. Linea no hallada en feeds.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-e3272bfdb2cf|remates",
+    "apif_query:get_events match_id=711722",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e3272bfdb2cf|remates a puerta",
+   "disponibilidad": "no_encontrada",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "60 lineas, 0 con cuota. Linea no hallada en feeds.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-e3272bfdb2cf|remates a puerta",
+    "apif_query:get_events match_id=711722",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e3272bfdb2cf|resultado",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "comunicado_usuario",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "3 lineas, 3 con cuota. Cuotas comunicadas por el usuario, no verificadas de forma independiente.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-e3272bfdb2cf|resultado",
+    "apif_query:get_events match_id=711722",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e3272bfdb2cf|tarjetas",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "42 lineas, 0 con cuota. Def. tarjetas TSA (puntos) no verificada. Feeds no ofrecen el mercado.",
+   "excepciones": [
+    {
+     "entry_id": "cards_pts.total.over.1.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.1.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.over.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.over.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.over.4.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.4.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.over.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.over.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.over.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.over.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.over.9.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.9.5",
+     "disponibilidad": "no_encontrada"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-e3272bfdb2cf|tarjetas",
+    "apif_query:get_events match_id=711722",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e5caaf866905|1.ª parte goles",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "6 lineas, 6 con cuota. Cuotas de agregador (referencia, no ejecutable), obs. 14-oct.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-e5caaf866905|1.ª parte goles",
+    "apif_query:get_events match_id=774775",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e5caaf866905|1.ª parte resultado",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "3 lineas, 3 con cuota. Cuotas de agregador (referencia, no ejecutable), obs. 14-oct.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-e5caaf866905|1.ª parte resultado",
+    "apif_query:get_events match_id=774775",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e5caaf866905|córners",
+   "disponibilidad": "no_encontrada",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "46 lineas, 6 con cuota. Cuotas de agregador (referencia, no ejecutable), obs. 14-oct. Linea no hallada en feeds.",
+   "excepciones": [
+    {
+     "entry_id": "corners.total.over.9.5",
+     "disponibilidad": "verificada_en_fuente"
+    },
+    {
+     "entry_id": "corners.total.under.9.5",
+     "disponibilidad": "verificada_en_fuente"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.4.5",
+     "disponibilidad": "verificada_en_fuente"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.4.5",
+     "disponibilidad": "verificada_en_fuente"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.5.5",
+     "disponibilidad": "verificada_en_fuente"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.5.5",
+     "disponibilidad": "verificada_en_fuente"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-e5caaf866905|córners",
+    "apif_query:get_events match_id=774775",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e5caaf866905|doble oportunidad",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "3 lineas, 3 con cuota. Cuotas de agregador (referencia, no ejecutable), obs. 14-oct.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-e5caaf866905|doble oportunidad",
+    "apif_query:get_events match_id=774775",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e5caaf866905|empate no válido",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "2 lineas, 2 con cuota. Cuotas de agregador (referencia, no ejecutable), obs. 14-oct.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-e5caaf866905|empate no válido",
+    "apif_query:get_events match_id=774775",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e5caaf866905|fueras de juego",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "1 lineas, 0 con cuota. Feeds no ofrecen el mercado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-e5caaf866905|fueras de juego",
+    "apif_query:get_events match_id=774775",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e5caaf866905|goles",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "14 lineas, 14 con cuota. 2 del usuario (TriunfoBet, comunicadas); resto agregador.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-e5caaf866905|goles",
+    "apif_query:get_events match_id=774775",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e5caaf866905|goles por equipo",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "12 lineas, 12 con cuota. Cuotas de agregador (referencia, no ejecutable), obs. 14-oct.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-e5caaf866905|goles por equipo",
+    "apif_query:get_events match_id=774775",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e5caaf866905|goles total entero",
+   "disponibilidad": "no_encontrada",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "10 lineas, 2 con cuota. Cuotas de agregador (referencia, no ejecutable), obs. 14-oct. Linea no hallada en feeds.",
+   "excepciones": [
+    {
+     "entry_id": "goles.total_entero.over.3",
+     "disponibilidad": "verificada_en_fuente"
+    },
+    {
+     "entry_id": "goles.total_entero.under.3",
+     "disponibilidad": "verificada_en_fuente"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-e5caaf866905|goles total entero",
+    "apif_query:get_events match_id=774775",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e5caaf866905|hándicap",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "12 lineas, 12 con cuota. Cuotas de agregador (referencia, no ejecutable), obs. 14-oct. Colas extremas de 1 sola casa.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.home.-2.5",
+     "disponibilidad": "no_verificable"
+    },
+    {
+     "entry_id": "resultado.ah.away.+2.5",
+     "disponibilidad": "no_verificable"
+    },
+    {
+     "entry_id": "resultado.ah.home.+2.5",
+     "disponibilidad": "no_verificable"
+    },
+    {
+     "entry_id": "resultado.ah.away.-2.5",
+     "disponibilidad": "no_verificable"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-e5caaf866905|hándicap",
+    "apif_query:get_events match_id=774775",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e5caaf866905|hándicap asiático entero",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "10 lineas, 8 con cuota. Cuotas de agregador (referencia, no ejecutable), obs. 14-oct.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah_entero.home.-2",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "resultado.ah_entero.away.+2",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "resultado.ah_entero.home.+2",
+     "disponibilidad": "no_verificable"
+    },
+    {
+     "entry_id": "resultado.ah_entero.away.-2",
+     "disponibilidad": "no_verificable"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-e5caaf866905|hándicap asiático entero",
+    "apif_query:get_events match_id=774775",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e5caaf866905|hándicap europeo",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "12 lineas, 12 con cuota. Cuotas de agregador (referencia, no ejecutable), obs. 14-oct.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-e5caaf866905|hándicap europeo",
+    "apif_query:get_events match_id=774775",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e5caaf866905|remates",
+   "disponibilidad": "no_encontrada",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "90 lineas, 0 con cuota. Linea no hallada en feeds.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-e5caaf866905|remates",
+    "apif_query:get_events match_id=774775",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e5caaf866905|remates a puerta",
+   "disponibilidad": "no_encontrada",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "60 lineas, 0 con cuota. Linea no hallada en feeds.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-e5caaf866905|remates a puerta",
+    "apif_query:get_events match_id=774775",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e5caaf866905|resultado",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "comunicado_usuario",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "3 lineas, 3 con cuota. Cuotas comunicadas por el usuario, no verificadas de forma independiente.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-e5caaf866905|resultado",
+    "apif_query:get_events match_id=774775",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-e5caaf866905|tarjetas",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "42 lineas, 0 con cuota. Def. tarjetas TSA (puntos) no verificada. Feeds no ofrecen el mercado.",
+   "excepciones": [
+    {
+     "entry_id": "cards_pts.total.over.1.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.1.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.over.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.over.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.over.4.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.4.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.over.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.over.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.over.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.over.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.over.9.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.9.5",
+     "disponibilidad": "no_encontrada"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-e5caaf866905|tarjetas",
+    "apif_query:get_events match_id=774775",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-ea879dc9d282|1.ª parte goles",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "calendario"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "6 lineas, 6 con cuota. Cuotas de agregador (referencia, no ejecutable), obs. 14-oct. Calendario de 1 fuente.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ea879dc9d282|1.ª parte goles",
+    "apif_query:get_events match_id=803123",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-ea879dc9d282|1.ª parte resultado",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "calendario"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "3 lineas, 3 con cuota. Cuotas de agregador (referencia, no ejecutable), obs. 14-oct. Calendario de 1 fuente.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ea879dc9d282|1.ª parte resultado",
+    "apif_query:get_events match_id=803123",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-ea879dc9d282|córners",
+   "disponibilidad": "no_encontrada",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "calendario"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "46 lineas, 6 con cuota. Cuotas de agregador (referencia, no ejecutable), obs. 14-oct. Calendario de 1 fuente. Linea no hallada en feeds.",
+   "excepciones": [
+    {
+     "entry_id": "corners.total.over.10.5",
+     "disponibilidad": "verificada_en_fuente"
+    },
+    {
+     "entry_id": "corners.total.under.10.5",
+     "disponibilidad": "verificada_en_fuente"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.5.5",
+     "disponibilidad": "verificada_en_fuente"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.5.5",
+     "disponibilidad": "verificada_en_fuente"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.4.5",
+     "disponibilidad": "verificada_en_fuente"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.4.5",
+     "disponibilidad": "verificada_en_fuente"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-ea879dc9d282|córners",
+    "apif_query:get_events match_id=803123",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-ea879dc9d282|doble oportunidad",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "calendario"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "3 lineas, 3 con cuota. Cuotas de agregador (referencia, no ejecutable), obs. 14-oct. Calendario de 1 fuente.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ea879dc9d282|doble oportunidad",
+    "apif_query:get_events match_id=803123",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-ea879dc9d282|empate no válido",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "calendario"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "2 lineas, 2 con cuota. Cuotas de agregador (referencia, no ejecutable), obs. 14-oct. Calendario de 1 fuente.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ea879dc9d282|empate no válido",
+    "apif_query:get_events match_id=803123",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-ea879dc9d282|fueras de juego",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "calendario"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "1 lineas, 0 con cuota. Calendario de 1 fuente. Feeds no ofrecen el mercado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ea879dc9d282|fueras de juego",
+    "apif_query:get_events match_id=803123",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-ea879dc9d282|goles",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "calendario",
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "14 lineas, 14 con cuota. 2 del usuario (TriunfoBet, comunicadas); resto agregador. Colas extremas de 1 sola casa. Calendario de 1 fuente.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ea879dc9d282|goles",
+    "apif_query:get_events match_id=803123",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-ea879dc9d282|goles por equipo",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "calendario"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "12 lineas, 12 con cuota. Cuotas de agregador (referencia, no ejecutable), obs. 14-oct. Calendario de 1 fuente.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ea879dc9d282|goles por equipo",
+    "apif_query:get_events match_id=803123",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-ea879dc9d282|goles total entero",
+   "disponibilidad": "no_encontrada",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "calendario"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "10 lineas, 2 con cuota. Cuotas de agregador (referencia, no ejecutable), obs. 14-oct. Calendario de 1 fuente. Linea no hallada en feeds.",
+   "excepciones": [
+    {
+     "entry_id": "goles.total_entero.over.3",
+     "disponibilidad": "verificada_en_fuente"
+    },
+    {
+     "entry_id": "goles.total_entero.under.3",
+     "disponibilidad": "verificada_en_fuente"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-ea879dc9d282|goles total entero",
+    "apif_query:get_events match_id=803123",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-ea879dc9d282|hándicap",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "calendario"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "12 lineas, 8 con cuota. Cuotas de agregador (referencia, no ejecutable), obs. 14-oct. Calendario de 1 fuente.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.home.-2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "resultado.ah.away.+2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "resultado.ah.home.+2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "resultado.ah.away.-2.5",
+     "disponibilidad": "no_encontrada"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-ea879dc9d282|hándicap",
+    "apif_query:get_events match_id=803123",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-ea879dc9d282|hándicap asiático entero",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "calendario",
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "10 lineas, 8 con cuota. Cuotas de agregador (referencia, no ejecutable), obs. 14-oct. Colas extremas de 1 sola casa. Calendario de 1 fuente.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah_entero.home.-2",
+     "disponibilidad": "no_verificable"
+    },
+    {
+     "entry_id": "resultado.ah_entero.away.+2",
+     "disponibilidad": "no_verificable"
+    },
+    {
+     "entry_id": "resultado.ah_entero.home.+2",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "resultado.ah_entero.away.-2",
+     "disponibilidad": "no_encontrada"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-ea879dc9d282|hándicap asiático entero",
+    "apif_query:get_events match_id=803123",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-ea879dc9d282|hándicap europeo",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "calendario",
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "12 lineas, 9 con cuota. Cuotas de agregador (referencia, no ejecutable), obs. 14-oct. Colas extremas de 1 sola casa. Calendario de 1 fuente.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.eh.home.-1",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "resultado.eh.draw.-1",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "resultado.eh.away.-1",
+     "disponibilidad": "no_encontrada"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-ea879dc9d282|hándicap europeo",
+    "apif_query:get_events match_id=803123",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-ea879dc9d282|remates",
+   "disponibilidad": "no_encontrada",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "calendario"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "90 lineas, 0 con cuota. Calendario de 1 fuente. Linea no hallada en feeds.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ea879dc9d282|remates",
+    "apif_query:get_events match_id=803123",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-ea879dc9d282|remates a puerta",
+   "disponibilidad": "no_encontrada",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "calendario"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "60 lineas, 0 con cuota. Calendario de 1 fuente. Linea no hallada en feeds.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ea879dc9d282|remates a puerta",
+    "apif_query:get_events match_id=803123",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-ea879dc9d282|resultado",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "comunicado_usuario",
+   "discrepancias": [
+    "calendario"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "3 lineas, 3 con cuota. Cuotas comunicadas por el usuario, no verificadas de forma independiente. Calendario de 1 fuente.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ea879dc9d282|resultado",
+    "apif_query:get_events match_id=803123",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  },
+  {
+   "unit_id": "m-ea879dc9d282|tarjetas",
+   "disponibilidad": "no_ofrecida",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "calendario"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events (hora/equipos confirmados, UTC)",
+    "paquete.json (unidad)",
+    "thestatsapi/map.json",
+    "ligas/ids_revision.json",
+    "ligas/partidos_usuario.json",
+    "thestatsapi/odds (n casas, hora consulta)"
+   ],
+   "nota": "42 lineas, 2 con cuota. Cuotas de agregador (referencia, no ejecutable), obs. 14-oct. Def. tarjetas TSA (puntos) no verificada. Calendario de 1 fuente. Feeds no ofrecen el mercado.",
+   "excepciones": [
+    {
+     "entry_id": "cards_pts.total.over.1.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.1.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.over.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.over.3.5",
+     "disponibilidad": "verificada_en_fuente"
+    },
+    {
+     "entry_id": "cards_pts.total.under.3.5",
+     "disponibilidad": "verificada_en_fuente"
+    },
+    {
+     "entry_id": "cards_pts.total.over.4.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.4.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.over.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.over.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.over.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.over.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.over.9.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.9.5",
+     "disponibilidad": "no_encontrada"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-ea879dc9d282|tarjetas",
+    "apif_query:get_events match_id=803123",
+    "archivo:ligas/ids_revision.json",
+    "archivo:thestatsapi/map.json"
+   ]
+  }
+ ],
+ "limitaciones": [
+  "Cuotas de agregador (apifootball/thestatsapi) observadas 14-oct, 3 dias antes del partido; no se re-consultaron los precios.",
+  "Solo se re-verificaron hora, equipos, liga y arbitro via apifootball get_events (misma fuente que el inventario); sin segunda fuente de calendario.",
+  "La Guaira-Trujillanos y St Johnstone-Dundee Utd: calendario de una sola fuente (REQUIERE_VERIFICACION_ADICIONAL); La Guaira sin mapeo en thestatsapi.",
+  "Cuotas con n_casas=1 y colas extremas (hándicaps, goles equipo) son poco fiables; definicion de tarjetas de TheStatsAPI no verificada.",
+  "Disponibilidad en la casa del usuario no verificada: solo 1X2 y una linea de goles vienen de sus capturas."
+ ]
+}

@@ -1,0 +1,1136 @@
+{
+ "agente": "auditor",
+ "version_contrato": 1,
+ "run": "runs/2026-10-15",
+ "unidades": [
+  {
+   "unit_id": "m-4503f60605f9|1.ª parte goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Celje-Omonia: modelo de 1T no_evaluado; muestra n10 mezcla competiciones; alineaciones sin_snapshot; precios solo de agregador.",
+   "evidencia": [
+    "paquete:m-4503f60605f9|1.ª parte goles",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-4503f60605f9|1.ª parte resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Celje-Omonia: modelo de 1T no_evaluado; muestra n10 mezcla competiciones; alineaciones sin_snapshot; precios solo de agregador.",
+   "evidencia": [
+    "paquete:m-4503f60605f9|1.ª parte resultado",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-4503f60605f9|córners",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Celje-Omonia: corners solo 24/46 lineas con precio de agregador (brecha max 26 pp); historial n10 mezcla competiciones y localias; arbitro sin muestra; validacion insuficiente.",
+   "evidencia": [
+    "paquete:m-4503f60605f9|córners",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-4503f60605f9|doble oportunidad",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Celje-Omonia: modelo sin validar; n10 sin ajuste por rival; precios solo de agregador.",
+   "evidencia": [
+    "paquete:m-4503f60605f9|doble oportunidad",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-4503f60605f9|empate no válido",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Celje-Omonia: DNB sin extractor de datos, modelo sin validar; precio solo de agregador (3 casas). Cuantitativo dice 0 lineas con precio, el paquete trae cuotas.",
+   "evidencia": [
+    "paquete:m-4503f60605f9|empate no válido",
+    "archivo:data/model_validation.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "cuantitativo",
+     "campo": "consistencia_modelo",
+     "problema": "valor_contradice_paquete"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-4503f60605f9|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Celje-Omonia: sin estimador del modelo (0/1 lineas con precio de agregador); sin contraste ni EV, no hay base para clasificar.",
+   "evidencia": [
+    "paquete:m-4503f60605f9|fueras de juego",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-4503f60605f9|goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Celje-Omonia: modelo sin validar (validacion insuficiente); n10 con competiciones mezcladas y sin ajuste de rival; alineaciones sin_snapshot.",
+   "evidencia": [
+    "paquete:m-4503f60605f9|goles",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-4503f60605f9|goles por equipo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Celje-Omonia: modelo sin validar (validacion insuficiente); n10 con competiciones mezcladas y sin ajuste de rival; alineaciones sin_snapshot.",
+   "evidencia": [
+    "paquete:m-4503f60605f9|goles por equipo",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-4503f60605f9|goles total entero",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Celje-Omonia: sin estimador (sin_extractor/no_implementado); 10/10 lineas solo con precio de agregador, referencia no ejecutable.",
+   "evidencia": [
+    "paquete:m-4503f60605f9|goles total entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-4503f60605f9|hándicap",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Celje-Omonia: modelo sin validar; n10 sin ajuste por rival; precios solo de agregador.",
+   "evidencia": [
+    "paquete:m-4503f60605f9|hándicap",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-4503f60605f9|hándicap asiático entero",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Celje-Omonia: sin estimador (sin_extractor/no_implementado); 10/10 lineas solo con precio de agregador, referencia no ejecutable.",
+   "evidencia": [
+    "paquete:m-4503f60605f9|hándicap asiático entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-4503f60605f9|hándicap europeo",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Celje-Omonia: sin estimador (sin_extractor/no_implementado); 12/12 lineas solo con precio de agregador, referencia no ejecutable.",
+   "evidencia": [
+    "paquete:m-4503f60605f9|hándicap europeo",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-4503f60605f9|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Celje-Omonia: sin estimador del modelo (0/90 lineas con precio de agregador); sin contraste ni EV, no hay base para clasificar.",
+   "evidencia": [
+    "paquete:m-4503f60605f9|remates",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-4503f60605f9|remates a puerta",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Celje-Omonia: sin estimador; solo 4/60 lineas con precio de agregador (n_casas bajo, no ejecutable). Sin contraste ni EV.",
+   "evidencia": [
+    "paquete:m-4503f60605f9|remates a puerta",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-4503f60605f9|resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Celje-Omonia: validacion insuficiente; precio de casa solo por captura (no verificado); n10 mezcla competiciones.",
+   "evidencia": [
+    "paquete:m-4503f60605f9|resultado",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-4503f60605f9|tarjetas",
+   "objecion": "dato_defectuoso",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Celje-Omonia: tarjetas por puntos (~4.8) comparadas con liga 4.2 tarjetas (metrica distinta); arbitro sin muestra; cuota 1.01 de n=1 casa; 8/42 lineas con precio.",
+   "evidencia": [
+    "paquete:m-4503f60605f9|tarjetas",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-4515fccca10f|1.ª parte goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Riga-Kairat: modelo de 1T no_evaluado; muestra n10 mezcla competiciones; alineaciones sin_snapshot; precios solo de agregador.",
+   "evidencia": [
+    "paquete:m-4515fccca10f|1.ª parte goles",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-4515fccca10f|1.ª parte resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Riga-Kairat: modelo de 1T no_evaluado; muestra n10 mezcla competiciones; alineaciones sin_snapshot; precios solo de agregador.",
+   "evidencia": [
+    "paquete:m-4515fccca10f|1.ª parte resultado",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-4515fccca10f|córners",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Riga-Kairat: corners solo 10/46 lineas con precio de agregador (brecha max 20 pp); historial n10 mezcla competiciones y localias; arbitro sin muestra; validacion insuficiente.",
+   "evidencia": [
+    "paquete:m-4515fccca10f|córners",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-4515fccca10f|doble oportunidad",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Riga-Kairat: rotacion alta del local (~5.0 cambios) solo estimada a priori, alineaciones sin_snapshot; modelo sin validar; la linea amplifica el riesgo.",
+   "evidencia": [
+    "paquete:m-4515fccca10f|doble oportunidad",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-4515fccca10f|empate no válido",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Riga-Kairat: DNB sin extractor de datos, modelo sin validar; precio solo de agregador (3 casas). Cuantitativo dice 0 lineas con precio, el paquete trae cuotas.",
+   "evidencia": [
+    "paquete:m-4515fccca10f|empate no válido",
+    "archivo:data/model_validation.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "cuantitativo",
+     "campo": "consistencia_modelo",
+     "problema": "valor_contradice_paquete"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-4515fccca10f|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Riga-Kairat: sin estimador del modelo (0/1 lineas con precio de agregador); sin contraste ni EV, no hay base para clasificar.",
+   "evidencia": [
+    "paquete:m-4515fccca10f|fueras de juego",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-4515fccca10f|goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Riga-Kairat: modelo sin validar (validacion insuficiente); n10 con competiciones mezcladas y sin ajuste de rival; alineaciones sin_snapshot.",
+   "evidencia": [
+    "paquete:m-4515fccca10f|goles",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-4515fccca10f|goles por equipo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Riga-Kairat: modelo sin validar (validacion insuficiente); n10 con competiciones mezcladas y sin ajuste de rival; alineaciones sin_snapshot.",
+   "evidencia": [
+    "paquete:m-4515fccca10f|goles por equipo",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-4515fccca10f|goles total entero",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Riga-Kairat: sin estimador (sin_extractor/no_implementado); 10/10 lineas solo con precio de agregador, referencia no ejecutable.",
+   "evidencia": [
+    "paquete:m-4515fccca10f|goles total entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-4515fccca10f|hándicap",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Riga-Kairat: rotacion alta del local (~5.0 cambios) solo estimada a priori, alineaciones sin_snapshot; modelo sin validar; hándicap amplifica el riesgo. Cuotas n=1.",
+   "evidencia": [
+    "paquete:m-4515fccca10f|hándicap",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-4515fccca10f|hándicap asiático entero",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Riga-Kairat: sin estimador (sin_extractor/no_implementado); 10/10 lineas solo con precio de agregador, referencia no ejecutable. Cuotas extremas con n=1 casa.",
+   "evidencia": [
+    "paquete:m-4515fccca10f|hándicap asiático entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-4515fccca10f|hándicap europeo",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Riga-Kairat: sin estimador (sin_extractor/no_implementado); 12/12 lineas solo con precio de agregador, referencia no ejecutable.",
+   "evidencia": [
+    "paquete:m-4515fccca10f|hándicap europeo",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-4515fccca10f|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Riga-Kairat: sin estimador del modelo (0/90 lineas con precio de agregador); sin contraste ni EV, no hay base para clasificar.",
+   "evidencia": [
+    "paquete:m-4515fccca10f|remates",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-4515fccca10f|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Riga-Kairat: sin estimador del modelo (0/60 lineas con precio de agregador); sin contraste ni EV, no hay base para clasificar.",
+   "evidencia": [
+    "paquete:m-4515fccca10f|remates a puerta",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-4515fccca10f|resultado",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Riga-Kairat: rotacion alta del local (~5.0 cambios) solo estimada a priori, alineaciones sin_snapshot; modelo sin validar; la linea amplifica el riesgo.",
+   "evidencia": [
+    "paquete:m-4515fccca10f|resultado",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-4515fccca10f|tarjetas",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Riga-Kairat: brecha hasta 21 pp en 2/42 lineas con precio; arbitro Lata 1 partido; puntos (5.4) vs liga 4.23 tarjetas, metrica distinta. Modelo sin validar.",
+   "evidencia": [
+    "paquete:m-4515fccca10f|tarjetas",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-52c44600ffcd|1.ª parte goles",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Nacional-Rentistas: sin estimador ni precio en fuentes (0/6); muestra liga n=36-37 y Rentistas con Segunda/Copa; sin contraste ni EV.",
+   "evidencia": [
+    "paquete:m-52c44600ffcd|1.ª parte goles",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-52c44600ffcd|1.ª parte resultado",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Nacional-Rentistas: sin estimador ni precio en fuentes (0/3); muestra liga n=36-37 y Rentistas con Segunda/Copa; sin contraste ni EV.",
+   "evidencia": [
+    "paquete:m-52c44600ffcd|1.ª parte resultado",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-52c44600ffcd|córners",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Nacional-Rentistas: corners 10.7/12.6 (n10) sin estimador ni precio; liga n=36; Rentistas mezcla Segunda/Copa. Sin contraste ni EV.",
+   "evidencia": [
+    "paquete:m-52c44600ffcd|córners",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-52c44600ffcd|doble oportunidad",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Nacional-Rentistas: sin estimador ni precio en fuentes (0/3); muestra liga n=36-37 y Rentistas con Segunda/Copa; sin contraste ni EV.",
+   "evidencia": [
+    "paquete:m-52c44600ffcd|doble oportunidad",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-52c44600ffcd|empate no válido",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Nacional-Rentistas: sin estimador ni precio en fuentes (0/2); muestra liga n=36-37 y Rentistas con Segunda/Copa; sin contraste ni EV.",
+   "evidencia": [
+    "paquete:m-52c44600ffcd|empate no válido",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-52c44600ffcd|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Nacional-Rentistas: sin estimador del modelo (0/1 lineas con precio de agregador); sin contraste ni EV, no hay base para clasificar.",
+   "evidencia": [
+    "paquete:m-52c44600ffcd|fueras de juego",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-52c44600ffcd|goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Nacional-Rentistas: sin estimador (sin_probabilidad_calculada); precio de casa solo comunicado por captura (2/14 lineas), no verificado. Rentistas con Segunda/Copa en muestra.",
+   "evidencia": [
+    "paquete:m-52c44600ffcd|goles",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-52c44600ffcd|goles por equipo",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Nacional-Rentistas: sin estimador ni precio en fuentes (0/12); muestra liga n=36-37 y Rentistas con Segunda/Copa; sin contraste ni EV.",
+   "evidencia": [
+    "paquete:m-52c44600ffcd|goles por equipo",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-52c44600ffcd|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Nacional-Rentistas: sin estimador ni precio en fuentes; no hay contraste posible.",
+   "evidencia": [
+    "paquete:m-52c44600ffcd|goles total entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-52c44600ffcd|hándicap",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Nacional-Rentistas: sin estimador ni precio en fuentes (0/12); muestra liga n=36-37 y Rentistas con Segunda/Copa; sin contraste ni EV.",
+   "evidencia": [
+    "paquete:m-52c44600ffcd|hándicap",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-52c44600ffcd|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Nacional-Rentistas: sin estimador ni precio en fuentes; no hay contraste posible.",
+   "evidencia": [
+    "paquete:m-52c44600ffcd|hándicap asiático entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-52c44600ffcd|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Nacional-Rentistas: sin estimador ni precio en fuentes; no hay contraste posible.",
+   "evidencia": [
+    "paquete:m-52c44600ffcd|hándicap europeo",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-52c44600ffcd|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Nacional-Rentistas: sin estimador del modelo (0/90 lineas con precio de agregador); sin contraste ni EV, no hay base para clasificar.",
+   "evidencia": [
+    "paquete:m-52c44600ffcd|remates",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-52c44600ffcd|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Nacional-Rentistas: sin estimador del modelo (0/60 lineas con precio de agregador); sin contraste ni EV, no hay base para clasificar.",
+   "evidencia": [
+    "paquete:m-52c44600ffcd|remates a puerta",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-52c44600ffcd|resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Nacional-Rentistas: sin estimador (sin_probabilidad_calculada); precio de casa solo comunicado por captura (3/3 lineas), no verificado. Rentistas con Segunda/Copa en muestra.",
+   "evidencia": [
+    "paquete:m-52c44600ffcd|resultado",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-52c44600ffcd|tarjetas",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Nacional-Rentistas: datos insuficientes (Rentistas 2 partidos con puntos, arbitro sin designar), sin precio ni estimador.",
+   "evidencia": [
+    "paquete:m-52c44600ffcd|tarjetas",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-5de34b7ca8f0|1.ª parte goles",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Hajduk-Ajax: brecha hasta 18 pp vs 1/cuota de agregador; el modelo ignora la calidad del rival (Ajax favorito de mercado). Estimador sin validar.",
+   "evidencia": [
+    "paquete:m-5de34b7ca8f0|1.ª parte goles",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_467242559.json"
+   ]
+  },
+  {
+   "unit_id": "m-5de34b7ca8f0|1.ª parte resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Hajduk-Ajax: brecha hasta 30 pp vs 1/cuota de agregador; el modelo ignora la calidad del rival (Ajax favorito de mercado). Estimador sin validar.",
+   "evidencia": [
+    "paquete:m-5de34b7ca8f0|1.ª parte resultado",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_467242559.json"
+   ]
+  },
+  {
+   "unit_id": "m-5de34b7ca8f0|córners",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Hajduk-Ajax: brecha hasta 24 pp vs 1/cuota de agregador; el modelo ignora la calidad del rival (Ajax favorito de mercado). Estimador sin validar.",
+   "evidencia": [
+    "paquete:m-5de34b7ca8f0|córners",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_467242559.json"
+   ]
+  },
+  {
+   "unit_id": "m-5de34b7ca8f0|doble oportunidad",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Hajduk-Ajax: brecha hasta 49 pp vs 1/cuota de agregador; el modelo ignora la calidad del rival (Ajax favorito de mercado). Estimador sin validar.",
+   "evidencia": [
+    "paquete:m-5de34b7ca8f0|doble oportunidad",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_467242559.json"
+   ]
+  },
+  {
+   "unit_id": "m-5de34b7ca8f0|empate no válido",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Hajduk-Ajax: DNB con brecha hasta 56 pp vs 1/cuota de agregador (3 casas); el modelo contradice al favorito Ajax. Sin validar; cuantitativo omite precio.",
+   "evidencia": [
+    "paquete:m-5de34b7ca8f0|empate no válido",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_467242559.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "cuantitativo",
+     "campo": "consistencia_modelo",
+     "problema": "valor_contradice_paquete"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-5de34b7ca8f0|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Hajduk-Ajax: sin estimador del modelo (0/1 lineas con precio de agregador); sin contraste ni EV, no hay base para clasificar.",
+   "evidencia": [
+    "paquete:m-5de34b7ca8f0|fueras de juego",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-5de34b7ca8f0|goles",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Hajduk-Ajax: brecha hasta 20 pp vs 1/cuota de agregador; el modelo ignora la calidad del rival (Ajax favorito de mercado). Estimador sin validar.",
+   "evidencia": [
+    "paquete:m-5de34b7ca8f0|goles",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_467242559.json"
+   ]
+  },
+  {
+   "unit_id": "m-5de34b7ca8f0|goles por equipo",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Hajduk-Ajax: brecha hasta 46 pp vs 1/cuota de agregador; el modelo ignora la calidad del rival (Ajax favorito de mercado). Estimador sin validar.",
+   "evidencia": [
+    "paquete:m-5de34b7ca8f0|goles por equipo",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_467242559.json"
+   ]
+  },
+  {
+   "unit_id": "m-5de34b7ca8f0|goles total entero",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Hajduk-Ajax: sin estimador (sin_extractor/no_implementado); 10/10 lineas solo con precio de agregador, referencia no ejecutable.",
+   "evidencia": [
+    "paquete:m-5de34b7ca8f0|goles total entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-5de34b7ca8f0|hándicap",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Hajduk-Ajax: brecha hasta 45 pp vs 1/cuota de agregador; el modelo ignora la calidad del rival (Ajax favorito de mercado). Estimador sin validar. Cuotas extremas n=1 casa (no ejecutables).",
+   "evidencia": [
+    "paquete:m-5de34b7ca8f0|hándicap",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_467242559.json"
+   ]
+  },
+  {
+   "unit_id": "m-5de34b7ca8f0|hándicap asiático entero",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Hajduk-Ajax: sin estimador (sin_extractor/no_implementado); 10/10 lineas solo con precio de agregador, referencia no ejecutable. Cuotas extremas con n=1 casa.",
+   "evidencia": [
+    "paquete:m-5de34b7ca8f0|hándicap asiático entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-5de34b7ca8f0|hándicap europeo",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Hajduk-Ajax: sin estimador (sin_extractor/no_implementado); 12/12 lineas solo con precio de agregador, referencia no ejecutable.",
+   "evidencia": [
+    "paquete:m-5de34b7ca8f0|hándicap europeo",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-5de34b7ca8f0|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Hajduk-Ajax: sin estimador del modelo (0/90 lineas con precio de agregador); sin contraste ni EV, no hay base para clasificar.",
+   "evidencia": [
+    "paquete:m-5de34b7ca8f0|remates",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-5de34b7ca8f0|remates a puerta",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Hajduk-Ajax: sin estimador; solo 4/60 lineas con precio de agregador (n_casas bajo, no ejecutable). Sin contraste ni EV.",
+   "evidencia": [
+    "paquete:m-5de34b7ca8f0|remates a puerta",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-5de34b7ca8f0|resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Hajduk-Ajax: modelo local 0.60 vs 1/5.0=0.20 (precio de casa por captura, no verificado) y Ajax 1.52; historial Ajax visitante n6 solo clasificatorias; estimador sin validar.",
+   "evidencia": [
+    "paquete:m-5de34b7ca8f0|resultado",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_467242559.json"
+   ]
+  },
+  {
+   "unit_id": "m-5de34b7ca8f0|tarjetas",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Hajduk-Ajax: datos parciales, sin estimador (datos_insuficientes); solo 2/42 lineas con precio de agregador. Arbitro con 1 partido en muestra de liga.",
+   "evidencia": [
+    "paquete:m-5de34b7ca8f0|tarjetas",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6806361d823a|1.ª parte goles",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Atalanta-Pafos: brecha hasta 33 pp vs 1/cuota de agregador; el modelo ignora la calidad del rival (Atalanta favorito de mercado). Estimador sin validar.",
+   "evidencia": [
+    "paquete:m-6806361d823a|1.ª parte goles",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_643060881.json"
+   ]
+  },
+  {
+   "unit_id": "m-6806361d823a|1.ª parte resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Atalanta-Pafos: brecha hasta 40 pp vs 1/cuota de agregador; el modelo ignora la calidad del rival (Atalanta favorito de mercado). Estimador sin validar.",
+   "evidencia": [
+    "paquete:m-6806361d823a|1.ª parte resultado",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_643060881.json"
+   ]
+  },
+  {
+   "unit_id": "m-6806361d823a|córners",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Atalanta-Pafos: brecha hasta 27 pp vs 1/cuota de agregador; el modelo ignora la calidad del rival (Atalanta favorito de mercado). Estimador sin validar.",
+   "evidencia": [
+    "paquete:m-6806361d823a|córners",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_643060881.json"
+   ]
+  },
+  {
+   "unit_id": "m-6806361d823a|doble oportunidad",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Atalanta-Pafos: brecha hasta 40 pp vs 1/cuota de agregador; el modelo ignora la calidad del rival (Atalanta favorito de mercado). Estimador sin validar.",
+   "evidencia": [
+    "paquete:m-6806361d823a|doble oportunidad",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_643060881.json"
+   ]
+  },
+  {
+   "unit_id": "m-6806361d823a|empate no válido",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Atalanta-Pafos: DNB con brecha hasta 49 pp vs 1/cuota de agregador (3 casas); el modelo contradice al favorito Atalanta. Sin validar; cuantitativo omite precio.",
+   "evidencia": [
+    "paquete:m-6806361d823a|empate no válido",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_643060881.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "cuantitativo",
+     "campo": "consistencia_modelo",
+     "problema": "valor_contradice_paquete"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-6806361d823a|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Atalanta-Pafos: sin estimador del modelo (0/1 lineas con precio de agregador); sin contraste ni EV, no hay base para clasificar.",
+   "evidencia": [
+    "paquete:m-6806361d823a|fueras de juego",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6806361d823a|goles",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Atalanta-Pafos: brecha hasta 30 pp vs 1/cuota de agregador; el modelo ignora la calidad del rival (Atalanta favorito de mercado). Estimador sin validar.",
+   "evidencia": [
+    "paquete:m-6806361d823a|goles",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_643060881.json"
+   ]
+  },
+  {
+   "unit_id": "m-6806361d823a|goles por equipo",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Atalanta-Pafos: brecha hasta 50 pp vs 1/cuota de agregador; el modelo ignora la calidad del rival (Atalanta favorito de mercado). Estimador sin validar.",
+   "evidencia": [
+    "paquete:m-6806361d823a|goles por equipo",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_643060881.json"
+   ]
+  },
+  {
+   "unit_id": "m-6806361d823a|goles total entero",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Atalanta-Pafos: sin estimador (sin_extractor/no_implementado); 10/10 lineas solo con precio de agregador, referencia no ejecutable.",
+   "evidencia": [
+    "paquete:m-6806361d823a|goles total entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6806361d823a|hándicap",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Atalanta-Pafos: brecha hasta 45 pp vs 1/cuota de agregador; el modelo ignora la calidad del rival (Atalanta favorito de mercado). Estimador sin validar. Cuotas extremas n=1 casa (no ejecutables).",
+   "evidencia": [
+    "paquete:m-6806361d823a|hándicap",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_643060881.json"
+   ]
+  },
+  {
+   "unit_id": "m-6806361d823a|hándicap asiático entero",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Atalanta-Pafos: sin estimador (sin_extractor/no_implementado); 9/10 lineas solo con precio de agregador, referencia no ejecutable. Cuotas extremas con n=1 casa.",
+   "evidencia": [
+    "paquete:m-6806361d823a|hándicap asiático entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6806361d823a|hándicap europeo",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Atalanta-Pafos: sin estimador (sin_extractor/no_implementado); 12/12 lineas solo con precio de agregador, referencia no ejecutable.",
+   "evidencia": [
+    "paquete:m-6806361d823a|hándicap europeo",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6806361d823a|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Atalanta-Pafos: sin estimador del modelo (0/90 lineas con precio de agregador); sin contraste ni EV, no hay base para clasificar.",
+   "evidencia": [
+    "paquete:m-6806361d823a|remates",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6806361d823a|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Atalanta-Pafos: sin estimador del modelo (0/60 lineas con precio de agregador); sin contraste ni EV, no hay base para clasificar.",
+   "evidencia": [
+    "paquete:m-6806361d823a|remates a puerta",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6806361d823a|resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Atalanta-Pafos: modelo da visitante 0.42 con local R1.36 (captura, no verificada); forma sin ajuste por rival ni descanso 3 d; estimador sin validar.",
+   "evidencia": [
+    "paquete:m-6806361d823a|resultado",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_643060881.json"
+   ]
+  },
+  {
+   "unit_id": "m-6806361d823a|tarjetas",
+   "objecion": "dato_defectuoso",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Paquete sin arbitro (s/d) pero apifootball get_events 853441 lista A. Ladeback; sin precio para contrastar; definicion de tarjetas (puntos vs total) no verificada.",
+   "evidencia": [
+    "paquete:m-6806361d823a|tarjetas",
+    "archivo:data/model_validation.json",
+    "apif_query:get_events match_id=853441"
+   ]
+  },
+  {
+   "unit_id": "m-7074d66a6272|1.ª parte goles",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Torreense-Sunderland: brecha hasta 20 pp vs 1/cuota de agregador; el modelo ignora la calidad del rival (Sunderland favorito de mercado). Estimador sin validar.",
+   "evidencia": [
+    "paquete:m-7074d66a6272|1.ª parte goles",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_150817163.json"
+   ]
+  },
+  {
+   "unit_id": "m-7074d66a6272|1.ª parte resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Torreense-Sunderland: brecha hasta 35 pp vs 1/cuota de agregador; el modelo ignora la calidad del rival (Sunderland favorito de mercado). Estimador sin validar.",
+   "evidencia": [
+    "paquete:m-7074d66a6272|1.ª parte resultado",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_150817163.json"
+   ]
+  },
+  {
+   "unit_id": "m-7074d66a6272|córners",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Torreense-Sunderland: brecha hasta 32 pp vs 1/cuota de agregador; el modelo ignora la calidad del rival (Sunderland favorito de mercado). Estimador sin validar.",
+   "evidencia": [
+    "paquete:m-7074d66a6272|córners",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_150817163.json"
+   ]
+  },
+  {
+   "unit_id": "m-7074d66a6272|doble oportunidad",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Torreense-Sunderland: brecha hasta 42 pp vs 1/cuota de agregador; el modelo ignora la calidad del rival (Sunderland favorito de mercado). Estimador sin validar.",
+   "evidencia": [
+    "paquete:m-7074d66a6272|doble oportunidad",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_150817163.json"
+   ]
+  },
+  {
+   "unit_id": "m-7074d66a6272|empate no válido",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Torreense-Sunderland: DNB con brecha hasta 53 pp vs 1/cuota de agregador (3 casas); el modelo contradice al favorito Sunderland. Sin validar; cuantitativo omite precio.",
+   "evidencia": [
+    "paquete:m-7074d66a6272|empate no válido",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_150817163.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "cuantitativo",
+     "campo": "consistencia_modelo",
+     "problema": "valor_contradice_paquete"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-7074d66a6272|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Torreense-Sunderland: sin estimador del modelo (0/1 lineas con precio de agregador); sin contraste ni EV, no hay base para clasificar.",
+   "evidencia": [
+    "paquete:m-7074d66a6272|fueras de juego",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-7074d66a6272|goles",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Torreense-Sunderland: brecha hasta 22 pp vs 1/cuota de agregador; el modelo ignora la calidad del rival (Sunderland favorito de mercado). Estimador sin validar.",
+   "evidencia": [
+    "paquete:m-7074d66a6272|goles",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_150817163.json"
+   ]
+  },
+  {
+   "unit_id": "m-7074d66a6272|goles por equipo",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Torreense-Sunderland: brecha hasta 46 pp vs 1/cuota de agregador; el modelo ignora la calidad del rival (Sunderland favorito de mercado). Estimador sin validar.",
+   "evidencia": [
+    "paquete:m-7074d66a6272|goles por equipo",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_150817163.json"
+   ]
+  },
+  {
+   "unit_id": "m-7074d66a6272|goles total entero",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Torreense-Sunderland: sin estimador (sin_extractor/no_implementado); 10/10 lineas solo con precio de agregador, referencia no ejecutable.",
+   "evidencia": [
+    "paquete:m-7074d66a6272|goles total entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-7074d66a6272|hándicap",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Torreense-Sunderland: brecha hasta 47 pp vs 1/cuota de agregador; el modelo ignora la calidad del rival (Sunderland favorito de mercado). Estimador sin validar. Cuotas extremas n=1 casa (no ejecutable",
+   "evidencia": [
+    "paquete:m-7074d66a6272|hándicap",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_150817163.json"
+   ]
+  },
+  {
+   "unit_id": "m-7074d66a6272|hándicap asiático entero",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Torreense-Sunderland: sin estimador (sin_extractor/no_implementado); 9/10 lineas solo con precio de agregador, referencia no ejecutable. Cuotas extremas con n=1 casa.",
+   "evidencia": [
+    "paquete:m-7074d66a6272|hándicap asiático entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-7074d66a6272|hándicap europeo",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Torreense-Sunderland: sin estimador (sin_extractor/no_implementado); 12/12 lineas solo con precio de agregador, referencia no ejecutable.",
+   "evidencia": [
+    "paquete:m-7074d66a6272|hándicap europeo",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-7074d66a6272|remates",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Torreense-Sunderland: sin estimador; solo 6/90 lineas con precio de agregador (n_casas bajo, no ejecutable). Sin contraste ni EV.",
+   "evidencia": [
+    "paquete:m-7074d66a6272|remates",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-7074d66a6272|remates a puerta",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Torreense-Sunderland: sin estimador; solo 8/60 lineas con precio de agregador (n_casas bajo, no ejecutable). Sin contraste ni EV.",
+   "evidencia": [
+    "paquete:m-7074d66a6272|remates a puerta",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-7074d66a6272|resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Torreense-Sunderland: modelo local 0.47 vs 1/7.0=0.14 (captura, no verificada); Sunderland rota ~4.0; historial Torreense de identidad dudosa; sin validar.",
+   "evidencia": [
+    "paquete:m-7074d66a6272|resultado",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_150817163.json"
+   ]
+  },
+  {
+   "unit_id": "m-7074d66a6272|tarjetas",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Torreense-Sunderland: tarjetas 6/42 lineas con precio, brecha max 17 pp; arbitro n=1; modelo sin validar.",
+   "evidencia": [
+    "paquete:m-7074d66a6272|tarjetas",
+    "archivo:data/model_validation.json"
+   ]
+  }
+ ],
+ "limitaciones": [
+  "Auditoria sobre hechos del paquete y cuotas de agregador (TheStatsAPI, 3-5 casas, 14-oct); no hay cuota ejecutable verificada en casa salvo capturas del usuario.",
+  "Solo verifique con apifootball get_events el arbitro de Atalanta-Pafos (A. Ladeback); el resto de datos deportivos no se recalculo.",
+  "Brechas modelo-mercado comparan p del modelo con 1/cuota sin quitar margen; modelo sin validar, no se evaluo su calibracion."
+ ]
+}

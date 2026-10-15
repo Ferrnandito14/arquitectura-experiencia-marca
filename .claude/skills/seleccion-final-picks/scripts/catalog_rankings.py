@@ -58,13 +58,15 @@ def reviewed_prices(run):
     return out
 
 
-def agent_status(units, reports, reviewed=None):
-    """{(unit_id, entry_id): 'aprobada' | 'sin_revision' | 'rechazada:<motivo>'}. Una unidad cuenta como revisada solo si los cuatro roles la cubren y su informe no tiene errores."""
+def agent_status(units, reports, reviewed=None, review_units=None):
+    """{(unit_id, entry_id): 'aprobada' | 'sin_revision' | 'rechazada:<motivo>'}. Una unidad cuenta como revisada solo si los cuatro roles la cubren y su informe no tiene errores.
+    Los informes se validan contra las unidades CON LAS QUE se revisó (`review_units` = agentes/paquete.json); un refresco de cuotas posterior no invalida el informe entero:
+    la deriva de una entrada concreta se trata aparte (`reviewed`: precio_nuevo_sin_revisar)."""
     pk = {u["unit_id"]: u for u in units}
     valid = {}
     for r in ar.ROLES:
         rep = reports.get(r)
-        valid[r] = {e["unit_id"] for e in (rep or {}).get("unidades", [])} if rep and not [x for x in ar.validate_report(r, rep, units)["errores"]] else set()
+        valid[r] = {e["unit_id"] for e in (rep or {}).get("unidades", [])} if rep and not [x for x in ar.validate_report(r, rep, review_units or units)["errores"]] else set()
     cons = ar.consolidate(units, {r: reports.get(r) for r in ar.ROLES})
     out = {}
     for uid, u in pk.items():
@@ -346,7 +348,8 @@ def main(argv=None):
     units, s = ar.build_units(a.run, ids, tuple(a.capture) if a.capture else None)
     reports = ar.load_reports(a.run)
     rev_prices = reviewed_prices(a.run)
-    legs = legs_from_units(units, agent_status(units, reports, rev_prices), rev_prices)
+    pack = common.read_json(os.path.join(a.run, "agentes", "paquete.json"), None)
+    legs = legs_from_units(units, agent_status(units, reports, rev_prices, (pack or {}).get("unidades") or None), rev_prices)
     targets = tuple((n, float(lo), float(hi), int(k)) for n, lo, hi, k in (t.split(":") for t in a.targets.split(","))) if a.targets else DEFAULT_TARGETS
     res = {"run": a.run, "banner": cov.banner(s), "investigacion_certificada": s["investigacion_certificada"], "politica": POLICY, "resumen": summary(legs),
            "rankings": build_rankings(legs), "combinadas": build_combos(legs, s["investigacion_certificada"], targets)}

@@ -1,0 +1,563 @@
+{
+ "agente": "auditor",
+ "version_contrato": 1,
+ "run": "runs/2026-10-17",
+ "unidades": [
+  {
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Modelo 1T sin validar (n=8-10); solidez BAJA; solo precio agregador A, 4 de 6 lineas con una casa; brecha max 15 pp; Over0.5 1T modelo 0.69 vs 0.83 implicita.",
+   "unit_id": "m-fc3871dd8b2a|1.ª parte goles",
+   "evidencia": [
+    "paquete:m-fc3871dd8b2a|1.ª parte goles",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha 16 pp (local 1T p=0.325 vs 1/2.06=0.49); precio de agregador no ejecutable; deportivo BAJA; modelo sin validar, n=8-10.",
+   "unit_id": "m-fc3871dd8b2a|1.ª parte resultado",
+   "evidencia": [
+    "paquete:m-fc3871dd8b2a|1.ª parte resultado",
+    "archivo:data/model_validation.json"
+   ],
+   "objeciones_a_agentes": []
+  },
+  {
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "46 lineas pero solo 6 con precio (agregador, 1 casa); validacion insuficiente; sin arbitro; p modelo no es frecuencia ni probabilidad calibrada; solidez BAJA.",
+   "unit_id": "m-fc3871dd8b2a|córners",
+   "evidencia": [
+    "paquete:m-fc3871dd8b2a|córners",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha 17 pp (1x p=0.68 vs 1/1.17=0.855); precios agregador A no ejecutables; Sparta 1V-3E-6D GF15 GA27 n10 contradice favorito del mercado; BAJA.",
+   "unit_id": "m-fc3871dd8b2a|doble oportunidad",
+   "evidencia": [
+    "paquete:m-fc3871dd8b2a|doble oportunidad",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Brecha 20 pp (home p=0.596 vs 1/1.26=0.79); datos sin_extractor; cuantitativo dice datos_insuficientes pese a estimador calculable y brecha.",
+   "unit_id": "m-fc3871dd8b2a|empate no válido",
+   "evidencia": [
+    "paquete:m-fc3871dd8b2a|empate no válido",
+    "archivo:data/model_validation.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "cuantitativo",
+     "campo": "consistencia_modelo",
+     "problema": "omision"
+    }
+   ]
+  },
+  {
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no_implementado y sin p; no hay evidencia modelo-mercado; mercado no ofrecido segun verificador.",
+   "unit_id": "m-fc3871dd8b2a|fueras de juego",
+   "evidencia": [
+    "paquete:m-fc3871dd8b2a|fueras de juego",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "mantener",
+   "nota": "Validacion insuficiente; solo Over/Under3.5 con precio R (brecha 4 pp); lineas 0.5-2.5 y BTTS son agregador A (brecha hasta 13 pp); BTTS correlaciona con Over.",
+   "unit_id": "m-fc3871dd8b2a|goles",
+   "evidencia": [
+    "paquete:m-fc3871dd8b2a|goles",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "12 lineas sin precio: sin contraste ni EV; validacion insuficiente; solidez BAJA; GF/GA con n=8-10 y rival ajustado no cuantificado.",
+   "unit_id": "m-fc3871dd8b2a|goles por equipo",
+   "evidencia": [
+    "paquete:m-fc3871dd8b2a|goles por equipo",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no_implementado, datos sin_extractor; sin p. Linea entera: la devolucion (push) cambia la liquidacion, sin modelo para ella.",
+   "unit_id": "m-fc3871dd8b2a|goles total entero",
+   "evidencia": [
+    "paquete:m-fc3871dd8b2a|goles total entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Solo 4 de 12 lineas con precio A (brecha max 14 pp); modelo sin validar; solidez BAJA; correlacion directa con resultado y doble oportunidad del mismo partido.",
+   "unit_id": "m-fc3871dd8b2a|hándicap",
+   "evidencia": [
+    "paquete:m-fc3871dd8b2a|hándicap",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no_implementado, sin p; hándicap entero con devolucion (push) no modelado; precios solo agregador o no verificables.",
+   "unit_id": "m-fc3871dd8b2a|hándicap asiático entero",
+   "evidencia": [
+    "paquete:m-fc3871dd8b2a|hándicap asiático entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no_implementado, datos sin_extractor; sin p ni contraste; precios solo agregador A no ejecutables.",
+   "unit_id": "m-fc3871dd8b2a|hándicap europeo",
+   "evidencia": [
+    "paquete:m-fc3871dd8b2a|hándicap europeo",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "90 lineas sin precio y estimador no_implementado: sin p ni EV; muestra de remates sin ajuste de rival; no hay validacion.",
+   "unit_id": "m-fc3871dd8b2a|remates",
+   "evidencia": [
+    "paquete:m-fc3871dd8b2a|remates",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "60 lineas sin precio y estimador no_implementado: sin p ni EV; sin validacion; muestra sin ajuste de rival.",
+   "unit_id": "m-fc3871dd8b2a|remates a puerta",
+   "evidencia": [
+    "paquete:m-fc3871dd8b2a|remates a puerta",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Precio R 1.57 local (0.64 implicita) vs modelo 0.47; brecha 17 pp con Sparta 1V-3E-6D, GA27. Modelo sin validar: el EV aparente en empate/visitante seria desacuerdo con el mercado.",
+   "unit_id": "m-fc3871dd8b2a|resultado",
+   "evidencia": [
+    "paquete:m-fc3871dd8b2a|resultado",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "42 lineas sin precio y verificador: mercado no ofrecido; arbitro s/d; solidez BAJA; p modelo sin validar, sin contraste ni EV.",
+   "unit_id": "m-fc3871dd8b2a|tarjetas",
+   "evidencia": [
+    "paquete:m-fc3871dd8b2a|tarjetas",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador datos_insuficientes: sin p; Auckland n6 y Melbourne City n4 mezclando competiciones/playoffs; precio solo agregador A.",
+   "unit_id": "m-fd076aab5800|1.ª parte goles",
+   "evidencia": [
+    "paquete:m-fd076aab5800|1.ª parte goles",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin p (datos_insuficientes); muestras n4-n6 mixtas; precio agregador A no ejecutable; no hay contraste modelo-mercado.",
+   "unit_id": "m-fd076aab5800|1.ª parte resultado",
+   "evidencia": [
+    "paquete:m-fd076aab5800|1.ª parte resultado",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Datos parciales, estimador datos_insuficientes: 46 lineas sin p ni precio; Auckland n6, Melbourne City n4; sin arbitro; solidez BAJA.",
+   "unit_id": "m-fd076aab5800|córners",
+   "evidencia": [
+    "paquete:m-fd076aab5800|córners",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin p (datos_insuficientes); n4-n6 con competiciones mezcladas; precio solo agregador A; solidez BAJA.",
+   "unit_id": "m-fd076aab5800|doble oportunidad",
+   "evidencia": [
+    "paquete:m-fd076aab5800|doble oportunidad",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Datos sin_extractor y estimador datos_insuficientes; sin p; precio agregador A no ejecutable.",
+   "unit_id": "m-fd076aab5800|empate no válido",
+   "evidencia": [
+    "paquete:m-fd076aab5800|empate no válido",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no_implementado y sin p; no hay evidencia modelo-mercado; mercado no ofrecido segun verificador. Muestra n4-n6.",
+   "unit_id": "m-fd076aab5800|fueras de juego",
+   "evidencia": [
+    "paquete:m-fd076aab5800|fueras de juego",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Over2.5 3/6 y 3/4 (n6/n4, mezcla de competiciones); precio R 2.0/1.75 sin favorito; sin modelo, sin p ni EV; resto de lineas agregador A.",
+   "unit_id": "m-fd076aab5800|goles",
+   "evidencia": [
+    "paquete:m-fd076aab5800|goles",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "12 lineas con precio A pero sin p (datos_insuficientes); n4-n6 mixtos; sin contraste posible.",
+   "unit_id": "m-fd076aab5800|goles por equipo",
+   "evidencia": [
+    "paquete:m-fd076aab5800|goles por equipo",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no_implementado, datos sin_extractor; sin p. Linea entera: la devolucion (push) cambia la liquidacion, sin modelo para ella. Muestra n4-n6.",
+   "unit_id": "m-fd076aab5800|goles total entero",
+   "evidencia": [
+    "paquete:m-fd076aab5800|goles total entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin p (datos_insuficientes); muestra n4-n6 mixta; precios agregador A no ejecutables; sin contraste.",
+   "unit_id": "m-fd076aab5800|hándicap",
+   "evidencia": [
+    "paquete:m-fd076aab5800|hándicap",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no_implementado, sin p; hándicap entero con devolucion (push) no modelado; precios solo agregador o no verificables. Muestra n4-n6.",
+   "unit_id": "m-fd076aab5800|hándicap asiático entero",
+   "evidencia": [
+    "paquete:m-fd076aab5800|hándicap asiático entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no_implementado, datos sin_extractor; sin p ni contraste; precios solo agregador A no ejecutables. Muestra n4-n6.",
+   "unit_id": "m-fd076aab5800|hándicap europeo",
+   "evidencia": [
+    "paquete:m-fd076aab5800|hándicap europeo",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "90 lineas sin precio y estimador no_implementado: sin p ni EV; muestra de remates sin ajuste de rival; no hay validacion. Muestra n4-n6.",
+   "unit_id": "m-fd076aab5800|remates",
+   "evidencia": [
+    "paquete:m-fd076aab5800|remates",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "60 lineas sin precio y estimador no_implementado: sin p ni EV; sin validacion; muestra sin ajuste de rival. Muestra n4-n6.",
+   "unit_id": "m-fd076aab5800|remates a puerta",
+   "evidencia": [
+    "paquete:m-fd076aab5800|remates a puerta",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Precio R existente pero sin p (datos_insuficientes): sin contraste ni EV; n=1 partido previo en rotation.json; Auckland n6, Melbourne City n4.",
+   "unit_id": "m-fd076aab5800|resultado",
+   "evidencia": [
+    "paquete:m-fd076aab5800|resultado",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Datos insuficientes, sin p, sin precio, mercado no ofrecido segun verificador; arbitro s/d; sin tarjetas historicas fiables.",
+   "unit_id": "m-fd076aab5800|tarjetas",
+   "evidencia": [
+    "paquete:m-fd076aab5800|tarjetas",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "PSV: rotacion media (descanso 4 d, copa europea en <=4 d, ~3.3 cambios) sin cuantificar; 1T sin validar; brecha max 13 pp vs agregador A; solidez BAJA.",
+   "unit_id": "m-fed1f51e8499|1.ª parte goles",
+   "evidencia": [
+    "paquete:m-fed1f51e8499|1.ª parte goles",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/rotation.json"
+   ]
+  },
+  {
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "PSV rotacion media (4 d de descanso, europea cercana) sin efecto cuantificado en el 1T; modelo sin validar; precios agregador A no ejecutables; BAJA.",
+   "unit_id": "m-fed1f51e8499|1.ª parte resultado",
+   "evidencia": [
+    "paquete:m-fed1f51e8499|1.ª parte resultado",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/rotation.json"
+   ]
+  },
+  {
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Solo 6 de 46 lineas con precio A (brecha hasta 13 pp); validacion insuficiente; sin arbitro; rotacion PSV puede alterar ritmo y posesion; solidez BAJA.",
+   "unit_id": "m-fed1f51e8499|córners",
+   "evidencia": [
+    "paquete:m-fed1f51e8499|córners",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/rotation.json"
+   ]
+  },
+  {
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 6 pp, coherente; riesgo residual: rotacion media de PSV sin cuantificar; precio agregador A, no ejecutable; modelo sin validar.",
+   "unit_id": "m-fed1f51e8499|doble oportunidad",
+   "evidencia": [
+    "paquete:m-fed1f51e8499|doble oportunidad",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/rotation.json"
+   ]
+  },
+  {
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Brecha 4 pp pero datos sin_extractor y cuantitativo dice datos_insuficientes; precio agregador A; rotacion PSV media no cuantificada.",
+   "unit_id": "m-fed1f51e8499|empate no válido",
+   "evidencia": [
+    "paquete:m-fed1f51e8499|empate no válido",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/rotation.json"
+   ]
+  },
+  {
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no_implementado y sin p; no hay evidencia modelo-mercado; mercado no ofrecido segun verificador.",
+   "unit_id": "m-fed1f51e8499|fueras de juego",
+   "evidencia": [
+    "paquete:m-fed1f51e8499|fueras de juego",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/rotation.json"
+   ]
+  },
+  {
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "mantener",
+   "nota": "Validacion insuficiente; Over/Under3.5 con R (brecha <1 pp, ok); Over0.5 en V1.01 no verificable; resto agregador A; BTTS correlaciona con Over.",
+   "unit_id": "m-fed1f51e8499|goles",
+   "evidencia": [
+    "paquete:m-fed1f51e8499|goles",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/rotation.json"
+   ]
+  },
+  {
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "mantener",
+   "nota": "12 lineas con precio A (brecha max 9 pp); modelo sin validar; rotacion PSV media podria bajar goles del favorito; Den Haag n8 con rival de otro nivel.",
+   "unit_id": "m-fed1f51e8499|goles por equipo",
+   "evidencia": [
+    "paquete:m-fed1f51e8499|goles por equipo",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/rotation.json"
+   ]
+  },
+  {
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no_implementado, datos sin_extractor; sin p. Linea entera: la devolucion (push) cambia la liquidacion, sin modelo para ella.",
+   "unit_id": "m-fed1f51e8499|goles total entero",
+   "evidencia": [
+    "paquete:m-fed1f51e8499|goles total entero",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/rotation.json"
+   ]
+  },
+  {
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Solidez BAJA; 6 de 12 lineas con precio A (brecha 4 pp); rotacion PSV sin cuantificar afecta margen; correlacion directa con resultado y DC.",
+   "unit_id": "m-fed1f51e8499|hándicap",
+   "evidencia": [
+    "paquete:m-fed1f51e8499|hándicap",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/rotation.json"
+   ]
+  },
+  {
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no_implementado, sin p; hándicap entero con devolucion (push) no modelado; precios solo agregador o no verificables.",
+   "unit_id": "m-fed1f51e8499|hándicap asiático entero",
+   "evidencia": [
+    "paquete:m-fed1f51e8499|hándicap asiático entero",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/rotation.json"
+   ]
+  },
+  {
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no_implementado, datos sin_extractor; sin p ni contraste; precios solo agregador A no ejecutables.",
+   "unit_id": "m-fed1f51e8499|hándicap europeo",
+   "evidencia": [
+    "paquete:m-fed1f51e8499|hándicap europeo",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/rotation.json"
+   ]
+  },
+  {
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "90 lineas sin precio y estimador no_implementado: sin p ni EV; muestra de remates sin ajuste de rival; no hay validacion.",
+   "unit_id": "m-fed1f51e8499|remates",
+   "evidencia": [
+    "paquete:m-fed1f51e8499|remates",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/rotation.json"
+   ]
+  },
+  {
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "60 lineas sin precio y estimador no_implementado: sin p ni EV; sin validacion; muestra sin ajuste de rival.",
+   "unit_id": "m-fed1f51e8499|remates a puerta",
+   "evidencia": [
+    "paquete:m-fed1f51e8499|remates a puerta",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/rotation.json"
+   ]
+  },
+  {
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "mantener",
+   "nota": "Cuota PSV R1.25 (0.80 implicita) vs modelo 0.754: sin margen; rotacion media (descanso 4 d, copa europea) sin cuantificar; modelo sin validar.",
+   "unit_id": "m-fed1f51e8499|resultado",
+   "evidencia": [
+    "paquete:m-fed1f51e8499|resultado",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/rotation.json"
+   ]
+  },
+  {
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "42 lineas sin precio, mercado no ofrecido; arbitro s/d; solo puntos de tarjetas n8 (1-5 y 1-6); modelo sin validar, sin contraste ni EV.",
+   "unit_id": "m-fed1f51e8499|tarjetas",
+   "evidencia": [
+    "paquete:m-fed1f51e8499|tarjetas",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/rotation.json"
+   ]
+  }
+ ],
+ "limitaciones": [
+  "Precios casi todos de agregador (A) no ejecutables; modelo sin validacion; arbitros y alineaciones sin snapshot; sin consultas externas adicionales."
+ ]
+}

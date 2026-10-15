@@ -1,0 +1,975 @@
+{
+ "agente": "auditor",
+ "version_contrato": 1,
+ "run": "runs/2026-10-15",
+ "unidades": [
+  {
+   "unit_id": "m-02e067ea7325|1.ª parte goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Modelo 1T no evaluado; under 1.5 p .555 vs implicita .71 (-16pp); over 0.5 solo +5pp. Muestra 4/7 y 7/10, cuota de agregador (snapshot 14-oct 17:12Z).",
+   "evidencia": [
+    "paquete:m-02e067ea7325|1.ª parte goles",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-02e067ea7325|1.ª parte resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Modelo 1T no evaluado; empate p .365 vs implicita .46 (-10pp). Sin alineaciones; 1X2 de 1T con solo cuotas de agregador.",
+   "evidencia": [
+    "paquete:m-02e067ea7325|1.ª parte resultado",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-02e067ea7325|córners",
+   "objecion": "dato_defectuoso",
+   "severidad": "alta",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Faisaly vs Neom (21-ago) figura con 0-0 corners pero 7-8 remates: cero sospechoso dentro del n7 (6.3). Sin ese partido 7.33 en n6. Afecta lineas totales y de equipo.",
+   "evidencia": [
+    "paquete:m-02e067ea7325|córners",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/league_samples/278.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "nota",
+     "problema": "dato_citado_incorrecto"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-02e067ea7325|doble oportunidad",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "1X p .675 vs implicita .60 (+8pp aparente) pese a 0 victorias de Faisaly en 7; mercado favorece al visitante: X2 p .571 vs .77. Brecha de 20pp, modelo sin validar.",
+   "evidencia": [
+    "paquete:m-02e067ea7325|doble oportunidad",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-02e067ea7325|empate no válido",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Visitante 1.5 p .43 vs implicita .67 (-24pp); modelo favorece al local con 0V en 7. Datos sin extractor y modelo no evaluado.",
+   "evidencia": [
+    "paquete:m-02e067ea7325|empate no válido",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-02e067ea7325|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor, estimador ni precio; ningun agente ni fuente lo ofrece. No hay contraste ni EV posibles.",
+   "evidencia": [
+    "paquete:m-02e067ea7325|fueras de juego",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-02e067ea7325|goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Over 2.5 1.92 (cuota del usuario) p .553 vs implicita .52: +3pp, dentro del ruido. Muestras 3/7 y 6/10 de equipos distintos; validacion insuficiente.",
+   "evidencia": [
+    "paquete:m-02e067ea7325|goles",
+    "archivo:runs/2026-10-15/agentes/informe_verificador.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "verificador",
+     "campo": "nota",
+     "problema": "dato_citado_incorrecto"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-02e067ea7325|goles por equipo",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Local under 1.5 p .536 vs implicita .73 (-20pp); Faisaly GF .71 en n7. 8 lineas con 1 casa; correlaciona con otras patas del mismo equipo.",
+   "evidencia": [
+    "paquete:m-02e067ea7325|goles por equipo",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-02e067ea7325|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Linea entera sin estimador: solo cuota de agregador (muchas con 1 casa). El reembolso (push) altera el valor y no esta modelado.",
+   "evidencia": [
+    "paquete:m-02e067ea7325|goles total entero",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-02e067ea7325|hándicap",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Visitante +0.5 p .571 vs implicita .75 (-18pp); modelo y mercado difieren en el favorito. Cuotas de agregador, modelo no evaluado.",
+   "evidencia": [
+    "paquete:m-02e067ea7325|hándicap",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-02e067ea7325|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "AH entero sin estimador; linea +0 sin precio en paquete aunque TheStatsAPI la trae. Push no modelado; sin EV.",
+   "evidencia": [
+    "paquete:m-02e067ea7325|hándicap asiático entero",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-02e067ea7325|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Handicap europeo sin estimador; solo cuotas de agregador o sin precio. Sin p_modelo no hay contraste ni EV.",
+   "evidencia": [
+    "paquete:m-02e067ea7325|hándicap europeo",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-02e067ea7325|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no implementado; casi todas las lineas sin precio (90). Sin p_modelo no hay contraste ni EV.",
+   "evidencia": [
+    "paquete:m-02e067ea7325|remates",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-02e067ea7325|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no implementado; 4 de 60 lineas con precio de 1 casa. Sin p_modelo no hay contraste ni EV.",
+   "evidencia": [
+    "paquete:m-02e067ea7325|remates a puerta",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-02e067ea7325|resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Local p .43 vs implicita .30 (cuota 3.33) con 0V en 7; visitante 2.08 p .32 vs .48. Solo 2.08 cumple limite 2.10. Cuotas del usuario; modelo sin validar.",
+   "evidencia": [
+    "paquete:m-02e067ea7325|resultado",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-02e067ea7325|tarjetas",
+   "objecion": "dato_defectuoso",
+   "severidad": "alta",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Cuota total_cards (1 casa) con definicion sin verificar frente a puntos del paquete: over 4.5 p .21 vs .50 (-29pp). Arbitro sin designar; n6 y n9.",
+   "evidencia": [
+    "paquete:m-02e067ea7325|tarjetas",
+    "archivo:runs/2026-10-15/thestatsapi/odds"
+   ]
+  },
+  {
+   "unit_id": "m-0c2bd2b024ed|1.ª parte goles",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Under 1.5 p .49 vs implicita .69 (-20pp). Gol 1T 9/10 y 7/7 con copas menores y previas europeas; modelo 1T no evaluado.",
+   "evidencia": [
+    "paquete:m-0c2bd2b024ed|1.ª parte goles",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-0c2bd2b024ed|1.ª parte resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Modelo 1T no evaluado; empate p .336 vs implicita .43. Muestras mezclan copas y previas europeas sin ajuste de rival.",
+   "evidencia": [
+    "paquete:m-0c2bd2b024ed|1.ª parte resultado",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-0c2bd2b024ed|córners",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Visitante over 2.5 p .579 vs implicita .83 (-25pp); Anderlecht n7 solo europeo, Dinamo incluye copas. 18 lineas con 1 sola casa.",
+   "evidencia": [
+    "paquete:m-0c2bd2b024ed|córners",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-0c2bd2b024ed|doble oportunidad",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "1X 1.28 p .709 vs implicita .78: sin ventaja. Dinamo rota 5.3 cambios y Anderlecht juega en Europa; n=4 locales de Dinamo. Modelo sin validar.",
+   "evidencia": [
+    "paquete:m-0c2bd2b024ed|doble oportunidad",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-0c2bd2b024ed|empate no válido",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Datos sin extractor; local 1.46 p .625 vs implicita .68. Dinamo con 2 copas ante rivales menores y rotacion media.",
+   "evidencia": [
+    "paquete:m-0c2bd2b024ed|empate no válido",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-0c2bd2b024ed|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor, estimador ni precio; ningun agente ni fuente lo ofrece. No hay contraste ni EV posibles.",
+   "evidencia": [
+    "paquete:m-0c2bd2b024ed|fueras de juego",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-0c2bd2b024ed|goles",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Over 2.5 1.77 p .641 vs .565 (+8pp) apoyado en 8/10 (con copas) y 5/7 (Anderlecht solo previas europeas, n7). Rotacion media; validacion insuficiente.",
+   "evidencia": [
+    "paquete:m-0c2bd2b024ed|goles",
+    "archivo:runs/2026-10-15/agentes/informe_verificador.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "verificador",
+     "campo": "nota",
+     "problema": "dato_citado_incorrecto"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-0c2bd2b024ed|goles por equipo",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Anderlecht n7 sin partidos de liga belga en la muestra; GF 2.1 de ambos con rivales menores. Visitante under 1.5 p .586 vs .71; 12 lineas 1 casa.",
+   "evidencia": [
+    "paquete:m-0c2bd2b024ed|goles por equipo",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-0c2bd2b024ed|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Linea entera sin estimador: solo cuota de agregador (muchas con 1 casa). El reembolso (push) altera el valor y no esta modelado.",
+   "evidencia": [
+    "paquete:m-0c2bd2b024ed|goles total entero",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-0c2bd2b024ed|hándicap",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brechas <=7pp, pero ambos rotan (5.3 cambios) y Anderlecht juega en <=4 dias. Modelo no evaluado, cuotas de agregador.",
+   "evidencia": [
+    "paquete:m-0c2bd2b024ed|hándicap",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-0c2bd2b024ed|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "AH entero sin estimador; cuotas de agregador sin p_modelo. El reembolso (push) no esta modelado; sin contraste ni EV.",
+   "evidencia": [
+    "paquete:m-0c2bd2b024ed|hándicap asiático entero",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-0c2bd2b024ed|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Handicap europeo sin estimador; solo cuotas de agregador o sin precio. Sin p_modelo no hay contraste ni EV.",
+   "evidencia": [
+    "paquete:m-0c2bd2b024ed|hándicap europeo",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-0c2bd2b024ed|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no implementado; casi todas las lineas sin precio (90). Sin p_modelo no hay contraste ni EV.",
+   "evidencia": [
+    "paquete:m-0c2bd2b024ed|remates",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-0c2bd2b024ed|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no implementado; lineas sin precio o con 1 sola casa de agregador. Sin p_modelo no hay contraste ni EV.",
+   "evidencia": [
+    "paquete:m-0c2bd2b024ed|remates a puerta",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-0c2bd2b024ed|resultado",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Local 1.96 p .485 vs .51: sin ventaja. Dinamo rota 5.3 cambios, Anderlecht con europeo; muestra con copas y previas. Cuota del usuario.",
+   "evidencia": [
+    "paquete:m-0c2bd2b024ed|resultado",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-0c2bd2b024ed|tarjetas",
+   "objecion": "dato_defectuoso",
+   "severidad": "alta",
+   "recomendacion": "verificar_manualmente",
+   "nota": "total_cards de agregador sin definicion verificada; 3 de 8 lineas con brecha >=15pp (max 24). Arbitro Grinfeld con 1 partido: no informativo.",
+   "evidencia": [
+    "paquete:m-0c2bd2b024ed|tarjetas",
+    "archivo:runs/2026-10-15/thestatsapi/odds"
+   ]
+  },
+  {
+   "unit_id": "m-101bf9f9871b|1.ª parte goles",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Panathinaikos rota 6.3 cambios con 4 dias; Borac 6/6 solo previas europeas (n6). Over 1.5 p .328 vs implicita .45; modelo 1T no evaluado.",
+   "evidencia": [
+    "paquete:m-101bf9f9871b|1.ª parte goles",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-101bf9f9871b|1.ª parte resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Local 1T p .387 vs implicita .64 (-25pp); rotacion 6.3 cambios. Modelo 1T no evaluado, cuota de agregador.",
+   "evidencia": [
+    "paquete:m-101bf9f9871b|1.ª parte resultado",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-101bf9f9871b|córners",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Borac n6 (<8) solo previas europeas; Pan n10 con copas y rotacion 6.3. Visitante under 2.5 p .404 vs implicita .55. Lineas de 1 casa.",
+   "evidencia": [
+    "paquete:m-101bf9f9871b|córners",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-101bf9f9871b|doble oportunidad",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "X2 4.415 p .437 vs implicita .23 (+21pp): ventaja espuria; el 1X2 comunicado da empate 6.33 y visitante 13.0 (~23% juntos). Borac solo n6 de previas.",
+   "evidencia": [
+    "paquete:m-101bf9f9871b|doble oportunidad",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-101bf9f9871b|empate no válido",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Local a 1.04 de agregador (implicita .96) frente a p .717: rentabilidad minima y sin extractor. Rota 6.3 cambios tras caer 0-1 con Olympiacos.",
+   "evidencia": [
+    "paquete:m-101bf9f9871b|empate no válido",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-101bf9f9871b|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor, estimador ni precio; ningun agente ni fuente lo ofrece. No hay contraste ni EV posibles.",
+   "evidencia": [
+    "paquete:m-101bf9f9871b|fueras de juego",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-101bf9f9871b|goles",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Over 3.5 2.28 p .392 vs .44: sin ventaja. BTTS no p .40 vs implicita .61 por Borac 6/6 de previas (n6). Rotacion del local sin cuantificar.",
+   "evidencia": [
+    "paquete:m-101bf9f9871b|goles",
+    "archivo:runs/2026-10-15/agentes/informe_verificador.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "goles.btts.no",
+     "objecion": "brecha_muestra_mercado"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-101bf9f9871b|goles por equipo",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "6 de 12 lineas con brecha >=15pp (max 29): visitante under 0.5 p .307 vs implicita .60 por Borac 6/6 en previas. 10 lineas de 1 casa.",
+   "evidencia": [
+    "paquete:m-101bf9f9871b|goles por equipo",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-101bf9f9871b|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Linea entera sin estimador: solo cuota de agregador (muchas con 1 casa). El reembolso (push) altera el valor y no esta modelado.",
+   "evidencia": [
+    "paquete:m-101bf9f9871b|goles total entero",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-101bf9f9871b|hándicap",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "8 de 11 lineas con brecha >=15pp (max 29, local -1.5 p .33 vs .63). Ganar por 2+ exige once titular y Pan rota 6.3 cambios. Modelo no evaluado.",
+   "evidencia": [
+    "paquete:m-101bf9f9871b|hándicap",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-101bf9f9871b|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "AH entero sin estimador; lineas +0 con 2 casas no verificables y extremos 52.33/109 de 1 casa. Push no modelado; sin EV.",
+   "evidencia": [
+    "paquete:m-101bf9f9871b|hándicap asiático entero",
+    "archivo:runs/2026-10-15/matrix.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah_entero.home.+0",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "resultado.ah_entero.away.+0",
+     "objecion": "cuota_no_ejecutable"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-101bf9f9871b|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Handicap europeo sin estimador; solo cuotas de agregador o sin precio. Sin p_modelo no hay contraste ni EV.",
+   "evidencia": [
+    "paquete:m-101bf9f9871b|hándicap europeo",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-101bf9f9871b|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no implementado; casi todas las lineas sin precio (90). Sin p_modelo no hay contraste ni EV.",
+   "evidencia": [
+    "paquete:m-101bf9f9871b|remates",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-101bf9f9871b|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no implementado; lineas sin precio o con 1 sola casa de agregador. Sin p_modelo no hay contraste ni EV.",
+   "evidencia": [
+    "paquete:m-101bf9f9871b|remates a puerta",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-101bf9f9871b|resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Local 1.18 p .563 vs implicita .85 (-28pp); empate 6.33 y visitante 13.0 fuera del limite 2.10. Rotacion 6.3 cambios y Borac n6.",
+   "evidencia": [
+    "paquete:m-101bf9f9871b|resultado",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-101bf9f9871b|tarjetas",
+   "objecion": "dato_defectuoso",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "total_cards de 1 casa con definicion sin verificar (puntos A=1/R=2 no confirmados). Arbitro Csonka con 1 partido; Borac n6 solo previas.",
+   "evidencia": [
+    "paquete:m-101bf9f9871b|tarjetas",
+    "archivo:runs/2026-10-15/thestatsapi/odds"
+   ]
+  },
+  {
+   "unit_id": "m-122fc298cbf9|1.ª parte goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio en el paquete: no hay contraste ni EV. Modelo 1T no evaluado; ataques cortos (GF .6/.8) y 6 de 17 partidos 0-0 al descanso.",
+   "evidencia": [
+    "paquete:m-122fc298cbf9|1.ª parte goles",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-122fc298cbf9|1.ª parte resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio en el paquete: no hay contraste ni EV. Modelo 1T no evaluado; empate 1T p .38 solo descriptivo.",
+   "evidencia": [
+    "paquete:m-122fc298cbf9|1.ª parte resultado",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-122fc298cbf9|córners",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio (46 lineas) y validacion insuficiente. Base de liga 9.75 (n161) incluye 2 filas con 0-0 corners (Okhdood-Fayha, Faisaly-Neom).",
+   "evidencia": [
+    "paquete:m-122fc298cbf9|córners",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-122fc298cbf9|doble oportunidad",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "1X 1.3 p .688 vs implicita .77; partido de empates (10 de 20) y ataques cortos. Cuotas de agregador, modelo sin validar.",
+   "evidencia": [
+    "paquete:m-122fc298cbf9|doble oportunidad",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-122fc298cbf9|empate no válido",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Datos sin extractor; local 1.52 p .57 vs implicita .66. 10 empates en 20 partidos; liquidacion DNB anula el empate, no modelado.",
+   "evidencia": [
+    "paquete:m-122fc298cbf9|empate no válido",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-122fc298cbf9|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor, estimador ni precio; ningun agente ni fuente lo ofrece. No hay contraste ni EV posibles.",
+   "evidencia": [
+    "paquete:m-122fc298cbf9|fueras de juego",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-122fc298cbf9|goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Under 2.5 1.88 p .571 vs .532 (+4pp) y over p .43 vs .55: diferencia pequena con n20 y validacion insuficiente. Ataques pobres pero defensas flojas.",
+   "evidencia": [
+    "paquete:m-122fc298cbf9|goles",
+    "archivo:runs/2026-10-15/agentes/informe_verificador.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "verificador",
+     "campo": "nota",
+     "problema": "dato_citado_incorrecto"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-122fc298cbf9|goles por equipo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio en 12 lineas: no hay contraste ni EV. Modelo sin validar; marcaron en 6/10 y 5/10, GF .6 y .8.",
+   "evidencia": [
+    "paquete:m-122fc298cbf9|goles por equipo",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-122fc298cbf9|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Linea entera sin estimador y sin precio en el paquete (10 lineas). Sin contraste ni EV.",
+   "evidencia": [
+    "paquete:m-122fc298cbf9|goles total entero",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-122fc298cbf9|hándicap",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "alta",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Lineas -2.5/+2.5 de n=2 suman 119% (casas mezcladas) y +-0.5 sin precio; solo 1-2 casas. Referencias de agregador no ejecutables.",
+   "evidencia": [
+    "paquete:m-122fc298cbf9|hándicap",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-122fc298cbf9|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "AH entero sin estimador; 4 de 10 lineas con n=1-2 casas no verificables (7.1/1.04). Push no modelado; sin EV.",
+   "evidencia": [
+    "paquete:m-122fc298cbf9|hándicap asiático entero",
+    "archivo:runs/2026-10-15/matrix.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah_entero.home.-2",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "resultado.ah_entero.away.+2",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "resultado.ah_entero.home.+1",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "resultado.ah_entero.away.-1",
+     "objecion": "cuota_no_ejecutable"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-122fc298cbf9|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Handicap europeo sin estimador; solo cuotas de agregador o sin precio. Sin p_modelo no hay contraste ni EV.",
+   "evidencia": [
+    "paquete:m-122fc298cbf9|hándicap europeo",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-122fc298cbf9|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no implementado; casi todas las lineas sin precio (90). Sin p_modelo no hay contraste ni EV.",
+   "evidencia": [
+    "paquete:m-122fc298cbf9|remates",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-122fc298cbf9|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no implementado; lineas sin precio o con 1 sola casa de agregador. Sin p_modelo no hay contraste ni EV.",
+   "evidencia": [
+    "paquete:m-122fc298cbf9|remates a puerta",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-122fc298cbf9|resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Cuotas del usuario 2.00/3.50/3.40 vs p local .41, empate .28: brechas <=9pp; empates 10 de 20. Modelo sin validar; solo local 2.00 cumple 2.10.",
+   "evidencia": [
+    "paquete:m-122fc298cbf9|resultado",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-122fc298cbf9|tarjetas",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio (42 lineas); arbitro sin designar. Puntos 3.8 (n10) y 2.3 (n9) con huecos de datos; validacion insuficiente.",
+   "evidencia": [
+    "paquete:m-122fc298cbf9|tarjetas",
+    "archivo:runs/2026-10-15/thestatsapi/odds"
+   ]
+  },
+  {
+   "unit_id": "m-19fa11677a41|1.ª parte goles",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Rotacion alta de ambos (5.7 y 6.7 cambios, 4 dias) sin cuantificar; over 0.5 1T p .568 vs implicita .71 (-14pp). Modelo 1T no evaluado.",
+   "evidencia": [
+    "paquete:m-19fa11677a41|1.ª parte goles",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-19fa11677a41|1.ª parte resultado",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Empate 1T p .51 (el mas alto del lote) con visitante -15pp vs mercado; ambos rotan mucho. Modelo 1T no evaluado.",
+   "evidencia": [
+    "paquete:m-19fa11677a41|1.ª parte resultado",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-19fa11677a41|córners",
+   "objecion": "dato_defectuoso",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Juventus 5-0 Nijmegen figura con 0-1 corners y 11-11 remates: valor sospechoso en n10 (9.6; sin el 10.6). Over local 2.5 p .627 vs implicita .83; 22 lineas 1 casa.",
+   "evidencia": [
+    "paquete:m-19fa11677a41|córners",
+    "archivo:runs/2026-10-15/matrix.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "nota",
+     "problema": "omision"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-19fa11677a41|doble oportunidad",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "X2 1.28 p .583 vs implicita .78 (-20pp): modelo da local .42 y mercado a Juventus favorita (2.12). Rotacion alta de ambos.",
+   "evidencia": [
+    "paquete:m-19fa11677a41|doble oportunidad",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-19fa11677a41|empate no válido",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Visitante 1.53 p .414 vs implicita .65 (-24pp); modelo da ventaja local y mercado a Juventus. Datos sin extractor y rotacion alta.",
+   "evidencia": [
+    "paquete:m-19fa11677a41|empate no válido",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-19fa11677a41|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor, estimador ni precio; ningun agente ni fuente lo ofrece. No hay contraste ni EV posibles.",
+   "evidencia": [
+    "paquete:m-19fa11677a41|fueras de juego",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-19fa11677a41|goles",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Under 2.5 1.72 p .623 vs .581 (+4pp); over 2.5 solo 2/10 y 3/10. Rotacion alta de ambos sin cuantificar; validacion insuficiente.",
+   "evidencia": [
+    "paquete:m-19fa11677a41|goles",
+    "archivo:runs/2026-10-15/agentes/informe_verificador.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "verificador",
+     "campo": "nota",
+     "problema": "dato_citado_incorrecto"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-19fa11677a41|goles por equipo",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Visitante over 1.5 p .256 vs implicita .45 (-20pp) y otra linea >=15pp; 12 lineas de 1 casa. Rotacion alta de ambos.",
+   "evidencia": [
+    "paquete:m-19fa11677a41|goles por equipo",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-19fa11677a41|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Linea entera sin estimador: solo cuota de agregador (muchas con 1 casa). El reembolso (push) altera el valor y no esta modelado.",
+   "evidencia": [
+    "paquete:m-19fa11677a41|goles total entero",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-19fa11677a41|hándicap",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Visitante -0.5 p .295 vs implicita .47 (-17pp); modelo y mercado difieren en el favorito y ambos rotan. Modelo no evaluado.",
+   "evidencia": [
+    "paquete:m-19fa11677a41|hándicap",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-19fa11677a41|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "AH entero sin estimador; cuotas de agregador sin p_modelo. El reembolso (push) no esta modelado; sin contraste ni EV.",
+   "evidencia": [
+    "paquete:m-19fa11677a41|hándicap asiático entero",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-19fa11677a41|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Handicap europeo sin estimador; solo cuotas de agregador o sin precio. Sin p_modelo no hay contraste ni EV.",
+   "evidencia": [
+    "paquete:m-19fa11677a41|hándicap europeo",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-19fa11677a41|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no implementado; solo 6 de 90 lineas con precio de 1 casa de agregador. Sin p_modelo no hay contraste ni EV.",
+   "evidencia": [
+    "paquete:m-19fa11677a41|remates",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-19fa11677a41|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no implementado; solo 6 de 60 lineas con precio de 1 casa de agregador. Sin p_modelo no hay contraste ni EV.",
+   "evidencia": [
+    "paquete:m-19fa11677a41|remates a puerta",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-19fa11677a41|resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Local 3.4 p .417 vs .29 y visitante 2.12 p .295 vs .47 (-18pp): el modelo contradice al mercado. Rotacion alta; solo 2.12 roza el limite 2.10.",
+   "evidencia": [
+    "paquete:m-19fa11677a41|resultado",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-19fa11677a41|tarjetas",
+   "objecion": "dato_defectuoso",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "total_cards de 1 casa con definicion sin verificar. Arbitro van der Eijk con 1 partido en muestra; rotacion alta; arbitro-estilo europeo sin ajuste.",
+   "evidencia": [
+    "paquete:m-19fa11677a41|tarjetas",
+    "archivo:runs/2026-10-15/thestatsapi/odds"
+   ]
+  }
+ ],
+ "limitaciones": [
+  "Lote 1/8: cubiertas las 96 unidades de must; solo 2 consultas apifootball (get_odds 825173 y 825172, esta ultima 404) y revision de matrix.json, league_samples y paquete; sin otras fuentes web.",
+  "Cuotas A son snapshots de agregador del 14-oct (TheStatsAPI 17:12Z, apifootball 15:19Z) a ~20h del inicio, con 1-2 casas en muchas lineas; no se verifico su ejecutabilidad ni definicion de total_cards.",
+  "Los ceros 0-0 de corners (Faisaly-Neom, Okhdood-Fayha) y 0-1 (Juventus-Nijmegen) se marcan como sospechosos por remates incompatibles; no hubo segunda fuente de estadisticas para confirmarlos."
+ ]
+}

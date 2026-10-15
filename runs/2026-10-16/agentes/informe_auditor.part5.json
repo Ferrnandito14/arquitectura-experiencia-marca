@@ -1,0 +1,420 @@
+{
+ "agente": "auditor",
+ "version_contrato": 1,
+ "run": "runs/2026-10-16",
+ "unidades": [
+  {
+   "unit_id": "m-dc5fc58a5048|1.ª parte goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Validación no_evaluada; las filas de liga solo traen goles finales (sin 1T), p 1T no reproducible. Precios A de 2-3 casas del 14-oct. Le Mans n=6 en liga.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-dc5fc58a5048|1.ª parte goles",
+    "archivo:runs/2026-10-16/league_samples/168.json"
+   ]
+  },
+  {
+   "unit_id": "m-dc5fc58a5048|1.ª parte resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Validación no_evaluada; sin datos de 1T en la muestra. Empate 1T modelo .361 vs 1/2.3=.435 (-7 pp), precio A de 3 casas del 14-oct. Le Mans n=6.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-dc5fc58a5048|1.ª parte resultado",
+    "archivo:runs/2026-10-16/league_samples/168.json"
+   ]
+  },
+  {
+   "unit_id": "m-dc5fc58a5048|córners",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Le Mans n=6 (media 9.33), Toulouse n=14 (9.07) vs liga 10.01 (n=147). Precio solo en 6/46 líneas, 1 casa. Validación insuficiente.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-dc5fc58a5048|córners",
+    "archivo:runs/2026-10-16/league_samples/168.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "nota",
+     "problema": "dato_citado_incorrecto"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-dc5fc58a5048|doble oportunidad",
+   "objecion": "correlacion",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "1X contiene el 1X2 y el DNB del mismo partido, mismo estimador sin validar. 1X modelo .563 vs 1/1.57=.637 (-7 pp, 5 casas A). Le Mans n=6.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-dc5fc58a5048|doble oportunidad",
+    "archivo:runs/2026-10-16/league_samples/168.json"
+   ]
+  },
+  {
+   "unit_id": "m-dc5fc58a5048|empate no válido",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Datos sin_extractor y validación no_evaluada; DNB redundante con 1X2 (gap <3 pp vs A 3 casas). Cuantitativo ya dice datos_insuficientes.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-dc5fc58a5048|empate no válido",
+    "archivo:runs/2026-10-16/league_samples/168.json"
+   ]
+  },
+  {
+   "unit_id": "m-dc5fc58a5048|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador (p=-) y sin precio en ninguna fuente; no rankeable por modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-dc5fc58a5048|fueras de juego",
+    "archivo:runs/2026-10-16/league_samples/168.json"
+   ]
+  },
+  {
+   "unit_id": "m-dc5fc58a5048|goles",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Under 2.5 R2.1: modelo .324 vs 1/cuota .476 (-15 pp); under 3.5 -15 pp. Over alto apoyado en Le Mans n=6 (5/6 con 3+ goles) y liga 58%. Modelo sin validar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-dc5fc58a5048|goles",
+    "archivo:runs/2026-10-16/league_samples/168.json"
+   ]
+  },
+  {
+   "unit_id": "m-dc5fc58a5048|goles por equipo",
+   "objecion": "fuente_unica",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Las 12 líneas tienen precio de 1 sola casa (agregador, 14-oct); gap hasta -13.5 pp en under 1.5 local. Sin contraste independiente.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-dc5fc58a5048|goles por equipo",
+    "archivo:runs/2026-10-16/league_samples/168.json"
+   ]
+  },
+  {
+   "unit_id": "m-dc5fc58a5048|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador (p=-) ni validación; precios A de agregador (14-oct) no ejecutables: no rankeable por modelo; cualquier precio es solo referencia.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-dc5fc58a5048|goles total entero",
+    "archivo:runs/2026-10-16/league_samples/168.json"
+   ]
+  },
+  {
+   "unit_id": "m-dc5fc58a5048|hándicap",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Las 12 líneas son agregador de 1-3 casas observadas el 14-oct (2 días antes); modelo sin validar, Le Mans n=6. Solo línea AH -0.5 coherente con el 1X2 real.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-dc5fc58a5048|hándicap",
+    "archivo:runs/2026-10-16/league_samples/168.json"
+   ]
+  },
+  {
+   "unit_id": "m-dc5fc58a5048|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador (p=-) ni validación; precios A de agregador (14-oct) no ejecutables: no rankeable por modelo; cualquier precio es solo referencia.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-dc5fc58a5048|hándicap asiático entero",
+    "archivo:runs/2026-10-16/league_samples/168.json"
+   ]
+  },
+  {
+   "unit_id": "m-dc5fc58a5048|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador (p=-) ni validación; precios A de agregador (14-oct) no ejecutables: no rankeable por modelo; cualquier precio es solo referencia.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-dc5fc58a5048|hándicap europeo",
+    "archivo:runs/2026-10-16/league_samples/168.json"
+   ]
+  },
+  {
+   "unit_id": "m-dc5fc58a5048|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador; datos parciales; precio solo en 6/90 líneas de 1 casa. No rankeable por modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-dc5fc58a5048|remates",
+    "archivo:runs/2026-10-16/league_samples/168.json"
+   ]
+  },
+  {
+   "unit_id": "m-dc5fc58a5048|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador; datos parciales; precio solo en 6/60 líneas de 1 casa. No rankeable por modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-dc5fc58a5048|remates a puerta",
+    "archivo:runs/2026-10-16/league_samples/168.json"
+   ]
+  },
+  {
+   "unit_id": "m-dc5fc58a5048|resultado",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "1X2 de la persona usuaria (no verificado de forma independiente); gap <6 pp. Le Mans n=6 y Toulouse mezcla temporadas; validación insuficiente; sin alineaciones.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-dc5fc58a5048|resultado",
+    "archivo:runs/2026-10-16/league_samples/168.json",
+    "archivo:runs/2026-10-16/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-dc5fc58a5048|tarjetas",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Árbitro A. Petit n=2 en liga 168; Le Mans n=6 (4.83), Toulouse n=14 (3.93), liga 3.84. Sin precio; regla de puntos de tarjeta sin verificar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-dc5fc58a5048|tarjetas",
+    "archivo:runs/2026-10-16/league_samples/168.json"
+   ]
+  },
+  {
+   "unit_id": "m-f88bf389ffd1|1.ª parte goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Validación no_evaluada; la muestra de liga no trae 1T. Under 1.5 .603 vs 1/1.472=.68 (-8 pp), agregador de 2 casas del 14-oct. Ambos rotan 4 cambios.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-f88bf389ffd1|1.ª parte goles",
+    "archivo:runs/2026-10-16/league_samples/257.json",
+    "archivo:runs/2026-10-16/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-f88bf389ffd1|1.ª parte resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Validación no_evaluada; sin 1T en muestra. Empate 1T .387 vs 1/2.27=.44; 2 casas A del 14-oct. Rotación media de ambos no cuantificada.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-f88bf389ffd1|1.ª parte resultado",
+    "archivo:runs/2026-10-16/league_samples/257.json",
+    "archivo:runs/2026-10-16/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-f88bf389ffd1|córners",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Over 9.5 modelo .534 vs liga .406 (n=207) y Tarma .435; precio solo en 10.5 (1 casa, 2/46 líneas): over .423 vs 1/1.909=.524. Sin árbitro. Validación insuficiente.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-f88bf389ffd1|córners",
+    "archivo:runs/2026-10-16/league_samples/257.json"
+   ]
+  },
+  {
+   "unit_id": "m-f88bf389ffd1|doble oportunidad",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Ambos rotan ~4 cambios (nivel medio), sin alineaciones. 1X modelo .684 vs 1/1.295=.772 (-8.9 pp, 4 casas A del 14-oct). Estimador sin validar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-f88bf389ffd1|doble oportunidad",
+    "archivo:runs/2026-10-16/league_samples/257.json",
+    "archivo:runs/2026-10-16/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-f88bf389ffd1|empate no válido",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Datos sin_extractor; ambos rotan ~4 cambios. DNB local .577 vs 1/1.52=.658 (-8 pp, 3 casas A). Redundante con 1X2; modelo sin validar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-f88bf389ffd1|empate no válido",
+    "archivo:runs/2026-10-16/league_samples/257.json",
+    "archivo:runs/2026-10-16/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-f88bf389ffd1|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador (p=-) y sin precio en ninguna fuente; no rankeable por modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-f88bf389ffd1|fueras de juego",
+    "archivo:runs/2026-10-16/league_samples/257.json"
+   ]
+  },
+  {
+   "unit_id": "m-f88bf389ffd1|goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Over 2.5 R1.75: p .527 vs 1/cuota .571, sin ventaja. Emparejamiento captura-inventario 1.54 (bajo), corroborado por API 1.75/2.03. Rotación media; validación insuficiente.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-f88bf389ffd1|goles",
+    "archivo:runs/2026-10-16/league_samples/257.json",
+    "archivo:runs/2026-10-16/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-f88bf389ffd1|goles por equipo",
+   "objecion": "fuente_unica",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Las 12 líneas con 1 sola casa (agregador, 14-oct); over 1.5 local .449 vs 1/1.833=.546 (-9.6 pp). Rotación media de ambos no cuantificada.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-f88bf389ffd1|goles por equipo",
+    "archivo:runs/2026-10-16/league_samples/257.json",
+    "archivo:runs/2026-10-16/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-f88bf389ffd1|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador; precio en 2/10 líneas de 1 casa. No rankeable por modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-f88bf389ffd1|goles total entero",
+    "archivo:runs/2026-10-16/league_samples/257.json"
+   ]
+  },
+  {
+   "unit_id": "m-f88bf389ffd1|hándicap",
+   "objecion": "dato_defectuoso",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "4 líneas AH marcadas no_verificable (1-2 casas, extremos 1.04/7.1) y +2.5 sin precio con p .955. Verificador marca disponibilidad verificada pese a ello.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-f88bf389ffd1|hándicap",
+    "archivo:runs/2026-10-16/league_samples/257.json",
+    "archivo:runs/2026-10-16/rotation.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "verificador",
+     "campo": "disponibilidad",
+     "problema": "omision"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-f88bf389ffd1|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador; precios A de 1-4 casas (14-oct) en 8/10 líneas, +2/-2 sin precio. No rankeable por modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-f88bf389ffd1|hándicap asiático entero",
+    "archivo:runs/2026-10-16/league_samples/257.json"
+   ]
+  },
+  {
+   "unit_id": "m-f88bf389ffd1|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador (p=-) ni validación; precios A de agregador (14-oct) no ejecutables: no rankeable por modelo; cualquier precio es solo referencia.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-f88bf389ffd1|hándicap europeo",
+    "archivo:runs/2026-10-16/league_samples/257.json"
+   ]
+  },
+  {
+   "unit_id": "m-f88bf389ffd1|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador y sin precio en las 90 líneas; no rankeable por modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-f88bf389ffd1|remates",
+    "archivo:runs/2026-10-16/league_samples/257.json"
+   ]
+  },
+  {
+   "unit_id": "m-f88bf389ffd1|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador y sin precio en las 60 líneas; no rankeable por modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-f88bf389ffd1|remates a puerta",
+    "archivo:runs/2026-10-16/league_samples/257.json"
+   ]
+  },
+  {
+   "unit_id": "m-f88bf389ffd1|resultado",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "1X2 de la persona usuaria con emparejamiento 1.54 (bajo; hora y API coherentes). Ambos rotan ~4 cambios, local 8 días de descanso; sin alineaciones; validación insuficiente.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-f88bf389ffd1|resultado",
+    "archivo:runs/2026-10-16/league_samples/257.json",
+    "archivo:runs/2026-10-16/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-f88bf389ffd1|tarjetas",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Árbitro sin designar (n=0). Tarma 6.18 (n=22) vs Chankas 4.65 (n=23), liga 5.14 (n=204). Sin precio; regla de puntos de tarjeta sin verificar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-f88bf389ffd1|tarjetas",
+    "archivo:runs/2026-10-16/league_samples/257.json"
+   ]
+  }
+ ],
+ "limitaciones": [
+  "Cuotas de agregador observadas el 14-oct (1-5 casas), no ejecutables; sin alineaciones ni once; sin consulta a apifootball ni a fuentes web.",
+  "Le Mans n=6 en liga 168; árbitro A. Petit n=2; Chankas-Tarma sin árbitro y emparejamiento captura 1.54; reglas de tarjetas sin verificar."
+ ]
+}

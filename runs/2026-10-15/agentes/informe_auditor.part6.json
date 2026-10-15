@@ -1,0 +1,1167 @@
+{
+ "agente": "auditor",
+ "version_contrato": 1,
+ "run": "runs/2026-10-15",
+ "unidades": [
+  {
+   "unit_id": "m-9e70d0113380|1.ª parte goles",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "alta",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Sin precio en apifootball ni thestatsapi y sin probabilidad del modelo; solo 8/10 y 8/10 con gol en 1T (n10, liga+Copa). No hay base para contrastar valor.",
+   "evidencia": [
+    "paquete:m-9e70d0113380|1.ª parte goles",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-9e70d0113380|1.ª parte resultado",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "alta",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Sin precio en ninguna fuente y sin modelo; Inter empata 1T 8/10 y Llaneros 5/10 (n10 mixto). Sin base de valor.",
+   "evidencia": [
+    "paquete:m-9e70d0113380|1.ª parte resultado",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-9e70d0113380|córners",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "alta",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Sin precio en ninguna fuente y sin p; totales 11.2 (n10) y 9.3 (n10) mezclando liga y Copa, sin arbitro. Eliminatoria de Copa: contexto no ponderado.",
+   "evidencia": [
+    "paquete:m-9e70d0113380|córners",
+    "archivo:runs/2026-10-15/matrix.json",
+    "apif_query:get_events match_id=861681"
+   ]
+  },
+  {
+   "unit_id": "m-9e70d0113380|doble oportunidad",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Sin p del modelo; 1X 1.14 solo de agregador (3 casas). Partido es Copa Colombia cuartos: formato/prorroga no verificado; Inter 6E-2G-2P, Llaneros 7P en 10.",
+   "evidencia": [
+    "paquete:m-9e70d0113380|doble oportunidad",
+    "archivo:data/model_validation.json",
+    "apif_query:get_events match_id=861681"
+   ]
+  },
+  {
+   "unit_id": "m-9e70d0113380|empate no válido",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "alta",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Precios V (no verificables, 1 casa) y paquete desactualizado vs feed de 9 casas; sin extractor ni p. No hay precio ejecutable ni estimador.",
+   "evidencia": [
+    "paquete:m-9e70d0113380|empate no válido"
+   ]
+  },
+  {
+   "unit_id": "m-9e70d0113380|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor, sin estimador y sin precio en ninguna fuente; no hay base para valorar el mercado.",
+   "evidencia": [
+    "paquete:m-9e70d0113380|fueras de juego"
+   ]
+  },
+  {
+   "unit_id": "m-9e70d0113380|goles",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Under 2.5 a 1.55 (R) implica ~59% sin margen; muestra over 2.5 en 11/20 y BTTS 13/20, media liga 2.69 (n59). Sin p. Lineas de agregador pre-feed de 9 casas.",
+   "evidencia": [
+    "paquete:m-9e70d0113380|goles",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/league_samples/475.json"
+   ]
+  },
+  {
+   "unit_id": "m-9e70d0113380|goles por equipo",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "alta",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Sin precio en agregadores y sin p; Inter 1.3 GF/1.4 GC y Llaneros 1.2/1.5 (n10 mixto). Mercado por equipo no comprobado en la casa.",
+   "evidencia": [
+    "paquete:m-9e70d0113380|goles por equipo",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-9e70d0113380|goles total entero",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin precio en las fuentes, sin extractor ni estimador; el empuje en linea entera no esta modelado.",
+   "evidencia": [
+    "paquete:m-9e70d0113380|goles total entero"
+   ]
+  },
+  {
+   "unit_id": "m-9e70d0113380|hándicap",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "alta",
+   "recomendacion": "verificar_manualmente",
+   "nota": "4 lineas AH de 1 casa (V) y paquete desactualizado vs feed de 9 casas; sin p. Equipos igualados (Inter 2G-6E-2P); sin precio ejecutable.",
+   "evidencia": [
+    "paquete:m-9e70d0113380|hándicap"
+   ]
+  },
+  {
+   "unit_id": "m-9e70d0113380|hándicap asiático entero",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "alta",
+   "recomendacion": "verificar_manualmente",
+   "nota": "8 lineas con precio V (no verificable, 1-2 casas), paquete desactualizado vs feed; sin extractor ni estimador y devolucion no modelada.",
+   "evidencia": [
+    "paquete:m-9e70d0113380|hándicap asiático entero"
+   ]
+  },
+  {
+   "unit_id": "m-9e70d0113380|hándicap europeo",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin precio en las fuentes, sin extractor ni estimador para hándicap europeo.",
+   "evidencia": [
+    "paquete:m-9e70d0113380|hándicap europeo"
+   ]
+  },
+  {
+   "unit_id": "m-9e70d0113380|remates",
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Datos de tiros parciales, sin estimador y sin precio en ninguna fuente.",
+   "evidencia": [
+    "paquete:m-9e70d0113380|remates",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-9e70d0113380|remates a puerta",
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Datos de tiros a puerta parciales, sin estimador y sin precio en ninguna fuente.",
+   "evidencia": [
+    "paquete:m-9e70d0113380|remates a puerta",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-9e70d0113380|resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Precios R 2.05/2.90/4.00 sin p del modelo. Es Copa Colombia cuartos (formato y prorroga no verificados); Inter 6 empates en 10, Llaneros 7 derrotas.",
+   "evidencia": [
+    "paquete:m-9e70d0113380|resultado",
+    "archivo:data/model_validation.json",
+    "apif_query:get_events match_id=861681",
+    "archivo:runs/2026-10-15/ligas/partidos_usuario.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "factor_principal",
+     "problema": "omision"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-9e70d0113380|tarjetas",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "alta",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Sin precio en ninguna fuente, sin p y arbitro sin designar. Puntos Inter 5.3 (n9) y Llaneros 6.2 (n9); definicion de tarjetas de la casa sin verificar.",
+   "evidencia": [
+    "paquete:m-9e70d0113380|tarjetas",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-a56b519cc248|1.ª parte goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Over 0.5 1T p=0.67 pero 1T no figura entre familias validadas; 2 de 4 lineas con brecha >=15pp. Sturm 5/10 con gol 1T (n10 mixto), rota 6 cambios.",
+   "evidencia": [
+    "paquete:m-a56b519cc248|1.ª parte goles",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-a56b519cc248|1.ª parte resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 33pp entre p del modelo y agregador; solo 1 de 3 lineas dentro del limite. Sturm empata 1T 6/10 vs Bournemouth 2/10; 1T sin validacion.",
+   "evidencia": [
+    "paquete:m-a56b519cc248|1.ª parte resultado",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-a56b519cc248|córners",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "corners_total sin cuotas historicas (0 partidos vs mercado). 17 lineas con brecha >=15pp, 11 de 15 en rango de 1 sola casa; Sturm 12.9 (n10) mezcla UCL/UEL; Brentford 2-1 con 28 remates dudoso.",
+   "evidencia": [
+    "paquete:m-a56b519cc248|córners",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_206128919.json"
+   ]
+  },
+  {
+   "unit_id": "m-a56b519cc248|doble oportunidad",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "1X a 1.03 (agregador) implica ~97% frente a p=0.71; brecha 26pp (max 32pp) y pago ~3%. Bournemouth sin victoria liguera en la muestra; Sturm rota 6 cambios.",
+   "evidencia": [
+    "paquete:m-a56b519cc248|doble oportunidad",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-a56b519cc248|empate no válido",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Datos sin_extractor y validacion no_evaluada; DNB local 1.06 (2 casas) vs p=0.613; DNB visitante 12.0 fuera del limite. Es el mismo evento que 1X2/AH0.",
+   "evidencia": [
+    "paquete:m-a56b519cc248|empate no válido",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-a56b519cc248|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor, sin estimador y sin precio en ninguna fuente; no hay base para valorar el mercado.",
+   "evidencia": [
+    "paquete:m-a56b519cc248|fueras de juego"
+   ]
+  },
+  {
+   "unit_id": "m-a56b519cc248|goles",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Over 2.5 a 1.36 (Bet365 1.364) implica ~73% frente a p=0.514 y muestra 10/20; R en 3.5 (1.9/1.87) vs p=0.29. Brecha max 23pp; goals_total n=103<200.",
+   "evidencia": [
+    "paquete:m-a56b519cc248|goles",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_206128919.json"
+   ]
+  },
+  {
+   "unit_id": "m-a56b519cc248|goles por equipo",
+   "objecion": "fuente_unica",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Las 8 lineas dentro del limite proceden de 1 sola casa (agregador); brecha max 40pp frente al modelo. team_goals sin cuotas historicas.",
+   "evidencia": [
+    "paquete:m-a56b519cc248|goles por equipo",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_206128919.json"
+   ]
+  },
+  {
+   "unit_id": "m-a56b519cc248|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Sin extractor ni estimador; linea entera con devolucion (push) no modelada. Precio solo de agregador (1-2 casas); no hay p contra la que contrastar.",
+   "evidencia": [
+    "paquete:m-a56b519cc248|goles total entero",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_206128919.json"
+   ]
+  },
+  {
+   "unit_id": "m-a56b519cc248|hándicap",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 42pp: modelo local -0.5 0.46 vs mercado muy favorable; 3 lineas de 1 casa con cuota extrema. Sturm rota 6 cambios; sin once.",
+   "evidencia": [
+    "paquete:m-a56b519cc248|hándicap",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-a56b519cc248|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Sin extractor ni estimador; devolucion en linea entera no modelada; precios de agregador (1-5 casas) con colas de 1 casa.",
+   "evidencia": [
+    "paquete:m-a56b519cc248|hándicap asiático entero",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_206128919.json"
+   ]
+  },
+  {
+   "unit_id": "m-a56b519cc248|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Sin extractor ni estimador para hándicap europeo; precios solo de agregador (2-3 casas) y sin p para contrastar.",
+   "evidencia": [
+    "paquete:m-a56b519cc248|hándicap europeo",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_206128919.json"
+   ]
+  },
+  {
+   "unit_id": "m-a56b519cc248|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Sin estimador; 4 lineas de 1 casa (agregador) y mayoria sin precio. Datos de tiros suficientes pero sin modelo ni validacion.",
+   "evidencia": [
+    "paquete:m-a56b519cc248|remates",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_206128919.json"
+   ]
+  },
+  {
+   "unit_id": "m-a56b519cc248|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Sin estimador; 6 lineas, todas de 1 casa (agregador). Datos suficientes pero sin modelo ni validacion.",
+   "evidencia": [
+    "paquete:m-a56b519cc248|remates a puerta",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_206128919.json"
+   ]
+  },
+  {
+   "unit_id": "m-a56b519cc248|resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "R local 1.20 (Bet365 1.182) vs p=0.459: brecha 37pp. Bournemouth 0 victorias en 8 ligueras de la muestra; Sturm rota 6 cambios. Solo local cumple limite y paga 20%.",
+   "evidencia": [
+    "paquete:m-a56b519cc248|resultado",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_206128919.json"
+   ]
+  },
+  {
+   "unit_id": "m-a56b519cc248|tarjetas",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Arbitro Brisard con n=0 en la liga; la muestra son puntos y la linea thestatsapi es total_cards (definicion sin verificar). Lineas de 1-2 casas; cards_total sin validar vs mercado.",
+   "evidencia": [
+    "paquete:m-a56b519cc248|tarjetas",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_206128919.json"
+   ]
+  },
+  {
+   "unit_id": "m-a95805fcf9cf|1.ª parte goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Modelo 1T sin familia validada; brecha de hasta 21pp vs agregador. Kauno 5/10 con gol 1T ante rivales lituanos; 4 dias de descanso y 4 cambios.",
+   "evidencia": [
+    "paquete:m-a95805fcf9cf|1.ª parte goles",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-a95805fcf9cf|1.ª parte resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 44pp modelo-agregador (3 de 3 lineas >=15pp); 1T sin validar; Kauno descanso justo y rotacion sin once.",
+   "evidencia": [
+    "paquete:m-a95805fcf9cf|1.ª parte resultado",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-a95805fcf9cf|córners",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Solo 4 lineas, las 4 de 1 casa (agregador); corners_total sin validacion vs mercado. Kauno 12.0 (n10) casi todo liga lituana, sin ajuste por rival.",
+   "evidencia": [
+    "paquete:m-a95805fcf9cf|córners",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_739676136.json"
+   ]
+  },
+  {
+   "unit_id": "m-a95805fcf9cf|doble oportunidad",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "1X a 1.0075 (agregador) vs p=0.749: brecha 24pp (max 42pp) y pago <1%; cualquier error de modelo o de precio anula el margen. Kauno descanso justo (4 dias).",
+   "evidencia": [
+    "paquete:m-a95805fcf9cf|doble oportunidad",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-a95805fcf9cf|empate no válido",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Datos sin_extractor, validacion no_evaluada; DNB local 1.0075 y visitante 42 (agregador): sin pago util ni validacion; brecha p=0.675 vs mercado.",
+   "evidencia": [
+    "paquete:m-a95805fcf9cf|empate no válido",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-a95805fcf9cf|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor, sin estimador y sin precio en ninguna fuente; no hay base para valorar el mercado.",
+   "evidencia": [
+    "paquete:m-a95805fcf9cf|fueras de juego"
+   ]
+  },
+  {
+   "unit_id": "m-a95805fcf9cf|goles",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "R en 4.5 (2.0/1.75) vs p over 4.5=0.19; over 2.5 1.135 anomalo y desactualizado vs feed. 11 lineas con brecha >=15pp (max 36pp); Kauno sobre rivales lituanos.",
+   "evidencia": [
+    "paquete:m-a95805fcf9cf|goles",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-15/matrix.json",
+    "apif_query:get_odds match_id=853455"
+   ]
+  },
+  {
+   "unit_id": "m-a95805fcf9cf|goles por equipo",
+   "objecion": "fuente_unica",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Las 6 lineas dentro del limite son de 1 casa, con cuotas extremas flagged; brecha max 54pp. Kauno 0.7 GC y Brighton 2.5 GF contra rivales de nivel desigual.",
+   "evidencia": [
+    "paquete:m-a95805fcf9cf|goles por equipo",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_739676136.json"
+   ]
+  },
+  {
+   "unit_id": "m-a95805fcf9cf|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Sin extractor ni estimador; linea entera con devolucion (push) no modelada. Precio solo de agregador (1-2 casas); no hay p contra la que contrastar.",
+   "evidencia": [
+    "paquete:m-a95805fcf9cf|goles total entero",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_739676136.json"
+   ]
+  },
+  {
+   "unit_id": "m-a95805fcf9cf|hándicap",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 64pp (8 de 10 lineas >=15pp) con 4 lineas de 1 casa extremas; el modelo no ajusta por nivel de rival (Kauno liga lituana).",
+   "evidencia": [
+    "paquete:m-a95805fcf9cf|hándicap",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-a95805fcf9cf|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Sin extractor ni estimador; devolucion en linea entera no modelada; precios de agregador (1-5 casas) con colas de 1 casa.",
+   "evidencia": [
+    "paquete:m-a95805fcf9cf|hándicap asiático entero",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_739676136.json"
+   ]
+  },
+  {
+   "unit_id": "m-a95805fcf9cf|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Sin extractor ni estimador para hándicap europeo; precios solo de agregador (2-3 casas) y sin p para contrastar.",
+   "evidencia": [
+    "paquete:m-a95805fcf9cf|hándicap europeo",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_739676136.json"
+   ]
+  },
+  {
+   "unit_id": "m-a95805fcf9cf|remates",
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Datos de tiros insuficientes, sin estimador; 2 lineas de 1 casa.",
+   "evidencia": [
+    "paquete:m-a95805fcf9cf|remates",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-a95805fcf9cf|remates a puerta",
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Datos insuficientes y sin estimador; 6 lineas de 1 casa.",
+   "evidencia": [
+    "paquete:m-a95805fcf9cf|remates a puerta",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-a95805fcf9cf|resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "R local 1.02 vs p=0.521: brecha 46pp y pago ~2%; modelo sin ajuste de nivel de rival (Kauno liga lituana). Cuota casi sin valor informativo.",
+   "evidencia": [
+    "paquete:m-a95805fcf9cf|resultado",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-15/matrix.json",
+    "apif_query:get_odds match_id=853455"
+   ]
+  },
+  {
+   "unit_id": "m-a95805fcf9cf|tarjetas",
+   "objecion": "dato_defectuoso",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "El paquete dice arbitro s/d pero la API designa a M. Redder; sin muestra de ese arbitro en el paquete. 2 lineas de 1 casa; puntos Brighton 3.5 vs Kauno 4.56.",
+   "evidencia": [
+    "paquete:m-a95805fcf9cf|tarjetas",
+    "apif_query:get_events match_id=853455",
+    "archivo:data/model_validation.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "nota",
+     "problema": "valor_contradice_fuente"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-b0b717452609|1.ª parte goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Coherente con agregador (<=10pp) pero 1T no esta en model_validation; Lyon rota 5.7 cambios y Palace incluye 2 partidos Como Cup en su muestra (n10).",
+   "evidencia": [
+    "paquete:m-b0b717452609|1.ª parte goles",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-b0b717452609|1.ª parte resultado",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Ninguna de las 3 lineas 1T cumple el limite 2.10 (agregador, 4 casas); modelo coherente pero 1T no validado y Lyon rota 5.7 cambios.",
+   "evidencia": [
+    "paquete:m-b0b717452609|1.ª parte resultado",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-b0b717452609|córners",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "corners_total sin validar vs mercado (0 partidos). 8 de 14 lineas de 1 casa; Palace n9 incluye Como Cup 31-jul (pretemporada, 5 corners) 8.0 vs Lyon 9.7; modelo over 9.5 p=0.41.",
+   "evidencia": [
+    "paquete:m-b0b717452609|córners",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_739679619.json"
+   ]
+  },
+  {
+   "unit_id": "m-b0b717452609|doble oportunidad",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Modelo 1X 0.77 coherente con agregador (5 casas) pero Lyon rota 5.7 cambios y Palace llega con 4 dias; sin once. Modelo dc sin validar (n=103<200).",
+   "evidencia": [
+    "paquete:m-b0b717452609|doble oportunidad",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-b0b717452609|empate no válido",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Datos sin_extractor y validacion no_evaluada pese a p=0.705; Lyon rota 5.7 cambios. Es duplicado del evento 1X2/AH0 (correlacion total).",
+   "evidencia": [
+    "paquete:m-b0b717452609|empate no válido",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-b0b717452609|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor, sin estimador y sin precio en ninguna fuente; no hay base para valorar el mercado.",
+   "evidencia": [
+    "paquete:m-b0b717452609|fueras de juego"
+   ]
+  },
+  {
+   "unit_id": "m-b0b717452609|goles",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "p over 2.5=0.58 alineado con R 1.61, pero goals_total sin validar (n=103<200). Lyon rota 5.7 cambios y Palace incluye Como Cup en su muestra de goles (2.1 GF).",
+   "evidencia": [
+    "paquete:m-b0b717452609|goles",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-b0b717452609|goles por equipo",
+   "objecion": "fuente_unica",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "5 de 7 lineas dentro del limite son de 1 casa; brecha <=13pp pero team_goals sin cuotas historicas; Lyon rota 5.7 cambios y baja su ataque.",
+   "evidencia": [
+    "paquete:m-b0b717452609|goles por equipo",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-b0b717452609|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Sin extractor ni estimador; linea entera con devolucion (push) no modelada. Precio solo de agregador (1-2 casas); no hay p contra la que contrastar.",
+   "evidencia": [
+    "paquete:m-b0b717452609|goles total entero",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_739679619.json"
+   ]
+  },
+  {
+   "unit_id": "m-b0b717452609|hándicap",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Coherente con agregador (<=14pp) pero Lyon rota 5.7 cambios y Palace 4 dias de descanso; AH replica el evento 1X2 (correlacion total con resultado/DNB).",
+   "evidencia": [
+    "paquete:m-b0b717452609|hándicap",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-b0b717452609|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Sin extractor ni estimador; devolucion en linea entera no modelada; precios de agregador (1-5 casas) con colas de 1 casa.",
+   "evidencia": [
+    "paquete:m-b0b717452609|hándicap asiático entero",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_739679619.json"
+   ]
+  },
+  {
+   "unit_id": "m-b0b717452609|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Sin extractor ni estimador para hándicap europeo; precios solo de agregador (2-3 casas) y sin p para contrastar.",
+   "evidencia": [
+    "paquete:m-b0b717452609|hándicap europeo",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_739679619.json"
+   ]
+  },
+  {
+   "unit_id": "m-b0b717452609|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Sin estimador; 6 lineas, 2 de 1 casa; mayoria sin precio. Lyon rota 5.7 cambios sin cuantificar efecto en tiros.",
+   "evidencia": [
+    "paquete:m-b0b717452609|remates",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_739679619.json",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-b0b717452609|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Sin estimador; 8 lineas, 4 de 1 casa; Lyon rota 5.7 cambios.",
+   "evidencia": [
+    "paquete:m-b0b717452609|remates a puerta",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_739679619.json",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-b0b717452609|resultado",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Modelo coherente (brecha <=9pp), 1x2 n=103<200 sin validar. Lyon rota 5.7 cambios; Palace 4 dias de descanso; ninguna linea R dentro del limite 2.10.",
+   "evidencia": [
+    "paquete:m-b0b717452609|resultado",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-b0b717452609|tarjetas",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Arbitro Pinheiro solo n=2 en la liga (1 y 2 tarjetas); Palace n7 incluye Como Cup 31-jul (pretemporada, sin arbitro). Definicion total_cards vs puntos sin verificar.",
+   "evidencia": [
+    "paquete:m-b0b717452609|tarjetas",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_739679619.json"
+   ]
+  },
+  {
+   "unit_id": "m-c5c750ddb126|1.ª parte goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin p del modelo; 9/10 y 7/10 con gol en 1T (n10 mixto) y ambos rotan (5.0 y 5.5 cambios). Precio solo de agregador (2-3 casas).",
+   "evidencia": [
+    "paquete:m-c5c750ddb126|1.ª parte goles",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-c5c750ddb126|1.ª parte resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin p del modelo; empate 1T 4/10 y 6/10 (n10) y ambos rotan mucho; 1 de 3 lineas dentro del limite, precio solo de agregador.",
+   "evidencia": [
+    "paquete:m-c5c750ddb126|1.ª parte resultado",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-c5c750ddb126|córners",
+   "objecion": "dato_defectuoso",
+   "severidad": "alta",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Ararat: 2 partidos de liga armenia con 3 y 1 corners totales y sin remates (stats parciales); sin ellos su media pasa de 9.6 a 11.5. Sin p; 9 de 15 lineas de 1 casa.",
+   "evidencia": [
+    "paquete:m-c5c750ddb126|córners",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_895786467.json"
+   ]
+  },
+  {
+   "unit_id": "m-c5c750ddb126|doble oportunidad",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Sin p del modelo; 1X 1.10 implica ~91% pero Jagiellonia W4-E1-P5 y perdio los ultimos 4 de 5 (n10 mixto); ambos rotan mucho. Precio de agregador (5 casas).",
+   "evidencia": [
+    "paquete:m-c5c750ddb126|doble oportunidad",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-c5c750ddb126|empate no válido",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Sin p y datos sin_extractor; DNB local 1.14 de agregador (2 casas); racha de 4 derrotas en 5 y ambos rotan mucho.",
+   "evidencia": [
+    "paquete:m-c5c750ddb126|empate no válido",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-c5c750ddb126|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor, sin estimador y sin precio en ninguna fuente; no hay base para valorar el mercado.",
+   "evidencia": [
+    "paquete:m-c5c750ddb126|fueras de juego"
+   ]
+  },
+  {
+   "unit_id": "m-c5c750ddb126|goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Sin p; over 2.5 R 1.58 vs muestra 12/20 (8/10 y 4/10); ambos rotan 5.0 y 5.5 cambios; Ararat ligas armenias con stats parciales. No hay contraste de valor.",
+   "evidencia": [
+    "paquete:m-c5c750ddb126|goles",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-c5c750ddb126|goles por equipo",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "alta",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Lineas no encontradas en las fuentes (thestatsapi cubre el mercado pero no estas lineas) y sin p; Ararat 1.0 GC contra rivales armenios mas debiles.",
+   "evidencia": [
+    "paquete:m-c5c750ddb126|goles por equipo",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-c5c750ddb126|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Sin extractor ni estimador; linea entera con devolucion (push) no modelada. Precio solo de agregador (1-2 casas); no hay p contra la que contrastar.",
+   "evidencia": [
+    "paquete:m-c5c750ddb126|goles total entero",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_895786467.json"
+   ]
+  },
+  {
+   "unit_id": "m-c5c750ddb126|hándicap",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin p; 1 linea de 1 casa con cuota extrema; local 1.38 pero 4 derrotas en 5 y ambos rotan. Lineas AH sin cuota verificada en la casa.",
+   "evidencia": [
+    "paquete:m-c5c750ddb126|hándicap",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-c5c750ddb126|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Sin extractor ni estimador; devolucion en linea entera no modelada; precios de agregador (1-5 casas) con colas de 1 casa.",
+   "evidencia": [
+    "paquete:m-c5c750ddb126|hándicap asiático entero",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_895786467.json"
+   ]
+  },
+  {
+   "unit_id": "m-c5c750ddb126|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Sin extractor ni estimador para hándicap europeo; precios solo de agregador (2-3 casas) y sin p para contrastar.",
+   "evidencia": [
+    "paquete:m-c5c750ddb126|hándicap europeo",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_895786467.json"
+   ]
+  },
+  {
+   "unit_id": "m-c5c750ddb126|remates",
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Datos de tiros insuficientes (Ararat sin remates en partidos de liga armenia), sin estimador y sin precio.",
+   "evidencia": [
+    "paquete:m-c5c750ddb126|remates",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-c5c750ddb126|remates a puerta",
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Datos parciales, sin estimador y sin precio (thestatsapi cubre el mercado pero estas lineas no aparecen).",
+   "evidencia": [
+    "paquete:m-c5c750ddb126|remates a puerta",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-c5c750ddb126|resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Sin p; local 1.38 implica ~70% pero Jagiellonia W4-E1-P5 en 10 y perdio 4 de los ultimos 5; ambos rotan 5.0 y 5.5 cambios.",
+   "evidencia": [
+    "paquete:m-c5c750ddb126|resultado",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-c5c750ddb126|tarjetas",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Sin p; arbitro Papapetrou n=0 en la liga, 3 de 8 lineas de 1 casa y una con cuota extrema; Ararat con stats parciales (3/10 con arbitro). Definicion de tarjetas sin verificar.",
+   "evidencia": [
+    "paquete:m-c5c750ddb126|tarjetas",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_895786467.json"
+   ]
+  },
+  {
+   "unit_id": "m-cb7c9addd164|1.ª parte goles",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Sparta 10/10 con gol 1T ante rivales checos menores; rota 4.7 cambios con 4 dias de descanso. p=0.83 sin validar y sin once confirmado.",
+   "evidencia": [
+    "paquete:m-cb7c9addd164|1.ª parte goles",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-cb7c9addd164|1.ª parte resultado",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Modelo coherente (brecha <=6pp) pero Sparta rota 4.7 cambios con 4 dias; Sparta 0/10 empata al descanso, sesgo de rivales menores; 1T no validado.",
+   "evidencia": [
+    "paquete:m-cb7c9addd164|1.ª parte resultado",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-cb7c9addd164|córners",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "corners_total sin validar vs mercado; 14 lineas con brecha >=15pp (max 31pp), 10 de 16 de 1 casa. Lillestrom 9/9 >9.5 (n9) en Eliteserie/copas sin ajuste por rival.",
+   "evidencia": [
+    "paquete:m-cb7c9addd164|córners",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_981392181.json"
+   ]
+  },
+  {
+   "unit_id": "m-cb7c9addd164|doble oportunidad",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Coherente (brecha <=9pp) pero 1X a 1.08 paga poco; Sparta rota 4.7 cambios, 4 dias de descanso, goleadas a rivales checos menores y 0-3 ante Lyon.",
+   "evidencia": [
+    "paquete:m-cb7c9addd164|doble oportunidad",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-cb7c9addd164|empate no válido",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Datos sin_extractor, validacion no_evaluada; p=0.795 vs 1.111 agregador. Sparta sin empates (7G-0E-3P) en muestra sesgada por rivales menores; rota 4.7.",
+   "evidencia": [
+    "paquete:m-cb7c9addd164|empate no válido",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-cb7c9addd164|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor, sin estimador y sin precio en ninguna fuente; no hay base para valorar el mercado.",
+   "evidencia": [
+    "paquete:m-cb7c9addd164|fueras de juego"
+   ]
+  },
+  {
+   "unit_id": "m-cb7c9addd164|goles",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "El precio R es en 3.5 (2.25/1.61); over 2.5 a 1.53 es solo agregador. Muestra en 3.5: 7/20 con >=4 goles; Sparta rota 4.7 cambios; goleadas a rivales menores.",
+   "evidencia": [
+    "paquete:m-cb7c9addd164|goles",
+    "archivo:runs/2026-10-15/ligas/partidos_usuario.json",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "goles.total.over.3.5",
+     "objecion": "estimador_sin_validar"
+    },
+    {
+     "entry_id": "goles.total.under.3.5",
+     "objecion": "estimador_sin_validar"
+    }
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "nota",
+     "problema": "dato_citado_incorrecto"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-cb7c9addd164|goles por equipo",
+   "objecion": "fuente_unica",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Las 8 lineas dentro del limite son de 1 casa; 1 linea con brecha >=15pp (max 17pp). Sparta 2.5 GF inflado por goleadas a rivales checos menores (n10).",
+   "evidencia": [
+    "paquete:m-cb7c9addd164|goles por equipo",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-cb7c9addd164|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Sin extractor ni estimador; linea entera con devolucion (push) no modelada. Precio solo de agregador (1-2 casas); no hay p contra la que contrastar.",
+   "evidencia": [
+    "paquete:m-cb7c9addd164|goles total entero",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_981392181.json"
+   ]
+  },
+  {
+   "unit_id": "m-cb7c9addd164|hándicap",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Coherente (<=9pp) pero Sparta rota 4.7 cambios con 4 dias; -1.5 depende de goleadas a rivales menores; 1 linea de 1 casa con cuota extrema.",
+   "evidencia": [
+    "paquete:m-cb7c9addd164|hándicap",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-cb7c9addd164|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Sin extractor ni estimador; devolucion en linea entera no modelada; precios de agregador (1-5 casas) con colas de 1 casa.",
+   "evidencia": [
+    "paquete:m-cb7c9addd164|hándicap asiático entero",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_981392181.json"
+   ]
+  },
+  {
+   "unit_id": "m-cb7c9addd164|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Sin extractor ni estimador para hándicap europeo; precios solo de agregador (2-3 casas) y sin p para contrastar.",
+   "evidencia": [
+    "paquete:m-cb7c9addd164|hándicap europeo",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_981392181.json"
+   ]
+  },
+  {
+   "unit_id": "m-cb7c9addd164|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Sin estimador y sin precio en ninguna fuente aunque los datos de tiros sean suficientes; no hay base de contraste.",
+   "evidencia": [
+    "paquete:m-cb7c9addd164|remates",
+    "archivo:runs/2026-10-15/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-cb7c9addd164|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Sin estimador; 4 lineas de 1 casa. Datos suficientes pero sin modelo ni validacion.",
+   "evidencia": [
+    "paquete:m-cb7c9addd164|remates a puerta",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_981392181.json"
+   ]
+  },
+  {
+   "unit_id": "m-cb7c9addd164|resultado",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Coherente (<=9pp) pero Sparta rota 4.7 cambios con 4 dias de descanso; 7G-0E-3P ante rivales menores con 0-3 ante Lyon y Slavia; 1x2 sin validar.",
+   "evidencia": [
+    "paquete:m-cb7c9addd164|resultado",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-cb7c9addd164|tarjetas",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "5 lineas con brecha >=15pp (max 25pp); arbitro Matosa n=0 en la liga; Lillestrom n7; una linea de 1 casa a cuota extrema. cards_total sin validar vs mercado.",
+   "evidencia": [
+    "paquete:m-cb7c9addd164|tarjetas",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_981392181.json"
+   ]
+  }
+ ],
+ "limitaciones": [
+  "Sin otras fuentes web: solo paquete, matrix, rotation, thestatsapi y 4 consultas puntuales a apifootball (get_events 853455, 853617, 861681; get_odds 853455).",
+  "Copa Colombia cuartos (Inter Bogota-Llaneros): formato (ida/vuelta, prorroga) no verificado; alineaciones sin_snapshot en los 6 partidos; no hay bajas confirmadas.",
+  "Definicion de total_cards de thestatsapi vs puntos del modelo y reglas de liquidacion de la casa no verificadas; paquete.json se filtro por unit_id, no se leyo entero.",
+  "Veredictos del lote aplican reglas por grupo y partido sobre hechos del paquete; el modelo propio esta en nivel insuficiente de validacion (n vs mercado 103<200)."
+ ]
+}

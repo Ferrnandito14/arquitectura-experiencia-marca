@@ -190,6 +190,20 @@ class Agentes(unittest.TestCase):
         reps = self.reports(us, verificador={"disponibilidad": "no_ofrecida", "precio": "sin_precio"})
         self.assertEqual(cr.agent_status(us, reps)[(us[0]["unit_id"], OVER[0])], "aprobada")
 
+    def test_un_refresco_de_cuotas_posterior_no_invalida_el_informe_entero(self):
+        revisado = [unit(1, [entrada(OVER[0], 1.5, 0.7, estado="otra_fuente")]), unit(2, [entrada(OVER[0], 1.5, 0.7, estado="otra_fuente")])]
+        reps = self.reports(revisado)
+        vivo = copy.deepcopy(revisado)
+        vivo[0]["entradas"][0]["precio"] = {"estado": "sin_precio", "cuota": None, "fuente": None, "tipo": None, "cumple_limite_2_10": None}      # la fuente dejó de cotizar en el partido 1
+        vivo[0]["resumen"]["precio"] = {"sin_precio": 1}
+        # contra las unidades vivas el informe del verificador deja de ser coherente (afirma un precio que el paquete vivo no tiene) → NADA queda revisado, ni el partido 2
+        self.assertEqual(cr.agent_status(vivo, reps)[(revisado[1]["unit_id"], OVER[0])], "sin_revision")
+        # contra el paquete revisado sí vale: el partido 2 sigue aprobado y el 1, que perdió su precio, se avisa como precio nuevo sin revisar
+        rev = {(u["match_id"], e["id"]): (e["precio"]["estado"], e["precio"]["cuota"], e["precio"]["fuente"]) for u in revisado for e in u["entradas"]}
+        st = cr.agent_status(vivo, reps, rev, revisado)
+        self.assertEqual(st[(revisado[1]["unit_id"], OVER[0])], "aprobada")
+        self.assertEqual(st[(revisado[0]["unit_id"], OVER[0])], "precio_nuevo_sin_revisar")
+
     def test_informe_con_errores_no_aprueba_nada(self):
         us = [unit(1, [entrada(OVER[0], 1.5, 0.7)])]
         reps = self.reports(us)

@@ -1,0 +1,1203 @@
+{
+ "agente": "auditor",
+ "version_contrato": 1,
+ "run": "runs/2026-10-17",
+ "unidades": [
+  {
+   "unit_id": "m-151b3f3436d5|1.ª parte goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha 7 pp max vs 1/cuota (agregador n_casas 2); coincidir con el mercado no valida el modelo: validacion no evaluada (data/model_validation.json). 1T NO_EVALUABLE en matrix. Deportivo cita k/n de 1T",
+   "evidencia": [
+    "paquete:m-151b3f3436d5|1.ª parte goles",
+    "archivo:data/model_validation.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "nota",
+     "problema": "afirmacion_sin_evidencia"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-151b3f3436d5|1.ª parte resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha 15 pp max vs 1/cuota (agregador n_casas 3); coincidir con el mercado no valida el modelo: validacion no evaluada (data/model_validation.json). 1T NO_EVALUABLE en matrix.",
+   "evidencia": [
+    "paquete:m-151b3f3436d5|1.ª parte resultado",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-151b3f3436d5|córners",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 16 pp entre p modelo y 1/cuota (c.equipo.home.under.3.5; agregador no ejecutable, n_casas 1); validacion insuficiente. Cuota solo en 6/46 lineas.",
+   "evidencia": [
+    "paquete:m-151b3f3436d5|córners",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-151b3f3436d5|doble oportunidad",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 21 pp entre p modelo y 1/cuota (dc.x2; agregador no ejecutable, n_casas 5); validacion insuficiente.",
+   "evidencia": [
+    "paquete:m-151b3f3436d5|doble oportunidad",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-151b3f3436d5|empate no válido",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 27 pp entre p modelo y 1/cuota (dnb.away; agregador no ejecutable, n_casas 3); validacion no evaluada. Datos sin_extractor. Cuant dice datos_insuficientes pese a brecha.",
+   "evidencia": [
+    "paquete:m-151b3f3436d5|empate no válido",
+    "archivo:data/model_validation.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "cuantitativo",
+     "campo": "consistencia_modelo",
+     "problema": "omision"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-151b3f3436d5|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor de datos, estimador no implementado y mercado no ofrecido en fuentes; nada que contrastar.",
+   "evidencia": [
+    "paquete:m-151b3f3436d5|fueras de juego",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-151b3f3436d5|goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha 5 pp max vs 1/cuota (usuario); coincidir con el mercado no valida el modelo: validacion insuficiente (data/model_validation.json).",
+   "evidencia": [
+    "paquete:m-151b3f3436d5|goles",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-151b3f3436d5|goles por equipo",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 18 pp entre p modelo y 1/cuota (g.equipo.home.under.1.5; agregador no ejecutable, n_casas 1); validacion insuficiente.",
+   "evidencia": [
+    "paquete:m-151b3f3436d5|goles por equipo",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-151b3f3436d5|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor ni estimador (0/10 con p); precio solo de agregador (n_casas 1+), no ejecutable. No hay modelo con el que contrastar.",
+   "evidencia": [
+    "paquete:m-151b3f3436d5|goles total entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-151b3f3436d5|hándicap",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 21 pp entre p modelo y 1/cuota (ah.away.+0.5; agregador no ejecutable, n_casas 1); validacion no evaluada.",
+   "evidencia": [
+    "paquete:m-151b3f3436d5|hándicap",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-151b3f3436d5|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor ni estimador (0/10 con p); precio solo de agregador (n_casas 1+), no ejecutable. No hay modelo con el que contrastar.",
+   "evidencia": [
+    "paquete:m-151b3f3436d5|hándicap asiático entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-151b3f3436d5|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor ni estimador (0/12 con p); precio solo de agregador (n_casas 1+), no ejecutable. No hay modelo con el que contrastar.",
+   "evidencia": [
+    "paquete:m-151b3f3436d5|hándicap europeo",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-151b3f3436d5|remates",
+   "objecion": "fuente_unica",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no implementado (0/90 lineas con p); precio en 6/90 lineas, agregador con 1 casa. Estadistica descriptiva n<=10 de una sola fuente (apifootball), sin ajuste de rival.",
+   "evidencia": [
+    "paquete:m-151b3f3436d5|remates",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-151b3f3436d5|remates a puerta",
+   "objecion": "fuente_unica",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no implementado (0/60 lineas con p); precio en 6/60 lineas, agregador con 1 casa. Estadistica descriptiva n<=10 de una sola fuente (apifootball), sin ajuste de rival.",
+   "evidencia": [
+    "paquete:m-151b3f3436d5|remates a puerta",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-151b3f3436d5|resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 19 pp entre p modelo y 1/cuota (1x2.away; cuota usuario, n_casas None); validacion insuficiente.",
+   "evidencia": [
+    "paquete:m-151b3f3436d5|resultado",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-151b3f3436d5|tarjetas",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Tarjetas: 0 lineas con cuota util para contraste; validacion insuficiente. Arbitro s/d n=0 en liga; media de arbitro no es probabilidad.",
+   "evidencia": [
+    "paquete:m-151b3f3436d5|tarjetas",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-1955e92ed445|1.ª parte goles",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 27 pp entre p modelo y 1/cuota (primera_parte.total.over.0.5; agregador no ejecutable, n_casas 2); validacion no evaluada. 1T NO_EVALUABLE en matrix. Deportivo cita k/n de 1T no hallado en ",
+   "evidencia": [
+    "paquete:m-1955e92ed445|1.ª parte goles",
+    "archivo:data/model_validation.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "nota",
+     "problema": "afirmacion_sin_evidencia"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-1955e92ed445|1.ª parte resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha 14 pp max vs 1/cuota (agregador n_casas 2); coincidir con el mercado no valida el modelo: validacion no evaluada (data/model_validation.json). 1T NO_EVALUABLE en matrix.",
+   "evidencia": [
+    "paquete:m-1955e92ed445|1.ª parte resultado",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-1955e92ed445|córners",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 29 pp entre p modelo y 1/cuota (c.total.under.9.5; agregador no ejecutable, n_casas 1); validacion insuficiente. Cuota solo en 6/46 lineas.",
+   "evidencia": [
+    "paquete:m-1955e92ed445|córners",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-1955e92ed445|doble oportunidad",
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha 5 pp max vs 1/cuota (agregador n_casas 5); coincidir con el mercado no valida el modelo: validacion insuficiente (data/model_validation.json).",
+   "evidencia": [
+    "paquete:m-1955e92ed445|doble oportunidad",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-1955e92ed445|empate no válido",
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha 4 pp max vs 1/cuota (agregador n_casas 3); coincidir con el mercado no valida el modelo: validacion no evaluada (data/model_validation.json). Datos sin_extractor.",
+   "evidencia": [
+    "paquete:m-1955e92ed445|empate no válido",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-1955e92ed445|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor de datos, estimador no implementado y mercado no ofrecido en fuentes; nada que contrastar.",
+   "evidencia": [
+    "paquete:m-1955e92ed445|fueras de juego",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-1955e92ed445|goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha 9 pp max vs 1/cuota (usuario); coincidir con el mercado no valida el modelo: validacion insuficiente (data/model_validation.json). Verif cita Pinnacle sin esa linea.",
+   "evidencia": [
+    "paquete:m-1955e92ed445|goles",
+    "archivo:data/model_validation.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "verificador",
+     "campo": "nota",
+     "problema": "dato_citado_incorrecto"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-1955e92ed445|goles por equipo",
+   "objecion": "fuente_unica",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Cuota de 1 sola casa (agregador, brecha 8 pp, no ejecutable) y validacion insuficiente; muestra n<=10 de una fuente; coherencia con mercado no valida el estimador.",
+   "evidencia": [
+    "paquete:m-1955e92ed445|goles por equipo",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-1955e92ed445|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor ni estimador (0/10 con p); precio solo de agregador (n_casas 1+), no ejecutable. No hay modelo con el que contrastar.",
+   "evidencia": [
+    "paquete:m-1955e92ed445|goles total entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-1955e92ed445|hándicap",
+   "objecion": "fuente_unica",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Cuota de 1 sola casa (agregador, brecha 6 pp, no ejecutable) y validacion no evaluada; muestra n<=10 de una fuente; coherencia con mercado no valida el estimador. 4 lineas AH de fuente no verificable ",
+   "evidencia": [
+    "paquete:m-1955e92ed445|hándicap",
+    "archivo:data/model_validation.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.home.-1.5",
+     "objecion": "dato_defectuoso"
+    },
+    {
+     "entry_id": "resultado.ah.away.+1.5",
+     "objecion": "dato_defectuoso"
+    },
+    {
+     "entry_id": "resultado.ah.home.+2.5",
+     "objecion": "dato_defectuoso"
+    },
+    {
+     "entry_id": "resultado.ah.away.-2.5",
+     "objecion": "dato_defectuoso"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-1955e92ed445|hándicap asiático entero",
+   "objecion": "dato_defectuoso",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor ni estimador (0/10 con p); precio solo de agregador (n_casas 1+), no ejecutable. No hay modelo con el que contrastar. Hay lineas de fuente no verificable.",
+   "evidencia": [
+    "paquete:m-1955e92ed445|hándicap asiático entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-1955e92ed445|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor ni estimador (0/12 con p); precio solo de agregador (n_casas 1+), no ejecutable. No hay modelo con el que contrastar.",
+   "evidencia": [
+    "paquete:m-1955e92ed445|hándicap europeo",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-1955e92ed445|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no implementado (0/90 lineas con p); precio en 0/90 lineas, agregador con 1 casa. Estadistica descriptiva n<=10 de una sola fuente (apifootball), sin ajuste de rival.",
+   "evidencia": [
+    "paquete:m-1955e92ed445|remates",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-1955e92ed445|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no implementado (0/60 lineas con p); precio en 0/60 lineas, agregador con 1 casa. Estadistica descriptiva n<=10 de una sola fuente (apifootball), sin ajuste de rival.",
+   "evidencia": [
+    "paquete:m-1955e92ed445|remates a puerta",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-1955e92ed445|resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha 4 pp max vs 1/cuota (usuario); coincidir con el mercado no valida el modelo: validacion insuficiente (data/model_validation.json).",
+   "evidencia": [
+    "paquete:m-1955e92ed445|resultado",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-1955e92ed445|tarjetas",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Tarjetas: 0 lineas con cuota util para contraste; validacion insuficiente. Arbitro A. Carranza n=7 en liga; media de arbitro no es probabilidad.",
+   "evidencia": [
+    "paquete:m-1955e92ed445|tarjetas",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-1a83b4836168|1.ª parte goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha 13 pp max vs 1/cuota (agregador n_casas 2); coincidir con el mercado no valida el modelo: validacion no evaluada (data/model_validation.json). 1T NO_EVALUABLE en matrix. Deportivo cita k/n de 1",
+   "evidencia": [
+    "paquete:m-1a83b4836168|1.ª parte goles",
+    "archivo:data/model_validation.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "nota",
+     "problema": "afirmacion_sin_evidencia"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-1a83b4836168|1.ª parte resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 23 pp entre p modelo y 1/cuota (primera_parte.1x2.home; agregador no ejecutable, n_casas 2); validacion no evaluada. 1T NO_EVALUABLE en matrix.",
+   "evidencia": [
+    "paquete:m-1a83b4836168|1.ª parte resultado",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-1a83b4836168|córners",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 20 pp entre p modelo y 1/cuota (c.total.under.9.5; agregador no ejecutable, n_casas 1); validacion insuficiente. Cuota solo en 6/46 lineas.",
+   "evidencia": [
+    "paquete:m-1a83b4836168|córners",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-1a83b4836168|doble oportunidad",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 25 pp entre p modelo y 1/cuota (dc.1x; agregador no ejecutable, n_casas 4); validacion insuficiente.",
+   "evidencia": [
+    "paquete:m-1a83b4836168|doble oportunidad",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-1a83b4836168|empate no válido",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 35 pp entre p modelo y 1/cuota (dnb.home; agregador no ejecutable, n_casas 3); validacion no evaluada. Datos sin_extractor. Cuant dice datos_insuficientes pese a brecha.",
+   "evidencia": [
+    "paquete:m-1a83b4836168|empate no válido",
+    "archivo:data/model_validation.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "cuantitativo",
+     "campo": "consistencia_modelo",
+     "problema": "omision"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-1a83b4836168|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor de datos, estimador no implementado y mercado no ofrecido en fuentes; nada que contrastar.",
+   "evidencia": [
+    "paquete:m-1a83b4836168|fueras de juego",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-1a83b4836168|goles",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 19 pp entre p modelo y 1/cuota (g.total.over.2.5; cuota usuario, n_casas 2); validacion insuficiente.",
+   "evidencia": [
+    "paquete:m-1a83b4836168|goles",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-1a83b4836168|goles por equipo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin cuota en ninguna linea: no hay contraste ni EV; validacion insuficiente; muestra n<=10 mezcla L/V sin ajuste de rival (apifootball unica fuente).",
+   "evidencia": [
+    "paquete:m-1a83b4836168|goles por equipo",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-1a83b4836168|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor ni estimador (0/10 con p); precio solo de agregador (n_casas 1+), no ejecutable. No hay modelo con el que contrastar.",
+   "evidencia": [
+    "paquete:m-1a83b4836168|goles total entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-1a83b4836168|hándicap",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 24 pp entre p modelo y 1/cuota (ah.home.-1.5; agregador no ejecutable, n_casas 1); validacion no evaluada.",
+   "evidencia": [
+    "paquete:m-1a83b4836168|hándicap",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-1a83b4836168|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor ni estimador (0/10 con p); precio solo de agregador (n_casas 1+), no ejecutable. No hay modelo con el que contrastar.",
+   "evidencia": [
+    "paquete:m-1a83b4836168|hándicap asiático entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-1a83b4836168|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor ni estimador (0/12 con p); precio solo de agregador (n_casas 1+), no ejecutable. No hay modelo con el que contrastar.",
+   "evidencia": [
+    "paquete:m-1a83b4836168|hándicap europeo",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-1a83b4836168|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no implementado (0/90 lineas con p); precio en 0/90 lineas, agregador con 1 casa. Estadistica descriptiva n<=10 de una sola fuente (apifootball), sin ajuste de rival.",
+   "evidencia": [
+    "paquete:m-1a83b4836168|remates",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-1a83b4836168|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no implementado (0/60 lineas con p); precio en 0/60 lineas, agregador con 1 casa. Estadistica descriptiva n<=10 de una sola fuente (apifootball), sin ajuste de rival.",
+   "evidencia": [
+    "paquete:m-1a83b4836168|remates a puerta",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-1a83b4836168|resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 30 pp entre p modelo y 1/cuota (1x2.home; cuota usuario, n_casas None); validacion insuficiente. Modelo contradice al mercado.",
+   "evidencia": [
+    "paquete:m-1a83b4836168|resultado",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-1a83b4836168|tarjetas",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Tarjetas: 0 lineas con cuota util para contraste; validacion insuficiente. Arbitro s/d n=0 en liga; media de arbitro no es probabilidad.",
+   "evidencia": [
+    "paquete:m-1a83b4836168|tarjetas",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-20e8f7f2c225|1.ª parte goles",
+   "objecion": "fuente_unica",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Cuota de 1 sola casa (agregador, brecha 6 pp, no ejecutable) y validacion no evaluada; muestra n<=10 de una fuente; coherencia con mercado no valida el estimador. 1T NO_EVALUABLE en matrix. Deportivo ",
+   "evidencia": [
+    "paquete:m-20e8f7f2c225|1.ª parte goles",
+    "archivo:data/model_validation.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "nota",
+     "problema": "afirmacion_sin_evidencia"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-20e8f7f2c225|1.ª parte resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 15 pp entre p modelo y 1/cuota (primera_parte.1x2.away; agregador no ejecutable, n_casas 2); validacion no evaluada. 1T NO_EVALUABLE en matrix.",
+   "evidencia": [
+    "paquete:m-20e8f7f2c225|1.ª parte resultado",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-20e8f7f2c225|córners",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 31 pp entre p modelo y 1/cuota (c.equipo.home.under.3.5; agregador no ejecutable, n_casas 1); validacion insuficiente. Cuota solo en 6/46 lineas.",
+   "evidencia": [
+    "paquete:m-20e8f7f2c225|córners",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-20e8f7f2c225|doble oportunidad",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 17 pp entre p modelo y 1/cuota (dc.x2; agregador no ejecutable, n_casas 4); validacion insuficiente.",
+   "evidencia": [
+    "paquete:m-20e8f7f2c225|doble oportunidad",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-20e8f7f2c225|empate no válido",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 20 pp entre p modelo y 1/cuota (dnb.away; agregador no ejecutable, n_casas 1); validacion no evaluada. Datos sin_extractor. Cuant dice datos_insuficientes pese a brecha.",
+   "evidencia": [
+    "paquete:m-20e8f7f2c225|empate no válido",
+    "archivo:data/model_validation.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "cuantitativo",
+     "campo": "consistencia_modelo",
+     "problema": "omision"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-20e8f7f2c225|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor de datos, estimador no implementado y mercado no ofrecido en fuentes; nada que contrastar.",
+   "evidencia": [
+    "paquete:m-20e8f7f2c225|fueras de juego",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-20e8f7f2c225|goles",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 16 pp entre p modelo y 1/cuota (g.total.over.2.5; agregador no ejecutable, n_casas 2); validacion insuficiente. Verif cita Pinnacle sin esa linea.",
+   "evidencia": [
+    "paquete:m-20e8f7f2c225|goles",
+    "archivo:data/model_validation.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "verificador",
+     "campo": "nota",
+     "problema": "dato_citado_incorrecto"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-20e8f7f2c225|goles por equipo",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 24 pp entre p modelo y 1/cuota (g.equipo.away.over.2.5; agregador no ejecutable, n_casas 1); validacion insuficiente.",
+   "evidencia": [
+    "paquete:m-20e8f7f2c225|goles por equipo",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-20e8f7f2c225|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor ni estimador (0/10 con p); precio solo de agregador (n_casas 1+), no ejecutable. No hay modelo con el que contrastar.",
+   "evidencia": [
+    "paquete:m-20e8f7f2c225|goles total entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-20e8f7f2c225|hándicap",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 21 pp entre p modelo y 1/cuota (ah.away.-1.5; agregador no ejecutable, n_casas 1); validacion no evaluada.",
+   "evidencia": [
+    "paquete:m-20e8f7f2c225|hándicap",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-20e8f7f2c225|hándicap asiático entero",
+   "objecion": "dato_defectuoso",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor ni estimador (0/10 con p); precio solo de agregador (n_casas 1+), no ejecutable. No hay modelo con el que contrastar. Hay lineas de fuente no verificable.",
+   "evidencia": [
+    "paquete:m-20e8f7f2c225|hándicap asiático entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-20e8f7f2c225|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor ni estimador (0/12 con p); precio solo de agregador (n_casas 1+), no ejecutable. No hay modelo con el que contrastar.",
+   "evidencia": [
+    "paquete:m-20e8f7f2c225|hándicap europeo",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-20e8f7f2c225|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no implementado (0/90 lineas con p); precio en 0/90 lineas, agregador con 1 casa. Estadistica descriptiva n<=10 de una sola fuente (apifootball), sin ajuste de rival.",
+   "evidencia": [
+    "paquete:m-20e8f7f2c225|remates",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-20e8f7f2c225|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no implementado (0/60 lineas con p); precio en 0/60 lineas, agregador con 1 casa. Estadistica descriptiva n<=10 de una sola fuente (apifootball), sin ajuste de rival.",
+   "evidencia": [
+    "paquete:m-20e8f7f2c225|remates a puerta",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-20e8f7f2c225|resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 22 pp entre p modelo y 1/cuota (1x2.away; cuota usuario, n_casas None); validacion insuficiente. Modelo contradice al mercado.",
+   "evidencia": [
+    "paquete:m-20e8f7f2c225|resultado",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-20e8f7f2c225|tarjetas",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Tarjetas: solo cards_pts 3.5 de 1 casa agregador, definicion de puntos no verificada; resto sin precio. validacion insuficiente. Arbitro D. Nicolson n=10 en liga.",
+   "evidencia": [
+    "paquete:m-20e8f7f2c225|tarjetas",
+    "archivo:data/model_validation.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "cards_pts.total.over.3.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "cards_pts.total.under.3.5",
+     "objecion": "cuota_no_ejecutable"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-22160a4d200d|1.ª parte goles",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 16 pp entre p modelo y 1/cuota (primera_parte.total.under.1.5; agregador no ejecutable, n_casas 2); validacion no evaluada. 1T NO_EVALUABLE en matrix. Deportivo cita k/n de 1T no hallado en",
+   "evidencia": [
+    "paquete:m-22160a4d200d|1.ª parte goles",
+    "archivo:data/model_validation.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "nota",
+     "problema": "afirmacion_sin_evidencia"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-22160a4d200d|1.ª parte resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha 9 pp max vs 1/cuota (agregador n_casas 3); coincidir con el mercado no valida el modelo: validacion no evaluada (data/model_validation.json). 1T NO_EVALUABLE en matrix.",
+   "evidencia": [
+    "paquete:m-22160a4d200d|1.ª parte resultado",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-22160a4d200d|córners",
+   "objecion": "fuente_unica",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Cuota de 1 sola casa (agregador, brecha 9 pp, no ejecutable) y validacion insuficiente; muestra n<=10 de una fuente; coherencia con mercado no valida el estimador. Cuota solo en 6/46 lineas.",
+   "evidencia": [
+    "paquete:m-22160a4d200d|córners",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-22160a4d200d|doble oportunidad",
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha 8 pp max vs 1/cuota (agregador n_casas 4); coincidir con el mercado no valida el modelo: validacion insuficiente (data/model_validation.json).",
+   "evidencia": [
+    "paquete:m-22160a4d200d|doble oportunidad",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-22160a4d200d|empate no válido",
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha 8 pp max vs 1/cuota (agregador n_casas 3); coincidir con el mercado no valida el modelo: validacion no evaluada (data/model_validation.json). Datos sin_extractor.",
+   "evidencia": [
+    "paquete:m-22160a4d200d|empate no válido",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-22160a4d200d|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor de datos, estimador no implementado y mercado no ofrecido en fuentes; nada que contrastar.",
+   "evidencia": [
+    "paquete:m-22160a4d200d|fueras de juego",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-22160a4d200d|goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha 9 pp max vs 1/cuota (usuario); coincidir con el mercado no valida el modelo: validacion insuficiente (data/model_validation.json).",
+   "evidencia": [
+    "paquete:m-22160a4d200d|goles",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-22160a4d200d|goles por equipo",
+   "objecion": "fuente_unica",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Cuota de 1 sola casa (agregador, brecha 10 pp, no ejecutable) y validacion insuficiente; muestra n<=10 de una fuente; coherencia con mercado no valida el estimador.",
+   "evidencia": [
+    "paquete:m-22160a4d200d|goles por equipo",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-22160a4d200d|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor ni estimador (0/10 con p); precio solo de agregador (n_casas 1+), no ejecutable. No hay modelo con el que contrastar.",
+   "evidencia": [
+    "paquete:m-22160a4d200d|goles total entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-22160a4d200d|hándicap",
+   "objecion": "fuente_unica",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Cuota de 1 sola casa (agregador, brecha 7 pp, no ejecutable) y validacion no evaluada; muestra n<=10 de una fuente; coherencia con mercado no valida el estimador.",
+   "evidencia": [
+    "paquete:m-22160a4d200d|hándicap",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-22160a4d200d|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor ni estimador (0/10 con p); precio solo de agregador (n_casas 1+), no ejecutable. No hay modelo con el que contrastar.",
+   "evidencia": [
+    "paquete:m-22160a4d200d|hándicap asiático entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-22160a4d200d|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor ni estimador (0/12 con p); precio solo de agregador (n_casas 1+), no ejecutable. No hay modelo con el que contrastar.",
+   "evidencia": [
+    "paquete:m-22160a4d200d|hándicap europeo",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-22160a4d200d|remates",
+   "objecion": "fuente_unica",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no implementado (0/90 lineas con p); precio en 6/90 lineas, agregador con 1 casa. Estadistica descriptiva n<=10 de una sola fuente (apifootball), sin ajuste de rival.",
+   "evidencia": [
+    "paquete:m-22160a4d200d|remates",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-22160a4d200d|remates a puerta",
+   "objecion": "fuente_unica",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no implementado (0/60 lineas con p); precio en 6/60 lineas, agregador con 1 casa. Estadistica descriptiva n<=10 de una sola fuente (apifootball), sin ajuste de rival.",
+   "evidencia": [
+    "paquete:m-22160a4d200d|remates a puerta",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-22160a4d200d|resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha 3 pp max vs 1/cuota (usuario); coincidir con el mercado no valida el modelo: validacion insuficiente (data/model_validation.json).",
+   "evidencia": [
+    "paquete:m-22160a4d200d|resultado",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-22160a4d200d|tarjetas",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Tarjetas: solo cards_pts 3.5 de 1 casa agregador, definicion de puntos no verificada; resto sin precio. validacion insuficiente. Arbitro T. Bramall n=0 en liga.",
+   "evidencia": [
+    "paquete:m-22160a4d200d|tarjetas",
+    "archivo:data/model_validation.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "cards_pts.total.over.3.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "cards_pts.total.under.3.5",
+     "objecion": "cuota_no_ejecutable"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-285c3ff45e18|1.ª parte goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha 13 pp max vs 1/cuota (agregador n_casas 2); coincidir con el mercado no valida el modelo: validacion no evaluada (data/model_validation.json). 1T NO_EVALUABLE en matrix. Deportivo cita k/n de 1",
+   "evidencia": [
+    "paquete:m-285c3ff45e18|1.ª parte goles",
+    "archivo:data/model_validation.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "nota",
+     "problema": "afirmacion_sin_evidencia"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-285c3ff45e18|1.ª parte resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha 5 pp max vs 1/cuota (agregador n_casas 2); coincidir con el mercado no valida el modelo: validacion no evaluada (data/model_validation.json). 1T NO_EVALUABLE en matrix.",
+   "evidencia": [
+    "paquete:m-285c3ff45e18|1.ª parte resultado",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-285c3ff45e18|córners",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 26 pp entre p modelo y 1/cuota (c.equipo.home.under.3.5; agregador no ejecutable, n_casas 1); validacion insuficiente. Cuota solo en 6/46 lineas.",
+   "evidencia": [
+    "paquete:m-285c3ff45e18|córners",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-285c3ff45e18|doble oportunidad",
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha 5 pp max vs 1/cuota (agregador n_casas 5); coincidir con el mercado no valida el modelo: validacion insuficiente (data/model_validation.json).",
+   "evidencia": [
+    "paquete:m-285c3ff45e18|doble oportunidad",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-285c3ff45e18|empate no válido",
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha 3 pp max vs 1/cuota (agregador n_casas 3); coincidir con el mercado no valida el modelo: validacion no evaluada (data/model_validation.json). Datos sin_extractor.",
+   "evidencia": [
+    "paquete:m-285c3ff45e18|empate no válido",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-285c3ff45e18|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor de datos, estimador no implementado y mercado no ofrecido en fuentes; nada que contrastar.",
+   "evidencia": [
+    "paquete:m-285c3ff45e18|fueras de juego",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-285c3ff45e18|goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha 9 pp max vs 1/cuota (usuario); coincidir con el mercado no valida el modelo: validacion insuficiente (data/model_validation.json). Verif cita Pinnacle sin esa linea.",
+   "evidencia": [
+    "paquete:m-285c3ff45e18|goles",
+    "archivo:data/model_validation.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "verificador",
+     "campo": "nota",
+     "problema": "dato_citado_incorrecto"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-285c3ff45e18|goles por equipo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin cuota en ninguna linea: no hay contraste ni EV; validacion insuficiente; muestra n<=10 mezcla L/V sin ajuste de rival (apifootball unica fuente).",
+   "evidencia": [
+    "paquete:m-285c3ff45e18|goles por equipo",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-285c3ff45e18|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor ni estimador (0/10 con p); precio solo de agregador (n_casas 1+), no ejecutable. No hay modelo con el que contrastar.",
+   "evidencia": [
+    "paquete:m-285c3ff45e18|goles total entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-285c3ff45e18|hándicap",
+   "objecion": "fuente_unica",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Cuota de 1 sola casa (agregador, brecha 4 pp, no ejecutable) y validacion no evaluada; muestra n<=10 de una fuente; coherencia con mercado no valida el estimador.",
+   "evidencia": [
+    "paquete:m-285c3ff45e18|hándicap",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-285c3ff45e18|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor ni estimador (0/10 con p); precio solo de agregador (n_casas 1+), no ejecutable. No hay modelo con el que contrastar.",
+   "evidencia": [
+    "paquete:m-285c3ff45e18|hándicap asiático entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-285c3ff45e18|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor ni estimador (0/12 con p); precio solo de agregador (n_casas 1+), no ejecutable. No hay modelo con el que contrastar.",
+   "evidencia": [
+    "paquete:m-285c3ff45e18|hándicap europeo",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-285c3ff45e18|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no implementado (0/90 lineas con p); precio en 0/90 lineas, agregador con 1 casa. Estadistica descriptiva n<=10 de una sola fuente (apifootball), sin ajuste de rival.",
+   "evidencia": [
+    "paquete:m-285c3ff45e18|remates",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-285c3ff45e18|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no implementado (0/60 lineas con p); precio en 0/60 lineas, agregador con 1 casa. Estadistica descriptiva n<=10 de una sola fuente (apifootball), sin ajuste de rival.",
+   "evidencia": [
+    "paquete:m-285c3ff45e18|remates a puerta",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-285c3ff45e18|resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha 3 pp max vs 1/cuota (usuario); coincidir con el mercado no valida el modelo: validacion insuficiente (data/model_validation.json).",
+   "evidencia": [
+    "paquete:m-285c3ff45e18|resultado",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-285c3ff45e18|tarjetas",
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Tarjetas con datos parciales y estimador datos_insuficientes (n5/n9); sin precio. Arbitro H. Ben El Hadj Salem n=7 en liga. Sin base para contraste.",
+   "evidencia": [
+    "paquete:m-285c3ff45e18|tarjetas",
+    "archivo:data/model_validation.json"
+   ]
+  }
+ ],
+ "limitaciones": [
+  "Datos deportivos de una sola fuente (apifootball, n<=10, mezcla L/V sin ajuste de rival); sin segunda fuente deportiva abierta.",
+  "Cuotas de agregador (TheStatsAPI/apifootball, 1-5 casas, consulta 2026-10-14): referencia, no ejecutables; solo 1X2 y una linea de goles vienen del usuario (contrastadas con Bet365/Pinnacle).",
+  "Modelo propio sin validar (data/model_validation.json: todas las familias insuficiente); alineaciones sin snapshot.",
+  "No se uso apif_query ni web; verificaciones sobre paquete, matrix.json, thestatsapi/odds y model_validation.json."
+ ]
+}

@@ -1,0 +1,3551 @@
+{
+ "agente": "verificador",
+ "version_contrato": 1,
+ "run": "runs/2026-10-15",
+ "unidades": [
+  {
+   "unit_id": "m-909df9249586|1.ª parte goles",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Mercado hallado con cuota de agregador (apifootball/thestatsapi, 14-oct); n de casas bajo en algunas líneas; no es precio ejecutable de la casa.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-909df9249586|1.ª parte goles",
+    "apif_query:get_events match_id=853681",
+    "apif_query:get_odds match_id=853681",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_378432361.json"
+   ]
+  },
+  {
+   "unit_id": "m-909df9249586|1.ª parte resultado",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Mercado hallado con cuota de agregador (apifootball/thestatsapi, 14-oct); n de casas bajo en algunas líneas; no es precio ejecutable de la casa.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-909df9249586|1.ª parte resultado",
+    "apif_query:get_events match_id=853681",
+    "apif_query:get_odds match_id=853681",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_378432361.json"
+   ]
+  },
+  {
+   "unit_id": "m-909df9249586|córners",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Córners solo en thestatsapi (1-2 casas, línea de partido completo no confirmada); el resto de líneas sin cuota en ninguna fuente.",
+   "excepciones": [
+    {
+     "entry_id": "corners.total.over.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.13.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.13.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.14.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.14.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.8.5",
+     "disponibilidad": "no_encontrada"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-909df9249586|córners",
+    "apif_query:get_events match_id=853681",
+    "apif_query:get_odds match_id=853681",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_378432361.json"
+   ]
+  },
+  {
+   "unit_id": "m-909df9249586|doble oportunidad",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Mercado hallado con cuota de agregador (apifootball/thestatsapi, 14-oct); n de casas bajo en algunas líneas; no es precio ejecutable de la casa.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-909df9249586|doble oportunidad",
+    "apif_query:get_events match_id=853681",
+    "apif_query:get_odds match_id=853681",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_378432361.json"
+   ]
+  },
+  {
+   "unit_id": "m-909df9249586|empate no válido",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Mercado hallado con cuota de agregador (apifootball/thestatsapi, 14-oct); n de casas bajo en algunas líneas; no es precio ejecutable de la casa.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-909df9249586|empate no válido",
+    "apif_query:get_events match_id=853681",
+    "apif_query:get_odds match_id=853681",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_378432361.json"
+   ]
+  },
+  {
+   "unit_id": "m-909df9249586|fueras de juego",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Ni apifootball, football-data ni thestatsapi traen este mercado para el partido (mercados TSA revisados); sin cuota de ninguna casa. Oferta real en la casa no verificada.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-909df9249586|fueras de juego",
+    "apif_query:get_events match_id=853681",
+    "apif_query:get_odds match_id=853681",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_378432361.json"
+   ]
+  },
+  {
+   "unit_id": "m-909df9249586|goles",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Una línea de goles comunicada por el usuario (dentro del rango de apifootball); el resto es referencia de agregador (3-5 casas). Cuotas del 14-oct, no refrescadas.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-909df9249586|goles",
+    "apif_query:get_events match_id=853681",
+    "apif_query:get_odds match_id=853681",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_378432361.json"
+   ]
+  },
+  {
+   "unit_id": "m-909df9249586|goles por equipo",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Mercado hallado con cuota de agregador (apifootball/thestatsapi, 14-oct); n de casas bajo en algunas líneas; no es precio ejecutable de la casa.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-909df9249586|goles por equipo",
+    "apif_query:get_events match_id=853681",
+    "apif_query:get_odds match_id=853681",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_378432361.json"
+   ]
+  },
+  {
+   "unit_id": "m-909df9249586|goles total entero",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Mercado hallado con cuota de agregador (apifootball/thestatsapi, 14-oct); n de casas bajo en algunas líneas; no es precio ejecutable de la casa.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-909df9249586|goles total entero",
+    "apif_query:get_events match_id=853681",
+    "apif_query:get_odds match_id=853681",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_378432361.json"
+   ]
+  },
+  {
+   "unit_id": "m-909df9249586|hándicap",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Cuotas de una sola casa (thestatsapi) de 34-34 en líneas extremas: anómalas. Líneas centrales con apifootball (4-6 casas) coherentes.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-909df9249586|hándicap",
+    "apif_query:get_events match_id=853681",
+    "apif_query:get_odds match_id=853681",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_378432361.json"
+   ]
+  },
+  {
+   "unit_id": "m-909df9249586|hándicap asiático entero",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Cuotas de una sola casa (thestatsapi) de 32-32 en líneas extremas: anómalas. Líneas centrales con apifootball (4-6 casas) coherentes.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-909df9249586|hándicap asiático entero",
+    "apif_query:get_events match_id=853681",
+    "apif_query:get_odds match_id=853681",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_378432361.json"
+   ]
+  },
+  {
+   "unit_id": "m-909df9249586|hándicap europeo",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Mercado hallado con cuota de agregador (apifootball/thestatsapi, 14-oct); n de casas bajo en algunas líneas; no es precio ejecutable de la casa.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-909df9249586|hándicap europeo",
+    "apif_query:get_events match_id=853681",
+    "apif_query:get_odds match_id=853681",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_378432361.json"
+   ]
+  },
+  {
+   "unit_id": "m-909df9249586|remates",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Ni apifootball, football-data ni thestatsapi traen este mercado para el partido (mercados TSA revisados); sin cuota de ninguna casa. Oferta real en la casa no verificada.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-909df9249586|remates",
+    "apif_query:get_events match_id=853681",
+    "apif_query:get_odds match_id=853681",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_378432361.json"
+   ]
+  },
+  {
+   "unit_id": "m-909df9249586|remates a puerta",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Ni apifootball, football-data ni thestatsapi traen este mercado para el partido (mercados TSA revisados); sin cuota de ninguna casa. Oferta real en la casa no verificada.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-909df9249586|remates a puerta",
+    "apif_query:get_events match_id=853681",
+    "apif_query:get_odds match_id=853681",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_378432361.json"
+   ]
+  },
+  {
+   "unit_id": "m-909df9249586|resultado",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "comunicado_usuario",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "1X2 comunicado por la persona usuaria (TriunfoBet); dentro del rango de 10 casas de apifootball (14-oct). Hora de captura coincide con la de la API. No es precio de casa verificado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-909df9249586|resultado",
+    "apif_query:get_events match_id=853681",
+    "apif_query:get_odds match_id=853681",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_378432361.json"
+   ]
+  },
+  {
+   "unit_id": "m-909df9249586|tarjetas",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "mercado_mal_etiquetado"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Pocas líneas con cuota en TSA (1-2 casas); su definición de tarjetas (puntos vs conteo, A=1/R=2) no está verificada: riesgo de etiquetado. Resto sin cuota.",
+   "excepciones": [
+    {
+     "entry_id": "cards_pts.total.over.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.over.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.over.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.over.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.over.9.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.9.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.over.0.5",
+     "disponibilidad": "no_ofrecida"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.under.0.5",
+     "disponibilidad": "no_ofrecida"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.over.1.5",
+     "disponibilidad": "no_ofrecida"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.under.1.5",
+     "disponibilidad": "no_ofrecida"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.over.2.5",
+     "disponibilidad": "no_ofrecida"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.under.2.5",
+     "disponibilidad": "no_ofrecida"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.over.3.5",
+     "disponibilidad": "no_ofrecida"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.under.3.5",
+     "disponibilidad": "no_ofrecida"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.over.4.5",
+     "disponibilidad": "no_ofrecida"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.under.4.5",
+     "disponibilidad": "no_ofrecida"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.over.5.5",
+     "disponibilidad": "no_ofrecida"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.under.5.5",
+     "disponibilidad": "no_ofrecida"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.over.0.5",
+     "disponibilidad": "no_ofrecida"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.under.0.5",
+     "disponibilidad": "no_ofrecida"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.over.1.5",
+     "disponibilidad": "no_ofrecida"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.under.1.5",
+     "disponibilidad": "no_ofrecida"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.over.2.5",
+     "disponibilidad": "no_ofrecida"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.under.2.5",
+     "disponibilidad": "no_ofrecida"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.over.3.5",
+     "disponibilidad": "no_ofrecida"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.under.3.5",
+     "disponibilidad": "no_ofrecida"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.over.4.5",
+     "disponibilidad": "no_ofrecida"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.under.4.5",
+     "disponibilidad": "no_ofrecida"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.over.5.5",
+     "disponibilidad": "no_ofrecida"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.under.5.5",
+     "disponibilidad": "no_ofrecida"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-909df9249586|tarjetas",
+    "apif_query:get_events match_id=853681",
+    "apif_query:get_odds match_id=853681",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_378432361.json"
+   ]
+  },
+  {
+   "unit_id": "m-9201538d2a69|1.ª parte goles",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Mercado hallado con cuota de agregador (apifootball/thestatsapi, 14-oct); n de casas bajo en algunas líneas; no es precio ejecutable de la casa.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9201538d2a69|1.ª parte goles",
+    "apif_query:get_events match_id=853470",
+    "apif_query:get_odds match_id=853470",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_895787245.json"
+   ]
+  },
+  {
+   "unit_id": "m-9201538d2a69|1.ª parte resultado",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Mercado hallado con cuota de agregador (apifootball/thestatsapi, 14-oct); n de casas bajo en algunas líneas; no es precio ejecutable de la casa.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9201538d2a69|1.ª parte resultado",
+    "apif_query:get_events match_id=853470",
+    "apif_query:get_odds match_id=853470",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_895787245.json"
+   ]
+  },
+  {
+   "unit_id": "m-9201538d2a69|córners",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Córners solo en thestatsapi (1-2 casas, línea de partido completo no confirmada); el resto de líneas sin cuota en ninguna fuente.",
+   "excepciones": [
+    {
+     "entry_id": "corners.total.over.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.10.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.10.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.11.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.11.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.12.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.12.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.13.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.13.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.14.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.14.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.4.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.4.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.4.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.4.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.8.5",
+     "disponibilidad": "no_encontrada"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-9201538d2a69|córners",
+    "apif_query:get_events match_id=853470",
+    "apif_query:get_odds match_id=853470",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_895787245.json"
+   ]
+  },
+  {
+   "unit_id": "m-9201538d2a69|doble oportunidad",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Mercado hallado con cuota de agregador (apifootball/thestatsapi, 14-oct); n de casas bajo en algunas líneas; no es precio ejecutable de la casa.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9201538d2a69|doble oportunidad",
+    "apif_query:get_events match_id=853470",
+    "apif_query:get_odds match_id=853470",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_895787245.json"
+   ]
+  },
+  {
+   "unit_id": "m-9201538d2a69|empate no válido",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Mercado hallado con cuota de agregador (apifootball/thestatsapi, 14-oct); n de casas bajo en algunas líneas; no es precio ejecutable de la casa.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9201538d2a69|empate no válido",
+    "apif_query:get_events match_id=853470",
+    "apif_query:get_odds match_id=853470",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_895787245.json"
+   ]
+  },
+  {
+   "unit_id": "m-9201538d2a69|fueras de juego",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Ni apifootball, football-data ni thestatsapi traen este mercado para el partido (mercados TSA revisados); sin cuota de ninguna casa. Oferta real en la casa no verificada.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9201538d2a69|fueras de juego",
+    "apif_query:get_events match_id=853470",
+    "apif_query:get_odds match_id=853470",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_895787245.json"
+   ]
+  },
+  {
+   "unit_id": "m-9201538d2a69|goles",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Una línea de goles comunicada por el usuario (dentro del rango de apifootball); el resto es referencia de agregador (3-5 casas). Cuotas del 14-oct, no refrescadas.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9201538d2a69|goles",
+    "apif_query:get_events match_id=853470",
+    "apif_query:get_odds match_id=853470",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_895787245.json"
+   ]
+  },
+  {
+   "unit_id": "m-9201538d2a69|goles por equipo",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Mercado hallado con cuota de agregador (apifootball/thestatsapi, 14-oct); n de casas bajo en algunas líneas; no es precio ejecutable de la casa.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9201538d2a69|goles por equipo",
+    "apif_query:get_events match_id=853470",
+    "apif_query:get_odds match_id=853470",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_895787245.json"
+   ]
+  },
+  {
+   "unit_id": "m-9201538d2a69|goles total entero",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Mercado hallado con cuota de agregador (apifootball/thestatsapi, 14-oct); n de casas bajo en algunas líneas; no es precio ejecutable de la casa.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9201538d2a69|goles total entero",
+    "apif_query:get_events match_id=853470",
+    "apif_query:get_odds match_id=853470",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_895787245.json"
+   ]
+  },
+  {
+   "unit_id": "m-9201538d2a69|hándicap",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Cuotas de una sola casa (thestatsapi) de 38-190 en líneas extremas: anómalas. Líneas centrales con apifootball (4-6 casas) coherentes.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.home.+2.5",
+     "disponibilidad": "no_encontrada"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-9201538d2a69|hándicap",
+    "apif_query:get_events match_id=853470",
+    "apif_query:get_odds match_id=853470",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_895787245.json"
+   ]
+  },
+  {
+   "unit_id": "m-9201538d2a69|hándicap asiático entero",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Cuotas de una sola casa (thestatsapi) de 36-186 en líneas extremas: anómalas. Líneas centrales con apifootball (4-6 casas) coherentes.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah_entero.home.+2",
+     "disponibilidad": "no_encontrada"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-9201538d2a69|hándicap asiático entero",
+    "apif_query:get_events match_id=853470",
+    "apif_query:get_odds match_id=853470",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_895787245.json"
+   ]
+  },
+  {
+   "unit_id": "m-9201538d2a69|hándicap europeo",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Mercado hallado con cuota de agregador (apifootball/thestatsapi, 14-oct); n de casas bajo en algunas líneas; no es precio ejecutable de la casa.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.eh.home.+2",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "resultado.eh.draw.+2",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "resultado.eh.away.+2",
+     "disponibilidad": "no_encontrada"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-9201538d2a69|hándicap europeo",
+    "apif_query:get_events match_id=853470",
+    "apif_query:get_odds match_id=853470",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_895787245.json"
+   ]
+  },
+  {
+   "unit_id": "m-9201538d2a69|remates",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Ni apifootball, football-data ni thestatsapi traen este mercado para el partido (mercados TSA revisados); sin cuota de ninguna casa. Oferta real en la casa no verificada.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9201538d2a69|remates",
+    "apif_query:get_events match_id=853470",
+    "apif_query:get_odds match_id=853470",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_895787245.json"
+   ]
+  },
+  {
+   "unit_id": "m-9201538d2a69|remates a puerta",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Ni apifootball, football-data ni thestatsapi traen este mercado para el partido (mercados TSA revisados); sin cuota de ninguna casa. Oferta real en la casa no verificada.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9201538d2a69|remates a puerta",
+    "apif_query:get_events match_id=853470",
+    "apif_query:get_odds match_id=853470",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_895787245.json"
+   ]
+  },
+  {
+   "unit_id": "m-9201538d2a69|resultado",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "comunicado_usuario",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "1X2 comunicado por la persona usuaria (TriunfoBet); dentro del rango de 10 casas de apifootball (14-oct). Hora de captura coincide con la de la API. No es precio de casa verificado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9201538d2a69|resultado",
+    "apif_query:get_events match_id=853470",
+    "apif_query:get_odds match_id=853470",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_895787245.json"
+   ]
+  },
+  {
+   "unit_id": "m-9201538d2a69|tarjetas",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Ninguna fuente de cuotas trae tarjetas para este partido (TSA sin total_cards; apifootball sin campo). Sin cuota. Oferta real en la casa no verificada.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9201538d2a69|tarjetas",
+    "apif_query:get_events match_id=853470",
+    "apif_query:get_odds match_id=853470",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_895787245.json"
+   ]
+  },
+  {
+   "unit_id": "m-9777a2779ff0|1.ª parte goles",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Mercado hallado con cuota de agregador (apifootball/thestatsapi, 14-oct); n de casas bajo en algunas líneas; no es precio ejecutable de la casa.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9777a2779ff0|1.ª parte goles",
+    "apif_query:get_events match_id=853463",
+    "apif_query:get_odds match_id=853463",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_024505841.json"
+   ]
+  },
+  {
+   "unit_id": "m-9777a2779ff0|1.ª parte resultado",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Mercado hallado con cuota de agregador (apifootball/thestatsapi, 14-oct); n de casas bajo en algunas líneas; no es precio ejecutable de la casa.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9777a2779ff0|1.ª parte resultado",
+    "apif_query:get_events match_id=853463",
+    "apif_query:get_odds match_id=853463",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_024505841.json"
+   ]
+  },
+  {
+   "unit_id": "m-9777a2779ff0|córners",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Córners solo en thestatsapi (1-2 casas, línea de partido completo no confirmada); el resto de líneas sin cuota en ninguna fuente.",
+   "excepciones": [
+    {
+     "entry_id": "corners.total.over.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.10.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.10.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.11.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.11.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.12.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.12.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.13.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.13.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.14.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.14.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.4.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.4.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.8.5",
+     "disponibilidad": "no_encontrada"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-9777a2779ff0|córners",
+    "apif_query:get_events match_id=853463",
+    "apif_query:get_odds match_id=853463",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_024505841.json"
+   ]
+  },
+  {
+   "unit_id": "m-9777a2779ff0|doble oportunidad",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Mercado hallado con cuota de agregador (apifootball/thestatsapi, 14-oct); n de casas bajo en algunas líneas; no es precio ejecutable de la casa.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9777a2779ff0|doble oportunidad",
+    "apif_query:get_events match_id=853463",
+    "apif_query:get_odds match_id=853463",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_024505841.json"
+   ]
+  },
+  {
+   "unit_id": "m-9777a2779ff0|empate no válido",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Mercado hallado con cuota de agregador (apifootball/thestatsapi, 14-oct); n de casas bajo en algunas líneas; no es precio ejecutable de la casa.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9777a2779ff0|empate no válido",
+    "apif_query:get_events match_id=853463",
+    "apif_query:get_odds match_id=853463",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_024505841.json"
+   ]
+  },
+  {
+   "unit_id": "m-9777a2779ff0|fueras de juego",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Ni apifootball, football-data ni thestatsapi traen este mercado para el partido (mercados TSA revisados); sin cuota de ninguna casa. Oferta real en la casa no verificada.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9777a2779ff0|fueras de juego",
+    "apif_query:get_events match_id=853463",
+    "apif_query:get_odds match_id=853463",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_024505841.json"
+   ]
+  },
+  {
+   "unit_id": "m-9777a2779ff0|goles",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Una línea de goles comunicada por el usuario (dentro del rango de apifootball); el resto es referencia de agregador (3-5 casas). Cuotas del 14-oct, no refrescadas.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9777a2779ff0|goles",
+    "apif_query:get_events match_id=853463",
+    "apif_query:get_odds match_id=853463",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_024505841.json"
+   ]
+  },
+  {
+   "unit_id": "m-9777a2779ff0|goles por equipo",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Mercado hallado con cuota de agregador (apifootball/thestatsapi, 14-oct); n de casas bajo en algunas líneas; no es precio ejecutable de la casa.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9777a2779ff0|goles por equipo",
+    "apif_query:get_events match_id=853463",
+    "apif_query:get_odds match_id=853463",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_024505841.json"
+   ]
+  },
+  {
+   "unit_id": "m-9777a2779ff0|goles total entero",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Mercado hallado con cuota de agregador (apifootball/thestatsapi, 14-oct); n de casas bajo en algunas líneas; no es precio ejecutable de la casa.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9777a2779ff0|goles total entero",
+    "apif_query:get_events match_id=853463",
+    "apif_query:get_odds match_id=853463",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_024505841.json"
+   ]
+  },
+  {
+   "unit_id": "m-9777a2779ff0|hándicap",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Cuotas de una sola casa (thestatsapi) de 77-77 en líneas extremas: anómalas. Líneas centrales con apifootball (4-6 casas) coherentes.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9777a2779ff0|hándicap",
+    "apif_query:get_events match_id=853463",
+    "apif_query:get_odds match_id=853463",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_024505841.json"
+   ]
+  },
+  {
+   "unit_id": "m-9777a2779ff0|hándicap asiático entero",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Cuotas de una sola casa (thestatsapi) de 74-74 en líneas extremas: anómalas. Líneas centrales con apifootball (4-6 casas) coherentes.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9777a2779ff0|hándicap asiático entero",
+    "apif_query:get_events match_id=853463",
+    "apif_query:get_odds match_id=853463",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_024505841.json"
+   ]
+  },
+  {
+   "unit_id": "m-9777a2779ff0|hándicap europeo",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Mercado hallado con cuota de agregador (apifootball/thestatsapi, 14-oct); n de casas bajo en algunas líneas; no es precio ejecutable de la casa.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9777a2779ff0|hándicap europeo",
+    "apif_query:get_events match_id=853463",
+    "apif_query:get_odds match_id=853463",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_024505841.json"
+   ]
+  },
+  {
+   "unit_id": "m-9777a2779ff0|remates",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Ni apifootball, football-data ni thestatsapi traen este mercado para el partido (mercados TSA revisados); sin cuota de ninguna casa. Oferta real en la casa no verificada.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9777a2779ff0|remates",
+    "apif_query:get_events match_id=853463",
+    "apif_query:get_odds match_id=853463",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_024505841.json"
+   ]
+  },
+  {
+   "unit_id": "m-9777a2779ff0|remates a puerta",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Ni apifootball, football-data ni thestatsapi traen este mercado para el partido (mercados TSA revisados); sin cuota de ninguna casa. Oferta real en la casa no verificada.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9777a2779ff0|remates a puerta",
+    "apif_query:get_events match_id=853463",
+    "apif_query:get_odds match_id=853463",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_024505841.json"
+   ]
+  },
+  {
+   "unit_id": "m-9777a2779ff0|resultado",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "comunicado_usuario",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "1X2 comunicado por la persona usuaria (TriunfoBet); dentro del rango de 10 casas de apifootball (14-oct). Hora de captura coincide con la de la API. No es precio de casa verificado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9777a2779ff0|resultado",
+    "apif_query:get_events match_id=853463",
+    "apif_query:get_odds match_id=853463",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_024505841.json"
+   ]
+  },
+  {
+   "unit_id": "m-9777a2779ff0|tarjetas",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "mercado_mal_etiquetado",
+    "paquete_desactualizado_vs_fuente"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Cuota de pocas casas de TSA; definición de tarjetas no verificada (riesgo de etiquetado). apifootball ya lista árbitro S. Ebner; el paquete lo tiene sin designar.",
+   "excepciones": [
+    {
+     "entry_id": "cards_pts.total.over.1.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.1.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.over.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.over.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.over.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.over.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.over.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.over.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.over.9.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.9.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.over.0.5",
+     "disponibilidad": "no_ofrecida"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.under.0.5",
+     "disponibilidad": "no_ofrecida"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.over.1.5",
+     "disponibilidad": "no_ofrecida"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.under.1.5",
+     "disponibilidad": "no_ofrecida"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.over.2.5",
+     "disponibilidad": "no_ofrecida"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.under.2.5",
+     "disponibilidad": "no_ofrecida"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.over.3.5",
+     "disponibilidad": "no_ofrecida"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.under.3.5",
+     "disponibilidad": "no_ofrecida"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.over.4.5",
+     "disponibilidad": "no_ofrecida"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.under.4.5",
+     "disponibilidad": "no_ofrecida"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.over.5.5",
+     "disponibilidad": "no_ofrecida"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.under.5.5",
+     "disponibilidad": "no_ofrecida"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.over.0.5",
+     "disponibilidad": "no_ofrecida"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.under.0.5",
+     "disponibilidad": "no_ofrecida"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.over.1.5",
+     "disponibilidad": "no_ofrecida"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.under.1.5",
+     "disponibilidad": "no_ofrecida"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.over.2.5",
+     "disponibilidad": "no_ofrecida"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.under.2.5",
+     "disponibilidad": "no_ofrecida"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.over.3.5",
+     "disponibilidad": "no_ofrecida"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.under.3.5",
+     "disponibilidad": "no_ofrecida"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.over.4.5",
+     "disponibilidad": "no_ofrecida"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.under.4.5",
+     "disponibilidad": "no_ofrecida"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.over.5.5",
+     "disponibilidad": "no_ofrecida"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.under.5.5",
+     "disponibilidad": "no_ofrecida"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-9777a2779ff0|tarjetas",
+    "apif_query:get_events match_id=853463",
+    "apif_query:get_odds match_id=853463",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_024505841.json"
+   ]
+  },
+  {
+   "unit_id": "m-97c57e884a08|1.ª parte goles",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Mercado hallado con cuota de agregador (apifootball/thestatsapi, 14-oct); n de casas bajo en algunas líneas; no es precio ejecutable de la casa.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-97c57e884a08|1.ª parte goles",
+    "apif_query:get_events match_id=853530",
+    "apif_query:get_odds match_id=853530",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_378434535.json"
+   ]
+  },
+  {
+   "unit_id": "m-97c57e884a08|1.ª parte resultado",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Mercado hallado con cuota de agregador (apifootball/thestatsapi, 14-oct); n de casas bajo en algunas líneas; no es precio ejecutable de la casa.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-97c57e884a08|1.ª parte resultado",
+    "apif_query:get_events match_id=853530",
+    "apif_query:get_odds match_id=853530",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_378434535.json"
+   ]
+  },
+  {
+   "unit_id": "m-97c57e884a08|córners",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Córners solo en thestatsapi (1-2 casas, línea de partido completo no confirmada); el resto de líneas sin cuota en ninguna fuente.",
+   "excepciones": [
+    {
+     "entry_id": "corners.total.over.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.10.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.10.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.11.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.11.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.12.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.12.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.13.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.13.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.14.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.14.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.4.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.4.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.4.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.4.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.8.5",
+     "disponibilidad": "no_encontrada"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-97c57e884a08|córners",
+    "apif_query:get_events match_id=853530",
+    "apif_query:get_odds match_id=853530",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_378434535.json"
+   ]
+  },
+  {
+   "unit_id": "m-97c57e884a08|doble oportunidad",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Mercado hallado con cuota de agregador (apifootball/thestatsapi, 14-oct); n de casas bajo en algunas líneas; no es precio ejecutable de la casa.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-97c57e884a08|doble oportunidad",
+    "apif_query:get_events match_id=853530",
+    "apif_query:get_odds match_id=853530",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_378434535.json"
+   ]
+  },
+  {
+   "unit_id": "m-97c57e884a08|empate no válido",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Mercado hallado con cuota de agregador (apifootball/thestatsapi, 14-oct); n de casas bajo en algunas líneas; no es precio ejecutable de la casa.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-97c57e884a08|empate no válido",
+    "apif_query:get_events match_id=853530",
+    "apif_query:get_odds match_id=853530",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_378434535.json"
+   ]
+  },
+  {
+   "unit_id": "m-97c57e884a08|fueras de juego",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Ni apifootball, football-data ni thestatsapi traen este mercado para el partido (mercados TSA revisados); sin cuota de ninguna casa. Oferta real en la casa no verificada.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-97c57e884a08|fueras de juego",
+    "apif_query:get_events match_id=853530",
+    "apif_query:get_odds match_id=853530",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_378434535.json"
+   ]
+  },
+  {
+   "unit_id": "m-97c57e884a08|goles",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Una línea de goles comunicada por el usuario (dentro del rango de apifootball); el resto es referencia de agregador (3-5 casas). Cuotas del 14-oct, no refrescadas.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-97c57e884a08|goles",
+    "apif_query:get_events match_id=853530",
+    "apif_query:get_odds match_id=853530",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_378434535.json"
+   ]
+  },
+  {
+   "unit_id": "m-97c57e884a08|goles por equipo",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Mercado hallado con cuota de agregador (apifootball/thestatsapi, 14-oct); n de casas bajo en algunas líneas; no es precio ejecutable de la casa.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-97c57e884a08|goles por equipo",
+    "apif_query:get_events match_id=853530",
+    "apif_query:get_odds match_id=853530",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_378434535.json"
+   ]
+  },
+  {
+   "unit_id": "m-97c57e884a08|goles total entero",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Mercado hallado con cuota de agregador (apifootball/thestatsapi, 14-oct); n de casas bajo en algunas líneas; no es precio ejecutable de la casa.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-97c57e884a08|goles total entero",
+    "apif_query:get_events match_id=853530",
+    "apif_query:get_odds match_id=853530",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_378434535.json"
+   ]
+  },
+  {
+   "unit_id": "m-97c57e884a08|hándicap",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Cuotas de una sola casa (thestatsapi) de 44-82 en líneas extremas: anómalas. Líneas centrales con apifootball (4-6 casas) coherentes.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.home.+2.5",
+     "disponibilidad": "no_encontrada"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-97c57e884a08|hándicap",
+    "apif_query:get_events match_id=853530",
+    "apif_query:get_odds match_id=853530",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_378434535.json"
+   ]
+  },
+  {
+   "unit_id": "m-97c57e884a08|hándicap asiático entero",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Cuotas de una sola casa (thestatsapi) de 42-81 en líneas extremas: anómalas. Líneas centrales con apifootball (4-6 casas) coherentes.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah_entero.home.+2",
+     "disponibilidad": "no_encontrada"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-97c57e884a08|hándicap asiático entero",
+    "apif_query:get_events match_id=853530",
+    "apif_query:get_odds match_id=853530",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_378434535.json"
+   ]
+  },
+  {
+   "unit_id": "m-97c57e884a08|hándicap europeo",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Mercado hallado con cuota de agregador (apifootball/thestatsapi, 14-oct); n de casas bajo en algunas líneas; no es precio ejecutable de la casa.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.eh.home.+2",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "resultado.eh.draw.+2",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "resultado.eh.away.+2",
+     "disponibilidad": "no_encontrada"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-97c57e884a08|hándicap europeo",
+    "apif_query:get_events match_id=853530",
+    "apif_query:get_odds match_id=853530",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_378434535.json"
+   ]
+  },
+  {
+   "unit_id": "m-97c57e884a08|remates",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Ni apifootball, football-data ni thestatsapi traen este mercado para el partido (mercados TSA revisados); sin cuota de ninguna casa. Oferta real en la casa no verificada.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-97c57e884a08|remates",
+    "apif_query:get_events match_id=853530",
+    "apif_query:get_odds match_id=853530",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_378434535.json"
+   ]
+  },
+  {
+   "unit_id": "m-97c57e884a08|remates a puerta",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Ni apifootball, football-data ni thestatsapi traen este mercado para el partido (mercados TSA revisados); sin cuota de ninguna casa. Oferta real en la casa no verificada.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-97c57e884a08|remates a puerta",
+    "apif_query:get_events match_id=853530",
+    "apif_query:get_odds match_id=853530",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_378434535.json"
+   ]
+  },
+  {
+   "unit_id": "m-97c57e884a08|resultado",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "comunicado_usuario",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "1X2 comunicado por la persona usuaria (TriunfoBet); dentro del rango de 10 casas de apifootball (14-oct). Hora de captura coincide con la de la API. No es precio de casa verificado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-97c57e884a08|resultado",
+    "apif_query:get_events match_id=853530",
+    "apif_query:get_odds match_id=853530",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_378434535.json"
+   ]
+  },
+  {
+   "unit_id": "m-97c57e884a08|tarjetas",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Ninguna fuente de cuotas trae tarjetas para este partido (TSA sin total_cards; apifootball sin campo). Sin cuota. Oferta real en la casa no verificada.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-97c57e884a08|tarjetas",
+    "apif_query:get_events match_id=853530",
+    "apif_query:get_odds match_id=853530",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_378434535.json"
+   ]
+  },
+  {
+   "unit_id": "m-9bfb69a695f4|1.ª parte goles",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Mercado hallado con cuota de agregador (apifootball/thestatsapi, 14-oct); n de casas bajo en algunas líneas; no es precio ejecutable de la casa.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9bfb69a695f4|1.ª parte goles",
+    "apif_query:get_events match_id=853482",
+    "apif_query:get_odds match_id=853482",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_150818489.json"
+   ]
+  },
+  {
+   "unit_id": "m-9bfb69a695f4|1.ª parte resultado",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Mercado hallado con cuota de agregador (apifootball/thestatsapi, 14-oct); n de casas bajo en algunas líneas; no es precio ejecutable de la casa.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9bfb69a695f4|1.ª parte resultado",
+    "apif_query:get_events match_id=853482",
+    "apif_query:get_odds match_id=853482",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_150818489.json"
+   ]
+  },
+  {
+   "unit_id": "m-9bfb69a695f4|córners",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Córners solo en thestatsapi (1-2 casas, línea de partido completo no confirmada); el resto de líneas sin cuota en ninguna fuente.",
+   "excepciones": [
+    {
+     "entry_id": "corners.total.over.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.10.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.10.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.11.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.11.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.12.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.12.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.13.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.13.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.14.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.14.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.8.5",
+     "disponibilidad": "no_encontrada"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-9bfb69a695f4|córners",
+    "apif_query:get_events match_id=853482",
+    "apif_query:get_odds match_id=853482",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_150818489.json"
+   ]
+  },
+  {
+   "unit_id": "m-9bfb69a695f4|doble oportunidad",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Mercado hallado con cuota de agregador (apifootball/thestatsapi, 14-oct); n de casas bajo en algunas líneas; no es precio ejecutable de la casa.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9bfb69a695f4|doble oportunidad",
+    "apif_query:get_events match_id=853482",
+    "apif_query:get_odds match_id=853482",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_150818489.json"
+   ]
+  },
+  {
+   "unit_id": "m-9bfb69a695f4|empate no válido",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Mercado hallado con cuota de agregador (apifootball/thestatsapi, 14-oct); n de casas bajo en algunas líneas; no es precio ejecutable de la casa.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9bfb69a695f4|empate no válido",
+    "apif_query:get_events match_id=853482",
+    "apif_query:get_odds match_id=853482",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_150818489.json"
+   ]
+  },
+  {
+   "unit_id": "m-9bfb69a695f4|fueras de juego",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Ni apifootball, football-data ni thestatsapi traen este mercado para el partido (mercados TSA revisados); sin cuota de ninguna casa. Oferta real en la casa no verificada.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9bfb69a695f4|fueras de juego",
+    "apif_query:get_events match_id=853482",
+    "apif_query:get_odds match_id=853482",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_150818489.json"
+   ]
+  },
+  {
+   "unit_id": "m-9bfb69a695f4|goles",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Una línea de goles comunicada por el usuario (dentro del rango de apifootball); el resto es referencia de agregador (3-5 casas). Cuotas del 14-oct, no refrescadas.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9bfb69a695f4|goles",
+    "apif_query:get_events match_id=853482",
+    "apif_query:get_odds match_id=853482",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_150818489.json"
+   ]
+  },
+  {
+   "unit_id": "m-9bfb69a695f4|goles por equipo",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Mercado hallado con cuota de agregador (apifootball/thestatsapi, 14-oct); n de casas bajo en algunas líneas; no es precio ejecutable de la casa.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9bfb69a695f4|goles por equipo",
+    "apif_query:get_events match_id=853482",
+    "apif_query:get_odds match_id=853482",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_150818489.json"
+   ]
+  },
+  {
+   "unit_id": "m-9bfb69a695f4|goles total entero",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Mercado hallado con cuota de agregador (apifootball/thestatsapi, 14-oct); n de casas bajo en algunas líneas; no es precio ejecutable de la casa.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9bfb69a695f4|goles total entero",
+    "apif_query:get_events match_id=853482",
+    "apif_query:get_odds match_id=853482",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_150818489.json"
+   ]
+  },
+  {
+   "unit_id": "m-9bfb69a695f4|hándicap",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Líneas centrales respaldadas por apifootball (4-6 casas); líneas extremas de una sola casa de thestatsapi.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9bfb69a695f4|hándicap",
+    "apif_query:get_events match_id=853482",
+    "apif_query:get_odds match_id=853482",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_150818489.json"
+   ]
+  },
+  {
+   "unit_id": "m-9bfb69a695f4|hándicap asiático entero",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Líneas centrales respaldadas por apifootball (4-6 casas); líneas extremas de una sola casa de thestatsapi.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9bfb69a695f4|hándicap asiático entero",
+    "apif_query:get_events match_id=853482",
+    "apif_query:get_odds match_id=853482",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_150818489.json"
+   ]
+  },
+  {
+   "unit_id": "m-9bfb69a695f4|hándicap europeo",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Mercado hallado con cuota de agregador (apifootball/thestatsapi, 14-oct); n de casas bajo en algunas líneas; no es precio ejecutable de la casa.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9bfb69a695f4|hándicap europeo",
+    "apif_query:get_events match_id=853482",
+    "apif_query:get_odds match_id=853482",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_150818489.json"
+   ]
+  },
+  {
+   "unit_id": "m-9bfb69a695f4|remates",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Ni apifootball, football-data ni thestatsapi traen este mercado para el partido (mercados TSA revisados); sin cuota de ninguna casa. Oferta real en la casa no verificada.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9bfb69a695f4|remates",
+    "apif_query:get_events match_id=853482",
+    "apif_query:get_odds match_id=853482",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_150818489.json"
+   ]
+  },
+  {
+   "unit_id": "m-9bfb69a695f4|remates a puerta",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Ni apifootball, football-data ni thestatsapi traen este mercado para el partido (mercados TSA revisados); sin cuota de ninguna casa. Oferta real en la casa no verificada.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9bfb69a695f4|remates a puerta",
+    "apif_query:get_events match_id=853482",
+    "apif_query:get_odds match_id=853482",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_150818489.json"
+   ]
+  },
+  {
+   "unit_id": "m-9bfb69a695f4|resultado",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "comunicado_usuario",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "1X2 comunicado por la persona usuaria (TriunfoBet); dentro del rango de 10 casas de apifootball (14-oct). Hora de captura coincide Emparejamiento de captura 1.4 (Heart of Midlothian=Hearts): equipos y",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9bfb69a695f4|resultado",
+    "apif_query:get_events match_id=853482",
+    "apif_query:get_odds match_id=853482",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_150818489.json"
+   ]
+  },
+  {
+   "unit_id": "m-9bfb69a695f4|tarjetas",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Ninguna fuente de cuotas trae tarjetas para este partido (TSA sin total_cards; apifootball sin campo). Sin cuota. Oferta real en la casa no verificada.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9bfb69a695f4|tarjetas",
+    "apif_query:get_events match_id=853482",
+    "apif_query:get_odds match_id=853482",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_150818489.json"
+   ]
+  },
+  {
+   "unit_id": "m-9e4cbd8e07b8|1.ª parte goles",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "calendario"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Mercado hallado con cuota de agregador (apifootball/thestatsapi, 14-oct); n de casas baj Calendario: apwin (m-9c17e33a5d44) da 14-oct 23:30Z; apifootball y captura dan 16-oct 01:05Z; prevalecen estas.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9e4cbd8e07b8|1.ª parte goles",
+    "apif_query:get_events match_id=766909",
+    "apif_query:get_odds match_id=766909",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_735194430.json"
+   ]
+  },
+  {
+   "unit_id": "m-9e4cbd8e07b8|1.ª parte resultado",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "calendario"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Mercado hallado con cuota de agregador (apifootball/thestatsapi, 14-oct); n de casas baj Calendario: apwin (m-9c17e33a5d44) da 14-oct 23:30Z; apifootball y captura dan 16-oct 01:05Z; prevalecen estas.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9e4cbd8e07b8|1.ª parte resultado",
+    "apif_query:get_events match_id=766909",
+    "apif_query:get_odds match_id=766909",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_735194430.json"
+   ]
+  },
+  {
+   "unit_id": "m-9e4cbd8e07b8|córners",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "calendario"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Córners solo en thestatsapi (1-2 casas, línea de partido completo no confirmada); el res Calendario: apwin (m-9c17e33a5d44) da 14-oct 23:30Z; apifootball y captura dan 16-oct 01:05Z; prevalecen estas.",
+   "excepciones": [
+    {
+     "entry_id": "corners.total.over.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.9.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.9.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.10.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.10.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.11.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.11.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.12.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.12.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.13.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.13.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.14.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.14.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.4.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.4.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.4.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.4.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.8.5",
+     "disponibilidad": "no_encontrada"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-9e4cbd8e07b8|córners",
+    "apif_query:get_events match_id=766909",
+    "apif_query:get_odds match_id=766909",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_735194430.json"
+   ]
+  },
+  {
+   "unit_id": "m-9e4cbd8e07b8|doble oportunidad",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "calendario"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Mercado hallado con cuota de agregador (apifootball/thestatsapi, 14-oct); n de casas baj Calendario: apwin (m-9c17e33a5d44) da 14-oct 23:30Z; apifootball y captura dan 16-oct 01:05Z; prevalecen estas.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9e4cbd8e07b8|doble oportunidad",
+    "apif_query:get_events match_id=766909",
+    "apif_query:get_odds match_id=766909",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_735194430.json"
+   ]
+  },
+  {
+   "unit_id": "m-9e4cbd8e07b8|empate no válido",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "calendario"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Mercado hallado con cuota de agregador (apifootball/thestatsapi, 14-oct); n de casas baj Calendario: apwin (m-9c17e33a5d44) da 14-oct 23:30Z; apifootball y captura dan 16-oct 01:05Z; prevalecen estas.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9e4cbd8e07b8|empate no válido",
+    "apif_query:get_events match_id=766909",
+    "apif_query:get_odds match_id=766909",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_735194430.json"
+   ]
+  },
+  {
+   "unit_id": "m-9e4cbd8e07b8|fueras de juego",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "calendario"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Ni apifootball, football-data ni thestatsapi traen este mercado para el partido (mercado Calendario: apwin (m-9c17e33a5d44) da 14-oct 23:30Z; apifootball y captura dan 16-oct 01:05Z; prevalecen estas.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9e4cbd8e07b8|fueras de juego",
+    "apif_query:get_events match_id=766909",
+    "apif_query:get_odds match_id=766909",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_735194430.json"
+   ]
+  },
+  {
+   "unit_id": "m-9e4cbd8e07b8|goles",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "calendario"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Una línea de goles comunicada por el usuario (dentro del rango de apifootball); el resto Calendario: apwin (m-9c17e33a5d44) da 14-oct 23:30Z; apifootball y captura dan 16-oct 01:05Z; prevalecen estas.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9e4cbd8e07b8|goles",
+    "apif_query:get_events match_id=766909",
+    "apif_query:get_odds match_id=766909",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_735194430.json"
+   ]
+  },
+  {
+   "unit_id": "m-9e4cbd8e07b8|goles por equipo",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "calendario"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Mercado hallado con cuota de agregador (apifootball/thestatsapi, 14-oct); n de casas baj Calendario: apwin (m-9c17e33a5d44) da 14-oct 23:30Z; apifootball y captura dan 16-oct 01:05Z; prevalecen estas.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9e4cbd8e07b8|goles por equipo",
+    "apif_query:get_events match_id=766909",
+    "apif_query:get_odds match_id=766909",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_735194430.json"
+   ]
+  },
+  {
+   "unit_id": "m-9e4cbd8e07b8|goles total entero",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "calendario"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Mercado hallado con cuota de agregador (apifootball/thestatsapi, 14-oct); n de casas baj Calendario: apwin (m-9c17e33a5d44) da 14-oct 23:30Z; apifootball y captura dan 16-oct 01:05Z; prevalecen estas.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9e4cbd8e07b8|goles total entero",
+    "apif_query:get_events match_id=766909",
+    "apif_query:get_odds match_id=766909",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_735194430.json"
+   ]
+  },
+  {
+   "unit_id": "m-9e4cbd8e07b8|hándicap",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo",
+    "calendario"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Cuotas de una sola casa (thestatsapi) de 30-152 en líneas extremas: anómalas. Líneas cen Calendario: apwin (m-9c17e33a5d44) da 14-oct 23:30Z; apifootball y captura dan 16-oct 01:05Z; prevalecen estas.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.home.+2.5",
+     "disponibilidad": "no_encontrada"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-9e4cbd8e07b8|hándicap",
+    "apif_query:get_events match_id=766909",
+    "apif_query:get_odds match_id=766909",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_735194430.json"
+   ]
+  },
+  {
+   "unit_id": "m-9e4cbd8e07b8|hándicap asiático entero",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo",
+    "calendario"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Cuotas de una sola casa (thestatsapi) de 28-148 en líneas extremas: anómalas. Líneas cen Calendario: apwin (m-9c17e33a5d44) da 14-oct 23:30Z; apifootball y captura dan 16-oct 01:05Z; prevalecen estas.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah_entero.home.+2",
+     "disponibilidad": "no_encontrada"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-9e4cbd8e07b8|hándicap asiático entero",
+    "apif_query:get_events match_id=766909",
+    "apif_query:get_odds match_id=766909",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_735194430.json"
+   ]
+  },
+  {
+   "unit_id": "m-9e4cbd8e07b8|hándicap europeo",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "calendario"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Mercado hallado con cuota de agregador (apifootball/thestatsapi, 14-oct); n de casas baj Calendario: apwin (m-9c17e33a5d44) da 14-oct 23:30Z; apifootball y captura dan 16-oct 01:05Z; prevalecen estas.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9e4cbd8e07b8|hándicap europeo",
+    "apif_query:get_events match_id=766909",
+    "apif_query:get_odds match_id=766909",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_735194430.json"
+   ]
+  },
+  {
+   "unit_id": "m-9e4cbd8e07b8|remates",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "calendario"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Ni apifootball, football-data ni thestatsapi traen este mercado para el partido (mercado Calendario: apwin (m-9c17e33a5d44) da 14-oct 23:30Z; apifootball y captura dan 16-oct 01:05Z; prevalecen estas.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9e4cbd8e07b8|remates",
+    "apif_query:get_events match_id=766909",
+    "apif_query:get_odds match_id=766909",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_735194430.json"
+   ]
+  },
+  {
+   "unit_id": "m-9e4cbd8e07b8|remates a puerta",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "calendario"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Ni apifootball, football-data ni thestatsapi traen este mercado para el partido (mercado Calendario: apwin (m-9c17e33a5d44) da 14-oct 23:30Z; apifootball y captura dan 16-oct 01:05Z; prevalecen estas.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9e4cbd8e07b8|remates a puerta",
+    "apif_query:get_events match_id=766909",
+    "apif_query:get_odds match_id=766909",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_735194430.json"
+   ]
+  },
+  {
+   "unit_id": "m-9e4cbd8e07b8|resultado",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "comunicado_usuario",
+   "discrepancias": [
+    "calendario"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "1X2 comunicado por la persona usuaria (TriunfoBet); dentro del rango de 10 casas de apif Calendario: apwin (m-9c17e33a5d44) da 14-oct 23:30Z; apifootball y captura dan 16-oct 01:05Z; prevalecen estas.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9e4cbd8e07b8|resultado",
+    "apif_query:get_events match_id=766909",
+    "apif_query:get_odds match_id=766909",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_735194430.json"
+   ]
+  },
+  {
+   "unit_id": "m-9e4cbd8e07b8|tarjetas",
+   "disponibilidad": "no_ofrecida",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "calendario"
+   ],
+   "fuentes_consultadas": [
+    "paquete.json (unidad)",
+    "apifootball get_events (fixture, estado, hora UTC; consulta 2026-10-14)",
+    "apifootball get_odds (10 casas; captura 14-oct)",
+    "thestatsapi odds (archivo local, 14-oct 17:12Z)",
+    "ligas/partidos_usuario.json + ids_revision.json",
+    "inventory.json"
+   ],
+   "nota": "Ninguna fuente de cuotas trae tarjetas para este partido (TSA sin total_cards; apifootba Calendario: apwin (m-9c17e33a5d44) da 14-oct 23:30Z; apifootball y captura dan 16-oct 01:05Z; prevalecen estas.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9e4cbd8e07b8|tarjetas",
+    "apif_query:get_events match_id=766909",
+    "apif_query:get_odds match_id=766909",
+    "archivo:runs/2026-10-15/thestatsapi/odds/mt_735194430.json"
+   ]
+  }
+ ],
+ "limitaciones": [
+  "Solo fuentes del paquete, archivos locales y apifootball: sin consulta a páginas de casas ni a otras webs; ningún precio es de una casa verificada.",
+  "Cuotas de agregadores observadas el 14-oct (apifootball 15:19, thestatsapi 17:13Z); pueden haber cambiado antes del partido.",
+  "Definición de tarjetas y alcance de córners (partido completo) en thestatsapi no verificados; un registro de apwin (Santa Fe, 14-oct) contradice la fecha de apifootball y la captura."
+ ]
+}

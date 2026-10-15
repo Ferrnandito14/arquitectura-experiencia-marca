@@ -1,0 +1,1246 @@
+{
+ "agente": "auditor",
+ "version_contrato": 1,
+ "run": "runs/2026-10-17",
+ "unidades": [
+  {
+   "unit_id": "m-45668be67e23|1.ª parte goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Modelo 1T no evaluado; brecha max 0.09 en 1T.total.over.0.5 con precio de agregador (TheStatsAPI, 2 casas max) no ejecutable. Wrexham-Preston: n10 por equipo.",
+   "evidencia": [
+    "paquete:m-45668be67e23|1.ª parte goles",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds/mt_733653119.json"
+   ]
+  },
+  {
+   "unit_id": "m-45668be67e23|1.ª parte resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Modelo 1T no evaluado; brecha max 0.09 en 1T.1x2.home con precio de agregador (TheStatsAPI, 2 casas max) no ejecutable. Wrexham-Preston: n10 por equipo.",
+   "evidencia": [
+    "paquete:m-45668be67e23|1.ª parte resultado",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds/mt_733653119.json"
+   ]
+  },
+  {
+   "unit_id": "m-45668be67e23|córners",
+   "objecion": "fuente_unica",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Solo 6/46 lineas con precio y de una casa (Bet365, consulta del 14-oct); brecha max 0.13 en c.home.over.5.5; arbitro sin muestra; modelo validacion insuficiente.",
+   "evidencia": [
+    "paquete:m-45668be67e23|córners",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds/mt_733653119.json",
+    "archivo:runs/2026-10-17/league_samples/153.json"
+   ]
+  },
+  {
+   "unit_id": "m-45668be67e23|doble oportunidad",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "brecha max 0.09 en dc.1x; precios de agregador (1-4 casas), no ejecutables: TriunfoBet solo aporto 1X2 y una linea de goles. Validacion insuficiente. Wrexham-Preston.",
+   "evidencia": [
+    "paquete:m-45668be67e23|doble oportunidad",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/ligas/partidos_usuario.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds/mt_733653119.json"
+   ]
+  },
+  {
+   "unit_id": "m-45668be67e23|empate no válido",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "brecha max 0.09 en dnb.home; precios de agregador (1-4 casas), no ejecutables: TriunfoBet solo aporto 1X2 y una linea de goles. Validacion insuficiente. Wrexham-Preston.",
+   "evidencia": [
+    "paquete:m-45668be67e23|empate no válido",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/ligas/partidos_usuario.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds/mt_733653119.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "cuantitativo",
+     "campo": "consistencia_modelo",
+     "problema": "omision"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-45668be67e23|fueras de juego",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor, sin estimador y sin precio en el paquete: no rankeable por modelo.",
+   "evidencia": [
+    "paquete:m-45668be67e23|fueras de juego",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-45668be67e23|goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "brecha max 0.05 en total.over.2.5; solo 1 linea de goles es precio del usuario, 12/14 son agregador. Validacion insuficiente; p del modelo no es frecuencia. Wrexham-Preston.",
+   "evidencia": [
+    "paquete:m-45668be67e23|goles",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/ligas/partidos_usuario.json"
+   ]
+  },
+  {
+   "unit_id": "m-45668be67e23|goles por equipo",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "brecha max 0.08 en home.over.1.5; precios de agregador (1 casa), no ejecutables: TriunfoBet solo aporto 1X2 y una linea de goles. Validacion insuficiente. Wrexham-Preston.",
+   "evidencia": [
+    "paquete:m-45668be67e23|goles por equipo",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/ligas/partidos_usuario.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds/mt_733653119.json"
+   ]
+  },
+  {
+   "unit_id": "m-45668be67e23|goles total entero",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor, sin estimador y sin precio en el paquete: no rankeable por modelo.",
+   "evidencia": [
+    "paquete:m-45668be67e23|goles total entero",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-45668be67e23|hándicap",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "brecha max 0.07 en ah.home.-0.5; precios de agregador (1-4 casas), no ejecutables: TriunfoBet solo aporto 1X2 y una linea de goles. Validacion insuficiente. Wrexham-Preston.",
+   "evidencia": [
+    "paquete:m-45668be67e23|hándicap",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/ligas/partidos_usuario.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds/mt_733653119.json"
+   ]
+  },
+  {
+   "unit_id": "m-45668be67e23|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin estimador (p=-) para AH entero; 8/10 lineas con precio de agregador. Push no modelado; no ejecutable.",
+   "evidencia": [
+    "paquete:m-45668be67e23|hándicap asiático entero",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds/mt_733653119.json"
+   ]
+  },
+  {
+   "unit_id": "m-45668be67e23|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin estimador (3 vias, p=-); 12/12 lineas con precio de agregador, mayoria 1 casa. Referencia no ejecutable; sin EV calculable.",
+   "evidencia": [
+    "paquete:m-45668be67e23|hándicap europeo",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds/mt_733653119.json"
+   ]
+  },
+  {
+   "unit_id": "m-45668be67e23|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no implementado (p=-): sin precio; tiros n7-9 sin ajuste por rival. Sin p no hay EV.",
+   "evidencia": [
+    "paquete:m-45668be67e23|remates",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-45668be67e23|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no implementado (p=-): sin precio; tiros n7-9 sin ajuste por rival. Sin p no hay EV.",
+   "evidencia": [
+    "paquete:m-45668be67e23|remates a puerta",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-45668be67e23|resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "1X2 es precio del usuario (TriunfoBet); brecha max 0.08 en 1x2.home. Validacion insuficiente, local rota ~3.3 cambios, local 1-2-2 en casa (n5); sin once.",
+   "evidencia": [
+    "paquete:m-45668be67e23|resultado",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/ligas/partidos_usuario.json",
+    "archivo:runs/2026-10-17/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-45668be67e23|tarjetas",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Hooper tiene 0 partidos en la muestra de liga (n244 de liga); puntos n9 por equipo; sin precio ni linea de casa; liquidacion de tarjetas sin verificar.",
+   "evidencia": [
+    "paquete:m-45668be67e23|tarjetas",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/league_samples/153.json"
+   ]
+  },
+  {
+   "unit_id": "m-4e1b9c3d1cb1|1.ª parte goles",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Paderborn n6 (3 de visita; 1 previo a ago) y Bremen 4/9 de la temporada previa; brecha max 0.19 en 1T.total.over.1.5. ",
+   "evidencia": [
+    "paquete:m-4e1b9c3d1cb1|1.ª parte goles",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-4e1b9c3d1cb1|1.ª parte resultado",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Paderborn n6 (3 de visita; 1 previo a ago) y Bremen 4/9 de la temporada previa; brecha max 0.11 en 1T.1x2.home. ",
+   "evidencia": [
+    "paquete:m-4e1b9c3d1cb1|1.ª parte resultado",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-4e1b9c3d1cb1|córners",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Paderborn n6 (3 de visita; 1 previo a ago) y Bremen 4/9 de la temporada previa; brecha max 0.14 en c.away.under.3.5. 6 lineas con precio, solo Bet365.",
+   "evidencia": [
+    "paquete:m-4e1b9c3d1cb1|córners",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/league_samples/175.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds/mt_377364628.json"
+   ]
+  },
+  {
+   "unit_id": "m-4e1b9c3d1cb1|doble oportunidad",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Paderborn n6 (3 de visita; 1 previo a ago) y Bremen 4/9 de la temporada previa; brecha max 0.07 en dc.1x. ",
+   "evidencia": [
+    "paquete:m-4e1b9c3d1cb1|doble oportunidad",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-4e1b9c3d1cb1|empate no válido",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Paderborn n6 (3 de visita; 1 previo a ago) y Bremen 4/9 de la temporada previa; brecha max 0.07 en dnb.home.  Cuant. dice coherente aun con datos sin_extractor.",
+   "evidencia": [
+    "paquete:m-4e1b9c3d1cb1|empate no válido",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "cuantitativo",
+     "campo": "consistencia_modelo",
+     "problema": "omision"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-4e1b9c3d1cb1|fueras de juego",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor, sin estimador y sin precio en el paquete: no rankeable por modelo.",
+   "evidencia": [
+    "paquete:m-4e1b9c3d1cb1|fueras de juego",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-4e1b9c3d1cb1|goles",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Paderborn n6 (3 de visita; 1 previo a ago) y Bremen 4/9 de la temporada previa; brecha max 0.14 en total.over.3.5. Paderborn 0.5 GF (n6).",
+   "evidencia": [
+    "paquete:m-4e1b9c3d1cb1|goles",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-4e1b9c3d1cb1|goles por equipo",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Paderborn n6 (3 de visita; 1 previo a ago) y Bremen 4/9 de la temporada previa; brecha max 0.15 en home.over.1.5. Paderborn 0.5 GF (n6), 0.0 en 3 salidas.",
+   "evidencia": [
+    "paquete:m-4e1b9c3d1cb1|goles por equipo",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-4e1b9c3d1cb1|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin estimador; 10/10 lineas con precio de agregador (1-2 casas). Linea entera: devolucion (push) no modelada. No ejecutable en TriunfoBet.",
+   "evidencia": [
+    "paquete:m-4e1b9c3d1cb1|goles total entero",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds/mt_377364628.json"
+   ]
+  },
+  {
+   "unit_id": "m-4e1b9c3d1cb1|hándicap",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Paderborn n6 (3 de visita; 1 previo a ago) y Bremen 4/9 de la temporada previa; brecha max 0.08 en ah.home.-1.5. ",
+   "evidencia": [
+    "paquete:m-4e1b9c3d1cb1|hándicap",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-4e1b9c3d1cb1|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin estimador (p=-) para AH entero; 9/10 lineas con precio de agregador. Push no modelado; no ejecutable.",
+   "evidencia": [
+    "paquete:m-4e1b9c3d1cb1|hándicap asiático entero",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds/mt_377364628.json"
+   ]
+  },
+  {
+   "unit_id": "m-4e1b9c3d1cb1|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin estimador (3 vias, p=-); 12/12 lineas con precio de agregador, mayoria 1 casa. Referencia no ejecutable; sin EV calculable.",
+   "evidencia": [
+    "paquete:m-4e1b9c3d1cb1|hándicap europeo",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds/mt_377364628.json"
+   ]
+  },
+  {
+   "unit_id": "m-4e1b9c3d1cb1|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no implementado (p=-): sin precio; tiros n7-9 sin ajuste por rival. Paderborn n6. Sin p no hay EV.",
+   "evidencia": [
+    "paquete:m-4e1b9c3d1cb1|remates",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-4e1b9c3d1cb1|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no implementado (p=-): sin precio; tiros n7-9 sin ajuste por rival. Paderborn n6. Sin p no hay EV.",
+   "evidencia": [
+    "paquete:m-4e1b9c3d1cb1|remates a puerta",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-4e1b9c3d1cb1|resultado",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Paderborn n6 (3 de visita; 1 previo a ago) y Bremen 4/9 de la temporada previa; brecha max 0.06 en 1x2.home. ",
+   "evidencia": [
+    "paquete:m-4e1b9c3d1cb1|resultado",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-4e1b9c3d1cb1|tarjetas",
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Datos parciales de tarjetas, estimador datos_insuficientes, arbitro s/d y Paderborn n6: no hay p ni precio utilizables.",
+   "evidencia": [
+    "paquete:m-4e1b9c3d1cb1|tarjetas",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/league_samples/175.json"
+   ]
+  },
+  {
+   "unit_id": "m-4e84bf8f3d70|1.ª parte goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Modelo 1T no evaluado; brecha max 0.07 en 1T.total.over.0.5 con precio de agregador (TheStatsAPI, 2 casas max) no ejecutable. Roma-Genoa: n10 por equipo.",
+   "evidencia": [
+    "paquete:m-4e84bf8f3d70|1.ª parte goles",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds/mt_511496958.json"
+   ]
+  },
+  {
+   "unit_id": "m-4e84bf8f3d70|1.ª parte resultado",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Roma con Europa <=4d (once sin publicar) y Genoa rota 7.7 cambios; rotacion no cuantificada en el p. brecha max 0.04 en 1T.1x2.away; 4/10 de cada equipo es de la temporada previa.",
+   "evidencia": [
+    "paquete:m-4e84bf8f3d70|1.ª parte resultado",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-4e84bf8f3d70|córners",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "brecha max 0.17 en c.home.over.6.5 (p 0.33 vs 1/cuota 0.50, 1 casa Bet365); Abisso n4; 4/10 por equipo de la temporada previa. Cuantitativo ya marca discrepancia.",
+   "evidencia": [
+    "paquete:m-4e84bf8f3d70|córners",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds/mt_511496958.json",
+    "archivo:runs/2026-10-17/league_samples/207.json"
+   ]
+  },
+  {
+   "unit_id": "m-4e84bf8f3d70|doble oportunidad",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Roma con Europa <=4d (once sin publicar) y Genoa rota 7.7 cambios; rotacion no cuantificada en el p. brecha max 0.08 en dc.x2; 4/10 de cada equipo es de la temporada previa.",
+   "evidencia": [
+    "paquete:m-4e84bf8f3d70|doble oportunidad",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-4e84bf8f3d70|empate no válido",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Roma con Europa <=4d (once sin publicar) y Genoa rota 7.7 cambios; rotacion no cuantificada en el p. brecha max 0.07 en dnb.away; 4/10 de cada equipo es de la temporada previa.",
+   "evidencia": [
+    "paquete:m-4e84bf8f3d70|empate no válido",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "cuantitativo",
+     "campo": "consistencia_modelo",
+     "problema": "omision"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-4e84bf8f3d70|fueras de juego",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor, sin estimador y sin precio en el paquete: no rankeable por modelo.",
+   "evidencia": [
+    "paquete:m-4e84bf8f3d70|fueras de juego",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-4e84bf8f3d70|goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "brecha max 0.13 en btts.yes; solo 1 linea de goles es precio del usuario, 12/14 son agregador. Validacion insuficiente; p del modelo no es frecuencia. Roma-Genoa.",
+   "evidencia": [
+    "paquete:m-4e84bf8f3d70|goles",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/ligas/partidos_usuario.json"
+   ]
+  },
+  {
+   "unit_id": "m-4e84bf8f3d70|goles por equipo",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Genoa 0.6 GF (n10), 0.2 en 5 salidas; brecha max 0.14 en away.over.0.5; 4/10 por equipo de la temporada previa; precios de 1 casa (Bet365).",
+   "evidencia": [
+    "paquete:m-4e84bf8f3d70|goles por equipo",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds/mt_511496958.json"
+   ]
+  },
+  {
+   "unit_id": "m-4e84bf8f3d70|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin estimador; 10/10 lineas con precio de agregador (1-2 casas). Linea entera: devolucion (push) no modelada. No ejecutable en TriunfoBet.",
+   "evidencia": [
+    "paquete:m-4e84bf8f3d70|goles total entero",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds/mt_511496958.json"
+   ]
+  },
+  {
+   "unit_id": "m-4e84bf8f3d70|hándicap",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Roma con Europa <=4d (once sin publicar) y Genoa rota 7.7 cambios; rotacion no cuantificada en el p. brecha max 0.08 en ah.away.+2.5; 4/10 de cada equipo es de la temporada previa.",
+   "evidencia": [
+    "paquete:m-4e84bf8f3d70|hándicap",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-4e84bf8f3d70|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin estimador (p=-) para AH entero; 9/10 lineas con precio de agregador. 2 lineas no_verificables (1 casa). Push no modelado; no ejecutable.",
+   "evidencia": [
+    "paquete:m-4e84bf8f3d70|hándicap asiático entero",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds/mt_511496958.json"
+   ]
+  },
+  {
+   "unit_id": "m-4e84bf8f3d70|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin estimador (3 vias, p=-); 12/12 lineas con precio de agregador, mayoria 1 casa. Referencia no ejecutable; sin EV calculable.",
+   "evidencia": [
+    "paquete:m-4e84bf8f3d70|hándicap europeo",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds/mt_511496958.json"
+   ]
+  },
+  {
+   "unit_id": "m-4e84bf8f3d70|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no implementado (p=-): 6/90 lineas con precio (Bet365 1 casa); tiros n7-9 sin ajuste por rival. Sin p no hay EV.",
+   "evidencia": [
+    "paquete:m-4e84bf8f3d70|remates",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds/mt_511496958.json"
+   ]
+  },
+  {
+   "unit_id": "m-4e84bf8f3d70|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no implementado (p=-): 6/60 lineas con precio (Bet365 1 casa); tiros n7-9 sin ajuste por rival. Sin p no hay EV.",
+   "evidencia": [
+    "paquete:m-4e84bf8f3d70|remates a puerta",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds/mt_511496958.json"
+   ]
+  },
+  {
+   "unit_id": "m-4e84bf8f3d70|resultado",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Roma con Europa <=4d (once sin publicar) y Genoa rota 7.7 cambios; rotacion no cuantificada en el p. brecha max 0.05 en 1x2.away; 4/10 de cada equipo es de la temporada previa.",
+   "evidencia": [
+    "paquete:m-4e84bf8f3d70|resultado",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-4e84bf8f3d70|tarjetas",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Abisso n4 partidos en Serie A (debil) con medias 4.25; equipos n8; sin precio ni linea; liquidacion sin verificar; Genoa rota 7.7.",
+   "evidencia": [
+    "paquete:m-4e84bf8f3d70|tarjetas",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/league_samples/207.json",
+    "archivo:runs/2026-10-17/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-538a491b543a|1.ª parte goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Modelo 1T no evaluado; brecha max 0.06 en 1T.total.over.0.5 con precio de agregador (TheStatsAPI, 2 casas max) no ejecutable. Bologna-Inter: n10 por equipo.",
+   "evidencia": [
+    "paquete:m-538a491b543a|1.ª parte goles",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds/mt_733561666.json"
+   ]
+  },
+  {
+   "unit_id": "m-538a491b543a|1.ª parte resultado",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Inter rotacion ALTA; 1T modelo no evaluado, brecha max 0.14 en 1T.1x2.away; 1T n<=10 con 4/10 de la temporada previa.",
+   "evidencia": [
+    "paquete:m-538a491b543a|1.ª parte resultado",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-538a491b543a|córners",
+   "objecion": "fuente_unica",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Solo 6/46 lineas con precio y de una casa (Bet365); brecha max 0.08 en c.home.under.3.5; 4/10 por equipo de la temporada previa; Doveri n7; validacion insuficiente.",
+   "evidencia": [
+    "paquete:m-538a491b543a|córners",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds/mt_733561666.json",
+    "archivo:runs/2026-10-17/league_samples/207.json"
+   ]
+  },
+  {
+   "unit_id": "m-538a491b543a|doble oportunidad",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "alta",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Inter rotacion ALTA (4d, Europa <=4d, 5.5 cambios) y once sin publicar; brecha max 0.19 en dc.x2. El paquete no muestra ajuste del p por rotacion.",
+   "evidencia": [
+    "paquete:m-538a491b543a|doble oportunidad",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/agentes/informe_cuantitativo.json"
+   ]
+  },
+  {
+   "unit_id": "m-538a491b543a|empate no válido",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "alta",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Inter rotacion ALTA (4d, Europa <=4d, 5.5 cambios) y once sin publicar; brecha max 0.22 en dnb.away. El paquete no muestra ajuste del p por rotacion.",
+   "evidencia": [
+    "paquete:m-538a491b543a|empate no válido",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/agentes/informe_cuantitativo.json"
+   ]
+  },
+  {
+   "unit_id": "m-538a491b543a|fueras de juego",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor, sin estimador y sin precio en el paquete: no rankeable por modelo.",
+   "evidencia": [
+    "paquete:m-538a491b543a|fueras de juego",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-538a491b543a|goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "brecha max 0.08 en btts.no; solo 1 linea de goles es precio del usuario, 12/14 son agregador. Validacion insuficiente; p del modelo no es frecuencia. Bologna-Inter.",
+   "evidencia": [
+    "paquete:m-538a491b543a|goles",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/ligas/partidos_usuario.json"
+   ]
+  },
+  {
+   "unit_id": "m-538a491b543a|goles por equipo",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "alta",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Inter rotacion ALTA (4d, Europa <=4d, 5.5 cambios) y once sin publicar; brecha max 0.17 en home.under.1.5. El paquete no muestra ajuste del p por rotacion.",
+   "evidencia": [
+    "paquete:m-538a491b543a|goles por equipo",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/agentes/informe_cuantitativo.json"
+   ]
+  },
+  {
+   "unit_id": "m-538a491b543a|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin estimador; 10/10 lineas con precio de agregador (1-2 casas). Linea entera: devolucion (push) no modelada. No ejecutable en TriunfoBet.",
+   "evidencia": [
+    "paquete:m-538a491b543a|goles total entero",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds/mt_733561666.json"
+   ]
+  },
+  {
+   "unit_id": "m-538a491b543a|hándicap",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "alta",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Inter rotacion ALTA (4d, Europa <=4d, 5.5 cambios) y once sin publicar; brecha max 0.18 en ah.away.-0.5. El paquete no muestra ajuste del p por rotacion.",
+   "evidencia": [
+    "paquete:m-538a491b543a|hándicap",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/agentes/informe_cuantitativo.json"
+   ]
+  },
+  {
+   "unit_id": "m-538a491b543a|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin estimador (p=-) para AH entero; 10/10 lineas con precio de agregador. Push no modelado; no ejecutable.",
+   "evidencia": [
+    "paquete:m-538a491b543a|hándicap asiático entero",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds/mt_733561666.json"
+   ]
+  },
+  {
+   "unit_id": "m-538a491b543a|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin estimador (3 vias, p=-); 12/12 lineas con precio de agregador, mayoria 1 casa. Referencia no ejecutable; sin EV calculable.",
+   "evidencia": [
+    "paquete:m-538a491b543a|hándicap europeo",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds/mt_733561666.json"
+   ]
+  },
+  {
+   "unit_id": "m-538a491b543a|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no implementado (p=-): 6/90 lineas con precio (Bet365 1 casa); tiros n7-9 sin ajuste por rival. Sin p no hay EV.",
+   "evidencia": [
+    "paquete:m-538a491b543a|remates",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds/mt_733561666.json"
+   ]
+  },
+  {
+   "unit_id": "m-538a491b543a|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no implementado (p=-): 6/60 lineas con precio (Bet365 1 casa); tiros n7-9 sin ajuste por rival. Sin p no hay EV.",
+   "evidencia": [
+    "paquete:m-538a491b543a|remates a puerta",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds/mt_733561666.json"
+   ]
+  },
+  {
+   "unit_id": "m-538a491b543a|resultado",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "alta",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Inter rotacion ALTA (4d, Europa <=4d, 5.5 cambios) y once sin publicar; brecha max 0.19 en 1x2.away. El paquete no muestra ajuste del p por rotacion.",
+   "evidencia": [
+    "paquete:m-538a491b543a|resultado",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/agentes/informe_cuantitativo.json"
+   ]
+  },
+  {
+   "unit_id": "m-538a491b543a|tarjetas",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Doveri n6 con tarjetas (3.17); su nombre aparece en 2 variantes en la muestra y una fila queda fuera del n; Inter rotacion alta; sin precio; liquidacion sin verificar.",
+   "evidencia": [
+    "paquete:m-538a491b543a|tarjetas",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/league_samples/207.json",
+    "archivo:runs/2026-10-17/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-569d092750ce|1.ª parte goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Modelo 1T no evaluado; brecha max 0.04 en 1T.total.under.2.5 con precio de agregador (TheStatsAPI, 2 casas max) no ejecutable. Aberdeen-St Mirren: n10 por equipo.",
+   "evidencia": [
+    "paquete:m-569d092750ce|1.ª parte goles",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds/mt_733616934.json"
+   ]
+  },
+  {
+   "unit_id": "m-569d092750ce|1.ª parte resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "brecha max 0.16 en 1T.1x2.home; el modelo invierte el favorito del mercado (local 0.31 vs 1X2 usuario 0.56). 2/10 por equipo de fases previas.",
+   "evidencia": [
+    "paquete:m-569d092750ce|1.ª parte resultado",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/ligas/partidos_usuario.json",
+    "archivo:runs/2026-10-17/agentes/informe_cuantitativo.json"
+   ]
+  },
+  {
+   "unit_id": "m-569d092750ce|córners",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "brecha max 0.15 en c.total.under.10.5 (1 casa Bet365); muestra mezcla fase Relegation/Final; Beaton n10 con 9.3 vs equipos 11-12 (magnitudes no comparables).",
+   "evidencia": [
+    "paquete:m-569d092750ce|córners",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds/mt_733616934.json",
+    "archivo:runs/2026-10-17/league_samples/279.json"
+   ]
+  },
+  {
+   "unit_id": "m-569d092750ce|doble oportunidad",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "brecha max 0.22 en dc.1x; el modelo invierte el favorito del mercado (local 0.31 vs 1X2 usuario 0.56). 2/10 por equipo de fases previas.",
+   "evidencia": [
+    "paquete:m-569d092750ce|doble oportunidad",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/ligas/partidos_usuario.json",
+    "archivo:runs/2026-10-17/agentes/informe_cuantitativo.json"
+   ]
+  },
+  {
+   "unit_id": "m-569d092750ce|empate no válido",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "verificar_manualmente",
+   "nota": "brecha max 0.30 en dnb.home; el modelo invierte el favorito del mercado (local 0.31 vs 1X2 usuario 0.56). 2/10 por equipo de fases previas.",
+   "evidencia": [
+    "paquete:m-569d092750ce|empate no válido",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/ligas/partidos_usuario.json",
+    "archivo:runs/2026-10-17/agentes/informe_cuantitativo.json"
+   ]
+  },
+  {
+   "unit_id": "m-569d092750ce|fueras de juego",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor, sin estimador y sin precio en el paquete: no rankeable por modelo.",
+   "evidencia": [
+    "paquete:m-569d092750ce|fueras de juego",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-569d092750ce|goles",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "brecha max 0.16 en total.over.2.5; el modelo invierte el favorito del mercado (local 0.31 vs 1X2 usuario 0.56). 2/10 por equipo de fases previas. Deportivo MEDIA pese a ello.",
+   "evidencia": [
+    "paquete:m-569d092750ce|goles",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/ligas/partidos_usuario.json",
+    "archivo:runs/2026-10-17/agentes/informe_cuantitativo.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "solidez",
+     "problema": "afirmacion_sin_evidencia"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-569d092750ce|goles por equipo",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "verificar_manualmente",
+   "nota": "brecha max 0.26 en home.over.1.5; el modelo invierte el favorito del mercado (local 0.31 vs 1X2 usuario 0.56). 2/10 por equipo de fases previas.",
+   "evidencia": [
+    "paquete:m-569d092750ce|goles por equipo",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/ligas/partidos_usuario.json",
+    "archivo:runs/2026-10-17/agentes/informe_cuantitativo.json"
+   ]
+  },
+  {
+   "unit_id": "m-569d092750ce|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin estimador; 2/10 lineas con precio de agregador (1-2 casas). Linea entera: devolucion (push) no modelada. No ejecutable en TriunfoBet.",
+   "evidencia": [
+    "paquete:m-569d092750ce|goles total entero",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds/mt_733616934.json"
+   ]
+  },
+  {
+   "unit_id": "m-569d092750ce|hándicap",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "brecha max 0.23 en ah.home.-0.5; el modelo invierte el favorito del mercado (local 0.31 vs 1X2 usuario 0.56). 2/10 por equipo de fases previas.",
+   "evidencia": [
+    "paquete:m-569d092750ce|hándicap",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/ligas/partidos_usuario.json",
+    "archivo:runs/2026-10-17/agentes/informe_cuantitativo.json"
+   ]
+  },
+  {
+   "unit_id": "m-569d092750ce|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin estimador (p=-) para AH entero; 8/10 lineas con precio de agregador. 2 lineas no_verificables (1 casa). Push no modelado; no ejecutable.",
+   "evidencia": [
+    "paquete:m-569d092750ce|hándicap asiático entero",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds/mt_733616934.json"
+   ]
+  },
+  {
+   "unit_id": "m-569d092750ce|hándicap europeo",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor, sin estimador y sin precio en el paquete: no rankeable por modelo.",
+   "evidencia": [
+    "paquete:m-569d092750ce|hándicap europeo",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-569d092750ce|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no implementado (p=-): sin precio; tiros n7-9 sin ajuste por rival. Sin p no hay EV.",
+   "evidencia": [
+    "paquete:m-569d092750ce|remates",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-569d092750ce|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no implementado (p=-): sin precio; tiros n7-9 sin ajuste por rival. Sin p no hay EV.",
+   "evidencia": [
+    "paquete:m-569d092750ce|remates a puerta",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-569d092750ce|resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "brecha max 0.24 en 1x2.home; el modelo invierte el favorito del mercado (local 0.31 vs 1X2 usuario 0.56). 2/10 por equipo de fases previas.",
+   "evidencia": [
+    "paquete:m-569d092750ce|resultado",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/ligas/partidos_usuario.json",
+    "archivo:runs/2026-10-17/agentes/informe_cuantitativo.json"
+   ]
+  },
+  {
+   "unit_id": "m-569d092750ce|tarjetas",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Modelo mide cards_pts; el mercado Bet365 (1 casa) es total_cards 4.5: definiciones distintas. Cuantitativo lo compara como coherente (p 0.45 vs 0.52).",
+   "evidencia": [
+    "paquete:m-569d092750ce|tarjetas",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds/mt_733616934.json",
+    "archivo:runs/2026-10-17/agentes/informe_cuantitativo.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "cuantitativo",
+     "campo": "consistencia_modelo",
+     "problema": "valor_contradice_fuente"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-5a50de7a4895|1.ª parte goles",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "verificar_manualmente",
+   "nota": "brecha max 0.31 en 1T.total.under.1.5; modelo muy lejos del mercado (visitante 0.57 vs 0.39 en el 1X2 del usuario). Estimador sin validar.",
+   "evidencia": [
+    "paquete:m-5a50de7a4895|1.ª parte goles",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/ligas/partidos_usuario.json",
+    "archivo:runs/2026-10-17/agentes/informe_cuantitativo.json"
+   ]
+  },
+  {
+   "unit_id": "m-5a50de7a4895|1.ª parte resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "brecha max 0.15 en 1T.1x2.draw; modelo muy lejos del mercado (visitante 0.57 vs 0.39 en el 1X2 del usuario). Estimador sin validar.",
+   "evidencia": [
+    "paquete:m-5a50de7a4895|1.ª parte resultado",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/ligas/partidos_usuario.json",
+    "archivo:runs/2026-10-17/agentes/informe_cuantitativo.json"
+   ]
+  },
+  {
+   "unit_id": "m-5a50de7a4895|córners",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "verificar_manualmente",
+   "nota": "brecha max 0.27 en c.away.over.4.5 (p 0.33 vs 1/cuota 0.60, 1 casa Bet365); arbitro s/d; validacion insuficiente. Cuantitativo ya marca discrepancia.",
+   "evidencia": [
+    "paquete:m-5a50de7a4895|córners",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds/mt_465746199.json"
+   ]
+  },
+  {
+   "unit_id": "m-5a50de7a4895|doble oportunidad",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "brecha max 0.24 en dc.1x; modelo muy lejos del mercado (visitante 0.57 vs 0.39 en el 1X2 del usuario). Estimador sin validar. Deportivo da MEDIA pese a la brecha.",
+   "evidencia": [
+    "paquete:m-5a50de7a4895|doble oportunidad",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/ligas/partidos_usuario.json",
+    "archivo:runs/2026-10-17/agentes/informe_cuantitativo.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "solidez",
+     "problema": "afirmacion_sin_evidencia"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-5a50de7a4895|empate no válido",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "brecha max 0.23 en dnb.home; modelo muy lejos del mercado (visitante 0.57 vs 0.39 en el 1X2 del usuario). Estimador sin validar.",
+   "evidencia": [
+    "paquete:m-5a50de7a4895|empate no válido",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/ligas/partidos_usuario.json",
+    "archivo:runs/2026-10-17/agentes/informe_cuantitativo.json"
+   ]
+  },
+  {
+   "unit_id": "m-5a50de7a4895|fueras de juego",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor, sin estimador y sin precio en el paquete: no rankeable por modelo.",
+   "evidencia": [
+    "paquete:m-5a50de7a4895|fueras de juego",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-5a50de7a4895|goles",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "verificar_manualmente",
+   "nota": "brecha max 0.34 en total.under.3.5; modelo muy lejos del mercado (visitante 0.57 vs 0.39 en el 1X2 del usuario). Estimador sin validar. Deportivo da MEDIA pese a la brecha.",
+   "evidencia": [
+    "paquete:m-5a50de7a4895|goles",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/ligas/partidos_usuario.json",
+    "archivo:runs/2026-10-17/agentes/informe_cuantitativo.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "solidez",
+     "problema": "afirmacion_sin_evidencia"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-5a50de7a4895|goles por equipo",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "verificar_manualmente",
+   "nota": "brecha max 0.36 en away.under.2.5; modelo muy lejos del mercado (visitante 0.57 vs 0.39 en el 1X2 del usuario). Estimador sin validar.",
+   "evidencia": [
+    "paquete:m-5a50de7a4895|goles por equipo",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/ligas/partidos_usuario.json",
+    "archivo:runs/2026-10-17/agentes/informe_cuantitativo.json"
+   ]
+  },
+  {
+   "unit_id": "m-5a50de7a4895|goles total entero",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor, sin estimador y sin precio en el paquete: no rankeable por modelo.",
+   "evidencia": [
+    "paquete:m-5a50de7a4895|goles total entero",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-5a50de7a4895|hándicap",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "verificar_manualmente",
+   "nota": "brecha max 0.23 en ah.home.+0.5 (p 0.43 vs 0.67). Lineas AH +-2.5 de apifootball: cuotas 1.025/1.035 en ambos lados (suma implicita 1.94): par inconsistente.",
+   "evidencia": [
+    "paquete:m-5a50de7a4895|hándicap",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds/mt_465746199.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.home.-2.5",
+     "objecion": "dato_defectuoso"
+    },
+    {
+     "entry_id": "resultado.ah.away.+2.5",
+     "objecion": "dato_defectuoso"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-5a50de7a4895|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin estimador (p=-) para AH entero; 10/10 lineas con precio de agregador. 6/10 lineas no_verificables (1-2 casas). Push no modelado; no ejecutable.",
+   "evidencia": [
+    "paquete:m-5a50de7a4895|hándicap asiático entero",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds/mt_465746199.json"
+   ]
+  },
+  {
+   "unit_id": "m-5a50de7a4895|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin estimador (3 vias, p=-); 12/12 lineas con precio de agregador, mayoria 1 casa. Referencia no ejecutable; sin EV calculable.",
+   "evidencia": [
+    "paquete:m-5a50de7a4895|hándicap europeo",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds/mt_465746199.json"
+   ]
+  },
+  {
+   "unit_id": "m-5a50de7a4895|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no implementado (p=-): sin precio; tiros n7-9 sin ajuste por rival. Sin p no hay EV.",
+   "evidencia": [
+    "paquete:m-5a50de7a4895|remates",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-5a50de7a4895|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no implementado (p=-): sin precio; tiros n7-9 sin ajuste por rival. Sin p no hay EV.",
+   "evidencia": [
+    "paquete:m-5a50de7a4895|remates a puerta",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-5a50de7a4895|resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "verificar_manualmente",
+   "nota": "brecha max 0.17 en 1x2.away; modelo muy lejos del mercado (visitante 0.57 vs 0.39 en el 1X2 del usuario). Estimador sin validar.",
+   "evidencia": [
+    "paquete:m-5a50de7a4895|resultado",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/ligas/partidos_usuario.json",
+    "archivo:runs/2026-10-17/agentes/informe_cuantitativo.json"
+   ]
+  },
+  {
+   "unit_id": "m-5a50de7a4895|tarjetas",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Arbitro s/d (liga n390); puntos n9 por equipo, sin ajuste por rival; sin precio ni linea; liquidacion de tarjetas sin verificar.",
+   "evidencia": [
+    "paquete:m-5a50de7a4895|tarjetas",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/league_samples/332.json"
+   ]
+  }
+ ],
+ "limitaciones": [
+  "Sin lineups ni noticias nuevas: bajas/rotaciones solo de rotation.json y paquete; no se abrieron fuentes web ni se consulto apifootball.",
+  "Cuotas de agregador (TheStatsAPI/apifootball del 14-oct) no ejecutables; solo 1X2 y una linea de goles son precios del usuario.",
+  "Muestras mezclan temporadas previas (abr-may 2026) y sin ajuste por rival; el p del modelo no esta validado; no es probabilidad real.",
+  "Notas por regla determinista sobre hechos del paquete (brecha |p-1/cuota| max por unidad), revisadas por grupo y partido; 1/cuota incluye margen."
+ ]
+}

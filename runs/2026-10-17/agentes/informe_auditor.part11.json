@@ -1,0 +1,1273 @@
+{
+ "agente": "auditor",
+ "version_contrato": 1,
+ "run": "runs/2026-10-17",
+ "unidades": [
+  {
+   "unit_id": "m-a06a32e098e0|1.ª parte goles",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "1/6 lineas con p de modelo a >=15 pp de 1/cuota (max 15 pp); modelo no validado, el desacuerdo no es ventaja. Modelo 1T no evaluado; precio de 1-3 casas.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a06a32e098e0|1.ª parte goles",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds"
+   ]
+  },
+  {
+   "unit_id": "m-a06a32e098e0|1.ª parte resultado",
+   "objecion": "fuente_unica",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Precio solo de TheStatsAPI (1-3 casas, obs. 14-oct), apifootball no lo ofrece; modelo 1T validacion no_evaluada; frecuencia de gol en 1T (n10) no es probabilidad.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a06a32e098e0|1.ª parte resultado",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-a06a32e098e0|córners",
+   "objecion": "fuente_unica",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Solo 6/46 lineas con precio, de TheStatsAPI (6 de 1 casa, obs. 14-oct); corners sin validar vs mercado; n10 mezcla casa/fuera sin ajustar rival ni arbitro.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a06a32e098e0|córners",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds"
+   ]
+  },
+  {
+   "unit_id": "m-a06a32e098e0|doble oportunidad",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "DC con p sin validar (dc 'no_concluyente'); precios agregador de 14-oct, brecha max 13 pp; cuotas bajas dejan poco margen ante error de p. Forma n10 sin ajustar rival.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a06a32e098e0|doble oportunidad",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-a06a32e098e0|empate no válido",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "DNB: datos sin_extractor y validacion no_evaluada; precio derivado de AH0 agregador (2 lineas). Brecha max 12 pp; cuantitativo ya lo da por datos_insuficientes.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a06a32e098e0|empate no válido",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-a06a32e098e0|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Mercado no ofrecido en ninguna fuente y sin estimador; 1 linea sin p ni precio. No hay base para evaluar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a06a32e098e0|fueras de juego",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-a06a32e098e0|goles",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Over/BTTS en n10 mezcla casa/fuera sin ajustar rival; solidez deportiva BAJA, p validacion insuficiente; precio usuario en 2 lineas, resto agregador. Brecha max 13 pp.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a06a32e098e0|goles",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-a06a32e098e0|goles por equipo",
+   "objecion": "fuente_unica",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Precio solo de TheStatsAPI (team_total_goals, 12/12 lineas de 1 casa, obs. 14-oct); p por equipo sin validar (team_goals no_concluyente), n10 sin ajustar rival.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a06a32e098e0|goles por equipo",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds"
+   ]
+  },
+  {
+   "unit_id": "m-a06a32e098e0|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador (p) ni precio en el paquete (10 lineas); verificador: no_encontrada. No hay contraste ni EV posible; nada que auditar frente a mercado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a06a32e098e0|goles total entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-a06a32e098e0|hándicap",
+   "objecion": "dato_defectuoso",
+   "severidad": "alta",
+   "recomendacion": "verificar_manualmente",
+   "nota": "AH -2.5 a 1.02/1.03 de una casa (suma implicita 1.95): precio absurdo que crea brecha de 93 pp con p=0.048. No usar como contraste; resto de lineas, modelo sin validar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a06a32e098e0|hándicap",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds"
+   ]
+  },
+  {
+   "unit_id": "m-a06a32e098e0|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador: 6/10 lineas con precio agregador; 2 no_verificable. Sin p no hay EV; AH0 equivale a DNB (devolucion si empate).",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a06a32e098e0|hándicap asiático entero",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds"
+   ]
+  },
+  {
+   "unit_id": "m-a06a32e098e0|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador: 12/12 lineas con precio agregador (9 de 1 casa, obs. 14-oct) pero sin p; no hay EV ni contraste. Precio no ejecutable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a06a32e098e0|hándicap europeo",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds"
+   ]
+  },
+  {
+   "unit_id": "m-a06a32e098e0|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador (p) ni precio en el paquete (90 lineas); verificador: no_encontrada. No hay contraste ni EV posible; nada que auditar frente a mercado; tiros sin ajustar por rival.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a06a32e098e0|remates",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-a06a32e098e0|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador (p) ni precio en el paquete (60 lineas); verificador: no_encontrada. No hay contraste ni EV posible; nada que auditar frente a mercado; tiros sin ajustar por rival.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a06a32e098e0|remates a puerta",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-a06a32e098e0|resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "1X2 con precio del usuario; brecha max 8 pp pero 1x2 'no_concluyente' en validacion; forma n10 sin ajustar rival ni localia; 3/3 cuotas por encima de 2.10.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a06a32e098e0|resultado",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-a06a32e098e0|tarjetas",
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Puntos de tarjeta con n=8/7 (partidos con dato); solo 2/42 lineas con precio agregador; definicion de puntos y liquidacion de la casa no verificadas; muestra de arbitro escasa o ausente.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a06a32e098e0|tarjetas",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/league_samples"
+   ]
+  },
+  {
+   "unit_id": "m-a07b36655c0c|1.ª parte goles",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "2/6 lineas con p de modelo a >=15 pp de 1/cuota (max 18 pp); modelo no validado, el desacuerdo no es ventaja. Liverpool rota 6.7 cambios, copa/Europa <=4d.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a07b36655c0c|1.ª parte goles",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds"
+   ]
+  },
+  {
+   "unit_id": "m-a07b36655c0c|1.ª parte resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "1/3 lineas con p de modelo a >=15 pp de 1/cuota (max 15 pp); modelo no validado, el desacuerdo no es ventaja. Liverpool rota 6.7 cambios, copa/Europa <=4d.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a07b36655c0c|1.ª parte resultado",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds"
+   ]
+  },
+  {
+   "unit_id": "m-a07b36655c0c|córners",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "1/6 lineas con p de modelo a >=15 pp de 1/cuota (max 17 pp); modelo no validado, el desacuerdo no es ventaja. Liverpool rota 6.7 cambios, copa/Europa <=4d.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a07b36655c0c|córners",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds"
+   ]
+  },
+  {
+   "unit_id": "m-a07b36655c0c|doble oportunidad",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "verificar_manualmente",
+   "nota": "1/3 lineas con p de modelo a >=15 pp de 1/cuota (max 27 pp); modelo no validado, el desacuerdo no es ventaja. Liverpool rota 6.7 cambios, copa/Europa <=4d.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a07b36655c0c|doble oportunidad",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds"
+   ]
+  },
+  {
+   "unit_id": "m-a07b36655c0c|empate no válido",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "verificar_manualmente",
+   "nota": "2/2 lineas con p de modelo a >=15 pp de 1/cuota (max 26 pp); modelo no validado, el desacuerdo no es ventaja. Liverpool rota 6.7 cambios, copa/Europa <=4d.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a07b36655c0c|empate no válido",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "cuantitativo",
+     "campo": "consistencia_modelo",
+     "problema": "omision"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-a07b36655c0c|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Mercado no ofrecido en ninguna fuente y sin estimador; 1 linea sin p ni precio. No hay base para evaluar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a07b36655c0c|fueras de juego",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-a07b36655c0c|goles",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Over/BTTS en n10 mezcla casa/fuera sin ajustar rival; solidez deportiva BAJA, p validacion insuficiente; precio usuario en 2 lineas, resto agregador. Brecha max 12 pp.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a07b36655c0c|goles",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-a07b36655c0c|goles por equipo",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "3/12 lineas con p de modelo a >=15 pp de 1/cuota (max 23 pp); modelo no validado, el desacuerdo no es ventaja. Liverpool rota 6.7 cambios, copa/Europa <=4d.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a07b36655c0c|goles por equipo",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds"
+   ]
+  },
+  {
+   "unit_id": "m-a07b36655c0c|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador: 10/10 lineas con precio agregador (8 de 1 casa, obs. 14-oct) pero sin p; no hay EV ni contraste. Precio no ejecutable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a07b36655c0c|goles total entero",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds"
+   ]
+  },
+  {
+   "unit_id": "m-a07b36655c0c|hándicap",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "verificar_manualmente",
+   "nota": "4/12 lineas con p de modelo a >=15 pp de 1/cuota (max 24 pp); modelo no validado, el desacuerdo no es ventaja. Liverpool rota 6.7 cambios, copa/Europa <=4d.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a07b36655c0c|hándicap",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds"
+   ]
+  },
+  {
+   "unit_id": "m-a07b36655c0c|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador: 10/10 lineas con precio agregador (4 de 1 casa, obs. 14-oct) pero sin p; no hay EV ni contraste. Precio no ejecutable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a07b36655c0c|hándicap asiático entero",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds"
+   ]
+  },
+  {
+   "unit_id": "m-a07b36655c0c|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador: 12/12 lineas con precio agregador (0 de 1 casa, obs. 14-oct) pero sin p; no hay EV ni contraste. Precio no ejecutable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a07b36655c0c|hándicap europeo",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds"
+   ]
+  },
+  {
+   "unit_id": "m-a07b36655c0c|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador: 6/90 lineas con precio agregador (6 de 1 casa, obs. 14-oct) pero sin p; no hay EV ni contraste. Precio no ejecutable; tiros sin ajustar por rival.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a07b36655c0c|remates",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds"
+   ]
+  },
+  {
+   "unit_id": "m-a07b36655c0c|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador: 6/60 lineas con precio agregador (6 de 1 casa, obs. 14-oct) pero sin p; no hay EV ni contraste. Precio no ejecutable; tiros sin ajustar por rival.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a07b36655c0c|remates a puerta",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds"
+   ]
+  },
+  {
+   "unit_id": "m-a07b36655c0c|resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "2/3 lineas con p a >=15 pp de 1/cuota del usuario (max 19 pp): p local 0.617 vs 3 victorias en 10 de Brentford; modelo 1X2 no validado. Rotacion Liverpool.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a07b36655c0c|resultado",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds"
+   ]
+  },
+  {
+   "unit_id": "m-a07b36655c0c|tarjetas",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Puntos de tarjeta con n=10/9 (partidos con dato); solo 2/42 lineas con precio agregador; definicion de puntos y liquidacion de la casa no verificadas; muestra de arbitro escasa o ausente.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a07b36655c0c|tarjetas",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/league_samples"
+   ]
+  },
+  {
+   "unit_id": "m-a13f12112b3b|1.ª parte goles",
+   "objecion": "fuente_unica",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Precio solo de TheStatsAPI (1-3 casas, obs. 14-oct), apifootball no lo ofrece; modelo 1T validacion no_evaluada; frecuencia de gol en 1T (n10) no es probabilidad.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a13f12112b3b|1.ª parte goles",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-a13f12112b3b|1.ª parte resultado",
+   "objecion": "fuente_unica",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Precio solo de TheStatsAPI (1-3 casas, obs. 14-oct), apifootball no lo ofrece; modelo 1T validacion no_evaluada; frecuencia de gol en 1T (n10) no es probabilidad.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a13f12112b3b|1.ª parte resultado",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-a13f12112b3b|córners",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "0/46 lineas con precio en el paquete (ni apifootball ni TheStatsAPI); estimador con validacion insuficiente (corners 'no_concluyente'). Linea y mercado a confirmar en la casa.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a13f12112b3b|córners",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-a13f12112b3b|doble oportunidad",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "DC con p sin validar (dc 'no_concluyente'); precios agregador de 14-oct, brecha max 11 pp; cuotas bajas dejan poco margen ante error de p. Forma n10 sin ajustar rival.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a13f12112b3b|doble oportunidad",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-a13f12112b3b|empate no válido",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "DNB: datos sin_extractor y validacion no_evaluada; precio derivado de AH0 agregador (2 lineas). Brecha max 12 pp; cuantitativo ya lo da por datos_insuficientes.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a13f12112b3b|empate no válido",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-a13f12112b3b|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Mercado no ofrecido en ninguna fuente y sin estimador; 1 linea sin p ni precio. No hay base para evaluar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a13f12112b3b|fueras de juego",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-a13f12112b3b|goles",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Over/BTTS en n10 mezcla casa/fuera sin ajustar rival; solidez deportiva BAJA, p validacion insuficiente; precio usuario en 2 lineas, resto agregador. Brecha max 7 pp.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a13f12112b3b|goles",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-a13f12112b3b|goles por equipo",
+   "objecion": "fuente_unica",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Precio solo de TheStatsAPI (team_total_goals, 12/12 lineas de 1 casa, obs. 14-oct); p por equipo sin validar (team_goals no_concluyente), n10 sin ajustar rival.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a13f12112b3b|goles por equipo",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds"
+   ]
+  },
+  {
+   "unit_id": "m-a13f12112b3b|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador (p) ni precio en el paquete (10 lineas); verificador: no_encontrada. No hay contraste ni EV posible; nada que auditar frente a mercado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a13f12112b3b|goles total entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-a13f12112b3b|hándicap",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "AH +1.5 local 1.02 / -1.5 visit. 7.8 salen de 1 casa (verificador: poco fiables); precios extremos sin liquidez real. Resto de lineas agregador de 14-oct, modelo no evaluado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a13f12112b3b|hándicap",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds"
+   ]
+  },
+  {
+   "unit_id": "m-a13f12112b3b|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador: 8/10 lineas con precio agregador; 6 no_verificable. Sin p no hay EV; AH0 equivale a DNB (devolucion si empate).",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a13f12112b3b|hándicap asiático entero",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds"
+   ]
+  },
+  {
+   "unit_id": "m-a13f12112b3b|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador: 12/12 lineas con precio agregador (12 de 1 casa, obs. 14-oct) pero sin p; no hay EV ni contraste. Precio no ejecutable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a13f12112b3b|hándicap europeo",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds"
+   ]
+  },
+  {
+   "unit_id": "m-a13f12112b3b|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador (p) ni precio en el paquete (90 lineas); verificador: no_encontrada. No hay contraste ni EV posible; nada que auditar frente a mercado; tiros sin ajustar por rival.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a13f12112b3b|remates",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-a13f12112b3b|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador (p) ni precio en el paquete (60 lineas); verificador: no_encontrada. No hay contraste ni EV posible; nada que auditar frente a mercado; tiros sin ajustar por rival.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a13f12112b3b|remates a puerta",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-a13f12112b3b|resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "1X2 con precio del usuario; brecha max 7 pp pero 1x2 'no_concluyente' en validacion; forma n10 sin ajustar rival ni localia; 2/3 cuotas por encima de 2.10.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a13f12112b3b|resultado",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-a13f12112b3b|tarjetas",
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Puntos de tarjeta con n=6/8 (partidos con dato); sin precio en el paquete; definicion de puntos y liquidacion de la casa no verificadas; muestra de arbitro escasa o ausente.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a13f12112b3b|tarjetas",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/league_samples"
+   ]
+  },
+  {
+   "unit_id": "m-a507d5087068|1.ª parte goles",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "1/6 lineas con p de modelo a >=15 pp de 1/cuota (max 16 pp); modelo no validado, el desacuerdo no es ventaja. Modelo 1T no evaluado; precio de 1-3 casas.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a507d5087068|1.ª parte goles",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds"
+   ]
+  },
+  {
+   "unit_id": "m-a507d5087068|1.ª parte resultado",
+   "objecion": "fuente_unica",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Precio solo de TheStatsAPI (1-3 casas, obs. 14-oct), apifootball no lo ofrece; modelo 1T validacion no_evaluada; frecuencia de gol en 1T (n10) no es probabilidad.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a507d5087068|1.ª parte resultado",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-a507d5087068|córners",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "2/6 lineas con p de modelo a >=15 pp de 1/cuota (max 19 pp); modelo no validado, el desacuerdo no es ventaja. Muestra n10 sin ajuste de rival/arbitro; 1 linea por mercado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a507d5087068|córners",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds"
+   ]
+  },
+  {
+   "unit_id": "m-a507d5087068|doble oportunidad",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "DC con p sin validar (dc 'no_concluyente'); precios agregador de 14-oct, brecha max 10 pp; cuotas bajas dejan poco margen ante error de p. Forma n10 sin ajustar rival.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a507d5087068|doble oportunidad",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-a507d5087068|empate no válido",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "DNB: datos sin_extractor y validacion no_evaluada; precio derivado de AH0 agregador (2 lineas). Brecha max 10 pp; cuantitativo ya lo da por datos_insuficientes.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a507d5087068|empate no válido",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-a507d5087068|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Mercado no ofrecido en ninguna fuente y sin estimador; 1 linea sin p ni precio. No hay base para evaluar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a507d5087068|fueras de juego",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-a507d5087068|goles",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "1/14 lineas con p de modelo a >=15 pp de 1/cuota (max 15 pp); modelo no validado, el desacuerdo no es ventaja.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a507d5087068|goles",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds"
+   ]
+  },
+  {
+   "unit_id": "m-a507d5087068|goles por equipo",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "2/12 lineas con p de modelo a >=15 pp de 1/cuota (max 16 pp); modelo no validado, el desacuerdo no es ventaja.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a507d5087068|goles por equipo",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds"
+   ]
+  },
+  {
+   "unit_id": "m-a507d5087068|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador (p) ni precio en el paquete (10 lineas); verificador: no_encontrada. No hay contraste ni EV posible; nada que auditar frente a mercado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a507d5087068|goles total entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-a507d5087068|hándicap",
+   "objecion": "dato_defectuoso",
+   "severidad": "alta",
+   "recomendacion": "verificar_manualmente",
+   "nota": "AH -1.5 local a 2.0 (Betfair aislado, 1 casa) incoherente con 1X2 local 7.5: ganar por 2+ no puede ser mas probable. Brecha 44 pp con p=0.057; resto de lineas sin validar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a507d5087068|hándicap",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds"
+   ]
+  },
+  {
+   "unit_id": "m-a507d5087068|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador: 6/10 lineas con precio agregador; 2 no_verificable. Sin p no hay EV; AH0 equivale a DNB (devolucion si empate).",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a507d5087068|hándicap asiático entero",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds"
+   ]
+  },
+  {
+   "unit_id": "m-a507d5087068|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador: 9/12 lineas con precio agregador (0 de 1 casa, obs. 14-oct) pero sin p; no hay EV ni contraste. Precio no ejecutable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a507d5087068|hándicap europeo",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds"
+   ]
+  },
+  {
+   "unit_id": "m-a507d5087068|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador (p) ni precio en el paquete (90 lineas); verificador: no_encontrada. No hay contraste ni EV posible; nada que auditar frente a mercado; tiros sin ajustar por rival.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a507d5087068|remates",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-a507d5087068|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador (p) ni precio en el paquete (60 lineas); verificador: no_encontrada. No hay contraste ni EV posible; nada que auditar frente a mercado; tiros sin ajustar por rival.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a507d5087068|remates a puerta",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-a507d5087068|resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "1X2 con precio del usuario; brecha max 13 pp pero 1x2 'no_concluyente' en validacion; forma n10 sin ajustar rival ni localia; 2/3 cuotas por encima de 2.10.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a507d5087068|resultado",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-a507d5087068|tarjetas",
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Puntos de tarjeta con n=9/7 (partidos con dato); sin precio en el paquete; definicion de puntos y liquidacion de la casa no verificadas; muestra de arbitro escasa o ausente.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a507d5087068|tarjetas",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/league_samples"
+   ]
+  },
+  {
+   "unit_id": "m-a937f70e1681|1.ª parte goles",
+   "objecion": "fuente_unica",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Precio solo de TheStatsAPI (1-3 casas, obs. 14-oct), apifootball no lo ofrece; modelo 1T validacion no_evaluada; frecuencia de gol en 1T (n10) no es probabilidad.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a937f70e1681|1.ª parte goles",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-a937f70e1681|1.ª parte resultado",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Rotacion nivel medio (local 2.67 cambios/partido, descanso 4d); sin alineaciones (sin_snapshot) el once es a priori y p no la modela. Muestra forma n10 sin ajustar rival.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a937f70e1681|1.ª parte resultado",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-a937f70e1681|córners",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "2/6 lineas con p de modelo a >=15 pp de 1/cuota (max 19 pp); modelo no validado, el desacuerdo no es ventaja. Muestra n10 sin ajuste de rival/arbitro; 1 linea por mercado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a937f70e1681|córners",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds"
+   ]
+  },
+  {
+   "unit_id": "m-a937f70e1681|doble oportunidad",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Rotacion nivel medio (local 2.67 cambios/partido, descanso 4d); sin alineaciones (sin_snapshot) el once es a priori y p no la modela. Muestra forma n10 sin ajustar rival.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a937f70e1681|doble oportunidad",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-a937f70e1681|empate no válido",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Rotacion nivel medio (local 2.67 cambios/partido, descanso 4d); sin alineaciones (sin_snapshot) el once es a priori y p no la modela. Muestra forma n10 sin ajustar rival.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a937f70e1681|empate no válido",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-a937f70e1681|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Mercado no ofrecido en ninguna fuente y sin estimador; 1 linea sin p ni precio. No hay base para evaluar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a937f70e1681|fueras de juego",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-a937f70e1681|goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 8 pp y precio del usuario (TriunfoBet) en 2 lineas; pero goals_total 'no_concluyente' y 12 lineas son agregador. Mantener solo como hipotesis de forma.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a937f70e1681|goles",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-a937f70e1681|goles por equipo",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Rotacion nivel medio (local 2.67 cambios/partido, descanso 4d); sin alineaciones (sin_snapshot) el once es a priori y p no la modela. Muestra forma n10 sin ajustar rival.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a937f70e1681|goles por equipo",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-a937f70e1681|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador (p) ni precio en el paquete (10 lineas); verificador: no_encontrada. No hay contraste ni EV posible; nada que auditar frente a mercado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a937f70e1681|goles total entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-a937f70e1681|hándicap",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Rotacion nivel medio (local 2.67 cambios/partido, descanso 4d); sin alineaciones (sin_snapshot) el once es a priori y p no la modela. Muestra forma n10 sin ajustar rival.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a937f70e1681|hándicap",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-a937f70e1681|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador: 6/10 lineas con precio agregador (0 de 1 casa, obs. 14-oct) pero sin p; no hay EV ni contraste. Precio no ejecutable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a937f70e1681|hándicap asiático entero",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds"
+   ]
+  },
+  {
+   "unit_id": "m-a937f70e1681|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador: 12/12 lineas con precio agregador (0 de 1 casa, obs. 14-oct) pero sin p; no hay EV ni contraste. Precio no ejecutable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a937f70e1681|hándicap europeo",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds"
+   ]
+  },
+  {
+   "unit_id": "m-a937f70e1681|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador (p) ni precio en el paquete (90 lineas); verificador: no_encontrada. No hay contraste ni EV posible; nada que auditar frente a mercado; tiros sin ajustar por rival.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a937f70e1681|remates",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-a937f70e1681|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador (p) ni precio en el paquete (60 lineas); verificador: no_encontrada. No hay contraste ni EV posible; nada que auditar frente a mercado; tiros sin ajustar por rival.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a937f70e1681|remates a puerta",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-a937f70e1681|resultado",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Rotacion nivel medio (local 2.67 cambios/partido, descanso 4d); sin alineaciones (sin_snapshot) el once es a priori y p no la modela. Muestra forma n10 sin ajustar rival.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a937f70e1681|resultado",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-a937f70e1681|tarjetas",
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Puntos de tarjeta con n=8/8 (partidos con dato); sin precio en el paquete; definicion de puntos y liquidacion de la casa no verificadas; muestra de arbitro escasa o ausente.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a937f70e1681|tarjetas",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/league_samples"
+   ]
+  },
+  {
+   "unit_id": "m-ad39877c6747|1.ª parte goles",
+   "objecion": "fuente_unica",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Precio solo de TheStatsAPI (1-3 casas, obs. 14-oct), apifootball no lo ofrece; modelo 1T validacion no_evaluada; frecuencia de gol en 1T (n10) no es probabilidad.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ad39877c6747|1.ª parte goles",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-ad39877c6747|1.ª parte resultado",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Rotacion nivel medio (visitante 4.0 cambios/partido, descanso 8d); sin alineaciones (sin_snapshot) el once es a priori y p no la modela. Muestra forma n10 sin ajustar rival.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ad39877c6747|1.ª parte resultado",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-ad39877c6747|córners",
+   "objecion": "fuente_unica",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Solo 6/46 lineas con precio, de TheStatsAPI (6 de 1 casa, obs. 14-oct); corners sin validar vs mercado; n10 mezcla casa/fuera sin ajustar rival ni arbitro.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ad39877c6747|córners",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds"
+   ]
+  },
+  {
+   "unit_id": "m-ad39877c6747|doble oportunidad",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Rotacion nivel medio (visitante 4.0 cambios/partido, descanso 8d); sin alineaciones (sin_snapshot) el once es a priori y p no la modela. Muestra forma n10 sin ajustar rival.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ad39877c6747|doble oportunidad",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-ad39877c6747|empate no válido",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Rotacion nivel medio (visitante 4.0 cambios/partido, descanso 8d); sin alineaciones (sin_snapshot) el once es a priori y p no la modela. Muestra forma n10 sin ajustar rival.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ad39877c6747|empate no válido",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-ad39877c6747|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Mercado no ofrecido en ninguna fuente y sin estimador; 1 linea sin p ni precio. No hay base para evaluar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ad39877c6747|fueras de juego",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-ad39877c6747|goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 7 pp y precio del usuario (TriunfoBet) en 2 lineas; pero goals_total 'no_concluyente' y 12 lineas son agregador. Mantener solo como hipotesis de forma.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ad39877c6747|goles",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-ad39877c6747|goles por equipo",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Rotacion nivel medio (visitante 4.0 cambios/partido, descanso 8d); sin alineaciones (sin_snapshot) el once es a priori y p no la modela. Muestra forma n10 sin ajustar rival.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ad39877c6747|goles por equipo",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-ad39877c6747|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador (p) ni precio en el paquete (10 lineas); verificador: no_encontrada. No hay contraste ni EV posible; nada que auditar frente a mercado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ad39877c6747|goles total entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-ad39877c6747|hándicap",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Rotacion nivel medio (visitante 4.0 cambios/partido, descanso 8d); sin alineaciones (sin_snapshot) el once es a priori y p no la modela. Muestra forma n10 sin ajustar rival.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ad39877c6747|hándicap",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-ad39877c6747|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador: 8/10 lineas con precio agregador; 2 no_verificable. Sin p no hay EV; AH0 equivale a DNB (devolucion si empate).",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ad39877c6747|hándicap asiático entero",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds"
+   ]
+  },
+  {
+   "unit_id": "m-ad39877c6747|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador: 12/12 lineas con precio agregador (0 de 1 casa, obs. 14-oct) pero sin p; no hay EV ni contraste. Precio no ejecutable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ad39877c6747|hándicap europeo",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/thestatsapi/odds"
+   ]
+  },
+  {
+   "unit_id": "m-ad39877c6747|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador (p) ni precio en el paquete (90 lineas); verificador: no_encontrada. No hay contraste ni EV posible; nada que auditar frente a mercado; tiros sin ajustar por rival.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ad39877c6747|remates",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-ad39877c6747|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador (p) ni precio en el paquete (60 lineas); verificador: no_encontrada. No hay contraste ni EV posible; nada que auditar frente a mercado; tiros sin ajustar por rival.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ad39877c6747|remates a puerta",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-ad39877c6747|resultado",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Rotacion nivel medio (visitante 4.0 cambios/partido, descanso 8d); sin alineaciones (sin_snapshot) el once es a priori y p no la modela. Muestra forma n10 sin ajustar rival.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ad39877c6747|resultado",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-ad39877c6747|tarjetas",
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Puntos de tarjeta con n=7/7 (partidos con dato); sin precio en el paquete; definicion de puntos y liquidacion de la casa no verificadas; muestra de arbitro escasa o ausente.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ad39877c6747|tarjetas",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/league_samples"
+   ]
+  }
+ ],
+ "limitaciones": [
+  "Sin snapshot de alineaciones: bajas y once no verificables; rotacion solo a priori (rotation.json), no cuantificada en p.",
+  "Todo precio no usuario es agregador (apifootball/TheStatsAPI, obs. 14-oct, 1-5 casas): referencia, no ejecutable; precio del usuario solo en 1X2 y 2 lineas de goles.",
+  "Estimador sin validar (data/model_validation.json: niveles insuficiente/no_concluyente); verificadas de forma independiente solo frecuencias 1T y n de tarjetas contra matrix.json.",
+  "No se consultaron fuentes web; sin consultas extra a apifootball (se uso paquete, matrix y rotation)."
+ ]
+}

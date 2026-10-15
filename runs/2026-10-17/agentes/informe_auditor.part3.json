@@ -1,0 +1,1099 @@
+{
+ "agente": "auditor",
+ "version_contrato": 1,
+ "run": "runs/2026-10-17",
+ "unidades": [
+  {
+   "unit_id": "m-2da3e0522338|1.ª parte goles",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "1T: Venezia n=6 (3 con gol al descanso) y Napoli 6/10 con 4 partidos de la temporada previa; validacion no evaluada; precio de thestatsapi (1-4 casas), no ejecutable.",
+   "evidencia": [
+    "paquete:m-2da3e0522338|1.ª parte goles",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-2da3e0522338|1.ª parte resultado",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "1T: Venezia n=6 (3 con gol al descanso) y Napoli 6/10 con 4 partidos de la temporada previa; validacion no evaluada; precio de thestatsapi (1-4 casas), no ejecutable.",
+   "evidencia": [
+    "paquete:m-2da3e0522338|1.ª parte resultado",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-2da3e0522338|córners",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Brecha 19 pp en corners visitante o4.5 (p 0.384 vs 1.727, 1 casa Bet365); Venezia n=6, Napoli con partidos de mayo; 40 de 46 lineas sin precio. Corners sin validar.",
+   "evidencia": [
+    "paquete:m-2da3e0522338|córners",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-2da3e0522338|doble oportunidad",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Venezia n=6 (0-0-6) y Napoli con 4 partidos previos de temporada anterior, descanso 4d y copa; brecha 9 pp en X2 (p 0.77 vs 1.17); modelo 1X2 sin validar.",
+   "evidencia": [
+    "paquete:m-2da3e0522338|doble oportunidad",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-2da3e0522338|empate no válido",
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "DNB sin extractor; Venezia n=6 (0-0-6, GF5/GA16) y Napoli con 4 de 10 partidos de la temporada previa; p 0.30/0.70 sin validar.",
+   "evidencia": [
+    "paquete:m-2da3e0522338|empate no válido",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-2da3e0522338|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin datos (sin_extractor), sin estimador y sin precio en ninguna fuente; no hay base para ordenar ni contrastar esta linea.",
+   "evidencia": [
+    "paquete:m-2da3e0522338|fueras de juego"
+   ]
+  },
+  {
+   "unit_id": "m-2da3e0522338|goles",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Venezia n=6 (encaja 16) y Napoli con partidos de temporada previa; Napoli puede rotar; goals_total insuficiente; solo O/U 2.5 es cuota del usuario, el resto agregador.",
+   "evidencia": [
+    "paquete:m-2da3e0522338|goles",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-2da3e0522338|goles por equipo",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Goles por equipo: Venezia n=6; precio solo Bet365 via thestatsapi (1 casa); team_goals sin cuotas historicas (0 partidos vs mercado); brecha hasta 8 pp.",
+   "evidencia": [
+    "paquete:m-2da3e0522338|goles por equipo",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-2da3e0522338|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor ni estimador; linea entera con reembolso (push) no modelada. Precio solo de agregador (1-2 casas), referencia.",
+   "evidencia": [
+    "paquete:m-2da3e0522338|goles total entero"
+   ]
+  },
+  {
+   "unit_id": "m-2da3e0522338|hándicap",
+   "objecion": "dato_defectuoso",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Verificador marca precio_anomalo: AH -1.5/-2.5 de Venezia a 14-16 (1 casa) vs 5.25 apifootball en otro lado; lados de fuentes distintas. Venezia n=6.",
+   "evidencia": [
+    "paquete:m-2da3e0522338|hándicap",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-2da3e0522338|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor ni estimador; linea entera con reembolso (push) no modelada. Precio solo de agregador (1-2 casas), referencia.",
+   "evidencia": [
+    "paquete:m-2da3e0522338|hándicap asiático entero"
+   ]
+  },
+  {
+   "unit_id": "m-2da3e0522338|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor ni estimador; precio solo de thestatsapi (1-2 casas), referencia no ejecutable. No hay p para contrastar.",
+   "evidencia": [
+    "paquete:m-2da3e0522338|hándicap europeo"
+   ]
+  },
+  {
+   "unit_id": "m-2da3e0522338|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Datos suficientes pero estimador no implementado: sin p no hay brecha ni EV. Solo 1 casa agregadora (Bet365), 1 linea por mercado.",
+   "evidencia": [
+    "paquete:m-2da3e0522338|remates"
+   ]
+  },
+  {
+   "unit_id": "m-2da3e0522338|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Datos suficientes pero estimador no implementado: sin p no hay brecha ni EV. Solo 1 casa agregadora (Bet365), 1 linea por mercado.",
+   "evidencia": [
+    "paquete:m-2da3e0522338|remates a puerta"
+   ]
+  },
+  {
+   "unit_id": "m-2da3e0522338|resultado",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "1X2 comunicado por el usuario; Venezia n=6 (0-0-6) y Napoli con 4 partidos de temporada previa, descanso 4d; p local = p empate = 0.231, modelo insuficiente.",
+   "evidencia": [
+    "paquete:m-2da3e0522338|resultado",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-2da3e0522338|tarjetas",
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Arbitro Sacchi: 4-5 partidos en la muestra de liga (4 tarjetas con dato); ningun feed ofrece precio de tarjetas; cards_total sin cuotas historicas.",
+   "evidencia": [
+    "paquete:m-2da3e0522338|tarjetas",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/league_samples/207.json"
+   ]
+  },
+  {
+   "unit_id": "m-325d066591e1|1.ª parte goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Mercado 1T con validacion no evaluada; n=10 por equipo con partidos de la temporada previa; precio de thestatsapi (1-3 casas), referencia no ejecutable.",
+   "evidencia": [
+    "paquete:m-325d066591e1|1.ª parte goles",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-325d066591e1|1.ª parte resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Mercado 1T con validacion no evaluada; n=10 por equipo con partidos de la temporada previa; precio de thestatsapi (1-3 casas), referencia no ejecutable.",
+   "evidencia": [
+    "paquete:m-325d066591e1|1.ª parte resultado",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-325d066591e1|córners",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Corners totales: modelo sin validar (sin cuotas historicas); Athletic muy disperso (3 a 18) y muestra mezcla temporada previa; 1 casa agregadora en 6 lineas, arbitro sin designar.",
+   "evidencia": [
+    "paquete:m-325d066591e1|córners",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-325d066591e1|doble oportunidad",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Brecha 14 pp en X2 (p 0.61 vs 1/1.33=0.75) con n=10 que incluye mayo; modelo 1X2/DC insuficiente (103 partidos vs mercado, no concluyente); misma pierna que el 1X2.",
+   "evidencia": [
+    "paquete:m-325d066591e1|doble oportunidad",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-325d066591e1|empate no válido",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "DNB: datos sin_extractor; p visitante 0.478 vs 1/1.59=0.63 (agregador, pocas casas). Brecha ~12-15 pp sobre muestra n=10 con partidos de la temporada previa.",
+   "evidencia": [
+    "paquete:m-325d066591e1|empate no válido",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-325d066591e1|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin datos (sin_extractor), sin estimador y sin precio en ninguna fuente; no hay base para ordenar ni contrastar esta linea.",
+   "evidencia": [
+    "paquete:m-325d066591e1|fueras de juego"
+   ]
+  },
+  {
+   "unit_id": "m-325d066591e1|goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "goals_total insuficiente (no concluyente vs mercado, n=103); solo una linea es cuota del usuario, el resto es mediana de agregador (14-oct), no ejecutable.",
+   "evidencia": [
+    "paquete:m-325d066591e1|goles",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-325d066591e1|goles por equipo",
+   "objecion": "fuente_unica",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Precio solo de Bet365 via thestatsapi (1 casa), team_goals sin cuotas historicas (0 partidos vs mercado); brecha hasta 14 pp; correlacionado con goles/BTTS del mismo partido.",
+   "evidencia": [
+    "paquete:m-325d066591e1|goles por equipo",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-325d066591e1|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor ni estimador; linea entera con reembolso (push) no modelada. Precio solo de agregador (1-2 casas), referencia.",
+   "evidencia": [
+    "paquete:m-325d066591e1|goles total entero"
+   ]
+  },
+  {
+   "unit_id": "m-325d066591e1|hándicap",
+   "objecion": "dato_defectuoso",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Verificador marca precio_anomalo en 3 lineas; cada lado viene de fuente/casa distinta (1 casa thestatsapi vs apifootball), no un precio de una sola casa. Brecha hasta 12 pp.",
+   "evidencia": [
+    "paquete:m-325d066591e1|hándicap",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-325d066591e1|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor ni estimador; linea entera con reembolso (push) no modelada. Precio solo de agregador (1-2 casas), referencia.",
+   "evidencia": [
+    "paquete:m-325d066591e1|hándicap asiático entero"
+   ]
+  },
+  {
+   "unit_id": "m-325d066591e1|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor ni estimador; precio solo de thestatsapi (1-2 casas), referencia no ejecutable. No hay p para contrastar.",
+   "evidencia": [
+    "paquete:m-325d066591e1|hándicap europeo"
+   ]
+  },
+  {
+   "unit_id": "m-325d066591e1|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Datos suficientes pero estimador no implementado: sin p no hay brecha ni EV. Solo 1 casa agregadora (Bet365), 1 linea por mercado.",
+   "evidencia": [
+    "paquete:m-325d066591e1|remates"
+   ]
+  },
+  {
+   "unit_id": "m-325d066591e1|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Datos suficientes pero estimador no implementado: sin p no hay brecha ni EV. Solo 1 casa agregadora (Bet365), 1 linea por mercado.",
+   "evidencia": [
+    "paquete:m-325d066591e1|remates a puerta"
+   ]
+  },
+  {
+   "unit_id": "m-325d066591e1|resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "1X2: validacion insuficiente (103 partidos vs mercado, no concluyente); n=10 mezcla local/visita y temporadas; cuota comunicada por el usuario, sin verificacion independiente.",
+   "evidencia": [
+    "paquete:m-325d066591e1|resultado",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-325d066591e1|tarjetas",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "alta",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Sin precio en apifootball ni thestatsapi y arbitro sin designar (base arbitral nula); cards_total sin cuotas historicas; no hay contraste con mercado.",
+   "evidencia": [
+    "paquete:m-325d066591e1|tarjetas",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-3344fdbcff6b|1.ª parte goles",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Gol en 1T 10/10 NE y 9/10 Chicago (n=10, rachas atipicas); p 0.75 vs cuota 1.21; 1T no validado (no_evaluada); precio de thestatsapi (1-3 casas), no ejecutable.",
+   "evidencia": [
+    "paquete:m-3344fdbcff6b|1.ª parte goles",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-3344fdbcff6b|1.ª parte resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Empate al descanso solo 3/20 en la muestra (1/10 NE, 2/10 Chicago) vs p 0.38 y cuota 2.5; muestra extrema y 1T no validado; precio de thestatsapi, no ejecutable.",
+   "evidencia": [
+    "paquete:m-3344fdbcff6b|1.ª parte resultado",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-3344fdbcff6b|córners",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Corners: modelo sin validar (sin cuotas historicas); NE solo 3 de 10 partidos como local; 1 casa agregadora (Bet365) en 6 de 46 lineas; arbitro sin designar.",
+   "evidencia": [
+    "paquete:m-3344fdbcff6b|córners",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-3344fdbcff6b|doble oportunidad",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "DC: validacion insuficiente (no concluyente vs mercado) y precio de agregador (7-10 casas, 14-oct); correlacionada con el 1X2 del mismo partido.",
+   "evidencia": [
+    "paquete:m-3344fdbcff6b|doble oportunidad",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-3344fdbcff6b|empate no válido",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "DNB: datos sin_extractor, validacion no evaluada; p deriva del 1X2 (insuficiente) y precio de agregador con pocas casas, no ejecutable.",
+   "evidencia": [
+    "paquete:m-3344fdbcff6b|empate no válido",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-3344fdbcff6b|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin datos (sin_extractor), sin estimador y sin precio en ninguna fuente; no hay base para ordenar ni contrastar esta linea.",
+   "evidencia": [
+    "paquete:m-3344fdbcff6b|fueras de juego"
+   ]
+  },
+  {
+   "unit_id": "m-3344fdbcff6b|goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "NE 9/10 y Chicago 7/10 con 3+ goles (racha); NE 3 de 10 como local; goals_total insuficiente; solo la linea 3.5 es cuota del usuario, resto agregador.",
+   "evidencia": [
+    "paquete:m-3344fdbcff6b|goles",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-3344fdbcff6b|goles por equipo",
+   "objecion": "fuente_unica",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Precio solo de Bet365 via thestatsapi (1 casa), team_goals sin cuotas historicas (0 partidos vs mercado); brecha hasta 14 pp; correlacionado con goles/BTTS del mismo partido.",
+   "evidencia": [
+    "paquete:m-3344fdbcff6b|goles por equipo",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-3344fdbcff6b|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor ni estimador; linea entera con reembolso (push) no modelada. Sin precio en ninguna fuente.",
+   "evidencia": [
+    "paquete:m-3344fdbcff6b|goles total entero"
+   ]
+  },
+  {
+   "unit_id": "m-3344fdbcff6b|hándicap",
+   "objecion": "dato_defectuoso",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "AH -2.5/+2.5 con cuotas 1.03/1.035 en ambos lados (imposible) y 1 casa; apifootball vs thestatsapi se contradicen. Lineas +-0.5/1.5 mezclan fuentes. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-3344fdbcff6b|hándicap",
+    "archivo:data/model_validation.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "verificador",
+     "campo": "discrepancias",
+     "problema": "omision"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-3344fdbcff6b|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor ni estimador; linea entera con reembolso (push) no modelada. Precio solo de agregador (1-2 casas), referencia.",
+   "evidencia": [
+    "paquete:m-3344fdbcff6b|hándicap asiático entero"
+   ]
+  },
+  {
+   "unit_id": "m-3344fdbcff6b|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor ni estimador; precio solo de thestatsapi (1-2 casas), referencia no ejecutable. No hay p para contrastar.",
+   "evidencia": [
+    "paquete:m-3344fdbcff6b|hándicap europeo"
+   ]
+  },
+  {
+   "unit_id": "m-3344fdbcff6b|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Datos suficientes pero estimador no implementado: sin p no hay brecha ni EV. Sin precio en ninguna fuente.",
+   "evidencia": [
+    "paquete:m-3344fdbcff6b|remates"
+   ]
+  },
+  {
+   "unit_id": "m-3344fdbcff6b|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Datos suficientes pero estimador no implementado: sin p no hay brecha ni EV. Sin precio en ninguna fuente.",
+   "evidencia": [
+    "paquete:m-3344fdbcff6b|remates a puerta"
+   ]
+  },
+  {
+   "unit_id": "m-3344fdbcff6b|resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "1X2: validacion insuficiente (103 partidos vs mercado, no concluyente); n=10 mezcla local/visita y temporadas; cuota comunicada por el usuario, sin verificacion independiente.",
+   "evidencia": [
+    "paquete:m-3344fdbcff6b|resultado",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-3344fdbcff6b|tarjetas",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "alta",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Sin precio en apifootball ni thestatsapi y arbitro sin designar (base arbitral nula); cards_total sin cuotas historicas; no hay contraste con mercado.",
+   "evidencia": [
+    "paquete:m-3344fdbcff6b|tarjetas",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-349834541382|1.ª parte goles",
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Central Coast n=2 y Newcastle n=6, 0 partidos de la misma competicion (A-League/Copa/AFC mezcladas); paquete: datos insuficientes. Precio, si existe, es de agregador.",
+   "evidencia": [
+    "paquete:m-349834541382|1.ª parte goles",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-349834541382|1.ª parte resultado",
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Central Coast n=2 y Newcastle n=6, 0 partidos de la misma competicion (A-League/Copa/AFC mezcladas); paquete: datos insuficientes. Precio, si existe, es de agregador.",
+   "evidencia": [
+    "paquete:m-349834541382|1.ª parte resultado",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-349834541382|córners",
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Central Coast n=2 y Newcastle n=6, 0 partidos de la misma competicion (A-League/Copa/AFC mezcladas); paquete: datos insuficientes. Precio, si existe, es de agregador.",
+   "evidencia": [
+    "paquete:m-349834541382|córners",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-349834541382|doble oportunidad",
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Central Coast n=2 y Newcastle n=6, 0 partidos de la misma competicion (A-League/Copa/AFC mezcladas); paquete: datos insuficientes. Precio, si existe, es de agregador.",
+   "evidencia": [
+    "paquete:m-349834541382|doble oportunidad",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-349834541382|empate no válido",
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Central Coast n=2 y Newcastle n=6, 0 partidos de la misma competicion (A-League/Copa/AFC mezcladas); paquete: datos insuficientes. Precio, si existe, es de agregador.",
+   "evidencia": [
+    "paquete:m-349834541382|empate no válido",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-349834541382|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin datos (sin_extractor), sin estimador y sin precio en ninguna fuente; no hay base para ordenar ni contrastar esta linea.",
+   "evidencia": [
+    "paquete:m-349834541382|fueras de juego"
+   ]
+  },
+  {
+   "unit_id": "m-349834541382|goles",
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Central Coast n=2 y Newcastle n=6, 0 partidos de la misma competicion (A-League/Copa/AFC mezcladas); paquete: datos insuficientes. Precio, si existe, es de agregador.",
+   "evidencia": [
+    "paquete:m-349834541382|goles",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-349834541382|goles por equipo",
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Central Coast n=2 y Newcastle n=6, 0 partidos de la misma competicion (A-League/Copa/AFC mezcladas); paquete: datos insuficientes. Precio, si existe, es de agregador.",
+   "evidencia": [
+    "paquete:m-349834541382|goles por equipo",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-349834541382|goles total entero",
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Central Coast n=2 y Newcastle n=6, 0 partidos de la misma competicion (A-League/Copa/AFC mezcladas); paquete: datos insuficientes. Precio, si existe, es de agregador.",
+   "evidencia": [
+    "paquete:m-349834541382|goles total entero",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-349834541382|hándicap",
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Central Coast n=2 y Newcastle n=6, 0 partidos de la misma competicion (A-League/Copa/AFC mezcladas); paquete: datos insuficientes. Precio, si existe, es de agregador.",
+   "evidencia": [
+    "paquete:m-349834541382|hándicap",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-349834541382|hándicap asiático entero",
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Central Coast n=2 y Newcastle n=6, 0 partidos de la misma competicion (A-League/Copa/AFC mezcladas); paquete: datos insuficientes. Precio, si existe, es de agregador.",
+   "evidencia": [
+    "paquete:m-349834541382|hándicap asiático entero",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-349834541382|hándicap europeo",
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Central Coast n=2 y Newcastle n=6, 0 partidos de la misma competicion (A-League/Copa/AFC mezcladas); paquete: datos insuficientes. Precio, si existe, es de agregador.",
+   "evidencia": [
+    "paquete:m-349834541382|hándicap europeo",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-349834541382|remates",
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Central Coast n=2 y Newcastle n=6, 0 partidos de la misma competicion (A-League/Copa/AFC mezcladas); paquete: datos insuficientes. Precio, si existe, es de agregador.",
+   "evidencia": [
+    "paquete:m-349834541382|remates",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-349834541382|remates a puerta",
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Central Coast n=2 y Newcastle n=6, 0 partidos de la misma competicion (A-League/Copa/AFC mezcladas); paquete: datos insuficientes. Precio, si existe, es de agregador.",
+   "evidencia": [
+    "paquete:m-349834541382|remates a puerta",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-349834541382|resultado",
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Central Coast n=2 y Newcastle n=6, 0 partidos de la misma competicion (A-League/Copa/AFC mezcladas); paquete: datos insuficientes. Precio, si existe, es de agregador.",
+   "evidencia": [
+    "paquete:m-349834541382|resultado",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-349834541382|tarjetas",
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Central Coast n=2 y Newcastle n=6, 0 partidos de la misma competicion (A-League/Copa/AFC mezcladas); paquete: datos insuficientes. Precio, si existe, es de agregador.",
+   "evidencia": [
+    "paquete:m-349834541382|tarjetas",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-3721b30dc82d|1.ª parte goles",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "1T con Lille en rotacion alta (5.5 cambios, copa en <=4d) sin alineacion; modelo 1T no validado; precio de thestatsapi (1-3 casas), referencia no ejecutable.",
+   "evidencia": [
+    "paquete:m-3721b30dc82d|1.ª parte goles",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-3721b30dc82d|1.ª parte resultado",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "1T con Lille en rotacion alta (5.5 cambios, copa en <=4d) sin alineacion; modelo 1T no validado; precio de thestatsapi (1-3 casas), referencia no ejecutable.",
+   "evidencia": [
+    "paquete:m-3721b30dc82d|1.ª parte resultado",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-3721b30dc82d|córners",
+   "objecion": "dato_defectuoso",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Lille con 0 corners vs PSG (9 remates, 1T 0-0) en el mismo proveedor; atipico/cero sospechoso sin 2.a fuente; brecha 21 pp local o5.5 vs Bet365. Lille rota mucho.",
+   "evidencia": [
+    "paquete:m-3721b30dc82d|córners",
+    "archivo:runs/2026-10-17/matrix.json",
+    "apif_query:get_statistics match_id=809916",
+    "archivo:data/model_validation.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "solidez",
+     "problema": "omision"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-3721b30dc82d|doble oportunidad",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Lille 1X a 1.22 pero rota 5.5 cambios, 4d y copa en <=4d; once sin publicar y sin peso de rotacion en p; modelo DC insuficiente.",
+   "evidencia": [
+    "paquete:m-3721b30dc82d|doble oportunidad",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-3721b30dc82d|empate no válido",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "DNB sin extractor de datos y modelo no validado; Lille rota 5.5 cambios, 4d de descanso y copa en <=4d: favorito local sin alineacion ni peso de rotacion en p.",
+   "evidencia": [
+    "paquete:m-3721b30dc82d|empate no válido",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-3721b30dc82d|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin datos (sin_extractor), sin estimador y sin precio en ninguna fuente; no hay base para ordenar ni contrastar esta linea.",
+   "evidencia": [
+    "paquete:m-3721b30dc82d|fueras de juego"
+   ]
+  },
+  {
+   "unit_id": "m-3721b30dc82d|goles",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Over 2.5: p 0.449 vs cuota usuario 1.66 (15 pp); Lille 2/10 con 3+ goles, Brest 7/10; rotacion alta de Lille; modelo goals_total insuficiente.",
+   "evidencia": [
+    "paquete:m-3721b30dc82d|goles",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-3721b30dc82d|goles por equipo",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Goles por equipo de Lille con rotacion alta (5.5 cambios, copa <=4d); precio de 1 casa; team_goals sin validar; brecha hasta 14 pp; correlacion con goles y 1X2.",
+   "evidencia": [
+    "paquete:m-3721b30dc82d|goles por equipo",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-3721b30dc82d|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor ni estimador; linea entera con reembolso (push) no modelada. Precio solo de agregador (1-2 casas), referencia.",
+   "evidencia": [
+    "paquete:m-3721b30dc82d|goles total entero"
+   ]
+  },
+  {
+   "unit_id": "m-3721b30dc82d|hándicap",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Lille rota 5.5 cambios, 4d y copa en <=4d; lado local de los AH depende del once, no cuantificado en p. Ademas 1 linea con precio anomalo; fuentes mezcladas por linea.",
+   "evidencia": [
+    "paquete:m-3721b30dc82d|hándicap",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-3721b30dc82d|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor ni estimador; linea entera con reembolso (push) no modelada. Precio solo de agregador (1-2 casas), referencia.",
+   "evidencia": [
+    "paquete:m-3721b30dc82d|hándicap asiático entero"
+   ]
+  },
+  {
+   "unit_id": "m-3721b30dc82d|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor ni estimador; precio solo de thestatsapi (1-2 casas), referencia no ejecutable. No hay p para contrastar.",
+   "evidencia": [
+    "paquete:m-3721b30dc82d|hándicap europeo"
+   ]
+  },
+  {
+   "unit_id": "m-3721b30dc82d|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Datos suficientes pero estimador no implementado: sin p no hay brecha ni EV. Sin precio en ninguna fuente.",
+   "evidencia": [
+    "paquete:m-3721b30dc82d|remates"
+   ]
+  },
+  {
+   "unit_id": "m-3721b30dc82d|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Datos suficientes pero estimador no implementado: sin p no hay brecha ni EV. Sin precio en ninguna fuente.",
+   "evidencia": [
+    "paquete:m-3721b30dc82d|remates a puerta"
+   ]
+  },
+  {
+   "unit_id": "m-3721b30dc82d|resultado",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Lille local 1.78 pero rotacion alta (5.5 cambios, 4d, copa <=4d); alineacion sin publicar; modelo 1X2 insuficiente y cuota comunicada por el usuario sin 2.a casa independiente.",
+   "evidencia": [
+    "paquete:m-3721b30dc82d|resultado",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-3721b30dc82d|tarjetas",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Turpin n=9 (3.2 tarjetas vs liga 3.8), mezcla temporadas; sin precio en feeds ni en la casa del usuario; cards_total sin cuotas historicas.",
+   "evidencia": [
+    "paquete:m-3721b30dc82d|tarjetas",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-38c7671726a6|1.ª parte goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Mercado 1T con validacion no evaluada; n=10 por equipo con partidos de la temporada previa; precio de thestatsapi (1-3 casas), referencia no ejecutable.",
+   "evidencia": [
+    "paquete:m-38c7671726a6|1.ª parte goles",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-38c7671726a6|1.ª parte resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Mercado 1T con validacion no evaluada; n=10 por equipo con partidos de la temporada previa; precio de thestatsapi (1-3 casas), referencia no ejecutable.",
+   "evidencia": [
+    "paquete:m-38c7671726a6|1.ª parte resultado",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-38c7671726a6|córners",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Brecha 15 pp local o5.5; media SJ 9.8 sesgada por un 21 (LAFC, 18 de SJ); sin ese partido baja. Una casa (Bet365), 6 de 46 lineas con precio; modelo sin validar.",
+   "evidencia": [
+    "paquete:m-38c7671726a6|córners",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-38c7671726a6|doble oportunidad",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "DC: validacion insuficiente (no concluyente vs mercado) y precio de agregador (7-10 casas, 14-oct); correlacionada con el 1X2 del mismo partido.",
+   "evidencia": [
+    "paquete:m-38c7671726a6|doble oportunidad",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-38c7671726a6|empate no válido",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "DNB: datos sin_extractor, validacion no evaluada; p deriva del 1X2 (insuficiente) y precio de agregador con pocas casas, no ejecutable.",
+   "evidencia": [
+    "paquete:m-38c7671726a6|empate no válido",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-38c7671726a6|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin datos (sin_extractor), sin estimador y sin precio en ninguna fuente; no hay base para ordenar ni contrastar esta linea.",
+   "evidencia": [
+    "paquete:m-38c7671726a6|fueras de juego"
+   ]
+  },
+  {
+   "unit_id": "m-38c7671726a6|goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "goals_total insuficiente (no concluyente vs mercado, n=103); solo una linea es cuota del usuario, el resto es mediana de agregador (14-oct), no ejecutable.",
+   "evidencia": [
+    "paquete:m-38c7671726a6|goles",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-38c7671726a6|goles por equipo",
+   "objecion": "fuente_unica",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Precio solo de Bet365 via thestatsapi (1 casa), team_goals sin cuotas historicas (0 partidos vs mercado); brecha hasta 14 pp; correlacionado con goles/BTTS del mismo partido.",
+   "evidencia": [
+    "paquete:m-38c7671726a6|goles por equipo",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-38c7671726a6|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor ni estimador; linea entera con reembolso (push) no modelada. Sin precio en ninguna fuente.",
+   "evidencia": [
+    "paquete:m-38c7671726a6|goles total entero"
+   ]
+  },
+  {
+   "unit_id": "m-38c7671726a6|hándicap",
+   "objecion": "dato_defectuoso",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "AH -2.5/+2.5 con cuotas 1.10/1.02 en ambos lados (imposible) y 1 casa; apifootball vs thestatsapi se contradicen. Lineas +-0.5/1.5 mezclan fuentes. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-38c7671726a6|hándicap",
+    "archivo:data/model_validation.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "verificador",
+     "campo": "discrepancias",
+     "problema": "omision"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-38c7671726a6|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor ni estimador; linea entera con reembolso (push) no modelada. Precio solo de agregador (1-2 casas), referencia.",
+   "evidencia": [
+    "paquete:m-38c7671726a6|hándicap asiático entero"
+   ]
+  },
+  {
+   "unit_id": "m-38c7671726a6|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor ni estimador; precio solo de thestatsapi (1-2 casas), referencia no ejecutable. No hay p para contrastar.",
+   "evidencia": [
+    "paquete:m-38c7671726a6|hándicap europeo"
+   ]
+  },
+  {
+   "unit_id": "m-38c7671726a6|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Datos suficientes pero estimador no implementado: sin p no hay brecha ni EV. Sin precio en ninguna fuente.",
+   "evidencia": [
+    "paquete:m-38c7671726a6|remates"
+   ]
+  },
+  {
+   "unit_id": "m-38c7671726a6|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Datos suficientes pero estimador no implementado: sin p no hay brecha ni EV. Sin precio en ninguna fuente.",
+   "evidencia": [
+    "paquete:m-38c7671726a6|remates a puerta"
+   ]
+  },
+  {
+   "unit_id": "m-38c7671726a6|resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "1X2: validacion insuficiente (103 partidos vs mercado, no concluyente); n=10 mezcla local/visita y temporadas; cuota comunicada por el usuario, sin verificacion independiente.",
+   "evidencia": [
+    "paquete:m-38c7671726a6|resultado",
+    "archivo:data/model_validation.json",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-38c7671726a6|tarjetas",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "alta",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Sin precio en apifootball ni thestatsapi y arbitro sin designar (base arbitral nula); cards_total sin cuotas historicas; no hay contraste con mercado.",
+   "evidencia": [
+    "paquete:m-38c7671726a6|tarjetas",
+    "archivo:data/model_validation.json"
+   ]
+  }
+ ],
+ "limitaciones": [
+  "Lote 3/16 (96 unidades, 71 requeridas): sin fuentes web nuevas; solo 1 consulta API (get_statistics 809916) para el cero de corners de Lille, mismo proveedor que el paquete, sin segunda fuente independiente.",
+  "Cuotas de agregador observadas el 14-oct (no ejecutables); alineaciones sin snapshot; modelo propio sin validacion concluyente (model_validation.json); n por equipo mezcla temporada previa."
+ ]
+}

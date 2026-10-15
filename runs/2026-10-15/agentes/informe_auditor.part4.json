@@ -1,0 +1,1080 @@
+{
+ "agente": "auditor",
+ "version_contrato": 1,
+ "run": "runs/2026-10-15",
+ "unidades": [
+  {
+   "unit_id": "m-7189f84d2c2a|1.ª parte goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 10 pp en total.over.1.5 vs 1/cuota agregador (n casas 2,3, no ejecutable); validacion no_evaluada. Muestra 1T sin validar.",
+   "evidencia": [
+    "paquete:m-7189f84d2c2a|1.ª parte goles",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-7189f84d2c2a|1.ª parte resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 14 pp en 1x2.home vs 1/cuota agregador (n casas 3, no ejecutable); validacion no_evaluada. Muestra 1T sin validar.",
+   "evidencia": [
+    "paquete:m-7189f84d2c2a|1.ª parte resultado",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-7189f84d2c2a|córners",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 17 pp en equipo.away.over.2.5 vs 1/cuota agregador (n casas 1,2, no ejecutable); validacion insuficiente. 1 lineas con cuota extrema. Linea y periodo (partido completo) por confirmar.",
+   "evidencia": [
+    "paquete:m-7189f84d2c2a|córners",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-7189f84d2c2a|doble oportunidad",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 19 pp en dc.1x vs 1/cuota agregador (n casas 5, no ejecutable); validacion insuficiente.",
+   "evidencia": [
+    "paquete:m-7189f84d2c2a|doble oportunidad",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-7189f84d2c2a|empate no válido",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 23 pp en dnb.home vs 1/cuota agregador (n casas 3, no ejecutable); validacion no_evaluada.",
+   "evidencia": [
+    "paquete:m-7189f84d2c2a|empate no válido",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-7189f84d2c2a|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador (no_implementado), sin extractor y sin precio verificable; solo un total sin linea. Nada que contrastar.",
+   "evidencia": [
+    "paquete:m-7189f84d2c2a|fueras de juego",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-7189f84d2c2a|goles",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 13 pp en total.over.3.5 vs 1/cuota agregador (n casas 3,4,5,None, no ejecutable); validacion insuficiente. 2 lineas con cuota extrema.",
+   "evidencia": [
+    "paquete:m-7189f84d2c2a|goles",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-7189f84d2c2a|goles por equipo",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 23 pp en equipo.home.over.1.5 vs 1/cuota agregador (n casas 1, no ejecutable); validacion insuficiente.",
+   "evidencia": [
+    "paquete:m-7189f84d2c2a|goles por equipo",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-7189f84d2c2a|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Estimador no_implementado; 10 lineas con precio solo de agregador (n casas 1,2), no ejecutable.",
+   "evidencia": [
+    "paquete:m-7189f84d2c2a|goles total entero",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-7189f84d2c2a|hándicap",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Colas AH de 1 casa con precio anomalo (verificador); brecha max 17 pp en home.-0.5; p sin validar; rotacion max 3.0.",
+   "evidencia": [
+    "paquete:m-7189f84d2c2a|hándicap",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-7189f84d2c2a|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Estimador no_implementado; 10 lineas con precio solo de agregador (n casas 1,2,3,4), no ejecutable. Liquidacion con devolucion en entero sin modelar.",
+   "evidencia": [
+    "paquete:m-7189f84d2c2a|hándicap asiático entero",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-7189f84d2c2a|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Estimador no_implementado; precios de agregador con 1 colas extremas (n casas 2); 3 vias, no ejecutable.",
+   "evidencia": [
+    "paquete:m-7189f84d2c2a|hándicap europeo",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-7189f84d2c2a|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no_implementado, datos insuficientes y sin precio; sin base para contrastar.",
+   "evidencia": [
+    "paquete:m-7189f84d2c2a|remates",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-7189f84d2c2a|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no_implementado, datos parciales y sin precio; sin base para contrastar.",
+   "evidencia": [
+    "paquete:m-7189f84d2c2a|remates a puerta",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-7189f84d2c2a|resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "p local 0.33 vs 1/1.92=0.52 (brecha 19 pp); Besiktas n7 casi todo clasificatorias. Modelo sin validar.",
+   "evidencia": [
+    "paquete:m-7189f84d2c2a|resultado",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-7189f84d2c2a|tarjetas",
+   "objecion": "dato_defectuoso",
+   "severidad": "alta",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Tarjetas: TSA total_cards vs cards_pts sin definicion confirmada; solo 8/42 lineas con precio de 1-2 casas; arbitro n=0 en liga; brecha max 29 pp.",
+   "evidencia": [
+    "paquete:m-7189f84d2c2a|tarjetas",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-78c284f5a1ea|1.ª parte goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Paquete sin p del modelo (sin_probabilidad_calculada): no hay contraste ni ventaja; solo precios de agregador (n casas 2,4).",
+   "evidencia": [
+    "paquete:m-78c284f5a1ea|1.ª parte goles",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-78c284f5a1ea|1.ª parte resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Paquete sin p del modelo (sin_probabilidad_calculada): no hay contraste ni ventaja; solo precios de agregador (n casas 4).",
+   "evidencia": [
+    "paquete:m-78c284f5a1ea|1.ª parte resultado",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-78c284f5a1ea|córners",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Paquete sin p del modelo (sin_probabilidad_calculada): no hay contraste ni ventaja; solo precios de agregador (n casas 1,3).",
+   "evidencia": [
+    "paquete:m-78c284f5a1ea|córners",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-78c284f5a1ea|doble oportunidad",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Paquete sin p del modelo (sin_probabilidad_calculada): no hay contraste ni ventaja; solo precios de agregador (n casas 5).",
+   "evidencia": [
+    "paquete:m-78c284f5a1ea|doble oportunidad",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-78c284f5a1ea|empate no válido",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Paquete sin p del modelo (sin_probabilidad_calculada): no hay contraste ni ventaja; solo precios de agregador (n casas 3).",
+   "evidencia": [
+    "paquete:m-78c284f5a1ea|empate no válido",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-78c284f5a1ea|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador (no_implementado), sin extractor y sin precio verificable; solo un total sin linea. Nada que contrastar.",
+   "evidencia": [
+    "paquete:m-78c284f5a1ea|fueras de juego",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-78c284f5a1ea|goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Paquete sin p del modelo (sin_probabilidad_calculada): no hay contraste ni ventaja; solo precios de agregador (n casas 3,4,5,None).",
+   "evidencia": [
+    "paquete:m-78c284f5a1ea|goles",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-78c284f5a1ea|goles por equipo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Paquete sin p del modelo (sin_probabilidad_calculada): no hay contraste ni ventaja; solo precios de agregador (n casas 1,2).",
+   "evidencia": [
+    "paquete:m-78c284f5a1ea|goles por equipo",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-78c284f5a1ea|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Estimador no_implementado; 10 lineas con precio solo de agregador (n casas 1,2), no ejecutable.",
+   "evidencia": [
+    "paquete:m-78c284f5a1ea|goles total entero",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-78c284f5a1ea|hándicap",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Sin p del modelo; verificador marca precio anomalo (AH home -1.5: 12.34 TSA vs 8.5 API). Colas de 1 casa no ejecutables.",
+   "evidencia": [
+    "paquete:m-78c284f5a1ea|hándicap",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-78c284f5a1ea|hándicap asiático entero",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Estimador no_implementado; verificador marca precio anomalo (colas de 1 casa: 3 lineas >10 o <1.06). Referencia no ejecutable.",
+   "evidencia": [
+    "paquete:m-78c284f5a1ea|hándicap asiático entero",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-78c284f5a1ea|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Estimador no_implementado; precios de agregador con 4 colas extremas (n casas 2); 3 vias, no ejecutable.",
+   "evidencia": [
+    "paquete:m-78c284f5a1ea|hándicap europeo",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-78c284f5a1ea|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no_implementado y sin precio en ninguna de 90 lineas; solidez deportiva no sustituye a un estimador ni a una cuota.",
+   "evidencia": [
+    "paquete:m-78c284f5a1ea|remates",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-78c284f5a1ea|remates a puerta",
+   "objecion": "fuente_unica",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Estimador no_implementado; 4 lineas con precio de 1 casa (agregador), sin contraste ni p del modelo; 60 lineas, resto sin precio.",
+   "evidencia": [
+    "paquete:m-78c284f5a1ea|remates a puerta",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-78c284f5a1ea|resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin p del modelo; 1X2 del usuario (comunicado) cercano a mediana API, pero sin estimador no hay contraste. Leverkusen rota ~4 cambios.",
+   "evidencia": [
+    "paquete:m-78c284f5a1ea|resultado",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-78c284f5a1ea|tarjetas",
+   "objecion": "dato_defectuoso",
+   "severidad": "alta",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Sin p del modelo; precio TSA total_cards vs cards_pts del paquete sin definicion confirmada; arbitro con n=0 en liga.",
+   "evidencia": [
+    "paquete:m-78c284f5a1ea|tarjetas",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-80f961acf810|1.ª parte goles",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 15 pp en total.under.1.5 vs 1/cuota agregador (n casas 2,4, no ejecutable); validacion no_evaluada. Muestra 1T sin validar.",
+   "evidencia": [
+    "paquete:m-80f961acf810|1.ª parte goles",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-80f961acf810|1.ª parte resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 23 pp en 1x2.home vs 1/cuota agregador (n casas 4, no ejecutable); validacion no_evaluada. Muestra 1T sin validar.",
+   "evidencia": [
+    "paquete:m-80f961acf810|1.ª parte resultado",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-80f961acf810|córners",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 15 pp en equipo.away.over.2.5 vs 1/cuota agregador (n casas 1,2, no ejecutable); validacion insuficiente. Linea y periodo (partido completo) por confirmar.",
+   "evidencia": [
+    "paquete:m-80f961acf810|córners",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-80f961acf810|doble oportunidad",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 42 pp en dc.x2 vs 1/cuota agregador (n casas 5, no ejecutable); validacion insuficiente.",
+   "evidencia": [
+    "paquete:m-80f961acf810|doble oportunidad",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-80f961acf810|empate no válido",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 38 pp en dnb.away vs 1/cuota agregador (n casas 3, no ejecutable); validacion no_evaluada.",
+   "evidencia": [
+    "paquete:m-80f961acf810|empate no válido",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-80f961acf810|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador (no_implementado), sin extractor y sin precio verificable; solo un total sin linea. Nada que contrastar.",
+   "evidencia": [
+    "paquete:m-80f961acf810|fueras de juego",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-80f961acf810|goles",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 18 pp en total.under.2.5 vs 1/cuota agregador (n casas 3,4,5,None, no ejecutable); validacion insuficiente. 2 lineas con cuota extrema.",
+   "evidencia": [
+    "paquete:m-80f961acf810|goles",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-80f961acf810|goles por equipo",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 36 pp en equipo.home.under.2.5 vs 1/cuota agregador (n casas 1,2, no ejecutable); validacion insuficiente.",
+   "evidencia": [
+    "paquete:m-80f961acf810|goles por equipo",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-80f961acf810|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Estimador no_implementado; 10 lineas con precio solo de agregador (n casas 1,2), no ejecutable.",
+   "evidencia": [
+    "paquete:m-80f961acf810|goles total entero",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-80f961acf810|hándicap",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "alta",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Colas AH de 1 casa con precio anomalo (verificador); brecha max 42 pp en away.+1.5; p sin validar; rotacion max 7.0.",
+   "evidencia": [
+    "paquete:m-80f961acf810|hándicap",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-80f961acf810|hándicap asiático entero",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Estimador no_implementado; verificador marca precio anomalo (colas de 1 casa: 2 lineas >10 o <1.06). Referencia no ejecutable.",
+   "evidencia": [
+    "paquete:m-80f961acf810|hándicap asiático entero",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-80f961acf810|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Estimador no_implementado; precios de agregador con 2 colas extremas (n casas 2,3); 3 vias, no ejecutable.",
+   "evidencia": [
+    "paquete:m-80f961acf810|hándicap europeo",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-80f961acf810|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no_implementado y sin precio en ninguna de 90 lineas; solidez deportiva no sustituye a un estimador ni a una cuota.",
+   "evidencia": [
+    "paquete:m-80f961acf810|remates",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-80f961acf810|remates a puerta",
+   "objecion": "fuente_unica",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Estimador no_implementado; 4 lineas con precio de 1 casa (agregador), sin contraste ni p del modelo; 60 lineas, resto sin precio.",
+   "evidencia": [
+    "paquete:m-80f961acf810|remates a puerta",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-80f961acf810|resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "verificar_manualmente",
+   "nota": "p local 0.77 vs 1/2.36=0.42 (brecha 34 pp); R.Sociedad rota ~7 cambios. Modelo sin validar e inconsistente con mercado API.",
+   "evidencia": [
+    "paquete:m-80f961acf810|resultado",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-80f961acf810|tarjetas",
+   "objecion": "dato_defectuoso",
+   "severidad": "alta",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Tarjetas: TSA total_cards vs cards_pts sin definicion confirmada; solo 6/42 lineas con precio de 1-2 casas; arbitro n=0 en liga; brecha max 15 pp.",
+   "evidencia": [
+    "paquete:m-80f961acf810|tarjetas",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-814dd65df105|1.ª parte goles",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 24 pp en total.over.0.5 vs 1/cuota agregador (n casas 2,3, no ejecutable); validacion no_evaluada. Muestra 1T sin validar.",
+   "evidencia": [
+    "paquete:m-814dd65df105|1.ª parte goles",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-814dd65df105|1.ª parte resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 12 pp en 1x2.home vs 1/cuota agregador (n casas 3, no ejecutable); validacion no_evaluada. Muestra 1T sin validar.",
+   "evidencia": [
+    "paquete:m-814dd65df105|1.ª parte resultado",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-814dd65df105|córners",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 29 pp en equipo.away.under.5.5 vs 1/cuota agregador (n casas 1,2, no ejecutable); validacion insuficiente. Linea y periodo (partido completo) por confirmar.",
+   "evidencia": [
+    "paquete:m-814dd65df105|córners",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-814dd65df105|doble oportunidad",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 9 pp en dc.1x vs 1/cuota agregador (n casas 5, no ejecutable); validacion insuficiente.",
+   "evidencia": [
+    "paquete:m-814dd65df105|doble oportunidad",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-814dd65df105|empate no válido",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 10 pp en dnb.home vs 1/cuota agregador (n casas 3, no ejecutable); validacion no_evaluada.",
+   "evidencia": [
+    "paquete:m-814dd65df105|empate no válido",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-814dd65df105|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador (no_implementado), sin extractor y sin precio verificable; solo un total sin linea. Nada que contrastar.",
+   "evidencia": [
+    "paquete:m-814dd65df105|fueras de juego",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-814dd65df105|goles",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 14 pp en btts.yes vs 1/cuota agregador (n casas 3,4,5,None, no ejecutable); validacion insuficiente. 2 lineas con cuota extrema.",
+   "evidencia": [
+    "paquete:m-814dd65df105|goles",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-814dd65df105|goles por equipo",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 15 pp en equipo.home.over.1.5 vs 1/cuota agregador (n casas 1, no ejecutable); validacion insuficiente.",
+   "evidencia": [
+    "paquete:m-814dd65df105|goles por equipo",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-814dd65df105|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Estimador no_implementado; 10 lineas con precio solo de agregador (n casas 1,2), no ejecutable.",
+   "evidencia": [
+    "paquete:m-814dd65df105|goles total entero",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-814dd65df105|hándicap",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Colas AH de 1 casa con precio anomalo (verificador); brecha max 8 pp en home.-1.5; p sin validar; rotacion max 4.3.",
+   "evidencia": [
+    "paquete:m-814dd65df105|hándicap",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-814dd65df105|hándicap asiático entero",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Estimador no_implementado; verificador marca precio anomalo (colas de 1 casa: 3 lineas >10 o <1.06). Referencia no ejecutable.",
+   "evidencia": [
+    "paquete:m-814dd65df105|hándicap asiático entero",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-814dd65df105|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Estimador no_implementado; precios de agregador con 1 colas extremas (n casas 2); 3 vias, no ejecutable.",
+   "evidencia": [
+    "paquete:m-814dd65df105|hándicap europeo",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-814dd65df105|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no_implementado y sin precio en ninguna de 90 lineas; solidez deportiva no sustituye a un estimador ni a una cuota.",
+   "evidencia": [
+    "paquete:m-814dd65df105|remates",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-814dd65df105|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no_implementado y sin precio en ninguna de 60 lineas; solidez deportiva no sustituye a un estimador ni a una cuota.",
+   "evidencia": [
+    "paquete:m-814dd65df105|remates a puerta",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-814dd65df105|resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "p vs 1/cuota usuario: brecha max 7 pp; validacion insuficiente. Rotacion max 4.3 cambios (rotation.json) sin ajuste evidente.",
+   "evidencia": [
+    "paquete:m-814dd65df105|resultado",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-814dd65df105|tarjetas",
+   "objecion": "dato_defectuoso",
+   "severidad": "alta",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Tarjetas: TSA total_cards vs cards_pts sin definicion confirmada; solo 8/42 lineas con precio de 1-2 casas; arbitro n=1 en liga; brecha max 14 pp.",
+   "evidencia": [
+    "paquete:m-814dd65df105|tarjetas",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-82804f58f4d5|1.ª parte goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio en ninguna linea (verificador: no verificable): no hay contraste ni cuota; p del modelo sin validar (no_evaluada). Rotacion max 4.5 cambios.",
+   "evidencia": [
+    "paquete:m-82804f58f4d5|1.ª parte goles",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-82804f58f4d5|1.ª parte resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio en ninguna linea (verificador: no verificable): no hay contraste ni cuota; p del modelo sin validar (no_evaluada). Rotacion max 4.5 cambios.",
+   "evidencia": [
+    "paquete:m-82804f58f4d5|1.ª parte resultado",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-82804f58f4d5|córners",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio en ninguna linea (verificador: no verificable): no hay contraste ni cuota; p del modelo sin validar (insuficiente). Rotacion max 4.5 cambios.",
+   "evidencia": [
+    "paquete:m-82804f58f4d5|córners",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/683.json"
+   ]
+  },
+  {
+   "unit_id": "m-82804f58f4d5|doble oportunidad",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 23 pp en dc.1x vs 1/cuota agregador (n casas 5, no ejecutable); validacion insuficiente.",
+   "evidencia": [
+    "paquete:m-82804f58f4d5|doble oportunidad",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-82804f58f4d5|empate no válido",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 29 pp en dnb.home vs 1/cuota agregador (n casas 3, no ejecutable); validacion no_evaluada.",
+   "evidencia": [
+    "paquete:m-82804f58f4d5|empate no válido",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-82804f58f4d5|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador (no_implementado), sin extractor y sin precio verificable; solo un total sin linea. Nada que contrastar.",
+   "evidencia": [
+    "paquete:m-82804f58f4d5|fueras de juego",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-82804f58f4d5|goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 8 pp en btts.no vs 1/cuota agregador (n casas 3,4,5,None, no ejecutable); validacion insuficiente. 4 lineas con cuota extrema. Rotacion alta away sin ajuste evidente.",
+   "evidencia": [
+    "paquete:m-82804f58f4d5|goles",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-82804f58f4d5|goles por equipo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio en ninguna linea (verificador: no verificable): no hay contraste ni cuota; p del modelo sin validar (insuficiente). Rotacion max 4.5 cambios.",
+   "evidencia": [
+    "paquete:m-82804f58f4d5|goles por equipo",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-82804f58f4d5|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no_implementado y sin precio en ninguna linea; datos sin_extractor.",
+   "evidencia": [
+    "paquete:m-82804f58f4d5|goles total entero",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-82804f58f4d5|hándicap",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 21 pp en ah.home.-1.5 vs 1/cuota agregador (n casas 3,5, no ejecutable); validacion no_evaluada.",
+   "evidencia": [
+    "paquete:m-82804f58f4d5|hándicap",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-82804f58f4d5|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Estimador no_implementado; 6 lineas con precio solo de agregador (n casas 3,5), no ejecutable. Liquidacion con devolucion en entero sin modelar.",
+   "evidencia": [
+    "paquete:m-82804f58f4d5|hándicap asiático entero",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-82804f58f4d5|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no_implementado y sin precio en ninguna linea; datos sin_extractor.",
+   "evidencia": [
+    "paquete:m-82804f58f4d5|hándicap europeo",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-82804f58f4d5|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no_implementado, datos insuficientes y sin precio; sin base para contrastar.",
+   "evidencia": [
+    "paquete:m-82804f58f4d5|remates",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-82804f58f4d5|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no_implementado, datos parciales y sin precio; sin base para contrastar.",
+   "evidencia": [
+    "paquete:m-82804f58f4d5|remates a puerta",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-82804f58f4d5|resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "verificar_manualmente",
+   "nota": "p local 0.38 vs 1/1.55=0.65 (brecha 26 pp); Gent n6 solo clasificatorias; Aarhus rotacion alta 4.5 cambios y 3d descanso.",
+   "evidencia": [
+    "paquete:m-82804f58f4d5|resultado",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-82804f58f4d5|tarjetas",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Tarjetas: datos parciales, sin precio, liquidacion sin confirmar; arbitro n=1 en liga. Sin base de contraste.",
+   "evidencia": [
+    "paquete:m-82804f58f4d5|tarjetas",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/683.json"
+   ]
+  },
+  {
+   "unit_id": "m-8dc7cdec21d8|1.ª parte goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 10 pp en total.over.0.5 vs 1/cuota agregador (n casas 2,4, no ejecutable); validacion no_evaluada. Muestra 1T sin validar.",
+   "evidencia": [
+    "paquete:m-8dc7cdec21d8|1.ª parte goles",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-8dc7cdec21d8|1.ª parte resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 12 pp en 1x2.home vs 1/cuota agregador (n casas 4, no ejecutable); validacion no_evaluada. Muestra 1T sin validar.",
+   "evidencia": [
+    "paquete:m-8dc7cdec21d8|1.ª parte resultado",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-8dc7cdec21d8|córners",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 30 pp en equipo.away.over.4.5 vs 1/cuota agregador (n casas 1, no ejecutable); validacion insuficiente. Linea y periodo (partido completo) por confirmar.",
+   "evidencia": [
+    "paquete:m-8dc7cdec21d8|córners",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/683.json"
+   ]
+  },
+  {
+   "unit_id": "m-8dc7cdec21d8|doble oportunidad",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 16 pp en dc.1x vs 1/cuota agregador (n casas 5, no ejecutable); validacion insuficiente.",
+   "evidencia": [
+    "paquete:m-8dc7cdec21d8|doble oportunidad",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-8dc7cdec21d8|empate no válido",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 19 pp en dnb.home vs 1/cuota agregador (n casas 3, no ejecutable); validacion no_evaluada.",
+   "evidencia": [
+    "paquete:m-8dc7cdec21d8|empate no válido",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-8dc7cdec21d8|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador (no_implementado), sin extractor y sin precio verificable; solo un total sin linea. Nada que contrastar.",
+   "evidencia": [
+    "paquete:m-8dc7cdec21d8|fueras de juego",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-8dc7cdec21d8|goles",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 14 pp en btts.yes vs 1/cuota agregador (n casas 3,4,5,None, no ejecutable); validacion insuficiente. 2 lineas con cuota extrema.",
+   "evidencia": [
+    "paquete:m-8dc7cdec21d8|goles",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-8dc7cdec21d8|goles por equipo",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 22 pp en equipo.home.over.1.5 vs 1/cuota agregador (n casas 1,2, no ejecutable); validacion insuficiente.",
+   "evidencia": [
+    "paquete:m-8dc7cdec21d8|goles por equipo",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-8dc7cdec21d8|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Estimador no_implementado; 10 lineas con precio solo de agregador (n casas 1,2), no ejecutable.",
+   "evidencia": [
+    "paquete:m-8dc7cdec21d8|goles total entero",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-8dc7cdec21d8|hándicap",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Colas AH de 1 casa con precio anomalo (verificador); brecha max 15 pp en home.+0.5; p sin validar; rotacion max 5.3.",
+   "evidencia": [
+    "paquete:m-8dc7cdec21d8|hándicap",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-8dc7cdec21d8|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Estimador no_implementado; 10 lineas con precio solo de agregador (n casas 1,3), no ejecutable. Liquidacion con devolucion en entero sin modelar.",
+   "evidencia": [
+    "paquete:m-8dc7cdec21d8|hándicap asiático entero",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-8dc7cdec21d8|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Estimador no_implementado; precios de agregador con 2 colas extremas (n casas 2,3); 3 vias, no ejecutable.",
+   "evidencia": [
+    "paquete:m-8dc7cdec21d8|hándicap europeo",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-8dc7cdec21d8|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no_implementado y sin precio en ninguna de 90 lineas; solidez deportiva no sustituye a un estimador ni a una cuota.",
+   "evidencia": [
+    "paquete:m-8dc7cdec21d8|remates",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-8dc7cdec21d8|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no_implementado y sin precio en ninguna de 60 lineas; solidez deportiva no sustituye a un estimador ni a una cuota.",
+   "evidencia": [
+    "paquete:m-8dc7cdec21d8|remates a puerta",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-8dc7cdec21d8|resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "p vs 1/cuota usuario: brecha max 14 pp; validacion insuficiente. Rotacion max 5.3 cambios (rotation.json) sin ajuste evidente.",
+   "evidencia": [
+    "paquete:m-8dc7cdec21d8|resultado",
+    "archivo:runs/2026-10-15/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-8dc7cdec21d8|tarjetas",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Tarjetas: datos insuficientes, sin precio, liquidacion sin confirmar; arbitro n=1 en liga. Sin base de contraste.",
+   "evidencia": [
+    "paquete:m-8dc7cdec21d8|tarjetas",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/683.json"
+   ]
+  }
+ ],
+ "limitaciones": [
+  "Sin apifootball ni web propios: contraste solo con paquete, rotation.json y league_samples; no se reabrieron cuotas.",
+  "Todos los precios son agregador (TSA/API, 1-5 casas) o usuario; ninguno ejecutable. Estimadores sin validar.",
+  "Arbitros con n=0-1 en la muestra de liga; liquidacion de tarjetas y periodo de corners sin confirmar."
+ ]
+}

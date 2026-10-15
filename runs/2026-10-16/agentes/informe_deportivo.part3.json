@@ -1,0 +1,1356 @@
+{
+ "agente": "deportivo",
+ "version_contrato": 1,
+ "run": "runs/2026-10-16",
+ "unidades": [
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "under",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Modelo 1T sin validar: P(más de 1.5 goles en 1T)=0.335. Recoleta promedia 3.1 goles/partido (n29), liga 2.45 (n172): un 1T abierto rompería el under.",
+   "evidencia": [
+    "paquete:m-6430ac19af8e|1.ª parte goles",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/255.json"
+   ],
+   "unit_id": "m-6430ac19af8e|1.ª parte goles",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "empate",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Empate al descanso es lo más probable en el modelo (0.413, sin validar); un gol temprano lo rompe. Recoleta anota mucho (3.1 goles/p, n29).",
+   "evidencia": [
+    "paquete:m-6430ac19af8e|1.ª parte resultado",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/255.json"
+   ],
+   "unit_id": "m-6430ac19af8e|1.ª parte resultado",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Liga 9.36 córners/p (n169); Recoleta 9.66 y Rubio Ñú 8.79 (n29 c/u, desde mar-26). Modelo over 9.5=0.524, sin validar; árbitro sin designar.",
+   "evidencia": [
+    "paquete:m-6430ac19af8e|córners",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/255.json"
+   ],
+   "unit_id": "m-6430ac19af8e|córners",
+   "excepciones": []
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "goleada_local",
+   "nota": "Modelo X2=0.775 frente a 1X=0.466; descanso local 4d (riesgo medio) vs 5d visitante. Modelo sin validar y alineaciones sin publicar.",
+   "evidencia": [
+    "paquete:m-6430ac19af8e|doble oportunidad",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/255.json"
+   ],
+   "unit_id": "m-6430ac19af8e|doble oportunidad",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "goleada_local",
+   "nota": "Modelo favorece al visitante en DNB (0.704) pero sin validar y con extractor de datos ausente; local con rotación media (≈2.5 cambios).",
+   "evidencia": [
+    "paquete:m-6430ac19af8e|empate no válido",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/255.json"
+   ],
+   "unit_id": "m-6430ac19af8e|empate no válido",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Fueras de juego: sin extractor ni estimador en el paquete; no evaluable.",
+   "evidencia": [
+    "paquete:m-6430ac19af8e|fueras de juego",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/255.json"
+   ],
+   "unit_id": "m-6430ac19af8e|fueras de juego",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Recoleta 19/29 con más de 2.5 goles (3.1 goles/p) y BTTS 20/29; Rubio Ñú 11/29. Liga 46.5% (n172). Modelo over 2.5=0.505, casi moneda; sin validar.",
+   "evidencia": [
+    "paquete:m-6430ac19af8e|goles",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/255.json"
+   ],
+   "unit_id": "m-6430ac19af8e|goles",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Modelo: visitante marca 0.815, local 0.634 (sin validar). Rubio Ñú BTTS 10/29 vs Recoleta 20/29: perfiles distintos, sin sesgo claro.",
+   "evidencia": [
+    "paquete:m-6430ac19af8e|goles por equipo",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/255.json"
+   ],
+   "unit_id": "m-6430ac19af8e|goles por equipo",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Goles total entero (línea entera, con devolución): sin extractor ni estimador en el paquete; no evaluable.",
+   "evidencia": [
+    "paquete:m-6430ac19af8e|goles total entero",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/255.json"
+   ],
+   "unit_id": "m-6430ac19af8e|goles total entero",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "goleada_local",
+   "nota": "Modelo AH visitante +0.5=0.775; el local goleador (3.1 goles/p, n29) puede imponerse. Alineaciones sin publicar; modelo sin validar.",
+   "evidencia": [
+    "paquete:m-6430ac19af8e|hándicap",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/255.json"
+   ],
+   "unit_id": "m-6430ac19af8e|hándicap",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Hándicap asiático entero: sin extractor ni estimador en el paquete; no evaluable.",
+   "evidencia": [
+    "paquete:m-6430ac19af8e|hándicap asiático entero",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/255.json"
+   ],
+   "unit_id": "m-6430ac19af8e|hándicap asiático entero",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Hándicap europeo: sin extractor ni estimador en el paquete; no evaluable.",
+   "evidencia": [
+    "paquete:m-6430ac19af8e|hándicap europeo",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/255.json"
+   ],
+   "unit_id": "m-6430ac19af8e|hándicap europeo",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Remates: estimador no implementado en el paquete; no evaluable pese a haber muestra.",
+   "evidencia": [
+    "paquete:m-6430ac19af8e|remates",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/255.json"
+   ],
+   "unit_id": "m-6430ac19af8e|remates",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Remates a puerta: estimador no implementado en el paquete; no evaluable pese a haber muestra.",
+   "evidencia": [
+    "paquete:m-6430ac19af8e|remates a puerta",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/255.json"
+   ],
+   "unit_id": "m-6430ac19af8e|remates a puerta",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "goleada_local",
+   "nota": "Modelo visitante 0.534 vs local 0.225, discrepa del reparto del mercado; modelo sin validar y muestras mezclan temporadas. Local con descanso 4d.",
+   "evidencia": [
+    "paquete:m-6430ac19af8e|resultado",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/255.json"
+   ],
+   "unit_id": "m-6430ac19af8e|resultado",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "arbitro",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "tarjetas_atipicas",
+   "nota": "Árbitro sin designar; liga 4.47 tarjetas/p (n165). Modelo sin validar, sin estadística de árbitro aplicable.",
+   "evidencia": [
+    "paquete:m-6430ac19af8e|tarjetas",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/255.json"
+   ],
+   "unit_id": "m-6430ac19af8e|tarjetas",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Modelo 1T sin validar: over 0.5=0.718, over 1.5=0.361. Liga con 3.08 goles/p (n158) pero el 1T es un tramo corto y ruidoso.",
+   "evidencia": [
+    "paquete:m-6ecf399413a5|1.ª parte goles",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/171.json"
+   ],
+   "unit_id": "m-6ecf399413a5|1.ª parte goles",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "empate",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Empate 1T el más probable (0.407) pero local/visitante cerca (0.299/0.295); modelo sin validar.",
+   "evidencia": [
+    "paquete:m-6ecf399413a5|1.ª parte resultado",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/171.json"
+   ],
+   "unit_id": "m-6ecf399413a5|1.ª parte resultado",
+   "excepciones": []
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Liga 10.5 córners/p (n155); Kiel 9.94 (n17), Hertha 10.89 (n18). Modelo over 10.5=0.645, sin validar; árbitro sin designar. Partido cerrado lo frenaría.",
+   "evidencia": [
+    "paquete:m-6ecf399413a5|córners",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/171.json"
+   ],
+   "unit_id": "m-6ecf399413a5|córners",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Modelo 1X=0.621, X2=0.614: igualado. Hertha rota ≈4.5 cambios (medio), Kiel descansa 7d vs 5d. Sin alineaciones publicadas.",
+   "evidencia": [
+    "paquete:m-6ecf399413a5|doble oportunidad",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/171.json"
+   ],
+   "unit_id": "m-6ecf399413a5|doble oportunidad",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "DNB 0.505/0.495 en el modelo: sin ventaja clara. Extractor de datos ausente; sin alineaciones publicadas.",
+   "evidencia": [
+    "paquete:m-6ecf399413a5|empate no válido",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/171.json"
+   ],
+   "unit_id": "m-6ecf399413a5|empate no válido",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Fueras de juego: sin extractor ni estimador en el paquete; no evaluable.",
+   "evidencia": [
+    "paquete:m-6ecf399413a5|fueras de juego",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/171.json"
+   ],
+   "unit_id": "m-6ecf399413a5|fueras de juego",
+   "excepciones": []
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Liga 3.08 goles/p, over 2.5 en 57.6% (n158); Kiel 9/17, Hertha 11/18 con >2.5; BTTS 9/17 y 13/18. Modelo over 2.5=0.613, sin validar.",
+   "evidencia": [
+    "paquete:m-6ecf399413a5|goles",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/171.json"
+   ],
+   "unit_id": "m-6ecf399413a5|goles",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Modelo: ambos marcan ≈0.79; Hertha BTTS 13/18, Kiel 9/17. Modelo sin validar; sin alineaciones.",
+   "evidencia": [
+    "paquete:m-6ecf399413a5|goles por equipo",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/171.json"
+   ],
+   "unit_id": "m-6ecf399413a5|goles por equipo",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Goles total entero (línea entera, con devolución): sin extractor ni estimador en el paquete; no evaluable.",
+   "evidencia": [
+    "paquete:m-6ecf399413a5|goles total entero",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/171.json"
+   ],
+   "unit_id": "m-6ecf399413a5|goles total entero",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Modelo AH local +0.5=0.621, visitante +0.5=0.614: partido igualado. Modelo sin validar.",
+   "evidencia": [
+    "paquete:m-6ecf399413a5|hándicap",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/171.json"
+   ],
+   "unit_id": "m-6ecf399413a5|hándicap",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Hándicap asiático entero: sin extractor ni estimador en el paquete; no evaluable.",
+   "evidencia": [
+    "paquete:m-6ecf399413a5|hándicap asiático entero",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/171.json"
+   ],
+   "unit_id": "m-6ecf399413a5|hándicap asiático entero",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Hándicap europeo: sin extractor ni estimador en el paquete; no evaluable.",
+   "evidencia": [
+    "paquete:m-6ecf399413a5|hándicap europeo",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/171.json"
+   ],
+   "unit_id": "m-6ecf399413a5|hándicap europeo",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Remates: estimador no implementado en el paquete; no evaluable pese a haber muestra.",
+   "evidencia": [
+    "paquete:m-6ecf399413a5|remates",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/171.json"
+   ],
+   "unit_id": "m-6ecf399413a5|remates",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Remates a puerta: estimador no implementado en el paquete; no evaluable pese a haber muestra.",
+   "evidencia": [
+    "paquete:m-6ecf399413a5|remates a puerta",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/171.json"
+   ],
+   "unit_id": "m-6ecf399413a5|remates a puerta",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "local",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Modelo local 0.386. Hertha rota ≈4.5 cambios/partido (riesgo medio), Kiel descansa 7d vs 5d. Modelo sin validar; sin once publicado.",
+   "evidencia": [
+    "paquete:m-6ecf399413a5|resultado",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/171.json"
+   ],
+   "unit_id": "m-6ecf399413a5|resultado",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "arbitro",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "tarjetas_atipicas",
+   "nota": "Árbitro sin designar; liga 4.46 tarjetas/p (n151). Modelo sin validar.",
+   "evidencia": [
+    "paquete:m-6ecf399413a5|tarjetas",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/171.json"
+   ],
+   "unit_id": "m-6ecf399413a5|tarjetas",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Modelo 1T sin validar: over 0.5=0.711, over 1.5=0.353. Mirassol 12/27 y Inter 11/26 con >2.5 goles totales, ritmo medio.",
+   "evidencia": [
+    "paquete:m-81ee8c86b970|1.ª parte goles",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/99.json"
+   ],
+   "unit_id": "m-81ee8c86b970|1.ª parte goles",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "empate",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Empate 1T el más probable (0.41) en el modelo sin validar; local 0.334, visitante 0.256.",
+   "evidencia": [
+    "paquete:m-81ee8c86b970|1.ª parte resultado",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/99.json"
+   ],
+   "unit_id": "m-81ee8c86b970|1.ª parte resultado",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Liga 10.27 córners/p (n252); Mirassol 10.54 (n27), Inter 9.32 (n26). Modelo over 9.5=0.461, sin validar; muestras desde mar-26 mezclan temporadas.",
+   "evidencia": [
+    "paquete:m-81ee8c86b970|córners",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/99.json"
+   ],
+   "unit_id": "m-81ee8c86b970|córners",
+   "excepciones": []
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "localia",
+   "direccion_favorable": "local",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Modelo 1X=0.693 vs X2=0.572. Rotación baja en ambos (local ≈2.5, visitante ≈2.3 cambios), descanso 5d. Modelo sin validar.",
+   "evidencia": [
+    "paquete:m-81ee8c86b970|doble oportunidad",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/99.json"
+   ],
+   "unit_id": "m-81ee8c86b970|doble oportunidad",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "localia",
+   "direccion_favorable": "local",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "DNB local 0.582 en el modelo; extractor de datos ausente y modelo sin validar.",
+   "evidencia": [
+    "paquete:m-81ee8c86b970|empate no válido",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/99.json"
+   ],
+   "unit_id": "m-81ee8c86b970|empate no válido",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Fueras de juego: sin extractor ni estimador en el paquete; no evaluable.",
+   "evidencia": [
+    "paquete:m-81ee8c86b970|fueras de juego",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/99.json"
+   ],
+   "unit_id": "m-81ee8c86b970|fueras de juego",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Mirassol 12/27 y Inter 11/26 con >2.5 goles; liga 51.5% (n262). Modelo over 2.5=0.465, casi moneda; sin validar.",
+   "evidencia": [
+    "paquete:m-81ee8c86b970|goles",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/99.json"
+   ],
+   "unit_id": "m-81ee8c86b970|goles",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Modelo: local marca 0.752, visitante 0.68; BTTS 17/27 Mirassol y 15/26 Inter. Sin validar.",
+   "evidencia": [
+    "paquete:m-81ee8c86b970|goles por equipo",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/99.json"
+   ],
+   "unit_id": "m-81ee8c86b970|goles por equipo",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Goles total entero (línea entera, con devolución): sin extractor ni estimador en el paquete; no evaluable.",
+   "evidencia": [
+    "paquete:m-81ee8c86b970|goles total entero",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/99.json"
+   ],
+   "unit_id": "m-81ee8c86b970|goles total entero",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "localia",
+   "direccion_favorable": "local",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Modelo AH local +0.5=0.693 vs visitante +0.5=0.572. Sin validar; sin alineaciones.",
+   "evidencia": [
+    "paquete:m-81ee8c86b970|hándicap",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/99.json"
+   ],
+   "unit_id": "m-81ee8c86b970|hándicap",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Hándicap asiático entero: sin extractor ni estimador en el paquete; no evaluable.",
+   "evidencia": [
+    "paquete:m-81ee8c86b970|hándicap asiático entero",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/99.json"
+   ],
+   "unit_id": "m-81ee8c86b970|hándicap asiático entero",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Hándicap europeo: sin extractor ni estimador en el paquete; no evaluable.",
+   "evidencia": [
+    "paquete:m-81ee8c86b970|hándicap europeo",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/99.json"
+   ],
+   "unit_id": "m-81ee8c86b970|hándicap europeo",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Remates: estimador no implementado en el paquete; no evaluable pese a haber muestra.",
+   "evidencia": [
+    "paquete:m-81ee8c86b970|remates",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/99.json"
+   ],
+   "unit_id": "m-81ee8c86b970|remates",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Remates a puerta: estimador no implementado en el paquete; no evaluable pese a haber muestra.",
+   "evidencia": [
+    "paquete:m-81ee8c86b970|remates a puerta",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/99.json"
+   ],
+   "unit_id": "m-81ee8c86b970|remates a puerta",
+   "excepciones": []
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "localia",
+   "direccion_favorable": "local",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Modelo local 0.428, visitante 0.307, empate 0.265. Rotación baja en ambos, descanso 5d. Modelo sin validar; cuotas de mercado cercanas.",
+   "evidencia": [
+    "paquete:m-81ee8c86b970|resultado",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/99.json"
+   ],
+   "unit_id": "m-81ee8c86b970|resultado",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "arbitro",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "tarjetas_atipicas",
+   "nota": "Árbitro B. Arleu: 13 partidos con tarjetas en muestra de la liga (media 5.0, liga 4.94, n249). Modelo sin validar; muestra de árbitro corta.",
+   "evidencia": [
+    "paquete:m-81ee8c86b970|tarjetas",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/99.json"
+   ],
+   "unit_id": "m-81ee8c86b970|tarjetas",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Modelo 1T sin validar: over 0.5=0.784, over 1.5=0.453. Deportivo con solo 8 partidos en la muestra; Levante con 19.",
+   "evidencia": [
+    "paquete:m-8d239930409a|1.ª parte goles",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/302.json"
+   ],
+   "unit_id": "m-8d239930409a|1.ª parte goles",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "local",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Modelo 1T: local 0.435, empate 0.352, visitante 0.213; sin validar. Deportivo n8 y rota ≈7 cambios por partido.",
+   "evidencia": [
+    "paquete:m-8d239930409a|1.ª parte resultado",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/302.json"
+   ],
+   "unit_id": "m-8d239930409a|1.ª parte resultado",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Liga 9.73 córners/p (n200); Deportivo 11.0 (solo 8 partidos), Levante 9.42 (n19). Modelo over 9.5=0.537, sin validar; árbitro sin designar.",
+   "evidencia": [
+    "paquete:m-8d239930409a|córners",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/302.json"
+   ],
+   "unit_id": "m-8d239930409a|córners",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "local",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Modelo 1X=0.775 pero Deportivo rota ≈7 cambios/partido (riesgo medio) y su muestra es de 8 partidos. Sin alineaciones publicadas.",
+   "evidencia": [
+    "paquete:m-8d239930409a|doble oportunidad",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/302.json"
+   ],
+   "unit_id": "m-8d239930409a|doble oportunidad",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "local",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "DNB local 0.716 en el modelo, pero local rota mucho (≈7 cambios) y n=8; extractor de datos ausente.",
+   "evidencia": [
+    "paquete:m-8d239930409a|empate no válido",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/302.json"
+   ],
+   "unit_id": "m-8d239930409a|empate no válido",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Fueras de juego: sin extractor ni estimador en el paquete; no evaluable.",
+   "evidencia": [
+    "paquete:m-8d239930409a|fueras de juego",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/302.json"
+   ],
+   "unit_id": "m-8d239930409a|fueras de juego",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Levante 10/19 y Deportivo 3/8 con >2.5; BTTS 11/19 y 7/8. Liga 52.9% (n204). Modelo over 2.5=0.651; sin validar y n de Deportivo corto.",
+   "evidencia": [
+    "paquete:m-8d239930409a|goles",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/302.json"
+   ],
+   "unit_id": "m-8d239930409a|goles",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Modelo: local marca 0.877, visitante 0.715; Deportivo solo n8 en la muestra. Sin validar.",
+   "evidencia": [
+    "paquete:m-8d239930409a|goles por equipo",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/302.json"
+   ],
+   "unit_id": "m-8d239930409a|goles por equipo",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Goles total entero (línea entera, con devolución): sin extractor ni estimador en el paquete; no evaluable.",
+   "evidencia": [
+    "paquete:m-8d239930409a|goles total entero",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/302.json"
+   ],
+   "unit_id": "m-8d239930409a|goles total entero",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "local",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Modelo AH local +0.5=0.775; Deportivo rota ≈7 cambios (riesgo medio) y n=8. Modelo sin validar.",
+   "evidencia": [
+    "paquete:m-8d239930409a|hándicap",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/302.json"
+   ],
+   "unit_id": "m-8d239930409a|hándicap",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Hándicap asiático entero: sin extractor ni estimador en el paquete; no evaluable.",
+   "evidencia": [
+    "paquete:m-8d239930409a|hándicap asiático entero",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/302.json"
+   ],
+   "unit_id": "m-8d239930409a|hándicap asiático entero",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Hándicap europeo: sin extractor ni estimador en el paquete; no evaluable.",
+   "evidencia": [
+    "paquete:m-8d239930409a|hándicap europeo",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/302.json"
+   ],
+   "unit_id": "m-8d239930409a|hándicap europeo",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Remates: estimador no implementado en el paquete; no evaluable pese a haber muestra.",
+   "evidencia": [
+    "paquete:m-8d239930409a|remates",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/302.json"
+   ],
+   "unit_id": "m-8d239930409a|remates",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Remates a puerta: estimador no implementado en el paquete; no evaluable pese a haber muestra.",
+   "evidencia": [
+    "paquete:m-8d239930409a|remates a puerta",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/302.json"
+   ],
+   "unit_id": "m-8d239930409a|remates a puerta",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "local",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Modelo local 0.567, visitante 0.225. Rotación local alta (≈7 cambios/p), muestra de 8 partidos, modelo sin validar; sin once publicado.",
+   "evidencia": [
+    "paquete:m-8d239930409a|resultado",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/302.json"
+   ],
+   "unit_id": "m-8d239930409a|resultado",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "arbitro",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "tarjetas_atipicas",
+   "nota": "Árbitro sin designar; liga 5.01 tarjetas/p (n196). Modelo sin validar.",
+   "evidencia": [
+    "paquete:m-8d239930409a|tarjetas",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/302.json"
+   ],
+   "unit_id": "m-8d239930409a|tarjetas",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Modelo 1T sin validar: over 1.5=0.57. Frankfurt y Köln promedian 3.5 y 3.7 goles/partido (n16, n15); un 1T cerrado rompe el over.",
+   "evidencia": [
+    "paquete:m-92187c251cb6|1.ª parte goles",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/175.json"
+   ],
+   "unit_id": "m-92187c251cb6|1.ª parte goles",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Modelo 1T repartido: local 0.346, empate 0.317, visitante 0.337; sin validar.",
+   "evidencia": [
+    "paquete:m-92187c251cb6|1.ª parte resultado",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/175.json"
+   ],
+   "unit_id": "m-92187c251cb6|1.ª parte resultado",
+   "excepciones": []
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Liga 10.26 córners/p (n137); Frankfurt 10.38 (n16), Köln 10.8 (n15). Modelo over 9.5=0.626, sin validar; árbitro sin designar.",
+   "evidencia": [
+    "paquete:m-92187c251cb6|córners",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/175.json"
+   ],
+   "unit_id": "m-92187c251cb6|córners",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Modelo 1X=0.609, X2=0.594: muy igualado. Frankfurt rota ≈5.3 cambios (riesgo medio). Sin alineaciones publicadas.",
+   "evidencia": [
+    "paquete:m-92187c251cb6|doble oportunidad",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/175.json"
+   ],
+   "unit_id": "m-92187c251cb6|doble oportunidad",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "DNB 0.509/0.49: sin ventaja clara. Frankfurt rota ≈5.3 cambios por partido; extractor de datos ausente.",
+   "evidencia": [
+    "paquete:m-92187c251cb6|empate no válido",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/175.json"
+   ],
+   "unit_id": "m-92187c251cb6|empate no válido",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Fueras de juego: sin extractor ni estimador en el paquete; no evaluable.",
+   "evidencia": [
+    "paquete:m-92187c251cb6|fueras de juego",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/175.json"
+   ],
+   "unit_id": "m-92187c251cb6|fueras de juego",
+   "excepciones": []
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Liga 3.49 goles/p, over 2.5 en 69% (n140); Frankfurt 12/16, Köln 12/15 con >2.5; BTTS 12/16 y 15/15. Modelo over 2.5=0.785, sin validar.",
+   "evidencia": [
+    "paquete:m-92187c251cb6|goles",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/175.json"
+   ],
+   "unit_id": "m-92187c251cb6|goles",
+   "excepciones": []
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Modelo: ambos marcan ≈0.87-0.88; BTTS Köln 15/15, Frankfurt 12/16. Sin validar; una defensa rotada también favorece el over.",
+   "evidencia": [
+    "paquete:m-92187c251cb6|goles por equipo",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/175.json"
+   ],
+   "unit_id": "m-92187c251cb6|goles por equipo",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Goles total entero (línea entera, con devolución): sin extractor ni estimador en el paquete; no evaluable.",
+   "evidencia": [
+    "paquete:m-92187c251cb6|goles total entero",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/175.json"
+   ],
+   "unit_id": "m-92187c251cb6|goles total entero",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Modelo AH +0.5 local 0.609 y visitante 0.594: partido igualado. Sin validar.",
+   "evidencia": [
+    "paquete:m-92187c251cb6|hándicap",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/175.json"
+   ],
+   "unit_id": "m-92187c251cb6|hándicap",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Hándicap asiático entero: sin extractor ni estimador en el paquete; no evaluable.",
+   "evidencia": [
+    "paquete:m-92187c251cb6|hándicap asiático entero",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/175.json"
+   ],
+   "unit_id": "m-92187c251cb6|hándicap asiático entero",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Hándicap europeo: sin extractor ni estimador en el paquete; no evaluable.",
+   "evidencia": [
+    "paquete:m-92187c251cb6|hándicap europeo",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/175.json"
+   ],
+   "unit_id": "m-92187c251cb6|hándicap europeo",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Remates: estimador no implementado en el paquete; no evaluable pese a haber muestra.",
+   "evidencia": [
+    "paquete:m-92187c251cb6|remates",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/175.json"
+   ],
+   "unit_id": "m-92187c251cb6|remates",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Remates a puerta: estimador no implementado en el paquete; no evaluable pese a haber muestra.",
+   "evidencia": [
+    "paquete:m-92187c251cb6|remates a puerta",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/175.json"
+   ],
+   "unit_id": "m-92187c251cb6|remates a puerta",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Modelo local 0.406, visitante 0.391, empate 0.202: igualado. Frankfurt rota ≈5.3 cambios (medio); descanso 6d vs 5d. Sin validar.",
+   "evidencia": [
+    "paquete:m-92187c251cb6|resultado",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/175.json"
+   ],
+   "unit_id": "m-92187c251cb6|resultado",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "arbitro",
+   "direccion_favorable": "under",
+   "escenario_perdida": "tarjetas_atipicas",
+   "nota": "Árbitro sin designar; liga con 3.93 tarjetas/p (n133), baja. Modelo over 4.5=0.281 sin validar; un partido áspero lo rompería.",
+   "evidencia": [
+    "paquete:m-92187c251cb6|tarjetas",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/175.json"
+   ],
+   "unit_id": "m-92187c251cb6|tarjetas",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "under",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Modelo 1T sin validar: over 1.5=0.235. Liga de pocos goles (2.22/p, n325), árbitro A. Merlos; un gol temprano rompe el under.",
+   "evidencia": [
+    "paquete:m-9857c260069b|1.ª parte goles",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/44.json"
+   ],
+   "unit_id": "m-9857c260069b|1.ª parte goles",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "empate",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Empate 1T el más probable (0.487) en un partido de bajo ritmo; modelo sin validar.",
+   "evidencia": [
+    "paquete:m-9857c260069b|1.ª parte resultado",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/44.json"
+   ],
+   "unit_id": "m-9857c260069b|1.ª parte resultado",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Liga 8.96 córners/p (n320); Defensa 9.57 y Instituto 9.43 (n21 c/u). Modelo over 9.5=0.504, sin validar.",
+   "evidencia": [
+    "paquete:m-9857c260069b|córners",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/44.json"
+   ],
+   "unit_id": "m-9857c260069b|córners",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Modelo 1X=0.636, X2=0.642: muy igualado. Rotación baja en ambos, descanso 6-7d. Sin validar.",
+   "evidencia": [
+    "paquete:m-9857c260069b|doble oportunidad",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/44.json"
+   ],
+   "unit_id": "m-9857c260069b|doble oportunidad",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "DNB 0.496/0.504: sin ventaja. Extractor de datos ausente; modelo sin validar.",
+   "evidencia": [
+    "paquete:m-9857c260069b|empate no válido",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/44.json"
+   ],
+   "unit_id": "m-9857c260069b|empate no válido",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Fueras de juego: sin extractor ni estimador en el paquete; no evaluable.",
+   "evidencia": [
+    "paquete:m-9857c260069b|fueras de juego",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/44.json"
+   ],
+   "unit_id": "m-9857c260069b|fueras de juego",
+   "excepciones": []
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "under",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Liga 2.22 goles/p, over 2.5 en 39.7% (n325); Defensa 11/21 y Instituto 8/21 con >2.5. Modelo under 2.5=0.577; rotación baja. Sin validar.",
+   "evidencia": [
+    "paquete:m-9857c260069b|goles",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/44.json"
+   ],
+   "unit_id": "m-9857c260069b|goles",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "under",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Modelo: cada equipo marca ≈0.69-0.70 y over 1.5 ≈0.33. Liga de pocos goles; sin validar.",
+   "evidencia": [
+    "paquete:m-9857c260069b|goles por equipo",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/44.json"
+   ],
+   "unit_id": "m-9857c260069b|goles por equipo",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Goles total entero (línea entera, con devolución): sin extractor ni estimador en el paquete; no evaluable.",
+   "evidencia": [
+    "paquete:m-9857c260069b|goles total entero",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/44.json"
+   ],
+   "unit_id": "m-9857c260069b|goles total entero",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Modelo AH +0.5 local 0.636 y visitante 0.642: igualado. Sin validar.",
+   "evidencia": [
+    "paquete:m-9857c260069b|hándicap",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/44.json"
+   ],
+   "unit_id": "m-9857c260069b|hándicap",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Hándicap asiático entero: sin extractor ni estimador en el paquete; no evaluable.",
+   "evidencia": [
+    "paquete:m-9857c260069b|hándicap asiático entero",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/44.json"
+   ],
+   "unit_id": "m-9857c260069b|hándicap asiático entero",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Hándicap europeo: sin extractor ni estimador en el paquete; no evaluable.",
+   "evidencia": [
+    "paquete:m-9857c260069b|hándicap europeo",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/44.json"
+   ],
+   "unit_id": "m-9857c260069b|hándicap europeo",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Remates: estimador no implementado en el paquete; no evaluable pese a haber muestra.",
+   "evidencia": [
+    "paquete:m-9857c260069b|remates",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/44.json"
+   ],
+   "unit_id": "m-9857c260069b|remates",
+   "excepciones": []
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Remates a puerta: estimador no implementado en el paquete; no evaluable pese a haber muestra.",
+   "evidencia": [
+    "paquete:m-9857c260069b|remates a puerta",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/44.json"
+   ],
+   "unit_id": "m-9857c260069b|remates a puerta",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Modelo local 0.358, empate 0.279, visitante 0.364: igualado. Rotación baja en ambos, descanso 6-7d. Sin validar.",
+   "evidencia": [
+    "paquete:m-9857c260069b|resultado",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/44.json"
+   ],
+   "unit_id": "m-9857c260069b|resultado",
+   "excepciones": []
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "arbitro",
+   "direccion_favorable": "over",
+   "escenario_perdida": "tarjetas_atipicas",
+   "nota": "Árbitro A. Merlos: media 4.06 tarjetas en 17 partidos (liga 5.07, n320), pero modelo over 4.5=0.688. Discrepancia sin validar.",
+   "evidencia": [
+    "paquete:m-9857c260069b|tarjetas",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/44.json"
+   ],
+   "unit_id": "m-9857c260069b|tarjetas",
+   "excepciones": []
+  }
+ ],
+ "limitaciones": [
+  "Sin alineaciones publicadas: riesgo de rotación estimado a priori con rotation.json.",
+  "Muestras de liga desde 2026-03-01 mezclan finales de 2025-26 y 2026-27; Deportivo La Coruña solo 8 partidos.",
+  "Estimador sin validar en las unidades calculables; no se asigna ALTA en ninguna."
+ ]
+}

@@ -550,12 +550,21 @@ def main(argv=None):
     ap.add_argument("--run", required=True)
     ap.add_argument("--limit", type=int)
     ap.add_argument("--no-api", action="store_true", help="no usar apifootball aunque haya clave")
+    ap.add_argument("--ids", help="ids.json de la persona usuaria: la cola se restringe a esos partidos (el resto queda NO_REQUIERE_ANALISIS, sin borrarse del inventario)")
     ap.add_argument("--reset", default="", help="estados de la cola a volver a PENDIENTE (coma), p. ej. NO_INVESTIGADO_SIN_FUENTE_PERMITIDA,PARCIAL_PROXY_OTRA_COMPETICION")
     a = ap.parse_args(argv)
     inv = common.read_json(os.path.join(a.run, "inventory.json"))
     if not inv:
         print("error: falta inventory.json (ejecuta inventory.py primero)", file=sys.stderr)
         return 2
+    if a.ids:
+        wanted = set(common.read_json(a.ids, {}).values())
+        for m in inv["matches"]:
+            if m["match_id"] not in wanted and m.get("analysis_required"):
+                m["analysis_required"] = False
+                m["universe_note"] = "fuera de la lista de partidos de la persona usuaria"
+        inv["meta"]["universe_restricted_to_ids"] = sorted(wanted)
+        common.write_json_atomic(os.path.join(a.run, "inventory.json"), inv)
     policy = common.Policy()
     client = common.Client(os.path.join(a.run, "cache"), os.path.join(a.run, "sources", "consultas.jsonl"), policy=policy,
                            min_interval=policy.data["providers"]["football-data"]["limits"]["min_interval"])

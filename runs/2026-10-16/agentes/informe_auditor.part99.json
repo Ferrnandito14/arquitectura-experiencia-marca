@@ -1,0 +1,253 @@
+{
+ "agente": "auditor",
+ "version_contrato": 1,
+ "run": "runs/2026-10-16",
+ "unidades": [
+  {
+   "unit_id": "m-43dde1b77984|1.ª parte goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio ni mercado ofrecido; validacion 1T no evaluada, deportivo BAJA. Over0.5 48.5% es casi moneda al aire; muestra 1T n=10 por equipo sin ajuste de rival.",
+   "evidencia": [
+    "paquete:m-43dde1b77984|1.ª parte goles",
+    "archivo:runs/2026-10-16/agentes/informe_deportivo.part99.json"
+   ]
+  },
+  {
+   "unit_id": "m-43dde1b77984|1.ª parte resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio; validacion no evaluada. Empate 57% al descanso se apoya en 4 GA del visitante en n=10; sin cuota no hay EV. Deportivo BAJA.",
+   "evidencia": [
+    "paquete:m-43dde1b77984|1.ª parte resultado",
+    "archivo:runs/2026-10-16/agentes/informe_deportivo.part99.json"
+   ]
+  },
+  {
+   "unit_id": "m-43dde1b77984|córners",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio; validacion insuficiente. Medias 7.7 vs 10.0 (n=10 c/u) sin ajuste de rival ni arbitro; la media no es probabilidad de la linea. Liga 9.77 (n163).",
+   "evidencia": [
+    "paquete:m-43dde1b77984|córners",
+    "archivo:runs/2026-10-16/agentes/informe_deportivo.part99.json"
+   ]
+  },
+  {
+   "unit_id": "m-43dde1b77984|doble oportunidad",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Modelo 1X 54% vs 1/1.44=69%: -15pp con precio de agregador (no ejecutable). Validacion insuficiente, n=10, ABB rota ~7.7 cambios no cuantificado. 12 y X2 coherentes.",
+   "evidencia": [
+    "paquete:m-43dde1b77984|doble oportunidad",
+    "archivo:runs/2026-10-16/agentes/informe_deportivo.part99.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "resultado.dc.12",
+     "objecion": "estimador_sin_validar"
+    },
+    {
+     "entry_id": "resultado.dc.x2",
+     "objecion": "estimador_sin_validar"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-43dde1b77984|empate no válido",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Modelo Potosi 64% vs mercado simetrico 1.83/1.82; datos sin_extractor, agregador de 3 casas no ejecutable. Divergencia ~-19pp en home: probable sesgo de muestra (4 GA en 10).",
+   "evidencia": [
+    "paquete:m-43dde1b77984|empate no válido",
+    "archivo:runs/2026-10-16/agentes/informe_deportivo.part99.json"
+   ]
+  },
+  {
+   "unit_id": "m-43dde1b77984|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador implementado ni precio en el paquete; sin extractor/datos; nada que contrastar. Alineaciones sin snapshot.",
+   "evidencia": [
+    "paquete:m-43dde1b77984|fueras de juego",
+    "archivo:runs/2026-10-16/agentes/informe_deportivo.part99.json"
+   ]
+  },
+  {
+   "unit_id": "m-43dde1b77984|goles",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Over2.5 real 1.60 (62.5% implicito, usuario) vs modelo 38.5%: -24pp. Mezcla de muestras (n21 vs n10), validacion insuficiente. Lineas 0.5 con 2 casas no verificables.",
+   "evidencia": [
+    "paquete:m-43dde1b77984|goles",
+    "archivo:runs/2026-10-16/agentes/informe_deportivo.part99.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "goles.total.over.0.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "goles.total.under.0.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "goles.total.under.3.5",
+     "objecion": "estimador_sin_validar"
+    },
+    {
+     "entry_id": "goles.total.under.4.5",
+     "objecion": "estimador_sin_validar"
+    },
+    {
+     "entry_id": "goles.total.under.5.5",
+     "objecion": "estimador_sin_validar"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-43dde1b77984|goles por equipo",
+   "objecion": "correlacion",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio ni mercado ofrecido; validacion insuficiente. Potosi sin marcar 4/10 y ABB encaja 18 en 10 (n=10); patas de equipo correlacionan con goles totales/BTTS/1X2 del mismo partido.",
+   "evidencia": [
+    "paquete:m-43dde1b77984|goles por equipo",
+    "archivo:runs/2026-10-16/agentes/informe_deportivo.part99.json"
+   ]
+  },
+  {
+   "unit_id": "m-43dde1b77984|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Linea entera sin extractor, sin estimador y sin cuotas en apifootball ni captura (verificador: no_encontrada). Push/devolucion no modelado.",
+   "evidencia": [
+    "paquete:m-43dde1b77984|goles total entero",
+    "archivo:runs/2026-10-16/agentes/informe_deportivo.part99.json"
+   ]
+  },
+  {
+   "unit_id": "m-43dde1b77984|hándicap",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Solo +-1.5 con agregador (3 casas); +-2.5 de 1 casa con 1.02 a ambos lados (anomalo); +-0.5 sin precio. Modelo no evaluado; 'Potosi +0.5' no tiene cuota que contrastar.",
+   "evidencia": [
+    "paquete:m-43dde1b77984|hándicap",
+    "archivo:runs/2026-10-16/agentes/informe_deportivo.part99.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.home.-2.5",
+     "objecion": "dato_defectuoso"
+    },
+    {
+     "entry_id": "resultado.ah.away.+2.5",
+     "objecion": "dato_defectuoso"
+    },
+    {
+     "entry_id": "resultado.ah.home.-0.5",
+     "objecion": "estimador_sin_validar"
+    },
+    {
+     "entry_id": "resultado.ah.away.+0.5",
+     "objecion": "estimador_sin_validar"
+    },
+    {
+     "entry_id": "resultado.ah.home.+0.5",
+     "objecion": "estimador_sin_validar"
+    },
+    {
+     "entry_id": "resultado.ah.away.-0.5",
+     "objecion": "estimador_sin_validar"
+    },
+    {
+     "entry_id": "resultado.ah.home.+2.5",
+     "objecion": "estimador_sin_validar"
+    },
+    {
+     "entry_id": "resultado.ah.away.-2.5",
+     "objecion": "estimador_sin_validar"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-43dde1b77984|hándicap asiático entero",
+   "objecion": "dato_defectuoso",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin estimador. Lineas +-2 con 1.02 y 8.3 de 2 casas, poco fiables (1.02 aparece en ambos lados); +-1 y 0 de agregador no ejecutable. Reglas de devolucion (push) no modeladas.",
+   "evidencia": [
+    "paquete:m-43dde1b77984|hándicap asiático entero",
+    "archivo:runs/2026-10-16/agentes/informe_deportivo.part99.json"
+   ]
+  },
+  {
+   "unit_id": "m-43dde1b77984|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador implementado ni precio en el paquete; sin extractor/datos; nada que contrastar. Alineaciones sin snapshot.",
+   "evidencia": [
+    "paquete:m-43dde1b77984|hándicap europeo",
+    "archivo:runs/2026-10-16/agentes/informe_deportivo.part99.json"
+   ]
+  },
+  {
+   "unit_id": "m-43dde1b77984|remates",
+   "objecion": "dato_defectuoso",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Datos de remates insuficientes (null en la muestra), sin estimador ni precio; nada verificable.",
+   "evidencia": [
+    "paquete:m-43dde1b77984|remates",
+    "archivo:runs/2026-10-16/agentes/informe_deportivo.part99.json"
+   ]
+  },
+  {
+   "unit_id": "m-43dde1b77984|remates a puerta",
+   "objecion": "dato_defectuoso",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Datos de remates a puerta insuficientes (null en la muestra), sin estimador ni precio; nada verificable.",
+   "evidencia": [
+    "paquete:m-43dde1b77984|remates a puerta",
+    "archivo:runs/2026-10-16/agentes/informe_deportivo.part99.json"
+   ]
+  },
+  {
+   "unit_id": "m-43dde1b77984|resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Precio 2.45/3.5/2.45 comunicado por el usuario (no verificado en casa); modelo local 26% vs 40.8% implicito (-14.9pp bruto, cerca del umbral). Validacion insuficiente; ABB rota ~7.7, sin alineaciones.",
+   "evidencia": [
+    "paquete:m-43dde1b77984|resultado",
+    "archivo:runs/2026-10-16/agentes/informe_deportivo.part99.json"
+   ]
+  },
+  {
+   "unit_id": "m-43dde1b77984|tarjetas",
+   "objecion": "dato_defectuoso",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Arbitro sin designar, sin precio; deportivo reporta nulls en tarjetas de la muestra. Puntos (amarilla/roja) sin regla de liquidacion de la casa. Validacion insuficiente.",
+   "evidencia": [
+    "paquete:m-43dde1b77984|tarjetas",
+    "archivo:runs/2026-10-16/agentes/informe_deportivo.part99.json"
+   ]
+  }
+ ],
+ "limitaciones": [
+  "Re-revision de un solo partido; no se abrieron fuentes web, solo paquete e informes fusionados de otros roles.",
+  "No se verifico la alineacion ni el arbitro (sin snapshot); cuotas de agregador no ejecutables y 1X2/Over2.5 comunicados por el usuario."
+ ]
+}

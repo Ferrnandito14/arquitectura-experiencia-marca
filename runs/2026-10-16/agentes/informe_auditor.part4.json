@@ -1,0 +1,1910 @@
+{
+ "agente": "auditor",
+ "version_contrato": 1,
+ "run": "runs/2026-10-16",
+ "unidades": [
+  {
+   "unit_id": "m-9ce82e81742e|1.ª parte goles",
+   "evidencia": [
+    "paquete:m-9ce82e81742e|1.ª parte goles",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "fuente_unica",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Las 6 líneas son de thestatsapi con 1 casa (14-oct, ~2 días antes del partido); no ejecutable. Un gol temprano o penal rompe el under 1.5; modelo 1.ª parte no evaluado."
+  },
+  {
+   "unit_id": "m-9ce82e81742e|1.ª parte resultado",
+   "evidencia": [
+    "paquete:m-9ce82e81742e|1.ª parte resultado",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "fuente_unica",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Las 3 patas son de 1 casa (thestatsapi, 14-oct) y ninguna cumple el límite 2.10; ventaja mínima (L .38/X .37/V .25) con validación no evaluada."
+  },
+  {
+   "unit_id": "m-9ce82e81742e|córners",
+   "evidencia": [
+    "paquete:m-9ce82e81742e|córners",
+    "archivo:runs/2026-10-16/matrix.json",
+    "archivo:runs/2026-10-16/league_samples/69.json"
+   ],
+   "objecion": "fuente_unica",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Solo 6 de 46 líneas tienen precio y es de 1 casa (thestatsapi, 14-oct); p over 9.5=0.54 vs 1/1.833=0.546, sin ventaja. Muestra 11/18 partidos >9.5.",
+   "excepciones": [
+    {
+     "entry_id": "corners.total.over.6.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.6.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.over.7.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.7.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.over.8.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.8.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.over.10.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.10.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.over.11.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.11.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.over.12.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.12.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.over.13.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.13.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.over.14.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.14.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.2.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.2.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.3.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.3.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.4.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.4.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.6.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.6.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.7.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.7.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.8.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.8.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.2.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.2.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.4.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.4.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.5.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.5.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.6.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.6.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.7.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.7.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.8.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.8.5",
+     "objecion": "cuota_no_ejecutable"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-9ce82e81742e|doble oportunidad",
+   "evidencia": [
+    "paquete:m-9ce82e81742e|doble oportunidad",
+    "archivo:runs/2026-10-16/rotation.json",
+    "apif_query:get_lineups match_id=838235"
+   ],
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Rotación a priori media: 6.7 y 7.3 cambios/partido (n=4), cifras extremas y sin once; get_lineups 838235 trae coach 'Bolivia' (dato dudoso). p 1X .72 < 1/1.25=.80."
+  },
+  {
+   "unit_id": "m-9ce82e81742e|empate no válido",
+   "evidencia": [
+    "paquete:m-9ce82e81742e|empate no válido",
+    "archivo:runs/2026-10-16/rotation.json",
+    "apif_query:get_lineups match_id=838235"
+   ],
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Rotación media (6.7/7.3 cambios, n=4) sin cuantificar efecto; 1 casa en la ref. (thestatsapi) y datos 'sin_extractor' para el mercado; p home .63 < 1/1.444=.69."
+  },
+  {
+   "unit_id": "m-9ce82e81742e|fueras de juego",
+   "evidencia": [
+    "paquete:m-9ce82e81742e|fueras de juego",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador ni precio: ninguna fuente de cuotas ofrece el mercado en el paquete (fuente_no_ofrece); sin árbitro ni alineaciones."
+  },
+  {
+   "unit_id": "m-9ce82e81742e|goles",
+   "evidencia": [
+    "paquete:m-9ce82e81742e|goles",
+    "archivo:runs/2026-10-16/matrix.json",
+    "archivo:runs/2026-10-16/league_samples/69.json"
+   ],
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "p over 2.5=0.52 (liga 104/168=62%, equipos 11/20) vs usuario 1.55 (impl .645): modelo bajo ambas bases; su 'ventaja' en under 2.5 (+.05) contradice liga y mercado."
+  },
+  {
+   "unit_id": "m-9ce82e81742e|goles por equipo",
+   "evidencia": [
+    "paquete:m-9ce82e81742e|goles por equipo",
+    "archivo:runs/2026-10-16/rotation.json"
+   ],
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Las 12 líneas no tienen precio en ninguna fuente; p derivada del mismo modelo de goles, rotación media sin cuantificar. Sin cuota no hay contraste."
+  },
+  {
+   "unit_id": "m-9ce82e81742e|goles total entero",
+   "evidencia": [
+    "paquete:m-9ce82e81742e|goles total entero",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador (p='-') y sin precio en ninguna fuente; líneas enteras con devolución (push) no modeladas."
+  },
+  {
+   "unit_id": "m-9ce82e81742e|hándicap",
+   "evidencia": [
+    "paquete:m-9ce82e81742e|hándicap",
+    "archivo:runs/2026-10-16/rotation.json"
+   ],
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Rotación media (6.7/7.3 cambios, n=4) sin cuantificar; p ≤ impl. en todas las líneas (sin ventaja). Líneas de 1 casa y ±1.5 no_verificable; muy sensible a goleada.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.home.+1.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "resultado.ah.away.-1.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "resultado.ah.home.+2.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "resultado.ah.away.-2.5",
+     "objecion": "cuota_no_ejecutable"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-9ce82e81742e|hándicap asiático entero",
+   "evidencia": [
+    "paquete:m-9ce82e81742e|hándicap asiático entero",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador (p='-'); 8 líneas enteras de agregador (máx. 2 casa/s, 14-oct, 2 no_verificable), no ejecutables; devolución (push) no modelada."
+  },
+  {
+   "unit_id": "m-9ce82e81742e|hándicap europeo",
+   "evidencia": [
+    "paquete:m-9ce82e81742e|hándicap europeo",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador (p='-'); mercado de 3 vías con 12 líneas de agregador (máx. 1 casa/s, 14-oct), no ejecutable ni validado."
+  },
+  {
+   "unit_id": "m-9ce82e81742e|remates",
+   "evidencia": [
+    "paquete:m-9ce82e81742e|remates",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no implementado (p='-'); sin precio en ninguna fuente; datos insuficientes."
+  },
+  {
+   "unit_id": "m-9ce82e81742e|remates a puerta",
+   "evidencia": [
+    "paquete:m-9ce82e81742e|remates a puerta",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no implementado (p='-'); sin precio en ninguna fuente; datos insuficientes."
+  },
+  {
+   "unit_id": "m-9ce82e81742e|resultado",
+   "evidencia": [
+    "paquete:m-9ce82e81742e|resultado",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Precios del usuario 1.78/3.75/3.66: p local .47 < impl .56, sin ventaja en ninguna pata. Local 0-2-3 en casa (n=5) y rotación media 6.7/7.3 cambios sin once."
+  },
+  {
+   "unit_id": "m-9ce82e81742e|tarjetas",
+   "evidencia": [
+    "paquete:m-9ce82e81742e|tarjetas",
+    "archivo:runs/2026-10-16/league_samples/69.json"
+   ],
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "42 líneas sin precio; árbitro no designado (n=0). Puntos >3.5 p=0.68 sin contraste; liga 69: 5.9 tarjetas/partido. Regla de puntos (roja=2 o 3) según casa sin verificar."
+  },
+  {
+   "unit_id": "m-a454f6819ebc|1.ª parte goles",
+   "evidencia": [
+    "paquete:m-a454f6819ebc|1.ª parte goles",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Modelo de 1.ª parte con validación no evaluada; ref. thestatsapi 2-3 casas (14-oct). Solidez baja: p under 1.5 .65 (+.046) pero 1T over 1.5 en 8/20 de la muestra."
+  },
+  {
+   "unit_id": "m-a454f6819ebc|1.ª parte resultado",
+   "evidencia": [
+    "paquete:m-a454f6819ebc|1.ª parte resultado",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Validación no evaluada; empate y local casi igualados (.40/.39) y ninguna pata cumple límite 2.10; ref. thestatsapi 2 casas (14-oct), no ejecutable."
+  },
+  {
+   "unit_id": "m-a454f6819ebc|córners",
+   "evidencia": [
+    "paquete:m-a454f6819ebc|córners",
+    "archivo:runs/2026-10-16/matrix.json",
+    "archivo:runs/2026-10-16/league_samples/259.json"
+   ],
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Las 46 líneas carecen de precio en todas las fuentes; p over 9.5=0.57 vs 11/20 de la muestra, sin contraste con cuota ni EV. Validación insuficiente."
+  },
+  {
+   "unit_id": "m-a454f6819ebc|doble oportunidad",
+   "evidencia": [
+    "paquete:m-a454f6819ebc|doble oportunidad",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Local con 4 días de descanso y rotación media (3.7/4.3 cambios, n=4), sin once; forma local 2-2-6 y visitante 1-0-9 (n=10): p X2 .44 vs impl .585 (-.149)."
+  },
+  {
+   "unit_id": "m-a454f6819ebc|empate no válido",
+   "evidencia": [
+    "paquete:m-a454f6819ebc|empate no válido",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Descanso local 4 días y rotación media sin cuantificar; datos 'sin_extractor' para DNB. p away .30 vs impl .42 (-.124): el modelo discrepa de 3 casas."
+  },
+  {
+   "unit_id": "m-a454f6819ebc|fueras de juego",
+   "evidencia": [
+    "paquete:m-a454f6819ebc|fueras de juego",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador ni precio: ninguna fuente de cuotas ofrece el mercado en el paquete (fuente_no_ofrece); sin árbitro ni alineaciones."
+  },
+  {
+   "unit_id": "m-a454f6819ebc|goles",
+   "evidencia": [
+    "paquete:m-a454f6819ebc|goles",
+    "archivo:runs/2026-10-16/matrix.json",
+    "archivo:runs/2026-10-16/league_samples/259.json"
+   ],
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "p over 3.5=0.51 (usuario 2.16) vs 7/20 partidos >3.5 de los equipos: la media de goles (≈3.6) se usa como probabilidad; liga 109/193 >2.5. Validación insuficiente.",
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "solidez",
+     "problema": "valor_contradice_paquete"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-a454f6819ebc|goles por equipo",
+   "evidencia": [
+    "paquete:m-a454f6819ebc|goles por equipo",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Las 12 líneas no tienen precio en ninguna fuente; p local over 1.5=0.67 deriva del mismo modelo de goles. Sin cuota no hay contraste."
+  },
+  {
+   "unit_id": "m-a454f6819ebc|goles total entero",
+   "evidencia": [
+    "paquete:m-a454f6819ebc|goles total entero",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador (p='-'); 2 líneas enteras con ref. de agregador (máx. 1 casa/s, 14-oct), no ejecutables; devolución (push) no modelada."
+  },
+  {
+   "unit_id": "m-a454f6819ebc|hándicap",
+   "evidencia": [
+    "paquete:m-a454f6819ebc|hándicap",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Descanso local 4 días y rotación media sin cuantificar; ventaja p>impl. (+.069) en -1.5 y -0.5 con forma local 2-2-6. Líneas ±2.5/+1.5 no_verificable.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.home.-2.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "resultado.ah.away.+2.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "resultado.ah.home.+0.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "resultado.ah.away.-0.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "resultado.ah.home.+1.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "resultado.ah.away.-1.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "resultado.ah.home.+2.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "resultado.ah.away.-2.5",
+     "objecion": "cuota_no_ejecutable"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-a454f6819ebc|hándicap asiático entero",
+   "evidencia": [
+    "paquete:m-a454f6819ebc|hándicap asiático entero",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador (p='-'); 8 líneas enteras de agregador (máx. 3 casa/s, 14-oct, 4 no_verificable), no ejecutables; devolución (push) no modelada."
+  },
+  {
+   "unit_id": "m-a454f6819ebc|hándicap europeo",
+   "evidencia": [
+    "paquete:m-a454f6819ebc|hándicap europeo",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador (p='-'); mercado de 3 vías con 6 líneas de agregador (máx. 1 casa/s, 14-oct), no ejecutable ni validado."
+  },
+  {
+   "unit_id": "m-a454f6819ebc|remates",
+   "evidencia": [
+    "paquete:m-a454f6819ebc|remates",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no implementado (p='-'); sin precio en ninguna fuente; datos suficientes."
+  },
+  {
+   "unit_id": "m-a454f6819ebc|remates a puerta",
+   "evidencia": [
+    "paquete:m-a454f6819ebc|remates a puerta",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no implementado (p='-'); sin precio en ninguna fuente; datos suficientes."
+  },
+  {
+   "unit_id": "m-a454f6819ebc|resultado",
+   "evidencia": [
+    "paquete:m-a454f6819ebc|resultado",
+    "archivo:runs/2026-10-16/matrix.json",
+    "archivo:runs/2026-10-16/rotation.json"
+   ],
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Precios del usuario 2.05/4.0/2.9: p local .56 (impl .488, +.076) frente a forma 2-2-6 (n=10, solo 3 en casa) y 4 días de descanso; el visitante 1-0-9 no basta como contraste."
+  },
+  {
+   "unit_id": "m-a454f6819ebc|tarjetas",
+   "evidencia": [
+    "paquete:m-a454f6819ebc|tarjetas",
+    "archivo:runs/2026-10-16/league_samples/259.json"
+   ],
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "42 líneas sin precio; árbitro no designado (n=0). Puntos >3.5 p=0.45 sin contraste; liga 259: 4.1 tarjetas/partido. Regla de puntos de la casa sin verificar."
+  },
+  {
+   "unit_id": "m-a4fb9e6881e8|1.ª parte goles",
+   "evidencia": [
+    "paquete:m-a4fb9e6881e8|1.ª parte goles",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Modelo 1.ª parte con validación no evaluada; solidez baja (under). Ref. thestatsapi 2-3 casas del 14-oct, no ejecutable; 1T over 1.5 solo 6/20 en la muestra."
+  },
+  {
+   "unit_id": "m-a4fb9e6881e8|1.ª parte resultado",
+   "evidencia": [
+    "paquete:m-a4fb9e6881e8|1.ª parte resultado",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Validación no evaluada; empate al descanso .42 y ninguna pata cumple límite 2.10; ref. thestatsapi 2 casas (14-oct), no ejecutable."
+  },
+  {
+   "unit_id": "m-a4fb9e6881e8|córners",
+   "evidencia": [
+    "paquete:m-a4fb9e6881e8|córners",
+    "archivo:runs/2026-10-16/matrix.json",
+    "archivo:runs/2026-10-16/league_samples/301.json"
+   ],
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Ref. 1 casa (thestatsapi): home under 4.5 p .70 vs impl .524 (+.174), total under 9.5 +.089; solo 6/46 con precio. Discrepa del mercado; muestra 6/20 >9.5 sin ajustar por rival.",
+   "excepciones": [
+    {
+     "entry_id": "corners.total.over.6.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.6.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.over.7.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.7.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.over.8.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.8.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.over.10.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.10.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.over.11.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.11.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.over.12.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.12.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.over.13.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.13.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.over.14.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.14.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.2.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.2.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.3.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.3.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.5.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.5.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.6.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.6.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.7.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.7.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.8.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.8.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.2.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.2.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.3.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.3.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.5.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.5.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.6.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.6.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.7.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.7.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.8.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.8.5",
+     "objecion": "cuota_no_ejecutable"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-a4fb9e6881e8|doble oportunidad",
+   "evidencia": [
+    "paquete:m-a4fb9e6881e8|doble oportunidad",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "correlacion",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Mismo 1X2 del modelo (L .45/X .25/V .30) que resultado, DNB y hándicap: no son evidencias independientes. p ≤ impl. en las 3 patas (sin ventaja); 5 casas, 14-oct."
+  },
+  {
+   "unit_id": "m-a4fb9e6881e8|empate no válido",
+   "evidencia": [
+    "paquete:m-a4fb9e6881e8|empate no válido",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Datos 'sin_extractor' para DNB: p deriva del 1X2 con validación no evaluada; solidez baja. Ref. de 3 casas del 14-oct, no ejecutable; home +.006, away -.067."
+  },
+  {
+   "unit_id": "m-a4fb9e6881e8|fueras de juego",
+   "evidencia": [
+    "paquete:m-a4fb9e6881e8|fueras de juego",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador ni precio: ninguna fuente de cuotas ofrece el mercado en el paquete (fuente_no_ofrece); sin árbitro ni alineaciones."
+  },
+  {
+   "unit_id": "m-a4fb9e6881e8|goles",
+   "evidencia": [
+    "paquete:m-a4fb9e6881e8|goles",
+    "archivo:runs/2026-10-16/matrix.json",
+    "archivo:runs/2026-10-16/league_samples/301.json"
+   ],
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "p over 2.5=0.54 ≈ cuotas usuario 1.69/2.08 (justo .55): sin ventaja; muestra 11/20 >2.5 y liga 138/265. Validación insuficiente, sin árbitro ni alineaciones."
+  },
+  {
+   "unit_id": "m-a4fb9e6881e8|goles por equipo",
+   "evidencia": [
+    "paquete:m-a4fb9e6881e8|goles por equipo",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "fuente_unica",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Las 12 líneas son de thestatsapi con 1 casa (14-oct); p ≈ impl. (dif ≤ -.07), sin ventaja. Todas derivan del modelo de goles sin validar."
+  },
+  {
+   "unit_id": "m-a4fb9e6881e8|goles total entero",
+   "evidencia": [
+    "paquete:m-a4fb9e6881e8|goles total entero",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador (p='-'); 2 líneas enteras con ref. de agregador (máx. 1 casa/s, 14-oct), no ejecutables; devolución (push) no modelada."
+  },
+  {
+   "unit_id": "m-a4fb9e6881e8|hándicap",
+   "evidencia": [
+    "paquete:m-a4fb9e6881e8|hándicap",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "correlacion",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Comparte el 1X2 del modelo con resultado/DC/DNB; solidez baja. Par ah -2.5 (4.91/1.03, 2 casas, no_verificable) suma 1.175: precio dudoso que el verificador no marcó.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.home.-2.5",
+     "objecion": "dato_defectuoso"
+    },
+    {
+     "entry_id": "resultado.ah.away.+2.5",
+     "objecion": "dato_defectuoso"
+    },
+    {
+     "entry_id": "resultado.ah.home.+2.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "resultado.ah.away.-2.5",
+     "objecion": "cuota_no_ejecutable"
+    }
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": "resultado.ah.home.-2.5",
+     "agente": "verificador",
+     "campo": "discrepancias",
+     "problema": "omision"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-a4fb9e6881e8|hándicap asiático entero",
+   "evidencia": [
+    "paquete:m-a4fb9e6881e8|hándicap asiático entero",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador (p='-'); 8 líneas enteras de agregador (máx. 4 casa/s, 14-oct, 2 no_verificable), no ejecutables; devolución (push) no modelada."
+  },
+  {
+   "unit_id": "m-a4fb9e6881e8|hándicap europeo",
+   "evidencia": [
+    "paquete:m-a4fb9e6881e8|hándicap europeo",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador (p='-'); mercado de 3 vías con 12 líneas de agregador (máx. 2 casa/s, 14-oct), no ejecutable ni validado."
+  },
+  {
+   "unit_id": "m-a4fb9e6881e8|remates",
+   "evidencia": [
+    "paquete:m-a4fb9e6881e8|remates",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no implementado (p='-'); sin precio en ninguna fuente; datos suficientes."
+  },
+  {
+   "unit_id": "m-a4fb9e6881e8|remates a puerta",
+   "evidencia": [
+    "paquete:m-a4fb9e6881e8|remates a puerta",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no implementado (p='-'); sin precio en ninguna fuente; datos suficientes."
+  },
+  {
+   "unit_id": "m-a4fb9e6881e8|resultado",
+   "evidencia": [
+    "paquete:m-a4fb9e6881e8|resultado",
+    "archivo:runs/2026-10-16/matrix.json",
+    "archivo:runs/2026-10-16/rotation.json"
+   ],
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Precios del usuario 2.25/3.5/2.85: p local .454 ≈ impl .444, empate/visitante -.04/-.05: sin ventaja; localía como factor, validación insuficiente, sin once."
+  },
+  {
+   "unit_id": "m-a4fb9e6881e8|tarjetas",
+   "evidencia": [
+    "paquete:m-a4fb9e6881e8|tarjetas",
+    "archivo:runs/2026-10-16/league_samples/301.json"
+   ],
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "42 líneas sin precio; árbitro no designado (n=0). Puntos >3.5 p=0.76 sin contraste ni regla de puntos verificada; liga 301: 5.5 tarjetas/partido."
+  },
+  {
+   "unit_id": "m-a6748a07087a|1.ª parte goles",
+   "evidencia": [
+    "paquete:m-a6748a07087a|1.ª parte goles",
+    "archivo:runs/2026-10-16/matrix.json",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/49.json"
+   ],
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin p del modelo (datos parciales): Western Sydney n=3 y local n=9 mezclando A-League, finales y Australia Cup; liga 48 partidos; descanso 37 y 20 días."
+  },
+  {
+   "unit_id": "m-a6748a07087a|1.ª parte resultado",
+   "evidencia": [
+    "paquete:m-a6748a07087a|1.ª parte resultado",
+    "archivo:runs/2026-10-16/matrix.json",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/49.json"
+   ],
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin p del modelo (datos parciales): Western Sydney n=3 y local n=9 mezclando A-League, finales y Australia Cup; liga 48 partidos; descanso 37 y 20 días."
+  },
+  {
+   "unit_id": "m-a6748a07087a|córners",
+   "evidencia": [
+    "paquete:m-a6748a07087a|córners",
+    "archivo:runs/2026-10-16/matrix.json",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/49.json"
+   ],
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin p del modelo (datos parciales): Western Sydney n=3 y local n=9 mezclando A-League, finales y Australia Cup; liga 48 partidos; descanso 37 y 20 días."
+  },
+  {
+   "unit_id": "m-a6748a07087a|doble oportunidad",
+   "evidencia": [
+    "paquete:m-a6748a07087a|doble oportunidad",
+    "archivo:runs/2026-10-16/matrix.json",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/49.json"
+   ],
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin p del modelo (datos parciales): Western Sydney n=3 y local n=9 mezclando A-League, finales y Australia Cup; liga 48 partidos; descanso 37 y 20 días."
+  },
+  {
+   "unit_id": "m-a6748a07087a|empate no válido",
+   "evidencia": [
+    "paquete:m-a6748a07087a|empate no válido",
+    "archivo:runs/2026-10-16/matrix.json",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/49.json"
+   ],
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin p del modelo (datos parciales): Western Sydney n=3 y local n=9 mezclando A-League, finales y Australia Cup; liga 48 partidos; descanso 37 y 20 días."
+  },
+  {
+   "unit_id": "m-a6748a07087a|fueras de juego",
+   "evidencia": [
+    "paquete:m-a6748a07087a|fueras de juego",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador ni precio: ninguna fuente de cuotas ofrece el mercado en el paquete (fuente_no_ofrece); sin árbitro ni alineaciones."
+  },
+  {
+   "unit_id": "m-a6748a07087a|goles",
+   "evidencia": [
+    "paquete:m-a6748a07087a|goles",
+    "archivo:runs/2026-10-16/matrix.json",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/49.json"
+   ],
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin p del modelo (datos parciales): Western Sydney n=3 y local n=9 mezclando A-League, finales y Australia Cup; liga 48 partidos; descanso 37 y 20 días."
+  },
+  {
+   "unit_id": "m-a6748a07087a|goles por equipo",
+   "evidencia": [
+    "paquete:m-a6748a07087a|goles por equipo",
+    "archivo:runs/2026-10-16/matrix.json",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/49.json"
+   ],
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin p del modelo (datos parciales): Western Sydney n=3 y local n=9 mezclando A-League, finales y Australia Cup; liga 48 partidos; descanso 37 y 20 días."
+  },
+  {
+   "unit_id": "m-a6748a07087a|goles total entero",
+   "evidencia": [
+    "paquete:m-a6748a07087a|goles total entero",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador (p='-'); 10 líneas enteras con ref. de agregador (máx. 2 casa/s, 14-oct), no ejecutables; devolución (push) no modelada."
+  },
+  {
+   "unit_id": "m-a6748a07087a|hándicap",
+   "evidencia": [
+    "paquete:m-a6748a07087a|hándicap",
+    "archivo:runs/2026-10-16/matrix.json",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/49.json"
+   ],
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin p del modelo (datos parciales): Western Sydney n=3 y local n=9 mezclando A-League, finales y Australia Cup; liga 48 partidos; descanso 37 y 20 días."
+  },
+  {
+   "unit_id": "m-a6748a07087a|hándicap asiático entero",
+   "evidencia": [
+    "paquete:m-a6748a07087a|hándicap asiático entero",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador (p='-'); 10 líneas enteras de agregador (máx. 4 casa/s, 14-oct), no ejecutables; devolución (push) no modelada."
+  },
+  {
+   "unit_id": "m-a6748a07087a|hándicap europeo",
+   "evidencia": [
+    "paquete:m-a6748a07087a|hándicap europeo",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador (p='-'); mercado de 3 vías con 12 líneas de agregador (máx. 2 casa/s, 14-oct), no ejecutable ni validado."
+  },
+  {
+   "unit_id": "m-a6748a07087a|remates",
+   "evidencia": [
+    "paquete:m-a6748a07087a|remates",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no implementado (p='-'); solo 4 líneas con ref. de thestatsapi de 1 casa (14-oct), no ejecutable; datos insuficientes."
+  },
+  {
+   "unit_id": "m-a6748a07087a|remates a puerta",
+   "evidencia": [
+    "paquete:m-a6748a07087a|remates a puerta",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no implementado (p='-'); solo 4 líneas con ref. de thestatsapi de 1 casa (14-oct), no ejecutable; datos insuficientes."
+  },
+  {
+   "unit_id": "m-a6748a07087a|resultado",
+   "evidencia": [
+    "paquete:m-a6748a07087a|resultado",
+    "archivo:runs/2026-10-16/matrix.json",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/49.json"
+   ],
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin p del modelo; precios del usuario 2.16/3.66/2.9 sin contrastar. WSW n=3, local n=9 con copas/finales; descanso 37 y 20 días; liga 48 partidos."
+  },
+  {
+   "unit_id": "m-a6748a07087a|tarjetas",
+   "evidencia": [
+    "paquete:m-a6748a07087a|tarjetas",
+    "archivo:runs/2026-10-16/matrix.json",
+    "archivo:runs/2026-10-16/rotation.json",
+    "archivo:runs/2026-10-16/league_samples/49.json"
+   ],
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin p del modelo ni precio; árbitro no designado. WSW n=3 y local n=9 mezclando copas; muestra de liga con tarjetas 47 partidos."
+  },
+  {
+   "unit_id": "m-b35a4702e19c|1.ª parte goles",
+   "evidencia": [
+    "paquete:m-b35a4702e19c|1.ª parte goles",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Çorum n=7 (<8) y modelo 1.ª parte sin evaluar; under 1.5 p=.61 vs impl .69 (sin ventaja). Ref. thestatsapi 2-3 casas del 14-oct, no ejecutable."
+  },
+  {
+   "unit_id": "m-b35a4702e19c|1.ª parte resultado",
+   "evidencia": [
+    "paquete:m-b35a4702e19c|1.ª parte resultado",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Çorum n=7 (<8); validación no evaluada y ninguna pata cumple límite 2.10; empate .39 vs local .34. Ref. 2 casas (14-oct), no ejecutable."
+  },
+  {
+   "unit_id": "m-b35a4702e19c|córners",
+   "evidencia": [
+    "paquete:m-b35a4702e19c|córners",
+    "archivo:runs/2026-10-16/matrix.json",
+    "archivo:runs/2026-10-16/league_samples/322.json"
+   ],
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Ref. 1 casa: home under 4.5 p .54 vs impl .455 (+.086), quant la marca discrepante; Çorum n=7 y solo 6/46 líneas con precio. Muestra 8/17 >9.5.",
+   "excepciones": [
+    {
+     "entry_id": "corners.total.over.6.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.6.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.over.7.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.7.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.over.8.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.8.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.over.10.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.10.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.over.11.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.11.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.over.12.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.12.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.over.13.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.13.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.over.14.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.14.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.2.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.2.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.3.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.3.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.5.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.5.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.6.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.6.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.7.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.7.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.8.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.8.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.2.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.2.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.4.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.4.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.5.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.5.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.6.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.6.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.7.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.7.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.8.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.8.5",
+     "objecion": "cuota_no_ejecutable"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-b35a4702e19c|doble oportunidad",
+   "evidencia": [
+    "paquete:m-b35a4702e19c|doble oportunidad",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "muestra_debil",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Çorum n=7 (<8) en el 1X2 del modelo; p ≤ impl. en 3 patas (1X -.098), sin ventaja. 5 casas del 14-oct, no ejecutable; sin alineaciones."
+  },
+  {
+   "unit_id": "m-b35a4702e19c|empate no válido",
+   "evidencia": [
+    "paquete:m-b35a4702e19c|empate no válido",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Çorum n=7 (<8) y DNB con datos 'sin_extractor'; solidez baja. away +.023 / home -.083 frente a 3 casas del 14-oct, no ejecutable."
+  },
+  {
+   "unit_id": "m-b35a4702e19c|fueras de juego",
+   "evidencia": [
+    "paquete:m-b35a4702e19c|fueras de juego",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador ni precio: ninguna fuente de cuotas ofrece el mercado en el paquete (fuente_no_ofrece); sin árbitro ni alineaciones."
+  },
+  {
+   "unit_id": "m-b35a4702e19c|goles",
+   "evidencia": [
+    "paquete:m-b35a4702e19c|goles",
+    "archivo:runs/2026-10-16/matrix.json",
+    "archivo:runs/2026-10-16/league_samples/322.json"
+   ],
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "BTTS sí p=.66 (impl .606) vs 8/17 de la muestra y liga 76/156 (49%); over 3.5 +.086 (2.86): el modelo supera ambas bases. Over 2.5 usuario 1.66."
+  },
+  {
+   "unit_id": "m-b35a4702e19c|goles por equipo",
+   "evidencia": [
+    "paquete:m-b35a4702e19c|goles por equipo",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "fuente_unica",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "12 líneas de 1 casa (thestatsapi, 14-oct): away over 1.5 p .46 vs impl .364 (+.094), quant lo marca discrepante; muestra visitante 5/10 con ≥2 goles."
+  },
+  {
+   "unit_id": "m-b35a4702e19c|goles total entero",
+   "evidencia": [
+    "paquete:m-b35a4702e19c|goles total entero",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador (p='-'); 2 líneas enteras con ref. de agregador (máx. 1 casa/s, 14-oct), no ejecutables; devolución (push) no modelada."
+  },
+  {
+   "unit_id": "m-b35a4702e19c|hándicap",
+   "evidencia": [
+    "paquete:m-b35a4702e19c|hándicap",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Çorum n=7 (<8); solidez baja. Par ah -2.5 (4.055/1.05, no_verificable) suma 1.199: precio dudoso que el verificador no marcó. Líneas de 1-3 casas.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.home.-2.5",
+     "objecion": "dato_defectuoso"
+    },
+    {
+     "entry_id": "resultado.ah.away.+2.5",
+     "objecion": "dato_defectuoso"
+    },
+    {
+     "entry_id": "resultado.ah.home.+1.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "resultado.ah.away.-1.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "resultado.ah.home.+2.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "resultado.ah.away.-2.5",
+     "objecion": "cuota_no_ejecutable"
+    }
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": "resultado.ah.home.-2.5",
+     "agente": "verificador",
+     "campo": "discrepancias",
+     "problema": "omision"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-b35a4702e19c|hándicap asiático entero",
+   "evidencia": [
+    "paquete:m-b35a4702e19c|hándicap asiático entero",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador (p='-'); 8 líneas enteras de agregador (máx. 4 casa/s, 14-oct), no ejecutables; devolución (push) no modelada."
+  },
+  {
+   "unit_id": "m-b35a4702e19c|hándicap europeo",
+   "evidencia": [
+    "paquete:m-b35a4702e19c|hándicap europeo",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador (p='-'); mercado de 3 vías con 12 líneas de agregador (máx. 2 casa/s, 14-oct), no ejecutable ni validado."
+  },
+  {
+   "unit_id": "m-b35a4702e19c|remates",
+   "evidencia": [
+    "paquete:m-b35a4702e19c|remates",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no implementado (p='-'); sin precio en ninguna fuente; datos suficientes."
+  },
+  {
+   "unit_id": "m-b35a4702e19c|remates a puerta",
+   "evidencia": [
+    "paquete:m-b35a4702e19c|remates a puerta",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no implementado (p='-'); sin precio en ninguna fuente; datos suficientes."
+  },
+  {
+   "unit_id": "m-b35a4702e19c|resultado",
+   "evidencia": [
+    "paquete:m-b35a4702e19c|resultado",
+    "archivo:runs/2026-10-16/matrix.json",
+    "archivo:runs/2026-10-16/rotation.json"
+   ],
+   "objecion": "muestra_debil",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Precios del usuario 2.0/3.75/3.1: p ≤ impl. salvo visitante +.007; sin ventaja. Çorum n=7 (<8) como base local; sin once, rotación baja."
+  },
+  {
+   "unit_id": "m-b35a4702e19c|tarjetas",
+   "evidencia": [
+    "paquete:m-b35a4702e19c|tarjetas",
+    "archivo:runs/2026-10-16/league_samples/322.json"
+   ],
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "42 líneas sin precio; árbitro no designado (n=0). Puntos >3.5 p=0.55 sin contraste; liga 322: 4.9 tarjetas/partido. Regla de puntos sin verificar."
+  },
+  {
+   "unit_id": "m-d03c55e0093a|1.ª parte goles",
+   "evidencia": [
+    "paquete:m-d03c55e0093a|1.ª parte goles",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Modelo 1.ª parte con validación no evaluada; p over 1.5=.32 vs 5/20 en la muestra. Ref. thestatsapi 2 casas del 14-oct, no ejecutable."
+  },
+  {
+   "unit_id": "m-d03c55e0093a|1.ª parte resultado",
+   "evidencia": [
+    "paquete:m-d03c55e0093a|1.ª parte resultado",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Validación no evaluada; empate .43 y ninguna pata cumple límite 2.10; local .25 vs impl .325. Ref. 2 casas (14-oct), no ejecutable."
+  },
+  {
+   "unit_id": "m-d03c55e0093a|córners",
+   "evidencia": [
+    "paquete:m-d03c55e0093a|córners",
+    "archivo:runs/2026-10-16/matrix.json",
+    "archivo:runs/2026-10-16/league_samples/235.json"
+   ],
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Ref. 1 casa (thestatsapi): home under 5.5 p .63 vs impl .524 (+.108), quant la marca discrepante; solo 6/46 con precio. Muestra 12/19 >9.5 sin ajustar por rival.",
+   "excepciones": [
+    {
+     "entry_id": "corners.total.over.6.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.6.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.over.7.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.7.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.over.8.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.8.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.over.10.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.10.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.over.11.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.11.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.over.12.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.12.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.over.13.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.13.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.over.14.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.14.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.2.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.2.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.3.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.3.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.4.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.4.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.6.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.6.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.7.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.7.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.8.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.8.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.2.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.2.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.4.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.4.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.5.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.5.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.6.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.6.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.7.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.7.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.8.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.8.5",
+     "objecion": "cuota_no_ejecutable"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-d03c55e0093a|doble oportunidad",
+   "evidencia": [
+    "paquete:m-d03c55e0093a|doble oportunidad",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "El modelo (L .31/X .24/V .45) discrepa del mercado: 1X p .55 vs impl .714 (-.164); forma local 2-5-3 y visitante 3-4-3 (n=10, 5 en sede). Quant: discrepa_del_mercado."
+  },
+  {
+   "unit_id": "m-d03c55e0093a|empate no válido",
+   "evidencia": [
+    "paquete:m-d03c55e0093a|empate no válido",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "DNB visitante p .59 vs impl .503 (+.09) y local -.142: modelo opuesto a 3 casas del 14-oct; forma visitante 3-4-3 (2-1-2 fuera, n=5), sin ajustar por rival."
+  },
+  {
+   "unit_id": "m-d03c55e0093a|fueras de juego",
+   "evidencia": [
+    "paquete:m-d03c55e0093a|fueras de juego",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador ni precio: ninguna fuente de cuotas ofrece el mercado en el paquete (fuente_no_ofrece); sin árbitro ni alineaciones."
+  },
+  {
+   "unit_id": "m-d03c55e0093a|goles",
+   "evidencia": [
+    "paquete:m-d03c55e0093a|goles",
+    "archivo:runs/2026-10-16/matrix.json",
+    "archivo:runs/2026-10-16/league_samples/235.json"
+   ],
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "p over 2.5=.57 ≈ usuario 1.76 (.568): sin ventaja; muestra 9/20 >2.5 vs liga 109/196. Validación insuficiente, sin árbitro ni alineaciones."
+  },
+  {
+   "unit_id": "m-d03c55e0093a|goles por equipo",
+   "evidencia": [
+    "paquete:m-d03c55e0093a|goles por equipo",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "fuente_unica",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "12 líneas de 1 casa (thestatsapi, 14-oct): away under 1.5 p .51 vs impl .637 (-.127); todas derivadas del modelo de goles sin validar."
+  },
+  {
+   "unit_id": "m-d03c55e0093a|goles total entero",
+   "evidencia": [
+    "paquete:m-d03c55e0093a|goles total entero",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador (p='-'); 2 líneas enteras con ref. de agregador (máx. 1 casa/s, 14-oct), no ejecutables; devolución (push) no modelada."
+  },
+  {
+   "unit_id": "m-d03c55e0093a|hándicap",
+   "evidencia": [
+    "paquete:m-d03c55e0093a|hándicap",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "dato_defectuoso",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Par ah -2.5/+2.5 con ambas patas a 1.03 (nc=1, no_verificable): imposible y p -2.5=.047 vs impl .97. Quedan ±1.5 con 2-3 casas; sin ventaja (+.048 máx.).",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.home.-0.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "resultado.ah.away.+0.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "resultado.ah.home.+0.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "resultado.ah.away.-0.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "resultado.ah.home.+1.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "resultado.ah.away.-1.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "resultado.ah.home.+2.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "resultado.ah.away.-2.5",
+     "objecion": "cuota_no_ejecutable"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-d03c55e0093a|hándicap asiático entero",
+   "evidencia": [
+    "paquete:m-d03c55e0093a|hándicap asiático entero",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador (p='-'); 8 líneas enteras de agregador (máx. 4 casa/s, 14-oct, 2 no_verificable), no ejecutables; devolución (push) no modelada."
+  },
+  {
+   "unit_id": "m-d03c55e0093a|hándicap europeo",
+   "evidencia": [
+    "paquete:m-d03c55e0093a|hándicap europeo",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador (p='-'); mercado de 3 vías con 12 líneas de agregador (máx. 2 casa/s, 14-oct), no ejecutable ni validado."
+  },
+  {
+   "unit_id": "m-d03c55e0093a|remates",
+   "evidencia": [
+    "paquete:m-d03c55e0093a|remates",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no implementado (p='-'); sin precio en ninguna fuente; datos suficientes."
+  },
+  {
+   "unit_id": "m-d03c55e0093a|remates a puerta",
+   "evidencia": [
+    "paquete:m-d03c55e0093a|remates a puerta",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no implementado (p='-'); sin precio en ninguna fuente; datos suficientes."
+  },
+  {
+   "unit_id": "m-d03c55e0093a|resultado",
+   "evidencia": [
+    "paquete:m-d03c55e0093a|resultado",
+    "archivo:runs/2026-10-16/matrix.json"
+   ],
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Precios del usuario 2.3/3.75/2.75: p visitante .45 vs impl .364 (+.086) contra mercado que favorece al local; forma 2-5-3 local y 3-4-3 visitante, sin ajustar por rival."
+  },
+  {
+   "unit_id": "m-d03c55e0093a|tarjetas",
+   "evidencia": [
+    "paquete:m-d03c55e0093a|tarjetas",
+    "archivo:runs/2026-10-16/league_samples/235.json"
+   ],
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "42 líneas sin precio; árbitro no designado (n=0). Puntos >3.5 p=0.45 sin contraste; liga 235: 4.8 tarjetas/partido. Regla de puntos sin verificar."
+  }
+ ],
+ "limitaciones": [
+  "Cuotas de agregador (thestatsapi 1-3 casas, apifootball 1-5 casas) observadas el 14-oct, 2-3 días antes de los partidos: no ejecutables ni refrescadas.",
+  "Sin alineaciones ni árbitro designado en ningún partido del lote; la rotación es solo un riesgo a priori de 4 partidos previos.",
+  "Estimadores con validación insuficiente o no evaluada; comparé p del modelo con frecuencias k/n de 10 partidos por equipo y con medias de liga sin ajuste por rival.",
+  "No pude validar de forma independiente el dato de rotación de Tomayapo/GV San Jose: get_lineups 838235 trae un entrenador 'Bolivia' (dato dudoso)."
+ ]
+}

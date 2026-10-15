@@ -112,6 +112,13 @@ class Emparejamiento(unittest.TestCase):
         r, why = tf.pair_match(match(home="Manchester City", away="PSG"), self.rows)
         self.assertEqual(r["id"], "mt_2")
 
+    def test_prefijos_y_grafias_casi_iguales_emparejan_pero_nunca_con_otra_orientacion(self):
+        rows = [{"id": "mt_7", "utc_date": "2026-10-14T18:00:00.000Z", "home_team": {"name": "Olympique Lyonnais"}, "away_team": {"name": "Olympiacos"}}]
+        r, _ = tf.pair_match(match(home="Lyon", away="Olympiakos Piraeus"), rows)
+        self.assertEqual(r["id"], "mt_7")
+        r, why = tf.pair_match(match(home="Olympiakos Piraeus", away="Lyon"), rows)
+        self.assertIsNone(r)
+
     def test_hora_distinta_o_ambiguedad_no_empareja(self):
         r, why = tf.pair_match(match(home="PSG", away="Manchester City", t="2026-10-14T21:00:00Z"), self.rows)
         self.assertIsNone(r)

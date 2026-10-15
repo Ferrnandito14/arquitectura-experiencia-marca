@@ -6,6 +6,7 @@
 - Emparejamiento de partidos EXACTO: misma hora de inicio (±60 min) y, a la vez, los equipos locales y los visitantes comparten palabras de su nombre; si hay más de un candidato o ninguno, el partido NO se empareja (queda registrado con el motivo).
 - Salida: `<run>/thestatsapi/map.json` y `<run>/thestatsapi/odds/<id>.json` (respuesta cruda + hora de consulta), solo lo necesario para la ejecución."""
 import argparse
+import difflib
 import json
 import os
 import re
@@ -44,6 +45,19 @@ def _tokens(name):
     return out
 
 
+def _share(a, b):
+    """¿Los dos conjuntos de palabras comparten alguna? Igualdad, prefijo (≥ 4 letras: hearts/heart, lyon/lyonnais) o grafía casi igual (≥ 6 letras, similitud ≥ 0,85: olympiakos/olympiacos)."""
+    for x in a:
+        for y in b:
+            if x == y:
+                return True
+            if min(len(x), len(y)) >= 4 and (x.startswith(y) or y.startswith(x)):
+                return True
+            if min(len(x), len(y)) >= 6 and difflib.SequenceMatcher(None, x, y).ratio() >= 0.85:
+                return True
+    return False
+
+
 def _t(iso):
     return datetime.fromisoformat(iso.replace("Z", "+00:00")).astimezone(timezone.utc)
 
@@ -61,7 +75,7 @@ def pair_match(match, tsa_rows, tolerance_min=60):
         if dt > tolerance_min:
             continue
         rh, ra = _tokens(r["home_team"]["name"]), _tokens(r["away_team"]["name"])
-        if (h & rh) and (a & ra):
+        if _share(h, rh) and _share(a, ra):
             good.append(r)
     if len(good) == 1:
         return good[0], None

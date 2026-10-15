@@ -1,0 +1,1112 @@
+{
+ "agente": "auditor",
+ "version_contrato": 1,
+ "run": "runs/2026-10-17",
+ "unidades": [
+  {
+   "unit_id": "m-04ead105199c|1.ª parte goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio y modelo 1T no evaluado. 1T con gol 8/10 y 7/10 (n10, sin ajuste de rival): over0.5 .667 es un promedio de muestra, no una probabilidad calibrada.",
+   "evidencia": [
+    "paquete:m-04ead105199c|1.ª parte goles"
+   ]
+  },
+  {
+   "unit_id": "m-04ead105199c|1.ª parte resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio. 1T 0-0 solo 2/10 y 3/10 en la muestra; empate .432 y local .385 salen de n10 sin ajuste de rival; modelo 1T no evaluado, sin EV contrastable.",
+   "evidencia": [
+    "paquete:m-04ead105199c|1.ª parte resultado"
+   ]
+  },
+  {
+   "unit_id": "m-04ead105199c|córners",
+   "objecion": "dato_defectuoso",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Sin precio. 2dM 8-0 en córners vs Recoleta pese a 9 tiros (5 a puerta): cero sospechoso sin contrastar. Medias 10.8/11.1 (n10) vs liga 9.36 sin ajuste de rival.",
+   "evidencia": [
+    "paquete:m-04ead105199c|córners",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-04ead105199c|doble oportunidad",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "x2 2.775 (mediana 4 casas, 14-oct): modelo .475 -> EV +32%, nacido de subir al visitante (.21 vs ~.15 implícito del 1X2 usuario). 2dM rotación media. Referencia no ejecutable.",
+   "evidencia": [
+    "paquete:m-04ead105199c|doble oportunidad",
+    "archivo:runs/2026-10-17/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-04ead105199c|empate no válido",
+   "objecion": "dato_defectuoso",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "DNB local 1.11 (2 casas) vs ~1.24 implícito en el 1X2 del usuario (1.44/4.33/6.0); away 5.575 EV +59% parte de ese precio y de un modelo que sube al visitante. Datos sin_extractor.",
+   "evidencia": [
+    "paquete:m-04ead105199c|empate no válido"
+   ]
+  },
+  {
+   "unit_id": "m-04ead105199c|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador ni precio (datos_depo no encontrados, fuentes no lo ofrecen); no hay muestra ni cuota con que contrastar.",
+   "evidencia": [
+    "paquete:m-04ead105199c|fueras de juego"
+   ]
+  },
+  {
+   "unit_id": "m-04ead105199c|goles",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "O/U 2.5 usuario 1.8/1.9: modelo under .597 (EV +13%) contradice la muestra: over2.5 en 11/20 (6/10 y 5/10) y 1/1.8=.556. Resto agregador 2-4 casas 14-oct, 5 líneas extremas.",
+   "evidencia": [
+    "paquete:m-04ead105199c|goles",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-04ead105199c|goles por equipo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio. Olimpia ga 0.6 y 2dM gf 1.2 (n10) sin ajuste de rival: medias de muestra convertidas en p de línea por equipo, sin validación ni cuota.",
+   "evidencia": [
+    "paquete:m-04ead105199c|goles por equipo"
+   ]
+  },
+  {
+   "unit_id": "m-04ead105199c|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador y sin precio (apifootball no lo trae): no es rankeable ni contrastable.",
+   "evidencia": [
+    "paquete:m-04ead105199c|goles total entero"
+   ]
+  },
+  {
+   "unit_id": "m-04ead105199c|hándicap",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "ah.home.-1.5: modelo .267 vs 1/2.155=.464 (-20 pp, 4 casas); -2.5 de 2 casas no verificable. Solo 4/12 líneas con precio agregador; modelo subestima al favorito (1X2 usuario 1.44).",
+   "evidencia": [
+    "paquete:m-04ead105199c|hándicap"
+   ]
+  },
+  {
+   "unit_id": "m-04ead105199c|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador. Línea +0 = DNB local 1.11 (2 casas) incoherente con el 1X2 usuario (~1.24); ±1/±2 de 3-4 casas son referencia 14-oct. Push de línea entera sin verificar.",
+   "evidencia": [
+    "paquete:m-04ead105199c|hándicap asiático entero"
+   ]
+  },
+  {
+   "unit_id": "m-04ead105199c|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador y sin precio en ninguna fuente (apifootball no trae hándicap europeo).",
+   "evidencia": [
+    "paquete:m-04ead105199c|hándicap europeo"
+   ]
+  },
+  {
+   "unit_id": "m-04ead105199c|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador ni precio; tiros con dato en solo 7/10 y 8/10 partidos (n menor, no cero). Nada que contrastar.",
+   "evidencia": [
+    "paquete:m-04ead105199c|remates"
+   ]
+  },
+  {
+   "unit_id": "m-04ead105199c|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador ni precio; tiros a puerta con dato en solo 7/10 y 8/10 partidos. Nada que contrastar.",
+   "evidencia": [
+    "paquete:m-04ead105199c|remates a puerta"
+   ]
+  },
+  {
+   "unit_id": "m-04ead105199c|resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "1X2 usuario 1.44/4.33/6.0: modelo local .525 vs ~.64 sin margen (-17 pp); EV +26% en away 6.0 y +15% en empate. Away 6.0 queda bajo el mínimo API (6.41). Sin once; 2dM rotación media.",
+   "evidencia": [
+    "paquete:m-04ead105199c|resultado",
+    "archivo:runs/2026-10-17/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-04ead105199c|tarjetas",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Árbitro sin designar; puntos Olimpia 5.56 (n9) y 2dM 3.71 (n7) vs liga 4.46 (n166). Sin precio; regla de puntos (amarilla/roja) de la casa sin verificar; líneas fijas, no las de la casa.",
+   "evidencia": [
+    "paquete:m-04ead105199c|tarjetas",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-0b5ebe197838|1.ª parte goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Precio solo agregador 2-3 casas (14-oct 15:18Z). 1T con gol 9/10 y 7/10; ventana desde 17-may mezcla temporadas; Barça rota alto. Modelo 1T no evaluado.",
+   "evidencia": [
+    "paquete:m-0b5ebe197838|1.ª parte goles",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/matrix.json",
+    "apif_query:get_odds match_id=798886"
+   ]
+  },
+  {
+   "unit_id": "m-0b5ebe197838|1.ª parte resultado",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "1T visitante .441 con Barça rotación alta (4d, 5 cambios) y Betis también medio (5,3 cambios) que deportivo omite; precio agregador 2 casas 14-oct; modelo 1T no evaluado.",
+   "evidencia": [
+    "paquete:m-0b5ebe197838|1.ª parte resultado",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/matrix.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "nota",
+     "problema": "omision"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-0b5ebe197838|córners",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Barça 18-0 vs Racing infla su media: 10.6 -> 9.78 sin ese partido. Total over9.5 .631 vs 1/1.727=.579 (1 casa, 14-oct); solo 6/46 líneas con precio; línea fija no de la casa.",
+   "evidencia": [
+    "paquete:m-0b5ebe197838|córners",
+    "archivo:runs/2026-10-17/matrix.json",
+    "apif_query:get_odds match_id=798886"
+   ]
+  },
+  {
+   "unit_id": "m-0b5ebe197838|doble oportunidad",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "1x 2.9 (5 casas): modelo .422 -> EV +22%, porque da a Betis .228 vs ~.158 implícito del 1X2. Barça rotación alta y Betis medio; precio agregador no ejecutable, API ya cambió el 15-oct.",
+   "evidencia": [
+    "paquete:m-0b5ebe197838|doble oportunidad",
+    "archivo:runs/2026-10-17/rotation.json",
+    "apif_query:get_odds match_id=798886"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "nota",
+     "problema": "omision"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-0b5ebe197838|empate no válido",
+   "objecion": "fuente_unica",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "DNB de 1 casa (4.333/1.2); bet365 ah0 en API 15-oct = 4.5/1.19. Local p .282 vs ~.158 implícito (EV +22%) viene del modelo; Barça rota alto, Betis medio; datos sin_extractor.",
+   "evidencia": [
+    "paquete:m-0b5ebe197838|empate no válido",
+    "archivo:runs/2026-10-17/rotation.json",
+    "apif_query:get_odds match_id=798886"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "nota",
+     "problema": "omision"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-0b5ebe197838|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador ni precio (datos_depo no encontrados, fuentes no lo ofrecen); no hay muestra ni cuota con que contrastar.",
+   "evidencia": [
+    "paquete:m-0b5ebe197838|fueras de juego"
+   ]
+  },
+  {
+   "unit_id": "m-0b5ebe197838|goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "O/U 3.5 usuario 1.66/2.15: over p .523 -> EV -13%, under +3%: sin ventaja. Muestra 11/20 over3.5 (Betis 3/10, Barça 8/10). Verificador marca precio anómalo en líneas de 1 casa.",
+   "evidencia": [
+    "paquete:m-0b5ebe197838|goles",
+    "archivo:runs/2026-10-17/matrix.json",
+    "apif_query:get_odds match_id=798886"
+   ]
+  },
+  {
+   "unit_id": "m-0b5ebe197838|goles por equipo",
+   "objecion": "fuente_unica",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "12 líneas de 1 casa agregadora (14-oct), 3 extremas; goles.equipo.away.over2.5 -12,9 pp vs 1/cuota. Barça 3.8 gf en ventana mixta de temporadas, rotación alta.",
+   "evidencia": [
+    "paquete:m-0b5ebe197838|goles por equipo",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-0b5ebe197838|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador; 10 líneas de 1-2 casas agregadoras (3 extremas, 14-oct): referencia no ejecutable y sin contraste propio. Liquidación de línea entera sin verificar.",
+   "evidencia": [
+    "paquete:m-0b5ebe197838|goles total entero"
+   ]
+  },
+  {
+   "unit_id": "m-0b5ebe197838|hándicap",
+   "objecion": "dato_defectuoso",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "ah.home.-2.5 y -1.5 con el mismo precio 16.57 (1 casa): al menos uno es erróneo; -2.5 debería rondar el doble. Modelo no validado; Barça rota alto y Betis medio.",
+   "evidencia": [
+    "paquete:m-0b5ebe197838|hándicap",
+    "archivo:runs/2026-10-17/rotation.json",
+    "apif_query:get_odds match_id=798886"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "cuantitativo",
+     "campo": "consistencia_modelo",
+     "problema": "omision"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-0b5ebe197838|hándicap asiático entero",
+   "objecion": "dato_defectuoso",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador. home.-2 16.57 y -1 15.28 de 1 sola casa (el 16.57 repetido en hándicap -2.5/-1.5); +0 2 casas no verificable. Referencia no ejecutable.",
+   "evidencia": [
+    "paquete:m-0b5ebe197838|hándicap asiático entero",
+    "archivo:runs/2026-10-17/rotation.json",
+    "apif_query:get_odds match_id=798886"
+   ]
+  },
+  {
+   "unit_id": "m-0b5ebe197838|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador; 12/12 líneas de 1-2 casas (thestatsapi), 6 extremas (26.0, 15.0). Referencia no ejecutable, sin contraste propio ni liquidación verificada.",
+   "evidencia": [
+    "paquete:m-0b5ebe197838|hándicap europeo"
+   ]
+  },
+  {
+   "unit_id": "m-0b5ebe197838|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador; solo 6/90 líneas con precio de 1 casa (thestatsapi, 14-oct); definición de remates de la casa sin verificar. No rankeable.",
+   "evidencia": [
+    "paquete:m-0b5ebe197838|remates"
+   ]
+  },
+  {
+   "unit_id": "m-0b5ebe197838|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador; solo 6/60 líneas con precio de 1 casa (thestatsapi, 14-oct); definición del mercado sin verificar. No rankeable.",
+   "evidencia": [
+    "paquete:m-0b5ebe197838|remates a puerta"
+   ]
+  },
+  {
+   "unit_id": "m-0b5ebe197838|resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "1X2 usuario 6.0/5.5/1.42: modelo da Betis .228 (EV +36%) vs ~.158 implícito, y Barça .578 vs .67. Barça rota alto y Betis medio (omitido); precio usuario sin verificar.",
+   "evidencia": [
+    "paquete:m-0b5ebe197838|resultado",
+    "archivo:runs/2026-10-17/rotation.json",
+    "apif_query:get_odds match_id=798886"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "nota",
+     "problema": "omision"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-0b5ebe197838|tarjetas",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Árbitro sin designar; puntos Betis 3.67 (n9) y Barça 2.8 (n10) vs liga 5.01 (n196): ambos equipos bajo la media sesgan a under sin árbitro conocido. Sin precio; regla de puntos sin verificar.",
+   "evidencia": [
+    "paquete:m-0b5ebe197838|tarjetas",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-0bfbaa17a4fd|1.ª parte goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Agregador 2 casas (14-oct). 1T con gol 9/9 y 7/9, ventana abr-oct cruza dos temporadas; Bayern rotación alta (4,3 cambios). over1.5 modelo .564 vs 1/1.5 .667. Modelo 1T no evaluado.",
+   "evidencia": [
+    "paquete:m-0bfbaa17a4fd|1.ª parte goles",
+    "archivo:runs/2026-10-17/rotation.json",
+    "archivo:runs/2026-10-17/matrix.json",
+    "apif_query:get_odds match_id=809309"
+   ]
+  },
+  {
+   "unit_id": "m-0bfbaa17a4fd|1.ª parte resultado",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "1T local .522 con Bayern rotación alta (4,3 cambios, 4d) y Leipzig medio; precio agregador 2 casas 14-oct; gap local -13,6 pp vs 1/cuota; modelo 1T no evaluado.",
+   "evidencia": [
+    "paquete:m-0bfbaa17a4fd|1.ª parte resultado",
+    "archivo:runs/2026-10-17/rotation.json",
+    "apif_query:get_odds match_id=809309"
+   ]
+  },
+  {
+   "unit_id": "m-0bfbaa17a4fd|córners",
+   "objecion": "dato_defectuoso",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Bayern 11,67 (n9) incluye 18 de máximo y un Schalke con 0 córners y 4 tiros; sin máximo 10,88. Solo 6/46 líneas con precio (1 casa); ventana abr-oct mezcla temporadas.",
+   "evidencia": [
+    "paquete:m-0bfbaa17a4fd|córners",
+    "archivo:runs/2026-10-17/matrix.json",
+    "apif_query:get_odds match_id=809309"
+   ]
+  },
+  {
+   "unit_id": "m-0bfbaa17a4fd|doble oportunidad",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "x2 4.25 (5 casas): modelo .317 -> EV +35%, contra ~.23 implícito del 1X2 usuario; el modelo infla al visitante. Bayern rotación alta (4,3 cambios). Precio agregador no ejecutable.",
+   "evidencia": [
+    "paquete:m-0bfbaa17a4fd|doble oportunidad",
+    "archivo:runs/2026-10-17/rotation.json",
+    "apif_query:get_odds match_id=809309"
+   ]
+  },
+  {
+   "unit_id": "m-0bfbaa17a4fd|empate no válido",
+   "objecion": "fuente_unica",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "DNB de 1 casa (1.083/8.0, away extrema) vs 1.13/8.7 implícito del 1X2 usuario. Bayern rotación alta (4,3 cambios); datos sin_extractor: p derivada del 1X2, no validada.",
+   "evidencia": [
+    "paquete:m-0bfbaa17a4fd|empate no válido",
+    "archivo:runs/2026-10-17/rotation.json",
+    "apif_query:get_odds match_id=809309"
+   ]
+  },
+  {
+   "unit_id": "m-0bfbaa17a4fd|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador ni precio (datos_depo no encontrados, fuentes no lo ofrecen); no hay muestra ni cuota con que contrastar.",
+   "evidencia": [
+    "paquete:m-0bfbaa17a4fd|fueras de juego"
+   ]
+  },
+  {
+   "unit_id": "m-0bfbaa17a4fd|goles",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "O/U 4.5 (>=5 goles) usuario 1.86/1.95: muestra 9/18 sobre ventana abr-oct de dos temporadas, liga 3.49; over p .451 vs 1/1.86=.538. Under EV +7%; rotación Bayern alta; 1 casa en líneas extremas.",
+   "evidencia": [
+    "paquete:m-0bfbaa17a4fd|goles",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json",
+    "apif_query:get_odds match_id=809309"
+   ]
+  },
+  {
+   "unit_id": "m-0bfbaa17a4fd|goles por equipo",
+   "objecion": "fuente_unica",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "12 líneas de 1 casa agregadora (14-oct), 4 extremas; equipo.home.over2.5 -14,6 pp vs 1/cuota. Bayern gf 3.22 (n9) en ventana abr-oct y rotación alta.",
+   "evidencia": [
+    "paquete:m-0bfbaa17a4fd|goles por equipo",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-0bfbaa17a4fd|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador; 10 líneas de 1 sola casa (4 extremas, 14-oct): referencia no ejecutable, sin contraste. Liquidación de línea entera (push) sin verificar.",
+   "evidencia": [
+    "paquete:m-0bfbaa17a4fd|goles total entero"
+   ]
+  },
+  {
+   "unit_id": "m-0bfbaa17a4fd|hándicap",
+   "objecion": "dato_defectuoso",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "away.-1.5 y -2.5 con el mismo precio 15.82 (1 casa) y home.+1.5 1.01 de 1 casa; home.-1.5 modelo .490 vs 1/1.53=.654 (-16 pp). Bayern rotación alta.",
+   "evidencia": [
+    "paquete:m-0bfbaa17a4fd|hándicap",
+    "archivo:runs/2026-10-17/rotation.json",
+    "apif_query:get_odds match_id=809309"
+   ]
+  },
+  {
+   "unit_id": "m-0bfbaa17a4fd|hándicap asiático entero",
+   "objecion": "dato_defectuoso",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador. away.-1 15.5 y -2 15.82 (1 casa; 15.82 repetido en hándicap), home.+1 1.02 y +0 1.06 de 1 casa. Referencia no ejecutable.",
+   "evidencia": [
+    "paquete:m-0bfbaa17a4fd|hándicap asiático entero",
+    "archivo:runs/2026-10-17/rotation.json",
+    "apif_query:get_odds match_id=809309"
+   ]
+  },
+  {
+   "unit_id": "m-0bfbaa17a4fd|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador; 9/12 líneas de 2 casas (thestatsapi), 3 extremas (13.0, 20.5), 3 sin precio. Referencia no ejecutable, sin contraste propio.",
+   "evidencia": [
+    "paquete:m-0bfbaa17a4fd|hándicap europeo"
+   ]
+  },
+  {
+   "unit_id": "m-0bfbaa17a4fd|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador ni precio (no encontrado en fuentes); definición del mercado sin verificar. Nada que contrastar.",
+   "evidencia": [
+    "paquete:m-0bfbaa17a4fd|remates"
+   ]
+  },
+  {
+   "unit_id": "m-0bfbaa17a4fd|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador ni precio (no encontrado en fuentes). Nada que contrastar.",
+   "evidencia": [
+    "paquete:m-0bfbaa17a4fd|remates a puerta"
+   ]
+  },
+  {
+   "unit_id": "m-0bfbaa17a4fd|resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "1X2 usuario 1.23/7.5/9.5: modelo local .683 vs ~.77 sin margen (-13 pp); EV +17% solo en el empate. Bayern rotación alta (4d, 4,3 cambios); ventana abr-oct cruza temporadas.",
+   "evidencia": [
+    "paquete:m-0bfbaa17a4fd|resultado",
+    "archivo:runs/2026-10-17/rotation.json",
+    "apif_query:get_odds match_id=809309"
+   ]
+  },
+  {
+   "unit_id": "m-0bfbaa17a4fd|tarjetas",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Árbitro sin designar; puntos Bayern 3.11 y Leipzig 2.56 (n9) vs liga 3.93 (n133). Sin precio; regla de puntos de la casa sin verificar; ventana abr-oct cruza temporadas.",
+   "evidencia": [
+    "paquete:m-0bfbaa17a4fd|tarjetas",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-0c7aa4fc7b43|1.ª parte goles",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "over0.5 1T: modelo .446 vs 1/1.632=.613 (-17 pp, 3 casas agregador). Lanús con gol 1T solo 3/10 vs Platense 7/10: señales opuestas, n10 sin ajuste de rival; modelo 1T no evaluado.",
+   "evidencia": [
+    "paquete:m-0c7aa4fc7b43|1.ª parte goles",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-0c7aa4fc7b43|1.ª parte resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Empate 1T .603 se apoya en Lanús 1T sin goles 7/10 (n10, sin ajuste de rival); precio agregador 2 casas 14-oct; modelo 1T no evaluado.",
+   "evidencia": [
+    "paquete:m-0c7aa4fc7b43|1.ª parte resultado",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-0c7aa4fc7b43|córners",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "under 8.5 total -15 pp vs 1/cuota (1 casa, 6/46 líneas con precio). Equipos 8.8/9.6 (n10) y árbitro 8.52 (n21) sin ajuste de rival; línea fija, no la de la casa.",
+   "evidencia": [
+    "paquete:m-0c7aa4fc7b43|córners",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/league_samples/44.json"
+   ]
+  },
+  {
+   "unit_id": "m-0c7aa4fc7b43|doble oportunidad",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Solo mediana de 5 casas (14-oct), no ejecutable; 1x modelo -13 pp vs 1/cuota. Equipos parejos, sin once; n10 mezcla local/visita sin ajuste de rival; modelo validación insuficiente.",
+   "evidencia": [
+    "paquete:m-0c7aa4fc7b43|doble oportunidad"
+   ]
+  },
+  {
+   "unit_id": "m-0c7aa4fc7b43|empate no válido",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "DNB solo agregador (3 casas, 14-oct); away p .584 vs 1.9 -> EV +11% en un partido parejo (1X2 ~.35 c/u). Datos sin_extractor: p derivada del 1X2, sin validar.",
+   "evidencia": [
+    "paquete:m-0c7aa4fc7b43|empate no válido"
+   ]
+  },
+  {
+   "unit_id": "m-0c7aa4fc7b43|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador ni precio (datos_depo no encontrados, fuentes no lo ofrecen); no hay muestra ni cuota con que contrastar.",
+   "evidencia": [
+    "paquete:m-0c7aa4fc7b43|fueras de juego"
+   ]
+  },
+  {
+   "unit_id": "m-0c7aa4fc7b43|goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "O/U 1.5 usuario 1.62/2.22: over p .649 vs 14/20 (70%) y 1/1.62=.617: EV +5%, marginal. 6 líneas extremas y 2 no verificables; deportivo razona con under2.5, no con la línea de la captura.",
+   "evidencia": [
+    "paquete:m-0c7aa4fc7b43|goles",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-0c7aa4fc7b43|goles por equipo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio. Platense gf 0.9 / Lanús gf 1.4 (n10, mezcla local/visita) sin ajuste de rival; p por equipo no validada y sin cuota que contrastar.",
+   "evidencia": [
+    "paquete:m-0c7aa4fc7b43|goles por equipo"
+   ]
+  },
+  {
+   "unit_id": "m-0c7aa4fc7b43|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador; solo 2/10 líneas con precio de 1 casa. No rankeable ni contrastable.",
+   "evidencia": [
+    "paquete:m-0c7aa4fc7b43|goles total entero"
+   ]
+  },
+  {
+   "unit_id": "m-0c7aa4fc7b43|hándicap",
+   "objecion": "dato_defectuoso",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "ah.home.-2.5 1.01 y away.+2.5 1.02 (1 casa, no verificable): par imposible. Otras líneas de 1 casa; max brecha -11,8 pp. Cuantitativo lo da coherente sin mencionar el par.",
+   "evidencia": [
+    "paquete:m-0c7aa4fc7b43|hándicap",
+    "archivo:runs/2026-10-17/matrix.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "cuantitativo",
+     "campo": "consistencia_modelo",
+     "problema": "omision"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-0c7aa4fc7b43|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador; 4/10 líneas sin precio, el resto 3 casas (14-oct). Referencia no ejecutable; push de línea entera sin verificar.",
+   "evidencia": [
+    "paquete:m-0c7aa4fc7b43|hándicap asiático entero"
+   ]
+  },
+  {
+   "unit_id": "m-0c7aa4fc7b43|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador; 12/12 líneas de 2 casas (thestatsapi), 6 extremas (19.0, 18.0). Referencia no ejecutable, sin contraste propio ni liquidación verificada.",
+   "evidencia": [
+    "paquete:m-0c7aa4fc7b43|hándicap europeo"
+   ]
+  },
+  {
+   "unit_id": "m-0c7aa4fc7b43|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador ni precio (no encontrado en fuentes); tiros con dato en 9/10 partidos. Nada que contrastar.",
+   "evidencia": [
+    "paquete:m-0c7aa4fc7b43|remates"
+   ]
+  },
+  {
+   "unit_id": "m-0c7aa4fc7b43|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador ni precio (no encontrado en fuentes). Nada que contrastar.",
+   "evidencia": [
+    "paquete:m-0c7aa4fc7b43|remates a puerta"
+   ]
+  },
+  {
+   "unit_id": "m-0c7aa4fc7b43|resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "1X2 usuario 2.71/2.9/2.8: away p .416 vs 1/2.8=.357 -> EV +17%, con el local a -7 pp. Mezcla local/visita n10, sin ajuste de rival; Platense gf 0.9. Precio usuario sin verificar.",
+   "evidencia": [
+    "paquete:m-0c7aa4fc7b43|resultado",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-0c7aa4fc7b43|tarjetas",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Rey Hilfer 4.38 tarjetas (n21, conteo A+R) vs liga 5.07; el modelo usa puntos, no conteo, y la designación no tiene fuente oficial. Sin precio; regla de puntos sin verificar.",
+   "evidencia": [
+    "paquete:m-0c7aa4fc7b43|tarjetas",
+    "archivo:runs/2026-10-17/matrix.json",
+    "archivo:runs/2026-10-17/league_samples/44.json"
+   ]
+  },
+  {
+   "unit_id": "m-0f5e6da462b7|1.ª parte goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Agregador 2 casas (14-oct), 1 línea extrema. 1T con gol Dallas 8/10, Houston 7/10 (n10, sin ajuste de rival, fase MLS desconocida). Modelo 1T no evaluado.",
+   "evidencia": [
+    "paquete:m-0f5e6da462b7|1.ª parte goles",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-0f5e6da462b7|1.ª parte resultado",
+   "objecion": "fuente_unica",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Las 3 líneas 1X2 de 1T salen de 1 sola casa agregadora (14-oct). Empate .392 vs local .335 es ruido de n10; modelo 1T no evaluado.",
+   "evidencia": [
+    "paquete:m-0f5e6da462b7|1.ª parte resultado"
+   ]
+  },
+  {
+   "unit_id": "m-0f5e6da462b7|córners",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "equipo.away over4.5 -18 pp vs 1/cuota (1 casa, 14-oct). Houston 8.5 vs Dallas 10.5 (n10) sin ajuste de rival; liga 9.98; línea fija, no la de la casa; 6/46 líneas con precio.",
+   "evidencia": [
+    "paquete:m-0f5e6da462b7|córners",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-0f5e6da462b7|doble oportunidad",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Mediana de 4 casas (14-oct), no ejecutable; brecha máx -7 pp. Modelo con validación insuficiente, fase MLS desconocida y sin once.",
+   "evidencia": [
+    "paquete:m-0f5e6da462b7|doble oportunidad"
+   ]
+  },
+  {
+   "unit_id": "m-0f5e6da462b7|empate no válido",
+   "objecion": "fuente_unica",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "DNB de 1 casa (1.571/2.25, 14-oct). Houston gf 0.9 vs Dallas 2.0 sin ajuste de rival; datos sin_extractor; p derivada del 1X2, sin validar.",
+   "evidencia": [
+    "paquete:m-0f5e6da462b7|empate no válido"
+   ]
+  },
+  {
+   "unit_id": "m-0f5e6da462b7|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador ni precio (datos_depo no encontrados, fuentes no lo ofrecen); no hay muestra ni cuota con que contrastar.",
+   "evidencia": [
+    "paquete:m-0f5e6da462b7|fueras de juego"
+   ]
+  },
+  {
+   "unit_id": "m-0f5e6da462b7|goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "O/U 2.5 usuario 1.71/2.0: over p .537 -> EV -8%, under -7%: sin ventaja. Houston 4/10 vs Dallas 8/10 over2.5 (12/20), heterogéneo; 5 líneas extremas de 2-3 casas.",
+   "evidencia": [
+    "paquete:m-0f5e6da462b7|goles",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-0f5e6da462b7|goles por equipo",
+   "objecion": "fuente_unica",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "12 líneas de 1 casa agregadora (14-oct). Dallas gf 2.0 vs Houston 0.9 (n10) sin ajuste de rival; fase MLS desconocida; p por equipo no validada.",
+   "evidencia": [
+    "paquete:m-0f5e6da462b7|goles por equipo"
+   ]
+  },
+  {
+   "unit_id": "m-0f5e6da462b7|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador y sin precio (no encontrado en fuentes): no rankeable ni contrastable.",
+   "evidencia": [
+    "paquete:m-0f5e6da462b7|goles total entero"
+   ]
+  },
+  {
+   "unit_id": "m-0f5e6da462b7|hándicap",
+   "objecion": "dato_defectuoso",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "home.-2.5 4.26 (2 casas) casi iguala a -1.5 3.74: incoherente (debería ser mucho mayor); home.+1.5 y otras de 1 casa. Verificador no marca discrepancia y cuantitativo dice coherente.",
+   "evidencia": [
+    "paquete:m-0f5e6da462b7|hándicap",
+    "archivo:runs/2026-10-17/matrix.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "verificador",
+     "campo": "discrepancias",
+     "problema": "omision"
+    },
+    {
+     "entry_id": null,
+     "agente": "cuantitativo",
+     "campo": "consistencia_modelo",
+     "problema": "omision"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-0f5e6da462b7|hándicap asiático entero",
+   "objecion": "dato_defectuoso",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador. home.-2 6.75 (1 casa) supera al ah.-2.5 4.26 del mismo partido: orden imposible. +0 1.58/2.31 no verificable. Verificador no marca discrepancia.",
+   "evidencia": [
+    "paquete:m-0f5e6da462b7|hándicap asiático entero",
+    "archivo:runs/2026-10-17/matrix.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "verificador",
+     "campo": "discrepancias",
+     "problema": "omision"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-0f5e6da462b7|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador; 12/12 líneas de 2 casas (thestatsapi), 4 extremas. Referencia no ejecutable, sin contraste propio ni liquidación verificada.",
+   "evidencia": [
+    "paquete:m-0f5e6da462b7|hándicap europeo"
+   ]
+  },
+  {
+   "unit_id": "m-0f5e6da462b7|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador ni precio (no encontrado); tiros con dato en 8/10 partidos por equipo. Nada que contrastar.",
+   "evidencia": [
+    "paquete:m-0f5e6da462b7|remates"
+   ]
+  },
+  {
+   "unit_id": "m-0f5e6da462b7|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador ni precio (no encontrado); tiros con dato en 8/10 partidos por equipo. Nada que contrastar.",
+   "evidencia": [
+    "paquete:m-0f5e6da462b7|remates a puerta"
+   ]
+  },
+  {
+   "unit_id": "m-0f5e6da462b7|resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "1X2 usuario 2.05/3.5/3.25: modelo cerca (away EV +6%, brecha máx -6,5 pp), validación insuficiente. Houston gf 0.9 vs Dallas 2.0 en n10 sin ajuste de rival; fase MLS desconocida.",
+   "evidencia": [
+    "paquete:m-0f5e6da462b7|resultado",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-0f5e6da462b7|tarjetas",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Árbitro sin designar; puntos Houston 4.29 (n7) y Dallas 3.9 (n10) vs liga 4.4 (n390). Muestra de Houston corta. Sin precio; regla de puntos sin verificar.",
+   "evidencia": [
+    "paquete:m-0f5e6da462b7|tarjetas",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-1398d02f8e7f|1.ª parte goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio y modelo 1T no evaluado. 1T con gol 6/10 y 8/10 (n10, sin ajuste de rival); over0.5 .723 no es frecuencia ni probabilidad calibrada; no hay cuota que contrastar.",
+   "evidencia": [
+    "paquete:m-1398d02f8e7f|1.ª parte goles"
+   ]
+  },
+  {
+   "unit_id": "m-1398d02f8e7f|1.ª parte resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio. 1T 0-0 en 4/10 y 2/10; empate .401 vs local .354 son diferencias dentro del ruido de n10; modelo 1T no evaluado, sin EV contrastable.",
+   "evidencia": [
+    "paquete:m-1398d02f8e7f|1.ª parte resultado"
+   ]
+  },
+  {
+   "unit_id": "m-1398d02f8e7f|córners",
+   "objecion": "dato_defectuoso",
+   "severidad": "media",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Sin precio. Ceros sin contrastar: Sport Boys 0 córners con 7 tiros (vs Alianza) y Moquegua 0. Medias 9.1/10.5 (n10) vs liga 8.72, sin ajuste de rival.",
+   "evidencia": [
+    "paquete:m-1398d02f8e7f|córners",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-1398d02f8e7f|doble oportunidad",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Mediana de 4 casas (14-oct), no ejecutable; brecha máx -5,8 pp. Modelo con validación insuficiente; n10 mezcla local/visita sin ajuste de rival.",
+   "evidencia": [
+    "paquete:m-1398d02f8e7f|doble oportunidad"
+   ]
+  },
+  {
+   "unit_id": "m-1398d02f8e7f|empate no válido",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "baja",
+   "recomendacion": "degradar",
+   "nota": "DNB solo agregador (3 casas, 14-oct), brecha máx -3,7 pp; datos sin_extractor: p derivada del 1X2 del modelo, sin validación. Sin ventaja visible.",
+   "evidencia": [
+    "paquete:m-1398d02f8e7f|empate no válido"
+   ]
+  },
+  {
+   "unit_id": "m-1398d02f8e7f|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador ni precio (datos_depo no encontrados, fuentes no lo ofrecen); no hay muestra ni cuota con que contrastar.",
+   "evidencia": [
+    "paquete:m-1398d02f8e7f|fueras de juego"
+   ]
+  },
+  {
+   "unit_id": "m-1398d02f8e7f|goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "O/U 2.5 usuario 1.85/1.84: p .498/.502 -> EV -8%/-7%, sin ventaja. Muestra 7/20 over2.5 (4/10 y 3/10) vs liga 117/211; 2 líneas no verificables.",
+   "evidencia": [
+    "paquete:m-1398d02f8e7f|goles",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-1398d02f8e7f|goles por equipo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio. JP II over2.5 4/10 y Sport Boys 3/10 con liga 117/211: señales opuestas; p por equipo no validada y sin cuota que contrastar.",
+   "evidencia": [
+    "paquete:m-1398d02f8e7f|goles por equipo"
+   ]
+  },
+  {
+   "unit_id": "m-1398d02f8e7f|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador y sin precio (no encontrado en fuentes): no rankeable ni contrastable.",
+   "evidencia": [
+    "paquete:m-1398d02f8e7f|goles total entero"
+   ]
+  },
+  {
+   "unit_id": "m-1398d02f8e7f|hándicap",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Solo 6/12 líneas con precio y todas no verificables (1-2 casas, ±1.5/±2.5). Sin contraste: modelo no validado, sin once, n10 mezcla local/visita.",
+   "evidencia": [
+    "paquete:m-1398d02f8e7f|hándicap"
+   ]
+  },
+  {
+   "unit_id": "m-1398d02f8e7f|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador; 4/10 líneas no verificables (1-2 casas) y 2 sin precio. Referencia no ejecutable; push de línea entera sin verificar.",
+   "evidencia": [
+    "paquete:m-1398d02f8e7f|hándicap asiático entero"
+   ]
+  },
+  {
+   "unit_id": "m-1398d02f8e7f|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador y sin precio en ninguna fuente (apifootball no trae hándicap europeo).",
+   "evidencia": [
+    "paquete:m-1398d02f8e7f|hándicap europeo"
+   ]
+  },
+  {
+   "unit_id": "m-1398d02f8e7f|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador ni precio (no ofrecido en fuentes); definición del mercado sin verificar. Nada que contrastar.",
+   "evidencia": [
+    "paquete:m-1398d02f8e7f|remates"
+   ]
+  },
+  {
+   "unit_id": "m-1398d02f8e7f|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador ni precio (no ofrecido en fuentes). Nada que contrastar.",
+   "evidencia": [
+    "paquete:m-1398d02f8e7f|remates a puerta"
+   ]
+  },
+  {
+   "unit_id": "m-1398d02f8e7f|resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "1X2 usuario 2.16/3.14/3.33: modelo a <6,5 pp del mercado, sin EV positivo; validación insuficiente. Rotación baja; precio usuario sin verificar (API 8 casas coherente).",
+   "evidencia": [
+    "paquete:m-1398d02f8e7f|resultado"
+   ]
+  },
+  {
+   "unit_id": "m-1398d02f8e7f|tarjetas",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Árbitro sin designar; puntos JP II 5.86 (n7) y Sport Boys 6.25 (n8) vs liga 5.14 (n204). Muestras cortas, sin precio; regla de puntos sin verificar.",
+   "evidencia": [
+    "paquete:m-1398d02f8e7f|tarjetas",
+    "archivo:runs/2026-10-17/matrix.json"
+   ]
+  }
+ ],
+ "limitaciones": [
+  "Cuotas de agregador del paquete son del 14-oct 15:18Z (3 dias antes); solo se re-consultaron get_odds de Betis-Barca (798886) y Bayern-Leipzig (809309), con odd_date 15-oct 03:19Z.",
+  "Cuotas 1X2 y O/U de las capturas del usuario (TriunfoBet) no verificables de forma independiente; alineaciones sin snapshot en los 6 partidos y arbitro sin designar en 5 de 6.",
+  "Rates k/n recalculados de matrix.json (n9-10, sin ajuste de rival, ventanas que cruzan temporadas en Betis/Barca/Bayern); EV = p_modelo*cuota-1 sobre el paquete, no una probabilidad validada.",
+  "Sin fuentes web externas; designacion de Rey Hilfer (Platense-Lanus) no contrastada fuera del paquete."
+ ]
+}
