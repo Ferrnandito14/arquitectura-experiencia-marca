@@ -74,6 +74,29 @@ class CornersDosBloques(unittest.TestCase):
         self.assertEqual(s._corner_pair({"statistics": [{"type": "Corners", "home": "0", "away": "1"}]}), (0, 1))
         self.assertIsNone(s._corner_pair({"statistics": [{"type": "Fouls", "home": "1", "away": "1"}]}))
 
+class RegistroTickets(unittest.TestCase):
+    """registrar_tickets: etiqueta exacta del catálogo y consolidación idempotente. Datos FICTICIOS: EJEMPLO — NO REAL."""
+    def test_etiquetas_exactas_y_sin_equivalente(self):
+        import registrar_tickets as rt
+        self.assertEqual(rt.catalog_label({"mercado": "total", "op": "over", "linea": 2.5}), "Más de 2.5 goles")
+        self.assertEqual(rt.catalog_label({"mercado": "total_1t", "op": "over", "linea": 0.5}), "1.ª parte: más de 0.5 goles")
+        self.assertEqual(rt.catalog_label({"mercado": "corners", "op": "over", "linea": 9.5}), "Más de 9.5 córners")
+        self.assertIsNone(rt.catalog_label({"mercado": "combo"}))
+        self.assertIsNone(rt.catalog_label({"mercado": "handicap", "linea": 2.75}))
+
+    def test_consolida_y_es_idempotente(self):
+        import json, tempfile, registrar_tickets as rt
+        with tempfile.TemporaryDirectory() as d:
+            os.makedirs(os.path.join(d, "runs", "2026-10-15", "seguimiento"))
+            with open(os.path.join(d, "runs", "2026-10-15", "seguimiento", "registro_resultados.jsonl"), "w", encoding="utf-8") as f:
+                f.write(json.dumps({"ticket": "G", "partido": "A – B", "mercado": "total", "cuota": 1.6, "resultado": "ACERTADA", "detalle": "1-0"}) + "\n")
+            out = os.path.join(d, "reg.jsonl")
+            for _ in range(2):
+                rt.main(["--runs", os.path.join(d, "runs", "2026-10-15"), "--out", out])
+            rows = [json.loads(x) for x in open(out, encoding="utf-8")]
+            self.assertEqual(len(rows), 1)
+            self.assertEqual((rows[0]["fecha"], rows[0]["p_implicita_con_margen"]), ("2026-10-15", 0.625))
+
 
 if __name__ == "__main__":
     unittest.main()

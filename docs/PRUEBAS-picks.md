@@ -109,3 +109,9 @@ Flujo repetido por día (hora de Caracas): capturas → `ligas/partidos_usuario.
 - **Seguimiento en vivo** (`vivo.py`, a pedido explícito del usuario): sondeo cada 60 s de tickets abiertos, con córners por equipo, 1.ª mitad y hándicap de cuarto de línea (media ganada/perdida) en `seguimiento.py`.
 - Suite completa: 497 pruebas OK (1 omitida).
 
+## Registro de los tickets de la persona usuaria (15-oct)
+- `registrar_tickets.py` consolida en `data/registro_tickets_usuario.jsonl` las patas liquidadas de los tickets de la persona usuaria (13-oct y 15-oct; una línea por pata, solo con el partido FINALIZADO): cuota, probabilidad implícita (1/cuota, con margen), resultado y, cuando la línea EXACTA está en el catálogo del día, `p_modelo`, veredicto de agentes y si era elegible. Es idempotente: se vuelve a ejecutar al cerrar cada día.
+- Resultado parcial del 15-oct: 13 de 16 patas ganadas (lo esperable por las cuotas era ~10–11; con 16 patas la diferencia está dentro del azar). 5 patas eran elegibles y aprobadas por el sistema (3 ganadas, 1 perdida, 1 pendiente); de las no elegibles liquidadas, 10 de 12 ganaron.
+- Observación: en las patas de «más de» goles (Hoffenheim, Benfica, Sparta) el modelo daba 15–26 % frente al 66–77 % del mercado; el mercado acertó 2 de 3. Coincide con el backtest contra cierre (el mercado supera al modelo en goles). La etiqueta «solidez BAJA» del deportivo separó bien el 14-oct y no separó el 15-oct: un día más de evidencia, no concluyente.
+- Pendiente de cerrar el día: Huracán–Gimnasia (19:00) y Estudiantes–Flamengo (20:30) para G, H y M; luego `comparativo_resultados.py` del libro del 15-oct y, cuando se jueguen, los de 16 y 17.
+
