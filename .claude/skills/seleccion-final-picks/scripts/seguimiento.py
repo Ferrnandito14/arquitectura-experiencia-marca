@@ -80,6 +80,32 @@ def settle_handicap_quarter(h, a, lado, linea):
     return "void"
 
 
+def _corner_pair(e):
+    """(local, visitante) de córners de las estadísticas del evento, o None si no vienen."""
+    for x in e.get("statistics") or []:
+        if x.get("type") == "Corners":
+            try:
+                return int(x.get("home") or 0), int(x.get("away") or 0)
+            except ValueError:
+                return None
+    return None
+
+
+def _minute(e):
+    m = (e.get("match_status") or "").replace("'", "").split("+")[0]
+    return int(m) if m.isdigit() else None
+
+
+def _first_half(e, h, a):
+    """(goles de la 1.ª mitad, cerrada?). En la 1.ª mitad se usa el marcador actual (abierta); desde el descanso, el del descanso (cerrada)."""
+    hh, ha = half_score(e)
+    mn, ms = _minute(e), (e.get("match_status") or "").lower()
+    closed = state(e) == "finished" or ms.startswith("half") or (mn is not None and mn > 45 and hh is not None)
+    if hh is not None and ha is not None and closed:
+        return hh + ha, True
+    return h + a, False
+
+
 def provisional(final_fn, e, leg):
     """Para totales en juego: 'under' se pierde ya si supera la línea; 'over' se gana ya si la supera; si no, EN_JUEGO."""
     return None
@@ -116,6 +142,21 @@ def _first_goal_side(e):
 def _sub_status(sub, e, h, a, fin):
     """Sub-pata de una 'Crear apuesta': (win|lose|pending, texto). Con partido en juego, win/lose son PROVISIONALES salvo el primer gol."""
     k = sub["tipo"]
+    if k == "corners_equipo":
+        cp = _corner_pair(e)
+        if cp is None:
+            return "pending", "córners no disponibles"
+        v = cp[0] if sub["lado"] == "home" else cp[1]
+        res = settle_total(v, sub["op"], sub["linea"])
+        if fin:
+            return res, f"{v} córners del equipo"
+        if sub["op"] == "over":
+            return ("win", f"{v}/{sub['linea']} córners del equipo (cumplida provisional)") if res == "win" else ("pending", f"{v} córners del equipo, falta superar {sub['linea']}")
+        return ("lose", f"{v} córners del equipo: ya superó {sub['linea']}") if res == "lose" else ("pending", f"{v} córners del equipo (menos de {sub['linea']} va bien)")
+    if k == "handicap":
+        res = settle_handicap(h, a, sub["lado"], sub["linea"])
+        txt = f"hándicap {sub['lado']} +{sub['linea']}: va {'ganando' if res == 'win' else ('devolución' if res == 'void' else 'perdiendo')}" + ("" if fin else " (provisional)")
+        return (res if fin else "pending"), txt
     if k == "primer_gol":
         side = _first_goal_side(e)
         if side is None:
@@ -170,11 +211,35 @@ def eval_leg(leg, e):
         if leg["op"] == "over" and res == "win":
             return "EN_JUEGO", f"{tag}: ya supera la línea ({t} goles) — CUMPLIDA PROVISIONAL hasta el final (VAR)"
         return "EN_JUEGO", f"{tag}: {t} goles; va {'ganando' if res == 'win' else 'perdiendo'} provisional"
-    if mk == "handicap":
-        res = settle_handicap(h, a, leg["lado"], leg["linea"])
+    if mk in ("corners", "corners_equipo"):
+        cp = _corner_pair(e)
+        if cp is None:
+            return ("EN_JUEGO", f"{tag}: córners no disponibles todavía") if not fin else ("PENDIENTE", f"{tag}: terminado sin estadística de córners: revisar a mano")
+        v = cp[0] + cp[1] if mk == "corners" else (cp[0] if leg["lado"] == "home" else cp[1])
+        nm = "córners" if mk == "corners" else "córners del equipo"
+        res = settle_total(v, leg["op"], leg["linea"])
         if fin:
-            return final(res), f"{tag}: hándicap {leg['lado']} +{leg['linea']}"
-        return "EN_JUEGO", f"{tag}: va {'ganando' if res == 'win' else ('en devolución' if res == 'void' else 'perdiendo')} provisional (puede cambiar)"
+            return final(res), f"{tag}: {v} {nm}"
+        if leg["op"] == "over" and res == "win":
+            return "EN_JUEGO", f"{tag}: {v} {nm} — CUMPLIDA PROVISIONAL (ya superó {leg['linea']})"
+        if leg["op"] == "under" and res == "lose":
+            return "EN_JUEGO", f"{tag}: {v} {nm} — FALLO PROVISIONAL (ya superó {leg['linea']})"
+        return "EN_JUEGO", f"{tag}: {v} {nm} (línea {leg['op']} {leg['linea']})"
+    if mk == "total_1t":
+        g, closed = _first_half(e, h, a)
+        res = settle_total(g, leg["op"], leg["linea"])
+        if closed:
+            return final(res), f"{tag}: {g} goles en la 1.ª mitad"
+        if leg["op"] == "over" and res == "win":
+            return "EN_JUEGO", f"{tag}: {g} gol(es) en la 1.ª mitad — CUMPLIDA PROVISIONAL (VAR)"
+        return "EN_JUEGO", f"{tag}: {g} goles en la 1.ª mitad (línea {leg['op']} {leg['linea']})"
+    if mk == "handicap":
+        h90, a90 = score90(e) if fin else (h, a)
+        res = settle_handicap_quarter(h90, a90, leg["lado"], leg["linea"])
+        name = {"win": "ganando", "half_win": "ganando la mitad (media ganada)", "void": "en devolución", "half_loss": "perdiendo la mitad (media perdida)", "lose": "perdiendo"}[res]
+        if fin:
+            return {"win": "ACERTADA", "lose": "FALLADA", "void": "ANULADA", "half_win": "MEDIA_GANADA", "half_loss": "MEDIA_PERDIDA"}[res], f"{tag}: hándicap {leg['lado']} {leg['linea']:+g}: {name}"
+        return "EN_JUEGO", f"{tag}: hándicap {leg['lado']} {leg['linea']:+g} va {name} provisional (puede cambiar)"
     if mk == "1x2":
         res = "win" if (h > a if leg["lado"] == "home" else a > h) else "lose"
         if fin:
@@ -243,8 +308,8 @@ def ticket_status(legs):
     ss = [l["estado"] for l in legs]
     if "FALLADA" in ss:
         return "PERDIDO"
-    if all(s in ("ACERTADA", "ANULADA") for s in ss):
-        return "GANADO" if any(s == "ACERTADA" for s in ss) else "ANULADO"
+    if all(s in ("ACERTADA", "ANULADA", "MEDIA_GANADA", "MEDIA_PERDIDA") for s in ss):
+        return "GANADO" if any(s in ("ACERTADA", "MEDIA_GANADA", "MEDIA_PERDIDA") for s in ss) else "ANULADO"      # una media pérdida reduce el pago (no es pérdida total)
     return "ABIERTO"
 
 

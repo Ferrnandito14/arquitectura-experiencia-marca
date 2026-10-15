@@ -25,7 +25,7 @@ import leg_model  # noqa: E402
 
 POLICY = {"n_min_walk_forward": 300, "n_min_vs_mercado": 200, "ic": 0.95, "bootstrap": 1000, "semilla": 7, "min_partidos_previos_equipo": 5, "min_partidos_previos_liga": 30,
           "nota": "decisión de política (no un hecho estadístico): se puede endurecer; con menos partidos el resultado es «no_concluyente»"}
-FAMILIES_WITH_ODDS = ("goals_total", "btts", "1x2", "dc")
+FAMILIES_WITH_ODDS = ("goals_total", "btts", "1x2", "dc", "team_goals", "corners_total")       # con cuotas de cierre de TheStatsAPI (backtest_cierre.py); tarjetas: la fuente no documenta su definición
 LAST_N = 10
 
 
@@ -209,7 +209,7 @@ def evaluate_vs_market(records, pol=POLICY):
         d = bootstrap_diff(cl, pol["bootstrap"], pol["ic"], pol["semilla"])
         n = len(cl)
         grid = {f"w={w}": round(sum(brier(w * r["p_modelo"] + (1 - w) * r["p_mercado"], r["y"]) for r in rs) / len(rs), 4) for w in (0, 0.25, 0.5, 0.75, 1)}
-        edge = [r for r in rs if r["p_modelo"] > r["p_mercado"]]
+        edge = [r for r in rs if r["p_modelo"] > r["p_mercado"] and r.get("cuota")]          # el ROI solo se calcula donde hay cuota real (no en mercados derivados)
         roi = None if not edge else round(sum((r["cuota"] - 1) if r["y"] else -1 for r in edge) / len(edge), 4)
         out[fam] = {"partidos": n, "predicciones": len(rs), "brier_modelo": round(sum(brier(r["p_modelo"], r["y"]) for r in rs) / len(rs), 4),
                     "brier_mercado": round(sum(brier(r["p_mercado"], r["y"]) for r in rs) / len(rs), 4), "logloss_modelo": round(sum(logloss(r["p_modelo"], r["y"]) for r in rs) / len(rs), 4),

@@ -175,9 +175,9 @@ class Decision(unittest.TestCase):
         self.assertEqual(v["nivel"], "insuficiente")
 
     def test_familias_sin_cuotas_historicas_nunca_pasan_de_parcial(self):
-        v = bt.decide_validation(self.wf("corners_total", "supera"), {})
-        self.assertEqual(v["familias"]["corners_total"]["nivel"], "parcial")
-        self.assertEqual(v["familias"]["corners_total"]["vs_mercado"], "no_evaluable_sin_cuotas_historicas")
+        v = bt.decide_validation(self.wf("cards_total", "supera"), {})
+        self.assertEqual(v["familias"]["cards_total"]["nivel"], "parcial")
+        self.assertEqual(v["familias"]["cards_total"]["vs_mercado"], "no_evaluable_sin_cuotas_historicas")
         self.assertEqual(v["nivel"], "parcial")
 
     def test_global_suficiente_exige_todas_las_familias(self):
