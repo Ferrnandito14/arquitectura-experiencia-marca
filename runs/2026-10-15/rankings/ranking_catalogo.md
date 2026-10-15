@@ -8,16 +8,16 @@ Nada de esto es una recomendación: el modelo propio no está validado y las pro
 
 {
  "patas_catalogo": 15322,
- "elegibles_para_combinadas": 96,
+ "elegibles_para_combinadas": 76,
  "por_motivo_de_exclusion": {
   "brecha_modelo_vs_precio": 807,
   "cuota_sobre_2.1": 1995,
-  "degradada:deportivo:BAJA": 2959,
-  "elegible": 96,
-  "rechazada:auditor:descartar_de_rankings": 130,
-  "rechazada:auditor:verificar_manualmente": 957,
-  "rechazada:cuantitativo:datos_insuficientes": 1175,
-  "rechazada:cuantitativo:sin_estimador": 9030,
+  "degradada:deportivo:BAJA": 3011,
+  "elegible": 76,
+  "rechazada:auditor:descartar_de_rankings": 132,
+  "rechazada:auditor:verificar_manualmente": 959,
+  "rechazada:cuantitativo:datos_insuficientes": 783,
+  "rechazada:cuantitativo:sin_estimador": 9400,
   "rechazada:verificador:discrepancia_de_la_unidad": 527,
   "rechazada:verificador:no_verificable": 164,
   "sin_estimador_propio": 10127,
@@ -30,63 +30,62 @@ Nada de esto es una recomendación: el modelo propio no está validado y las pro
   "no_verificable": 67
  },
  "por_agentes": {
-  "degradada": 2959,
-  "rechazada": 11983,
-  "aprobada": 350,
+  "degradada": 3011,
+  "rechazada": 11965,
   "objetada": 26,
-  "precio_nuevo_sin_revisar": 4
+  "aprobada": 314,
+  "precio_nuevo_sin_revisar": 6
  },
  "con_estimador": 5195
 }
 
 ## Combinadas
 
-### x1.2 (cuota 1.2–1.28, hasta 2 patas; evaluadas 465)
+### x1.2 (cuota 1.2–1.28, hasta 2 patas; evaluadas 496)
 
 **#1** cuota ×1.2 · P(modelo) 84.4% · P(pérdida) 15.6% · agentes: APROBADA · apta: NO_APTA (falta: precio_real_verificado, modelo_validado)
 _REFERENCIA (alguna pata solo tiene precio de agregador: no ejecutable)_
 - Ferencváros – Viktoria Plzen · Más de 1.5 goles @1.2 (referencia) · p=0.84
 
-**#2** cuota ×1.25 · P(modelo) 82.5% · P(pérdida) 17.5% · agentes: APROBADA · apta: NO_APTA (falta: precio_real_verificado, modelo_validado)
+**#2** cuota ×1.222 · P(modelo) 83.8% · P(pérdida) 16.2% · agentes: APROBADA · apta: NO_APTA (falta: precio_real_verificado, modelo_validado)
+_REFERENCIA (alguna pata solo tiene precio de agregador: no ejecutable)_
+- Ferencváros – Viktoria Plzen · Viktoria Plzen: menos de 2.5 goles @1.1 (referencia) · p=0.92
+- Estudiantes de La Plata – Flamengo · Flamengo: menos de 2.5 goles @1.111 (referencia) · p=0.91
+
+**#3** cuota ×1.25 · P(modelo) 82.5% · P(pérdida) 17.5% · agentes: APROBADA · apta: NO_APTA (falta: precio_real_verificado, modelo_validado)
 _REFERENCIA (alguna pata solo tiene precio de agregador: no ejecutable)_
 - Ferencváros – Viktoria Plzen · Gana alguno, sin empate (12) @1.25 (referencia) · p=0.83
 
-**#3** cuota ×1.234 · P(modelo) 82.1% · P(pérdida) 17.9% · agentes: APROBADA · apta: NO_APTA (falta: precio_real_verificado, modelo_validado)
-_REFERENCIA (alguna pata solo tiene precio de agregador: no ejecutable)_
-- Estudiantes de La Plata – Flamengo · Flamengo: menos de 2.5 goles @1.111 (referencia) · p=0.91
-- Salzburg – Milan · Menos de 12.5 córners @1.111 (referencia) · p=0.90
-
 ### x3 (cuota 2.8–3.4, hasta 4 patas; evaluadas 9108)
 
-**#1** cuota ×2.887 · P(modelo) 51.8% · P(pérdida) 48.2% · agentes: APROBADA · apta: NO_APTA (falta: precio_real_verificado, modelo_validado)
-_REFERENCIA (alguna pata solo tiene precio de agregador: no ejecutable)_
-- Dinamo Zagreb – RSC Anderlecht · 1.ª parte: más de 0.5 goles @1.333 (referencia) · p=0.82
-- Estudiantes de La Plata – Flamengo · Estudiantes de La Plata: más de 3.5 córners @1.5 (referencia) · p=0.80
-- Salzburg – Milan · Milan: menos de 5.5 córners @1.444 (referencia) · p=0.79
-
-**#2** cuota ×2.925 · P(modelo) 47.6% · P(pérdida) 52.4% · agentes: APROBADA · apta: NO_APTA (falta: precio_real_verificado, modelo_validado)
+**#1** cuota ×2.925 · P(modelo) 47.6% · P(pérdida) 52.4% · agentes: APROBADA · apta: NO_APTA (falta: precio_real_verificado, modelo_validado)
 _REFERENCIA (alguna pata solo tiene precio de agregador: no ejecutable)_
 - Estudiantes de La Plata – Flamengo · Estudiantes de La Plata: más de 3.5 córners @1.5 (referencia) · p=0.80
 - Rennes – OFI · Ambos anotan: sí @1.95 (referencia) · p=0.59
 
-**#3** cuota ×3.223 · P(modelo) 44.5% · P(pérdida) 55.5% · agentes: APROBADA · apta: NO_APTA (falta: precio_real_verificado, modelo_validado)
+**#2** cuota ×3.15 · P(modelo) 45.1% · P(pérdida) 54.9% · agentes: APROBADA · apta: NO_APTA (falta: precio_real_verificado, modelo_validado)
 _REFERENCIA (alguna pata solo tiene precio de agregador: no ejecutable)_
-- Salzburg – Milan · Milan: menos de 4.5 córners @1.8415 (referencia) · p=0.68
+- Bournemouth – Sturm Graz · Más de 9.5 córners @1.8 (referencia) · p=0.69
 - Twente – Thun · Ambos anotan: sí @1.75 (referencia) · p=0.65
+
+**#3** cuota ×2.812 · P(modelo) 43.1% · P(pérdida) 56.9% · agentes: APROBADA · apta: NO_APTA (falta: precio_real_verificado, modelo_validado)
+_REFERENCIA (alguna pata solo tiene precio de agregador: no ejecutable)_
+- Estudiantes de La Plata – Flamengo · Flamengo: menos de 1.5 goles @1.442 (referencia) · p=0.73
+- Rennes – OFI · Ambos anotan: sí @1.95 (referencia) · p=0.59
 
 ### x4 (cuota 4.0–4.8, hasta 5 patas; evaluadas 21699)
 
-**#1** cuota ×4.549 · P(modelo) 31.8% · P(pérdida) 68.2% · agentes: APROBADA · apta: NO_APTA (falta: precio_real_verificado, modelo_validado)
-_REFERENCIA (alguna pata solo tiene precio de agregador: no ejecutable)_
-- Dinamo Zagreb – RSC Anderlecht · 1.ª parte: más de 0.5 goles @1.333 (referencia) · p=0.82
-- Twente – Thun · Ambos anotan: sí @1.75 (referencia) · p=0.65
-- Rennes – OFI · Ambos anotan: sí @1.95 (referencia) · p=0.59
-
-**#2** cuota ×4.034 · P(modelo) 28.8% · P(pérdida) 71.2% · agentes: OBJETADA · apta: NO_APTA (falta: precio_real_verificado, modelo_validado, revision_agentes_completa)
+**#1** cuota ×4.725 · P(modelo) 30.3% · P(pérdida) 69.7% · agentes: APROBADA · apta: NO_APTA (falta: precio_real_verificado, modelo_validado)
 _REFERENCIA (alguna pata solo tiene precio de agregador: no ejecutable)_
 - Huracán – Gimnasia La Plata · Más de 1.5 goles @1.5 (referencia) · p=0.67
-- Ferencváros – Viktoria Plzen · Más de 2.5 goles @1.63 (ejecutable) · p=0.67
-- Dinamo Zagreb – RSC Anderlecht · Ambos anotan: sí @1.65 (referencia) · p=0.64
+- Bournemouth – Sturm Graz · Más de 9.5 córners @1.8 (referencia) · p=0.69
+- Twente – Thun · Ambos anotan: sí @1.75 (referencia) · p=0.65
+
+**#2** cuota ×4.328 · P(modelo) 28.3% · P(pérdida) 71.7% · agentes: OBJETADA · apta: NO_APTA (falta: precio_real_verificado, modelo_validado, revision_agentes_completa)
+_REFERENCIA (alguna pata solo tiene precio de agregador: no ejecutable)_
+- Huracán – Gimnasia La Plata · Más de 1.5 goles @1.5 (referencia) · p=0.67
+- Rennes – OFI · Menos de 3.5 goles @1.63 (ejecutable) · p=0.65
+- Dinamo Zagreb – RSC Anderlecht · Más de 2.5 goles @1.77 (ejecutable) · p=0.65
 
 ## Rankings por grupo de mercado
 
@@ -154,13 +153,21 @@ _REFERENCIA (alguna pata solo tiene precio de agregador: no ejecutable)_
 - Celta de Vigo – Juventus · Local o empate (1X) · p=0.71 · mínima justa 1.418 · cuota 1.725 (referencia)
 - Al Hazm – Al Fateh · Local o empate (1X) · p=0.81 · mínima justa 1.231 · cuota 1.475 (referencia)
 
-### empate no válido (0 entradas con estimador)
+### empate no válido (18 entradas con estimador)
 
 **Más probables (cuota mínima justa ≤ 2.10)**
-- (ninguna)
+- Salzburg – Milan · Empate no válido: local · p=0.85 · mínima justa 1.178 · cuota 2.68 (referencia)
+- Ferencváros – Viktoria Plzen · Empate no válido: local · p=0.83 · mínima justa 1.206 · cuota 1.44 (referencia)
+- Benfica – Celtic · Empate no válido: local · p=0.75 · mínima justa 1.339 · cuota 1.071 (referencia)
+- Lugano – Crvena zvezda · Empate no válido: visitante · p=0.68 · mínima justa 1.469 · cuota 1.84 (referencia)
+- Torreense – Sunderland · Empate no válido: local · p=0.65 · mínima justa 1.55 · cuota 6.0 (referencia)
 
 **Mayor EV teórico con precio ≤ 2.10**
-- (ninguna)
+- Lugano – Crvena zvezda · Empate no válido: visitante · p=0.68 · mínima justa 1.469 · cuota 1.84 (referencia)
+- Ferencváros – Viktoria Plzen · Empate no válido: local · p=0.83 · mínima justa 1.206 · cuota 1.44 (referencia)
+- Dinamo Zagreb – RSC Anderlecht · Empate no válido: local · p=0.63 · mínima justa 1.599 · cuota 1.46 (referencia)
+- Benfica – Celtic · Empate no válido: local · p=0.75 · mínima justa 1.339 · cuota 1.071 (referencia)
+- Bournemouth – Sturm Graz · Empate no válido: local · p=0.61 · mínima justa 1.632 · cuota 1.05 (referencia)
 
 ### fueras de juego (0 entradas con estimador)
 

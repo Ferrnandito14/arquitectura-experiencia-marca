@@ -1,0 +1,1453 @@
+{
+ "agente": "deportivo",
+ "version_contrato": 1,
+ "run": "runs/2026-10-15",
+ "unidades": [
+  {
+   "unit_id": "m-9e70d0113380|1.ª parte goles",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Inter y Llaneros con gol en 1T en 8/10 cada uno (n10, liga y Copa mezcladas). Sin modelo, árbitro ni alineaciones; rotación a priori baja. Over 0.5 1T como sesgo débil.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9e70d0113380|1.ª parte goles",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/475.json"
+   ]
+  },
+  {
+   "unit_id": "m-9e70d0113380|1.ª parte resultado",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "empate",
+   "escenario_perdida": "goleada_local",
+   "nota": "1T empatado en 8/10 de Inter y 5/10 de Llaneros (n10). Sin modelo propio ni alineaciones; rotación a priori baja. Empate 1T como sesgo débil.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9e70d0113380|1.ª parte resultado",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/475.json"
+   ]
+  },
+  {
+   "unit_id": "m-9e70d0113380|córners",
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Córners totales: partidos de Inter 11.2 (n10), Llaneros 9.3 (n10); liga 10.0 (n56). Muestras mixtas liga/Copa, sin árbitro ni modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9e70d0113380|córners",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/475.json"
+   ]
+  },
+  {
+   "unit_id": "m-9e70d0113380|doble oportunidad",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Inter 2G-6E-2P y Llaneros 3G-0E-7P en sus últimos 10 (mixtos). 1X plausible pero sin modelo; cuotas de agregador, no ejecutables.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9e70d0113380|doble oportunidad",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/475.json"
+   ]
+  },
+  {
+   "unit_id": "m-9e70d0113380|empate no válido",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Inter casi no pierde (2P en 10) pero empata mucho (6E); Llaneros pierde 7/10. Sin modelo; precios DNB no verificables. Con empate se devuelve.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9e70d0113380|empate no válido",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/475.json"
+   ]
+  },
+  {
+   "unit_id": "m-9e70d0113380|fueras de juego",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni estimador para fueras de juego; no hay base para valorar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9e70d0113380|fueras de juego",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/475.json"
+   ]
+  },
+  {
+   "unit_id": "m-9e70d0113380|goles",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Over 2.5 en 5/10 (Inter) y 6/10 (Llaneros); BTTS 7/10 y 6/10; media liga 2.69 (n59). Cuota R favorece under 2.5; sin modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9e70d0113380|goles",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/475.json"
+   ]
+  },
+  {
+   "unit_id": "m-9e70d0113380|goles por equipo",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Inter 1.3 GF/1.4 GC; Llaneros 1.2 GF/1.5 GC (n10 cada uno, mixtos). Ambos marcan en la mayoría; sin modelo ni alineaciones.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9e70d0113380|goles por equipo",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/475.json"
+   ]
+  },
+  {
+   "unit_id": "m-9e70d0113380|goles total entero",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Línea entera sin extractor ni estimador; push posible no modelado. No evaluable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9e70d0113380|goles total entero",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/475.json"
+   ]
+  },
+  {
+   "unit_id": "m-9e70d0113380|hándicap",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Equipos igualados en 10 partidos mixtos (Inter 2G-6E-2P). Líneas AH sin cuota verificable; sin modelo. No hay sesgo claro.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9e70d0113380|hándicap",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/475.json"
+   ]
+  },
+  {
+   "unit_id": "m-9e70d0113380|hándicap asiático entero",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "AH entero sin extractor ni estimador; devolución posible no modelada. No evaluable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9e70d0113380|hándicap asiático entero",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/475.json"
+   ]
+  },
+  {
+   "unit_id": "m-9e70d0113380|hándicap europeo",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Hándicap europeo sin extractor ni estimador. No evaluable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9e70d0113380|hándicap europeo",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/475.json"
+   ]
+  },
+  {
+   "unit_id": "m-9e70d0113380|remates",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Remates: estimador no implementado; datos de tiros parciales. No evaluable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9e70d0113380|remates",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/475.json"
+   ]
+  },
+  {
+   "unit_id": "m-9e70d0113380|remates a puerta",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Remates a puerta: estimador no implementado; datos de tiros parciales. No evaluable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9e70d0113380|remates a puerta",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/475.json"
+   ]
+  },
+  {
+   "unit_id": "m-9e70d0113380|resultado",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_abierto",
+   "nota": "1X2 R: local 2.05/empate 2.9/visit 4.0. Inter empata 6/10 y Llaneros pierde 7/10; Inter ganó 3-2 a Llaneros el 12-sep. Sin modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9e70d0113380|resultado",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/475.json"
+   ]
+  },
+  {
+   "unit_id": "m-9e70d0113380|tarjetas",
+   "solidez": "BAJA",
+   "factor_principal": "arbitro",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "tarjetas_atipicas",
+   "nota": "Árbitro sin designar. Puntos de tarjetas: Inter 5.3 (n9), Llaneros 6.2 (n9); muestra de liga solo n14 con datos. Sin modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9e70d0113380|tarjetas",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/475.json"
+   ]
+  },
+  {
+   "unit_id": "m-a56b519cc248|1.ª parte goles",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Bournemouth con gol en 1T 9/10, Sturm 5/10 (n10 mixtos). Modelo over 0.5 1T 0.67, sin validar. Sturm rota 6 cambios; sin alineaciones.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a56b519cc248|1.ª parte goles",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-a56b519cc248|1.ª parte resultado",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "empate",
+   "escenario_perdida": "goleada_local",
+   "nota": "Modelo: empate 1T 0.44 (local 0.33). Bournemouth 1T empatado 2/10, Sturm 6/10. Modelo sin validar; el 1T depende de alineaciones.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a56b519cc248|1.ª parte resultado",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-a56b519cc248|córners",
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Córners totales: Bournemouth 9.7 (n10), Sturm 12.9 (n10, ligas y copas mezcladas); liga 9.5 (n119). Modelo over 9.5 0.69, sin validar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a56b519cc248|córners",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-a56b519cc248|doble oportunidad",
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "local",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Sturm rota mucho (6 cambios de media, n4); Bournemouth rotación baja. Modelo 1X 0.71, sin validar; cuota 1.03 de agregador.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a56b519cc248|doble oportunidad",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-a56b519cc248|empate no válido",
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "local",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Bournemouth solo 2G en 10 (5E, 3P), aunque ante rivales fuertes; Sturm rota mucho. Modelo sin validar; cuota DNB de agregador.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a56b519cc248|empate no válido",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-a56b519cc248|fueras de juego",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni estimador para fueras de juego; no hay base para valorar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a56b519cc248|fueras de juego",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-a56b519cc248|goles",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Over 2.5: Bournemouth 6/10, Sturm 4/10; BTTS 8/10 y 4/10. Media liga 2.73 (n119). Modelo over 2.5 0.51, margen mínimo; sin validar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a56b519cc248|goles",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-a56b519cc248|goles por equipo",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Bournemouth 1.5 GF/1.6 GC; Sturm 1.3 GF/1.0 GC (n10; Sturm vs rivales austríacos más débiles). Modelo sin validar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a56b519cc248|goles por equipo",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-a56b519cc248|goles total entero",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Línea entera sin extractor ni estimador; push posible no modelado. No evaluable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a56b519cc248|goles total entero",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-a56b519cc248|hándicap",
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "local",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Modelo da local -0.5 0.46 y -1.5 0.23; mercado mucho más favorable al local. Sturm rota 6 cambios. Margen sin validar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a56b519cc248|hándicap",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-a56b519cc248|hándicap asiático entero",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "AH entero sin extractor ni estimador; devolución posible no modelada. No evaluable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a56b519cc248|hándicap asiático entero",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-a56b519cc248|hándicap europeo",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Hándicap europeo sin extractor ni estimador. No evaluable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a56b519cc248|hándicap europeo",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-a56b519cc248|remates",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Remates: estimador no implementado; datos de tiros suficientes. No evaluable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a56b519cc248|remates",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-a56b519cc248|remates a puerta",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Remates a puerta: estimador no implementado; datos de tiros suficientes. No evaluable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a56b519cc248|remates a puerta",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-a56b519cc248|resultado",
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "local",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Cuota R local 1.20 contra modelo 0.46: contradicción fuerte. Bournemouth 2G-5E-3P en 10; Sturm rota 6 cambios. No usar p del modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a56b519cc248|resultado",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-a56b519cc248|tarjetas",
+   "solidez": "BAJA",
+   "factor_principal": "arbitro",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "tarjetas_atipicas",
+   "nota": "Árbitro J. Brisard sin muestra en la liga (n0). Puntos: Bournemouth 4.5 (n10), Sturm 4.75 (n8); liga 4.2 (n115, tarjetas). Modelo sin validar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a56b519cc248|tarjetas",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-a95805fcf9cf|1.ª parte goles",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Brighton con gol 1T 8/10; Kauno 5/10, ante rivales lituanos. Modelo over 0.5 1T 0.78, sin validar. Kauno rota 4 cambios y descanso 4 días.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a95805fcf9cf|1.ª parte goles",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/683.json"
+   ]
+  },
+  {
+   "unit_id": "m-a95805fcf9cf|1.ª parte resultado",
+   "solidez": "BAJA",
+   "factor_principal": "calendario_descanso",
+   "direccion_favorable": "local",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Modelo local 1T 0.41, empate 0.36. Brighton 1T empatado 2/10; Kauno con descanso justo (4 días) y rotación. Modelo sin validar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a95805fcf9cf|1.ª parte resultado",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/683.json"
+   ]
+  },
+  {
+   "unit_id": "m-a95805fcf9cf|córners",
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Córners totales: Brighton 9.5 (n10), Kauno 12.0 (n10, liga lituana); liga 9.3 (n258). Modelo over 9.5 0.65, sin validar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a95805fcf9cf|córners",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/683.json"
+   ]
+  },
+  {
+   "unit_id": "m-a95805fcf9cf|doble oportunidad",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Brighton 6G-2E-2P en 10; Kauno rota 4 cambios y 4 días de descanso. Modelo 1X 0.75 vs cuota 1.01 de agregador: choque. Sin validar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a95805fcf9cf|doble oportunidad",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/683.json"
+   ]
+  },
+  {
+   "unit_id": "m-a95805fcf9cf|empate no válido",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Brighton 6G-2E-2P en 10; Kauno solo muestra rivales lituanos y perdió 0-3 en Besiktas, ganó 1-0 en casa. Cuota DNB de agregador.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a95805fcf9cf|empate no válido",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/683.json"
+   ]
+  },
+  {
+   "unit_id": "m-a95805fcf9cf|fueras de juego",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni estimador para fueras de juego; no hay base para valorar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a95805fcf9cf|fueras de juego",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/683.json"
+   ]
+  },
+  {
+   "unit_id": "m-a95805fcf9cf|goles",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Over 2.5: Brighton 7/10, Kauno 5/10; BTTS 3/10 y 2/10. Modelo over 0.59 vs cuota 1.135 de agregador: choque. Rival de calidad desigual.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a95805fcf9cf|goles",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/683.json"
+   ]
+  },
+  {
+   "unit_id": "m-a95805fcf9cf|goles por equipo",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Brighton 2.5 GF/1.0 GC (n10); Kauno 2.0 GF/0.7 GC contra liga lituana. Goles del local altos, visitante poco expuesto a nivel.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a95805fcf9cf|goles por equipo",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/683.json"
+   ]
+  },
+  {
+   "unit_id": "m-a95805fcf9cf|goles total entero",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Línea entera sin extractor ni estimador; push posible no modelado. No evaluable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a95805fcf9cf|goles total entero",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/683.json"
+   ]
+  },
+  {
+   "unit_id": "m-a95805fcf9cf|hándicap",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Brighton favorito claro por forma y categoría, pero modelo y cuota de mercado difieren mucho. Líneas de agregador; sin validar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a95805fcf9cf|hándicap",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/683.json"
+   ]
+  },
+  {
+   "unit_id": "m-a95805fcf9cf|hándicap asiático entero",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "AH entero sin extractor ni estimador; devolución posible no modelada. No evaluable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a95805fcf9cf|hándicap asiático entero",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/683.json"
+   ]
+  },
+  {
+   "unit_id": "m-a95805fcf9cf|hándicap europeo",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Hándicap europeo sin extractor ni estimador. No evaluable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a95805fcf9cf|hándicap europeo",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/683.json"
+   ]
+  },
+  {
+   "unit_id": "m-a95805fcf9cf|remates",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Remates: estimador no implementado; datos de tiros insuficientes. No evaluable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a95805fcf9cf|remates",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/683.json"
+   ]
+  },
+  {
+   "unit_id": "m-a95805fcf9cf|remates a puerta",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Remates a puerta: estimador no implementado; datos de tiros insuficientes. No evaluable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a95805fcf9cf|remates a puerta",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/683.json"
+   ]
+  },
+  {
+   "unit_id": "m-a95805fcf9cf|resultado",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Cuota R local 1.02 vs modelo 0.52: contradicción. Brighton 6G-2E-2P; Kauno rota 4 cambios con 4 días de descanso. Cuotas casi sin valor informativo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a95805fcf9cf|resultado",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/683.json"
+   ]
+  },
+  {
+   "unit_id": "m-a95805fcf9cf|tarjetas",
+   "solidez": "BAJA",
+   "factor_principal": "arbitro",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "tarjetas_atipicas",
+   "nota": "Árbitro sin designar. Puntos: Brighton 3.5 (n10), Kauno 4.56 (n9); liga 4.2 (n243). Brighton con pocas tarjetas, rival menor. Modelo sin validar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-a95805fcf9cf|tarjetas",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/683.json"
+   ]
+  },
+  {
+   "unit_id": "m-b0b717452609|1.ª parte goles",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Gol en 1T: Lyon 7/10, Palace 8/10 (n10; Palace incluye 2 de Como Cup). Modelo over 0.5 1T 0.78 sin validar. Lyon rota 5.7 cambios.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-b0b717452609|1.ª parte goles",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-b0b717452609|1.ª parte resultado",
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "goleada_local",
+   "nota": "Modelo 1T: local 0.43, empate 0.36, visit 0.21. Lyon rota mucho (5.7 cambios); 1T incierto sin once. Modelo sin validar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-b0b717452609|1.ª parte resultado",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-b0b717452609|córners",
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "under",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Córners totales: Lyon 9.7 (n10), Palace 8.0 (n9); liga 9.5 (n119). Modelo over 9.5 solo 0.41, sin validar. Muestras mixtas.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-b0b717452609|córners",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-b0b717452609|doble oportunidad",
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "local",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Lyon rota 5.7 cambios de media (n4), Palace con 4 días de descanso. Modelo 1X 0.77 vs cuota 1.36 de agregador: coherentes. Sin validar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-b0b717452609|doble oportunidad",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-b0b717452609|empate no válido",
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "local",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Lyon 5G-3E-2P en 10; Palace 6G-1E-3P (incluye Como Cup amistoso). Lyon rota mucho. Cuota DNB de agregador, modelo sin validar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-b0b717452609|empate no válido",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-b0b717452609|fueras de juego",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni estimador para fueras de juego; no hay base para valorar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-b0b717452609|fueras de juego",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-b0b717452609|goles",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Over 2.5: Lyon 6/10, Palace 7/10; BTTS 6/10 y 5/10. Modelo over 0.58 alineado con cuota R 1.61; media liga 2.73. Sin validar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-b0b717452609|goles",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-b0b717452609|goles por equipo",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Lyon 1.8 GF/0.8 GC; Palace 2.1 GF/1.3 GC (n10; incluye partidos de Como Cup). Rotación de Lyon puede bajar su ataque.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-b0b717452609|goles por equipo",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-b0b717452609|goles total entero",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Línea entera sin extractor ni estimador; push posible no modelado. No evaluable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-b0b717452609|goles total entero",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-b0b717452609|hándicap",
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Partido parejo en cuotas R (local 2.14, visit 3.1). Lyon rota mucho. Modelo local 0.55 sin validar; líneas AH de agregador.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-b0b717452609|hándicap",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-b0b717452609|hándicap asiático entero",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "AH entero sin extractor ni estimador; devolución posible no modelada. No evaluable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-b0b717452609|hándicap asiático entero",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-b0b717452609|hándicap europeo",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Hándicap europeo sin extractor ni estimador. No evaluable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-b0b717452609|hándicap europeo",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-b0b717452609|remates",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Remates: estimador no implementado; datos de tiros suficientes. No evaluable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-b0b717452609|remates",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-b0b717452609|remates a puerta",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Remates a puerta: estimador no implementado; datos de tiros suficientes. No evaluable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-b0b717452609|remates a puerta",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-b0b717452609|resultado",
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Modelo local 0.55, empate 0.23, visit 0.23 vs cuotas R 2.14/3.6/3.1: empate infravalorado por el modelo. Lyon rota 5.7 cambios.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-b0b717452609|resultado",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-b0b717452609|tarjetas",
+   "solidez": "BAJA",
+   "factor_principal": "arbitro",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "tarjetas_atipicas",
+   "nota": "Árbitro J. Pinheiro: solo n2 en la liga (1 y 2 tarjetas). Puntos: Lyon 3.5 (n10), Palace 3.14 (n7); liga 4.2 (n115). Modelo sin validar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-b0b717452609|tarjetas",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-c5c750ddb126|1.ª parte goles",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Gol en 1T: Jagiellonia 9/10, Ararat 7/10 (n10). Sin modelo; ambos rotan mucho (5.0 y 5.5 cambios); sin alineaciones. Over 0.5 1T débil.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c5c750ddb126|1.ª parte goles",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-c5c750ddb126|1.ª parte resultado",
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "empate",
+   "escenario_perdida": "goleada_local",
+   "nota": "1T empatado en 4/10 (Jagiellonia) y 6/10 (Ararat). Ambos rotan mucho; sin modelo ni once publicado. Empate 1T débil.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c5c750ddb126|1.ª parte resultado",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-c5c750ddb126|córners",
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Córners totales: Jagiellonia 9.9 (n10), Ararat 9.6 (n10, mezcla liga armenia y Europa); liga 9.5 (n119). Sin modelo ni árbitro.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c5c750ddb126|córners",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-c5c750ddb126|doble oportunidad",
+   "solidez": "BAJA",
+   "factor_principal": "contexto_competicion",
+   "direccion_favorable": "local",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Jagiellonia perdió los últimos 4 (Wisla/Olympiacos/Legia/Górnik); Ararat sale de liga armenia y perdió 1-4 con Sparta. Sin modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c5c750ddb126|doble oportunidad",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-c5c750ddb126|empate no válido",
+   "solidez": "BAJA",
+   "factor_principal": "contexto_competicion",
+   "direccion_favorable": "local",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Jagiellonia en mala racha (4 derrotas en 5) pero superior en categoría a Ararat. Ambos rotan mucho. Cuota DNB de agregador; sin modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c5c750ddb126|empate no válido",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-c5c750ddb126|fueras de juego",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni estimador para fueras de juego; no hay base para valorar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c5c750ddb126|fueras de juego",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-c5c750ddb126|goles",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Over 2.5: Jagiellonia 8/10, Ararat 4/10; BTTS 8/10 y 6/10. Cuotas R: over 1.58/under 2.3. Defensa local concede 1.7. Sin modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c5c750ddb126|goles",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-c5c750ddb126|goles por equipo",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Jagiellonia 1.8 GF/1.7 GC; Ararat 1.5 GF/1.0 GC (n10, contra rivales armenios más débiles). Sin modelo; rotación alta.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c5c750ddb126|goles por equipo",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-c5c750ddb126|goles total entero",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Línea entera sin extractor ni estimador; push posible no modelado. No evaluable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c5c750ddb126|goles total entero",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-c5c750ddb126|hándicap",
+   "solidez": "BAJA",
+   "factor_principal": "contexto_competicion",
+   "direccion_favorable": "local",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Local favorito en cuota R (1.38), pero su forma reciente es mala y ambos rotan. Líneas AH sin cuota verificada; sin modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c5c750ddb126|hándicap",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-c5c750ddb126|hándicap asiático entero",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "AH entero sin extractor ni estimador; devolución posible no modelada. No evaluable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c5c750ddb126|hándicap asiático entero",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-c5c750ddb126|hándicap europeo",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Hándicap europeo sin extractor ni estimador. No evaluable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c5c750ddb126|hándicap europeo",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-c5c750ddb126|remates",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Remates: estimador no implementado; datos de tiros insuficientes. No evaluable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c5c750ddb126|remates",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-c5c750ddb126|remates a puerta",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Remates a puerta: estimador no implementado; datos de tiros parciales. No evaluable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c5c750ddb126|remates a puerta",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-c5c750ddb126|resultado",
+   "solidez": "BAJA",
+   "factor_principal": "contexto_competicion",
+   "direccion_favorable": "local",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Cuota R local 1.38. Jagiellonia perdió los últimos 4 de 10 mixtos; Ararat flojo fuera de su liga. Rotación alta en ambos; sin modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c5c750ddb126|resultado",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-c5c750ddb126|tarjetas",
+   "solidez": "BAJA",
+   "factor_principal": "arbitro",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "tarjetas_atipicas",
+   "nota": "Árbitro A. Papapetrou sin muestra en la liga (n0). Puntos: Jagiellonia 3.56 (n9), Ararat 4.0 (n8); liga 4.2 (n115). Sin modelo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c5c750ddb126|tarjetas",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-cb7c9addd164|1.ª parte goles",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Gol en 1T: Sparta 10/10 (media 1.8), Lillestrom 8/10 (n10). Modelo over 0.5 1T 0.83 sin validar. Rotación alta del local; sin once.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-cb7c9addd164|1.ª parte goles",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-cb7c9addd164|1.ª parte resultado",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Modelo 1T: local 0.51, empate 0.31. Sparta casi nunca llega empatado al descanso (0/10 en la muestra). Sin validar; rotación del local.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-cb7c9addd164|1.ª parte resultado",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-cb7c9addd164|córners",
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Córners totales: Sparta 11.5 (n10), Lillestrom 12.4 (n9); liga 9.5 (n119). Modelo over 9.5 0.75, sin validar. Mezcla de ligas/copas.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-cb7c9addd164|córners",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-cb7c9addd164|doble oportunidad",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Sparta 7G-0E-3P en 10 (goleadas a rivales checos menores, 0-3 con Lyon y Slavia). Modelo 1X 0.83 sin validar; local rota 4.7 cambios.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-cb7c9addd164|doble oportunidad",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-cb7c9addd164|empate no válido",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Sparta 7G-0E-3P (sin empates); Lillestrom 4G-3E-3P contra rivales noruegos. Modelo sin validar; local rota 4.7 cambios.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-cb7c9addd164|empate no válido",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-cb7c9addd164|fueras de juego",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni estimador para fueras de juego; no hay base para valorar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-cb7c9addd164|fueras de juego",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-cb7c9addd164|goles",
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Over 2.5: Sparta 8/10, Lillestrom 7/10; modelo 0.66 y cuota R coherentes. Pero modelo sin validar, rotación del local y muestras mixtas.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-cb7c9addd164|goles",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-cb7c9addd164|goles por equipo",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Sparta 2.5 GF/1.0 GC; Lillestrom 1.7 GF/1.4 GC (n10; goleadas de Sparta a equipos menores). Modelo sin validar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-cb7c9addd164|goles por equipo",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-cb7c9addd164|goles total entero",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Línea entera sin extractor ni estimador; push posible no modelado. No evaluable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-cb7c9addd164|goles total entero",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-cb7c9addd164|hándicap",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Modelo local ganador 0.65; Sparta fuerte en casa de liga pero perdió 0-3 ante rivales fuertes. Líneas AH de agregador; sin validar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-cb7c9addd164|hándicap",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-cb7c9addd164|hándicap asiático entero",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "AH entero sin extractor ni estimador; devolución posible no modelada. No evaluable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-cb7c9addd164|hándicap asiático entero",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-cb7c9addd164|hándicap europeo",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Hándicap europeo sin extractor ni estimador. No evaluable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-cb7c9addd164|hándicap europeo",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-cb7c9addd164|remates",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Remates: estimador no implementado; datos de tiros suficientes. No evaluable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-cb7c9addd164|remates",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-cb7c9addd164|remates a puerta",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Remates a puerta: estimador no implementado; datos de tiros suficientes. No evaluable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-cb7c9addd164|remates a puerta",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-cb7c9addd164|resultado",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Cuota R local 1.35; modelo 0.65. Sparta 7G-0E-3P; Lillestrom 4G-3E-3P. Local con 4 días de descanso y 4.7 cambios por partido.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-cb7c9addd164|resultado",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  },
+  {
+   "unit_id": "m-cb7c9addd164|tarjetas",
+   "solidez": "BAJA",
+   "factor_principal": "arbitro",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "tarjetas_atipicas",
+   "nota": "Árbitro M. Matosa sin muestra en la liga (n0). Puntos: Sparta 3.4 (n10), Lillestrom 3.29 (n7); liga 4.2 (n115). Modelo sin validar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-cb7c9addd164|tarjetas",
+    "archivo:runs/2026-10-15/matrix.json",
+    "archivo:runs/2026-10-15/rotation.json",
+    "archivo:runs/2026-10-15/league_samples/4.json"
+   ]
+  }
+ ],
+ "limitaciones": [
+  "Sin alineaciones publicadas (sin_snapshot): rotación estimada a priori con rotation.json (cambios medios de los últimos 4 partidos).",
+  "Forma = historial propio mixto (liga, copa y Europa, n<=10), sin ajuste por rival; Palace incluye Como Cup y Kauno/Ararat/Sturm rivales de ligas menores.",
+  "Inter Bogotá–Llaneros y Jagiellonia–Ararat sin probabilidad del modelo; árbitros sin muestra en la liga salvo Pinheiro (n2).",
+  "Validación del estimador insuficiente o no evaluada en todas las unidades; cuotas de agregador no ejecutables; no se consultó API ni web."
+ ]
+}
