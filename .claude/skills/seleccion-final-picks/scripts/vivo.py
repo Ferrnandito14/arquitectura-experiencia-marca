@@ -39,10 +39,11 @@ def diff(name, old, new, wants_corners):
         return ev
     if old["estado"] != new["estado"]:
         ev.append({"live": f"▶ {name}: COMIENZA / en juego ({new['min']})", "finished": f"🏁 {name}: FINAL {new['h']}-{new['a']}"}.get(new["estado"], f"{name}: estado {new['estado']}"))
-    if (old["h"], old["a"]) != (new["h"], new["a"]) and new["h"] is not None:
+    z = lambda v: 0 if v is None else v            # sin marcador todavía = 0-0 (el inicio del partido no es un gol)
+    if (z(old["h"]), z(old["a"])) != (z(new["h"]), z(new["a"])) and new["h"] is not None:
         last = new["goles"][-1] if new["goles"] else None
         extra = f" — {last[1]} ({last[0]}')" if last and last[1] else ""
-        ev.append(f"⚽ {name}: GOL {old['h']}-{old['a']} → {new['h']}-{new['a']} (min {new['min']}){extra}" + (" [marcador bajó: gol anulado]" if (new["h"] + new["a"]) < (old["h"] + old["a"]) else ""))
+        ev.append(f"⚽ {name}: GOL {z(old['h'])}-{z(old['a'])} → {new['h']}-{new['a']} (min {new['min']}){extra}" + (" [marcador bajó: gol anulado]" if (z(new["h"]) + z(new["a"])) < (z(old["h"]) + z(old["a"])) else ""))
     if sum(new["tarj"]) != sum(old["tarj"]):
         ev.append(f"🟨 {name}: tarjetas {sum(old['tarj'])} → {sum(new['tarj'])} pts (A=1,R=2) (min {new['min']})")
     if wants_corners and new["corn"] and new["corn"] != old.get("corn"):
@@ -65,10 +66,11 @@ def main(argv=None):
         return 2
     spec = common.read_json(os.path.join(a.run, "seguimiento", "tickets_abiertos.json"))
     client = common.Client(os.path.join(a.run, "cache_vivo"), os.path.join(a.run, "sources", "consultas_vivo.jsonl"), policy=common.Policy(), min_interval=0.5, ttl=5)
+    inv = {m["match_id"]: m for m in common.read_json(os.path.join(a.run, "inventory.json"))["matches"]}
     matches = {}
     for t in spec["tickets"]:
         for l in t["patas"]:
-            matches.setdefault(l["apif"], {"partido": l["partido"].split(" (")[0], "corners": False})
+            matches.setdefault(l["apif"], {"partido": l["partido"].split(" (")[0], "corners": False, "inicio": (inv.get(l["mid"]) or {}).get("normalized_datetime_utc")})
             if l["mercado"] in ("corners", "corners_equipo") or (l["mercado"] == "combo" and any(s["tipo"].startswith("corners") for s in l["subs"])):
                 matches[l["apif"]]["corners"] = True
     state_path = os.path.join(a.run, "seguimiento", "vivo_estado.json")
@@ -80,6 +82,8 @@ def main(argv=None):
         for aid, info in matches.items():
             if aid in prev["done"]:
                 continue
+            if info.get("inicio") and prev["snap"].get(aid) is None and now < datetime.datetime.fromisoformat(info["inicio"].replace("Z", "+00:00")) - datetime.timedelta(minutes=15):
+                continue            # aún falta más de 15 min para el inicio: no se consulta (ahorra descargas)
             try:
                 e = adapters.apif_call(client, key, action="get_events", match_id=aid, timezone="UTC")[0]
             except common.PolicyError as err:

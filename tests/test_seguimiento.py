@@ -61,6 +61,20 @@ class T(unittest.TestCase):
         self.assertEqual(s.eval_leg({"mercado": "btts"}, None)[0], "PENDIENTE")
 
 
+
+
+class CornersDosBloques(unittest.TestCase):
+    """La API trae `statistics` (retrasado a veces) y `statistics_1half`; los córners no bajan: se toma el mayor. Datos FICTICIOS: EJEMPLO — NO REAL."""
+    def test_toma_el_mayor_entre_bloques(self):
+        e = {"statistics": [{"type": "Corners", "home": "3", "away": "0"}], "statistics_1half": [{"type": "Corners", "home": "5", "away": "0"}]}
+        self.assertEqual(s._corner_pair(e), (5, 0))
+        self.assertEqual(s._corners(e), 5)
+
+    def test_un_solo_bloque_o_ninguno(self):
+        self.assertEqual(s._corner_pair({"statistics": [{"type": "Corners", "home": "0", "away": "1"}]}), (0, 1))
+        self.assertIsNone(s._corner_pair({"statistics": [{"type": "Fouls", "home": "1", "away": "1"}]}))
+
+
 if __name__ == "__main__":
     unittest.main()
 

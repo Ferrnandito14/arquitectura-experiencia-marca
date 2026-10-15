@@ -81,14 +81,18 @@ def settle_handicap_quarter(h, a, lado, linea):
 
 
 def _corner_pair(e):
-    """(local, visitante) de córners de las estadísticas del evento, o None si no vienen."""
-    for x in e.get("statistics") or []:
-        if x.get("type") == "Corners":
-            try:
-                return int(x.get("home") or 0), int(x.get("away") or 0)
-            except ValueError:
-                return None
-    return None
+    """(local, visitante) de córners. La API trae dos bloques (`statistics` del partido y `statistics_1half`) que a veces no coinciden porque el del partido va retrasado
+    (15-oct: Sparta 3 vs 5 córners al descanso). Los córners no bajan, así que se toma el mayor de cada lado entre ambos bloques; None si ninguno los trae."""
+    best = None
+    for key in ("statistics", "statistics_1half"):
+        for x in e.get(key) or []:
+            if x.get("type") == "Corners":
+                try:
+                    v = (int(x.get("home") or 0), int(x.get("away") or 0))
+                except ValueError:
+                    continue
+                best = v if best is None else (max(best[0], v[0]), max(best[1], v[1]))
+    return best
 
 
 def _minute(e):
@@ -112,13 +116,8 @@ def provisional(final_fn, e, leg):
 
 
 def _corners(e):
-    for x in e.get("statistics") or []:
-        if x.get("type") == "Corners":
-            try:
-                return int(x.get("home") or 0) + int(x.get("away") or 0)
-            except ValueError:
-                return None
-    return None
+    cp = _corner_pair(e)
+    return None if cp is None else cp[0] + cp[1]
 
 
 def _first_goal_side(e):
