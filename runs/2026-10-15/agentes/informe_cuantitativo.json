@@ -25,6 +25,7 @@
     "p_modelo no validado (model_validation.json: validacion insuficiente/no evaluada); no se calculo EV.",
     "Precios de agregador son referencia, no ejecutables; 1/cuota incluye margen (no se quito).",
     "Correlacion juzgada dentro de la unidad por grupo de mercado; entre patas de otros tickets no evaluable aqui.",
+    "Contexto continental descriptivo sin ajuste por rival/liga; H2H n=3; p_modelo no modificada.",
     "Modelo propio sin validar (validacion insuficiente/no_evaluada): brechas son desacuerdo con el mercado, no ventaja ni EV demostrado.",
     "La mayoria de precios son de agregador (referencia, no ejecutable); solo 1X2 y goles 2.5 son reales_verificadas del usuario.",
     "Sin alineaciones ni arbitro designado; varios mercados sin estimador o sin precio."
@@ -17555,7 +17556,8 @@
       "consistencia_modelo": "discrepa_del_mercado",
       "evidencia": [
         "paquete:m-f780cab9a620|1.ª parte goles",
-        "archivo:data/model_validation.json"
+        "archivo:data/model_validation.json",
+        "archivo:runs/2026-10-15/contexto_continental.json"
       ],
       "excepciones": [
         {
@@ -17571,7 +17573,7 @@
           "entry_id": "primera_parte.total.under.2.5"
         }
       ],
-      "nota": "3 linea(s) con brecha >=15 pp vs 1/cuota (incl. margen); 3 <15 pp. Precios de agregador/no ejecutables salvo real_verificada. Modelo no validado: desacuerdo, no ventaja.",
+      "nota": "Contraste ctx continental (sin ajuste rival/liga): sin desglose por mitades en el contexto; goles/partido H2H 2.0 n3, EST contin. 1.9 n10, FLA 2.3 n10. No contrasta 1.ª parte.",
       "riesgo_correlacion": "misma_direccion",
       "unit_id": "m-f780cab9a620|1.ª parte goles",
       "validacion_aplicable": "no_validado"
@@ -17580,7 +17582,8 @@
       "consistencia_modelo": "discrepa_del_mercado",
       "evidencia": [
         "paquete:m-f780cab9a620|1.ª parte resultado",
-        "archivo:data/model_validation.json"
+        "archivo:data/model_validation.json",
+        "archivo:runs/2026-10-15/contexto_continental.json"
       ],
       "excepciones": [
         {
@@ -17601,7 +17604,8 @@
       "consistencia_modelo": "discrepa_del_mercado",
       "evidencia": [
         "paquete:m-f780cab9a620|córners",
-        "archivo:data/model_validation.json"
+        "archivo:data/model_validation.json",
+        "archivo:runs/2026-10-15/contexto_continental.json"
       ],
       "excepciones": [
         {
@@ -17746,7 +17750,8 @@
       "consistencia_modelo": "coherente",
       "evidencia": [
         "paquete:m-f780cab9a620|doble oportunidad",
-        "archivo:data/model_validation.json"
+        "archivo:data/model_validation.json",
+        "archivo:runs/2026-10-15/contexto_continental.json"
       ],
       "nota": "Brechas <15 pp vs 1/cuota (incl. margen) en 3 linea(s) con precio; modelo no validado.",
       "riesgo_correlacion": "mismo_partido",
@@ -17757,7 +17762,8 @@
       "consistencia_modelo": "datos_insuficientes",
       "evidencia": [
         "paquete:m-f780cab9a620|empate no válido",
-        "archivo:data/model_validation.json"
+        "archivo:data/model_validation.json",
+        "archivo:runs/2026-10-15/contexto_continental.json"
       ],
       "nota": "Datos no suficientes (sin_extractor/parciales/insuficientes) o sin probabilidad calculada; no se contrasta ni se calcula EV.",
       "riesgo_correlacion": "mismo_partido",
@@ -17768,7 +17774,8 @@
       "consistencia_modelo": "sin_estimador",
       "evidencia": [
         "paquete:m-f780cab9a620|fueras de juego",
-        "archivo:data/model_validation.json"
+        "archivo:data/model_validation.json",
+        "archivo:runs/2026-10-15/contexto_continental.json"
       ],
       "nota": "Sin estimador (no_implementado): no hay p_modelo que contrastar.",
       "riesgo_correlacion": "ninguno",
@@ -17779,9 +17786,10 @@
       "consistencia_modelo": "coherente",
       "evidencia": [
         "paquete:m-f780cab9a620|goles",
-        "archivo:data/model_validation.json"
+        "archivo:data/model_validation.json",
+        "archivo:runs/2026-10-15/contexto_continental.json"
       ],
-      "nota": "Brechas <15 pp vs 1/cuota (incl. margen) en 14 linea(s) con precio; modelo no validado.",
+      "nota": "Contraste ctx continental (sin ajuste rival/liga): <2.5 EST contin. 80% n10, liga 62% n24; FLA contin. 70% n10, liga 40% n30; H2H 67% n3. p(U2.5)=.69: coincide con contin., FLA liga discrepa.",
       "riesgo_correlacion": "misma_direccion",
       "unit_id": "m-f780cab9a620|goles",
       "validacion_aplicable": "no_validado"
@@ -17790,9 +17798,10 @@
       "consistencia_modelo": "coherente",
       "evidencia": [
         "paquete:m-f780cab9a620|goles por equipo",
-        "archivo:data/model_validation.json"
+        "archivo:data/model_validation.json",
+        "archivo:runs/2026-10-15/contexto_continental.json"
       ],
-      "nota": "Brechas <15 pp vs 1/cuota (incl. margen) en 12 linea(s) con precio; modelo no validado.",
+      "nota": "Contraste ctx continental (sin ajuste rival/liga): GF EST contin. 1.2 n10, liga 1.25 n24; FLA contin. 1.7 n10, liga 2.23 n30. Modelo no sobrestima a FLA; descriptivo, n pequeño en H2H.",
       "riesgo_correlacion": "misma_direccion",
       "unit_id": "m-f780cab9a620|goles por equipo",
       "validacion_aplicable": "no_validado"
@@ -17801,7 +17810,8 @@
       "consistencia_modelo": "sin_estimador",
       "evidencia": [
         "paquete:m-f780cab9a620|goles total entero",
-        "archivo:data/model_validation.json"
+        "archivo:data/model_validation.json",
+        "archivo:runs/2026-10-15/contexto_continental.json"
       ],
       "nota": "Sin estimador (no_implementado): no hay p_modelo que contrastar.",
       "riesgo_correlacion": "misma_direccion",
@@ -17812,7 +17822,8 @@
       "consistencia_modelo": "coherente",
       "evidencia": [
         "paquete:m-f780cab9a620|hándicap",
-        "archivo:data/model_validation.json"
+        "archivo:data/model_validation.json",
+        "archivo:runs/2026-10-15/contexto_continental.json"
       ],
       "nota": "Brechas <15 pp vs 1/cuota (incl. margen) en 12 linea(s) con precio; modelo no validado.",
       "riesgo_correlacion": "mismo_partido",
@@ -17823,7 +17834,8 @@
       "consistencia_modelo": "sin_estimador",
       "evidencia": [
         "paquete:m-f780cab9a620|hándicap asiático entero",
-        "archivo:data/model_validation.json"
+        "archivo:data/model_validation.json",
+        "archivo:runs/2026-10-15/contexto_continental.json"
       ],
       "nota": "Sin estimador (no_implementado): no hay p_modelo que contrastar.",
       "riesgo_correlacion": "mismo_partido",
@@ -17834,7 +17846,8 @@
       "consistencia_modelo": "sin_estimador",
       "evidencia": [
         "paquete:m-f780cab9a620|hándicap europeo",
-        "archivo:data/model_validation.json"
+        "archivo:data/model_validation.json",
+        "archivo:runs/2026-10-15/contexto_continental.json"
       ],
       "nota": "Sin estimador (no_implementado): no hay p_modelo que contrastar.",
       "riesgo_correlacion": "mismo_partido",
@@ -17845,7 +17858,8 @@
       "consistencia_modelo": "sin_estimador",
       "evidencia": [
         "paquete:m-f780cab9a620|remates",
-        "archivo:data/model_validation.json"
+        "archivo:data/model_validation.json",
+        "archivo:runs/2026-10-15/contexto_continental.json"
       ],
       "nota": "Sin estimador (no_implementado): no hay p_modelo que contrastar.",
       "riesgo_correlacion": "misma_direccion",
@@ -17856,7 +17870,8 @@
       "consistencia_modelo": "sin_estimador",
       "evidencia": [
         "paquete:m-f780cab9a620|remates a puerta",
-        "archivo:data/model_validation.json"
+        "archivo:data/model_validation.json",
+        "archivo:runs/2026-10-15/contexto_continental.json"
       ],
       "nota": "Sin estimador (no_implementado): no hay p_modelo que contrastar.",
       "riesgo_correlacion": "misma_direccion",
@@ -17867,9 +17882,10 @@
       "consistencia_modelo": "coherente",
       "evidencia": [
         "paquete:m-f780cab9a620|resultado",
-        "archivo:data/model_validation.json"
+        "archivo:data/model_validation.json",
+        "archivo:runs/2026-10-15/contexto_continental.json"
       ],
-      "nota": "Brechas <15 pp vs 1/cuota (incl. margen) en 3 linea(s) con precio; modelo no validado.",
+      "nota": "Contraste ctx continental (sin ajuste rival/liga): H2H n3: FLA 2V 1E 0D (1-0, 1-1, 2-1). Modelo ve parejo (.32/.31/.37); n3 insuficiente para contrastar.",
       "riesgo_correlacion": "mismo_partido",
       "unit_id": "m-f780cab9a620|resultado",
       "validacion_aplicable": "no_validado"
@@ -17878,7 +17894,8 @@
       "consistencia_modelo": "datos_insuficientes",
       "evidencia": [
         "paquete:m-f780cab9a620|tarjetas",
-        "archivo:data/model_validation.json"
+        "archivo:data/model_validation.json",
+        "archivo:runs/2026-10-15/contexto_continental.json"
       ],
       "nota": "Datos no suficientes (sin_extractor/parciales/insuficientes) o sin probabilidad calculada; no se contrasta ni se calcula EV.",
       "riesgo_correlacion": "misma_direccion",

@@ -144,7 +144,21 @@ def _verdicts(consolidated, l):
             "auditor": aud.get("recomendacion"), "escenario": dep.get("escenario_perdida")}
 
 
-def make_workbook(units, summary, legs, rankings, combos, consolidated, rotation, fname, why, ligas=None):
+def _amb(side):
+    t = (side or {}).get("ambitos") or {}
+    return " · ".join(f"{k.replace('_', ' ')} n={v['n']}: {v['goles_por_partido']} g/p, menos de 2.5 {v['pct_menos_2_5']}%" for k, v in t.items() if v.get("n")) or None
+
+
+def _ctx_cols(c):
+    """Columnas de referencia ampliada (torneos continentales): historial de liga/copa/continental por equipo y H2H. Vacías si el partido no es continental."""
+    if not c:
+        return [None, None, None]
+    h = c.get("h2h") or {}
+    h2h = (f"n={h['n']}: " + ", ".join(f"{p['fecha'][:7]} {p['marcador']}" for p in h["partidos"][:5]) + f" · {h['goles_por_partido']} g/p, menos de 2.5 {h['pct_menos_2_5']}%") if h.get("n") else "sin enfrentamientos previos"
+    return [_amb(c.get("local")), _amb(c.get("visitante")), h2h]
+
+
+def make_workbook(units, summary, legs, rankings, combos, consolidated, rotation, fname, why, ligas=None, contexto=None):
     from openpyxl import Workbook
     from openpyxl.styles import Alignment, Font
     wb = Workbook()
@@ -274,8 +288,9 @@ def make_workbook(units, summary, legs, rankings, combos, consolidated, rotation
         rot = rotation.get(mid) or {}
         mot = "; ".join(f"{k}: {', '.join((rot.get(k) or {}).get('motivos') or [])}" for k in ("home", "away") if (rot.get(k) or {}).get("motivos"))
         rs.append([caracas(u.get("hora_utc")), u["partido"], ligas[mid], (c.get("arbitro") or {}).get("designado"), (c.get("alineaciones") or {}).get("estado"),
-                   f"{(rot.get('home') or {}).get('nivel', 's/d')} | {(rot.get('away') or {}).get('nivel', 's/d')}", mot, cnt[mid]["estimador"], cnt[mid]["elegibles"], cnt[mid]["aprobadas"], cnt[mid]["degradadas"], cnt[mid]["rechazadas"]])
-    sheet("Resumen por partido", ["Hora Caracas", "Partido", "Liga", "Árbitro", "Alineaciones", "Rotación local | visitante", "Motivos de rotación", "Entradas con estimador", "Elegibles", "Aprobadas", "Degradadas", "Rechazadas"], rs)
+                   f"{(rot.get('home') or {}).get('nivel', 's/d')} | {(rot.get('away') or {}).get('nivel', 's/d')}", mot, cnt[mid]["estimador"], cnt[mid]["elegibles"], cnt[mid]["aprobadas"], cnt[mid]["degradadas"], cnt[mid]["rechazadas"]] + _ctx_cols((contexto or {}).get(mid)))
+    sheet("Resumen por partido", ["Hora Caracas", "Partido", "Liga", "Árbitro", "Alineaciones", "Rotación local | visitante", "Motivos de rotación", "Entradas con estimador", "Elegibles", "Aprobadas", "Degradadas", "Rechazadas",
+                                  "Referencia ampliada local (liga / copa / continental)", "Referencia ampliada visitante", "Enfrentamientos previos (H2H)"], rs)
 
     inv, ana, pri = summary["investigacion"], summary["analitica"], summary["precios"]
     sheet("Cobertura", ["Control", "Estado", "Detalle"],
@@ -328,7 +343,7 @@ def main(argv=None):
     if os.path.basename(fname).startswith("ligas-14-oct.xlsx"):
         raise SystemExit("el libro v2 nunca puede llamarse como el original")
     rotation = common.read_json(os.path.join(a.run, "rotation.json"), {})
-    wb = make_workbook(units, s, legs, cr.build_rankings(legs), combos, consolidated, rotation, fname, why, liga_map(units, a.capture))
+    wb = make_workbook(units, s, legs, cr.build_rankings(legs), combos, consolidated, rotation, fname, why, liga_map(units, a.capture), common.read_json(os.path.join(a.run, "contexto_continental.json"), {}))
     os.makedirs(a.out_dir, exist_ok=True)
     out = os.path.join(a.out_dir, fname)
     wb.save(out)

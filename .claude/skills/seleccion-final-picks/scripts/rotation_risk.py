@@ -29,7 +29,7 @@ def overlap_with_habitual(today_xi, prev_xis):
     return sum(1 for p in today_xi if sum(p in x for x in xs) >= need)
 
 
-_CONTINENTAL_RE = re.compile(r"libertadores|sudamericana|champions|europa|conference|concacaf|afc|caf ", re.I)
+_CONTINENTAL_RE = re.compile(r"libertadores|sudamericana|champions league|europa|conference|concacaf|afc|caf ", re.I)
 _DECISIVE_RE = re.compile(r"semi-?\s?finals?|(?<![a-z]-)\bfinals?\b", re.I)
 
 
