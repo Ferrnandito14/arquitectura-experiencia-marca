@@ -50,6 +50,25 @@ class Rotation(unittest.TestCase):
         self.assertIsNone(rr.penalty_for_leg("bajo", "under", False))
 
 
+class FaseDecisiva(unittest.TestCase):
+    def test_detects_only_continental_semifinals_and_finals(self):
+        for n in ("CONMEBOL Libertadores - Semi-finals", "UEFA Champions League - Final", "CONMEBOL Sudamericana - Finals"):
+            self.assertTrue(rr.decisive_phase(n), n)
+        for n in ("CONMEBOL Libertadores - Quarter-finals", "UEFA Europa League - League Phase", "Copa Uruguay - Semi-finals", "Championship", None):
+            self.assertFalse(rr.decisive_phase(n), n)
+
+    def test_semifinal_with_high_change_history_is_capped_to_low_and_keeps_audit_trail(self):
+        rec = rr.prior_risk(5, False, 4.7)
+        self.assertEqual(rec["nivel"], "medio")
+        out = rr.apply_decisive(dict(rec), "CONMEBOL Libertadores - Semi-finals")
+        self.assertEqual(out["nivel"], "bajo")
+        self.assertEqual(out["nivel_historial"], "medio")
+        self.assertTrue(out["fase_decisiva"])
+        self.assertIn("lesiones y sanciones", out["motivos"][0])
+        self.assertEqual(rr.apply_decisive(dict(rec), "UEFA Europa League - League Phase")["nivel"], "medio")
+        self.assertIsNone(rr.penalty_for_leg(out["nivel"], "under", False))
+
+
 class Calibracion(unittest.TestCase):
     def test_brier_roi_and_min_n_rule(self):
         rows = [{"origen": "sistema", "mercado": "total U4.5", "cuota": 1.25, "p_mercado_sin_margen_aprox": 0.75, "resultado": "FALLADA"},

@@ -56,10 +56,12 @@ def unit_id(match_id, grupo):
 
 
 # ── paquetes ──
-def _model_probs_by_match(run, matches, mx, samples):
-    """p_modelo por (match_id, entry_id): solo para entradas con estimador y datos. Reutiliza los modelos de la Fase 4 (no usa cuotas)."""
+def _model_probs_by_match(run, matches, mx, samples, raw=None):
+    """p_modelo por (match_id, entry_id): solo para entradas con estimador y datos. Reutiliza los modelos de la Fase 4 (no usa cuotas).
+    La probabilidad pasa por la recalibración fuera de tiempo (`model_calibration.apply`) solo en los grupos donde el backtest la validó; `raw` (dict opcional) recibe la probabilidad sin recalibrar."""
     import count_model
     import leg_model
+    import model_calibration
     import market_coverage as cov
     keys = cov._probe_model_keys()
     by_comp = {}
@@ -102,7 +104,10 @@ def _model_probs_by_match(run, matches, mx, samples):
             p = gp.get(k, cp.get(k))
             if p is None:
                 continue
-            out[(m["match_id"], e["id"])] = round(1 - p if e["direction"] in ("under", "no") else p, 4)        # «no»/«menos» son el complemento de la clave del modelo
+            pc, _grp, aplicada = model_calibration.apply(k, p)
+            out[(m["match_id"], e["id"])] = round(1 - pc if e["direction"] in ("under", "no") else pc, 4)        # «no»/«menos» son el complemento de la clave del modelo
+            if raw is not None and aplicada:
+                raw[(m["match_id"], e["id"])] = round(1 - p if e["direction"] in ("under", "no") else p, 4)
     return out
 
 
@@ -115,7 +120,8 @@ def build_units(run, match_ids=None, capture=None):
     by = {m["match_id"]: m for m in inv}
     matches = [by[i] for i in s["partidos_ids"]]
     samples = cov.load_league_samples(run)
-    pm = _model_probs_by_match(run, matches, mx, samples)
+    raw = {}
+    pm = _model_probs_by_match(run, matches, mx, samples, raw)
     units = {}
     for r in rows:
         e = mc.BY_ID[r["entry_id"]]
@@ -128,6 +134,8 @@ def build_units(run, match_ids=None, capture=None):
                               "precio": {"estado": r["precio"]["estado"], "cuota": rec.get("odds"), "fuente": rec.get("source"), "tipo": rec.get("source_type"), "cumple_limite_2_10": r["precio"]["cumple_limite"],
                                         "observado_utc": rec.get("observed_utc"), "n_casas": rec.get("n_books")},
                               "datos": r["analitica"]["datos"], "estimador": r["analitica"]["estimador"], "validacion": r["analitica"]["validacion"], "p_modelo": pm.get((r["match_id"], e["id"]))})
+        if (r["match_id"], e["id"]) in raw:
+            u["entradas"][-1]["p_modelo_bruta"] = raw[(r["match_id"], e["id"])]          # solo cuando la recalibración cambió la probabilidad
     for u in units.values():
         es = u["entradas"]
         for x in es:

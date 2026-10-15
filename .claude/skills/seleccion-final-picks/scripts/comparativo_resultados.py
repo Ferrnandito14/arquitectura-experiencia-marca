@@ -188,7 +188,29 @@ def hhmm(utc_iso):
 
 
 # ── (4) libro ──
-def build(run, book_path, out_path, refresh=False):
+def append_ledger(path, run, legs, inv):
+    """Registro acumulado de patas liquidadas (una línea por run+pata) para auditar los filtros con más días: probabilidad del modelo, cuota, estado de agentes y resultado."""
+    have = set()
+    if os.path.exists(path):
+        with open(path, encoding="utf-8") as fh:
+            for ln in fh:
+                try:
+                    d = json.loads(ln)
+                    have.add((d["run"], d["leg_id"]))
+                except (ValueError, KeyError):
+                    pass
+    n = 0
+    with open(path, "a", encoding="utf-8") as fh:
+        for l in legs:
+            if l.get("p_modelo") is None or l.get("cuota") is None or l["res"] == NODATA or (run, l["leg_id"]) in have:
+                continue
+            fh.write(json.dumps({"run": run, "dia": inv[l["match_id"]]["normalized_datetime_utc"][:10], "leg_id": l["leg_id"], "partido_id": l["match_id"], "grupo": l["grupo"], "p": l["p_modelo"], "cuota": l["cuota"],
+                                 "precio_tipo": l["precio_tipo"], "agentes": l["agentes"], "elegible": not l["motivos_exclusion"], "res": l["res"]}, ensure_ascii=False) + "\n")
+            n += 1
+    return n
+
+
+def build(run, book_path, out_path, refresh=False, ledger=None):
     from openpyxl import Workbook
     from openpyxl.styles import Alignment, Font, PatternFill
     from openpyxl.utils import get_column_letter
@@ -484,7 +506,8 @@ def build(run, book_path, out_path, refresh=False):
     sheet("Catálogo evaluado", ["Hora Caracas", "Liga", "Partido", "Mercado", "Selección", "Cuota", "Tipo de precio", "P modelo %", "1/cuota %", "Agentes", "Elegible para combinadas", "Dato que decide", "Resultado de la pata"],
           cat_rows, {"Partido": 40, "Selección": 36, "Dato que decide": 30}, "Resultado de la pata")
     wb.save(out_path)
-    return {"partidos": len(ids), "finalizados": n_fin, "sin_cruce": miss, "resumen": sum_rows, "combinadas": comb_sum_rows, "catalogo": [["Todas"] + agg([(res, o, p) for res, o, p, _ in cat_items]), ["Lado favorecido"] + agg([(res, o, p) for res, o, p, _ in pick_items])], "por_agentes": t_ag, "por_p": t_pm, "elegibles": t_el, "por_grupo": t_gr}
+    n_led = append_ledger(ledger, run, legs, inv) if ledger else 0
+    return {"ledger_agregadas": n_led, "partidos": len(ids), "finalizados": n_fin, "sin_cruce": miss, "resumen": sum_rows, "combinadas": comb_sum_rows, "catalogo": [["Todas"] + agg([(res, o, p) for res, o, p, _ in cat_items]), ["Lado favorecido"] + agg([(res, o, p) for res, o, p, _ in pick_items])], "por_agentes": t_ag, "por_p": t_pm, "elegibles": t_el, "por_grupo": t_gr}
 
 
 def main(argv=None):
@@ -493,11 +516,12 @@ def main(argv=None):
     ap.add_argument("--book", required=True)
     ap.add_argument("--out", required=True)
     ap.add_argument("--refresh", action="store_true")
+    ap.add_argument("--ledger", help="añade las patas liquidadas a este registro acumulado (p. ej. data/ledger_patas.jsonl) para auditar los filtros")
     a = ap.parse_args(argv)
     if os.path.basename(a.out) in ("ligas-14-oct.xlsx", "ligas-14-oct-v2.xlsx"):
         raise SystemExit("el comparativo nunca puede llamarse como un libro original")
-    info = build(a.run, a.book, a.out, a.refresh)
-    print(json.dumps({k: v for k, v in info.items() if k in ("partidos", "finalizados", "sin_cruce")}, ensure_ascii=False))
+    info = build(a.run, a.book, a.out, a.refresh, a.ledger)
+    print(json.dumps({k: v for k, v in info.items() if k in ("partidos", "finalizados", "sin_cruce", "ledger_agregadas")}, ensure_ascii=False))
     for k in ("resumen", "combinadas", "catalogo", "por_agentes", "por_p", "elegibles"):
         print(k)
         for r in info[k]:

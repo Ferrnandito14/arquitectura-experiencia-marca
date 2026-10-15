@@ -69,7 +69,7 @@ def _one(call, inv, mid, aid):
         for x in reversed(prev):          # del más reciente al más antiguo
             L = (call(action="get_lineups", match_id=x["match_id"]).get(x["match_id"]) or {}).get("lineup", {})
             xis.append(_xi(L.get("home" if x["match_hometeam_id"] == tid else "away")))
-        rec[side] = team_prior([x["match_date"] for x in prev], xis, nxt, md)
+        rec[side] = rotation_risk.apply_decisive(team_prior([x["match_date"] for x in prev], xis, nxt, md), e.get("league_name"))
         n += 1
     return rec, n
 
@@ -98,6 +98,11 @@ def main(argv=None):
     client = common.Client(os.path.join(a.run, "cache"), os.path.join(a.run, "sources", "consultas.jsonl"), policy=common.Policy(), min_interval=1.0, ttl=3600)
     call = lambda **p: adapters.apif_call(client, key, **p)  # noqa: E731
     out, teams_done = dict(common.read_json(os.path.join(a.run, "rotation.json"), {}) or {}), 0      # reanudable: lo ya calculado se conserva (el tope de descargas es por proceso)
+    for mid, rec in out.items():          # registros ya calculados sin la regla de fase decisiva: se aplica sin consultar nada (solo con el nombre de la competición del inventario)
+        ln = (((inv.get(mid) or {}).get("extra") or {}).get("api") or {}).get("league_name")
+        for side in ("home", "away"):
+            if isinstance(rec.get(side), dict) and "fase_decisiva" not in rec[side]:
+                rotation_risk.apply_decisive(rec[side], ln)
     pending = [i for i in ids if i not in out]
     stopped = None
     for mid in pending:

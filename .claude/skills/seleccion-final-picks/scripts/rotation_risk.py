@@ -4,6 +4,7 @@ falta de once. Se estima un riesgo a priori (descanso, competición europea/copa
 de ganador del equipo con riesgo; a T-60 `lineup_check.py` lo reevalúa con el once real. «Ausente del once» NO es baja (puede ser rotación o suplencia habitual)."""
 import argparse
 import os
+import re
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -26,6 +27,28 @@ def overlap_with_habitual(today_xi, prev_xis):
         return None
     need = max(1, len(xs) // 2)
     return sum(1 for p in today_xi if sum(p in x for x in xs) >= need)
+
+
+_CONTINENTAL_RE = re.compile(r"libertadores|sudamericana|champions|europa|conference|concacaf|afc|caf ", re.I)
+_DECISIVE_RE = re.compile(r"semi-?\s?finals?|(?<![a-z]-)\bfinals?\b", re.I)
+
+
+def decisive_phase(league_name):
+    """True para semifinal o final de una competición continental (p. ej. «CONMEBOL Libertadores - Semi-finals»): ahí los clubes no rotan por calendario; el riesgo real son lesiones y sanciones."""
+    n = league_name or ""
+    return bool(_CONTINENTAL_RE.search(n) and _DECISIVE_RE.search(n))
+
+
+def apply_decisive(rec, league_name):
+    """Limita a «bajo» el riesgo a priori por historial de cambios en una fase decisiva continental; conserva los puntos/medidas originales para auditar y deja el motivo."""
+    if not decisive_phase(league_name):
+        return rec
+    rec["puntos_historial"] = rec.get("puntos")
+    rec["nivel_historial"] = rec.get("nivel")
+    rec["nivel"] = "bajo"
+    rec["motivos"] = ["fase decisiva continental (%s): rotación improbable por calendario; el riesgo real son lesiones y sanciones (revisar alineación a T-60)" % league_name]
+    rec["fase_decisiva"] = True
+    return rec
 
 
 def prior_risk(rest_days, euro_or_cup_soon, change_rate_prev, knockout_first_leg=False):

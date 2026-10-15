@@ -8,12 +8,12 @@ Nada de esto es una recomendación: el modelo propio no está validado y las pro
 
 {
  "patas_catalogo": 15322,
- "elegibles_para_combinadas": 98,
+ "elegibles_para_combinadas": 96,
  "por_motivo_de_exclusion": {
-  "brecha_modelo_vs_precio": 802,
+  "brecha_modelo_vs_precio": 807,
   "cuota_sobre_2.1": 1995,
   "degradada:deportivo:BAJA": 2959,
-  "elegible": 98,
+  "elegible": 96,
   "rechazada:auditor:descartar_de_rankings": 130,
   "rechazada:auditor:verificar_manualmente": 957,
   "rechazada:cuantitativo:datos_insuficientes": 1175,
@@ -41,11 +41,11 @@ Nada de esto es una recomendación: el modelo propio no está validado y las pro
 
 ## Combinadas
 
-### x1.2 (cuota 1.2–1.28, hasta 2 patas; evaluadas 528)
+### x1.2 (cuota 1.2–1.28, hasta 2 patas; evaluadas 465)
 
-**#1** cuota ×1.2 · P(modelo) 86.0% · P(pérdida) 14.0% · agentes: APROBADA · apta: NO_APTA (falta: precio_real_verificado, modelo_validado)
+**#1** cuota ×1.2 · P(modelo) 84.4% · P(pérdida) 15.6% · agentes: APROBADA · apta: NO_APTA (falta: precio_real_verificado, modelo_validado)
 _REFERENCIA (alguna pata solo tiene precio de agregador: no ejecutable)_
-- Ferencváros – Viktoria Plzen · Más de 1.5 goles @1.2 (referencia) · p=0.86
+- Ferencváros – Viktoria Plzen · Más de 1.5 goles @1.2 (referencia) · p=0.84
 
 **#2** cuota ×1.25 · P(modelo) 82.5% · P(pérdida) 17.5% · agentes: APROBADA · apta: NO_APTA (falta: precio_real_verificado, modelo_validado)
 _REFERENCIA (alguna pata solo tiene precio de agregador: no ejecutable)_
@@ -56,7 +56,7 @@ _REFERENCIA (alguna pata solo tiene precio de agregador: no ejecutable)_
 - Estudiantes de La Plata – Flamengo · Flamengo: menos de 2.5 goles @1.111 (referencia) · p=0.91
 - Salzburg – Milan · Menos de 12.5 córners @1.111 (referencia) · p=0.90
 
-### x3 (cuota 2.8–3.4, hasta 4 patas; evaluadas 10902)
+### x3 (cuota 2.8–3.4, hasta 4 patas; evaluadas 9108)
 
 **#1** cuota ×2.887 · P(modelo) 51.8% · P(pérdida) 48.2% · agentes: APROBADA · apta: NO_APTA (falta: precio_real_verificado, modelo_validado)
 _REFERENCIA (alguna pata solo tiene precio de agregador: no ejecutable)_
@@ -64,35 +64,29 @@ _REFERENCIA (alguna pata solo tiene precio de agregador: no ejecutable)_
 - Estudiantes de La Plata – Flamengo · Estudiantes de La Plata: más de 3.5 córners @1.5 (referencia) · p=0.80
 - Salzburg – Milan · Milan: menos de 5.5 córners @1.444 (referencia) · p=0.79
 
-**#2** cuota ×2.853 · P(modelo) 46.7% · P(pérdida) 53.3% · agentes: APROBADA · apta: NO_APTA (falta: precio_real_verificado, modelo_validado)
+**#2** cuota ×2.925 · P(modelo) 47.6% · P(pérdida) 52.4% · agentes: APROBADA · apta: NO_APTA (falta: precio_real_verificado, modelo_validado)
 _REFERENCIA (alguna pata solo tiene precio de agregador: no ejecutable)_
-- Rennes – OFI · Menos de 3.5 goles @1.63 (ejecutable) · p=0.69
-- Twente – Thun · Ambos anotan: sí @1.75 (referencia) · p=0.67
+- Estudiantes de La Plata – Flamengo · Estudiantes de La Plata: más de 3.5 córners @1.5 (referencia) · p=0.80
+- Rennes – OFI · Ambos anotan: sí @1.95 (referencia) · p=0.59
 
-**#3** cuota ×3.223 · P(modelo) 45.8% · P(pérdida) 54.2% · agentes: APROBADA · apta: NO_APTA (falta: precio_real_verificado, modelo_validado)
+**#3** cuota ×3.223 · P(modelo) 44.5% · P(pérdida) 55.5% · agentes: APROBADA · apta: NO_APTA (falta: precio_real_verificado, modelo_validado)
 _REFERENCIA (alguna pata solo tiene precio de agregador: no ejecutable)_
 - Salzburg – Milan · Milan: menos de 4.5 córners @1.8415 (referencia) · p=0.68
-- Twente – Thun · Ambos anotan: sí @1.75 (referencia) · p=0.67
+- Twente – Thun · Ambos anotan: sí @1.75 (referencia) · p=0.65
 
-### x4 (cuota 4.0–4.8, hasta 5 patas; evaluadas 27895)
+### x4 (cuota 4.0–4.8, hasta 5 patas; evaluadas 21699)
 
-**#1** cuota ×4.038 · P(modelo) 32.0% · P(pérdida) 68.0% · agentes: APROBADA · apta: NO_APTA (falta: modelo_validado)
-_ejecutable (precios reales)_
-- Estudiantes de La Plata – Flamengo · Menos de 2.5 goles @1.52 (ejecutable) · p=0.69
-- Rennes – OFI · Menos de 3.5 goles @1.63 (ejecutable) · p=0.69
+**#1** cuota ×4.549 · P(modelo) 31.8% · P(pérdida) 68.2% · agentes: APROBADA · apta: NO_APTA (falta: precio_real_verificado, modelo_validado)
+_REFERENCIA (alguna pata solo tiene precio de agregador: no ejecutable)_
+- Dinamo Zagreb – RSC Anderlecht · 1.ª parte: más de 0.5 goles @1.333 (referencia) · p=0.82
+- Twente – Thun · Ambos anotan: sí @1.75 (referencia) · p=0.65
+- Rennes – OFI · Ambos anotan: sí @1.95 (referencia) · p=0.59
+
+**#2** cuota ×4.034 · P(modelo) 28.8% · P(pérdida) 71.2% · agentes: OBJETADA · apta: NO_APTA (falta: precio_real_verificado, modelo_validado, revision_agentes_completa)
+_REFERENCIA (alguna pata solo tiene precio de agregador: no ejecutable)_
+- Huracán – Gimnasia La Plata · Más de 1.5 goles @1.5 (referencia) · p=0.67
 - Ferencváros – Viktoria Plzen · Más de 2.5 goles @1.63 (ejecutable) · p=0.67
-
-**#2** cuota ×4.41 · P(modelo) 16.8% · P(pérdida) 83.2% · agentes: OBJETADA · apta: NO_APTA (falta: precio_real_verificado, modelo_validado, revision_agentes_completa)
-_REFERENCIA (alguna pata solo tiene precio de agregador: no ejecutable)_
-- Mjallby – Inter Club d'Escaldes · Menos de 3.5 goles @1.47 (referencia) · p=0.70
-- Huracán – Gimnasia La Plata · Más de 1.5 goles @1.5 (referencia) · p=0.67
-- Dinamo Zagreb – RSC Anderlecht · Menos de 2.5 goles @2.0 (ejecutable) · p=0.36
-
-**#3** cuota ×4.08 · P(modelo) 15.4% · P(pérdida) 84.6% · agentes: OBJETADA · apta: NO_APTA (falta: precio_real_verificado, modelo_validado, revision_agentes_completa)
-_REFERENCIA (alguna pata solo tiene precio de agregador: no ejecutable)_
-- Twente – Thun · Menos de 4.5 goles @1.36 (referencia) · p=0.64
-- Huracán – Gimnasia La Plata · Más de 1.5 goles @1.5 (referencia) · p=0.67
-- Dinamo Zagreb – RSC Anderlecht · Menos de 2.5 goles @2.0 (ejecutable) · p=0.36
+- Dinamo Zagreb – RSC Anderlecht · Ambos anotan: sí @1.65 (referencia) · p=0.64
 
 ## Rankings por grupo de mercado
 
@@ -179,18 +173,18 @@ _REFERENCIA (alguna pata solo tiene precio de agregador: no ejecutable)_
 ### goles (490 entradas con estimador)
 
 **Más probables (cuota mínima justa ≤ 2.10)**
-- Estudiantes de La Plata – Flamengo · Menos de 5.5 goles · p=0.98 · mínima justa 1.015 · cuota 1.0150000000000001 (referencia)
-- Hajduk Split – Ajax · Más de 0.5 goles · p=0.98 · mínima justa 1.019 · cuota 1.02 (referencia)
-- Twente – Thun · Más de 0.5 goles · p=0.98 · mínima justa 1.02 · cuota 1.01 (referencia)
-- Atalanta – Pafos · Menos de 5.5 goles · p=0.98 · mínima justa 1.021 · cuota 1.075 (referencia)
-- Hearts – Nordsjaelland · Más de 0.5 goles · p=0.98 · mínima justa 1.025 · cuota 1.025 (referencia)
+- Estudiantes de La Plata – Flamengo · Menos de 5.5 goles · p=0.97 · mínima justa 1.028 · cuota 1.0150000000000001 (referencia)
+- Hajduk Split – Ajax · Más de 0.5 goles · p=0.97 · mínima justa 1.028 · cuota 1.02 (referencia)
+- Twente – Thun · Más de 0.5 goles · p=0.97 · mínima justa 1.029 · cuota 1.01 (referencia)
+- Hearts – Nordsjaelland · Más de 0.5 goles · p=0.97 · mínima justa 1.035 · cuota 1.025 (referencia)
+- Union Saint-Gilloise – Real Sociedad · Más de 0.5 goles · p=0.96 · mínima justa 1.036 · cuota 1.025 (referencia)
 
 **Mayor EV teórico con precio ≤ 2.10**
-- Brann – Lincoln Red Imps · Menos de 3.5 goles · p=0.73 · mínima justa 1.363 · cuota 1.83 (ejecutable)
-- Bournemouth – Sturm Graz · Menos de 3.5 goles · p=0.71 · mínima justa 1.413 · cuota 1.87 (ejecutable)
-- Atalanta – Pafos · Menos de 3.5 goles · p=0.84 · mínima justa 1.194 · cuota 1.57 (ejecutable)
-- Freiburg – Jablonec · Ambos anotan: sí · p=0.65 · mínima justa 1.54 · cuota 1.9 (referencia)
-- Torreense – Sunderland · Menos de 3.5 goles · p=0.79 · mínima justa 1.274 · cuota 1.57 (referencia)
+- Brann – Lincoln Red Imps · Menos de 3.5 goles · p=0.69 · mínima justa 1.449 · cuota 1.83 (ejecutable)
+- Copenhagen – Sporting Braga · Más de 2.5 goles · p=0.60 · mínima justa 1.659 · cuota 2.08 (ejecutable)
+- Atalanta – Pafos · Menos de 3.5 goles · p=0.79 · mínima justa 1.259 · cuota 1.57 (ejecutable)
+- Bournemouth – Sturm Graz · Menos de 3.5 goles · p=0.66 · mínima justa 1.504 · cuota 1.87 (ejecutable)
+- St. Truiden – Iberia 1999 · Ambos anotan: sí · p=0.62 · mínima justa 1.619 · cuota 2.0 (referencia)
 
 ### goles por equipo (348 entradas con estimador)
 
@@ -283,16 +277,16 @@ _REFERENCIA (alguna pata solo tiene precio de agregador: no ejecutable)_
 ### tarjetas (546 entradas con estimador)
 
 **Más probables (cuota mínima justa ≤ 2.10)**
-- Al Khaleej – Al Fayha · Menos de 9.5 tarjetas (A=1, R=2) · p=1.00 · mínima justa 1.002 · cuota — (sin precio)
 - Al Khaleej – Al Fayha · Al Fayha: menos de 5.5 tarjetas (A=1, R=2) · p=1.00 · mínima justa 1.003 · cuota — (sin precio)
-- Lyon – Crystal Palace · Menos de 9.5 tarjetas (A=1, R=2) · p=1.00 · mínima justa 1.003 · cuota — (sin precio)
 - Lyon – Crystal Palace · Lyon: menos de 5.5 tarjetas (A=1, R=2) · p=1.00 · mínima justa 1.004 · cuota — (sin precio)
-- Torreense – Sunderland · Menos de 9.5 tarjetas (A=1, R=2) · p=1.00 · mínima justa 1.004 · cuota — (sin precio)
+- Twente – Thun · Twente: menos de 5.5 tarjetas (A=1, R=2) · p=0.99 · mínima justa 1.005 · cuota — (sin precio)
+- Torreense – Sunderland · Torreense: menos de 5.5 tarjetas (A=1, R=2) · p=0.99 · mínima justa 1.005 · cuota — (sin precio)
+- Al Khaleej – Al Fayha · Al Khaleej: menos de 5.5 tarjetas (A=1, R=2) · p=0.99 · mínima justa 1.008 · cuota — (sin precio)
 
 **Mayor EV teórico con precio ≤ 2.10**
-- Riga – Kairat · Más de 4.5 tarjetas (A=1, R=2) · p=0.65 · mínima justa 1.528 · cuota 1.8 (referencia)
-- St. Truiden – Iberia 1999 · Menos de 4.5 tarjetas (A=1, R=2) · p=0.65 · mínima justa 1.539 · cuota 1.8 (referencia)
-- Twente – Thun · Menos de 4.5 tarjetas (A=1, R=2) · p=0.67 · mínima justa 1.488 · cuota 1.73 (referencia)
-- Torreense – Sunderland · Menos de 4.5 tarjetas (A=1, R=2) · p=0.70 · mínima justa 1.419 · cuota 1.571 (referencia)
-- Huracán – Gimnasia La Plata · Menos de 5.5 tarjetas (A=1, R=2) · p=0.58 · mínima justa 1.736 · cuota 1.885 (referencia)
+- St. Truiden – Iberia 1999 · Menos de 4.5 tarjetas (A=1, R=2) · p=0.62 · mínima justa 1.607 · cuota 1.8 (referencia)
+- Riga – Kairat · Más de 4.5 tarjetas (A=1, R=2) · p=0.62 · mínima justa 1.618 · cuota 1.8 (referencia)
+- Twente – Thun · Menos de 4.5 tarjetas (A=1, R=2) · p=0.64 · mínima justa 1.561 · cuota 1.73 (referencia)
+- Lyon – Crystal Palace · Menos de 3.5 tarjetas (A=1, R=2) · p=0.55 · mínima justa 1.827 · cuota 1.95 (referencia)
+- Huracán – Gimnasia La Plata · Menos de 5.5 tarjetas (A=1, R=2) · p=0.56 · mínima justa 1.774 · cuota 1.885 (referencia)
 
