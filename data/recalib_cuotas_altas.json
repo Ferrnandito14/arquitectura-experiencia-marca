@@ -1,0 +1,182 @@
+{
+ "banda": [
+  1.8,
+  2.1
+ ],
+ "runs": [
+  "runs/2026-10-14",
+  "runs/2026-10-15"
+ ],
+ "folds": [
+  {
+   "test": "runs/2026-10-14",
+   "n_train": 128,
+   "n_test": 130,
+   "frec_train": 0.5,
+   "frec_test": 0.469,
+   "p_media_test": 0.584,
+   "metodos": {
+    "sin recorte": {
+     "brier": 0.2772,
+     "logloss": 0.7521
+    },
+    "frecuencia de la banda": {
+     "parametros": {
+      "c": 0.5
+     },
+     "p_media": 0.5,
+     "brier": 0.25,
+     "logloss": 0.6931
+    },
+    "desplazamiento": {
+     "parametros": {
+      "delta": 0.1248
+     },
+     "p_media": 0.459,
+     "brier": 0.2641,
+     "logloss": 0.7219
+    },
+    "encogimiento a 1/cuota": {
+     "parametros": {
+      "w": 1.2555
+     },
+     "p_media": 0.506,
+     "brier": 0.2464,
+     "logloss": 0.686
+    },
+    "logística (Platt)": {
+     "parametros": {
+      "a": 0.1907,
+      "b": -0.3462
+     },
+     "p_media": 0.518,
+     "brier": 0.2478,
+     "logloss": 0.6888
+    }
+   }
+  },
+  {
+   "test": "runs/2026-10-15",
+   "n_train": 130,
+   "n_test": 128,
+   "frec_train": 0.469,
+   "frec_test": 0.5,
+   "p_media_test": 0.625,
+   "metodos": {
+    "sin recorte": {
+     "brier": 0.2828,
+     "logloss": 0.7819
+    },
+    "frecuencia de la banda": {
+     "parametros": {
+      "c": 0.4692
+     },
+     "p_media": 0.469,
+     "brier": 0.2509,
+     "logloss": 0.695
+    },
+    "desplazamiento": {
+     "parametros": {
+      "delta": 0.1146
+     },
+     "p_media": 0.51,
+     "brier": 0.2673,
+     "logloss": 0.7323
+    },
+    "encogimiento a 1/cuota": {
+     "parametros": {
+      "w": 2.0995
+     },
+     "p_media": 0.415,
+     "brier": 0.2651,
+     "logloss": 0.727
+    },
+    "logística (Platt)": {
+     "parametros": {
+      "a": 0.3238,
+      "b": -1.3142
+     },
+     "p_media": 0.416,
+     "brier": 0.2655,
+     "logloss": 0.7313
+    }
+   }
+  }
+ ],
+ "agrupado": {
+  "sin recorte": {
+   "n": 258,
+   "p_media": 0.604,
+   "frecuencia": 0.484,
+   "brier": 0.2799,
+   "logloss": 0.7669
+  },
+  "frecuencia de la banda": {
+   "n": 258,
+   "p_media": 0.485,
+   "frecuencia": 0.484,
+   "brier": 0.2505,
+   "logloss": 0.6941,
+   "delta_brier_vs_sin_recorte": -0.0295,
+   "ic95_delta_brier": [
+    -0.0561,
+    -0.0043
+   ]
+  },
+  "desplazamiento": {
+   "n": 258,
+   "p_media": 0.484,
+   "frecuencia": 0.484,
+   "brier": 0.2657,
+   "logloss": 0.727,
+   "delta_brier_vs_sin_recorte": -0.0142,
+   "ic95_delta_brier": [
+    -0.032,
+    0.0046
+   ]
+  },
+  "encogimiento a 1/cuota": {
+   "n": 258,
+   "p_media": 0.461,
+   "frecuencia": 0.484,
+   "brier": 0.2557,
+   "logloss": 0.7063,
+   "delta_brier_vs_sin_recorte": -0.0242,
+   "ic95_delta_brier": [
+    -0.0617,
+    0.0134
+   ]
+  },
+  "logística (Platt)": {
+   "n": 258,
+   "p_media": 0.467,
+   "frecuencia": 0.484,
+   "brier": 0.2566,
+   "logloss": 0.7099,
+   "delta_brier_vs_sin_recorte": -0.0234,
+   "ic95_delta_brier": [
+    -0.0599,
+    0.0125
+   ]
+  }
+ },
+ "ajuste_completo": {
+  "n": 258,
+  "frecuencia": 0.484,
+  "p_media": 0.604,
+  "frecuencia de la banda": {
+   "c": 0.4845
+  },
+  "desplazamiento": {
+   "delta": 0.1197
+  },
+  "encogimiento a 1/cuota": {
+   "w": 1.5026
+  },
+  "logística (Platt)": {
+   "a": 0.1578,
+   "b": -0.494
+  }
+ },
+ "estado": "candidato: análisis fuera de muestra; no aplicado al modelo"
+}

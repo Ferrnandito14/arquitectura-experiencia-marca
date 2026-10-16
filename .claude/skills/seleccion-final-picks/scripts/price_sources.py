@@ -276,6 +276,7 @@ class UserCaptureProvider(PriceProvider):
         with open(ids_path, encoding="utf-8") as fh:
             ids = json.load(fh)
         self.nota = raw.get("fuente", "capturas de la persona usuaria")
+        self.capturado_utc = raw.get("capturado_utc")                 # opcional: hora UTC en que la persona usuaria tomó la captura (sin ella, la antigüedad de la cuota queda «sin hora de captura»)
         self.idx = {}
         for _liga, h, a, _hora, o1x2, line, ou in raw["partidos"]:
             mid = ids.get(f"{h}|{a}")
@@ -294,7 +295,7 @@ class UserCaptureProvider(PriceProvider):
             odds = r["1x2"][{"home": 0, "draw": 1, "away": 2}[entry["direction"]]]
         elif entry["market"] == "goles" and entry["scope"] == "match" and entry["direction"] in ("over", "under") and entry["id"].startswith("goles.total.") and entry["line"] == r["line"]:
             odds = r["ou"][0 if entry["direction"] == "over" else 1]
-        return [make_record(match["match_id"], entry["id"], odds, self.name, "usuario", verified=True, note=f"comunicado por la persona usuaria: {self.nota}")] if odds else []
+        return [make_record(match["match_id"], entry["id"], odds, self.name, "usuario", observed_utc=self.capturado_utc, verified=True, note=f"comunicado por la persona usuaria: {self.nota}")] if odds else []
 
 
 def collect_prices(providers, matches, entries):

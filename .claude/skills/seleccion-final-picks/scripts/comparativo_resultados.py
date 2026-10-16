@@ -23,6 +23,8 @@ import agent_review as ar  # noqa: E402
 import catalog_rankings as cr  # noqa: E402
 import common  # noqa: E402
 import market_catalog as mc  # noqa: E402
+from acumulado import cluster_ci  # noqa: E402
+import acumulado as acu  # noqa: E402
 import seguimiento as sg  # noqa: E402
 
 CCS = ZoneInfo("America/Caracas")
@@ -38,14 +40,119 @@ def _int(v):
         return None
 
 
+def _goal_minute(t):
+    """(minuto base, ¿con descuento?) de «45», «45+2», «90+7»; None si no se entiende."""
+    t = str(t or "").replace("'", "").strip()
+    try:
+        base, _, extra = t.partition("+")
+        return int(base), bool(extra)
+    except ValueError:
+        return None
+
+
+def goals_from_events(e):
+    """Goles por lado a partir de la lista de goleadores (`goalscorer`): total a 90' + descuento y 1.ª parte (min ≤ 45 + descuento). None si la lista no existe.
+    Es una segunda lectura DEL MISMO proveedor: confirma o desmiente el marcador, no es una fuente independiente."""
+    gs = e.get("goalscorer")
+    if not isinstance(gs, list):
+        return None
+    tot, ht = [0, 0], [0, 0]
+    for g in gs:
+        side = 0 if (g.get("home_scorer") or "").strip() else 1 if (g.get("away_scorer") or "").strip() else None
+        m = _goal_minute(g.get("time"))
+        if side is None or m is None:
+            continue
+        base, plus = m
+        if base < 90 or (base == 90):
+            tot[side] += 1
+        if base < 45 or (base == 45):
+            ht[side] += 1
+    return tot, ht
+
+
 def parse_result(e):
-    """Hechos liquidables de un evento de apifootball (None donde la fuente no los trae: nunca 0 inventado)."""
+    """Hechos liquidables de un evento de apifootball (None donde la fuente no los trae: nunca 0 inventado) y su procedencia: de qué bloque sale cada dato y si las lecturas coinciden."""
     h, a = sg.score90(e)
     cards = adapters._card_points(e)
-    return {"estado": e.get("match_status") or "", "h": h, "a": a, "h1": _int(e.get("match_hometeam_halftime_score")), "a1": _int(e.get("match_awayteam_halftime_score")),
-            "corners": adapters._stat(e, "Corners"), "tarjetas": list(cards) if cards else None, "remates": adapters._stat(e, "Shots Total"),
-            "a_puerta": adapters._stat(e, "Shots On Goal"), "fueras": adapters._stat(e, "Offsides"), "arbitro": (e.get("match_referee") or "").strip() or None,
-            "local": e.get("match_hometeam_name"), "visitante": e.get("match_awayteam_name"), "fecha": e.get("match_date"), "hora": e.get("match_time")}
+    blocks = {}
+    for key in ("statistics", "statistics_1half"):
+        for x in e.get(key) or []:
+            if x.get("type") == "Corners":
+                try:
+                    blocks[key] = (int(x.get("home") or 0), int(x.get("away") or 0))
+                except ValueError:
+                    pass
+    cp = sg._corner_pair(e)                                  # máximo por lado entre los dos bloques (los córners no bajan; el bloque del partido a veces va retrasado)
+    ev = goals_from_events(e)
+    r = {"estado": e.get("match_status") or "", "h": h, "a": a, "h1": _int(e.get("match_hometeam_halftime_score")), "a1": _int(e.get("match_awayteam_halftime_score")),
+         "corners": list(cp) if cp else adapters._stat(e, "Corners"), "tarjetas": list(cards) if cards else None, "remates": adapters._stat(e, "Shots Total"),
+         "a_puerta": adapters._stat(e, "Shots On Goal"), "fueras": adapters._stat(e, "Offsides"), "arbitro": (e.get("match_referee") or "").strip() or None,
+         "local": e.get("match_hometeam_name"), "visitante": e.get("match_awayteam_name"), "fecha": e.get("match_date"), "hora": e.get("match_time"),
+         "procedencia": {"proveedor": "apifootball get_events", "fuentes_independientes": 1,
+                         "corners_bloques": {k: list(v) for k, v in blocks.items()},
+                         "corners_conflicto": len(set(blocks.values())) > 1,
+                         "goles_eventos": None if ev is None else {"total": ev[0], "descanso": ev[1]}}}
+    return r
+
+
+def provenance_text(r, kind):
+    """Texto de procedencia del dato decisivo (kind: goles | 1t | corners | tarjetas | otro) con el nº de lecturas que lo confirman. Todas son del mismo proveedor: se dice."""
+    pv = r.get("procedencia") or {}
+    if not pv:
+        return "apifootball (sin detalle de procedencia: resultado anterior al registro de fuentes)"
+    base = "apifootball (1 fuente)"
+    ev = pv.get("goles_eventos")
+    if kind == "goles":
+        if ev is None:
+            return base + "; sin lista de goleadores para contrastar"
+        ok = r.get("h") is not None and ev["total"] == [r["h"], r["a"]]
+        return base + ("; lista de goleadores coincide con el marcador (2 lecturas)" if ok else f"; CONFLICTO: goleadores {ev['total'][0]}–{ev['total'][1]} vs marcador {r.get('h')}–{r.get('a')}")
+    if kind == "1t":
+        if ev is None:
+            return base + "; sin lista de goleadores para contrastar"
+        ok = r.get("h1") is not None and ev["descanso"] == [r["h1"], r["a1"]]
+        return base + ("; goleadores ≤ 45' coinciden con el descanso (2 lecturas)" if ok else f"; CONFLICTO: goleadores ≤ 45' {ev['descanso'][0]}–{ev['descanso'][1]} vs descanso {r.get('h1')}–{r.get('a1')}")
+    if kind == "corners":
+        b = pv.get("corners_bloques") or {}
+        if not b:
+            return base + "; sin estadísticas de córners"
+        if pv.get("corners_conflicto"):
+            return base + "; CONFLICTO entre bloques " + " vs ".join(f"{k}={v[0]}–{v[1]}" for k, v in b.items()) + " → se usa el máximo por lado"
+        return base + f"; {len(b)} bloque(s) de estadísticas {'coinciden' if len(b) > 1 else '(solo uno)'}"
+    return base
+
+
+def result_status(r):
+    """Estado normalizado del resultado: FINALIZADO | APLAZADO | CANCELADO | SUSPENDIDO | EN JUEGO | DATO INVÁLIDO | SIN RESULTADO. Solo FINALIZADO entra en los cálculos."""
+    est = (r.get("estado") or "").strip()
+    if not r or est in ("", "sin_resultado_en_la_api"):
+        return "SIN RESULTADO"
+    low = est.lower()
+    if low in ("postponed", "pospuesto"):
+        return "APLAZADO"
+    if low in ("cancelled", "canceled", "cancelado"):
+        return "CANCELADO"
+    if low in ("abandoned", "interrupted", "suspended"):
+        return "SUSPENDIDO"
+    if est in FINAL_STATES:
+        h, a, h1, a1 = r.get("h"), r.get("a"), r.get("h1"), r.get("a1")
+        if not (isinstance(h, int) and isinstance(a, int)) or h < 0 or a < 0 or h > 15 or a > 15:
+            return "DATO INVÁLIDO"
+        if h1 is not None and a1 is not None and (h1 > h or a1 > a):
+            return "DATO INVÁLIDO"
+        pv = (r.get("procedencia") or {}).get("goles_eventos")
+        if pv is not None and (pv["total"][0] > h or pv["total"][1] > a):
+            return "DATO INVÁLIDO"
+        return "FINALIZADO"
+    if est.isdigit() or low in ("half time", "halftime", "ht") or low.endswith("'") or "+" in est:
+        return "EN JUEGO"
+    if low in ("not started", ""):
+        return "SIN RESULTADO"
+    return "DATO INVÁLIDO"
+
+
+def is_final(r):
+    return result_status(r) == "FINALIZADO"
 
 
 def find_api_event(client, key, m):
@@ -77,7 +184,7 @@ def fetch_results(run, refresh=False):
         raise SystemExit("error: sin clave de apifootball")
     client = common.Client(os.path.join(run, "cache"), os.path.join(run, "sources", "consultas.jsonl"), policy=common.Policy(), min_interval=1.0, ttl=60)
     for mid in ids:
-        if mid in cur and cur[mid].get("estado") in FINAL_STATES and not refresh:
+        if mid in cur and is_final(cur[mid]) and cur[mid].get("procedencia") and not refresh:
             continue
         aid = (inv[mid].get("source_match_ids") or {}).get("apifootball")
         if aid:
@@ -110,8 +217,8 @@ def _ah(h, a, side, line):
 
 def settle_entry(e, r):
     """(resultado, dato_usado). Regla por mercado; sin dato → (SIN DATO, motivo). 'half' solo en hándicaps de cuarto de línea."""
-    if r.get("estado") not in FINAL_STATES or r.get("h") is None or r.get("a") is None:
-        return NODATA, "partido sin resultado final"
+    if not is_final(r):
+        return NODATA, "partido sin resultado final (" + result_status(r).lower() + "): excluido del cálculo"
     h, a, h1, a1 = r["h"], r["a"], r.get("h1"), r.get("a1")
     eid, d, line = e["id"], e["direction"], e.get("line")
     mk = e["market"]
@@ -189,29 +296,64 @@ def hhmm(utc_iso):
 
 
 # ── (4) libro ──
-def append_ledger(path, run, legs, inv):
-    """Registro acumulado de patas liquidadas (una línea por run+pata) para auditar los filtros con más días: probabilidad del modelo, cuota, estado de agentes y resultado."""
-    have = set()
-    if os.path.exists(path):
-        with open(path, encoding="utf-8") as fh:
-            for ln in fh:
-                try:
-                    d = json.loads(ln)
-                    have.add((d["run"], d["leg_id"]))
-                except (ValueError, KeyError):
-                    pass
+def append_ledger(path, run, legs, inv, extra=None):
+    """Registro acumulado de patas liquidadas (una línea por run+pata): probabilidad del modelo, cuota, estado de agentes, resultado y, desde el 16-oct, liga, hora de captura de la cuota,
+    hora del partido, en qué rankings/combinadas salió y si la persona usuaria la jugó. Si la línea ya existe se COMPLETA con los campos nuevos (idempotente); nunca se borra nada."""
+    rows = acu.leer(path)
+    idx = {(d["run"], d["leg_id"]): d for d in rows}
     n = 0
-    with open(path, "a", encoding="utf-8") as fh:
-        for l in legs:
-            if l.get("p_modelo") is None or l.get("cuota") is None or l["res"] == NODATA or (run, l["leg_id"]) in have:
-                continue
-            fh.write(json.dumps({"run": run, "dia": inv[l["match_id"]]["normalized_datetime_utc"][:10], "leg_id": l["leg_id"], "partido_id": l["match_id"], "grupo": l["grupo"], "p": l["p_modelo"], "cuota": l["cuota"],
-                                 "precio_tipo": l["precio_tipo"], "agentes": l["agentes"], "elegible": not l["motivos_exclusion"], "res": l["res"]}, ensure_ascii=False) + "\n")
+    for l in legs:
+        if l.get("p_modelo") is None or l.get("cuota") is None or l["res"] == NODATA:
+            continue
+        nuevo = {"run": run, "dia": inv[l["match_id"]]["normalized_datetime_utc"][:10], "leg_id": l["leg_id"], "partido_id": l["match_id"], "grupo": l["grupo"], "p": l["p_modelo"], "cuota": l["cuota"],
+                 "precio_tipo": l["precio_tipo"], "agentes": l["agentes"], "elegible": not l["motivos_exclusion"], "res": l["res"],
+                 "hora_utc": inv[l["match_id"]]["normalized_datetime_utc"], "observado_utc": l.get("observado_utc"), "liga": (extra or {}).get("liga", {}).get(l["match_id"])}
+        nuevo.update((extra or {}).get("legs", {}).get(l["leg_id"], {}))
+        cur = idx.get((run, l["leg_id"]))
+        if cur is None:
+            rows.append(nuevo)
+            idx[(run, l["leg_id"])] = nuevo
             n += 1
+        else:
+            cur.update({k: v for k, v in nuevo.items() if v is not None})
+    os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
+    tmp = path + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as fh:
+        for d in rows:
+            fh.write(json.dumps(d, ensure_ascii=False) + "\n")
+    os.replace(tmp, path)
     return n
 
 
-def build(run, book_path, out_path, refresh=False, ledger=None, user_picks=None):
+def append_combos(path, run, filas):
+    """Registro acumulado de combinadas liquidadas (se reescriben las del run). filas: dicts con objetivo, opcion, cuota_total, estado, beneficio, p_libro, agentes, patas."""
+    rows = [d for d in acu.leer(path) if d.get("run") != run]
+    rows += [dict(run=run, **f) for f in filas]
+    os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
+    tmp = path + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as fh:
+        for d in rows:
+            fh.write(json.dumps(d, ensure_ascii=False) + "\n")
+    os.replace(tmp, path)
+    return len(filas)
+
+
+def agents_at_commit(run, sha):
+    """Informes de agentes del run tal como estaban en un commit: (reports, unidades del paquete). Permite ver qué estado tenía cada pata cuando se decidió."""
+    import subprocess
+    import tempfile
+    tmp = tempfile.mkdtemp(prefix="agentes_commit_")
+    os.makedirs(os.path.join(tmp, "agentes"))
+    for f in ("informe_verificador.json", "informe_deportivo.json", "informe_cuantitativo.json", "informe_auditor.json", "paquete.json"):
+        out = subprocess.run(["git", "show", f"{sha}:{run.rstrip('/')}/agentes/{f}"], capture_output=True, text=True)
+        if out.returncode == 0:
+            with open(os.path.join(tmp, "agentes", f), "w", encoding="utf-8") as fh:
+                fh.write(out.stdout)
+    pack = common.read_json(os.path.join(tmp, "agentes", "paquete.json"), None)
+    return ar.load_reports(tmp), (pack or {}).get("unidades") or None
+
+
+def build(run, book_path, out_path, refresh=False, ledger=None, user_picks=None, agentes_commit=None):
     from openpyxl import Workbook
     from openpyxl.styles import Alignment, Font, PatternFill
     from openpyxl.utils import get_column_letter
@@ -225,6 +367,10 @@ def build(run, book_path, out_path, refresh=False, ledger=None, user_picks=None)
     rev = cr.reviewed_prices(run)
     pack = common.read_json(os.path.join(run, "agentes", "paquete.json"), None)
     legs = cr.legs_from_units(units, cr.agent_status(units, reports, rev, (pack or {}).get("unidades") or None), rev)
+    then = {}
+    if agentes_commit:
+        rep_then, pack_then = agents_at_commit(run, agentes_commit)
+        then = {l["leg_id"]: l["agentes"] for l in cr.legs_from_units(units, cr.agent_status(units, rep_then, rev, pack_then), rev)}
     ent = {e["id"]: e for e in mc.CATALOG}
     inv = {m["match_id"]: m for m in common.read_json(os.path.join(run, "inventory.json"))["matches"]}
     liga_de = {}
@@ -242,6 +388,22 @@ def build(run, book_path, out_path, refresh=False, ledger=None, user_picks=None)
         eid = l["leg_id"].split("|", 1)[1]
         l["entry_id"] = eid
         l["res"], l["dato"] = settle_entry(ent[eid], results.get(l["match_id"], {}))
+    def kind_of(eid):
+        return "1t" if eid.startswith("primera_parte.") else "corners" if eid.startswith("corners.") else "goles" if eid.startswith(("goles.", "resultado.")) else "otro"
+
+    def src(l):
+        return provenance_text(results.get(l["match_id"], {}), kind_of(l["entry_id"]))
+
+    def px(l):
+        """(hora de captura de la cuota en Caracas, horas entre la captura y el inicio del partido)."""
+        o = l.get("observado_utc")
+        if not o:
+            return None, None
+        def _utc(x):
+            d_ = datetime.fromisoformat(x.replace("Z", "+00:00"))
+            return d_ if d_.tzinfo else d_.replace(tzinfo=timezone.utc)
+        t0, k0 = _utc(o), _utc(inv[l["match_id"]]["normalized_datetime_utc"])
+        return t0.astimezone(CCS).strftime("%d-%b %H:%M"), round((k0 - t0).total_seconds() / 3600, 1)
     by_key = {(l["partido"], l["etiqueta"]): l for l in legs}
     by_key_nm = {}
     for l in legs:
@@ -258,19 +420,15 @@ def build(run, book_path, out_path, refresh=False, ledger=None, user_picks=None)
     reg_u = [json.loads(x) for x in open(user_picks, encoding="utf-8") if x.strip()] if user_picks and os.path.exists(user_picks) else []
     reg_u = [r for r in reg_u if r.get("fecha") == fecha_run]
     user_star = defaultdict(list)       # (partido, etiqueta) -> tickets
-    user_rows = []
+    user_rows = []                      # (ticket, pata, patas del catálogo que la componen, nota, registro de resultado)
     if spec_u:
         res_by = {(r["ticket"], r["partido"], r["mercado"]): r for r in reg_u}
         for t in spec_u["tickets"]:
             for p in t["patas"]:
-                lab = rt.catalog_label(p)
-                lg_ = None
-                if lab:
-                    c_ = rt.catalog_matches(legs, p["mid"], p, lab)
-                    lg_ = c_[0] if c_ else None
-                if lg_:
+                found, nota = rt.catalog_legs(legs, p["mid"], p)
+                for lg_ in found:
                     user_star[(lg_["partido"], lg_["etiqueta"])].append(t["id"])
-                user_rows.append((t, p, lg_, res_by.get((t["id"], p["partido"], p["mercado"]))))
+                user_rows.append((t, p, found, nota, res_by.get((t["id"], p["partido"], p["mercado"]))))
 
     def star(partido, sel):
         return sel + " *" if user_star.get((partido, sel)) else sel
@@ -312,16 +470,17 @@ def build(run, book_path, out_path, refresh=False, ledger=None, user_picks=None)
     for mid in ids:
         r, m = results.get(mid, {}), inv[mid]
         t = hhmm(m["normalized_datetime_utc"])
-        if r.get("estado") in FINAL_STATES:
+        stt = result_status(r)
+        if stt == "FINALIZADO":
             marcador = f"{r['h']}–{r['a']}" + (" (prórroga/penales después)" if r.get("estado") != "Finished" else "")
             ht = f"{r['h1']}–{r['a1']}" if r.get("h1") is not None and r.get("a1") is not None else None
-        else:
-            marcador, ht = r.get("estado") or "sin resultado", None
+        else:                                               # aplazado, en juego o dato inválido: no se muestra marcador como si fuera final y no entra en ningún cálculo
+            marcador, ht = f"— ({stt.lower()}: {r.get('estado') or 'sin estado'}{'; marcador recibido ' + str(r.get('h')) + '–' + str(r.get('a')) if stt in ('DATO INVÁLIDO', 'EN JUEGO') and r.get('h') is not None else ''})", None
         res_rows.append([t, liga_cap.get(mid) or m.get("competition"), f"{m['home_team']} – {m['away_team']}", marcador, ht,
                          f"{r['corners'][0]}–{r['corners'][1]} ({sum(r['corners'])})" if r.get("corners") else "sin dato",
                          f"{r['tarjetas'][0]}–{r['tarjetas'][1]} ({sum(r['tarjetas'])})" if r.get("tarjetas") else "sin dato",
                          f"{r['a_puerta'][0]}–{r['a_puerta'][1]}" if r.get("a_puerta") else "sin dato", f"{r['remates'][0]}–{r['remates'][1]}" if r.get("remates") else "sin dato",
-                         r.get("arbitro"), r.get("estado")])
+                         r.get("arbitro"), stt, provenance_text(r, "goles") + " | 1.ª parte: " + provenance_text(r, "1t").split("; ", 1)[-1] + " | córners: " + provenance_text(r, "corners").split("; ", 1)[-1]])
     # orden cronológico real
     order = {mid: inv[mid]["normalized_datetime_utc"] for mid in ids}
     res_rows = [x for _, x in sorted(zip([order[mid] for mid in ids], res_rows), key=lambda t: t[0])]
@@ -339,13 +498,13 @@ def build(run, book_path, out_path, refresh=False, ledger=None, user_picks=None)
         return rows
 
     picks = {n: pick_rows(n) for n in ("Ranking seguridad", "Ranking atractivo-cuota", "Top por liga")}
-    base_hdr = ["Hora Caracas", "Liga", "Partido", "Mercado", "Selección", "Cuota", "Tipo de precio", "P modelo %", "Agentes", "Resultado del partido", "Dato que decide", "Resultado del pick", "Beneficio por 1 u (teórico)"]
+    base_hdr = ["Hora Caracas", "Liga", "Partido", "Mercado", "Selección", "Cuota", "Tipo de precio", "P modelo %", "Agentes", "Resultado del partido", "Dato que decide", "Resultado del pick", "Beneficio por 1 u (teórico)", "Fuente del dato (lecturas que confirman)", "Cuota observada (Caracas)", "Horas entre la cuota y el inicio"]
 
     def fmt_row(row, l, res, dato, odds, pf, extra=None):
         r = results.get(l["match_id"], {})
         marcador = f"{r['h']}–{r['a']}" if r.get("h") is not None else r.get("estado")
         return ([row.get("Hora Caracas") or hhmm(inv[l["match_id"]]["normalized_datetime_utc"]), row.get("Liga") or liga_cap.get(l["match_id"]), row["Partido"], row.get("Mercado") or l["grupo"], star(row["Partido"], row["Selección"]), odds,
-                 row.get("Tipo de precio"), row.get("P modelo %"), row.get("Agentes") or l.get("agentes"), marcador, dato, res, None if pf is None else round(pf, 2)])
+                 row.get("Tipo de precio"), row.get("P modelo %"), row.get("Agentes") or l.get("agentes"), marcador, dato, res, None if pf is None else round(pf, 2), src(l), *px(l)])
 
     pick_sheets = {}
     for n in ("Ranking seguridad", "Ranking atractivo-cuota"):
@@ -378,11 +537,11 @@ def build(run, book_path, out_path, refresh=False, ledger=None, user_picks=None)
         head = rows[0]
         n_w = sum(1 for _, _, r_, _ in legs_res if r_.startswith(WIN))
         pf = None if estado == NODATA else ((tot_odds_eff - 1) if estado == WIN else -1.0)
-        comb_summary.append((obj, opt, head["Cuota total"], head.get("P gana si fueran independientes %"), head.get("Estado agentes"), head.get("Tipo de cuota"), len(legs_res), n_w, estado, pf))
+        comb_summary.append((obj, opt, head["Cuota total"], head.get("P gana si fueran independientes %"), head.get("Estado agentes"), head.get("Tipo de cuota"), len(legs_res), n_w, estado, pf, [l_["leg_id"] for _, l_, _, _ in legs_res]))
         for row, l, res, dato in legs_res:
             r = results.get(l["match_id"], {})
             comb_rows.append([obj, opt, head["Cuota total"], estado, None if pf is None else round(pf, 2), row["Hora Caracas"], row["Partido"], star(row["Partido"], row["Selección"]), row["Cuota de la pata"],
-                              f"{r['h']}–{r['a']}" if r.get("h") is not None else r.get("estado"), dato, res])
+                              f"{r['h']}–{r['a']}" if r.get("h") is not None else r.get("estado"), dato, res, src(l), *px(l)])
 
     # catálogo evaluado (todas las patas con modelo y precio)
     cat_rows, evald = [], []
@@ -391,7 +550,7 @@ def build(run, book_path, out_path, refresh=False, ledger=None, user_picks=None)
             continue
         h_ = hit(l["res"])
         cat_rows.append([hhmm(inv[l["match_id"]]["normalized_datetime_utc"]), liga_cap.get(l["match_id"]), l["partido"], l["grupo"], star(l["partido"], l["etiqueta"]), l["cuota"], l["precio_tipo"], round(l["p_modelo"] * 100, 1),
-                         round(100 / l["cuota"], 1), l["agentes"], "sí" if not l["motivos_exclusion"] else "no", l["dato"], l["res"]])
+                         round(100 / l["cuota"], 1), l["agentes"], "sí" if not l["motivos_exclusion"] else "no", l["dato"], l["res"], src(l), *px(l)])
         if l["res"] not in (NODATA,):
             evald.append(l)
 
@@ -402,19 +561,20 @@ def build(run, book_path, out_path, refresh=False, ledger=None, user_picks=None)
         pdd = sum(1 for r_, *_ in items if r_.startswith(LOSE))
         v = sum(1 for r_, *_ in items if r_ == VOID)
         sd = sum(1 for r_, *_ in items if r_ == NODATA)
-        liq = [(r_, o, p) for r_, o, p in items if r_ != NODATA]
+        liq = [(x[0], x[1], x[2]) for x in items if x[0] != NODATA]
         pfs = [payoff(r_, o) for r_, o, _ in liq if o]
         roi = (sum(pfs) / len(pfs)) if pfs else None
         pm = [p for r_, o, p in liq if p is not None and (r_.startswith(WIN) or r_.startswith(LOSE))]
         im = [1 / o for r_, o, p in liq if o and (r_.startswith(WIN) or r_.startswith(LOSE))]
         acc = g / (g + pdd) if (g + pdd) else None
+        ci_a, ci_r = cluster_ci(items)
         return [len(items), g, pdd, v, sd, None if acc is None else round(acc * 100, 1), None if roi is None else round(roi * 100, 1),
-                None if not pm else round(sum(pm) / len(pm) * 100, 1), None if not im else round(sum(im) / len(im) * 100, 1)]
+                None if not pm else round(sum(pm) / len(pm) * 100, 1), None if not im else round(sum(im) / len(im) * 100, 1), ci_a, ci_r]
 
     def items_from(prows):
-        return [(res, odds, (row.get("P modelo %") / 100) if row.get("P modelo %") is not None else None) for row, l, res, dato, odds, pf in prows]
+        return [(res, odds, (row.get("P modelo %") / 100) if row.get("P modelo %") is not None else None, l["match_id"]) for row, l, res, dato, odds, pf in prows]
 
-    sum_hdr = ["Conjunto", "Picks", "Ganados", "Perdidos", "Anulados", "Sin dato", "% acierto (ganados / liquidados)", "ROI teórico % (1 u por pick, a la cuota del libro)", "P modelo media %", "Prob. implícita media (1/cuota) %"]
+    sum_hdr = ["Conjunto", "Picks", "Ganados", "Perdidos", "Anulados", "Sin dato", "% acierto (ganados / liquidados)", "ROI teórico % (1 u por pick, a la cuota del libro)", "P modelo media %", "Prob. implícita media (1/cuota) %", "IC 95 % acierto (por partido)", "IC 95 % ROI % (por partido)"]
     sum_rows = []
     for n in ("Ranking seguridad", "Ranking atractivo-cuota"):
         sum_rows.append([n] + agg(items_from(picks[n])))
@@ -425,7 +585,7 @@ def build(run, book_path, out_path, refresh=False, ledger=None, user_picks=None)
     uniq = {}
     for n in picks:
         for row, l, res, dato, odds, pf in picks[n]:
-            uniq[(l["leg_id"])] = (res, odds, (row.get("P modelo %") / 100) if row.get("P modelo %") is not None else None)
+            uniq[(l["leg_id"])] = (res, odds, (row.get("P modelo %") / 100) if row.get("P modelo %") is not None else None, l["match_id"])
     sum_rows.append(["Todos los picks de los rankings (sin repetir)"] + agg(list(uniq.values())))
 
     # combinadas
@@ -461,7 +621,7 @@ def build(run, book_path, out_path, refresh=False, ledger=None, user_picks=None)
         for res, o, p, l in (items if items is not None else pick_items):
             k = keyf(l)
             if k is not None:
-                grp[k].append((res, o, p))
+                grp[k].append((res, o, p, l["match_id"]))
         keys = order or sorted(grp)
         return [[f"{title}: {k}"] + agg(grp[k]) for k in keys if k in grp]
 
@@ -480,21 +640,33 @@ def build(run, book_path, out_path, refresh=False, ledger=None, user_picks=None)
     # hoja Léeme
     ws0 = wb.active
     ws0.title = "Léeme"
-    n_fin = sum(1 for mid in ids if results.get(mid, {}).get("estado") in FINAL_STATES)
+    from collections import Counter as _C
+    stc = _C(result_status(results.get(mid, {})) for mid in ids)
+    n_fin = stc.get("FINALIZADO", 0)
+    exc = "; ".join(f"{v} {k.lower()}" for k, v in stc.items() if k != "FINALIZADO")
     lines = [
         (f"Comparativo de {os.path.basename(book_path)} contra los resultados reales (hora de Caracas)", True),
-        (f"Partidos: {len(ids)} del {day_label}; con resultado final: {n_fin}. Resultados y estadísticas: apifootball (marcador a 90', descanso, córners, tarjetas con A=1/R=2, remates).", False),
+        (f"Partidos: {len(ids)} del {day_label}; con resultado final: {n_fin}{(' · EXCLUIDOS del cálculo: ' + exc) if exc else ''}. Resultados y estadísticas: apifootball (marcador a 90', descanso, córners, tarjetas con A=1/R=2, remates).", False),
         ("Qué se evalúa: (1) los picks del libro tal como se entregaron — Ranking seguridad, Ranking atractivo-cuota, Top por liga y Combinadas — con su cuota de referencia; (2) TODAS las patas del catálogo con modelo y precio, para medir calibración y el efecto de los filtros de los agentes.", False),
         ("Liquidación: totales de línea entera y empate no válido = ANULADA (beneficio 0); hándicap asiático de cuarto de línea = mitad ganada/perdida; hándicap europeo aplica la línea al local; 1.ª parte = marcador al descanso. Si la fuente no trae el dato (p. ej. tarjetas de una copa) o trae un cero dudoso de córners (un equipo con 0 córners en todo el partido) queda SIN DATO y no cuenta como acierto ni fallo.", False),
         ("Beneficio/ROI teórico: se apuesta 1 unidad por pick a la cuota que mostraba el libro (referencia de agregador salvo las marcadas «ejecutable»). Las combinadas ganan solo si TODAS sus patas ganan (una pata anulada cuenta con cuota 1). No incluye margen de tu casa ni cuotas que se movieron.", False),
         ("Cómo leer el acierto: % acierto = ganados / (ganados + perdidos). Compáralo con la P media del modelo y con la probabilidad implícita 1/cuota: un modelo bien calibrado acierta cerca de su P media; el mercado, cerca de 1/cuota.", False),
         ("Advertencia de muestra: es UN día y pocas patas por tabla. Sirve para ver el orden de magnitud y detectar fallos de método; NO valida ni descarta el modelo (sigue sin validar) y no es una promesa de resultados futuros.", False),
-        ("Asterisco (*): marca los picks que la persona usuaria jugó en sus propios tickets (hoja «Mis picks (asterisco)»). Solo se marcan cuando su pata tiene una línea EXACTA en el catálogo (totales, córners del partido, ambos anotan, doble oportunidad, goles 1.ª parte); las demás (1X2, hándicap, combos, córners por equipo) se listan en «Mis picks*» sin cruce.", False),
+        ("Asterisco (*): marca los picks que la persona usuaria jugó en sus propios tickets (hoja «Mis picks (asterisco)»). Se marcan las patas con línea en el catálogo (totales, córners del partido y por equipo, 1X2, doble oportunidad, hándicap, ambos anotan, 1.ª parte); los combos («Crear apuesta») se evalúan como producto de sus tramos asumiendo independencia (aproximación) y los cuartos de línea con la media línea contigua (cota inferior); ambas aproximaciones se rotulan en «Mis picks (asterisco)».", False),
         ("El libro original no se modifica. Las patas que no se pudieron cruzar con el catálogo del run se listan al final de esta hoja.", False)]
     for t, b in lines:
         ws0.append([t])
         ws0.cell(ws0.max_row, 1).font = Font(bold=b, size=13 if b else 11)
         ws0.cell(ws0.max_row, 1).alignment = Alignment(wrap_text=True, vertical="top")
+    import congelar_version as cv
+    ver = cv.lookup(book_path)
+    if ver is None:
+        fz, _ = cv.freeze(book_path, run, "congelada al hacer el comparativo (no se sabe cuándo se entregó esta versión)")
+        ver = cv.lookup(book_path)
+    ws0.append([f"Versión del libro evaluado: sha256 {cv.sha256(book_path)[:16]}…, congelada el {ver['creado_caracas']} (Caracas) como {ver['archivo']} (versión {ver['version']} de ese libro; nota: {ver.get('nota')})."])
+    ws0.cell(ws0.max_row, 1).alignment = Alignment(wrap_text=True, vertical="top")
+    if agentes_commit:
+        ws0.append([f"Estados de agentes «cuando se decidió»: informes del commit {agentes_commit} (solo cambian los estados de agentes; precios y modelo son los actuales)."])
     if miss:
         ws0.append([f"Sin cruce con el catálogo ({len(miss)}): " + "; ".join(f"{a} / {b}" for a, b in miss[:20])])
     ws0.column_dimensions["A"].width = 150
@@ -510,19 +682,19 @@ def build(run, book_path, out_path, refresh=False, ledger=None, user_picks=None)
     ws.append(["CATÁLOGO COMPLETO CON MODELO Y PRECIO (patas liquidables)"] + [None] * 9)
     ws.append(["Las tablas «P del modelo» usan todas las patas (más y menos de cada línea, por eso la tasa global ronda el 50 %); el resto usa solo el lado que el modelo favorece (P ≥ 50 %) con cuota ≤ 2.10."] + [None] * 9)
     ws.append(sum_hdr)
-    ws.append(["Todas las patas con modelo y precio (ambos lados)"] + agg([(res, o, p) for res, o, p, _ in cat_items]))
-    ws.append(["Lado favorecido por el modelo, cuota ≤ 2.10"] + agg([(res, o, p) for res, o, p, _ in pick_items]))
+    ws.append(["Todas las patas con modelo y precio (ambos lados)"] + agg([(res, o, p, l["match_id"]) for res, o, p, l in cat_items]))
+    ws.append(["Lado favorecido por el modelo, cuota ≤ 2.10"] + agg([(res, o, p, l["match_id"]) for res, o, p, l in pick_items]))
     for tbl in (t_el, t_ag, t_pm, t_bc, t_gr, t_pr, t_lg):
         for r_ in tbl:
             ws.append(r_)
     for row in ws.iter_rows():
         if row[0].value in ("COMBINADAS", "CATÁLOGO COMPLETO CON MODELO Y PRECIO (patas liquidables)"):
             row[0].font = Font(bold=True, size=12)
-    sheet("Resultados", ["Hora Caracas", "Liga", "Partido", "Marcador (90')", "Descanso", "Córners (total)", "Tarjetas A=1/R=2 (total)", "Remates a puerta", "Remates", "Árbitro", "Estado"], res_rows, {"Partido": 42, "Liga": 28})
+    sheet("Resultados", ["Hora Caracas", "Liga", "Partido", "Marcador (90')", "Descanso", "Córners (total)", "Tarjetas A=1/R=2 (total)", "Remates a puerta", "Remates", "Árbitro", "Estado del resultado", "Fuente y lecturas que confirman"], res_rows, {"Partido": 42, "Liga": 28, "Marcador (90')": 38, "Fuente y lecturas que confirman": 110})
     sheet("Ranking seguridad", ["#"] + base_hdr, pick_sheets["Ranking seguridad"], {"Partido": 40, "Selección": 34, "Dato que decide": 30}, "Resultado del pick")
     sheet("Ranking atractivo-cuota", ["#"] + base_hdr, pick_sheets["Ranking atractivo-cuota"], {"Partido": 40, "Selección": 34, "Dato que decide": 30}, "Resultado del pick")
     sheet("Top por liga", ["Ranking"] + base_hdr, top_rows, {"Partido": 40, "Selección": 34, "Dato que decide": 30}, "Resultado del pick")
-    sheet("Combinadas", ["Objetivo", "Opción", "Cuota total", "Resultado de la combinada", "Beneficio por 1 u (teórico)", "Hora Caracas", "Partido", "Selección", "Cuota de la pata", "Resultado del partido", "Dato que decide", "Resultado de la pata"],
+    sheet("Combinadas", ["Objetivo", "Opción", "Cuota total", "Resultado de la combinada", "Beneficio por 1 u (teórico)", "Hora Caracas", "Partido", "Selección", "Cuota de la pata", "Resultado del partido", "Dato que decide", "Resultado de la pata", "Fuente del dato (lecturas que confirman)", "Cuota observada (Caracas)", "Horas entre la cuota y el inicio"],
           comb_rows, {"Partido": 40, "Selección": 34, "Dato que decide": 30, "Resultado de la combinada": 16}, "Resultado de la pata")
     ws = wb["Combinadas"]
     ci = 4
@@ -530,7 +702,7 @@ def build(run, book_path, out_path, refresh=False, ledger=None, user_picks=None)
         for c in row:
             v = str(c.value or "")
             c.fill = GREEN if v.startswith(WIN) else RED if v.startswith(LOSE) else GREY
-    sheet("Catálogo evaluado", ["Hora Caracas", "Liga", "Partido", "Mercado", "Selección", "Cuota", "Tipo de precio", "P modelo %", "1/cuota %", "Agentes", "Elegible para combinadas", "Dato que decide", "Resultado de la pata"],
+    sheet("Catálogo evaluado", ["Hora Caracas", "Liga", "Partido", "Mercado", "Selección", "Cuota", "Tipo de precio", "P modelo %", "1/cuota %", "Agentes", "Elegible para combinadas", "Dato que decide", "Resultado de la pata", "Fuente del dato (lecturas que confirman)", "Cuota observada (Caracas)", "Horas entre la cuota y el inicio"],
           cat_rows, {"Partido": 40, "Selección": 36, "Dato que decide": 30}, "Resultado de la pata")
     # ── picks de la persona usuaria (*) ──
     def _rg(x):
@@ -542,90 +714,196 @@ def build(run, book_path, out_path, refresh=False, ledger=None, user_picks=None)
                 if isinstance(c_, str) and c_.endswith(" *"):
                     appear[(r_[3] if nm != "Combinadas" else r_[6], c_)].add(nm)
     mp_rows, mp_items = [], []
-    for t, pata, lg_, rr in user_rows:
+    for t, pata, found, nota, rr in user_rows:
         if not rr:
             continue
         res_u = _rg(rr["resultado"])
-        k = (lg_["partido"], star(lg_["partido"], lg_["etiqueta"])) if lg_ else None
-        mp_rows.append([t["id"], pata["partido"], pata["mercado"] + (" (" + lg_["etiqueta"] + ")" if lg_ else " (sin línea exacta en el catálogo)"), pata["cuota"], round(100 / pata["cuota"], 1), res_u, rr.get("detalle"),
-                        None if not lg_ or lg_["p_modelo"] is None else round(lg_["p_modelo"] * 100, 1), (lg_ or {}).get("agentes"), None if not lg_ else ("sí" if not lg_["motivos_exclusion"] else "no"),
-                        ", ".join(sorted(appear.get(k, []))) if k else None])
-        mp_items.append((res_u, pata["cuota"], None if not lg_ or lg_["p_modelo"] is None else lg_["p_modelo"], lg_))
+        p_u, ag_u, el_u = rt.combine(found) if found else (None, None, None)
+        k = (found[0]["partido"], star(found[0]["partido"], found[0]["etiqueta"])) if found else None
+        modelo = ("catálogo" if len(found) == 1 and not nota else "catálogo, " + nota) if found else ("sin evaluación: " + (nota or ""))
+        mp_rows.append([t["id"], pata["partido"], pata["mercado"] + (" (" + " + ".join(l["etiqueta"] for l in found) + ")" if found else ""), pata["cuota"], round(100 / pata["cuota"], 1), res_u, rr.get("detalle"),
+                        None if p_u is None else round(p_u * 100, 1), ag_u, None if el_u is None else ("sí" if el_u else "no"), modelo,
+                        ", ".join(sorted(appear.get(k, []))) if k else None] + ([";".join(then.get(l["leg_id"], "—") for l in found) or None, None if not found else ("sí" if ";".join(then.get(l["leg_id"], "—") for l in found) != ag_u else "no")] if agentes_commit else []))
+        mp_items.append({"res": res_u, "o": pata["cuota"], "p": p_u, "mid": pata["mid"], "ag": ag_u, "el": el_u, "found": bool(found), "exacta": bool(found) and not nota})
     if mp_rows:
         mp_rows.sort(key=lambda r_: (r_[0], r_[1]))
-        sheet("Mis picks (asterisco)", ["Ticket", "Partido", "Pata", "Cuota", "1/cuota %", "Resultado", "Detalle", "P modelo %", "Agentes (sistema)", "Elegible para combinadas", "Aparece en el libro"], mp_rows,
-              {"Partido": 40, "Pata": 48, "Detalle": 30, "Aparece en el libro": 36}, "Resultado")
+        sheet("Mis picks (asterisco)", ["Ticket", "Partido", "Pata", "Cuota", "1/cuota %", "Resultado", "Detalle", "P modelo %", "Agentes (sistema)", "Elegible para combinadas", "Cómo se evaluó con el modelo", "Aparece en el libro"] + (["Agentes cuando se decidió (commit %s)" % agentes_commit, "¿Cambió después?"] if agentes_commit else []), mp_rows,
+              {"Partido": 40, "Pata": 52, "Detalle": 30, "Cómo se evaluó con el modelo": 54, "Aparece en el libro": 36}, "Resultado")
         ws = wb["Mis picks (asterisco)"]
         ws.append([])
-        ws.append(["Resumen"] + [None] * 10)
-        ws.append(["Conjunto", "Patas", "Ganadas", "Perdidas", "% acierto", "1/cuota media %", "P modelo media %"] + [None] * 4)
+        ws.append(["Resumen (con IC 95 % remuestreando partidos)"] + [None] * 11)
+        hd_ = ["Conjunto", "Patas", "Ganadas", "Perdidas", "% acierto", "1/cuota media %", "P modelo media %", "IC 95 % acierto (por partido)"]
+        ws.append(hd_)
 
         def agg_u(items):
-            liq = [x for x in items if x[0] in (WIN, LOSE)]
-            g_ = sum(1 for x in liq if x[0] == WIN)
-            pm_ = [x[2] for x in liq if x[2] is not None]
-            return [len(liq), g_, len(liq) - g_, None if not liq else round(g_ / len(liq) * 100, 1), None if not liq else round(sum(100 / x[1] for x in liq) / len(liq), 1), None if not pm_ else round(sum(pm_) / len(pm_) * 100, 1)]
+            liq = [x for x in items if x["res"] in (WIN, LOSE)]
+            g_ = sum(1 for x in liq if x["res"] == WIN)
+            pm_ = [x["p"] for x in liq if x["p"] is not None]
+            ci_ = cluster_ci([(x["res"], x["o"], x["p"], x["mid"]) for x in liq])[0]
+            return [len(liq), g_, len(liq) - g_, None if not liq else round(g_ / len(liq) * 100, 1), None if not liq else round(sum(100 / x["o"] for x in liq) / len(liq), 1), None if not pm_ else round(sum(pm_) / len(pm_) * 100, 1), ci_]
         ws.append(["Todas las patas jugadas*"] + agg_u(mp_items))
-        ws.append(["Con línea exacta en el catálogo"] + agg_u([x for x in mp_items if x[3]]))
-        ws.append(["Sin línea exacta (1X2, hándicap, combos, córners por equipo)"] + agg_u([x for x in mp_items if not x[3]]))
-        for lab_, f_ in (("Elegibles para combinadas", lambda x: x[3] and not x[3]["motivos_exclusion"]), ("No elegibles", lambda x: x[3] and x[3]["motivos_exclusion"])):
+        ws.append(["Evaluadas con el modelo (línea exacta, o producto/cota para combos y cuartos de línea)"] + agg_u([x for x in mp_items if x["found"]]))
+        ws.append(["   de ellas, línea exacta del catálogo"] + agg_u([x for x in mp_items if x["exacta"]]))
+        ws.append(["Sin evaluación posible (mercado sin equivalente en el catálogo)"] + agg_u([x for x in mp_items if not x["found"]]))
+        for lab_, f_ in (("Elegibles para combinadas", lambda x: x["el"] is True), ("No elegibles", lambda x: x["el"] is False)):
             ws.append([lab_] + agg_u([x for x in mp_items if f_(x)]))
         for st in ("aprobada", "degradada", "rechazada", "objetada"):
-            its = [x for x in mp_items if x[3] and (x[3]["agentes"] or "").startswith(st)]
+            its = [x for x in mp_items if x["ag"] and x["ag"].startswith(st)]
             if its:
                 ws.append([f"Agentes: {st}"] + agg_u(its))
-        # comparación con lo que el libro entregó y con el catálogo (lado favorecido, ≤ 2.10) separando lo que jugó la persona usuaria
-        jug = [(res, o, p) for res, o, p, l in pick_items if user_star.get((l["partido"], l["etiqueta"]))]
-        nojug = [(res, o, p) for res, o, p, l in pick_items if not user_star.get((l["partido"], l["etiqueta"]))]
+        jug = [(res, o, p, l["match_id"]) for res, o, p, l in pick_items if user_star.get((l["partido"], l["etiqueta"]))]
+        nojug = [(res, o, p, l["match_id"]) for res, o, p, l in pick_items if not user_star.get((l["partido"], l["etiqueta"]))]
         ws.append([])
-        ws.append(["Comparación con el sistema (lado favorecido por el modelo, cuota ≤ 2.10)"] + [None] * 10)
-        ws.append(["Conjunto", "Picks", "Ganados", "Perdidos", "Anulados", "Sin dato", "% acierto", "ROI teórico %", "P modelo media %", "1/cuota media %"] + [None])
+        ws.append(["Comparación con el sistema (lado favorecido por el modelo, cuota ≤ 2.10)"] + [None] * 11)
+        ws.append(sum_hdr)
         ws.append(["Líneas que jugó la persona usuaria*"] + agg(jug))
         ws.append(["Resto del catálogo"] + agg(nojug))
         ws.append(["Rankings y top del libro (sin repetir)"] + agg(list(uniq.values())))
+        ws.append([])
+        ws.append(["Las patas de un mismo partido no son independientes: el IC remuestrea partidos completos, no patas. Con tan pocos partidos el intervalo es muy ancho; sirve para NO sobre-interpretar la diferencia."] + [None] * 11)
         for row in ws.iter_rows():
-            if row[0].value in ("Resumen", "Comparación con el sistema (lado favorecido por el modelo, cuota ≤ 2.10)"):
+            if row[0].value and str(row[0].value).startswith(("Resumen (con IC", "Comparación con el sistema")):
                 row[0].font = Font(bold=True, size=12)
-    # ── distinciones de agentes con el ledger acumulado (todos los días y runs registrados) ──
-    if ledger and os.path.exists(ledger):
-        led = [json.loads(x) for x in open(ledger, encoding="utf-8") if x.strip()]
-        fav = [r for r in led if r["p"] is not None and r["p"] >= 0.5 and r["cuota"] and r["cuota"] <= 2.10 and r["res"] in (WIN, LOSE)]
 
-        def led_rows(rs, keyf):
-            g_ = defaultdict(list)
-            for r in rs:
-                g_[keyf(r)].append(r)
-            out = []
-            for k in sorted(g_, key=str):
-                x = g_[k]
-                w = sum(1 for r in x if r["res"] == WIN)
-                roi = sum((r["cuota"] - 1) if r["res"] == WIN else -1 for r in x) / len(x) * 100
-                half = 1.96 * math.sqrt((w / len(x)) * (1 - w / len(x)) / len(x)) * 100
-                out.append([str(k), len(x), w, len(x) - w, round(w / len(x) * 100, 1), round(half, 1), round(roi, 1), round(sum(r["p"] for r in x) / len(x) * 100, 1), round(sum(1 / r["cuota"] for r in x) / len(x) * 100, 1)])
-            return out
-        hdr = ["Grupo", "Patas", "Ganadas", "Perdidas", "% acierto", "± (IC 95 % ingenuo)", "ROI teórico %", "P modelo media %", "1/cuota media %"]
+    # ── registro acumulado (patas y combinadas) y estadística acumulada ──
+    n_led = 0
+    if ledger:
+        memb = defaultdict(lambda: {"rankings": [], "combinadas": 0, "usuario": []})
+        for nm in ("Ranking seguridad", "Ranking atractivo-cuota", "Top por liga"):
+            for row, l, *_ in picks[nm]:
+                if nm not in memb[l["leg_id"]]["rankings"]:
+                    memb[l["leg_id"]]["rankings"].append(nm)
+        for cs in comb_summary:
+            for lid in cs[10]:
+                memb[lid]["combinadas"] += 1
+        for l in legs:
+            tk = user_star.get((l["partido"], l["etiqueta"]))
+            if tk:
+                memb[l["leg_id"]]["usuario"] = sorted(set(tk))
+        n_led = append_ledger(ledger, run, legs, inv, {"liga": liga_cap, "legs": {k: v for k, v in memb.items()}})
+        comb_path = os.path.join(os.path.dirname(ledger) or ".", "ledger_combinadas.jsonl")
+        append_combos(comb_path, run, [{"objetivo": c[0], "opcion": c[1], "cuota_total": c[2], "p_libro": c[3], "agentes": c[4], "tipo_cuota": c[5], "patas": c[6], "patas_ganadas": c[7], "estado": c[8], "beneficio": None if c[9] is None else round(c[9], 2), "leg_ids": c[10]} for c in comb_summary])
+        led = acu.leer(ledger)
         runs_ = sorted({r["run"] for r in led})
-        dist_rows = []
-        for title, keyf, rs in (("Estado de agentes (acumulado)", lambda r: r["agentes"].split(":")[0], fav),
-                                ("Elegibilidad para combinadas (acumulado)", lambda r: "elegible" if r["elegible"] else "no elegible", fav),
-                                ("Motivo del rechazo (acumulado)", lambda r: r["agentes"], [r for r in fav if r["agentes"].startswith("rechazada")]),
-                                ("Mercado (acumulado)", lambda r: r["grupo"], fav),
-                                ("Estado de agentes por run", lambda r: r["run"].split("/")[-1] + " · " + r["agentes"].split(":")[0], fav)):
-            dist_rows.append([title] + [None] * 8)
-            dist_rows.extend(led_rows(rs, keyf))
-            dist_rows.append([None] * 9)
-        sheet("Distinciones de agentes", hdr, dist_rows, {"Grupo": 54})
-        wsd = wb["Distinciones de agentes"]
-        wsd.insert_rows(1)
-        wsd["A1"] = (f"Ledger acumulado de {len(runs_)} run(s) ({', '.join(x.split('/')[-1] for x in runs_)}): lado favorecido por el modelo (P ≥ 50 %), cuota ≤ 2.10, ganadas+perdidas. Las patas del mismo partido están correlacionadas: el IC ingenuo SUBESTIMA la incertidumbre.")
-        wsd["A1"].alignment = Alignment(wrap_text=True)
-        for row in wsd.iter_rows(min_row=3):
-            if row[0].value and row[1].value is None:
-                row[0].font = Font(bold=True, size=12)
+        fav = acu.liquidadas(led, True)
+        todas = acu.liquidadas(led, False)
+
+        def blank(ws_, n_=10):
+            ws_.append([None] * n_)
+
+        def seccion(ws_, titulo, filas, nota=None):
+            ws_.append([titulo] + [None] * 9)
+            ws_.cell(ws_.max_row, 1).font = Font(bold=True, size=12)
+            if nota:
+                ws_.append([nota] + [None] * 9)
+            ws_.append(acu.ENCABEZADO)
+            for c_ in ws_[ws_.max_row]:
+                c_.font, c_.fill = Font(bold=True, color="FFFFFF"), H
+            for f_ in filas:
+                ws_.append(f_)
+            blank(ws_)
+
+        wa = wb.create_sheet("Acumulado")
+        wa.append([f"Acumulado de {len(runs_)} run(s): {', '.join(x.split('/')[-1] for x in runs_)}. Lado favorecido por el modelo (P ≥ 50 %), cuota ≤ 2.10, ganadas+perdidas. Intervalos remuestreando PARTIDOS completos (las patas del mismo partido no son independientes). Se actualiza en cada ejecución del comparativo."])
+        wa.cell(1, 1).alignment = Alignment(wrap_text=True)
+        wa.row_dimensions[1].height = 48
+        wa.column_dimensions["A"].width = 58
+        for col in "BCDEFGHIJ":
+            wa.column_dimensions[col].width = 16
+        seccion(wa, "Todo el lado favorecido", [acu.fila("Lado favorecido, cuota ≤ 2.10", fav)])
+        rk_rows = []
+        for nm in ("Ranking seguridad", "Ranking atractivo-cuota", "Top por liga"):
+            f_ = acu.fila(nm, [r for r in fav if nm in (r.get("rankings") or [])])
+            if f_:
+                rk_rows.append(f_)
+        f_ = acu.fila("Patas que salieron en alguna combinada", [r for r in fav if r.get("combinadas")])
+        if f_:
+            rk_rows.append(f_)
+        f_ = acu.fila("Patas que jugó la persona usuaria*", [r for r in fav if r.get("usuario")])
+        if f_:
+            rk_rows.append(f_)
+        seccion(wa, "Rankings del libro y picks del usuario*", rk_rows, "Cada pata cuenta una vez por ranking en el que salió. Las patas de usuario son solo las que tienen línea exacta en el catálogo.")
+        seccion(wa, "Estado de agentes", acu.tabla(fav, lambda r: r["agentes"].split(":")[0]))
+        seccion(wa, "Motivo del rechazo (solo estado «rechazada»)", acu.tabla([r for r in fav if r["agentes"].startswith("rechazada")], lambda r: r["agentes"]),
+                "«Rechazada» suele significar dato no verificable, no riesgo deportivo: aquí se ve si esos motivos predicen o no la pérdida.")
+        seccion(wa, "Elegibilidad para combinadas", acu.tabla(fav, lambda r: "elegible" if r["elegible"] else "no elegible"))
+        seccion(wa, "Banda de cuota", acu.tabla(fav, lambda r: acu.banda_cuota(r["cuota"]), ["1–1.25", "1.25–1.4", "1.4–1.6", "1.6–1.8", "1.8–2.11"]))
+        seccion(wa, "Mercado", acu.tabla(fav, lambda r: r["grupo"]))
+        seccion(wa, "Liga (solo runs con liga registrada)", acu.tabla(fav, lambda r: r.get("liga")))
+        seccion(wa, "Tipo de precio × antigüedad de la cuota", acu.tabla(fav, lambda r: f"{r['precio_tipo']} · {acu.antiguedad(r) or 'sin hora de captura'}"),
+                "Antigüedad = horas entre la captura de la cuota y el inicio del partido. «Sin hora de captura»: las cuotas ejecutables vienen de capturas de pantalla de la persona usuaria sin hora registrada (se puede añadir «capturado_utc» en partidos_usuario.json) y las filas anteriores al 16-oct no la guardaban.")
+        seccion(wa, "Por run (día)", acu.tabla(fav, lambda r: r["run"].split("/")[-1] + " · día " + r["dia"]))
+        comb_led = acu.leer(os.path.join(os.path.dirname(ledger) or ".", "ledger_combinadas.jsonl"))
+        wa.append(["Combinadas acumuladas"] + [None] * 9)
+        wa.cell(wa.max_row, 1).font = Font(bold=True, size=12)
+        wa.append(["Objetivo", "Combinadas", "Ganadas", "Perdidas", "% acierto", "IC Wilson 95 % (patas correlacionadas: orientativo)", "Beneficio por 1 u", "Patas ganadas / patas", None, None])
+        for c_ in wa[wa.max_row]:
+            c_.font, c_.fill = Font(bold=True, color="FFFFFF"), H
+        gobj = defaultdict(list)
+        for c in comb_led:
+            if c["estado"] in (WIN, LOSE):
+                gobj[c["objetivo"]].append(c)
+        for k, cs in sorted(gobj.items()) + [("TODAS", [c for v in gobj.values() for c in v])]:
+            n_ = len(cs)
+            w_ = sum(1 for c in cs if c["estado"] == WIN)
+            z_ = 1.96
+            ph = w_ / n_
+            den = 1 + z_ * z_ / n_
+            ctr = (ph + z_ * z_ / (2 * n_)) / den
+            hw = z_ * math.sqrt(ph * (1 - ph) / n_ + z_ * z_ / (4 * n_ * n_)) / den
+            wa.append([k, n_, w_, n_ - w_, round(ph * 100, 1), f"{(ctr - hw) * 100:.0f}–{(ctr + hw) * 100:.0f}", round(sum(c["beneficio"] or 0 for c in cs), 2), f"{sum(c['patas_ganadas'] for c in cs)} / {sum(c['patas'] for c in cs)}"])
+        wa.freeze_panes = "B2"
+
+        # curva de calibración (todas las patas, ambos lados) y su historial diario
+        wc = wb.create_sheet("Calibración")
+        curva = acu.curva_calibracion(todas)
+        met = acu.metricas(todas)
+        acu.guardar_historial(os.path.join(os.path.dirname(ledger) or ".", "calibracion_historial.jsonl"), todas, runs_)
+        wc.append([f"Curva de calibración con {met.get('n', 0)} patas (ambos lados de cada línea) de {len(runs_)} run(s). Brier {met.get('brier')}, log-loss {met.get('logloss')}, ECE {met.get('ece')}. Una curva calibrada cae sobre la diagonal (frecuencia = P)."])
+        wc.cell(1, 1).alignment = Alignment(wrap_text=True)
+        wc.row_dimensions[1].height = 36
+        wc.append(["Tramo de P %", "Patas", "P media %", "Frecuencia real %", "IC 95 % (por partido)", "Real − P (pp)"])
+        for c_ in wc[2]:
+            c_.font, c_.fill = Font(bold=True, color="FFFFFF"), H
+        for c in curva:
+            wc.append([c["tramo"], c["n"], c["p_media"], c["frecuencia"], c["ic95"], c["diferencia_pp"]])
+        for col, w_ in zip("ABCDEF", (14, 10, 12, 18, 22, 14)):
+            wc.column_dimensions[col].width = w_
+        from openpyxl.chart import Reference, ScatterChart, Series
+        ch = ScatterChart()
+        ch.title, ch.style = "Calibración: P del modelo vs frecuencia real", 13
+        ch.x_axis.title, ch.y_axis.title = "P media del modelo %", "Frecuencia real %"
+        ch.x_axis.scaling.min, ch.x_axis.scaling.max = 0, 100
+        ch.y_axis.scaling.min, ch.y_axis.scaling.max = 0, 100
+        n_c = len(curva)
+        xs, ys = Reference(wc, min_col=3, min_row=3, max_row=2 + n_c), Reference(wc, min_col=4, min_row=3, max_row=2 + n_c)
+        sr = Series(ys, xs, title="Real")
+        sr.marker.symbol = "circle"
+        ch.series.append(sr)
+        wc.append([])
+        base_r = wc.max_row + 1
+        wc.cell(base_r, 8, "diagonal x")
+        wc.cell(base_r, 9, "diagonal y")
+        for k_, v_ in enumerate((0, 100)):
+            wc.cell(base_r + 1 + k_, 8, v_)
+            wc.cell(base_r + 1 + k_, 9, v_)
+        dg = Series(Reference(wc, min_col=9, min_row=base_r + 1, max_row=base_r + 2), Reference(wc, min_col=8, min_row=base_r + 1, max_row=base_r + 2), title="Calibrada")
+        ch.series.append(dg)
+        ch.height, ch.width = 9, 14
+        wc.add_chart(ch, "H2")
+        hist = acu.leer(os.path.join(os.path.dirname(ledger) or ".", "calibracion_historial.jsonl"))
+        wc.append([])
+        wc.append(["Historial (una línea por día de ejecución)"])
+        wc.cell(wc.max_row, 1).font = Font(bold=True, size=12)
+        wc.append(["Generado (UTC)", "Patas", "Brier", "Log-loss", "ECE", "Runs"])
+        for c_ in wc[wc.max_row]:
+            c_.font, c_.fill = Font(bold=True, color="FFFFFF"), H
+        for h_ in hist:
+            m_ = h_["metricas"]
+            wc.append([h_["generado_utc"], m_.get("n"), m_.get("brier"), m_.get("logloss"), m_.get("ece"), ", ".join(x.split("/")[-1] for x in h_["runs"])])
 
     wb.save(out_path)
-    n_led = append_ledger(ledger, run, legs, inv) if ledger else 0
-    return {"ledger_agregadas": n_led, "partidos": len(ids), "finalizados": n_fin, "sin_cruce": miss, "resumen": sum_rows, "combinadas": comb_sum_rows, "catalogo": [["Todas"] + agg([(res, o, p) for res, o, p, _ in cat_items]), ["Lado favorecido"] + agg([(res, o, p) for res, o, p, _ in pick_items])], "por_agentes": t_ag, "por_p": t_pm, "elegibles": t_el, "por_grupo": t_gr}
+    return {"ledger_agregadas": n_led, "partidos": len(ids), "finalizados": n_fin, "sin_cruce": miss, "resumen": sum_rows, "combinadas": comb_sum_rows, "catalogo": [["Todas"] + agg([(res, o, p, l["match_id"]) for res, o, p, l in cat_items]), ["Lado favorecido"] + agg([(res, o, p, l["match_id"]) for res, o, p, l in pick_items])], "por_agentes": t_ag, "por_p": t_pm, "elegibles": t_el, "por_grupo": t_gr}
 
 
 def main(argv=None):
@@ -634,12 +912,13 @@ def main(argv=None):
     ap.add_argument("--book", required=True)
     ap.add_argument("--out", required=True)
     ap.add_argument("--refresh", action="store_true")
+    ap.add_argument("--agentes-commit", help="commit de git con los informes de agentes tal como estaban al decidir; añade en «Mis picks» el estado de cada pata en ese momento")
     ap.add_argument("--user-picks", help="registro de las patas de la persona usuaria (data/registro_tickets_usuario.jsonl): sus picks se marcan con * y salen en la hoja «Mis picks (asterisco)»")
     ap.add_argument("--ledger", help="añade las patas liquidadas a este registro acumulado (p. ej. data/ledger_patas.jsonl) para auditar los filtros")
     a = ap.parse_args(argv)
     if os.path.basename(a.out) in ("ligas-14-oct.xlsx", "ligas-14-oct-v2.xlsx"):
         raise SystemExit("el comparativo nunca puede llamarse como un libro original")
-    info = build(a.run, a.book, a.out, a.refresh, a.ledger, a.user_picks)
+    info = build(a.run, a.book, a.out, a.refresh, a.ledger, a.user_picks, a.agentes_commit)
     print(json.dumps({k: v for k, v in info.items() if k in ("partidos", "finalizados", "sin_cruce", "ledger_agregadas")}, ensure_ascii=False))
     for k in ("resumen", "combinadas", "catalogo", "por_agentes", "por_p", "elegibles"):
         print(k)

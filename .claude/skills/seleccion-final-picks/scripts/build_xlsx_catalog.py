@@ -348,6 +348,9 @@ def main(argv=None):
     out = os.path.join(a.out_dir, fname)
     wb.save(out)
     print(out)
+    import congelar_version as cv                    # cada versión queda congelada con fecha/hora y hash; el libro vivo puede regenerarse sin perder lo que se sabía al decidir
+    frozen, new = cv.freeze(out, a.run, "build_xlsx_catalog")
+    print(("versión congelada: " if new else "ya congelada: ") + frozen)
     print(cov.banner(s))
     print("PROVISIONAL por:" if why else "nombre definitivo (sin implicar aptitud para apostar)", "; ".join(why))
     return 0
