@@ -51,6 +51,8 @@ def diff(name, old, new, wants_corners):
     om, nm = old["min"].lower(), new["min"].lower()
     if nm.startswith("half") and not om.startswith("half"):
         ev.append(f"⏸ {name}: DESCANSO {new['h']}-{new['a']}")
+    if om.startswith("half") and not nm.startswith("half") and new["estado"] == "live":
+        ev.append(f"▶ {name}: 2.ª PARTE en juego ({new['min']}) {new['h']}-{new['a']}")
     return ev
 
 

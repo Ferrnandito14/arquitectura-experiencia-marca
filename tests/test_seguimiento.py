@@ -74,6 +74,17 @@ class CornersDosBloques(unittest.TestCase):
         self.assertEqual(s._corner_pair({"statistics": [{"type": "Corners", "home": "0", "away": "1"}]}), (0, 1))
         self.assertIsNone(s._corner_pair({"statistics": [{"type": "Fouls", "home": "1", "away": "1"}]}))
 
+class VivoSegundaParte(unittest.TestCase):
+    """vivo.diff avisa cuando acaba el descanso (antes solo avisaba del descanso y la 2.ª parte quedaba en silencio). Datos FICTICIOS: EJEMPLO — NO REAL."""
+    def test_aviso_de_segunda_parte(self):
+        import vivo
+        base = {"estado": "live", "h": 1, "a": 1, "tarj": [0, 0], "corn": None, "goles": []}
+        ht = dict(base, min="Half Time")
+        self.assertEqual(vivo.diff("A – B", dict(base, min="45"), ht, False), ["⏸ A – B: DESCANSO 1-1"])
+        self.assertEqual(vivo.diff("A – B", ht, dict(base, min="48"), False), ["▶ A – B: 2.ª PARTE en juego (48) 1-1"])
+        self.assertEqual(vivo.diff("A – B", ht, ht, False), [])
+
+
 class SubBtts(unittest.TestCase):
     """Sub-pata «Ambos equipos marcan: sí» de una Crear apuesta. Datos FICTICIOS: EJEMPLO — NO REAL."""
     def test_btts_en_juego_y_final(self):
