@@ -214,7 +214,7 @@ def _combo_record(name, combo, certified):
         p *= l["p_modelo"]
     ln_total = math.log(odds)
     all_real = all(l["precio_tipo"] == "ejecutable" for l in combo)
-    return {"objetivo": name, "patas": [dict({k: l[k] for k in ("leg_id", "partido", "grupo", "etiqueta", "cuota", "precio_tipo", "p_modelo", "cuota_minima_justa", "agentes", "hora_utc")},
+    return {"objetivo": name, "patas": [dict({k: l[k] for k in ("leg_id", "partido", "grupo", "etiqueta", "cuota", "precio_tipo", "p_modelo", "cuota_minima_justa", "agentes", "hora_utc", "observado_utc")},
                                             aporte_log_pct=round(100 * math.log(l["cuota"]) / ln_total, 1) if ln_total else None) for l in combo],
             "multiplicador": " × ".join(f"{l['cuota']:g}" for l in combo) + f" = {odds:.2f}", "nota_correlacion": "; ".join(correlation_notes(combo)) or None,
             "cuota_total": round(odds, 3), "p_conjunta_independiente": round(p, 4), "p_perdida": round(1 - p, 4), "ev_teorico": round(p * odds - 1, 3) if all_real else None,

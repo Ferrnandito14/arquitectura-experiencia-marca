@@ -126,3 +126,8 @@ Flujo repetido por día (hora de Caracas): capturas → `ligas/partidos_usuario.
 7. **Fuente del dato decisivo**: cada resultado guarda su procedencia (proveedor, bloques de córners, goleadores vs marcador) y las hojas muestran «apifootball (1 fuente)» más las lecturas internas que lo confirman o el CONFLICTO. No hay segunda fuente independiente de resultados.
 8. **Hora de la cuota**: columnas «Cuota observada (Caracas)» y «Horas entre la cuota y el inicio»; `partidos_usuario.json` admite `capturado_utc`; las capturas existentes no traen hora y se rotulan «sin hora de captura».
 Pruebas nuevas: `tests/test_comparativo_v2.py` (11). Suite completa: ver resultado de la última ejecución.
+
+## Libro del 16-oct actualizado (16-oct, ~01:00 Caracas)
+- Refresco antes de reconstruir: apifootball `get_odds` (16 y 17 UTC) y TheStatsAPI (23 partidos emparejados de 26, 34 consultas; sin emparejar: Burnley–Wolves, ABB–Real Potosí, Deportivo Recoleta–Rubio Ñú) y rotación a priori. La revisión de agentes (COMPLETA, 26 partidos) no se repite: un refresco de cuotas no la invalida; las filas cuyo precio cambió ≥ 10 % desde la revisión llevan alerta.
+- Mejoras incorporadas al libro: columnas «Cuota observada (Caracas)» y «Horas entre la cuota y el inicio» (hojas de liga, rankings, top y combinadas), alerta «cuota ≥ 1.8» (el modelo sobreestimó en 258 patas liquidadas: P media 60.4 % frente a 48.4 % real), tasas observadas por estado de agentes en el Léeme y la Leyenda, y copia fechada del libro en `dist/versiones/` con hash en `data/versiones_libros.jsonl`.
+- Cifras: 416 unidades, 26 partidos, 8476 filas; 3491 con estimador; 2496 con precio; 125 elegibles.

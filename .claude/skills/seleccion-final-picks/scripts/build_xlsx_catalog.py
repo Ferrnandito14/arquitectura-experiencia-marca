@@ -10,7 +10,7 @@ import json
 import os
 import sys
 from collections import Counter
-from datetime import datetime
+from datetime import datetime, timezone
 from zoneinfo import ZoneInfo
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -66,6 +66,32 @@ def liga_map(units, capture=None):
 
 
 EV_ALERT = cr.EV_ALERT
+LEDGER = "data/ledger_patas.jsonl"
+ALTA_JSON = "data/recalib_cuotas_altas.json"
+
+
+def _empirico():
+    """Tasas observadas en el registro acumulado de patas liquidadas (lado favorecido, cuota ≤ 2.10) por estado de agentes y la sobreestimación en cuotas ≥ 1.8. {} si no hay registro."""
+    try:
+        import acumulado as acu
+        rows = acu.liquidadas(acu.leer(LEDGER), True)
+    except Exception:
+        return {}
+    if not rows:
+        return {}
+    out = {"n": len(rows), "runs": sorted({r["run"].split("/")[-1] for r in rows}), "estados": {}}
+    for st in ("aprobada", "degradada", "rechazada", "objetada"):
+        rs = [r for r in rows if r["agentes"].split(":")[0] == st]
+        if rs:
+            w = sum(1 for r in rs if r["res"] == acu.WIN)
+            out["estados"][st] = (len(rs), round(w / len(rs) * 100, 1), acu.cluster_ci([(r["res"], r["cuota"], r["p"], (r["run"], r["partido_id"])) for r in rs])[0])
+    alta = [r for r in rows if r["cuota"] >= 1.8]
+    if alta:
+        out["alta"] = (len(alta), round(sum(r["p"] for r in alta) / len(alta) * 100, 1), round(sum(1 for r in alta if r["res"] == acu.WIN) / len(alta) * 100, 1))
+    return out
+
+
+EMP = _empirico()
 
 
 def alerta(l):
@@ -80,6 +106,9 @@ def alerta(l):
         a.append(f"la cuota cambió {l['cuota_revisada']} → {l['cuota']} desde la revisión de los agentes")
     if l["agentes"] == "precio_nuevo_sin_revisar":
         a.append("precio nuevo que los agentes no revisaron")
+    if l["cuota"] and l["cuota"] >= 1.8 and l["p_modelo"] is not None and l["p_modelo"] >= 0.5 and EMP.get("alta"):
+        n_, pm_, fr_ = EMP["alta"]
+        a.append(f"cuota ≥ 1.8: en {n_} patas ya liquidadas el modelo dio P≈{pm_:.0f} % y acertó {fr_:.0f} % (sobreestima; ver docs/RECALIBRACION-cuotas-altas.md)")
     return "; ".join(a) or None
 
 
@@ -117,6 +146,10 @@ LEYENDA = [
     ("N.º de casas", "", "Cuántas casas cotizan EXACTAMENTE esa línea y selección (la cuota es su mediana). Con 1 casa es el precio de esa casa; confírmalo en la tuya."),
     ("Agentes", "precio_nuevo_sin_revisar", "Los agentes revisaron la entrada con otro precio (o sin precio); el precio nuevo no fue revisado. Cuenta como sin aprobar."),
     ("Hora Caracas", "", "America/Caracas (UTC−4)."),
+    ("Cuota observada (Caracas)", "", "Cuándo se capturó el precio según su fuente (apifootball: odd_date, TheStatsAPI: hora de consulta). «sin hora de captura» = captura de pantalla del usuario sin hora registrada."),
+    ("Horas entre la cuota y el inicio", "", "Antigüedad del precio respecto al inicio del partido: cuanto mayor, más probable que se haya movido."),
+    ("Alerta", "cuota ≥ 1.8", "El modelo sobreestimó su P en cuotas altas en los días ya liquidados (docs/RECALIBRACION-cuotas-altas.md). No cambia la selección."),
+    ("Agentes", "tasas observadas", "En la hoja Léeme: % de acierto histórico por estado de agentes (aprobada, degradada, rechazada, objetada) con IC remuestreando partidos. Orientativo con pocos días."),
 ]
 
 
@@ -205,18 +238,38 @@ def make_workbook(units, summary, legs, rankings, combos, consolidated, rotation
         ["Tarjetas: la fuente no documenta cómo cuenta las tarjetas; no se asume A=1, R=2. Confirma la regla de tu casa antes de usar esas cuotas."],
         ["Un EV teórico alto (≥ +10 %) con el modelo sin validar suele indicar que el modelo discrepa del mercado, no una ventaja: la columna «Alerta» lo marca. Los «seguros» del ranking de seguridad usan en su mayoría precio de referencia, no ejecutable."],
         [f"Frescura de las cuotas (hora de Caracas): {_freshness(legs)}. Las cuotas se mueven: confírmalas en tu casa antes de apostar."],
+        ["Hora de la cuota: las columnas «Cuota observada (Caracas)» y «Horas entre la cuota y el inicio» dicen cuándo se capturó cada precio. Tus capturas de pantalla no traen hora registrada y salen como «sin hora de captura»; si anotas la hora al enviarlas (campo «capturado_utc») se registra."],
+        *([[f"Lo que dicen los datos hasta hoy ({EMP['n']} patas liquidadas de {len(EMP['runs'])} run(s): {', '.join(EMP['runs'])}; lado favorecido, cuota ≤ 2.10): " + "; ".join(f"{k} {v[1]} % (n={v[0]}, IC {v[2]})" for k, v in EMP['estados'].items()) + ". «Rechazada» suele significar dato no verificable, no riesgo deportivo. Son 2 días: orientativo, no validación."]] if EMP else []),
+        *([[f"Cuotas ≥ 1.8: en {EMP['alta'][0]} patas ya liquidadas el modelo dio P media {EMP['alta'][1]} % y acertó {EMP['alta'][2]} %; en esa banda la P del modelo no mejora a la tasa base (prueba cruzada en docs/RECALIBRACION-cuotas-altas.md). El libro no la recorta: marca la fila con una alerta."]] if EMP.get("alta") else []),
+        ["Versiones: cada vez que se genera este libro queda una copia fechada en dist/versiones/ con su huella (data/versiones_libros.jsonl); el archivo principal puede regenerarse, las copias no se sobrescriben. Los comparativos citan la versión evaluada."],
         ["La hoja «Leyenda» explica cada código y columna. Horas en America/Caracas (UTC−4). Alineaciones no publicadas al generar: ver «Resumen por partido»."]])
 
     sheet("Leyenda", ["Tema", "Valor", "Qué significa"], [list(x) for x in LEYENDA])
     H = ["Hora Caracas", "Partido", "Mercado", "Selección", "Cuota", "Tipo de precio", "N.º de casas", "P modelo %", "Cuota mínima justa", "Brecha vs 1/cuota (pp)", "EV teórico %", "Límite 2.10", "Agentes",
-         "Solidez deportiva", "Cuantitativo", "Verificador", "Auditor", "Rotación local | visitante", "Escenario de pérdida", "Alerta"]
+         "Solidez deportiva", "Cuantitativo", "Verificador", "Auditor", "Rotación local | visitante", "Escenario de pérdida", "Alerta", "Cuota observada (Caracas)", "Horas entre la cuota y el inicio"]
+
+    def px(l):
+        """(hora de captura de la cuota en Caracas, horas entre esa captura y el inicio del partido). La captura del usuario sin hora registrada devuelve «sin hora de captura»."""
+        o = l.get("observado_utc")
+        if not o:
+            return ("sin hora de captura" if l.get("cuota") else None), None
+        v = str(o).replace(" ", "T")
+        if not v.endswith("Z") and "+" not in v:
+            v += "Z"
+        try:
+            t0 = datetime.fromisoformat(v.replace("Z", "+00:00"))
+            k0 = datetime.fromisoformat(str(l.get("hora_utc") or hora(l)).replace("Z", "+00:00"))
+            k0 = k0 if k0.tzinfo else k0.replace(tzinfo=timezone.utc)
+        except ValueError:
+            return caracas(o), None
+        return t0.astimezone(CCS).strftime("%d-%b %H:%M"), round((k0 - t0).total_seconds() / 3600, 1)
 
     def row(l):
         v = verd[l["leg_id"]]
         rot = rotation.get(l["match_id"]) or {}
         return [caracas(hora(l)), l["partido"], l["grupo"], l["etiqueta"], l["cuota"], l["precio_tipo"], l.get("n_casas"), PC(l["p_modelo"]), l["cuota_minima_justa"], None if l["brecha_vs_precio"] is None else round(l["brecha_vs_precio"] * 100, 1),
                 PC(l["ev_teorico"]) if l["ev_teorico"] is not None else None, l["limite_2_10"], l["agentes"], v["deportivo"], v["cuantitativo"], v["verificador"], v["auditor"],
-                f"{(rot.get('home') or {}).get('nivel', 's/d')} | {(rot.get('away') or {}).get('nivel', 's/d')}", v["escenario"], alerta(l)]
+                f"{(rot.get('home') or {}).get('nivel', 's/d')} | {(rot.get('away') or {}).get('nivel', 's/d')}", v["escenario"], alerta(l), *px(l)]
 
     order = lambda l: (hora(l) or "", l["partido"], l["grupo"], -(l["p_modelo"] or 0))
     seen = []
@@ -247,11 +300,11 @@ def make_workbook(units, summary, legs, rankings, combos, consolidated, rotation
             for p in c["patas"]:
                 cb.append([name, k, c["cuota_total"], c.get("multiplicador"), PC(c["p_conjunta_independiente"]), PC(c["p_perdida"]), PC(c["ev_teorico"]) if c["ev_teorico"] is not None else None, c["tipo_cuota"], c["estado_agentes"],
                            c["preparacion_para_apostar"]["estado"], ", ".join(c["preparacion_para_apostar"]["incumplidos"]), caracas(p["hora_utc"]), p["partido"], p["etiqueta"], p["cuota"], p["aporte_log_pct"], p["precio_tipo"], PC(p["p_modelo"]), p["agentes"],
-                           c.get("nota_correlacion"), c.get("alerta")])
+                           c.get("nota_correlacion"), c.get("alerta"), *px({"observado_utc": p.get("observado_utc"), "cuota": p["cuota"], "hora_utc": p.get("hora_utc")})])
         if not b["combinadas"]:
             cb.append([name, None, None, None, None, None, None, b["aviso"]] + [None] * 13)
     sheet("Combinadas", ["Objetivo", "Opción", "Cuota total", "Multiplicador (producto de las cuotas)", "P gana si fueran independientes %", "P pierde %", "EV teórico %", "Tipo de cuota", "Estado agentes", "Preparación para apostar",
-                         "Requisitos que faltan", "Hora Caracas", "Partido", "Selección", "Cuota de la pata", "Aporte de la pata al multiplicador %", "Tipo de precio", "P modelo de la pata %", "Agentes pata", "Nota de correlación", "Alerta"], cb)
+                         "Requisitos que faltan", "Hora Caracas", "Partido", "Selección", "Cuota de la pata", "Aporte de la pata al multiplicador %", "Tipo de precio", "P modelo de la pata %", "Agentes pata", "Nota de correlación", "Alerta", "Cuota observada (Caracas)", "Horas entre la cuota y el inicio"], cb)
 
     ex = []
     per_unit = {}
