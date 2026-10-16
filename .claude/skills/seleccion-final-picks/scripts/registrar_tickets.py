@@ -34,6 +34,18 @@ def catalog_label(leg):
     return None
 
 
+def catalog_matches(legs, mid, leg, lab):
+    """Patas del catálogo del partido `mid` que corresponden a la pata del usuario. Línea EXACTA: igualdad de etiqueta (una subcadena casaría «Más de 2.5 goles» con «Hoffenheim: más de 2.5 goles», que es otra pata); la doble oportunidad busca «o empate»."""
+    if leg.get("mercado") == "dc":
+        c = [l for l in legs if l["match_id"] == mid and lab.lower() in l["etiqueta"].lower()]
+        lado = str(leg.get("lado") or "")
+        if lado.startswith(("home", "away")):
+            tag = "(1x)" if lado.startswith("home") else "(x2)"
+            c = [l for l in c if tag in l["etiqueta"].lower()] or c
+        return c
+    return [l for l in legs if l["match_id"] == mid and lab.lower() == l["etiqueta"].lower()]
+
+
 def enrich(run, rows, spec):
     """Añade p_modelo y estado de agentes del sistema a las filas cuya línea exacta esté en el catálogo del día."""
     import agent_review as ar
@@ -53,7 +65,7 @@ def enrich(run, rows, spec):
         if not lab:
             continue
         mid = leg["mid"]
-        c = [l for l in legs if l["match_id"] == mid and lab.lower() in l["etiqueta"].lower() and (leg.get("mercado") != "dc" or "empate" in l["etiqueta"].lower())]
+        c = catalog_matches(legs, mid, leg, lab)
         if len(c) >= 1:
             r["p_modelo"] = None if c[0]["p_modelo"] is None else round(c[0]["p_modelo"], 3)
             r["agentes_sistema"] = c[0]["agentes"]

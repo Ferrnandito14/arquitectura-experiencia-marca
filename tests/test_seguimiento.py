@@ -84,6 +84,15 @@ class RegistroTickets(unittest.TestCase):
         self.assertIsNone(rt.catalog_label({"mercado": "combo"}))
         self.assertIsNone(rt.catalog_label({"mercado": "handicap", "linea": 2.75}))
 
+    def test_cruce_exacto_no_confunde_linea_de_equipo(self):
+        import registrar_tickets as rt
+        legs = [{"match_id": "m1", "etiqueta": "Hoffenheim: más de 2.5 goles"}, {"match_id": "m1", "etiqueta": "Más de 2.5 goles"}, {"match_id": "m2", "etiqueta": "Más de 2.5 goles"},
+                {"match_id": "m1", "etiqueta": "Local o empate (1X)"}, {"match_id": "m1", "etiqueta": "Más de 2.5 goles (2.ª parte)"}]
+        pata = {"mercado": "total", "op": "over", "linea": 2.5}
+        got = rt.catalog_matches(legs, "m1", pata, rt.catalog_label(pata))
+        self.assertEqual([l["etiqueta"] for l in got], ["Más de 2.5 goles"])
+        self.assertEqual(len(rt.catalog_matches(legs, "m1", {"mercado": "dc"}, "o empate")), 1)
+
     def test_consolida_y_es_idempotente(self):
         import json, tempfile, registrar_tickets as rt
         with tempfile.TemporaryDirectory() as d:
