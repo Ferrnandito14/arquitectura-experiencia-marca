@@ -74,6 +74,16 @@ class CornersDosBloques(unittest.TestCase):
         self.assertEqual(s._corner_pair({"statistics": [{"type": "Corners", "home": "0", "away": "1"}]}), (0, 1))
         self.assertIsNone(s._corner_pair({"statistics": [{"type": "Fouls", "home": "1", "away": "1"}]}))
 
+class SubBtts(unittest.TestCase):
+    """Sub-pata «Ambos equipos marcan: sí» de una Crear apuesta. Datos FICTICIOS: EJEMPLO — NO REAL."""
+    def test_btts_en_juego_y_final(self):
+        sub = {"tipo": "btts"}
+        self.assertEqual(s._sub_status(sub, {}, 1, 0, False)[0], "pending")          # falta que anote el otro
+        self.assertEqual(s._sub_status(sub, {}, 1, 1, False)[0], "pending")          # cumplida provisional: no se da por ganada hasta el final (VAR)
+        self.assertEqual(s._sub_status(sub, {}, 1, 1, True)[0], "win")
+        self.assertEqual(s._sub_status(sub, {}, 2, 0, True)[0], "lose")
+
+
 class RegistroTickets(unittest.TestCase):
     """registrar_tickets: etiqueta exacta del catálogo y consolidación idempotente. Datos FICTICIOS: EJEMPLO — NO REAL."""
     def test_etiquetas_exactas_y_sin_equivalente(self):

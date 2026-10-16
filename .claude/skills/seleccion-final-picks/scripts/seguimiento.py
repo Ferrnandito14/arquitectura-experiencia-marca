@@ -156,6 +156,10 @@ def _sub_status(sub, e, h, a, fin):
         res = settle_handicap(h, a, sub["lado"], sub["linea"])
         txt = f"hándicap {sub['lado']} +{sub['linea']}: va {'ganando' if res == 'win' else ('devolución' if res == 'void' else 'perdiendo')}" + ("" if fin else " (provisional)")
         return (res if fin else "pending"), txt
+    if k == "btts":
+        if h > 0 and a > 0:
+            return ("win" if fin else "pending"), f"ambos anotaron ({h}-{a})" + ("" if fin else " — cumplida provisional hasta el final (VAR)")
+        return ("lose", f"no anotaron ambos ({h}-{a})") if fin else ("pending", f"falta que anoten ambos ({h}-{a})")
     if k == "primer_gol":
         side = _first_goal_side(e)
         if side is None:
