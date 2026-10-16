@@ -18,6 +18,7 @@ import agent_review as ar  # noqa: E402
 import catalog_rankings as cr  # noqa: E402
 import common  # noqa: E402
 import market_coverage as cov  # noqa: E402
+import api_detalle as ad  # noqa: E402
 
 CCS = ZoneInfo("America/Caracas")
 PC = lambda v: None if v is None else round(v * 100, 1)
@@ -146,6 +147,9 @@ LEYENDA = [
     ("N.º de casas", "", "Cuántas casas cotizan EXACTAMENTE esa línea y selección (la cuota es su mediana). Con 1 casa es el precio de esa casa; confírmalo en la tuya."),
     ("Agentes", "precio_nuevo_sin_revisar", "Los agentes revisaron la entrada con otro precio (o sin precio); el precio nuevo no fue revisado. Cuenta como sin aprobar."),
     ("Hora Caracas", "", "America/Caracas (UTC−4)."),
+    ("Precio por casa", "Mediana / Mín / Máx / una columna por casa", "Último precio visto de cada casa de TheStatsAPI para esa selección y su mejor precio; «Clave apifootball» indica que ese mercado también lo publica apifootball."),
+    ("Movimiento de cuotas", "Cambio % / Cambio de prob. implícita (pp)", "Último precio visto contra apertura (medianas entre casas). Cuota que baja = el mercado le da más probabilidad. Solo TheStatsAPI trae apertura; no es una predicción."),
+    ("Mercados adicionales", "P modelo % / distribución", "Mercados de TheStatsAPI que el catálogo no tiene. Hándicap de cuarto de línea: reparto de resultados del modelo (gana / media ganada / devuelve / media perdida / pierde) y EV exacto. Sin revisión de agentes; fuera de rankings y combinadas."),
     ("Cuota observada (Caracas)", "", "Cuándo se capturó el precio según su fuente (apifootball: odd_date, TheStatsAPI: hora de consulta). «sin hora de captura» = captura de pantalla del usuario sin hora registrada."),
     ("Horas entre la cuota y el inicio", "", "Antigüedad del precio respecto al inicio del partido: cuanto mayor, más probable que se haya movido."),
     ("Alerta", "cuota ≥ 1.8", "El modelo sobreestimó su P en cuotas altas en los días ya liquidados (docs/RECALIBRACION-cuotas-altas.md). No cambia la selección."),
@@ -191,7 +195,7 @@ def _ctx_cols(c):
     return [_amb(c.get("local")), _amb(c.get("visitante")), h2h]
 
 
-def make_workbook(units, summary, legs, rankings, combos, consolidated, rotation, fname, why, ligas=None, contexto=None):
+def make_workbook(units, summary, legs, rankings, combos, consolidated, rotation, fname, why, ligas=None, contexto=None, api_detalle=None):
     from openpyxl import Workbook
     from openpyxl.styles import Alignment, Font
     wb = Workbook()
@@ -241,6 +245,7 @@ def make_workbook(units, summary, legs, rankings, combos, consolidated, rotation
         ["Hora de la cuota: las columnas «Cuota observada (Caracas)» y «Horas entre la cuota y el inicio» dicen cuándo se capturó cada precio. Tus capturas de pantalla no traen hora registrada y salen como «sin hora de captura»; si anotas la hora al enviarlas (campo «capturado_utc») se registra."],
         *([[f"Lo que dicen los datos hasta hoy ({EMP['n']} patas liquidadas de {len(EMP['runs'])} run(s): {', '.join(EMP['runs'])}; lado favorecido, cuota ≤ 2.10): " + "; ".join(f"{k} {v[1]} % (n={v[0]}, IC {v[2]})" for k, v in EMP['estados'].items()) + ". «Rechazada» suele significar dato no verificable, no riesgo deportivo. Son 2 días: orientativo, no validación."]] if EMP else []),
         *([[f"Cuotas ≥ 1.8: en {EMP['alta'][0]} patas ya liquidadas el modelo dio P media {EMP['alta'][1]} % y acertó {EMP['alta'][2]} %; en esa banda la P del modelo no mejora a la tasa base (prueba cruzada en docs/RECALIBRACION-cuotas-altas.md). El libro no la recorta: marca la fila con una alerta."]] if EMP.get("alta") else []),
+        *([[f"Detalle de las APIs (referencias, no ejecutables): «Precio por casa» ({len(api_detalle[0])} filas: la cuota de cada casa de TheStatsAPI —Bet365, Pinnacle, Paddy Power, BetMGM UK, Betfair Exchange— junto a la mediana y a la clave de apifootball cuando publica el mismo mercado); «Movimiento de cuotas» ({len(api_detalle[1])} filas: apertura → último precio visto; solo TheStatsAPI trae la apertura) y «Top movimientos»; «Mercados adicionales» ({len(api_detalle[2])} filas: marcador exacto, 2.ª parte, ambos anotan por mitad, goles + ambos anotan, primer gol y hándicap de cuarto de línea). Los adicionales NO pasaron por los agentes y NO entran en rankings ni combinadas; la P del modelo es la del mismo modelo Poisson, sin validar, y varios (penales) solo tienen precio."]] if api_detalle else []),
         ["Versiones: cada vez que se genera este libro queda una copia fechada en dist/versiones/ con su huella (data/versiones_libros.jsonl); el archivo principal puede regenerarse, las copias no se sobrescriben. Los comparativos citan la versión evaluada."],
         ["La hoja «Leyenda» explica cada código y columna. Horas en America/Caracas (UTC−4). Alineaciones no publicadas al generar: ver «Resumen por partido»."]])
 
@@ -345,6 +350,19 @@ def make_workbook(units, summary, legs, rankings, combos, consolidated, rotation
     sheet("Resumen por partido", ["Hora Caracas", "Partido", "Liga", "Árbitro", "Alineaciones", "Rotación local | visitante", "Motivos de rotación", "Entradas con estimador", "Elegibles", "Aprobadas", "Degradadas", "Rechazadas",
                                   "Referencia ampliada local (liga / copa / continental)", "Referencia ampliada visitante", "Enfrentamientos previos (H2H)"], rs)
 
+    if api_detalle:
+        pc, mv, ad_ = api_detalle
+        from openpyxl.styles import PatternFill
+        sheet("Precio por casa", ad.HDR_CASA, pc)
+        w = sheet("Movimiento de cuotas", ad.HDR_MOV, sorted(mv, key=lambda r: (r[0] or "", r[1], r[2], -abs(r[8] or 0))))
+        up, dn = PatternFill("solid", fgColor="FFC7CE"), PatternFill("solid", fgColor="C6EFCE")
+        for r_ in w.iter_rows(min_row=2, min_col=9, max_col=9):
+            for c in r_:
+                if isinstance(c.value, (int, float)) and abs(c.value) >= 10:
+                    c.fill = up if c.value > 0 else dn
+        top = sorted([r for r in mv if (r[5] or 0) >= 2 and r[8] is not None and abs(r[8]) >= 8 and r[7] <= 6], key=lambda r: -abs(r[8]))[:60]
+        sheet("Top movimientos", ad.HDR_MOV, top)
+        sheet("Mercados adicionales", ad.HDR_ADIC, ad_)
     inv, ana, pri = summary["investigacion"], summary["analitica"], summary["precios"]
     sheet("Cobertura", ["Control", "Estado", "Detalle"],
           [["A. Investigación", inv["estado"], "; ".join(f"{i['tipo']}: {i['cantidad']}" for i in inv["incidencias"][:8]) or "sin incidencias"],
@@ -396,7 +414,9 @@ def main(argv=None):
     if os.path.basename(fname).startswith("ligas-14-oct.xlsx"):
         raise SystemExit("el libro v2 nunca puede llamarse como el original")
     rotation = common.read_json(os.path.join(a.run, "rotation.json"), {})
-    wb = make_workbook(units, s, legs, cr.build_rankings(legs), combos, consolidated, rotation, fname, why, liga_map(units, a.capture), common.read_json(os.path.join(a.run, "contexto_continental.json"), {}))
+    mu_ = {u["match_id"]: u.get("hora_utc") for u in units}
+    api_det = ad.build(a.run, lambda mid: caracas(mu_.get(mid)), set(s["partidos_ids"]))
+    wb = make_workbook(units, s, legs, cr.build_rankings(legs), combos, consolidated, rotation, fname, why, liga_map(units, a.capture), common.read_json(os.path.join(a.run, "contexto_continental.json"), {}), api_det)
     os.makedirs(a.out_dir, exist_ok=True)
     out = os.path.join(a.out_dir, fname)
     wb.save(out)

@@ -25,6 +25,7 @@ import common  # noqa: E402
 import market_catalog as mc  # noqa: E402
 from acumulado import cluster_ci  # noqa: E402
 import acumulado as acu  # noqa: E402
+import api_detalle as ad  # noqa: E402
 import seguimiento as sg  # noqa: E402
 
 CCS = ZoneInfo("America/Caracas")
@@ -84,7 +85,12 @@ def parse_result(e):
                     pass
     cp = sg._corner_pair(e)                                  # máximo por lado entre los dos bloques (los córners no bajan; el bloque del partido a veces va retrasado)
     ev = goals_from_events(e)
-    r = {"estado": e.get("match_status") or "", "h": h, "a": a, "h1": _int(e.get("match_hometeam_halftime_score")), "a1": _int(e.get("match_awayteam_halftime_score")),
+    pg = None
+    gl = [g for g in (e.get("goalscorer") or []) if isinstance(g, dict) and _goal_minute(g.get("time"))]
+    if gl:
+        g0 = min(gl, key=lambda g: (_goal_minute(g["time"])[0], _goal_minute(g["time"])[1]))
+        pg = "home" if (g0.get("home_scorer") or "").strip() else "away" if (g0.get("away_scorer") or "").strip() else None
+    r = {"primer_gol": pg, "estado": e.get("match_status") or "", "h": h, "a": a, "h1": _int(e.get("match_hometeam_halftime_score")), "a1": _int(e.get("match_awayteam_halftime_score")),
          "corners": list(cp) if cp else adapters._stat(e, "Corners"), "tarjetas": list(cards) if cards else None, "remates": adapters._stat(e, "Shots Total"),
          "a_puerta": adapters._stat(e, "Shots On Goal"), "fueras": adapters._stat(e, "Offsides"), "arbitro": (e.get("match_referee") or "").strip() or None,
          "local": e.get("match_hometeam_name"), "visitante": e.get("match_awayteam_name"), "fecha": e.get("match_date"), "hora": e.get("match_time"),
@@ -764,6 +770,36 @@ def build(run, book_path, out_path, refresh=False, ledger=None, user_picks=None,
         for row in ws.iter_rows():
             if row[0].value and str(row[0].value).startswith(("Resumen (con IC", "Comparación con el sistema")):
                 row[0].font = Font(bold=True, size=12)
+
+    # ── mercados adicionales de TheStatsAPI (fuera del catálogo): liquidación y acierto ──
+    try:
+        _, _, adic = ad.build(run, lambda mid: hhmm(inv[mid]["normalized_datetime_utc"]) if mid in inv else None, set(ids))
+    except Exception:
+        adic = []
+    if adic:
+        name_to_mid = {f"{inv[m]['home_team']} – {inv[m]['away_team']}": m for m in ids}
+        ar_rows, items_ad = [], defaultdict(list)
+        for row in adic:
+            mid = name_to_mid.get(row[1])
+            r_ = results.get(mid, {}) if mid else {}
+            if not mid or not is_final(r_):
+                continue
+            res_, dato_ = ad.settle_additional(row[-1], r_)
+            odds_ = row[5]
+            pf_ = payoff(res_, odds_) if odds_ else None
+            ar_rows.append(row[:11] + [dato_, res_, None if pf_ is None else round(pf_, 2)])
+            if res_ != NODATA:
+                items_ad[row[2]].append((res_, odds_, None, mid))
+        if ar_rows:
+            sheet("Adicionales evaluados", ["Hora Caracas", "Partido", "Mercado", "Línea", "Selección", "Cuota (mediana)", "N.º de casas", "P modelo % / distribución", "Cuota mínima justa", "Brecha (pp)", "EV teórico %", "Dato que decide", "Resultado", "Beneficio por 1 u (teórico)"],
+                  ar_rows, {"Partido": 40, "Selección": 34, "P modelo % / distribución": 40}, "Resultado")
+            wsx = wb["Adicionales evaluados"]
+            wsx.append([])
+            wsx.append(["Resumen por mercado (mercados que el catálogo no tiene; sin revisión de agentes; referencias de agregador)"])
+            wsx.cell(wsx.max_row, 1).font = Font(bold=True, size=12)
+            wsx.append(["Mercado"] + sum_hdr[1:])
+            for k_, its_ in sorted(items_ad.items()):
+                wsx.append([k_] + agg(its_))
 
     # ── registro acumulado (patas y combinadas) y estadística acumulada ──
     n_led = 0

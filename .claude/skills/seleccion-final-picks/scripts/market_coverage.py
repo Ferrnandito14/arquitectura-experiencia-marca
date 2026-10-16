@@ -526,6 +526,7 @@ NON_GENERATING = {
     ".claude/skills/seleccion-final-picks/scripts/rotation_prior.py": "lee los partidos de tickets.json para calcular rotación; no genera candidatos",
     ".claude/skills/seleccion-final-picks/scripts/seguimiento.py": "liquida tickets ya apostados; «provisional» se refiere a un marcador en juego",
     ".claude/skills/seleccion-final-picks/scripts/registrar_tickets.py": "registra resultados ya liquidados de los tickets de la persona usuaria (medición); no genera candidatos ni rankings",
+    ".claude/skills/seleccion-final-picks/scripts/api_detalle.py": "tablas de detalle de cuotas (por casa, movimiento y mercados adicionales fuera del catálogo); no genera candidatos, rankings ni combinadas",
     ".claude/skills/seleccion-final-picks/scripts/acumulado.py": "estadística acumulada de patas ya liquidadas (intervalos, calibración); no genera candidatos ni rankings",
     ".claude/skills/seleccion-final-picks/scripts/congelar_version.py": "congela copias fechadas de los libros ya generados (no genera candidatos ni rankings)",
     ".claude/skills/seleccion-final-picks/scripts/recalibrar_cuotas_altas.py": "mide si un recorte de P mejora la calibración en cuotas altas (análisis sobre el registro; no genera candidatos)",
