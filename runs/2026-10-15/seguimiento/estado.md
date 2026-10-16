@@ -1,20 +1,20 @@
 # Seguimiento de tickets abiertos
 
-## G · Múltiple ×4.10 (4 patas) — **ABIERTO** (monto 150)
+## G · Múltiple ×4.10 (4 patas) — **GANADO** (monto 150)
 
 | Pata | Cuota | Estado | Detalle |
 |---|---|---|---|
 | Sint-Truiden – Iberia 1999 · 1x2 | 1.22 | ACERTADA | 2-0 |
 | Hearts – Nordsjaelland · total | 1.6 | ACERTADA | 1-1: 2 goles |
-| Estudiantes LP – Flamengo (Crear apuesta) · combo | 1.75 | PENDIENTE | no ha empezado |
+| Estudiantes LP – Flamengo (Crear apuesta) · combo | 1.75 | ACERTADA | 0-0: corners_equipo: 6 córners del equipo · handicap: hándicap home +1.5: va ganando |
 | Hajduk Split – Ajax · total | 1.2 | ACERTADA | 2-1: 3 goles |
 
-## H · Múltiple ×2.21 (2 patas) — **ABIERTO** (monto 150)
+## H · Múltiple ×2.21 (2 patas) — **GANADO** (monto 150)
 
 | Pata | Cuota | Estado | Detalle |
 |---|---|---|---|
 | Hoffenheim – Beşiktaş · total | 1.52 | ACERTADA | 2-3: 5 goles |
-| Huracán – Gimnasia · total | 1.45 | PENDIENTE | no ha empezado |
+| Huracán – Gimnasia · total | 1.45 | ACERTADA | 1-2: 3 goles |
 
 ## I · Múltiple ×2.27 (2 patas) — **GANADO** (monto 250)
 
@@ -47,9 +47,9 @@
 | Rennes – OFI · total | 1.76 | ACERTADA | 2-1: 3 goles |
 | Twente – Thun · btts | 1.64 | FALLADA | 1-0: no anotaron ambos |
 
-## M · Múltiple ×1.80 (2 patas) — **ABIERTO** (monto 320)
+## M · Múltiple ×1.80 (2 patas) — **GANADO** (monto 320)
 
 | Pata | Cuota | Estado | Detalle |
 |---|---|---|---|
 | Ferencváros – Viktoria Plzen · dc | 1.25 | ACERTADA | 2-1: doble oportunidad sí |
-| Estudiantes LP – Flamengo · total | 1.44 | PENDIENTE | no ha empezado |
+| Estudiantes LP – Flamengo · total | 1.44 | ACERTADA | 0-0: 0 goles |
