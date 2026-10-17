@@ -368,12 +368,11 @@ def _played_ids(e):
     return out
 
 
-def _card_points(e):
-    """Puntos de tarjetas por equipo (local, visitante) con la regla de la casa de la persona usuaria: amarilla = 1, roja = 2, máximo 3 por jugador
-    (1 amarilla + 1 roja directa = 3; dos amarillas = expulsión = 2 puntos EN TOTAL, confirmado por la persona usuaria el 13-oct), solo jugadores (los eventos sin nombre de jugador son del cuerpo técnico y se
-    ignoran) y solo 90' + descuento (la prórroga no cuenta; las del entretiempo sí). Sin lista de eventos o con 0 puntos en ambos equipos => None
-    (dato faltante: un 0-0 de tarjetas es casi siempre un dato ausente y no se cuenta como 0). LIMITACIÓN: la API no marca si el jugador estaba en la
-    cancha o en el banquillo; las tarjetas a suplentes con nombre se cuentan."""
+def _card_points_variants(e):
+    """(puntos, puntos_alternativos, n_ambiguos) por equipo (local, visitante) o None si no hay lista de tarjetas.
+    `puntos` aplica la regla confirmada por la persona usuaria; `puntos_alternativos` cambia SOLO los casos que la fuente deja ambiguos: un jugador con UNA amarilla y una roja EN EL MISMO MINUTO.
+    Eso puede ser una expulsión por doble amarilla cuya primera amarilla no figura en la lista (regla confirmada: 2 puntos EN TOTAL) o una amarilla seguida de roja directa (3 puntos).
+    La fuente no permite distinguirlos: el comparativo solo liquida una línea de tarjetas si el resultado es el mismo con las dos lecturas (si no, «regla no confirmada»)."""
     cl = e.get("cards") or []
     if not cl:
         return None
@@ -391,17 +390,37 @@ def _card_points(e):
             continue
         name = c.get("home_fault") or c.get("away_fault")
         kind = (c.get("card") or "").lower()
-        y_r = per.setdefault((side, name), [0, 0])
+        rec = per.setdefault((side, name), {"y": 0, "r": 0, "ty": [], "tr": []})
         if "red" in kind:
-            y_r[1] += 1
+            rec["r"] += 1
+            rec["tr"].append(t)
         elif "yellow" in kind:
-            y_r[0] += 1
-    pts = [0, 0]
-    for (side, _), (y, r) in per.items():
+            rec["y"] += 1
+            rec["ty"].append(t)
+    pts, alt, amb = [0, 0], [0, 0], 0
+    for (side, _), rec in per.items():
+        y, r = rec["y"], rec["r"]
         # regla confirmada por la persona usuaria: la 2.ª amarilla cuenta 2 puntos EN TOTAL (no 3); amarilla + roja directa = 3; roja directa = 2
         p = 2 if y >= 2 else min(3, y + 2 * r)
+        pa = p
+        if y == 1 and r >= 1 and rec["ty"][0] == rec["tr"][0]:
+            amb += 1
+            pa = 2
         pts[side] += p
-    return None if pts == [0, 0] else (pts[0], pts[1])
+        alt[side] += pa
+    return pts, alt, amb
+
+
+def _card_points(e):
+    """Puntos de tarjetas por equipo (local, visitante) con la regla de la casa de la persona usuaria: amarilla = 1, roja = 2, máximo 3 por jugador
+    (1 amarilla + 1 roja directa = 3; dos amarillas = expulsión = 2 puntos EN TOTAL, confirmado por la persona usuaria el 13-oct), solo jugadores (los eventos sin nombre de jugador son del cuerpo técnico y se
+    ignoran) y solo 90' + descuento (la prórroga no cuenta; las del entretiempo sí). Sin lista de eventos o con 0 puntos en ambos equipos => None
+    (dato faltante: un 0-0 de tarjetas es casi siempre un dato ausente y no se cuenta como 0). LIMITACIONES: la API no marca si el jugador estaba en la
+    cancha o en el banquillo (las tarjetas a suplentes con nombre se cuentan) y deja ambiguo el caso «una amarilla y una roja en el mismo minuto» (ver `_card_points_variants`)."""
+    v = _card_points_variants(e)
+    if v is None or v[0] == [0, 0]:
+        return None
+    return (v[0][0], v[0][1])
 
 
 def apif_history_row(e, team_id):

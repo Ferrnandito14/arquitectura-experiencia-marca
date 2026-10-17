@@ -14,7 +14,7 @@ import os
 import re
 import sys
 from collections import defaultdict
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from zoneinfo import ZoneInfo
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -51,6 +51,13 @@ def _goal_minute(t):
         return None
 
 
+def _is_shootout_or_extra(g):
+    """Gol de la tanda de penales (`score_info_time` = «Penalty», minutos 1–5) o de la prórroga: no cuenta a 90' + descuento. Sin este filtro la tanda 4–3 de un partido 0–0 a 90' parecía «4–3 en goles»
+    y el resultado se marcaba DATO INVÁLIDO (Boston River – River Plate, 14-oct)."""
+    t = str(g.get("score_info_time") or "").strip().lower()
+    return t.startswith(("penalty", "extra", "shootout"))
+
+
 def goals_from_events(e):
     """Goles por lado a partir de la lista de goleadores (`goalscorer`): total a 90' + descuento y 1.ª parte (min ≤ 45 + descuento). None si la lista no existe.
     Es una segunda lectura DEL MISMO proveedor: confirma o desmiente el marcador, no es una fuente independiente."""
@@ -59,6 +66,8 @@ def goals_from_events(e):
         return None
     tot, ht = [0, 0], [0, 0]
     for g in gs:
+        if _is_shootout_or_extra(g):
+            continue
         side = 0 if (g.get("home_scorer") or "").strip() else 1 if (g.get("away_scorer") or "").strip() else None
         m = _goal_minute(g.get("time"))
         if side is None or m is None:
@@ -75,6 +84,7 @@ def parse_result(e):
     """Hechos liquidables de un evento de apifootball (None donde la fuente no los trae: nunca 0 inventado) y su procedencia: de qué bloque sale cada dato y si las lecturas coinciden."""
     h, a = sg.score90(e)
     cards = adapters._card_points(e)
+    cv = adapters._card_points_variants(e)
     blocks = {}
     for key in ("statistics", "statistics_1half"):
         for x in e.get(key) or []:
@@ -86,17 +96,19 @@ def parse_result(e):
     cp = sg._corner_pair(e)                                  # máximo por lado entre los dos bloques (los córners no bajan; el bloque del partido a veces va retrasado)
     ev = goals_from_events(e)
     pg = None
-    gl = [g for g in (e.get("goalscorer") or []) if isinstance(g, dict) and _goal_minute(g.get("time"))]
+    gl = [g for g in (e.get("goalscorer") or []) if isinstance(g, dict) and _goal_minute(g.get("time")) and not _is_shootout_or_extra(g)]
     if gl:
         g0 = min(gl, key=lambda g: (_goal_minute(g["time"])[0], _goal_minute(g["time"])[1]))
         pg = "home" if (g0.get("home_scorer") or "").strip() else "away" if (g0.get("away_scorer") or "").strip() else None
     r = {"primer_gol": pg, "estado": e.get("match_status") or "", "h": h, "a": a, "h1": _int(e.get("match_hometeam_halftime_score")), "a1": _int(e.get("match_awayteam_halftime_score")),
-         "corners": list(cp) if cp else adapters._stat(e, "Corners"), "tarjetas": list(cards) if cards else None, "remates": adapters._stat(e, "Shots Total"),
+         "marcador_90_directo": _int(e.get("match_hometeam_ft_score")) is not None and _int(e.get("match_awayteam_ft_score")) is not None,
+         "corners": list(cp) if cp else adapters._stat(e, "Corners"), "tarjetas": list(cards) if cards else None,
+         "tarjetas_alt": list(cv[1]) if (cards and cv and cv[2]) else None, "tarjetas_ambiguas": cv[2] if (cards and cv) else 0, "remates": adapters._stat(e, "Shots Total"),
          "a_puerta": adapters._stat(e, "Shots On Goal"), "fueras": adapters._stat(e, "Offsides"), "arbitro": (e.get("match_referee") or "").strip() or None,
          "local": e.get("match_hometeam_name"), "visitante": e.get("match_awayteam_name"), "fecha": e.get("match_date"), "hora": e.get("match_time"),
          "procedencia": {"proveedor": "apifootball get_events", "fuentes_independientes": 1,
                          "corners_bloques": {k: list(v) for k, v in blocks.items()},
-                         "corners_conflicto": len(set(blocks.values())) > 1,
+                         "corners_conflicto": bool(blocks.get("statistics") and blocks.get("statistics_1half") and (blocks["statistics"][0] < blocks["statistics_1half"][0] or blocks["statistics"][1] < blocks["statistics_1half"][1])),
                          "goles_eventos": None if ev is None else {"total": ev[0], "descanso": ev[1]}}}
     return r
 
@@ -123,7 +135,7 @@ def provenance_text(r, kind):
         if not b:
             return base + "; sin estadísticas de córners"
         if pv.get("corners_conflicto"):
-            return base + "; CONFLICTO entre bloques " + " vs ".join(f"{k}={v[0]}–{v[1]}" for k, v in b.items()) + " → se usa el máximo por lado"
+            return base + "; CONFLICTO: el bloque del partido va por detrás del de la 1.ª parte (" + " vs ".join(f"{k}={v[0]}–{v[1]}" for k, v in b.items()) + ") → se usa el máximo por lado"
         return base + f"; {len(b)} bloque(s) de estadísticas {'coinciden' if len(b) > 1 else '(solo uno)'}"
     return base
 
@@ -227,6 +239,8 @@ def settle_entry(e, r):
         return NODATA, "partido sin resultado final (" + result_status(r).lower() + "): excluido del cálculo"
     h, a, h1, a1 = r["h"], r["a"], r.get("h1"), r.get("a1")
     eid, d, line = e["id"], e["direction"], e.get("line")
+    if r.get("estado") in ("After ET", "After Pen.") and r.get("marcador_90_directo") is False and not eid.startswith(("primera_parte.", "corners.", "cards_pts.", "sot.", "shots.", "otros.")):
+        return NODATA, "regla no confirmada: partido con prórroga/penales y la fuente no trae el marcador a 90' (el marcador general los incluye)"
     mk = e["market"]
     sel = lambda cond: WIN if cond else LOSE
     if eid.startswith("resultado.1x2."):
@@ -258,15 +272,65 @@ def settle_entry(e, r):
     for pre, (k, name) in stat.items():
         if eid.startswith(pre + "."):
             v = r.get(k)
+            if pre != "cards_pts" and r.get("estado") in ("After ET", "After Pen.") and v:
+                return NODATA, f"regla no confirmada: partido con prórroga/penales y la fuente no separa los {name} de los 90'"
             if not v:
                 return NODATA, f"la fuente no trae {name} de este partido"
-            if pre == "corners" and 0 in v:
-                return NODATA, f"córners {v[0]}–{v[1]}: un cero total es dato dudoso de la fuente"
-            tot = v[0] + v[1] if e["scope"] == "match" else (v[0] if e["scope"] == "home" else v[1])
+            if pre == "corners" and sum(v) == 0:
+                return NODATA, "córners 0–0: un cero total es dato dudoso de la fuente"      # un equipo con 0 y el otro con córners SÍ es un dato válido (5 partidos del 14 al 16-oct, bloques coincidentes)
             if pre == "otros":
-                return NODATA, "fueras de juego sin línea"
-            return _cmp(tot, float(line), d), f"{name} {tot}"
+                return NODATA, "regla no definida: la entrada de fueras de juego no trae línea"
+
+            def total(vv):
+                return vv[0] + vv[1] if e["scope"] == "match" else (vv[0] if e["scope"] == "home" else vv[1])
+            tot = total(v)
+            res_ = _cmp(tot, float(line), d)
+            alt = r.get("tarjetas_alt") if pre == "cards_pts" else None
+            if alt and _cmp(total(alt), float(line), d) != res_:
+                return NODATA, f"regla no confirmada: una amarilla y una roja del mismo jugador en el mismo minuto (¿doble amarilla = 2 pts o amarilla + roja = 3 pts?): {tot} o {total(alt)} puntos cambian el resultado de esta línea"
+            return res_, f"{name} {tot}"
     return NODATA, "mercado sin regla de liquidación"
+
+
+# Reglas de liquidación por familia. estado: «estándar» (convención de las casas), «confirmada por la persona usuaria» o «NO CONFIRMADA» (se marca SIN DATO en vez de asumir).
+RULES = [
+    ("resultado.1x2", "1X2", "Marcador a 90' + descuento; la prórroga y los penales no cuentan.", "estándar"),
+    ("resultado.dc", "Doble oportunidad", "Gana si se cumple cualquiera de los dos resultados a 90'.", "estándar"),
+    ("resultado.dnb", "Empate no válido", "Empate = ANULADA (se devuelve la apuesta).", "estándar"),
+    ("resultado.ah.", "Hándicap asiático, media línea", "Se suma la línea al equipo; sin devolución posible.", "estándar"),
+    ("resultado.ah_entero", "Hándicap asiático, línea entera", "Si tras sumar la línea hay empate = ANULADA.", "estándar"),
+    ("asian_handicap|", "Hándicap asiático de cuarto de línea (±.25/.75)", "La apuesta se divide en dos mitades en las líneas vecinas: ganada/perdida a medias o una mitad anulada.", "estándar"),
+    ("resultado.eh", "Hándicap europeo (3 resultados)", "La línea se suma al local; 1 = local gana tras el hándicap, X = empate tras el hándicap, 2 = visitante.", "estándar"),
+    ("goles.total.", "Goles totales, línea .5", "Más/menos de la línea a 90'; sin devolución.", "estándar"),
+    ("goles.total_entero", "Goles totales, línea entera", "Si el total iguala la línea = ANULADA.", "estándar"),
+    ("goles.equipo", "Goles de un equipo", "Goles de ese equipo a 90' + descuento.", "estándar"),
+    ("goles.btts", "Ambos anotan", "Sí si ambos marcan ≥ 1 a 90'.", "estándar"),
+    ("primera_parte", "1.ª parte (resultado y goles)", "Marcador al descanso (45' + descuento).", "estándar"),
+    ("corners.", "Córners (total y por equipo)", "Córners de los 90' + descuento; se toma el mayor de los dos bloques de estadísticas de la fuente. Un equipo con 0 es un dato válido; 0–0 se trata como dato dudoso (SIN DATO). En partidos con prórroga/penales la fuente no separa los 90': NO CONFIRMADA.", "estándar (prórroga: NO CONFIRMADA)"),
+    ("cards_pts", "Tarjetas (puntos)", "Amarilla = 1, roja = 2, máx. 3 por jugador; la 2.ª amarilla cuenta 2 EN TOTAL (confirmado por la persona usuaria el 13-oct); solo jugadores, 90' + descuento. Una amarilla y una roja del mismo jugador en el mismo minuto es ambiguo (¿2 o 3 puntos?): NO CONFIRMADA, solo se liquida si ambas lecturas dan el mismo resultado.", "confirmada por la persona usuaria (caso del mismo minuto: NO CONFIRMADA)"),
+    ("sot.", "Remates a puerta", "Remates a puerta del partido según la fuente; en prórroga/penales NO CONFIRMADA.", "estándar (prórroga: NO CONFIRMADA)"),
+    ("shots.", "Remates", "Remates totales del partido según la fuente; en prórroga/penales NO CONFIRMADA.", "estándar (prórroga: NO CONFIRMADA)"),
+    ("otros.", "Fueras de juego", "La entrada del catálogo no define línea: no se liquida.", "NO CONFIRMADA"),
+    ("total_goals_btts", "Total de goles + ambos anotan (combinado)", "Si el total iguala una línea entera se anula todo el combinado (la casa podría pagar solo el tramo restante).", "NO CONFIRMADA"),
+    ("(estado)", "Partido en juego, aplazado, cancelado, suspendido o con dato inválido", "No se liquida ni entra en ningún cálculo (SIN DATO). Una casa suele anular o devolver; aquí solo se excluye.", "estándar (suspendido: NO CONFIRMADA)"),
+    ("(combinada)", "Combinada del libro", "Pierde si alguna pata pierde; las patas ANULADAS se descartan (cuota 1); si todas se anulan, ANULADA; una pata SIN DATO sin ninguna perdida deja la combinada SIN DATO.", "estándar"),
+]
+
+
+def combo_status(res_list, odds_list):
+    """(estado, cuota efectiva) de una combinada a partir de los resultados de sus patas. PERDIDA si alguna pata pierde (aunque otra no tenga dato);
+    SIN DATO si ninguna perdió pero alguna no tiene dato; ANULADA si todas se anulan; GANADA en los demás casos, a la cuota de las patas ganadas (las anuladas valen 1)."""
+    if any(r.startswith(LOSE) for r in res_list):
+        return LOSE, None
+    if any(r == NODATA for r in res_list):
+        return NODATA, None
+    wins = [o for r, o in zip(res_list, odds_list) if r.startswith(WIN)]
+    if not wins:
+        return VOID, 1.0
+    eff = 1.0
+    for o in wins:
+        eff *= o
+    return WIN, eff
 
 
 def payoff(res, odds):
@@ -302,6 +366,12 @@ def hhmm(utc_iso):
 
 
 # ── (4) libro ──
+def dia_caracas(utc_iso):
+    """Fecha local de Caracas (UTC−4) de un instante UTC ISO; `dia` del ledger es la fecha UTC (heredada) y no debe usarse para agrupar por día local."""
+    dt = datetime.fromisoformat(utc_iso.replace("Z", "+00:00"))
+    return (dt - timedelta(hours=4)).strftime("%Y-%m-%d")
+
+
 def append_ledger(path, run, legs, inv, extra=None):
     """Registro acumulado de patas liquidadas (una línea por run+pata): probabilidad del modelo, cuota, estado de agentes, resultado y, desde el 16-oct, liga, hora de captura de la cuota,
     hora del partido, en qué rankings/combinadas salió y si la persona usuaria la jugó. Si la línea ya existe se COMPLETA con los campos nuevos (idempotente); nunca se borra nada."""
@@ -311,9 +381,10 @@ def append_ledger(path, run, legs, inv, extra=None):
     for l in legs:
         if l.get("p_modelo") is None or l.get("cuota") is None or l["res"] == NODATA:
             continue
-        nuevo = {"run": run, "dia": inv[l["match_id"]]["normalized_datetime_utc"][:10], "leg_id": l["leg_id"], "partido_id": l["match_id"], "grupo": l["grupo"], "p": l["p_modelo"], "cuota": l["cuota"],
+        nuevo = {"run": run, "dia": inv[l["match_id"]]["normalized_datetime_utc"][:10], "dia_caracas": dia_caracas(inv[l["match_id"]]["normalized_datetime_utc"]), "leg_id": l["leg_id"], "partido_id": l["match_id"], "grupo": l["grupo"], "p": l["p_modelo"], "cuota": l["cuota"],
                  "precio_tipo": l["precio_tipo"], "agentes": l["agentes"], "elegible": not l["motivos_exclusion"], "res": l["res"],
-                 "hora_utc": inv[l["match_id"]]["normalized_datetime_utc"], "observado_utc": l.get("observado_utc"), "liga": (extra or {}).get("liga", {}).get(l["match_id"])}
+                 "hora_utc": inv[l["match_id"]]["normalized_datetime_utc"], "observado_utc": l.get("observado_utc"), "liga": (extra or {}).get("liga", {}).get(l["match_id"]),
+                 "partido": l.get("partido"), "cuota_usuario": l.get("cuota_usuario"), "p_mercado": l.get("p_mercado"), "p_pinnacle": l.get("p_pinnacle"), "n_casas": l.get("n_casas"), "entry_id": l.get("entry_id")}
         nuevo.update((extra or {}).get("legs", {}).get(l["leg_id"], {}))
         cur = idx.get((run, l["leg_id"]))
         if cur is None:
@@ -525,7 +596,7 @@ def build(run, book_path, out_path, refresh=False, ledger=None, user_picks=None,
         combos[(row["Objetivo"], row["Opción"])].append(row)
     comb_rows, comb_summary = [], []
     for (obj, opt), rows in combos.items():
-        legs_res, tot_odds_eff, any_lose, any_nodata = [], 1.0, False, False
+        legs_res = []
         for row in rows:
             l = by_key.get((row["Partido"], row["Selección"]))
             if not l:
@@ -533,16 +604,10 @@ def build(run, book_path, out_path, refresh=False, ledger=None, user_picks=None,
                 continue
             res, dato = l["res"], l["dato"]
             legs_res.append((row, l, res, dato))
-            if res.startswith(LOSE):
-                any_lose = True
-            elif res == NODATA:
-                any_nodata = True
-            elif res.startswith(WIN):
-                tot_odds_eff *= row["Cuota de la pata"]
-        estado = LOSE if any_lose else (NODATA if any_nodata else WIN)
+        estado, tot_odds_eff = combo_status([x[2] for x in legs_res], [x[0]["Cuota de la pata"] for x in legs_res])
         head = rows[0]
         n_w = sum(1 for _, _, r_, _ in legs_res if r_.startswith(WIN))
-        pf = None if estado == NODATA else ((tot_odds_eff - 1) if estado == WIN else -1.0)
+        pf = None if estado == NODATA else ((tot_odds_eff - 1) if estado == WIN else (0.0 if estado == VOID else -1.0))
         comb_summary.append((obj, opt, head["Cuota total"], head.get("P gana si fueran independientes %"), head.get("Estado agentes"), head.get("Tipo de cuota"), len(legs_res), n_w, estado, pf, [l_["leg_id"] for _, l_, _, _ in legs_res]))
         for row, l, res, dato in legs_res:
             r = results.get(l["match_id"], {})
@@ -575,12 +640,12 @@ def build(run, book_path, out_path, refresh=False, ledger=None, user_picks=None,
         acc = g / (g + pdd) if (g + pdd) else None
         ci_a, ci_r = cluster_ci(items)
         return [len(items), g, pdd, v, sd, None if acc is None else round(acc * 100, 1), None if roi is None else round(roi * 100, 1),
-                None if not pm else round(sum(pm) / len(pm) * 100, 1), None if not im else round(sum(im) / len(im) * 100, 1), ci_a, ci_r]
+                None if not pm else round(sum(pm) / len(pm) * 100, 1), None if not im else round(sum(im) / len(im) * 100, 1), ci_a, ci_r, len({x[3] for x in items if len(x) > 3})]
 
     def items_from(prows):
         return [(res, odds, (row.get("P modelo %") / 100) if row.get("P modelo %") is not None else None, l["match_id"]) for row, l, res, dato, odds, pf in prows]
 
-    sum_hdr = ["Conjunto", "Picks", "Ganados", "Perdidos", "Anulados", "Sin dato", "% acierto (ganados / liquidados)", "ROI teórico % (1 u por pick, a la cuota del libro)", "P modelo media %", "Prob. implícita media (1/cuota) %", "IC 95 % acierto (por partido)", "IC 95 % ROI % (por partido)"]
+    sum_hdr = ["Conjunto", "Picks", "Ganados", "Perdidos", "Anulados", "Sin dato", "% acierto (ganados / liquidados)", "ROI teórico % (1 u por pick, a la cuota del libro)", "P modelo media %", "Prob. implícita media (1/cuota) %", "IC 95 % acierto (por partido)", "IC 95 % ROI % (por partido)", "Partidos distintos"]
     sum_rows = []
     for n in ("Ranking seguridad", "Ranking atractivo-cuota"):
         sum_rows.append([n] + agg(items_from(picks[n])))
@@ -650,11 +715,13 @@ def build(run, book_path, out_path, refresh=False, ledger=None, user_picks=None,
     stc = _C(result_status(results.get(mid, {})) for mid in ids)
     n_fin = stc.get("FINALIZADO", 0)
     exc = "; ".join(f"{v} {k.lower()}" for k, v in stc.items() if k != "FINALIZADO")
+    sin_final = {k: v for k, v in stc.items() if k != "FINALIZADO"}
     lines = [
-        (f"Comparativo de {os.path.basename(book_path)} contra los resultados reales (hora de Caracas)", True),
+        (f"Comparativo de {os.path.basename(book_path)} contra los resultados reales (hora de Caracas)", True)] + ([
+        (f"PROVISIONAL: {sum(sin_final.values())} de {len(ids)} partido(s) sin resultado final ({exc}). Sus patas salen SIN DATO y no entran en ningún porcentaje; vuelve a generar este archivo cuando terminen antes de usarlo como cierre del día.", True)] if sin_final else []) + [
         (f"Partidos: {len(ids)} del {day_label}; con resultado final: {n_fin}{(' · EXCLUIDOS del cálculo: ' + exc) if exc else ''}. Resultados y estadísticas: apifootball (marcador a 90', descanso, córners, tarjetas con A=1/R=2, remates).", False),
         ("Qué se evalúa: (1) los picks del libro tal como se entregaron — Ranking seguridad, Ranking atractivo-cuota, Top por liga y Combinadas — con su cuota de referencia; (2) TODAS las patas del catálogo con modelo y precio, para medir calibración y el efecto de los filtros de los agentes.", False),
-        ("Liquidación: totales de línea entera y empate no válido = ANULADA (beneficio 0); hándicap asiático de cuarto de línea = mitad ganada/perdida; hándicap europeo aplica la línea al local; 1.ª parte = marcador al descanso. Si la fuente no trae el dato (p. ej. tarjetas de una copa) o trae un cero dudoso de córners (un equipo con 0 córners en todo el partido) queda SIN DATO y no cuenta como acierto ni fallo.", False),
+        ("Liquidación (reglas completas y su estado en la hoja «Reglas de liquidación»): totales de línea entera y empate no válido = ANULADA (beneficio 0); hándicap asiático de cuarto de línea = mitad ganada/perdida; hándicap europeo aplica la línea al local; 1.ª parte = marcador al descanso. Queda SIN DATO (y no cuenta como acierto ni fallo) cuando la fuente no trae el dato (p. ej. tarjetas de una copa), cuando trae 0–0 de córners (dato dudoso; un equipo con 0 y el otro con córners SÍ es válido) o cuando la regla no está confirmada (prórroga/penales sin separar los 90', una amarilla y una roja del mismo jugador en el mismo minuto).", False),
         ("Beneficio/ROI teórico: se apuesta 1 unidad por pick a la cuota que mostraba el libro (referencia de agregador salvo las marcadas «ejecutable»). Las combinadas ganan solo si TODAS sus patas ganan (una pata anulada cuenta con cuota 1). No incluye margen de tu casa ni cuotas que se movieron.", False),
         ("Cómo leer el acierto: % acierto = ganados / (ganados + perdidos). Compáralo con la P media del modelo y con la probabilidad implícita 1/cuota: un modelo bien calibrado acierta cerca de su P media; el mercado, cerca de 1/cuota.", False),
         ("Advertencia de muestra: es UN día y pocas patas por tabla. Sirve para ver el orden de magnitud y detectar fallos de método; NO valida ni descarta el modelo (sigue sin validar) y no es una promesa de resultados futuros.", False),
@@ -693,6 +760,21 @@ def build(run, book_path, out_path, refresh=False, ledger=None, user_picks=None,
     for tbl in (t_el, t_ag, t_pm, t_bc, t_gr, t_pr, t_lg):
         for r_ in tbl:
             ws.append(r_)
+    # modelo contra mercado (patas con P del mercado sin margen: par o trío completo): quién se acerca más al resultado
+    ws.append([])
+    ws.append(["MODELO CONTRA MERCADO (patas con P de mercado sin margen; ambos lados de cada línea)"] + [None] * 9)
+    ws.append(["Conjunto", "Patas", "% real", "P modelo media %", "P mercado media %", "Brier modelo", "Brier mercado", "Brier Pinnacle (solo patas con Pinnacle)", "Patas con |modelo − mercado| > 10 pp", "% real en esas patas"])
+    wm = [l for l in evald if l.get("p_mercado") is not None and l["res"].startswith((WIN, LOSE))]
+    wp = [l for l in wm if l.get("p_pinnacle") is not None]
+    def _br(lst, key):
+        return None if not lst else round(sum((l[key] - (1 if l["res"].startswith(WIN) else 0)) ** 2 for l in lst) / len(lst), 4)
+    for nom, lst in (("Todas las patas con P de mercado", wm), ("Lado favorecido por el modelo (P ≥ 50 %)", [l for l in wm if l["p_modelo"] >= 0.5])):
+        dis = [l for l in lst if abs(l["p_modelo"] - l["p_mercado"]) > 0.10]
+        pin = [l for l in lst if l.get("p_pinnacle") is not None]
+        ws.append([nom, len(lst), None if not lst else round(sum(1 for l in lst if l["res"].startswith(WIN)) / len(lst) * 100, 1), None if not lst else round(sum(l["p_modelo"] for l in lst) / len(lst) * 100, 1),
+                   None if not lst else round(sum(l["p_mercado"] for l in lst) / len(lst) * 100, 1), _br(lst, "p_modelo"), _br(lst, "p_mercado"),
+                   None if not pin else round(sum((l["p_pinnacle"] - (1 if l["res"].startswith(WIN) else 0)) ** 2 for l in pin) / len(pin), 4), len(dis),
+                   None if not dis else round(sum(1 for l in dis if l["res"].startswith(WIN)) / len(dis) * 100, 1)])
     for row in ws.iter_rows():
         if row[0].value in ("COMBINADAS", "CATÁLOGO COMPLETO CON MODELO Y PRECIO (patas liquidables)"):
             row[0].font = Font(bold=True, size=12)
@@ -710,6 +792,18 @@ def build(run, book_path, out_path, refresh=False, ledger=None, user_picks=None,
             c.fill = GREEN if v.startswith(WIN) else RED if v.startswith(LOSE) else GREY
     sheet("Catálogo evaluado", ["Hora Caracas", "Liga", "Partido", "Mercado", "Selección", "Cuota", "Tipo de precio", "P modelo %", "1/cuota %", "Agentes", "Elegible para combinadas", "Dato que decide", "Resultado de la pata", "Fuente del dato (lecturas que confirman)", "Cuota observada (Caracas)", "Horas entre la cuota y el inicio"],
           cat_rows, {"Partido": 40, "Selección": 36, "Dato que decide": 30}, "Resultado de la pata")
+    # reglas de liquidación y motivos de SIN DATO del catálogo con modelo y precio (qué quedó fuera y por qué)
+    nd_rows = _C(re.sub(r"\d+", "#", l["dato"]) for l in legs if l["res"] == NODATA and l["p_modelo"] is not None and l["cuota"] is not None)
+    sheet("Reglas de liquidación", ["Prefijo / mercado", "Familia", "Regla aplicada", "Estado de la regla"], [list(x) for x in RULES], {"Prefijo / mercado": 20, "Familia": 40, "Regla aplicada": 110, "Estado de la regla": 40})
+    wsr = wb["Reglas de liquidación"]
+    wsr.append([])
+    wsr.append(["PATAS SIN DATO por motivo (catálogo con modelo y precio de este día)"])
+    wsr.cell(wsr.max_row, 1).font = Font(bold=True, size=12)
+    wsr.append(["Motivo", "Patas", "¿Regla no confirmada?"])
+    for c_ in wsr[wsr.max_row]:
+        c_.font, c_.fill = Font(bold=True, color="FFFFFF"), H
+    for mot, n_ in sorted(nd_rows.items(), key=lambda t: -t[1]):
+        wsr.append([mot, n_, "sí" if "regla no confirmada" in mot or "regla no definida" in mot else "no"])
     # ── picks de la persona usuaria (*) ──
     def _rg(x):
         return WIN if x == "ACERTADA" else LOSE if x == "FALLADA" else NODATA
@@ -817,6 +911,13 @@ def build(run, book_path, out_path, refresh=False, ledger=None, user_picks=None,
             if tk:
                 memb[l["leg_id"]]["usuario"] = sorted(set(tk))
         n_led = append_ledger(ledger, run, legs, inv, {"liga": liga_cap, "legs": {k: v for k, v in memb.items()}})
+        goles_ = {}
+        for r_ in acu.leer(ledger):
+            rp = os.path.join(r_["run"], "resultados", "resultados.json")
+            if r_["run"] not in goles_ and os.path.exists(rp):
+                goles_[r_["run"]] = json.load(open(rp, encoding="utf-8"))
+        acu.exportar_csv(acu.leer(ledger), os.path.join(os.path.dirname(ledger) or ".", "historial_patas.csv"),
+                         {(run_, mid): v["h"] + v["a"] for run_, d_ in goles_.items() for mid, v in d_.items() if v.get("estado") == "Finished" and v.get("h") is not None and v.get("marcador_90_directo") is not False})
         comb_path = os.path.join(os.path.dirname(ledger) or ".", "ledger_combinadas.jsonl")
         append_combos(comb_path, run, [{"objetivo": c[0], "opcion": c[1], "cuota_total": c[2], "p_libro": c[3], "agentes": c[4], "tipo_cuota": c[5], "patas": c[6], "patas_ganadas": c[7], "estado": c[8], "beneficio": None if c[9] is None else round(c[9], 2), "leg_ids": c[10]} for c in comb_summary])
         led = acu.leer(ledger)
@@ -868,7 +969,7 @@ def build(run, book_path, out_path, refresh=False, ledger=None, user_picks=None,
         seccion(wa, "Liga (solo runs con liga registrada)", acu.tabla(fav, lambda r: r.get("liga")))
         seccion(wa, "Tipo de precio × antigüedad de la cuota", acu.tabla(fav, lambda r: f"{r['precio_tipo']} · {acu.antiguedad(r) or 'sin hora de captura'}"),
                 "Antigüedad = horas entre la captura de la cuota y el inicio del partido. «Sin hora de captura»: las cuotas ejecutables vienen de capturas de pantalla de la persona usuaria sin hora registrada (se puede añadir «capturado_utc» en partidos_usuario.json) y las filas anteriores al 16-oct no la guardaban.")
-        seccion(wa, "Por run (día)", acu.tabla(fav, lambda r: r["run"].split("/")[-1] + " · día " + r["dia"]))
+        seccion(wa, "Por run (día)", acu.tabla(fav, lambda r: r["run"].split("/")[-1] + " · día " + r.get("dia_caracas", r["dia"])))
         comb_led = acu.leer(os.path.join(os.path.dirname(ledger) or ".", "ledger_combinadas.jsonl"))
         wa.append(["Combinadas acumuladas"] + [None] * 9)
         wa.cell(wa.max_row, 1).font = Font(bold=True, size=12)

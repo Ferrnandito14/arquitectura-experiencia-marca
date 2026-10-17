@@ -222,7 +222,89 @@ def model_params(run, match_id):
     return lh, la, leg_model.half_share(f["local"], f["visitante"])
 
 
-def build(run, hora_caracas, match_ids=None):
+_PARES = ("total_goals", "match_corners", "total_cards", "match_shots", "match_shots_on_target", "first_half_total_goals")
+_PARES_EQ = ("team_total_goals", "team_corners", "team_shots", "team_shots_on_target")
+OVERROUND = {2: (0.97, 1.15), 3: (0.97, 1.20)}       # mismo criterio que price_sources: un par/trío fuera del rango es un precio roto, no una cuota
+
+
+def _entera(x):
+    try:
+        return float(x) == int(float(x))
+    except (TypeError, ValueError):
+        return False
+
+
+def grupo_excluyente(mk, path):
+    """Rutas de los resultados mutuamente excluyentes a los que pertenece la selección (par más/menos, sí/no, 1X2, hándicap asiático de media línea…) o None si no hay grupo completo
+    (líneas enteras o de cuarto, doble oportunidad: la probabilidad de ganar no sale de normalizar el par)."""
+    p = tuple(path)
+    if mk in _PARES and len(p) == 2:
+        return None if _entera(p[0]) else [(p[0], "over"), (p[0], "under")]
+    if mk in _PARES_EQ and len(p) == 3:
+        return None if _entera(p[1]) else [(p[0], p[1], "over"), (p[0], p[1], "under")]
+    if mk in ("btts", "btts_first_half", "btts_second_half") and len(p) == 1:
+        return [("yes",), ("no",)]
+    if mk == "draw_no_bet" and len(p) == 1:
+        return [("home",), ("away",)]
+    if mk in ("match_odds", "first_half_result", "second_half_result") and len(p) == 1:
+        return [("home",), ("draw",), ("away",)]
+    if mk == "handicap_result" and len(p) == 2:
+        return [(p[0], "home"), (p[0], "draw"), (p[0], "away")]
+    if mk == "asian_handicap" and len(p) == 2:
+        try:
+            L = float(p[1])
+        except ValueError:
+            return None
+        if round(L * 2) != L * 2 or _entera(L):
+            return None
+        other = "away" if p[0] == "home" else "home"
+        flip = ("-" if L > 0 else "+") + f"{abs(L):g}"
+        return [(p[0], p[1]), (other, flip)]
+    return None
+
+
+def p_mercado_sin_margen(sels, mk, path):
+    """(P mediana sin margen, nº de casas con el grupo completo, P de Pinnacle) de una selección: cada casa se normaliza por separado (1/cuota ÷ suma del grupo) y luego se toma la mediana."""
+    g = grupo_excluyente(mk, path)
+    if not g:
+        return None, 0, None
+    me = tuple(path)
+    nodes = [sels.get((mk, x)) for x in g]
+    if any(n is None for n in nodes):
+        return None, 0, None
+    ps_, pin = [], None
+    for book in BOOKS:
+        xs = [(n["casas"].get(book) or (None, None))[1] for n in nodes]
+        if any(x is None or x <= 1.0 for x in xs):
+            continue
+        ov = sum(1 / x for x in xs)
+        lo, hi = OVERROUND[len(g)]
+        if not lo <= ov <= hi:
+            continue
+        pb = (1 / xs[g.index(me)]) / ov
+        ps_.append(pb)
+        if book == "Pinnacle":
+            pin = pb
+    return (round(statistics.median(ps_), 4) if ps_ else None), len(ps_), (round(pin, 4) if pin is not None else None)
+
+
+def clave_catalogo(mk, path):
+    """Clave (mercado, lado, línea, selección) como la entrega `price_sources.tsa_lookup` para las entradas del catálogo."""
+    p = list(path)
+    if mk in _PARES and len(p) == 2:
+        return (mk, None, p[0], p[1])
+    if mk in _PARES_EQ and len(p) == 3:
+        return (mk, p[0], p[1], p[2])
+    if mk == "asian_handicap" and len(p) == 2:
+        return (mk, p[0], p[1], None)
+    if mk == "handicap_result" and len(p) == 2:
+        return (mk, None, p[0], p[1])
+    if len(p) == 1:
+        return (mk, None, None, p[0])
+    return None
+
+
+def build(run, hora_caracas, match_ids=None, p_cat=None):
     """Tres tablas (listas de filas) para el libro: precio por casa, movimiento y mercados adicionales. `hora_caracas(match_id)` da el texto de la hora."""
     tsa = load_tsa(run)
     por_casa, mov, adic = [], [], []
@@ -232,13 +314,19 @@ def build(run, hora_caracas, match_ids=None):
         partido = f"{tm['home']} – {tm['away']}"
         hh = hora_caracas(mid)
         par = model_params(run, mid)
-        for (mk, path), sel in sorted(selections(tm).items(), key=lambda t: (t[0][0], t[1]["desc"][1] or "", t[1]["desc"][2])):
+        sels_m = selections(tm)
+        for (mk, path), sel in sorted(sels_m.items(), key=lambda t: (t[0][0], t[1]["desc"][1] or "", t[1]["desc"][2])):
             mer, linea, etiqueta, key = sel["desc"]
             r = resumen(sel)
             if r["ultimo"] is None:
                 continue
             ak = apif_key(mk, path)
-            por_casa.append([hh, partido, mer, linea, etiqueta, r["n"], r["ultimo"], r["min"], r["max"]] + [(sel["casas"].get(b) or (None, None))[1] for b in BOOKS] + [r["mejor"], ak and ak[0]])
+            pmk, pmn, ppin = p_mercado_sin_margen(sels_m, mk, path)
+            pmod = (p_cat or {}).get((mid,) + (clave_catalogo(mk, path) or (None,) * 4))
+            dif = None if (pmk is None or pmod is None) else round((pmod - pmk) * 100, 1)
+            por_casa.append([hh, partido, mer, linea, etiqueta, r["n"], r["ultimo"], r["min"], r["max"]] + [(sel["casas"].get(b) or (None, None))[1] for b in BOOKS] + [r["mejor"], ak and ak[0],
+                             None if pmk is None else round(pmk * 100, 1), pmn or None, None if ppin is None else round(ppin * 100, 1), None if pmod is None else round(pmod * 100, 1), dif,
+                             None if dif is None else ("modelo y mercado difieren más de 10 pp" if abs(dif) > 10 else "")])
             if r["apertura"] is not None and r["n_aper"] >= 1 and r["ultimo"] <= 15:
                 mov.append([hh, partido, mer, linea, etiqueta, r["n_aper"], r["apertura"], r["ultimo"], r["delta_pct"], "sube" if (r["delta_pct"] or 0) > 0 else "baja" if (r["delta_pct"] or 0) < 0 else "igual",
                             round(100 / r["apertura"], 1), round(100 / r["ultimo"], 1), round(100 / r["ultimo"] - 100 / r["apertura"], 1)])
@@ -259,7 +347,8 @@ def build(run, hora_caracas, match_ids=None):
     return por_casa, mov, adic
 
 
-HDR_CASA = ["Hora Caracas", "Partido", "Mercado", "Línea", "Selección", "N.º de casas", "Mediana (último)", "Mín", "Máx"] + list(BOOKS) + ["Mejor precio en", "Clave apifootball"]
+HDR_CASA = ["Hora Caracas", "Partido", "Mercado", "Línea", "Selección", "N.º de casas", "Mediana (último)", "Mín", "Máx"] + list(BOOKS) + ["Mejor precio en", "Clave apifootball",
+                                                                                                                             "P mercado sin margen % (mediana de casas)", "Casas con el par completo", "P Pinnacle sin margen %", "P modelo % (catálogo)", "Modelo − mercado (pp)", "Alerta > 10 pp"]
 HDR_MOV = ["Hora Caracas", "Partido", "Mercado", "Línea", "Selección", "Casas con apertura", "Apertura (mediana)", "Último (mediana)", "Cambio %", "Dirección", "1/apertura %", "1/último %", "Cambio de prob. implícita (pp)"]
 HDR_ADIC = ["Hora Caracas", "Partido", "Mercado", "Línea", "Selección", "Cuota (mediana último)", "N.º de casas", "P modelo % / distribución", "Cuota mínima justa", "Brecha vs 1/cuota (pp)", "EV teórico %", "Por qué está aquí", "Clave"]
 

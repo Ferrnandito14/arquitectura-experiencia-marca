@@ -34,9 +34,11 @@ MAX_GAP = 0.15      # política heredada de la auditoría del 13-oct: brecha mod
 POLICY = {"max_leg_odds": MAX_LEG_ODDS, "max_brecha_modelo_vs_precio": MAX_GAP, "max_over_o_under_por_combinada": 2, "max_misma_liga": 2, "max_misma_ventana": 3, "ventana_minutos": 120,
           "max_reuso_pata": 2, "ventana_calidad": 0.95, "max_reuso_partido": 3, "pool_por_banda": 6, "top_por_objetivo": 3, "top_ranking": 5,
           "independencia": "p_conjunta = producto de p_modelo (supuesto declarado, no validado)"}
+MAX_RANK_POR_PARTIDO = 2      # máx. patas de un MISMO partido en un ranking: las patas de un partido no son independientes (Kiel–Hertha 0-0 produjo ≥ 5 fallos el 16-oct) y llenar un ranking con ellas infla o deprime sus porcentajes
+POLICY["max_rank_por_partido"] = MAX_RANK_POR_PARTIDO
 # (nombre, cuota mínima, cuota máxima, máx. patas)
 DEFAULT_TARGETS = (("x1.2", 1.20, 1.28, 2), ("x3", 2.80, 3.40, 4), ("x4", 4.00, 4.80, 5))
-PRICE_OK = {"real_verificada": "ejecutable", "otra_fuente": "referencia"}
+PRICE_OK = {"real_verificada": "ejecutable", "otra_fuente": "referencia"}       # «ejecutable» solo aplica a la captura de la persona usuaria (capa opcional); los rankings usan siempre la referencia
 # «rechazada» = defecto de dato o de modelo señalado por los agentes: fuera de combinadas Y de rankings. «degradada» = solidez deportiva BAJA/NO_EVALUABLE: fuera de combinadas, pero visible (rotulada) en los rankings.
 # «no_encontrada/no_ofrecida» del verificador describen la FUENTE DE PRECIOS (la API no publica córners/tarjetas): ya excluyen de combinadas por falta de precio y NO deben ocultar el mercado de los rankings.
 AGENT_BAD = {"cuantitativo": ("defecto_del_modelo", "datos_insuficientes", "sin_estimador"), "verificador": ("no_verificable",)}
@@ -122,14 +124,25 @@ def legs_from_units(units, status=None, reviewed=None):
         teams = u["partido"].split(" – ")
         for e in u["entradas"]:
             pr = e["precio"]
-            odds = pr["cuota"] if pr["estado"] in PRICE_OK and pr["cuota"] else None
+            # Rankings y combinadas usan el precio de REFERENCIA (mediana de casas del agregador): no dependen de ninguna casa concreta. La captura de la persona usuaria es una capa opcional
+            # (`cuota_usuario`) que NO cambia la cuota, la brecha ni la elegibilidad. Sin referencia pero con captura -> `solo_captura_usuario` (no entra en rankings: haría depender el ranking de una casa).
+            nuevo = "cuota_referencia" in pr          # unidades generadas desde el 17-oct; las anteriores (paquetes ya revisados, pruebas) traen un único precio y se leen como antes
+            if nuevo:
+                ref = pr.get("cuota_referencia")
+                odds = ref if ref else (pr["cuota"] if pr["estado"] == "otra_fuente" and pr["cuota"] else None)
+                solo_captura = odds is None and pr["estado"] == "real_verificada" and bool(pr["cuota"])
+                cuota_usuario = pr.get("cuota_usuario")
+            else:
+                odds = pr["cuota"] if pr["estado"] in PRICE_OK and pr["cuota"] else None
+                solo_captura = False
+                cuota_usuario = pr["cuota"] if pr["estado"] == "real_verificada" else None
             p = e["p_modelo"]
             st = status.get((u["unit_id"], e["id"]), "sin_revision")
             motivos = []
             if p is None:
                 motivos.append("sin_estimador_propio")
             if odds is None:
-                motivos.append("sin_precio")
+                motivos.append("sin_precio_de_referencia" if solo_captura else "sin_precio")
             elif odds > MAX_LEG_ODDS:
                 motivos.append(f"cuota_sobre_{MAX_LEG_ODDS}")
             gap = None if (p is None or odds is None) else round(p - 1 / odds, 3)      # contra 1/cuota (con margen de la fuente): subestima la brecha real frente al mercado sin margen
@@ -139,7 +152,11 @@ def legs_from_units(units, status=None, reviewed=None):
                 motivos.append(st)
             legs.append({"leg_id": f"{u['match_id']}|{e['id']}", "match_id": u["match_id"], "partido": u["partido"], "equipos": teams, "grupo": u["grupo"], "entry_id": e["id"],
                          "etiqueta": mc.BY_ID[e["id"]]["label"].replace("{home}", teams[0]).replace("{away}", teams[-1]), "direccion": e["direccion"], "linea": e["linea"], "alcance": e["alcance"], "hora_utc": u.get("hora_utc"), "liga": u.get("liga"),
-                         "cuota": odds, "precio_estado": pr["estado"], "precio_tipo": PRICE_OK.get(pr["estado"]), "fuente_precio": pr["fuente"], "observado_utc": pr.get("observado_utc"), "n_casas": pr.get("n_casas"), "limite_2_10": _limite(odds, p),
+                         "cuota": odds, "precio_estado": pr["estado"] if (odds or not nuevo) else ("solo_captura_usuario" if solo_captura else "sin_precio"),
+                         "precio_tipo": (PRICE_OK.get(pr["estado"]) if not nuevo else ("referencia" if odds else None)),
+                         "fuente_precio": (pr.get("fuente_referencia") or pr["fuente"]) if (odds and nuevo) else pr["fuente"], "observado_utc": (pr.get("observado_referencia_utc") or pr.get("observado_utc")) if (odds and nuevo) else pr.get("observado_utc"),
+                         "n_casas": (pr.get("n_casas_referencia") or pr.get("n_casas")) if (odds and nuevo) else pr.get("n_casas"), "limite_2_10": _limite(odds, p),
+                         "cuota_usuario": cuota_usuario, "p_mercado": (pr.get("p_mercado") or {}).get("p"), "p_mercado_n": (pr.get("p_mercado") or {}).get("n_casas"), "p_pinnacle": (pr.get("p_mercado") or {}).get("p_pinnacle"),
                          "p_modelo": p, "brecha_vs_precio": gap, "cuota_minima_justa": None if not p else round(1 / p, 3), "ev_teorico": None if (p is None or odds is None) else round(p * odds - 1, 3),
                          "cuota_revisada": ((reviewed or {}).get((u["match_id"], e["id"])) or (None, None, None))[1], "datos": e["datos"], "validacion": e["validacion"], "modelo_validado": cov.model_validated(mc.BY_ID[e["id"]]), "agentes": st, "motivos_exclusion": motivos})
     return legs
@@ -179,8 +196,8 @@ def risk_violations(combo, policy=POLICY):
 
 def combo_readiness(combo, certified):
     return cov._readiness({"investigacion_resuelta": bool(certified),
-                           "precio_real_verificado": all(l["precio_tipo"] == "ejecutable" for l in combo),
-                           "cuota_dentro_del_limite": all(l["cuota"] is not None and l["cuota"] <= MAX_LEG_ODDS for l in combo),
+                           "precio_real_verificado": all(l.get("cuota_usuario") is not None for l in combo),
+                           "cuota_dentro_del_limite": all(l["cuota"] is not None and l["cuota"] <= MAX_LEG_ODDS and (l.get("cuota_usuario") is None or l["cuota_usuario"] <= MAX_LEG_ODDS) for l in combo),
                            "datos_suficientes": all(l["datos"] == "suficientes" for l in combo),
                            "estimador_propio_disponible": all(l["p_modelo"] is not None for l in combo),
                            "modelo_validado": all(l["modelo_validado"] for l in combo),
@@ -213,13 +230,13 @@ def _combo_record(name, combo, certified):
         odds *= l["cuota"]
         p *= l["p_modelo"]
     ln_total = math.log(odds)
-    all_real = all(l["precio_tipo"] == "ejecutable" for l in combo)
-    return {"objetivo": name, "patas": [dict({k: l[k] for k in ("leg_id", "partido", "grupo", "etiqueta", "cuota", "precio_tipo", "p_modelo", "cuota_minima_justa", "agentes", "hora_utc", "observado_utc")},
+    all_user = all(l.get("cuota_usuario") is not None for l in combo)          # capa opcional: la persona usuaria contrastó cada pata con su captura (no cambia la cuota ni la selección)
+    return {"objetivo": name, "patas": [dict({k: l[k] for k in ("leg_id", "partido", "grupo", "etiqueta", "cuota", "precio_tipo", "p_modelo", "cuota_minima_justa", "agentes", "hora_utc", "observado_utc", "cuota_usuario", "p_mercado")},
                                             aporte_log_pct=round(100 * math.log(l["cuota"]) / ln_total, 1) if ln_total else None) for l in combo],
             "multiplicador": " × ".join(f"{l['cuota']:g}" for l in combo) + f" = {odds:.2f}", "nota_correlacion": "; ".join(correlation_notes(combo)) or None,
-            "cuota_total": round(odds, 3), "p_conjunta_independiente": round(p, 4), "p_perdida": round(1 - p, 4), "ev_teorico": round(p * odds - 1, 3) if all_real else None,
-            "alerta": "EV alto: probable desacuerdo del modelo (no validado) con el mercado, no ventaja" if (all_real and p * odds - 1 >= EV_ALERT) else None,
-            "tipo_cuota": "ejecutable (precios reales)" if all_real else "REFERENCIA (alguna pata solo tiene precio de agregador: no ejecutable)",
+            "cuota_total": round(odds, 3), "p_conjunta_independiente": round(p, 4), "p_perdida": round(1 - p, 4), "ev_teorico": round(p * odds - 1, 3),
+            "alerta": "EV alto: probable desacuerdo del modelo (no validado) con el mercado, no ventaja" if p * odds - 1 >= EV_ALERT else None,
+            "tipo_cuota": "REFERENCIA (mediana de casas del agregador; no ejecutable)" + (" · todas las patas contrastadas con una captura de la persona usuaria" if all_user else " · sin contraste con captura de la persona usuaria"),
             "estado_agentes": "APROBADA" if all(l["agentes"] == "aprobada" for l in combo) else ("OBJETADA" if any(l["agentes"].startswith("objetada") for l in combo) else "SIN_REVISION"),
             "preparacion_para_apostar": combo_readiness(combo, certified), "nota_p": "p_modelo del modelo propio NO VALIDADO; producto bajo independencia declarada"}
 
@@ -253,8 +270,8 @@ def build_combos(legs, certified=False, targets=DEFAULT_TARGETS, policy=POLICY, 
                 p = 1.0
                 for l in c:
                     p *= l["p_modelo"]
-                cand.append((0 if all(l["agentes"] == "aprobada" for l in c) else 1, 0 if all(l["precio_tipo"] == "ejecutable" for l in c) else 1, -p, c))
-        cand.sort(key=lambda t: t[:3])       # primero aprobadas por agentes, luego con precios ejecutables, luego mayor p_modelo
+                cand.append((0 if all(l["agentes"] == "aprobada" for l in c) else 1, 0, -p, c))          # la captura de la persona usuaria NO influye en qué combinadas se eligen
+        cand.sort(key=lambda t: t[:3])       # primero aprobadas por agentes, luego mayor p_modelo
         cand = [(a, b, c) for a, _, b, c in cand]
         chosen, start = [], 0
         while len(chosen) < policy["top_por_objetivo"]:
@@ -289,7 +306,24 @@ def build_combos(legs, certified=False, targets=DEFAULT_TARGETS, policy=POLICY, 
 
 # ── rankings ──
 def _row(l):
-    return {k: l[k] for k in ("leg_id", "partido", "grupo", "etiqueta", "cuota", "precio_tipo", "limite_2_10", "p_modelo", "cuota_minima_justa", "brecha_vs_precio", "ev_teorico", "datos", "validacion", "agentes", "motivos_exclusion")}
+    return {k: l[k] for k in ("leg_id", "partido", "grupo", "etiqueta", "cuota", "precio_tipo", "limite_2_10", "p_modelo", "cuota_minima_justa", "brecha_vs_precio", "ev_teorico", "datos", "validacion", "agentes", "motivos_exclusion", "cuota_usuario", "p_mercado")}
+
+
+def limitar_por_partido(legs, k=MAX_RANK_POR_PARTIDO):
+    """Conserva, en el orden dado, como máximo `k` patas de cada partido."""
+    cnt, out = Counter(), []
+    for l in legs:
+        if cnt[l["match_id"]] >= k:
+            continue
+        cnt[l["match_id"]] += 1
+        out.append(l)
+    return out
+
+
+def composicion(legs):
+    """(filas, partidos distintos, máx. patas de un mismo partido) de una lista de patas o filas con `match_id`/`partido`."""
+    c = Counter(l.get("match_id") or l.get("partido") for l in legs)
+    return {"filas": len(legs), "partidos_distintos": len(c), "max_por_partido": max(c.values()) if c else 0}
 
 
 def build_rankings(legs, top=POLICY["top_ranking"]):
@@ -299,11 +333,11 @@ def build_rankings(legs, top=POLICY["top_ranking"]):
     for g in groups:
         gl = [l for l in with_p if l["grupo"] == g]
         # más probables con cuota mínima justa dentro del límite (p ≥ 1/2.10): las demás no pueden cumplir 2.10 ni siquiera a precio justo
-        prob = sorted([l for l in gl if l["cuota_minima_justa"] <= MAX_LEG_ODDS], key=lambda l: -l["p_modelo"])[:top]
-        ev = sorted([l for l in gl if l["ev_teorico"] is not None and l["limite_2_10"] == "cumple"], key=lambda l: -l["ev_teorico"])[:top]
+        prob = limitar_por_partido(sorted([l for l in gl if l["cuota_minima_justa"] <= MAX_LEG_ODDS], key=lambda l: -l["p_modelo"]))[:top]
+        ev = limitar_por_partido(sorted([l for l in gl if l["ev_teorico"] is not None and l["limite_2_10"] == "cumple"], key=lambda l: -l["ev_teorico"]))[:top]
         por_grupo[g] = {"entradas_con_estimador": len(gl), "mas_probables": [_row(l) for l in prob], "mayor_ev_teorico_con_precio": [_row(l) for l in ev]}
     return {"por_grupo": por_grupo,
-            "general_mas_probables": [_row(l) for l in sorted([l for l in with_p if l["cuota_minima_justa"] <= MAX_LEG_ODDS], key=lambda l: -l["p_modelo"])[: top * 4]],
+            "general_mas_probables": [_row(l) for l in limitar_por_partido(sorted([l for l in with_p if l["cuota_minima_justa"] <= MAX_LEG_ODDS], key=lambda l: -l["p_modelo"]))[: top * 4]],
             "nota": "ordenados por probabilidad del modelo propio (NO validado) o por EV teórico con ese mismo p; el EV de mercado no es el veredicto. Sin precio: cuota mínima justa = 1/p."}
 
 

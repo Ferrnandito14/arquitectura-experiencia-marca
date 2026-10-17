@@ -138,3 +138,7 @@ Pruebas nuevas: `tests/test_comparativo_v2.py` (11). Suite completa: ver resulta
 - El comparativo liquida estos mercados (`settle_additional`) en la hoja «Adicionales evaluados» con su resumen por mercado.
 - Límites: solo TheStatsAPI trae apertura; apifootball no publica los cuartos de línea ni mercados por mitad; 3 de 26 partidos del 16-oct no emparejaron con TheStatsAPI.
 - Pruebas: `tests/test_api_detalle.py` (7). Suite: 520 OK (1 omitida).
+
+
+## Mantenimiento 14–16 oct (17-oct)
+Suite completa: 575 pruebas OK (1 omitida). Nuevas: `tests/test_liquidacion_reglas.py` (36, casos reales de liquidación) y `tests/test_mantenimiento_tres_dias.py` (17: recalibración sin fuga ni publicación sin mejora, agentes con IC, discrepancia > 10 pp, `demargin`, tope por partido, independencia de la casa, día de Caracas, CSV y auditor de libros). Resultados del análisis fuera de muestra: `docs/ANALISIS-tres-dias.md`.

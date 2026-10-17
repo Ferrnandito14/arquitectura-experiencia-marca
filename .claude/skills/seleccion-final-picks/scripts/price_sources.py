@@ -22,14 +22,33 @@ from urllib.parse import parse_qs, urlparse
 SOURCE_TYPES = ("casa", "usuario", "agregador", "estimacion_modelo")
 
 
-def make_record(match_id, entry_id, odds, source, source_type, bookmaker=None, observed_utc=None, verified=False, n_books=None, note=None, min_books=None):
+def make_record(match_id, entry_id, odds, source, source_type, bookmaker=None, observed_utc=None, verified=False, n_books=None, note=None, min_books=None, **extra):
     if source_type not in SOURCE_TYPES:
         raise ValueError(f"source_type inválido: {source_type}")
     odds = float(odds)
     if odds <= 1.0:
         raise ValueError("una cuota decimal debe ser > 1.0")
-    return {"match_id": match_id, "entry_id": entry_id, "odds": odds, "source": source, "source_type": source_type, "bookmaker": bookmaker,
-            "observed_utc": observed_utc, "verified": bool(verified), "n_books": n_books, "note": note, "min_books": min_books}
+    rec = {"match_id": match_id, "entry_id": entry_id, "odds": odds, "source": source, "source_type": source_type, "bookmaker": bookmaker,
+           "observed_utc": observed_utc, "verified": bool(verified), "n_books": n_books, "note": note, "min_books": min_books}
+    rec.update({k: v for k, v in extra.items() if v is not None})          # campos opcionales (p. ej. probabilidad del mercado sin margen)
+    return rec
+
+
+def demargin(odds):
+    """Probabilidades SIN margen de un grupo de resultados mutuamente excluyentes de UNA casa (normalización proporcional: 1/cuota ÷ suma de 1/cuota). None si falta alguna cuota."""
+    if not odds or any(o is None or o <= 1.0 for o in odds):
+        return None
+    inv = [1 / o for o in odds]
+    t = sum(inv)
+    return [x / t for x in inv]
+
+
+def is_whole_line(line):
+    """Líneas enteras (con devolución si el total es exacto): la probabilidad de ganar no se obtiene normalizando el par, así que no se calcula P de mercado."""
+    try:
+        return float(line) == int(float(line))
+    except (TypeError, ValueError):
+        return False
 
 
 def is_real_price(rec):
@@ -219,10 +238,16 @@ class ApifootballOddsProvider(PriceProvider):
             return []
         i = entry["price_idx"]
         # MEDIANA entre casas (no la media): una casa con precios atípicos (p. ej. Betfair en hándicap, 1.02–1.10) no debe inflar la referencia (observación del auditor, piloto de la Fase 5)
-        odds = (pr.get("cuotas_medianas") or pr["cuotas_medias"])[i]
+        grupo = pr.get("cuotas_medianas") or pr["cuotas_medias"]
+        odds = grupo[i]
         spread = pr.get("minmax", [[None, None]] * (i + 1))[i]
+        pm = None
+        if entry["price_key"] != "resultado.doble_oportunidad" and not is_whole_line(entry.get("line")) and not str(entry["id"]).startswith(("goles.total_entero", "resultado.ah_entero")):
+            dm = demargin(list(grupo))                       # P del mercado sin margen: normaliza el grupo de medianas (1X2, par más/menos, par de hándicap, ambos anotan)
+            pm = None if dm is None else round(dm[i], 4)
         return [make_record(match["match_id"], entry["id"], odds, self.name, "agregador", bookmaker="mediana", observed_utc=self.last_odd.get(mid) or None,
-                            verified=False, n_books=pr["n_casas"], note=f"mediana de mercado vía agregador ({pr['n_casas']} casas, rango {spread[0]}–{spread[1]}): referencia, no cuota ejecutable")]
+                            verified=False, n_books=pr["n_casas"], note=f"mediana de mercado vía agregador ({pr['n_casas']} casas, rango {spread[0]}–{spread[1]}): referencia, no cuota ejecutable",
+                            p_mercado_sin_margen=pm, p_mercado_n=pr["n_casas"] if pm is not None else None)]
 
 
 class FootballDataOddsProvider(PriceProvider):
@@ -477,7 +502,8 @@ class TheStatsApiOddsProvider(PriceProvider):
         if not b or look is None:
             return []
         mk, side, line, sel = look
-        got, dropped = [], []
+        got, dropped, pbooks = [], [], []
+        whole = is_whole_line(line) if (line is not None and mk != "handicap_result") else False
         for bk in b["books"]:
             mkts = bk.get("markets") or {}
             x = _tsa_leaf(mkts, mk, side, line, sel)
@@ -489,10 +515,15 @@ class TheStatsApiOddsProvider(PriceProvider):
                 if not lo <= ov <= hi:
                     dropped.append(bk["bookmaker"])
                     continue
+                if not whole:
+                    pbooks.append((bk["bookmaker"], (1 / x) / ov))        # P sin margen de ESA casa: la normalización se hace casa por casa y luego se toma la mediana
             got.append((bk["bookmaker"], x))
         if not got:
             return []
         xs = [x for _, x in got]
+        pm = round(statistics.median(p for _, p in pbooks), 4) if pbooks else None
+        pp = next((round(p, 4) for n, p in pbooks if n == "Pinnacle"), None)
         extra = f"; descartado por precios incoherentes de su par/trío: {', '.join(dropped)}" if dropped else ""
         return [make_record(match["match_id"], entry["id"], statistics.median(xs), self.name, "agregador", bookmaker="mediana", observed_utc=b["fetched_utc"], verified=False, n_books=len(xs), min_books=1,
-                            note=f"mediana de {len(xs)} casa(s) ({', '.join(n for n, _ in got)}), rango {min(xs)}–{max(xs)}{extra}; último precio visto: referencia, no cuota ejecutable")]
+                            note=f"mediana de {len(xs)} casa(s) ({', '.join(n for n, _ in got)}), rango {min(xs)}–{max(xs)}{extra}; último precio visto: referencia, no cuota ejecutable",
+                            p_mercado_sin_margen=pm, p_mercado_n=len(pbooks) if pm is not None else None, p_pinnacle_sin_margen=pp)]

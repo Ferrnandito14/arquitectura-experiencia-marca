@@ -132,7 +132,11 @@ def build_units(run, match_ids=None, capture=None):
         u["entradas"].append({"id": e["id"], "linea": e["line"], "direccion": e["direction"], "alcance": e["scope"],
                               "investigacion": {c["canal"]: c["resultado"] for c in r["investigacion"]["canales"]},
                               "precio": {"estado": r["precio"]["estado"], "cuota": rec.get("odds"), "fuente": rec.get("source"), "tipo": rec.get("source_type"), "cumple_limite_2_10": r["precio"]["cumple_limite"],
-                                        "observado_utc": rec.get("observed_utc"), "n_casas": rec.get("n_books")},
+                                        "observado_utc": rec.get("observed_utc"), "n_casas": rec.get("n_books"),
+                                        # capas separadas (17-oct): referencia de agregador (independiente de cualquier casa), captura de la persona usuaria (opcional) y P del mercado sin margen
+                                        "cuota_referencia": (r["precio"].get("referencia") or {}).get("odds"), "fuente_referencia": (r["precio"].get("referencia") or {}).get("source"),
+                                        "observado_referencia_utc": (r["precio"].get("referencia") or {}).get("observed_utc"), "n_casas_referencia": (r["precio"].get("referencia") or {}).get("n_books"),
+                                        "cuota_usuario": (r["precio"].get("usuario") or {}).get("odds"), "p_mercado": r["precio"].get("p_mercado")},
                               "datos": r["analitica"]["datos"], "estimador": r["analitica"]["estimador"], "validacion": r["analitica"]["validacion"], "p_modelo": pm.get((r["match_id"], e["id"]))})
         if (r["match_id"], e["id"]) in raw:
             u["entradas"][-1]["p_modelo_bruta"] = raw[(r["match_id"], e["id"])]          # solo cuando la recalibración cambió la probabilidad

@@ -44,7 +44,8 @@ class Liquidacion(unittest.TestCase):
         self.assertEqual(self.s("corners.equipo.away.over.2.5", r(1, 0, corners=(5, 4))), cmp.WIN)
         self.assertEqual(self.s("cards_pts.total.over.2.5", r(1, 0, tarjetas=(1, 2))), cmp.WIN)
         self.assertEqual(self.s("cards_pts.total.over.2.5", r(1, 0, tarjetas=None)), cmp.NODATA)       # la fuente no trae tarjetas: no se inventa
-        self.assertEqual(self.s("corners.total.over.8.5", r(1, 0, corners=(10, 0))), cmp.NODATA)       # un cero total de córners es dato dudoso
+        self.assertEqual(self.s("corners.total.over.8.5", r(1, 0, corners=(10, 0))), cmp.WIN)          # un equipo con 0 córners es un dato válido (corregido el 17-oct; ver test_liquidacion_reglas)
+        self.assertEqual(self.s("corners.total.over.8.5", r(1, 0, corners=(0, 0))), cmp.NODATA)         # un cero TOTAL de córners es dato dudoso
         self.assertEqual(self.s("goles.total.over.0.5", r(0, 0, estado="Not Started")), cmp.NODATA)
 
     def test_prorroga_y_penales_no_cuentan_y_el_beneficio_se_calcula_a_la_cuota_del_libro(self):

@@ -1,0 +1,448 @@
+{
+ "filas_lado_p50": 3215,
+ "partidos": 94,
+ "folds": {
+  "14+15 → 16": {
+   "n_train": 2480,
+   "n_test": 735,
+   "metodos": {
+    "sin_ajuste": {
+     "n": 735,
+     "p_media": 0.7119,
+     "acierto": 0.7401,
+     "brier": 0.1805,
+     "logloss": 0.5386,
+     "ece": 0.0382
+    },
+    "platt_global": {
+     "n": 735,
+     "p_media": 0.687,
+     "acierto": 0.7401,
+     "brier": 0.1823,
+     "logloss": 0.5445,
+     "ece": 0.0532
+    },
+    "isotonica_global": {
+     "n": 735,
+     "p_media": 0.686,
+     "acierto": 0.7401,
+     "brier": 0.1824,
+     "logloss": 0.5445,
+     "ece": 0.0541
+    },
+    "platt_por_familia": {
+     "n": 735,
+     "p_media": 0.6902,
+     "acierto": 0.7401,
+     "brier": 0.1818,
+     "logloss": 0.5439,
+     "ece": 0.0539
+    },
+    "isotonica_por_familia": {
+     "n": 735,
+     "p_media": 0.6797,
+     "acierto": 0.7401,
+     "brier": 0.1862,
+     "logloss": 0.5563,
+     "ece": 0.0645
+    }
+   }
+  },
+  "15+16 → 14": {
+   "n_train": 1955,
+   "n_test": 1260,
+   "metodos": {
+    "sin_ajuste": {
+     "n": 1260,
+     "p_media": 0.7102,
+     "acierto": 0.6706,
+     "brier": 0.2145,
+     "logloss": 0.6229,
+     "ece": 0.0439
+    },
+    "platt_global": {
+     "n": 1260,
+     "p_media": 0.7148,
+     "acierto": 0.6706,
+     "brier": 0.2143,
+     "logloss": 0.6209,
+     "ece": 0.0441
+    },
+    "isotonica_global": {
+     "n": 1260,
+     "p_media": 0.7168,
+     "acierto": 0.6706,
+     "brier": 0.2155,
+     "logloss": 0.6244,
+     "ece": 0.0524
+    },
+    "platt_por_familia": {
+     "n": 1260,
+     "p_media": 0.7178,
+     "acierto": 0.6706,
+     "brier": 0.2154,
+     "logloss": 0.6243,
+     "ece": 0.0539
+    },
+    "isotonica_por_familia": {
+     "n": 1260,
+     "p_media": 0.715,
+     "acierto": 0.6706,
+     "brier": 0.2192,
+     "logloss": 0.645,
+     "ece": 0.0676
+    }
+   }
+  },
+  "14+16 → 15": {
+   "n_train": 1995,
+   "n_test": 1220,
+   "metodos": {
+    "sin_ajuste": {
+     "n": 1220,
+     "p_media": 0.7167,
+     "acierto": 0.7066,
+     "brier": 0.1907,
+     "logloss": 0.5655,
+     "ece": 0.0294
+    },
+    "platt_global": {
+     "n": 1220,
+     "p_media": 0.7015,
+     "acierto": 0.7066,
+     "brier": 0.1915,
+     "logloss": 0.566,
+     "ece": 0.0341
+    },
+    "isotonica_global": {
+     "n": 1220,
+     "p_media": 0.701,
+     "acierto": 0.7066,
+     "brier": 0.1917,
+     "logloss": 0.5673,
+     "ece": 0.0343
+    },
+    "platt_por_familia": {
+     "n": 1220,
+     "p_media": 0.7046,
+     "acierto": 0.7066,
+     "brier": 0.1929,
+     "logloss": 0.5709,
+     "ece": 0.033
+    },
+    "isotonica_por_familia": {
+     "n": 1220,
+     "p_media": 0.7072,
+     "acierto": 0.7066,
+     "brier": 0.1968,
+     "logloss": 0.591,
+     "ece": 0.0432
+    }
+   }
+  }
+ },
+ "nota": "p del registro = ya pasada por model_calibration donde 'aplicar'",
+ "agregado_fuera_de_muestra": {
+  "sin_ajuste": {
+   "n": 3215,
+   "p_media": 0.713,
+   "acierto": 0.7002,
+   "brier": 0.1977,
+   "logloss": 0.5818,
+   "ece": 0.0206,
+   "lado_favorecido_cuota<=2.10": {
+    "n": 2960,
+    "p_media": 0.7234,
+    "acierto": 0.7365,
+    "brier": 0.1878,
+    "logloss": 0.5603,
+    "ece": 0.0341
+   },
+   "bandas": [
+    {
+     "banda": "50-60",
+     "n": 792,
+     "p_media": 0.55,
+     "acierto": 0.557
+    },
+    {
+     "banda": "60-70",
+     "n": 770,
+     "p_media": 0.649,
+     "acierto": 0.658
+    },
+    {
+     "banda": "70-80",
+     "n": 756,
+     "p_media": 0.751,
+     "acierto": 0.724
+    },
+    {
+     "banda": "80-90",
+     "n": 575,
+     "p_media": 0.848,
+     "acierto": 0.816
+    },
+    {
+     "banda": "90-100",
+     "n": 322,
+     "p_media": 0.936,
+     "acierto": 0.891
+    }
+   ]
+  },
+  "platt_global": {
+   "n": 3215,
+   "p_media": 0.7034,
+   "acierto": 0.7002,
+   "brier": 0.1983,
+   "logloss": 0.5826,
+   "ece": 0.0139,
+   "dif_brier_vs_sin_ajuste": 0.00061,
+   "dif_brier_ic95": [
+    -0.00036,
+    0.00153
+   ],
+   "dif_logloss_vs_sin_ajuste": 0.00078,
+   "dif_logloss_ic95": [
+    -0.00351,
+    0.00456
+   ],
+   "folds_que_mejoran_brier": 1,
+   "mejora_en_14+15→16": false,
+   "lado_favorecido_cuota<=2.10": {
+    "n": 2960,
+    "p_media": 0.7119,
+    "acierto": 0.7365,
+    "brier": 0.1881,
+    "logloss": 0.5607,
+    "ece": 0.0334
+   },
+   "bandas": [
+    {
+     "banda": "50-60",
+     "n": 705,
+     "p_media": 0.565,
+     "acierto": 0.548
+    },
+    {
+     "banda": "60-70",
+     "n": 965,
+     "p_media": 0.648,
+     "acierto": 0.655
+    },
+    {
+     "banda": "70-80",
+     "n": 848,
+     "p_media": 0.748,
+     "acierto": 0.761
+    },
+    {
+     "banda": "80-90",
+     "n": 527,
+     "p_media": 0.846,
+     "acierto": 0.831
+    },
+    {
+     "banda": "90-100",
+     "n": 170,
+     "p_media": 0.928,
+     "acierto": 0.882
+    }
+   ]
+  },
+  "isotonica_global": {
+   "n": 3215,
+   "p_media": 0.7038,
+   "acierto": 0.7002,
+   "brier": 0.1989,
+   "logloss": 0.5844,
+   "ece": 0.0139,
+   "dif_brier_vs_sin_ajuste": 0.00121,
+   "dif_brier_ic95": [
+    0.00026,
+    0.00224
+   ],
+   "dif_logloss_vs_sin_ajuste": 0.00262,
+   "dif_logloss_ic95": [
+    -0.00044,
+    0.00586
+   ],
+   "folds_que_mejoran_brier": 0,
+   "mejora_en_14+15→16": false,
+   "lado_favorecido_cuota<=2.10": {
+    "n": 2960,
+    "p_media": 0.7136,
+    "acierto": 0.7365,
+    "brier": 0.1893,
+    "logloss": 0.5639,
+    "ece": 0.0386
+   },
+   "bandas": [
+    {
+     "banda": "50-60",
+     "n": 580,
+     "p_media": 0.533,
+     "acierto": 0.529
+    },
+    {
+     "banda": "60-70",
+     "n": 1062,
+     "p_media": 0.654,
+     "acierto": 0.655
+    },
+    {
+     "banda": "70-80",
+     "n": 722,
+     "p_media": 0.745,
+     "acierto": 0.758
+    },
+    {
+     "banda": "80-90",
+     "n": 569,
+     "p_media": 0.84,
+     "acierto": 0.817
+    },
+    {
+     "banda": "90-100",
+     "n": 244,
+     "p_media": 0.929,
+     "acierto": 0.877
+    }
+   ]
+  },
+  "platt_por_familia": {
+   "n": 3215,
+   "p_media": 0.7065,
+   "acierto": 0.7002,
+   "brier": 0.1992,
+   "logloss": 0.5857,
+   "ece": 0.0091,
+   "dif_brier_vs_sin_ajuste": 0.00146,
+   "dif_brier_ic95": [
+    0.0003,
+    0.00257
+   ],
+   "dif_logloss_vs_sin_ajuste": 0.00384,
+   "dif_logloss_ic95": [
+    -0.00027,
+    0.00756
+   ],
+   "folds_que_mejoran_brier": 0,
+   "mejora_en_14+15→16": false,
+   "lado_favorecido_cuota<=2.10": {
+    "n": 2960,
+    "p_media": 0.7144,
+    "acierto": 0.7365,
+    "brier": 0.1884,
+    "logloss": 0.5625,
+    "ece": 0.0305
+   },
+   "bandas": [
+    {
+     "banda": "50-60",
+     "n": 613,
+     "p_media": 0.564,
+     "acierto": 0.558
+    },
+    {
+     "banda": "60-70",
+     "n": 1013,
+     "p_media": 0.649,
+     "acierto": 0.654
+    },
+    {
+     "banda": "70-80",
+     "n": 884,
+     "p_media": 0.747,
+     "acierto": 0.745
+    },
+    {
+     "banda": "80-90",
+     "n": 483,
+     "p_media": 0.844,
+     "acierto": 0.826
+    },
+    {
+     "banda": "90-100",
+     "n": 205,
+     "p_media": 0.933,
+     "acierto": 0.898
+    }
+   ]
+  },
+  "isotonica_por_familia": {
+   "n": 3215,
+   "p_media": 0.704,
+   "acierto": 0.7002,
+   "brier": 0.2032,
+   "logloss": 0.6042,
+   "ece": 0.0306,
+   "dif_brier_vs_sin_ajuste": 0.00545,
+   "dif_brier_ic95": [
+    0.00285,
+    0.00826
+   ],
+   "dif_logloss_vs_sin_ajuste": 0.0224,
+   "dif_logloss_ic95": [
+    0.01305,
+    0.03222
+   ],
+   "folds_que_mejoran_brier": 0,
+   "mejora_en_14+15→16": false,
+   "lado_favorecido_cuota<=2.10": {
+    "n": 2960,
+    "p_media": 0.7151,
+    "acierto": 0.7365,
+    "brier": 0.1941,
+    "logloss": 0.5851,
+    "ece": 0.0412
+   },
+   "bandas": [
+    {
+     "banda": "50-60",
+     "n": 549,
+     "p_media": 0.563,
+     "acierto": 0.554
+    },
+    {
+     "banda": "60-70",
+     "n": 775,
+     "p_media": 0.649,
+     "acierto": 0.653
+    },
+    {
+     "banda": "70-80",
+     "n": 876,
+     "p_media": 0.747,
+     "acierto": 0.731
+    },
+    {
+     "banda": "80-90",
+     "n": 479,
+     "p_media": 0.844,
+     "acierto": 0.835
+    },
+    {
+     "banda": "90-100",
+     "n": 342,
+     "p_media": 0.945,
+     "acierto": 0.854
+    }
+   ]
+  }
+ },
+ "criterio": "Δ Brier con IC95 < 0 sobre todas las predicciones fuera de muestra, Δ log-loss ≤ 0, mejora en ≥ 2 de 3 folds y en 14+15→16",
+ "publicar": {
+  "platt_global": false,
+  "isotonica_global": false,
+  "platt_por_familia": false,
+  "isotonica_por_familia": false
+ },
+ "publicar_alguno": false,
+ "candidato_platt_global_3_dias": {
+  "a": 0.7804,
+  "b": 0.1123,
+  "publicado": false
+ }
+}

@@ -67,6 +67,7 @@ def liga_map(units, capture=None):
 
 
 EV_ALERT = cr.EV_ALERT
+MODEL_MARKET_PP = 0.10      # diferencia entre la P del modelo y la P del mercado sin margen a partir de la cual se marca la pata
 LEDGER = "data/ledger_patas.jsonl"
 ALTA_JSON = "data/recalib_cuotas_altas.json"
 
@@ -101,6 +102,8 @@ def alerta(l):
         a.append("desacuerdo con el mercado (|brecha| ≥ 15 pp)")
     if l["ev_teorico"] is not None and l["ev_teorico"] >= EV_ALERT:
         a.append("EV alto: probable ruido del modelo (no validado)")
+    if l.get("p_mercado") is not None and l["p_modelo"] is not None and abs(l["p_modelo"] - l["p_mercado"]) > MODEL_MARKET_PP:
+        a.append(f"modelo y mercado sin margen difieren {abs(l['p_modelo'] - l['p_mercado']) * 100:.0f} pp (modelo {l['p_modelo'] * 100:.0f} %, mercado {l['p_mercado'] * 100:.0f} %)")
     if l["cuota"] and l.get("n_casas") == 1:
         a.append("precio de una sola casa")
     if l["cuota"] and l.get("cuota_revisada") and abs(l["cuota"] / l["cuota_revisada"] - 1) >= 0.10:
@@ -122,10 +125,13 @@ LEYENDA = [
     ("Canales", "datos_deportivos", "Historial del equipo (goles, córners, tarjetas…) de la API."),
     ("Canales", "apifootball (agregador)", "Mediana de cuotas de varias casas de un agregador: REFERENCIA, no ejecutable."),
     ("Canales", "football-data (fixtures, Bet365)", "Cuotas de una casa publicadas por football-data, solo donde esa fuente cubre el partido."),
-    ("Canales", "usuario:partidos_usuario.json", "Tus capturas de cuotas (precio real de tu casa)."),
-    ("Tipo de precio", "ejecutable", "Cuota real de tu casa/captura."),
-    ("Tipo de precio", "referencia", "Mediana de agregador: confírmala en tu casa; no se puede apostar tal cual."),
-    ("Precio: estado", "real_verificada / otra_fuente / no_verificable / sin_precio", "Clasificación de la cuota: real de tu casa / agregador / no comprobable / no hay cuota en ninguna fuente."),
+    ("Canales", "usuario:partidos_usuario.json", "Tus capturas de cuotas: capa OPCIONAL de contraste; no define la cuota de los rankings ni cambia la P del modelo."),
+    ("Tipo de precio", "ejecutable", "Cuota de una captura de la persona usuaria. Los libros desde el 17-oct ya no la usan como cuota de rankings (solo aparece en «Cuota captura (opcional)»)."),
+    ("Tipo de precio", "referencia", "Mediana entre casas de un agregador: no depende de ninguna casa; confírmala en la tuya, no se puede apostar tal cual."),
+    ("Precio: estado", "real_verificada / otra_fuente / no_verificable / sin_precio / solo_captura_usuario", "Clasificación de la cuota: captura de la persona usuaria / agregador / no comprobable / sin cuota en ninguna fuente / solo hay captura de la persona usuaria y ninguna referencia (no entra en rankings)."),
+    ("Cuota captura (opcional)", "", "Cuota de tu captura de pantalla para esa misma línea, si la enviaste. Es solo un contraste con la referencia."),
+    ("P mercado sin margen %", "", "Probabilidad del mercado sin margen (mediana de las casas, cada una normalizada por su par o trío). Vacía en líneas enteras, doble oportunidad o si falta el par."),
+    ("Modelo − mercado (pp)", "", "P modelo − P mercado sin margen. Más de 10 pp en cualquier sentido se marca en «Alerta»: el modelo discrepa del mercado (no es ventaja)."),
     ("Agentes", "aprobada", "Los 4 roles la revisaron y ninguno la objeta."),
     ("Agentes", "objetada:<rol>", "El auditor objeta el veredicto de ese rol (dato contradictorio): no cuenta como aprobada."),
     ("Agentes", "degradada:deportivo:BAJA|NO_EVALUABLE", "Solidez deportiva baja: sale de combinadas y rankings, se muestra en las hojas de liga."),
@@ -232,14 +238,15 @@ def make_workbook(units, summary, legs, rankings, combos, consolidated, rotation
         ["Cada hoja de liga lista TODOS los mercados investigados de sus partidos (goles totales y por equipo, 1X2, doble oportunidad, empate no válido, hándicaps, córners, tarjetas con A=1/R=2, 1.ª parte, remates…) que tienen probabilidad del modelo propio y no fueron rechazados por los agentes."],
         ["Certificación de la investigación ≠ aprobación para apostar: significa solo que, para estos partidos, cada combinación partido × mercado × canal (datos deportivos, precios) fue consultada o consta por qué no se pudo."],
         ["El modelo propio NO está validado (docs/BACKTEST-modelo-v1.md): sus probabilidades son una segunda opinión, no un veredicto; por eso ninguna fila ni combinada es «APTA»."],
-        ["Precios: «real» = tu casa/captura; «referencia» = mediana de casas de un agregador (no ejecutable). Córners, tarjetas, goles por equipo, 1.ª parte y remates no tienen precio en ninguna fuente: usa «Mercados extra» / «Sin precio» y pega la cuota de tu casa."],
+        ["Precios: rankings y combinadas usan SIEMPRE el precio de REFERENCIA (mediana entre casas de un agregador: apifootball o TheStatsAPI), que no depende de ninguna casa concreta y no es una cuota ejecutable. Tu captura de pantalla es una capa OPCIONAL de contraste (columna «Cuota captura (opcional)»): no cambia la probabilidad del modelo, ni la cuota, ni qué patas entran en rankings y combinadas. Córners, tarjetas, goles por equipo, 1.ª parte y remates tienen precio solo cuando TheStatsAPI los cotiza (mira «N.º de casas»); el resto está en «Sin precio» para que pegues una cuota si quieres."],
+        ["«P mercado sin margen %» = probabilidad que implica el mercado tras quitar el margen casa por casa (1/cuota ÷ suma del par o trío) y tomar la mediana de las casas; solo existe con el grupo completo (más/menos, sí/no, 1X2, hándicap) y no en líneas enteras ni en doble oportunidad. «Modelo − mercado (pp)» las compara y la columna «Alerta» marca las patas que difieren más de 10 pp."],
         ["Cuota mínima justa = 1/p del modelo (no es una recomendación). EV teórico = p × cuota − 1 con ese p; es una referencia, no el veredicto. Brecha = p modelo − 1/cuota (pp); ≥ 15 pp = señal de ruido o de información que el modelo no tiene."],
         ["Solidez deportiva / cuantitativo / verificador / auditor = veredicto de cada agente por entrada (contrato cerrado). BAJA o NO_EVALUABLE = degradada: sale de las combinadas pero se muestra."],
         [f"Tope por pata: {cr.MAX_LEG_ODDS}. Rankings y combinadas usan solo patas con precio de alguna fuente (los rankings, además, cuota ≥ 1.10), no rechazadas ni degradadas y sin brecha ≥ 15 pp. Combinadas: una pata por partido, topes por dirección/liga/ventana horaria y exposición; P(pérdida) = 1 − producto de las p (independencia declarada)."],
         [f"Cifras: {len(units)} unidades, {len(ids)} partidos, {sum(len(u['entradas']) for u in units)} filas partido × entrada; con estimador propio: {sum(1 for l in legs if l['p_modelo'] is not None)}; con precio de alguna fuente: {sum(1 for l in legs if l['cuota'])}; elegibles para rankings/combinadas: {len(elig)}."],
         ["MULTIPLICADOR de una combinada = producto de las cuotas de sus patas. Ejemplo: patas a 1.50, 1.60 y 1.40 → 1.50 × 1.60 × 1.40 = 3.36 (apostando 100 pagaría 336 si ganan las tres). «Aporte de la pata al multiplicador %» = qué parte del total pone cada pata (en escala logarítmica). «P gana si fueran independientes» = producto de las p del modelo (0.70 × 0.65 × 0.72 = 33 %); si las patas dependen entre sí (misma liga, mismo régimen de goles, horarios cercanos) la probabilidad real puede ser distinta: ver «Nota de correlación»."],
         ["Mercados extra: las cuotas vienen de DOS fuentes de referencia (no ejecutables): apifootball (1X2, doble oportunidad, hándicap asiático, goles totales, ambos anotan) y TheStatsAPI (además córners, tarjetas totales, goles por equipo, 1.ª parte, hándicap europeo, totales y hándicaps enteros, remates; mediana de Bet365, Paddy Power, BetMGM UK, Pinnacle y Betfair Exchange). Muchas líneas las cotiza una sola casa: mira «N.º de casas». «sin cuota en fuente» = ninguna fuente cotiza esa línea (fueras de juego, tarjetas por equipo, la mayoría de remates y las líneas que la casa no ofrece en ese partido); no se inventan ni interpolan cuotas. Las dos fuentes no cubren los 2 partidos de la Copa Uruguay con Boston River y Maldonado ni, en TheStatsAPI, el resto de líneas no cotizadas."],
-        ["Tarjetas: la fuente no documenta cómo cuenta las tarjetas; no se asume A=1, R=2. Confirma la regla de tu casa antes de usar esas cuotas."],
+        ["Tarjetas: el catálogo y el comparativo las liquidan con la regla confirmada por la persona usuaria (amarilla = 1, roja = 2, máx. 3 por jugador; la 2.ª amarilla cuenta 2 en total). La fuente de cuotas no documenta cómo cuenta SUS tarjetas: confirma que su regla coincide con la tuya antes de usar esas cuotas."],
         ["Un EV teórico alto (≥ +10 %) con el modelo sin validar suele indicar que el modelo discrepa del mercado, no una ventaja: la columna «Alerta» lo marca. Los «seguros» del ranking de seguridad usan en su mayoría precio de referencia, no ejecutable."],
         [f"Frescura de las cuotas (hora de Caracas): {_freshness(legs)}. Las cuotas se mueven: confírmalas en tu casa antes de apostar."],
         ["Hora de la cuota: las columnas «Cuota observada (Caracas)» y «Horas entre la cuota y el inicio» dicen cuándo se capturó cada precio. Tus capturas de pantalla no traen hora registrada y salen como «sin hora de captura»; si anotas la hora al enviarlas (campo «capturado_utc») se registra."],
@@ -251,7 +258,8 @@ def make_workbook(units, summary, legs, rankings, combos, consolidated, rotation
 
     sheet("Leyenda", ["Tema", "Valor", "Qué significa"], [list(x) for x in LEYENDA])
     H = ["Hora Caracas", "Partido", "Mercado", "Selección", "Cuota", "Tipo de precio", "N.º de casas", "P modelo %", "Cuota mínima justa", "Brecha vs 1/cuota (pp)", "EV teórico %", "Límite 2.10", "Agentes",
-         "Solidez deportiva", "Cuantitativo", "Verificador", "Auditor", "Rotación local | visitante", "Escenario de pérdida", "Alerta", "Cuota observada (Caracas)", "Horas entre la cuota y el inicio"]
+         "Solidez deportiva", "Cuantitativo", "Verificador", "Auditor", "Rotación local | visitante", "Escenario de pérdida", "Alerta", "Cuota observada (Caracas)", "Horas entre la cuota y el inicio",
+         "Cuota captura (opcional)", "P mercado sin margen %", "Modelo − mercado (pp)"]
 
     def px(l):
         """(hora de captura de la cuota en Caracas, horas entre esa captura y el inicio del partido). La captura del usuario sin hora registrada devuelve «sin hora de captura»."""
@@ -269,12 +277,17 @@ def make_workbook(units, summary, legs, rankings, combos, consolidated, rotation
             return caracas(o), None
         return t0.astimezone(CCS).strftime("%d-%b %H:%M"), round((k0 - t0).total_seconds() / 3600, 1)
 
+    def mkt(l):
+        """(cuota de la captura de la persona usuaria, P del mercado sin margen %, modelo − mercado en pp): capa de contraste, no cambia nada del ranking."""
+        pm = l.get("p_mercado")
+        return [l.get("cuota_usuario"), PC(pm), None if (pm is None or l["p_modelo"] is None) else round((l["p_modelo"] - pm) * 100, 1)]
+
     def row(l):
         v = verd[l["leg_id"]]
         rot = rotation.get(l["match_id"]) or {}
         return [caracas(hora(l)), l["partido"], l["grupo"], l["etiqueta"], l["cuota"], l["precio_tipo"], l.get("n_casas"), PC(l["p_modelo"]), l["cuota_minima_justa"], None if l["brecha_vs_precio"] is None else round(l["brecha_vs_precio"] * 100, 1),
                 PC(l["ev_teorico"]) if l["ev_teorico"] is not None else None, l["limite_2_10"], l["agentes"], v["deportivo"], v["cuantitativo"], v["verificador"], v["auditor"],
-                f"{(rot.get('home') or {}).get('nivel', 's/d')} | {(rot.get('away') or {}).get('nivel', 's/d')}", v["escenario"], alerta(l), *px(l)]
+                f"{(rot.get('home') or {}).get('nivel', 's/d')} | {(rot.get('away') or {}).get('nivel', 's/d')}", v["escenario"], alerta(l), *px(l), *mkt(l)]
 
     order = lambda l: (hora(l) or "", l["partido"], l["grupo"], -(l["p_modelo"] or 0))
     seen = []
@@ -283,12 +296,19 @@ def make_workbook(units, summary, legs, rankings, combos, consolidated, rotation
             seen.append(ligas[u["match_id"]])
     for lg in seen:
         rows_lg = [row(l) for l in sorted([x for x in visible if ligas[x["match_id"]] == lg], key=order)]
-        if not rows_lg:
-            rows_lg = [[None, "; ".join(sorted({u["partido"] for u in units if ligas[u["match_id"]] == lg})), "sin probabilidad del modelo propio para estos partidos (muestra insuficiente o sin media de liga): ver «Catálogo completo»"] + [None] * (len(H) - 3)]
+        con_filas = {x["match_id"] for x in visible if ligas[x["match_id"]] == lg}
+        por_mid = {}
+        for u in units:
+            if ligas[u["match_id"]] == lg and u["match_id"] not in con_filas:
+                por_mid[u["match_id"]] = u
+        for mid, u in sorted(por_mid.items(), key=lambda t: t[1].get("hora_utc") or ""):          # un partido sin ninguna fila NO desaparece de su hoja: queda una nota
+            rows_lg.append([caracas(u.get("hora_utc")), u["partido"], "sin probabilidad del modelo propio para este partido (muestra insuficiente o sin media de liga): ver «Catálogo completo»"] + [None] * (len(H) - 3))
         sheet(lg.replace("(", "").replace(")", "").replace("/", "-")[:28], H, rows_lg)
 
-    SEC = sorted([l for l in elig if l["cuota"] >= RANK_MIN_ODDS], key=lambda l: -l["p_modelo"])
-    ATR = sorted([l for l in elig if l["cuota"] >= RANK_MIN_ODDS and l["p_modelo"] >= 0.45 and l["ev_teorico"] is not None], key=lambda l: -l["ev_teorico"])
+    # máx. 2 patas del mismo partido por ranking (las de un partido no son independientes); lo que queda fuera por este tope se cuenta en la hoja Cobertura
+    SEC_ALL = sorted([l for l in elig if l["cuota"] >= RANK_MIN_ODDS], key=lambda l: -l["p_modelo"])
+    ATR_ALL = sorted([l for l in elig if l["cuota"] >= RANK_MIN_ODDS and l["p_modelo"] >= 0.45 and l["ev_teorico"] is not None], key=lambda l: -l["ev_teorico"])
+    SEC, ATR = cr.limitar_por_partido(SEC_ALL), cr.limitar_por_partido(ATR_ALL)
     sheet("Ranking seguridad", ["#", "Liga"] + H, [[i, ligas[l["match_id"]]] + row(l) for i, l in enumerate(SEC[:25], 1)])
     sheet("Ranking atractivo-cuota", ["#", "Liga"] + H, [[i, ligas[l["match_id"]]] + row(l) for i, l in enumerate(ATR[:25], 1)])
     tops = []
@@ -369,7 +389,9 @@ def make_workbook(units, summary, legs, rankings, combos, consolidated, rotation
            ["B. Analítica (datos / estimador / validación)", ana["estado"], "; ".join(f"{i['tipo']}: {i['cantidad']}" for i in ana["incidencias"][:8]) or "sin incidencias"],
            ["C. Precios (límite 2.10 por pata)", pri["estado"], "; ".join(f"{i['tipo']}: {i['cantidad']}" for i in pri["incidencias"][:8]) or "sin incidencias"],
            ["D. Revisión de agentes", rev["estado"], f"{rev.get('incidencias', 0)} incidencias; unidades esperadas: {rev.get('unidades_esperadas')}"],
-           ["E. Preparación para apostar (independiente)", bet["estado"], "requisitos incumplidos: " + ", ".join(f"{k}: {v}" for k, v in bet["requisitos_incumplidos"].items())]])
+           ["E. Preparación para apostar (independiente)", bet["estado"], "requisitos incumplidos: " + ", ".join(f"{k}: {v}" for k, v in bet["requisitos_incumplidos"].items())],
+           *[[f"F. Composición: {nm}", "INFO", f"{c['filas']} filas de {c['partidos_distintos']} partidos distintos; máx. {c['max_por_partido']} patas del mismo partido (tope {cr.MAX_RANK_POR_PARTIDO}; sin tope habría {len(full)} candidatas de {len({x['match_id'] for x in full})} partidos)"]
+             for nm, lst, full in (("Ranking seguridad", SEC[:25], SEC_ALL), ("Ranking atractivo-cuota", ATR[:25], ATR_ALL)) for c in (cr.composicion(lst),)]])
 
     uidx = {(u["match_id"], e["id"]): (u, e) for u in units for e in u["entradas"]}
     rows = []
@@ -377,9 +399,11 @@ def make_workbook(units, summary, legs, rankings, combos, consolidated, rotation
         u, e = uidx[(l["match_id"], l["entry_id"])]
         rows.append([l["partido"], caracas(u.get("hora_utc")), ligas[l["match_id"]], l["grupo"], l["entry_id"], l["etiqueta"], l["precio_estado"], l["cuota"], l["precio_tipo"], l["fuente_precio"], l["limite_2_10"],
                      PC(l["p_modelo"]), l["cuota_minima_justa"], None if l["brecha_vs_precio"] is None else round(l["brecha_vs_precio"] * 100, 1), PC(l["ev_teorico"]) if l["ev_teorico"] is not None else None,
-                     e["datos"], e["validacion"], l["agentes"], "; ".join(l["motivos_exclusion"]) or "elegible", _inv_text(e)])
+                     e["datos"], e["validacion"], l["agentes"], "; ".join(l["motivos_exclusion"]) or "elegible", _inv_text(e), l.get("cuota_usuario"), PC(l.get("p_mercado")), l.get("p_mercado_n"), PC(l.get("p_pinnacle")),
+                     None if (l.get("p_mercado") is None or l["p_modelo"] is None) else round((l["p_modelo"] - l["p_mercado"]) * 100, 1)])
     sheet("Catálogo completo", ["Partido", "Hora Caracas", "Liga", "Grupo", "Entrada", "Etiqueta", "Precio: estado", "Cuota", "Tipo de precio", "Fuente", "Límite 2.10", "P modelo %", "Cuota mínima justa",
-                                "Brecha vs 1/cuota (pp)", "EV teórico %", "Datos", "Validación", "Agentes", "Motivos de exclusión", "Investigación por canal"], rows)
+                                "Brecha vs 1/cuota (pp)", "EV teórico %", "Datos", "Validación", "Agentes", "Motivos de exclusión", "Investigación por canal", "Cuota captura (opcional)", "P mercado sin margen %",
+                                "Casas con par", "P Pinnacle sin margen %", "Modelo − mercado (pp)"], rows)
 
     sp = sorted([l for l in legs if l["cuota"] is None and l["p_modelo"] is not None and l["cuota_minima_justa"] <= cr.MAX_LEG_ODDS and not any(m.startswith("rechazada") for m in l["motivos_exclusion"])],
                 key=lambda l: (l["grupo"], -l["p_modelo"]))
@@ -415,7 +439,16 @@ def main(argv=None):
         raise SystemExit("el libro v2 nunca puede llamarse como el original")
     rotation = common.read_json(os.path.join(a.run, "rotation.json"), {})
     mu_ = {u["match_id"]: u.get("hora_utc") for u in units}
-    api_det = ad.build(a.run, lambda mid: caracas(mu_.get(mid)), set(s["partidos_ids"]))
+    import price_sources as ps_
+    import market_catalog as mc_
+    p_cat = {}
+    for l in legs:
+        if l["p_modelo"] is None:
+            continue
+        look = ps_.tsa_lookup(mc_.BY_ID[l["entry_id"]])
+        if look:
+            p_cat[(l["match_id"],) + tuple(look)] = l["p_modelo"]
+    api_det = ad.build(a.run, lambda mid: caracas(mu_.get(mid)), set(s["partidos_ids"]), p_cat)
     wb = make_workbook(units, s, legs, cr.build_rankings(legs), combos, consolidated, rotation, fname, why, liga_map(units, a.capture), common.read_json(os.path.join(a.run, "contexto_continental.json"), {}), api_det)
     os.makedirs(a.out_dir, exist_ok=True)
     out = os.path.join(a.out_dir, fname)

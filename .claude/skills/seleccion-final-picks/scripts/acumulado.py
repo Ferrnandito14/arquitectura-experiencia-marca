@@ -156,3 +156,40 @@ def guardar_historial(path, rows, runs):
         for x in previas:
             fh.write(json.dumps(x, ensure_ascii=False) + "\n")
     return entrada
+
+
+CSV_COLUMNAS = ["dia_caracas", "run", "hora_utc", "liga", "partido_id", "partido", "grupo", "entry_id", "p_modelo", "cuota", "precio_tipo", "cuota_usuario", "p_mercado", "p_pinnacle", "n_casas",
+                "agentes", "clase_agentes", "elegible", "resultado", "acierto", "goles_reales_partido", "observado_utc"]
+
+
+def clase_agentes(s):
+    for k in ("aprobada", "degradada", "rechazada", "objetada", "sin_revision", "precio_nuevo_sin_revisar"):
+        if (s or "").startswith(k):
+            return k
+    return "otra"
+
+
+def _dia_caracas(utc_iso):
+    from datetime import timedelta
+    return (datetime.fromisoformat(utc_iso.replace("Z", "+00:00")) - timedelta(hours=4)).strftime("%Y-%m-%d")
+
+
+def exportar_csv(rows, out_path, goles=None):
+    """Historial acumulativo: UNA FILA POR PATA Y DÍA (run + pata), con P del modelo, cuota y tipo de precio, P de mercado, estado de agentes, resultado y partido, para repetir las pruebas sin reconstruir nada.
+    `goles` opcional: {(run, partido_id): goles a 90'}. Orden determinista; se reescribe completo desde el registro (que es la fuente)."""
+    import csv
+    goles = goles or {}
+    filas = sorted(rows, key=lambda r: (r["run"], r["hora_utc"], r["partido_id"], r["leg_id"]))
+    os.makedirs(os.path.dirname(out_path) or ".", exist_ok=True)
+    tmp = out_path + ".tmp"
+    with open(tmp, "w", encoding="utf-8", newline="") as fh:
+        w = csv.writer(fh)
+        w.writerow(CSV_COLUMNAS)
+        for r in filas:
+            res = r["res"]
+            w.writerow([r.get("dia_caracas") or _dia_caracas(r["hora_utc"]), r["run"], r["hora_utc"], r.get("liga") or "", r["partido_id"], r.get("partido") or "", r["grupo"], r.get("entry_id") or r["leg_id"].split("|", 1)[-1],
+                        r["p"], r["cuota"], r.get("precio_tipo") or "", r.get("cuota_usuario") if r.get("cuota_usuario") is not None else "", r.get("p_mercado") if r.get("p_mercado") is not None else "",
+                        r.get("p_pinnacle") if r.get("p_pinnacle") is not None else "", r.get("n_casas") if r.get("n_casas") is not None else "", r.get("agentes") or "", clase_agentes(r.get("agentes")),
+                        int(bool(r.get("elegible"))), res, 1 if res.startswith(WIN) else (0 if res.startswith(LOSE) else ""), goles.get((r["run"], r["partido_id"]), ""), r.get("observado_utc") or ""])
+    os.replace(tmp, out_path)
+    return len(filas)

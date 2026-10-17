@@ -1,0 +1,142 @@
+{
+ "definiciones": {
+  "referencia": "mediana entre casas del agregador (apifootball/TheStatsAPI): precio de la pata (cuota) y P de mercado sin margen cuando existe el par over/under (normalización proporcional por casa, mediana)",
+  "pinnacle_sin_margen": "P sin margen de Pinnacle (TheStatsAPI) cuando cotiza el par",
+  "captura_usuario": "precio que la persona usuaria capturó de su casa; capa opcional de validación"
+ },
+ "p_final": "la P del modelo no usa ningún precio; la P de mercado es una comparación (mediana entre casas) y nunca entra en la P final",
+ "P_mercado_agregador": {
+  "n": 2969,
+  "partidos": 94,
+  "modelo": {
+   "n": 2969,
+   "p_media": 0.7138,
+   "acierto": 0.7009,
+   "brier": 0.1973,
+   "logloss": 0.5807,
+   "ece": 0.0222
+  },
+  "mercado": {
+   "n": 2969,
+   "p_media": 0.684,
+   "acierto": 0.7009,
+   "brier": 0.1761,
+   "logloss": 0.5249,
+   "ece": 0.0258
+  },
+  "dif_brier_modelo_menos_mercado": 0.02117,
+  "ic95": [
+   0.0122,
+   0.03083
+  ],
+  "dif_logloss_modelo_menos_mercado": 0.05578,
+  "ic95_logloss": [
+   0.03248,
+   0.08077
+  ]
+ },
+ "P_pinnacle": {
+  "n": 118,
+  "partidos": 74,
+  "modelo": {
+   "n": 118,
+   "p_media": 0.6107,
+   "acierto": 0.5169,
+   "brier": 0.2556,
+   "logloss": 0.7101,
+   "ece": 0.1223
+  },
+  "mercado": {
+   "n": 118,
+   "p_media": 0.5286,
+   "acierto": 0.5169,
+   "brier": 0.2351,
+   "logloss": 0.6628,
+   "ece": 0.1025
+  },
+  "dif_brier_modelo_menos_mercado": 0.02047,
+  "ic95": [
+   -0.00348,
+   0.04468
+  ],
+  "dif_logloss_modelo_menos_mercado": 0.04729,
+  "ic95_logloss": [
+   -0.00691,
+   0.10386
+  ]
+ },
+ "discrepancia_mayor_10pp": {
+  "n": 977,
+  "de": 2969,
+  "modelo_mayor_que_mercado": {
+   "n": 656,
+   "partidos": 84,
+   "p_modelo": 0.7,
+   "p_mercado": 0.506,
+   "acierto": 0.482
+  },
+  "modelo_menor_que_mercado": {
+   "n": 321,
+   "partidos": 77,
+   "p_modelo": 0.64,
+   "p_mercado": 0.803,
+   "acierto": 0.863
+  }
+ },
+ "por_tipo_de_precio": {
+  "referencia_agregador (todas las patas)": {
+   "n": 3215,
+   "partidos": 94,
+   "p_modelo": 0.713,
+   "acierto": 0.7,
+   "roi_a_cuota_referencia": -5.4
+  },
+  "con_captura_usuario": {
+   "n": 127,
+   "partidos": 92,
+   "p_modelo": 0.584,
+   "acierto": 0.504,
+   "roi_a_cuota_referencia": -8.4
+  },
+  "con_P_pinnacle": {
+   "n": 118,
+   "partidos": 74,
+   "p_modelo": 0.611,
+   "acierto": 0.517,
+   "roi_a_cuota_referencia": -9.6
+  }
+ },
+ "captura_vs_referencia": {
+  "n": 127,
+  "cuota_usuario_menos_referencia_media": -0.027,
+  "mediana": -0.01
+ },
+ "lado_favorecido": {
+  "n": 2960,
+  "p_media": 0.7234,
+  "acierto": 0.7365,
+  "brier": 0.1878,
+  "logloss": 0.5603,
+  "ece": 0.0341,
+  "por_cuota": {
+   "1.0-1.4": {
+    "n": 1807,
+    "p_modelo": 0.785,
+    "acierto": 0.834,
+    "p_implicita": 0.861
+   },
+   "1.4-1.8": {
+    "n": 815,
+    "p_modelo": 0.64,
+    "acierto": 0.621,
+    "p_implicita": 0.64
+   },
+   "1.8-2.1": {
+    "n": 338,
+    "p_modelo": 0.599,
+    "acierto": 0.494,
+    "p_implicita": 0.523
+   }
+  }
+ }
+}

@@ -333,20 +333,28 @@ def _estimator_status(entry, keys, ev):
 
 # ── precios ──
 def _pricing(match, entry, providers, found, failed):
+    """Precio de una combinación. `registro` es el precio principal (compatibilidad con los paquetes de agentes ya revisados); además se devuelven tres campos que separan las capas:
+    - `referencia`: precio de agregador (mediana entre casas), independiente de cualquier casa concreta; es el que usan los rankings y las combinadas;
+    - `usuario`: precio comunicado por la persona usuaria (captura/CSV), capa OPCIONAL de validación: no cambia la probabilidad del modelo ni la composición de los rankings;
+    - `p_mercado`: probabilidad del mercado SIN margen (mediana entre casas de la probabilidad de cada casa sin margen) cuando existe el par o trío completo."""
     if not providers:
-        return {"estado": "no_consultado", "registro": None, "cumple_limite": None, "cumple_requisitos_de_precio": False, "nota": "sin proveedores de precio registrados"}
+        return {"estado": "no_consultado", "registro": None, "cumple_limite": None, "cumple_requisitos_de_precio": False, "nota": "sin proveedores de precio registrados", "referencia": None, "usuario": None, "p_mercado": None}
     recs = [r for r in found.get((match["match_id"], entry["id"]), [])]
     real = [r for r in recs if ps.is_real_price(r)]
+    agg = [r for r in recs if r["source_type"] == "agregador" and (r.get("n_books") or 0) >= (r.get("min_books") or tickets.MIN_BOOKS)]
+    pmk = [r for r in agg if r.get("p_mercado_sin_margen") is not None]
+    pbest = max(pmk, key=lambda r: r.get("p_mercado_n") or 0) if pmk else None
+    extra = {"referencia": agg[0] if agg else None, "usuario": max(real, key=lambda r: r["odds"]) if real else None,
+             "p_mercado": None if pbest is None else {"p": pbest["p_mercado_sin_margen"], "n_casas": pbest.get("p_mercado_n"), "fuente": pbest["source"], "p_pinnacle": pbest.get("p_pinnacle_sin_margen")}}
     if real:
         best = max(real, key=lambda r: r["odds"])
         cumple = best["odds"] <= MAX_LEG_ODDS
-        return {"estado": "real_verificada", "registro": best, "cumple_limite": cumple, "cumple_requisitos_de_precio": bool(cumple and best.get("source")), "nota": None}
+        return dict({"estado": "real_verificada", "registro": best, "cumple_limite": cumple, "cumple_requisitos_de_precio": bool(cumple and best.get("source")), "nota": None}, **extra)
     if recs:
-        agg = [r for r in recs if r["source_type"] == "agregador" and (r.get("n_books") or 0) >= (r.get("min_books") or tickets.MIN_BOOKS)]
         if agg:
-            return {"estado": "otra_fuente", "registro": agg[0], "cumple_limite": agg[0]["odds"] <= MAX_LEG_ODDS, "cumple_requisitos_de_precio": False, "nota": "promedio de agregador: referencia, no precio ejecutable"}
-        return {"estado": "no_verificable", "registro": recs[0], "cumple_limite": None, "cumple_requisitos_de_precio": False, "nota": "precio sin verificar o con pocas casas"}
-    return {"estado": "sin_precio", "registro": None, "cumple_limite": None, "cumple_requisitos_de_precio": False, "nota": "ninguna fuente registrada aporta precio para esta combinación"}
+            return dict({"estado": "otra_fuente", "registro": agg[0], "cumple_limite": agg[0]["odds"] <= MAX_LEG_ODDS, "cumple_requisitos_de_precio": False, "nota": "promedio de agregador: referencia, no precio ejecutable"}, **extra)
+        return dict({"estado": "no_verificable", "registro": recs[0], "cumple_limite": None, "cumple_requisitos_de_precio": False, "nota": "precio sin verificar o con pocas casas"}, **extra)
+    return dict({"estado": "sin_precio", "registro": None, "cumple_limite": None, "cumple_requisitos_de_precio": False, "nota": "ninguna fuente registrada aporta precio para esta combinación"}, **extra)
 
 
 def build_records(matches, ev_by_id, providers=(), catalog=None, contexts=None, revision_ok=False):
@@ -527,6 +535,7 @@ NON_GENERATING = {
     ".claude/skills/seleccion-final-picks/scripts/seguimiento.py": "liquida tickets ya apostados; «provisional» se refiere a un marcador en juego",
     ".claude/skills/seleccion-final-picks/scripts/registrar_tickets.py": "registra resultados ya liquidados de los tickets de la persona usuaria (medición); no genera candidatos ni rankings",
     ".claude/skills/seleccion-final-picks/scripts/api_detalle.py": "tablas de detalle de cuotas (por casa, movimiento y mercados adicionales fuera del catálogo); no genera candidatos, rankings ni combinadas",
+    ".claude/skills/seleccion-final-picks/scripts/auditoria_libros.py": "audita libros y comparativos ya generados (solo lee); no genera candidatos, rankings ni combinadas",
     ".claude/skills/seleccion-final-picks/scripts/acumulado.py": "estadística acumulada de patas ya liquidadas (intervalos, calibración); no genera candidatos ni rankings",
     ".claude/skills/seleccion-final-picks/scripts/congelar_version.py": "congela copias fechadas de los libros ya generados (no genera candidatos ni rankings)",
     ".claude/skills/seleccion-final-picks/scripts/recalibrar_cuotas_altas.py": "mide si un recorte de P mejora la calibración en cuotas altas (análisis sobre el registro; no genera candidatos)",
