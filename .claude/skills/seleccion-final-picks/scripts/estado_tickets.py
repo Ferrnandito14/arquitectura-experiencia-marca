@@ -40,6 +40,8 @@ def entry_id(l):
         return f"corners.total.{l['op']}.{l['linea']:g}"
     if mk == "corners_equipo":
         return f"corners.equipo.{l['lado']}.{l['op']}.{l['linea']:g}"
+    if mk == "tarjetas":
+        return f"cards_pts.total.{l['op']}.{l['linea']:g}"
     return None
 
 
@@ -51,6 +53,8 @@ def goal_p(l, ctx):
     tot = sum(g.values())
     if l["mercado"] == "total":
         return sum(p * {"win": 1, "half_win": .5}.get(sg.settle_total_quarter(x + y, l["op"], l["linea"]), 0) for (x, y), p in g.items()) / tot
+    if l["mercado"] == "handicap":      # devolución (void) cuenta como «no perdida»; media ganada pesa 0.5
+        return sum(p * {"win": 1, "void": 1, "half_win": .5}.get(sg.settle_handicap_quarter(x, y, l["lado"], l["linea"]), 0) for (x, y), p in g.items()) / tot
     if l["mercado"] == "combo":
         def ok(x, y):
             for sb in l["subs"]:
@@ -92,7 +96,7 @@ def main(argv=None):
         cp = sg._corner_pair(e)
         mp = api_detalle.model_params(a.run, l["mid"])
         c = {"h": h or 0, "a": aw or 0, "minute": mn, "f": max(0.0, 95.0 - mn) / 95.0, "lh": mp[0] if mp else None, "la": mp[1] if mp else None, "share": mp[2] if mp else None,
-             "corners": tuple(cp) if cp else None, "cards": None, "h1": 0, "a1": 0, "fin1": mn > 45}
+             "corners": tuple(cp) if cp else None, "cards": tuple(adapters._card_points(e) or ()) or None, "h1": 0, "a1": 0, "fin1": mn > 45}
         ctx_cache[l["mid"]] = c
         return c
 
@@ -124,7 +128,7 @@ def main(argv=None):
                     tag += " (sin estadística en vivo: P del modelo)"
             else:
                 pr = None
-                if l["mercado"] in ("combo", "total") and (l["mercado"] == "combo" or abs(l["linea"] * 4 % 2 - 1) < 1e-9):
+                if l["mercado"] in ("combo", "total", "handicap") and (l["mercado"] != "total" or abs(l["linea"] * 4 % 2 - 1) < 1e-9):
                     pr = goal_p(l, {"h": 0, "a": 0, "f": 1.0, "lh": (api_detalle.model_params(a.run, l["mid"]) or [None])[0], "la": (api_detalle.model_params(a.run, l["mid"]) or [None, None])[1]})
                 if pr is not None:
                     p = round(pr * 100, 1)

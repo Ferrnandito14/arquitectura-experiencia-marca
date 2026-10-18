@@ -63,13 +63,22 @@ def settle_handicap(h, a, lado, linea):
     return "win" if d > 0 else ("void" if d == 0 else "lose")
 
 
+def _et_started(e):
+    """True si el partido ya está en prórroga/penales (la API trae marcador de prórroga o de penales): los 90' están cerrados aunque el feed no marque «Finished»."""
+    return any((e.get(k) or "").strip() != "" for k in ("match_hometeam_extra_score", "match_awayteam_extra_score", "match_hometeam_penalty_score", "match_awayteam_penalty_score"))
+
+
 def score90(e):
     """Marcador a los 90' + descuento: si la API trae `match_hometeam_ft_score` (tiempo completo, sin prórroga ni penales) se usa ese; si no, el marcador general.
     Las apuestas de goles/hándicap/1X2 se liquidan a 90'; la prórroga y los penales no cuentan."""
     ft_h, ft_a = _int(e.get("match_hometeam_ft_score")), _int(e.get("match_awayteam_ft_score"))
     if ft_h is not None and ft_a is not None:
         return ft_h, ft_a
-    return score(e)
+    h, a = score(e)
+    ex_h, ex_a = _int(e.get("match_hometeam_extra_score")), _int(e.get("match_awayteam_extra_score"))
+    if h is not None and a is not None and ex_h is not None and ex_a is not None:     # el marcador general incluye la prórroga: se resta
+        return h - ex_h, a - ex_a
+    return h, a
 
 
 def settle_handicap_quarter(h, a, lado, linea):
@@ -212,6 +221,10 @@ def eval_leg(leg, e):
     st = state(e)
     h, a = score(e)
     mk = leg["mercado"]
+    et = _et_started(e) and mk in ("total", "total_equipo", "handicap", "1x2", "dc", "btts")
+    if et:                           # prórroga/penales en curso: estos mercados se liquidan a 90'
+        h, a = score90(e)
+        st = "finished"
     if st in ("postponed", "cancelled"):
         return "ANULADA", f"partido {e.get('match_status')}"
     if st == "upcoming":
