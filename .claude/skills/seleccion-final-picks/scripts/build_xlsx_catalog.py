@@ -66,6 +66,12 @@ def liga_map(units, capture=None):
     return out
 
 
+def _lista_ligas(run, ids_path):
+    """Sin capturas de casa: si la corrida trae ligas/partidos_usuario.json (lista de partidos con su liga, sin cuotas), se usa solo para nombrar las hojas; no aporta precios."""
+    p = os.path.join(run, "ligas", "partidos_usuario.json")
+    return (p, ids_path) if os.path.exists(p) else None
+
+
 EV_ALERT = cr.EV_ALERT
 MODEL_MARKET_PP = 0.10      # diferencia entre la P del modelo y la P del mercado sin margen a partir de la cual se marca la pata
 LEDGER = "data/ledger_patas.jsonl"
@@ -449,7 +455,7 @@ def main(argv=None):
         if look:
             p_cat[(l["match_id"],) + tuple(look)] = l["p_modelo"]
     api_det = ad.build(a.run, lambda mid: caracas(mu_.get(mid)), set(s["partidos_ids"]), p_cat)
-    wb = make_workbook(units, s, legs, cr.build_rankings(legs), combos, consolidated, rotation, fname, why, liga_map(units, a.capture), common.read_json(os.path.join(a.run, "contexto_continental.json"), {}), api_det)
+    wb = make_workbook(units, s, legs, cr.build_rankings(legs), combos, consolidated, rotation, fname, why, liga_map(units, a.capture or _lista_ligas(a.run, a.ids)), common.read_json(os.path.join(a.run, "contexto_continental.json"), {}), api_det)
     os.makedirs(a.out_dir, exist_ok=True)
     out = os.path.join(a.out_dir, fname)
     wb.save(out)

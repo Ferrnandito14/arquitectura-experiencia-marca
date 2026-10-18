@@ -1,0 +1,1858 @@
+{
+ "agente": "auditor",
+ "version_contrato": 1,
+ "run": "runs/2026-10-18",
+ "unidades": [
+  {
+   "unit_id": "m-ca7d74e71066|1.ª parte goles",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "1 linea(s) con brecha >=15 pp entre p_modelo y 1/cuota de agregador; modelo no validado; sin captura de casa: la brecha es mas probable error del modelo/precio que valor.",
+   "evidencia": [
+    "paquete:m-ca7d74e71066|1.ª parte goles",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-ca7d74e71066|1.ª parte resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Validacion no_evaluada del modelo; precio solo de agregador (3/3 lineas) sin captura de casa; frecuencias sin ajuste de rival.",
+   "evidencia": [
+    "paquete:m-ca7d74e71066|1.ª parte resultado",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-ca7d74e71066|córners",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Validacion insuficiente del modelo; precio solo de agregador (8/46 lineas) sin captura de casa; frecuencias sin ajuste de rival.",
+   "evidencia": [
+    "paquete:m-ca7d74e71066|córners",
+    "archivo:runs/2026-10-18/rotation.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "corners.total.over.6.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.6.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.over.8.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.8.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.over.10.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.10.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.over.11.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.11.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.over.12.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.12.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.over.13.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.13.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.over.14.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.14.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.2.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.2.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.3.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.3.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.4.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.4.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.6.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.6.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.7.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.7.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.8.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.8.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.2.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.2.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.4.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.4.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.5.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.5.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.6.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.6.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.7.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.7.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.8.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.8.5",
+     "objecion": "cuota_no_ejecutable"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-ca7d74e71066|doble oportunidad",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Rotacion local alto/visit. alto (descanso corto/copa-Europa en rotation.json), sin alineaciones (sin_snapshot); efecto no cuantificado en el modelo; precio de agregador.",
+   "evidencia": [
+    "paquete:m-ca7d74e71066|doble oportunidad",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-ca7d74e71066|empate no válido",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Datos sin_extractor: p_modelo no fiable (brechas vs mercado de hasta decenas de pp en cd0d); precio de agregador, sin captura de casa ni validacion.",
+   "evidencia": [
+    "paquete:m-ca7d74e71066|empate no válido",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-ca7d74e71066|goles",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "2 linea(s) con brecha >=15 pp entre p_modelo y 1/cuota de agregador; modelo no validado; sin captura de casa: la brecha es mas probable error del modelo/precio que valor.",
+   "evidencia": [
+    "paquete:m-ca7d74e71066|goles",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-ca7d74e71066|goles por equipo",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "1 linea(s) con brecha >=15 pp entre p_modelo y 1/cuota de agregador; modelo no validado; sin captura de casa: la brecha es mas probable error del modelo/precio que valor.",
+   "evidencia": [
+    "paquete:m-ca7d74e71066|goles por equipo",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-ca7d74e71066|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor/estimador propio (no hay p_modelo); solo precio de agregador marcado precio_anomalo (n_casas=1, cuota>=10); sin captura de casa.",
+   "evidencia": [
+    "paquete:m-ca7d74e71066|goles total entero",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-ca7d74e71066|hándicap",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "alta",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Verificador marca precio_anomalo; precios solo de agregador, sin captura de casa; no ejecutables hasta verificar.",
+   "evidencia": [
+    "paquete:m-ca7d74e71066|hándicap",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-ca7d74e71066|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor/estimador propio (no hay p_modelo); solo precio de agregador marcado precio_anomalo (n_casas=1, cuota>=10); sin captura de casa.",
+   "evidencia": [
+    "paquete:m-ca7d74e71066|hándicap asiático entero",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-ca7d74e71066|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor/estimador propio (no hay p_modelo); solo precio de agregador; sin captura de casa.",
+   "evidencia": [
+    "paquete:m-ca7d74e71066|hándicap europeo",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-ca7d74e71066|remates",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Solo 6/90 lineas con precio de agregador, sin estimador propio ni captura de casa; no se puede contrastar ni ejecutar.",
+   "evidencia": [
+    "paquete:m-ca7d74e71066|remates",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-ca7d74e71066|remates a puerta",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Solo 6/60 lineas con precio de agregador, sin estimador propio ni captura de casa; no se puede contrastar ni ejecutar.",
+   "evidencia": [
+    "paquete:m-ca7d74e71066|remates a puerta",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-ca7d74e71066|resultado",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Rotacion local alto/visit. alto (descanso corto/copa-Europa en rotation.json), sin alineaciones (sin_snapshot); efecto no cuantificado en el modelo; precio de agregador.",
+   "evidencia": [
+    "paquete:m-ca7d74e71066|resultado",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-ca7d74e71066|tarjetas",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Arbitro Florian Badstubner, Germany con n=6 en muestra de liga; validacion insuficiente; pocas lineas con precio de agregador, sin captura de casa.",
+   "evidencia": [
+    "paquete:m-ca7d74e71066|tarjetas",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-cac174c1f06f|1.ª parte goles",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "2 linea(s) con brecha >=15 pp entre p_modelo y 1/cuota de agregador; modelo no validado; sin captura de casa: la brecha es mas probable error del modelo/precio que valor.",
+   "evidencia": [
+    "paquete:m-cac174c1f06f|1.ª parte goles",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-cac174c1f06f|1.ª parte resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Validacion no_evaluada del modelo; precio solo de agregador (3/3 lineas) sin captura de casa; frecuencias sin ajuste de rival.",
+   "evidencia": [
+    "paquete:m-cac174c1f06f|1.ª parte resultado",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-cac174c1f06f|córners",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "alta",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Verificador marca precio_anomalo; precios solo de agregador, sin captura de casa; no ejecutables hasta verificar.",
+   "evidencia": [
+    "paquete:m-cac174c1f06f|córners",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-cac174c1f06f|doble oportunidad",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Rotacion local alto/visit. medio (descanso corto/copa-Europa en rotation.json), sin alineaciones (sin_snapshot); efecto no cuantificado en el modelo; precio de agregador.",
+   "evidencia": [
+    "paquete:m-cac174c1f06f|doble oportunidad",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-cac174c1f06f|empate no válido",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Datos sin_extractor: p_modelo no fiable (brechas vs mercado de hasta decenas de pp en cd0d); precio de agregador, sin captura de casa ni validacion.",
+   "evidencia": [
+    "paquete:m-cac174c1f06f|empate no válido",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-cac174c1f06f|goles",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "3 linea(s) con brecha >=15 pp entre p_modelo y 1/cuota de agregador; modelo no validado; sin captura de casa: la brecha es mas probable error del modelo/precio que valor.",
+   "evidencia": [
+    "paquete:m-cac174c1f06f|goles",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-cac174c1f06f|goles por equipo",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "alta",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Verificador marca precio_anomalo; precios solo de agregador, sin captura de casa; no ejecutables hasta verificar.",
+   "evidencia": [
+    "paquete:m-cac174c1f06f|goles por equipo",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-cac174c1f06f|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor/estimador propio (no hay p_modelo); solo precio de agregador marcado precio_anomalo (n_casas=1, cuota>=10); sin captura de casa.",
+   "evidencia": [
+    "paquete:m-cac174c1f06f|goles total entero",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-cac174c1f06f|hándicap",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "alta",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Verificador marca precio_anomalo; precios solo de agregador, sin captura de casa; no ejecutables hasta verificar.",
+   "evidencia": [
+    "paquete:m-cac174c1f06f|hándicap",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-cac174c1f06f|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor/estimador propio (no hay p_modelo); solo precio de agregador marcado precio_anomalo (n_casas=1, cuota>=10); sin captura de casa.",
+   "evidencia": [
+    "paquete:m-cac174c1f06f|hándicap asiático entero",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-cac174c1f06f|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor/estimador propio (no hay p_modelo); solo precio de agregador; sin captura de casa.",
+   "evidencia": [
+    "paquete:m-cac174c1f06f|hándicap europeo",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-cac174c1f06f|remates",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Solo 6/90 lineas con precio de agregador, sin estimador propio ni captura de casa; no se puede contrastar ni ejecutar.",
+   "evidencia": [
+    "paquete:m-cac174c1f06f|remates",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-cac174c1f06f|remates a puerta",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Solo 6/60 lineas con precio de agregador, sin estimador propio ni captura de casa; no se puede contrastar ni ejecutar.",
+   "evidencia": [
+    "paquete:m-cac174c1f06f|remates a puerta",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-cac174c1f06f|resultado",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Rotacion local alto/visit. medio (descanso corto/copa-Europa en rotation.json), sin alineaciones (sin_snapshot); efecto no cuantificado en el modelo; precio de agregador.",
+   "evidencia": [
+    "paquete:m-cac174c1f06f|resultado",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-cac174c1f06f|tarjetas",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "2 linea(s) con brecha >=15 pp entre p_modelo y 1/cuota de agregador; modelo no validado; sin captura de casa: la brecha es mas probable error del modelo/precio que valor.",
+   "evidencia": [
+    "paquete:m-cac174c1f06f|tarjetas",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-cd0d280a7c84|1.ª parte goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Validacion no_evaluada del modelo; precio solo de agregador (6/6 lineas) sin captura de casa; frecuencias sin ajuste de rival.",
+   "evidencia": [
+    "paquete:m-cd0d280a7c84|1.ª parte goles",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-cd0d280a7c84|1.ª parte resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "1 linea(s) con brecha >=15 pp entre p_modelo y 1/cuota de agregador; modelo no validado; sin captura de casa: la brecha es mas probable error del modelo/precio que valor.",
+   "evidencia": [
+    "paquete:m-cd0d280a7c84|1.ª parte resultado",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-cd0d280a7c84|córners",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Validacion insuficiente del modelo; precio solo de agregador (8/46 lineas) sin captura de casa; frecuencias sin ajuste de rival.",
+   "evidencia": [
+    "paquete:m-cd0d280a7c84|córners",
+    "archivo:runs/2026-10-18/rotation.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "corners.total.over.6.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.6.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.over.7.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.7.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.over.9.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.9.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.over.11.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.11.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.over.12.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.12.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.over.13.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.13.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.over.14.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.14.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.2.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.2.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.3.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.3.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.4.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.4.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.5.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.5.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.7.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.7.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.8.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.8.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.2.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.2.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.4.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.4.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.5.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.5.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.6.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.6.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.7.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.7.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.8.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.8.5",
+     "objecion": "cuota_no_ejecutable"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-cd0d280a7c84|doble oportunidad",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "1 linea(s) con brecha >=15 pp entre p_modelo y 1/cuota de agregador; modelo no validado; sin captura de casa: la brecha es mas probable error del modelo/precio que valor.",
+   "evidencia": [
+    "paquete:m-cd0d280a7c84|doble oportunidad",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-cd0d280a7c84|empate no válido",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Datos sin_extractor: p_modelo no fiable (brechas vs mercado de hasta decenas de pp en cd0d); precio de agregador, sin captura de casa ni validacion.",
+   "evidencia": [
+    "paquete:m-cd0d280a7c84|empate no válido",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-cd0d280a7c84|goles por equipo",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "2 linea(s) con brecha >=15 pp entre p_modelo y 1/cuota de agregador; modelo no validado; sin captura de casa: la brecha es mas probable error del modelo/precio que valor.",
+   "evidencia": [
+    "paquete:m-cd0d280a7c84|goles por equipo",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-cd0d280a7c84|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor/estimador propio (no hay p_modelo); solo precio de agregador marcado precio_anomalo (n_casas=1, cuota>=10); sin captura de casa.",
+   "evidencia": [
+    "paquete:m-cd0d280a7c84|goles total entero",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-cd0d280a7c84|hándicap",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "4 linea(s) con brecha >=15 pp entre p_modelo y 1/cuota de agregador; modelo no validado; sin captura de casa: la brecha es mas probable error del modelo/precio que valor.",
+   "evidencia": [
+    "paquete:m-cd0d280a7c84|hándicap",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-cd0d280a7c84|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor/estimador propio (no hay p_modelo); solo precio de agregador marcado precio_anomalo (n_casas=1, cuota>=10); sin captura de casa.",
+   "evidencia": [
+    "paquete:m-cd0d280a7c84|hándicap asiático entero",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-cd0d280a7c84|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor/estimador propio (no hay p_modelo); solo precio de agregador; sin captura de casa.",
+   "evidencia": [
+    "paquete:m-cd0d280a7c84|hándicap europeo",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-cd0d280a7c84|remates",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin ninguna cuota en el paquete (90 lineas); no hay precio ni contraste; sin captura de casa. No se puede evaluar valor.",
+   "evidencia": [
+    "paquete:m-cd0d280a7c84|remates",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-cd0d280a7c84|remates a puerta",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin ninguna cuota en el paquete (60 lineas); no hay precio ni contraste; sin captura de casa. No se puede evaluar valor.",
+   "evidencia": [
+    "paquete:m-cd0d280a7c84|remates a puerta",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-cd0d280a7c84|resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "2 linea(s) con brecha >=15 pp entre p_modelo y 1/cuota de agregador; modelo no validado; sin captura de casa: la brecha es mas probable error del modelo/precio que valor.",
+   "evidencia": [
+    "paquete:m-cd0d280a7c84|resultado",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-cd0d280a7c84|tarjetas",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Arbitro Alex Bos, Netherlands con n=10 en muestra de liga; validacion insuficiente; pocas lineas con precio de agregador, sin captura de casa.",
+   "evidencia": [
+    "paquete:m-cd0d280a7c84|tarjetas",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-d0b872c57cf3|1.ª parte goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Validacion no_evaluada del modelo; precio solo de agregador (6/6 lineas) sin captura de casa; frecuencias sin ajuste de rival.",
+   "evidencia": [
+    "paquete:m-d0b872c57cf3|1.ª parte goles",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-d0b872c57cf3|1.ª parte resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Validacion no_evaluada del modelo; precio solo de agregador (3/3 lineas) sin captura de casa; frecuencias sin ajuste de rival.",
+   "evidencia": [
+    "paquete:m-d0b872c57cf3|1.ª parte resultado",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-d0b872c57cf3|córners",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Validacion insuficiente del modelo; precio solo de agregador (8/46 lineas) sin captura de casa; frecuencias sin ajuste de rival.",
+   "evidencia": [
+    "paquete:m-d0b872c57cf3|córners",
+    "archivo:runs/2026-10-18/rotation.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "corners.total.over.6.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.6.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.over.8.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.8.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.over.10.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.10.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.over.11.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.11.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.over.12.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.12.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.over.13.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.13.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.over.14.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.14.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.2.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.2.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.4.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.4.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.5.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.5.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.6.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.6.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.7.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.7.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.8.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.8.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.2.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.2.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.3.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.3.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.4.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.4.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.5.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.5.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.7.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.7.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.8.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.8.5",
+     "objecion": "cuota_no_ejecutable"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-d0b872c57cf3|doble oportunidad",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Rotacion local bajo/visit. alto (descanso corto/copa-Europa en rotation.json), sin alineaciones (sin_snapshot); efecto no cuantificado en el modelo; precio de agregador.",
+   "evidencia": [
+    "paquete:m-d0b872c57cf3|doble oportunidad",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-d0b872c57cf3|empate no válido",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Datos sin_extractor: p_modelo no fiable (brechas vs mercado de hasta decenas de pp en cd0d); precio de agregador, sin captura de casa ni validacion.",
+   "evidencia": [
+    "paquete:m-d0b872c57cf3|empate no válido",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-d0b872c57cf3|goles por equipo",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "alta",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Verificador marca precio_anomalo; precios solo de agregador, sin captura de casa; no ejecutables hasta verificar.",
+   "evidencia": [
+    "paquete:m-d0b872c57cf3|goles por equipo",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-d0b872c57cf3|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor/estimador propio (no hay p_modelo); solo precio de agregador marcado precio_anomalo (n_casas=1, cuota>=10); sin captura de casa.",
+   "evidencia": [
+    "paquete:m-d0b872c57cf3|goles total entero",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-d0b872c57cf3|hándicap",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "alta",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Verificador marca precio_anomalo; precios solo de agregador, sin captura de casa; no ejecutables hasta verificar.",
+   "evidencia": [
+    "paquete:m-d0b872c57cf3|hándicap",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-d0b872c57cf3|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor/estimador propio (no hay p_modelo); solo precio de agregador marcado precio_anomalo (n_casas=1, cuota>=10); sin captura de casa.",
+   "evidencia": [
+    "paquete:m-d0b872c57cf3|hándicap asiático entero",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-d0b872c57cf3|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor/estimador propio (no hay p_modelo); solo precio de agregador; sin captura de casa.",
+   "evidencia": [
+    "paquete:m-d0b872c57cf3|hándicap europeo",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-d0b872c57cf3|remates",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin ninguna cuota en el paquete (90 lineas); no hay precio ni contraste; sin captura de casa. No se puede evaluar valor.",
+   "evidencia": [
+    "paquete:m-d0b872c57cf3|remates",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-d0b872c57cf3|remates a puerta",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin ninguna cuota en el paquete (60 lineas); no hay precio ni contraste; sin captura de casa. No se puede evaluar valor.",
+   "evidencia": [
+    "paquete:m-d0b872c57cf3|remates a puerta",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-d0b872c57cf3|resultado",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Rotacion local bajo/visit. alto (descanso corto/copa-Europa en rotation.json), sin alineaciones (sin_snapshot); efecto no cuantificado en el modelo; precio de agregador.",
+   "evidencia": [
+    "paquete:m-d0b872c57cf3|resultado",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-d0b872c57cf3|tarjetas",
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Arbitro Stan Teuben, Netherlands con n=1 en muestra de liga; validacion insuficiente; pocas lineas con precio de agregador, sin captura de casa.",
+   "evidencia": [
+    "paquete:m-d0b872c57cf3|tarjetas",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-dc0f4abd4c36|1.ª parte goles",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "4 linea(s) con brecha >=15 pp entre p_modelo y 1/cuota de agregador; modelo no validado; sin captura de casa: la brecha es mas probable error del modelo/precio que valor.",
+   "evidencia": [
+    "paquete:m-dc0f4abd4c36|1.ª parte goles",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-dc0f4abd4c36|1.ª parte resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Validacion no_evaluada del modelo; precio solo de agregador (3/3 lineas) sin captura de casa; frecuencias sin ajuste de rival.",
+   "evidencia": [
+    "paquete:m-dc0f4abd4c36|1.ª parte resultado",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-dc0f4abd4c36|córners",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Validacion insuficiente del modelo; precio solo de agregador (6/46 lineas) sin captura de casa; frecuencias sin ajuste de rival.",
+   "evidencia": [
+    "paquete:m-dc0f4abd4c36|córners",
+    "archivo:runs/2026-10-18/rotation.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "corners.total.over.6.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.6.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.over.7.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.7.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.over.9.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.9.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.over.10.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.10.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.over.11.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.11.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.over.12.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.12.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.over.13.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.13.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.over.14.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.14.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.2.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.2.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.4.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.4.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.5.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.5.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.6.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.6.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.7.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.7.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.8.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.8.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.2.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.2.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.3.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.3.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.5.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.5.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.6.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.6.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.7.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.7.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.8.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.8.5",
+     "objecion": "cuota_no_ejecutable"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-dc0f4abd4c36|doble oportunidad",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "1 linea(s) con brecha >=15 pp entre p_modelo y 1/cuota de agregador; modelo no validado; sin captura de casa: la brecha es mas probable error del modelo/precio que valor.",
+   "evidencia": [
+    "paquete:m-dc0f4abd4c36|doble oportunidad",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-dc0f4abd4c36|empate no válido",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Datos sin_extractor: p_modelo no fiable (brechas vs mercado de hasta decenas de pp en cd0d); precio de agregador, sin captura de casa ni validacion.",
+   "evidencia": [
+    "paquete:m-dc0f4abd4c36|empate no válido",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-dc0f4abd4c36|goles",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "1 linea(s) con brecha >=15 pp entre p_modelo y 1/cuota de agregador; modelo no validado; sin captura de casa: la brecha es mas probable error del modelo/precio que valor.",
+   "evidencia": [
+    "paquete:m-dc0f4abd4c36|goles",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-dc0f4abd4c36|goles por equipo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Validacion parcial del modelo; precio solo de agregador (12/12 lineas) sin captura de casa; frecuencias sin ajuste de rival.",
+   "evidencia": [
+    "paquete:m-dc0f4abd4c36|goles por equipo",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-dc0f4abd4c36|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor/estimador propio (no hay p_modelo); solo precio de agregador marcado precio_anomalo (n_casas=1, cuota>=10); sin captura de casa.",
+   "evidencia": [
+    "paquete:m-dc0f4abd4c36|goles total entero",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-dc0f4abd4c36|hándicap",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "1 linea(s) con brecha >=15 pp entre p_modelo y 1/cuota de agregador; modelo no validado; sin captura de casa: la brecha es mas probable error del modelo/precio que valor.",
+   "evidencia": [
+    "paquete:m-dc0f4abd4c36|hándicap",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-dc0f4abd4c36|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor/estimador propio (no hay p_modelo); solo precio de agregador marcado precio_anomalo (n_casas=1, cuota>=10); sin captura de casa.",
+   "evidencia": [
+    "paquete:m-dc0f4abd4c36|hándicap asiático entero",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-dc0f4abd4c36|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor/estimador propio (no hay p_modelo); solo precio de agregador; sin captura de casa.",
+   "evidencia": [
+    "paquete:m-dc0f4abd4c36|hándicap europeo",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-dc0f4abd4c36|remates",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin ninguna cuota en el paquete (90 lineas); no hay precio ni contraste; sin captura de casa. No se puede evaluar valor.",
+   "evidencia": [
+    "paquete:m-dc0f4abd4c36|remates",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-dc0f4abd4c36|remates a puerta",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin ninguna cuota en el paquete (60 lineas); no hay precio ni contraste; sin captura de casa. No se puede evaluar valor.",
+   "evidencia": [
+    "paquete:m-dc0f4abd4c36|remates a puerta",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-dc0f4abd4c36|resultado",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Rotacion local bajo/visit. medio, sin alineaciones (sin_snapshot); modelo parcial/no evaluado; precio de agregador sin captura de casa.",
+   "evidencia": [
+    "paquete:m-dc0f4abd4c36|resultado",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-dc0f4abd4c36|tarjetas",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin ninguna cuota en el paquete (42 lineas); no hay precio ni contraste; sin captura de casa. No se puede evaluar valor. Arbitro n=0 en liga.",
+   "evidencia": [
+    "paquete:m-dc0f4abd4c36|tarjetas",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-e05f707914ea|1.ª parte goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Validacion no_evaluada del modelo; precio solo de agregador (6/6 lineas) sin captura de casa; frecuencias sin ajuste de rival.",
+   "evidencia": [
+    "paquete:m-e05f707914ea|1.ª parte goles",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-e05f707914ea|1.ª parte resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Validacion no_evaluada del modelo; precio solo de agregador (3/3 lineas) sin captura de casa; frecuencias sin ajuste de rival.",
+   "evidencia": [
+    "paquete:m-e05f707914ea|1.ª parte resultado",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-e05f707914ea|córners",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "1 linea(s) con brecha >=15 pp entre p_modelo y 1/cuota de agregador; modelo no validado; sin captura de casa: la brecha es mas probable error del modelo/precio que valor.",
+   "evidencia": [
+    "paquete:m-e05f707914ea|córners",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-e05f707914ea|doble oportunidad",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Rotacion local medio/visit. medio, sin alineaciones (sin_snapshot); modelo parcial/no evaluado; precio de agregador sin captura de casa.",
+   "evidencia": [
+    "paquete:m-e05f707914ea|doble oportunidad",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-e05f707914ea|empate no válido",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Datos sin_extractor: p_modelo no fiable (brechas vs mercado de hasta decenas de pp en cd0d); precio de agregador, sin captura de casa ni validacion.",
+   "evidencia": [
+    "paquete:m-e05f707914ea|empate no válido",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-e05f707914ea|goles",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "alta",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Verificador marca precio_anomalo; precios solo de agregador, sin captura de casa; no ejecutables hasta verificar.",
+   "evidencia": [
+    "paquete:m-e05f707914ea|goles",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-e05f707914ea|goles por equipo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Validacion parcial del modelo; precio solo de agregador (12/12 lineas) sin captura de casa; frecuencias sin ajuste de rival.",
+   "evidencia": [
+    "paquete:m-e05f707914ea|goles por equipo",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-e05f707914ea|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor/estimador propio (no hay p_modelo); solo precio de agregador; sin captura de casa.",
+   "evidencia": [
+    "paquete:m-e05f707914ea|goles total entero",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-e05f707914ea|hándicap",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "alta",
+   "recomendacion": "verificar_manualmente",
+   "nota": "Verificador marca paquete_desactualizado_vs_fuente; precios solo de agregador, sin captura de casa; no ejecutables hasta verificar.",
+   "evidencia": [
+    "paquete:m-e05f707914ea|hándicap",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-e05f707914ea|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor/estimador propio (no hay p_modelo); solo precio de agregador marcado precio_anomalo (n_casas=1, cuota>=10); sin captura de casa.",
+   "evidencia": [
+    "paquete:m-e05f707914ea|hándicap asiático entero",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-e05f707914ea|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor/estimador propio (no hay p_modelo); solo precio de agregador marcado precio_anomalo (n_casas=1, cuota>=10); sin captura de casa.",
+   "evidencia": [
+    "paquete:m-e05f707914ea|hándicap europeo",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-e05f707914ea|resultado",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Rotacion local medio/visit. medio, sin alineaciones (sin_snapshot); modelo parcial/no evaluado; precio de agregador sin captura de casa.",
+   "evidencia": [
+    "paquete:m-e05f707914ea|resultado",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-e05f707914ea|tarjetas",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin ninguna cuota en el paquete (42 lineas); no hay precio ni contraste; sin captura de casa. No se puede evaluar valor. Arbitro n=0 en liga.",
+   "evidencia": [
+    "paquete:m-e05f707914ea|tarjetas",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-e166154f8378|1.ª parte goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Validacion no_evaluada del modelo; precio solo de agregador (6/6 lineas) sin captura de casa; frecuencias sin ajuste de rival.",
+   "evidencia": [
+    "paquete:m-e166154f8378|1.ª parte goles",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-e166154f8378|1.ª parte resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Validacion no_evaluada del modelo; precio solo de agregador (3/3 lineas) sin captura de casa; frecuencias sin ajuste de rival.",
+   "evidencia": [
+    "paquete:m-e166154f8378|1.ª parte resultado",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-e166154f8378|córners",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Validacion insuficiente del modelo; precio solo de agregador (8/46 lineas) sin captura de casa; frecuencias sin ajuste de rival.",
+   "evidencia": [
+    "paquete:m-e166154f8378|córners",
+    "archivo:runs/2026-10-18/rotation.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "corners.total.over.6.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.6.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.over.7.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.7.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.over.8.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.8.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.over.11.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.11.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.over.12.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.12.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.over.13.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.13.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.over.14.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.total.under.14.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.2.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.2.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.3.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.3.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.4.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.4.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.5.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.5.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.7.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.7.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.8.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.8.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.2.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.2.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.4.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.4.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.5.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.5.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.6.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.6.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.7.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.7.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.8.5",
+     "objecion": "cuota_no_ejecutable"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.8.5",
+     "objecion": "cuota_no_ejecutable"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-e166154f8378|goles por equipo",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "2 linea(s) con brecha >=15 pp entre p_modelo y 1/cuota de agregador; modelo no validado; sin captura de casa: la brecha es mas probable error del modelo/precio que valor.",
+   "evidencia": [
+    "paquete:m-e166154f8378|goles por equipo",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-e166154f8378|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor/estimador propio (no hay p_modelo); solo precio de agregador marcado precio_anomalo (n_casas=1, cuota>=10); sin captura de casa.",
+   "evidencia": [
+    "paquete:m-e166154f8378|goles total entero",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-e166154f8378|hándicap",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "3 linea(s) con brecha >=15 pp entre p_modelo y 1/cuota de agregador; modelo no validado; sin captura de casa: la brecha es mas probable error del modelo/precio que valor.",
+   "evidencia": [
+    "paquete:m-e166154f8378|hándicap",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-e166154f8378|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor/estimador propio (no hay p_modelo); solo precio de agregador marcado precio_anomalo (n_casas=1, cuota>=10); sin captura de casa.",
+   "evidencia": [
+    "paquete:m-e166154f8378|hándicap asiático entero",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-e166154f8378|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor/estimador propio (no hay p_modelo); solo precio de agregador marcado precio_anomalo (n_casas=1, cuota>=10); sin captura de casa.",
+   "evidencia": [
+    "paquete:m-e166154f8378|hándicap europeo",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-e166154f8378|remates",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin ninguna cuota en el paquete (90 lineas); no hay precio ni contraste; sin captura de casa. No se puede evaluar valor.",
+   "evidencia": [
+    "paquete:m-e166154f8378|remates",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-e166154f8378|remates a puerta",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin ninguna cuota en el paquete (60 lineas); no hay precio ni contraste; sin captura de casa. No se puede evaluar valor.",
+   "evidencia": [
+    "paquete:m-e166154f8378|remates a puerta",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-e166154f8378|resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "1 linea(s) con brecha >=15 pp entre p_modelo y 1/cuota de agregador; modelo no validado; sin captura de casa: la brecha es mas probable error del modelo/precio que valor.",
+   "evidencia": [
+    "paquete:m-e166154f8378|resultado",
+    "archivo:runs/2026-10-18/rotation.json"
+   ]
+  }
+ ],
+ "limitaciones": [
+  "Sin captura de casa ni modelo validado: todos los precios son de agregador (referencia, no ejecutable) y se tratan de forma conservadora.",
+  "Auditoria sobre hechos del paquete y de los informes de verificador/deportivo/cuantitativo; sin fuentes web nuevas ni API en este lote.",
+  "Alineaciones sin snapshot en los 7 partidos; rotacion de rotation.json no cuantificada en el modelo.",
+  "No se hallaron contradicciones de valor entre los otros informes y el paquete; objeciones_a_agentes omitido."
+ ]
+}
