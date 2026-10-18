@@ -13,7 +13,7 @@
 | Pata | Cuota | Estado | Detalle |
 |---|---|---|---|
 | Werder Bremen – Paderborn · handicap | 1.41 | ACERTADA | 2-2: hándicap away +1.5: ganando |
-| Cruz Azul – Juárez · handicap | 1.35 | PENDIENTE | no ha empezado |
+| Cruz Azul – Juárez · handicap | 1.35 | EN_JUEGO | 4-0 (68): hándicap away +2.5 va perdiendo provisional (puede cambiar) |
 | Dundee FC – Rangers · 1x2 | 1.38 | FALLADA | 2-2 |
 
 ## C · Múltiple ×2.32 (3 patas) · casa 5536510442 — **PERDIDO** (monto 500)
@@ -62,3 +62,18 @@
 | Ind. Rivadavia – Tigre · dc | 1.22 | EN_JUEGO | 2-2 (90+): va cumpliendo provisional |
 | Atl. Tucuman – Rosario Central · combo | 1.58 | ACERTADA | 2-3: total_equipo: 3 goles del equipo · dc: doble oportunidad sí (2-3) |
 | Platense – Lanus · total | 1.33 | ACERTADA | 0-1: 1 goles |
+
+## H · Múltiple ×2.07 (2 patas) · casa 5541197385 — **GANADO** (monto 1000)
+
+| Pata | Cuota | Estado | Detalle |
+|---|---|---|---|
+| San Jose Earthquakes – Nashville · btts | 1.51 | ACERTADA | 1-1: ambos anotaron |
+| LA Galaxy – San Diego · dc | 1.37 | ACERTADA | 2-2: doble oportunidad sí |
+
+## I · Múltiple ×3.21 (3 patas) · casa 5541189633 — **PERDIDO** (monto 1850)
+
+| Pata | Cuota | Estado | Detalle |
+|---|---|---|---|
+| San Jose Earthquakes – Nashville · 1x2 | 1.82 | FALLADA | 1-1 |
+| Seattle Sounders – CF Montréal · 1x2 | 1.37 | FALLADA | 1-1 |
+| Cruz Azul – Juárez · 1x2 | 1.28 | EN_JUEGO | 4-0 (68): va ganando provisional |

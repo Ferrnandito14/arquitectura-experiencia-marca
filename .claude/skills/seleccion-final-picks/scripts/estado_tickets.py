@@ -28,6 +28,8 @@ def entry_id(l):
         return f"goles.total.{l['op']}.{l['linea']:g}"
     if mk == "total_equipo":
         return f"goles.equipo.{l['lado']}.{l['op']}.{l['linea']:g}"
+    if mk == "btts":
+        return "goles.btts.yes"
     if mk == "1x2":
         return f"resultado.1x2.{l['lado']}"
     if mk == "dc":
