@@ -46,6 +46,16 @@ def settle_total(total, op, line):
     return "win" if w else ("void" if p else "lose")
 
 
+def settle_total_quarter(total, op, line):
+    """Totales con línea de cuarto (2.25, 2.75…): mitad a cada línea vecina. 'win'|'half_win'|'void'|'half_loss'|'lose'; en líneas .0/.5 equivale a settle_total."""
+    if abs(line * 4 - round(line * 4)) < 1e-9 and round(line * 4) % 2 == 1:
+        a, b = settle_total(total, op, line - 0.25), settle_total(total, op, line + 0.25)
+        if a == b:
+            return a
+        return {frozenset(("win", "void")): "half_win", frozenset(("lose", "void")): "half_loss"}[frozenset((a, b))]
+    return settle_total(total, op, line)
+
+
 def settle_handicap(h, a, lado, linea):
     """Hándicap asiático +linea para `lado` (home/away). Gana si goles propios + linea > rival; devuelve win/lose/void (líneas .5 y enteras)."""
     own, opp = (h, a) if lado == "home" else (a, h)
@@ -160,6 +170,17 @@ def _sub_status(sub, e, h, a, fin):
         if h > 0 and a > 0:
             return ("win" if fin else "pending"), f"ambos anotaron ({h}-{a})" + ("" if fin else " — cumplida provisional hasta el final (VAR)")
         return ("lose", f"no anotaron ambos ({h}-{a})") if fin else ("pending", f"falta que anoten ambos ({h}-{a})")
+    if k == "total_equipo":
+        v = h if sub["lado"] == "home" else a
+        res = settle_total(v, sub["op"], sub["linea"])
+        if fin:
+            return res, f"{v} goles del equipo"
+        if sub["op"] == "over":
+            return ("win", f"{v} goles del equipo (cumplida provisional)") if res == "win" else ("pending", f"{v} goles del equipo, falta superar {sub['linea']}")
+        return ("lose", f"{v} goles del equipo: ya superó {sub['linea']} (provisional)") if res == "lose" else ("pending", f"{v} goles del equipo")
+    if k == "dc":
+        ok = (h != a) if sub["lado"] == "12" else ((h >= a) if sub["lado"] == "home_or_draw" else (a >= h))
+        return ("win" if ok else "lose"), f"doble oportunidad {'sí' if ok else 'no'} ({h}-{a})" + ("" if fin else " (provisional)")
     if k == "primer_gol":
         side = _first_goal_side(e)
         if side is None:
@@ -206,7 +227,11 @@ def eval_leg(leg, e):
 
     if mk == "total":
         t = h + a
-        res = settle_total(t, leg["op"], leg["linea"])
+        res = settle_total_quarter(t, leg["op"], leg["linea"])
+        if fin and res in ("half_win", "half_loss"):
+            return {"half_win": "MEDIA_GANADA", "half_loss": "MEDIA_PERDIDA"}[res], f"{tag}: {t} goles (línea {leg['linea']:g}: media {'ganada' if res == 'half_win' else 'perdida'})"
+        if res in ("half_win", "half_loss"):
+            res = "win" if res == "half_win" else "lose"
         if fin:
             return final(res), f"{tag}: {t} goles"
         if leg["op"] == "under" and t >= leg["linea"] and res != "win":
@@ -214,6 +239,16 @@ def eval_leg(leg, e):
         if leg["op"] == "over" and res == "win":
             return "EN_JUEGO", f"{tag}: ya supera la línea ({t} goles) — CUMPLIDA PROVISIONAL hasta el final (VAR)"
         return "EN_JUEGO", f"{tag}: {t} goles; va {'ganando' if res == 'win' else 'perdiendo'} provisional"
+    if mk == "total_equipo":
+        v = h if leg["lado"] == "home" else a
+        res = settle_total(v, leg["op"], leg["linea"])
+        if fin:
+            return final(res), f"{tag}: {v} goles del equipo"
+        if leg["op"] == "under" and res != "win":
+            return "EN_JUEGO", f"{tag}: ya superó la línea ({v} goles del equipo) — FALLO PROVISIONAL hasta el final (VAR)" if res == "lose" else f"{tag}: en la línea (devolución si termina así)"
+        if leg["op"] == "over" and res == "win":
+            return "EN_JUEGO", f"{tag}: ya supera la línea ({v} goles del equipo) — CUMPLIDA PROVISIONAL hasta el final (VAR)"
+        return "EN_JUEGO", f"{tag}: {v} goles del equipo; va {'ganando' if res == 'win' else 'perdiendo'} provisional"
     if mk in ("corners", "corners_equipo"):
         cp = _corner_pair(e)
         if cp is None:
@@ -264,7 +299,7 @@ def eval_leg(leg, e):
             return "FALLADA", f"{tag}: no anotaron ambos"
         return "EN_JUEGO", f"{tag}: falta que anoten ambos"
     if mk == "dc":
-        ok = (h >= a) if leg["lado"] == "home_or_draw" else (a >= h)
+        ok = (h != a) if leg["lado"] == "12" else ((h >= a) if leg["lado"] == "home_or_draw" else (a >= h))
         if fin:
             return ("ACERTADA" if ok else "FALLADA"), f"{tag}: doble oportunidad {'sí' if ok else 'no'}"
         return "EN_JUEGO", f"{tag}: va {'cumpliendo' if ok else 'perdiendo'} provisional"

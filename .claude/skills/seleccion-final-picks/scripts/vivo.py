@@ -75,15 +75,20 @@ def main(argv=None):
             matches.setdefault(l["apif"], {"partido": l["partido"].split(" (")[0], "corners": False, "inicio": (inv.get(l["mid"]) or {}).get("normalized_datetime_utc")})
             if l["mercado"] in ("corners", "corners_equipo") or (l["mercado"] == "combo" and any(s["tipo"].startswith("corners") for s in l["subs"])):
                 matches[l["apif"]]["corners"] = True
+    ticket_de = {}
+    for t in spec["tickets"]:
+        for l in t["patas"]:
+            ticket_de.setdefault(l["apif"], set()).add(t["id"])
     state_path = os.path.join(a.run, "seguimiento", "vivo_estado.json")
     prev = common.read_json(state_path, {"snap": {}, "legs": {}, "done": []}) or {"snap": {}, "legs": {}, "done": []}
     first = not prev["snap"]
     events = {}
     while True:
         evs, now = {}, datetime.datetime.now(datetime.timezone.utc)
+        abiertos = {t["id"] for t in spec["tickets"] if (prev["legs"].get("T|" + t["id"]) or ["ABIERTO"])[0] == "ABIERTO"}
         for aid, info in matches.items():
-            if aid in prev["done"]:
-                continue
+            if aid in prev["done"] or not (ticket_de.get(aid, set()) & abiertos):
+                continue            # el partido ya terminó o solo pertenece a tickets ya resueltos (perdidos/ganados): no se consulta
             if info.get("inicio") and prev["snap"].get(aid) is None and now < datetime.datetime.fromisoformat(info["inicio"].replace("Z", "+00:00")) - datetime.timedelta(minutes=15):
                 continue            # aún falta más de 15 min para el inicio: no se consulta (ahorra descargas)
             try:
@@ -127,6 +132,10 @@ def main(argv=None):
             print(f"[{hhmm()}] ⏱ " + " ¦ ".join(beat), flush=True)
         first = False
         common.write_json_atomic(state_path, prev)
+        sin_abiertos = not any((prev["legs"].get("T|" + t["id"]) or ["ABIERTO"])[0] == "ABIERTO" for t in spec["tickets"])
+        if sin_abiertos and not a.once:
+            print(f"[{hhmm()}] ✅ todos los tickets están resueltos (ninguno abierto); fin del seguimiento", flush=True)
+            return 0
         if a.once or all(aid in prev["done"] for aid in matches):
             if not a.once:
                 print(f"[{hhmm()}] ✅ todos los partidos terminaron; fin del seguimiento", flush=True)
