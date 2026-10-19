@@ -305,10 +305,12 @@ class UserCaptureProvider(PriceProvider):
         self.idx = {}
         for _liga, h, a, _hora, o1x2, line, ou in raw["partidos"]:
             mid = ids.get(f"{h}|{a}")
-            if mid:
+            if mid and line is not None and o1x2:          # una lista de partidos sin cuotas (selección automática de ligas) no es una captura de precios
                 self.idx[mid] = {"1x2": o1x2, "line": float(line), "ou": ou}
 
     def consulted(self, match):
+        if not self.idx:
+            return False, None
         return True, {"fuente": self.name, "referencia": self.path, "detalle": "archivo de capturas de la persona usuaria"}
 
     def prices(self, match, entry):
