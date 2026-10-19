@@ -1,0 +1,733 @@
+{
+ "agente": "auditor",
+ "version_contrato": 1,
+ "run": "runs/2026-10-19",
+ "unidades": [
+  {
+   "unit_id": "m-d3c68651989a|1.ª parte goles",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Brecha modelo-mercado max 27 pp (>=15); modelo no validado; precio de agregador, no ejecutable.",
+   "evidencia": [
+    "paquete:m-d3c68651989a|1.ª parte goles",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-d3c68651989a|1.ª parte resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha modelo-mercado max 22 pp (>=15); modelo no validado; precio de agregador, no ejecutable.",
+   "evidencia": [
+    "paquete:m-d3c68651989a|1.ª parte resultado",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-d3c68651989a|córners",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Solo precio de agregador (referencia, no ejecutable); modelo no validado; brecha max 11 pp.",
+   "evidencia": [
+    "paquete:m-d3c68651989a|córners",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-d3c68651989a|doble oportunidad",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Solo precio de agregador (referencia, no ejecutable); modelo no validado; brecha max 13 pp.",
+   "evidencia": [
+    "paquete:m-d3c68651989a|doble oportunidad",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-d3c68651989a|empate no válido",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha modelo-mercado max 20 pp (>=15); modelo no validado; precio de agregador, no ejecutable. Sin extractor de datos.",
+   "evidencia": [
+    "paquete:m-d3c68651989a|empate no válido",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-d3c68651989a|goles",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha modelo-mercado max 19 pp (>=15); modelo no validado; precio de agregador, no ejecutable.",
+   "evidencia": [
+    "paquete:m-d3c68651989a|goles",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-d3c68651989a|goles por equipo",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Brecha modelo-mercado max 25 pp (>=15); modelo no validado; precio de agregador, no ejecutable.",
+   "evidencia": [
+    "paquete:m-d3c68651989a|goles por equipo",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-d3c68651989a|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin estimador propio (no_implementado); precio solo de agregador, referencia.",
+   "evidencia": [
+    "paquete:m-d3c68651989a|goles total entero",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-d3c68651989a|hándicap",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha modelo-mercado max 20 pp (>=15); modelo no validado; precio de agregador, no ejecutable.",
+   "evidencia": [
+    "paquete:m-d3c68651989a|hándicap",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-d3c68651989a|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin estimador propio (no_implementado); precio solo de agregador, referencia.",
+   "evidencia": [
+    "paquete:m-d3c68651989a|hándicap asiático entero",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-d3c68651989a|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin estimador propio (no_implementado); precio solo de agregador, referencia.",
+   "evidencia": [
+    "paquete:m-d3c68651989a|remates",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-d3c68651989a|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin estimador propio (no_implementado); precio solo de agregador, referencia.",
+   "evidencia": [
+    "paquete:m-d3c68651989a|remates a puerta",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-d3c68651989a|resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha modelo-mercado max 18 pp (>=15); modelo no validado; precio de agregador, no ejecutable.",
+   "evidencia": [
+    "paquete:m-d3c68651989a|resultado",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-d3c68651989a|tarjetas",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha modelo-mercado max 17 pp (>=15); modelo no validado; precio de agregador, no ejecutable.",
+   "evidencia": [
+    "paquete:m-d3c68651989a|tarjetas",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-d4b241f14ab9|1.ª parte goles",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio de casa ni agregador en el paquete; EV incalculable; modelo no validado.",
+   "evidencia": [
+    "paquete:m-d4b241f14ab9|1.ª parte goles",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-d4b241f14ab9|1.ª parte resultado",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio de casa ni agregador en el paquete; EV incalculable; modelo no validado.",
+   "evidencia": [
+    "paquete:m-d4b241f14ab9|1.ª parte resultado",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-d4b241f14ab9|córners",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio de casa ni agregador en el paquete; EV incalculable; modelo no validado.",
+   "evidencia": [
+    "paquete:m-d4b241f14ab9|córners",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-d4b241f14ab9|doble oportunidad",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha modelo-mercado max 17 pp (>=15); modelo no validado; precio de agregador, no ejecutable.",
+   "evidencia": [
+    "paquete:m-d4b241f14ab9|doble oportunidad",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-d4b241f14ab9|empate no válido",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Brecha modelo-mercado max 25 pp (>=15); modelo no validado; precio de agregador, no ejecutable. Sin extractor de datos.",
+   "evidencia": [
+    "paquete:m-d4b241f14ab9|empate no válido",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-d4b241f14ab9|hándicap",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha modelo-mercado max 23 pp (>=15); modelo no validado; precio de agregador, no ejecutable.",
+   "evidencia": [
+    "paquete:m-d4b241f14ab9|hándicap",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-d4b241f14ab9|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin estimador propio (no_implementado); sin precio capturado.",
+   "evidencia": [
+    "paquete:m-d4b241f14ab9|remates",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-d4b241f14ab9|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin estimador propio (no_implementado); sin precio capturado.",
+   "evidencia": [
+    "paquete:m-d4b241f14ab9|remates a puerta",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-d4b241f14ab9|resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha modelo-mercado max 24 pp (>=15); modelo no validado; precio de agregador, no ejecutable.",
+   "evidencia": [
+    "paquete:m-d4b241f14ab9|resultado",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-d4b241f14ab9|tarjetas",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio de casa ni agregador en el paquete; EV incalculable; modelo no validado.",
+   "evidencia": [
+    "paquete:m-d4b241f14ab9|tarjetas",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-db785f4b8b15|1.ª parte goles",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio de casa ni agregador en el paquete; EV incalculable; modelo no validado.",
+   "evidencia": [
+    "paquete:m-db785f4b8b15|1.ª parte goles",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-db785f4b8b15|1.ª parte resultado",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio de casa ni agregador en el paquete; EV incalculable; modelo no validado.",
+   "evidencia": [
+    "paquete:m-db785f4b8b15|1.ª parte resultado",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-db785f4b8b15|doble oportunidad",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Solo precio de agregador (referencia, no ejecutable); modelo no validado; brecha max 8 pp.",
+   "evidencia": [
+    "paquete:m-db785f4b8b15|doble oportunidad",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-db785f4b8b15|empate no válido",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Solo precio de agregador (referencia, no ejecutable); modelo no validado; brecha max 11 pp. Sin extractor de datos.",
+   "evidencia": [
+    "paquete:m-db785f4b8b15|empate no válido",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-db785f4b8b15|hándicap",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Solo precio de agregador (referencia, no ejecutable); modelo no validado; brecha max 8 pp. Otro agente contradice paquete.",
+   "evidencia": [
+    "paquete:m-db785f4b8b15|hándicap",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "verificador",
+     "campo": "precio",
+     "problema": "valor_contradice_paquete"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-db785f4b8b15|resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Solo precio de agregador (referencia, no ejecutable); modelo no validado; brecha max 10 pp.",
+   "evidencia": [
+    "paquete:m-db785f4b8b15|resultado",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-db785f4b8b15|tarjetas",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio de casa ni agregador en el paquete; EV incalculable; modelo no validado.",
+   "evidencia": [
+    "paquete:m-db785f4b8b15|tarjetas",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-de0f21edab71|1.ª parte goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Solo precio de agregador (referencia, no ejecutable); modelo no validado; brecha max 10 pp.",
+   "evidencia": [
+    "paquete:m-de0f21edab71|1.ª parte goles",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-de0f21edab71|1.ª parte resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Solo precio de agregador (referencia, no ejecutable); modelo no validado; brecha max 7 pp.",
+   "evidencia": [
+    "paquete:m-de0f21edab71|1.ª parte resultado",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-de0f21edab71|córners",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Solo precio de agregador (referencia, no ejecutable); modelo no validado; brecha max 5 pp.",
+   "evidencia": [
+    "paquete:m-de0f21edab71|córners",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-de0f21edab71|doble oportunidad",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Solo precio de agregador (referencia, no ejecutable); modelo no validado; brecha max 12 pp.",
+   "evidencia": [
+    "paquete:m-de0f21edab71|doble oportunidad",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-de0f21edab71|empate no válido",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Solo precio de agregador (referencia, no ejecutable); modelo no validado; brecha max 10 pp. Sin extractor de datos.",
+   "evidencia": [
+    "paquete:m-de0f21edab71|empate no válido",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-de0f21edab71|goles por equipo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Solo precio de agregador (referencia, no ejecutable); modelo no validado; brecha max 11 pp.",
+   "evidencia": [
+    "paquete:m-de0f21edab71|goles por equipo",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-de0f21edab71|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin estimador propio (no_implementado); precio solo de agregador, referencia.",
+   "evidencia": [
+    "paquete:m-de0f21edab71|goles total entero",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-de0f21edab71|hándicap",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Solo precio de agregador (referencia, no ejecutable); modelo no validado; brecha max 11 pp.",
+   "evidencia": [
+    "paquete:m-de0f21edab71|hándicap",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-de0f21edab71|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin estimador propio (no_implementado); precio solo de agregador, referencia.",
+   "evidencia": [
+    "paquete:m-de0f21edab71|hándicap asiático entero",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-de0f21edab71|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin estimador propio (no_implementado); sin precio capturado.",
+   "evidencia": [
+    "paquete:m-de0f21edab71|remates",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-de0f21edab71|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin estimador propio (no_implementado); sin precio capturado.",
+   "evidencia": [
+    "paquete:m-de0f21edab71|remates a puerta",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-de0f21edab71|resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Solo precio de agregador (referencia, no ejecutable); modelo no validado; brecha max 7 pp.",
+   "evidencia": [
+    "paquete:m-de0f21edab71|resultado",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-de0f21edab71|tarjetas",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio de casa ni agregador en el paquete; EV incalculable; modelo no validado.",
+   "evidencia": [
+    "paquete:m-de0f21edab71|tarjetas",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-de1ed849edec|1.ª parte goles",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio de casa ni agregador en el paquete; EV incalculable; modelo no validado.",
+   "evidencia": [
+    "paquete:m-de1ed849edec|1.ª parte goles",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-de1ed849edec|1.ª parte resultado",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio de casa ni agregador en el paquete; EV incalculable; modelo no validado.",
+   "evidencia": [
+    "paquete:m-de1ed849edec|1.ª parte resultado",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-de1ed849edec|córners",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio de casa ni agregador en el paquete; EV incalculable; modelo no validado.",
+   "evidencia": [
+    "paquete:m-de1ed849edec|córners",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-de1ed849edec|empate no válido",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio de casa ni agregador en el paquete; EV incalculable; modelo no validado. Sin extractor de datos.",
+   "evidencia": [
+    "paquete:m-de1ed849edec|empate no válido",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-de1ed849edec|goles",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio de casa ni agregador en el paquete; EV incalculable; modelo no validado.",
+   "evidencia": [
+    "paquete:m-de1ed849edec|goles",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-de1ed849edec|goles por equipo",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio de casa ni agregador en el paquete; EV incalculable; modelo no validado.",
+   "evidencia": [
+    "paquete:m-de1ed849edec|goles por equipo",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-de1ed849edec|hándicap",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio de casa ni agregador en el paquete; EV incalculable; modelo no validado.",
+   "evidencia": [
+    "paquete:m-de1ed849edec|hándicap",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-de1ed849edec|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin estimador propio (no_implementado); sin precio capturado.",
+   "evidencia": [
+    "paquete:m-de1ed849edec|remates",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-de1ed849edec|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin estimador propio (no_implementado); sin precio capturado.",
+   "evidencia": [
+    "paquete:m-de1ed849edec|remates a puerta",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-de1ed849edec|tarjetas",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio de casa ni agregador en el paquete; EV incalculable; modelo no validado.",
+   "evidencia": [
+    "paquete:m-de1ed849edec|tarjetas",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-dfdce2f03d0e|1.ª parte goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Solo precio de agregador (referencia, no ejecutable); modelo no validado; brecha max 10 pp.",
+   "evidencia": [
+    "paquete:m-dfdce2f03d0e|1.ª parte goles",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-dfdce2f03d0e|1.ª parte resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha modelo-mercado max 19 pp (>=15); modelo no validado; precio de agregador, no ejecutable.",
+   "evidencia": [
+    "paquete:m-dfdce2f03d0e|1.ª parte resultado",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-dfdce2f03d0e|córners",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha modelo-mercado max 22 pp (>=15); modelo no validado; precio de agregador, no ejecutable.",
+   "evidencia": [
+    "paquete:m-dfdce2f03d0e|córners",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-dfdce2f03d0e|doble oportunidad",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Brecha modelo-mercado max 32 pp (>=15); modelo no validado; precio de agregador, no ejecutable.",
+   "evidencia": [
+    "paquete:m-dfdce2f03d0e|doble oportunidad",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-dfdce2f03d0e|empate no válido",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Brecha modelo-mercado max 38 pp (>=15); modelo no validado; precio de agregador, no ejecutable. Sin extractor de datos.",
+   "evidencia": [
+    "paquete:m-dfdce2f03d0e|empate no válido",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-dfdce2f03d0e|goles por equipo",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha modelo-mercado max 23 pp (>=15); modelo no validado; precio de agregador, no ejecutable.",
+   "evidencia": [
+    "paquete:m-dfdce2f03d0e|goles por equipo",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-dfdce2f03d0e|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin estimador propio (no_implementado); precio solo de agregador, referencia.",
+   "evidencia": [
+    "paquete:m-dfdce2f03d0e|goles total entero",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-dfdce2f03d0e|hándicap",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Brecha modelo-mercado max 38 pp (>=15); modelo no validado; precio de agregador, no ejecutable.",
+   "evidencia": [
+    "paquete:m-dfdce2f03d0e|hándicap",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-dfdce2f03d0e|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin estimador propio (no_implementado); precio solo de agregador, referencia.",
+   "evidencia": [
+    "paquete:m-dfdce2f03d0e|hándicap asiático entero",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-dfdce2f03d0e|resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Brecha modelo-mercado max 28 pp (>=15); modelo no validado; precio de agregador, no ejecutable.",
+   "evidencia": [
+    "paquete:m-dfdce2f03d0e|resultado",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  },
+  {
+   "unit_id": "m-dfdce2f03d0e|tarjetas",
+   "objecion": "cuota_no_ejecutable",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio de casa ni agregador en el paquete; EV incalculable; modelo no validado.",
+   "evidencia": [
+    "paquete:m-dfdce2f03d0e|tarjetas",
+    "archivo:runs/2026-10-19/agentes/paquete.json"
+   ]
+  }
+ ],
+ "limitaciones": [
+  "Revision por reglas sobre paquete.json; sin consulta a API; sin precios de casa verificados; modelo no validado."
+ ]
+}
