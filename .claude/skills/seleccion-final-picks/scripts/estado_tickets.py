@@ -56,19 +56,40 @@ def goal_p(l, ctx):
     if l["mercado"] == "handicap":      # devolución (void) cuenta como «no perdida»; media ganada pesa 0.5
         return sum(p * {"win": 1, "void": 1, "half_win": .5}.get(sg.settle_handicap_quarter(x, y, l["lado"], l["linea"]), 0) for (x, y), p in g.items()) / tot
     if l["mercado"] == "combo":
+        subs_g = [sb for sb in l["subs"] if sb["tipo"] != "corners"]
+        subs_c = [sb for sb in l["subs"] if sb["tipo"] == "corners"]
+
         def ok(x, y):
-            for sb in l["subs"]:
-                if sb["tipo"] == "total_equipo":
+            for sb in subs_g:
+                t = sb["tipo"]
+                if t == "total_equipo":
                     v = x if sb["lado"] == "home" else y
                     if sg.settle_total(v, sb["op"], sb["linea"]) != "win":
                         return False
-                elif sb["tipo"] == "dc":
+                elif t == "dc":
                     if not ((x != y) if sb["lado"] == "12" else ((x >= y) if sb["lado"] == "home_or_draw" else (y >= x))):
+                        return False
+                elif t == "btts":
+                    if not (x > 0 and y > 0):
+                        return False
+                elif t == "total":
+                    if sg.settle_total(x + y, sb["op"], sb["linea"]) != "win":
+                        return False
+                elif t == "handicap":
+                    if sg.settle_handicap(x, y, sb["lado"], sb["linea"]) == "lose":
+                        return False
+                elif t == "1x2":
+                    if not ((x > y) if sb["lado"] == "home" else ((y > x) if sb["lado"] == "away" else (x == y))):
                         return False
                 else:
                     return False
             return True
-        return sum(p for (x, y), p in g.items() if ok(x, y)) / tot
+        pg = sum(p for (x, y), p in g.items() if ok(x, y)) / tot
+        for sb in subs_c:                  # córners: independientes de los goles; en vivo con el conteo actual, antes del partido con la P del modelo guardada en la sub-pata
+            eid = f"corners.total.{sb['op']}.{sb['linea']:g}"
+            pc = ad.prob_pick(eid, sb.get("p_modelo"), ctx) if ctx.get("corners") else sb.get("p_modelo")
+            pg *= 1.0 if pc is None else pc
+        return pg
     return None
 
 

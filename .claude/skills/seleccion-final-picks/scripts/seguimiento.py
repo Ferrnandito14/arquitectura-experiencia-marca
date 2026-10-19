@@ -190,6 +190,9 @@ def _sub_status(sub, e, h, a, fin):
     if k == "dc":
         ok = (h != a) if sub["lado"] == "12" else ((h >= a) if sub["lado"] == "home_or_draw" else (a >= h))
         return ("win" if ok else "lose"), f"doble oportunidad {'sí' if ok else 'no'} ({h}-{a})" + ("" if fin else " (provisional)")
+    if k == "1x2":
+        ok = (h > a) if sub["lado"] == "home" else ((a > h) if sub["lado"] == "away" else (h == a))
+        return ("win" if ok else "lose"), f"1X2 {sub['lado']} {'sí' if ok else 'no'} ({h}-{a})" + ("" if fin else " (provisional)")
     if k == "primer_gol":
         side = _first_goal_side(e)
         if side is None:
