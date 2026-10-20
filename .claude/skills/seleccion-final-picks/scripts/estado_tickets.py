@@ -5,6 +5,7 @@ Lee seguimiento/tickets_abiertos.json y vivo_estado.json (los escribe vivo.py); 
 Uso:  estado_tickets.py --run runs/2026-10-17 --book dist/ligas-17-oct-v3.xlsx"""
 import argparse
 import json
+import math
 import os
 import sys
 from datetime import datetime, timedelta, timezone
@@ -42,6 +43,8 @@ def entry_id(l):
         return f"corners.equipo.{l['lado']}.{l['op']}.{l['linea']:g}"
     if mk == "tarjetas":
         return f"cards_pts.total.{l['op']}.{l['linea']:g}"
+    if mk == "total_1t":
+        return f"primera_parte.total.{l['op']}.{l['linea']:g}"
     return None
 
 
@@ -56,8 +59,8 @@ def goal_p(l, ctx):
     if l["mercado"] == "handicap":      # devolución (void) cuenta como «no perdida»; media ganada pesa 0.5
         return sum(p * {"win": 1, "void": 1, "half_win": .5}.get(sg.settle_handicap_quarter(x, y, l["lado"], l["linea"]), 0) for (x, y), p in g.items()) / tot
     if l["mercado"] == "combo":
-        subs_g = [sb for sb in l["subs"] if sb["tipo"] != "corners"]
-        subs_c = [sb for sb in l["subs"] if sb["tipo"] == "corners"]
+        subs_g = [sb for sb in l["subs"] if sb["tipo"] not in ("corners", "tarjetas", "total_1t")]
+        subs_c = [sb for sb in l["subs"] if sb["tipo"] in ("corners", "tarjetas")]
 
         def ok(x, y):
             for sb in subs_g:
@@ -84,10 +87,27 @@ def goal_p(l, ctx):
                 else:
                     return False
             return True
-        pg = sum(p for (x, y), p in g.items() if ok(x, y)) / tot
+        subs_1 = [sb for sb in l["subs"] if sb["tipo"] == "total_1t"]
+
+        def w1h(x, y):            # 1.ª mitad: pendiente = cada gol cae en ella con prob. 0.45 (aprox.); en vivo se usan los goles ya ocurridos
+            n, w = x + y, 1.0
+            mn = ctx.get("minute")
+            for sb in subs_1:
+                ln = int(sb["linea"])
+                if mn is None:
+                    pu = sum(math.comb(n, j) * 0.45 ** j * 0.55 ** (n - j) for j in range(n + 1) if j <= ln)
+                elif ctx.get("fin1") or mn > 45:                      # 1.ª mitad cerrada: goles del descanso
+                    pu = 1.0 if ctx.get("h1", 0) + ctx.get("a1", 0) <= ln else 0.0
+                else:                                                  # abierta: goles actuales + los que falten caen en ella con prob. q
+                    g1, extra = ctx["h"] + ctx["a"], max(0, n - ctx["h"] - ctx["a"])
+                    q = max(0.0, 45.0 - mn) / max(1.0, 95.0 - mn)
+                    pu = sum(math.comb(extra, j) * q ** j * (1 - q) ** (extra - j) for j in range(extra + 1) if g1 + j <= ln)
+                w *= pu if sb["op"] == "under" else 1 - pu
+            return w
+        pg = sum(p * w1h(x, y) for (x, y), p in g.items() if ok(x, y)) / tot
         for sb in subs_c:                  # córners: independientes de los goles; en vivo con el conteo actual, antes del partido con la P del modelo guardada en la sub-pata
-            eid = f"corners.total.{sb['op']}.{sb['linea']:g}"
-            pc = ad.prob_pick(eid, sb.get("p_modelo"), ctx) if ctx.get("corners") else sb.get("p_modelo")
+            eid = f"{'corners.total' if sb['tipo'] == 'corners' else 'cards_pts.total'}.{sb['op']}.{sb['linea']:g}"
+            pc = ad.prob_pick(eid, sb.get("p_modelo"), ctx) if ctx.get("corners" if sb["tipo"] == "corners" else "cards") else sb.get("p_modelo")
             pg *= 1.0 if pc is None else pc
         return pg
     return None
@@ -117,7 +137,7 @@ def main(argv=None):
         cp = sg._corner_pair(e)
         mp = api_detalle.model_params(a.run, l["mid"])
         c = {"h": h or 0, "a": aw or 0, "minute": mn, "f": max(0.0, 95.0 - mn) / 95.0, "lh": mp[0] if mp else None, "la": mp[1] if mp else None, "share": mp[2] if mp else None,
-             "corners": tuple(cp) if cp else None, "cards": tuple(adapters._card_points(e) or ()) or None, "h1": 0, "a1": 0, "fin1": mn > 45}
+             "corners": tuple(cp) if cp else None, "cards": tuple(adapters._card_points(e) or ()) or None, "h1": (sg.half_score(e)[0] or 0) if mn > 45 else 0, "a1": (sg.half_score(e)[1] or 0) if mn > 45 else 0, "fin1": mn > 45}
         ctx_cache[l["mid"]] = c
         return c
 

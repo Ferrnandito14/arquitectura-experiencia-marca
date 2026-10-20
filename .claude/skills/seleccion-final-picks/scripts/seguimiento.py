@@ -193,6 +193,14 @@ def _sub_status(sub, e, h, a, fin):
     if k == "1x2":
         ok = (h > a) if sub["lado"] == "home" else ((a > h) if sub["lado"] == "away" else (h == a))
         return ("win" if ok else "lose"), f"1X2 {sub['lado']} {'sí' if ok else 'no'} ({h}-{a})" + ("" if fin else " (provisional)")
+    if k == "total_1t":
+        g, closed = _first_half(e, h, a)
+        res = settle_total(g, sub["op"], sub["linea"])
+        if closed:
+            return res, f"{g} goles en la 1.ª mitad"
+        if sub["op"] == "under":
+            return ("lose", f"{g} goles en la 1.ª mitad: ya superó {sub['linea']} (provisional)") if res == "lose" else ("pending", f"{g} goles en la 1.ª mitad")
+        return ("win", f"{g} goles en la 1.ª mitad (cumplida provisional)") if res == "win" else ("pending", f"{g} goles en la 1.ª mitad")
     if k == "primer_gol":
         side = _first_goal_side(e)
         if side is None:
