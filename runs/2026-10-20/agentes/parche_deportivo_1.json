@@ -1,0 +1,712 @@
+{
+ "agente": "deportivo",
+ "version_contrato": 1,
+ "run": "runs/2026-10-20",
+ "unidades": [
+  {
+   "unit_id": "m-04ef210b51ca|goles total entero",
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Over 2: modelo 76%, over 3: 48%. Ambos GF 1.8-2.0 (n10 mixtas, 7-8/10 con 3+ goles). Falla si rotación (4 cambios, 3d) cierra el partido; under 3 en 52%.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-04ef210b51ca|goles total entero",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-04ef210b51ca|hándicap asiático entero",
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Atlético +1 AH 79%, +0 53%. Mejor forma (7V en 10, 16.1 tiros vs 10.6 concedidos); pierde si Stuttgart gana por 2+ o por rotación. Muestras mixtas.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-04ef210b51ca|hándicap asiático entero",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-04ef210b51ca|hándicap europeo",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "EH visitante -1: 64% pero empate a margen 1 ~19%; resultado a 3 vías más ruidoso, rotación alta en ambos, muestras mixtas.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-04ef210b51ca|hándicap europeo",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-04ef210b51ca|remates",
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin p_modelo de remates. Stuttgart 16.5 a favor/15.2 en contra (n10), Atlético 16.1/10.6; muestras mixtas, rotación alta; sin sesgo claro.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-04ef210b51ca|remates",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-04ef210b51ca|remates a puerta",
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin p_modelo. A puerta: Stuttgart 5.7/4.7, Atlético 6.1/3.6 (n10 mixtas). Rotación alta en ambos; sin ventaja clara.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-04ef210b51ca|remates a puerta",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-149952ae228e|goles total entero",
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "under",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Modelo over 2: 62%, over 3: 32%. Tigres 3/10 y León 4/10 con 3+ goles (n10 liga). Pierde si el partido se abre (over 3: 32%). Sin sesgo fuerte.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-149952ae228e|goles total entero",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-149952ae228e|hándicap asiático entero",
+   "solidez": "BAJA",
+   "factor_principal": "localia",
+   "direccion_favorable": "local",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Modelo local +0 54%, +1 83%; sin favorito claro (Tigres 3V-4E-3D, León 5V-3E-2D). Pierde con victoria visitante (33%). Rotación media.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-149952ae228e|hándicap asiático entero",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-149952ae228e|hándicap europeo",
+   "solidez": "BAJA",
+   "factor_principal": "localia",
+   "direccion_favorable": "local",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "EH local +1: 67%, visitante -1: 60% según modelo; ligero favoritismo local por casa, pero forma local plana (GF 1.1). Pierde con victoria visitante.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-149952ae228e|hándicap europeo",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-149952ae228e|remates",
+   "solidez": "MEDIA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Tiros: Tigres 14.0 a favor/17.3 en contra (n7), León 11.3/13.7 (n6); total esperado ~27-28. Muestras n<8, misma liga; sin sesgo, líneas lejanas robustas.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-149952ae228e|remates",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-149952ae228e|remates a puerta",
+   "solidez": "BAJA",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "A puerta: Tigres 5.0/4.9 (n7), León 4.7/4.7 (n6); total ~9-10. Muestra n<8 y desglose local/visitante n2-5; sin sesgo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-149952ae228e|remates a puerta",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-20603dd663c2|goles total entero",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Modelo over 2: 56%, over 3: 26%. Yumbo 1/10 y Boca Cali 6/10 con 3+ goles: perfiles opuestos, forma contradictoria.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-20603dd663c2|goles total entero",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-20603dd663c2|hándicap asiático entero",
+   "solidez": "BAJA",
+   "factor_principal": "localia",
+   "direccion_favorable": "local",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Yumbo favorito (GA 0.7) pero modelo local +0 solo 54%; Boca Cali GF 1.6. Rotación baja. Pierde si visita gana (33% 1X2 modelo).",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-20603dd663c2|hándicap asiático entero",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-20603dd663c2|hándicap europeo",
+   "solidez": "BAJA",
+   "factor_principal": "localia",
+   "direccion_favorable": "local",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "EH local +1 67%; sin favorito claro (modelo local 39%). Pierde con victoria visitante. Rotación baja en ambos.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-20603dd663c2|hándicap europeo",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-20603dd663c2|remates",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin datos de remates en la muestra de los 10 partidos de cada equipo (n=0); paquete datos insuficientes.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-20603dd663c2|remates",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-20603dd663c2|remates a puerta",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin datos de remates a puerta en la muestra (n=0); paquete datos insuficientes.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-20603dd663c2|remates a puerta",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-35a5629d4da4|goles total entero",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "over",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Modelo over 2: 67%, over 3: 37%. Dortmund 6/10 con 3+ goles (GF 2.0), Sabah 5/9. Rotación alta (Sabah 6 cambios), rivales no comparables.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-35a5629d4da4|goles total entero",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-35a5629d4da4|hándicap asiático entero",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Dortmund +0 AH 50% en modelo pese a cuota ~1.3: discrepancia sin explicar. Su muestra tiene 0 partidos de la misma competición; rotación alta.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-35a5629d4da4|hándicap asiático entero",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-35a5629d4da4|hándicap europeo",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "EH visitante -1 63%; empate a margen 1 20%. Modelo muy por debajo de la cuota media 1.3; muestra Dortmund no comparable, rotación alta.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-35a5629d4da4|hándicap europeo",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-35a5629d4da4|remates",
+   "solidez": "BAJA",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Datos parciales, sin p_modelo. Sabah 15.0/16.2 (n5), Dortmund 13.4/12.2 (n9, fuera de la competición). Rotación alta, rivales no comparables.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-35a5629d4da4|remates",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-35a5629d4da4|remates a puerta",
+   "solidez": "BAJA",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Datos parciales, sin p_modelo. A puerta: Sabah 5.0/6.6 (n5), Dortmund 4.7/3.7 (n9). Muestras mixtas, rotación alta.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-35a5629d4da4|remates a puerta",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-693d96cb6dfc|goles total entero",
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Modelo over 2: 77%, over 3: 49%. Norrköping GF 2.5 y 7/10 con 3+ goles, Örebro encaja 1.8 (6/10). Misma liga n10, rotación baja. Pierde si Norrköping gana 1-0.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-693d96cb6dfc|goles total entero",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-693d96cb6dfc|hándicap asiático entero",
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Norrköping 8V-2E (25-6), Örebro GA 1.8. Modelo local -1 44%, +0 73%, +1 91%. Pierde si empata/gana por 1 en líneas -1; rotación baja.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-693d96cb6dfc|hándicap asiático entero",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-693d96cb6dfc|hándicap europeo",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "EH local -1 34% con empate a margen 1 23%: favoritismo claro pero hándicap europeo de margen 1 muy sensible a victorias por 1 gol.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-693d96cb6dfc|hándicap europeo",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-693d96cb6dfc|remates",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin datos de remates en la muestra (n=0); paquete datos insuficientes.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-693d96cb6dfc|remates",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-693d96cb6dfc|remates a puerta",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin datos de remates a puerta en la muestra (n=0); paquete datos insuficientes.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-693d96cb6dfc|remates a puerta",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-77dc24e42af9|goles total entero",
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Modelo over 2: 70%, over 3: 40%. O2.5 Doncaster 5/10, Stockport 6/10; rotación alta en ambos (Stockport 7.7 cambios, 3d). Sin sesgo claro.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-77dc24e42af9|goles total entero",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-77dc24e42af9|hándicap asiático entero",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Stockport mejor forma (GF 2.1, 6V) pero modelo visitante +0 solo 58% y rotación alta (7.7 cambios); fuera solo n4.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-77dc24e42af9|hándicap asiático entero",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-77dc24e42af9|hándicap europeo",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "EH visitante -1 68% pero con n4 fuera y rotación alta; empate a margen 1 18%. Señal moderada.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-77dc24e42af9|hándicap europeo",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-77dc24e42af9|remates",
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Doncaster 15.2/14.0 (n8), Stockport 16.1/9.1 (n8); total ~28. Rotación alta (7.7 cambios Stockport) distorsiona; sin sesgo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-77dc24e42af9|remates",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-77dc24e42af9|remates a puerta",
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "A puerta: Doncaster 5.0/4.5, Stockport 5.0/3.6 (n8); total ~9. Rotación alta en ambos; sin sesgo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-77dc24e42af9|remates a puerta",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-ade74c6c1c24|goles total entero",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Modelo over 2: 50%, over 3: 22%. Atlético 6/10 con 3+ goles, Quindío 3/10; señales opuestas, sin ritmo claro.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ade74c6c1c24|goles total entero",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-ade74c6c1c24|hándicap asiático entero",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Modelo local +0 49%, visitante +1 83%; sin favorito (Atlético local 1/4, Quindío 4V-3E-3D). Mercado y modelo discrepan.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ade74c6c1c24|hándicap asiático entero",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-ade74c6c1c24|hándicap europeo",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_abierto",
+   "nota": "EH sin favorito: local -1 14%, visitante -1 66%; empate a margen 1 ~21%. Forma sin ventaja clara.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ade74c6c1c24|hándicap europeo",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-ade74c6c1c24|remates",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin datos de remates en la muestra (n=0); paquete datos insuficientes.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ade74c6c1c24|remates",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-ade74c6c1c24|remates a puerta",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin datos de remates a puerta en la muestra (n=0); paquete datos insuficientes.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ade74c6c1c24|remates a puerta",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-c666dbddc7fb|goles total entero",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Modelo over 2: 71%, over 3: 42%. Wimbledon GF 0.7 (4/10 con 3+), Mansfield 3.7 goles/p (7/10): perfiles contrarios.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c666dbddc7fb|goles total entero",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-c666dbddc7fb|hándicap asiático entero",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Modelo AH local +0 42%, visitante +0 58%; Mansfield mejor ataque (GF 1.8) y peor defensa (GA 1.9); Wimbledon GF 0.7. Sin favorito claro.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c666dbddc7fb|hándicap asiático entero",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-c666dbddc7fb|hándicap europeo",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_abierto",
+   "nota": "EH visitante -1 68%, local +1 56%; sin favorito claro por forma opuesta, Mansfield rota 5 cambios.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c666dbddc7fb|hándicap europeo",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-c666dbddc7fb|remates",
+   "solidez": "MEDIA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Wimbledon 9.0 a favor/15.8 en contra (n8), Mansfield 14.6/12.1 (n8), misma liga; total ~25. Wimbledon crea poco; sin sesgo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c666dbddc7fb|remates",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-c666dbddc7fb|remates a puerta",
+   "solidez": "BAJA",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "A puerta: Wimbledon 2.5/5.6, Mansfield 4.6/4.0 (n8); total ~8. Desglose local/visitante n3-5; sin sesgo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c666dbddc7fb|remates a puerta",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-e665e3d47fc3|goles total entero",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Modelo over 2: 83%, over 3: 59%. City 2.8 GF (7/10 con 3+), AEK 2.8 GF; muestras mixtas no comparables. Si City controla, under 3 (41%).",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-e665e3d47fc3|goles total entero",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-e665e3d47fc3|hándicap asiático entero",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "City 9V-1D pero modelo da local -1 solo 24% y +0 49%: discrepancia con forma. Muestras mixtas y no comparables; AEK rotación 4.7.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-e665e3d47fc3|hándicap asiático entero",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-e665e3d47fc3|hándicap europeo",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "EH local -1 20% y visitante -1 62% en modelo, contradicen la forma de City; muestra no comparable. Señal poco fiable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-e665e3d47fc3|hándicap europeo",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-e665e3d47fc3|remates",
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Sin p_modelo. City 16.3 a favor/10.4 en contra (n10), AEK 16.2/10.5 (n8); mezcla copas/UCL/liga griega, no comparables.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-e665e3d47fc3|remates",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-e665e3d47fc3|remates a puerta",
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Sin p_modelo. A puerta: City 6.2/3.9 (n10), AEK 5.0/3.0 (n8); muestras no comparables, rotación media.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-e665e3d47fc3|remates a puerta",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-f982a1ad5f4c|goles total entero",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Modelo over 2: 69%, over 3: 39%. San Luis 6/10 y Querétaro 5/10 con 3+ goles; sin sesgo claro en misma liga n10.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-f982a1ad5f4c|goles total entero",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-f982a1ad5f4c|hándicap asiático entero",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Modelo local +0 47%, visitante +0 53%; Querétaro mejor fuera (6V en 10) y San Luis flojo en casa (n5), contradiciendo el precio. Sin favorito.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-f982a1ad5f4c|hándicap asiático entero",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-f982a1ad5f4c|hándicap europeo",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_abierto",
+   "nota": "EH visitante -1 65%, local +1 61%; sin favorito, forma y modelo/precio discrepan. Rotación baja-media.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-f982a1ad5f4c|hándicap europeo",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-f982a1ad5f4c|remates",
+   "solidez": "MEDIA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "San Luis 12.1/12.7 (n7), Querétaro 12.5/18.6 (n8); total ~25. Misma liga, rotación baja; n<8 y desglose local/visitante pequeño.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-f982a1ad5f4c|remates",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-f982a1ad5f4c|remates a puerta",
+   "solidez": "BAJA",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "A puerta: San Luis 4.0/4.0 (n7), Querétaro 4.2/4.5 (n8); total ~8.5. Muestra n<8; sin sesgo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-f982a1ad5f4c|remates a puerta",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  }
+ ],
+ "limitaciones": [
+  "Solo paquete, matrix, rotation e informe previo; sin alineaciones ni bajas verificadas, sin fuentes externas.",
+  "Remates sin p_modelo en 04ef, 35a5, e665: lectura descriptiva (BAJA). 2060, 693d, ade7 sin datos de tiros: NO_EVALUABLE.",
+  "Muestras con n<8 en tiros y mixtas (copas/UCL) en Stuttgart, Sabah, Dortmund, City, AEK; sin ajuste por rival."
+ ]
+}

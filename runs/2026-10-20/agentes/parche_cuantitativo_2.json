@@ -1,0 +1,894 @@
+{
+ "agente": "cuantitativo",
+ "version_contrato": 1,
+ "run": "runs/2026-10-20",
+ "unidades": [
+  {
+   "unit_id": "m-07a19af99d0e|goles total entero",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "10 lineas: coh 10; brecha max 5pp (goles.total_entero.over.3). Ref. agregador; enteros: p sin devolucion.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-07a19af99d0e|goles total entero"
+   ]
+  },
+  {
+   "unit_id": "m-07a19af99d0e|hándicap asiático entero",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "10 lineas: coh 10; brecha max 8pp (resultado.ah_entero.home.+1). Ref. agregador; enteros: p sin devolucion.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-07a19af99d0e|hándicap asiático entero"
+   ]
+  },
+  {
+   "unit_id": "m-07a19af99d0e|hándicap europeo",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "12 lineas: coh 12; brecha max 4pp (resultado.eh.home.+1). Ref. agregador; enteros: p sin devolucion.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-07a19af99d0e|hándicap europeo"
+   ]
+  },
+  {
+   "unit_id": "m-07a19af99d0e|remates",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "90 lineas: sin precio 90. Ref. agregador; enteros: p sin devolucion.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-07a19af99d0e|remates"
+   ]
+  },
+  {
+   "unit_id": "m-07a19af99d0e|remates a puerta",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "60 lineas: sin precio 60. Ref. agregador; enteros: p sin devolucion.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-07a19af99d0e|remates a puerta"
+   ]
+  },
+  {
+   "unit_id": "m-165094e13368|goles total entero",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "10 lineas: coh 10; brecha max 13pp (goles.total_entero.under.3). Ref. agregador; enteros: p sin devolucion.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-165094e13368|goles total entero"
+   ]
+  },
+  {
+   "unit_id": "m-165094e13368|hándicap asiático entero",
+   "consistencia_modelo": "discrepa_del_mercado",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "10 lineas: discrepa 2, coh 8; brecha max 21pp (resultado.ah_entero.away.+1). Ref. agregador; enteros: p sin devolucion.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah_entero.home.-2",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah_entero.away.+2",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah_entero.home.-1",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah_entero.home.+0",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah_entero.home.+1",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah_entero.away.-1",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah_entero.home.+2",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah_entero.away.-2",
+     "consistencia_modelo": "coherente"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-165094e13368|hándicap asiático entero"
+   ]
+  },
+  {
+   "unit_id": "m-165094e13368|hándicap europeo",
+   "consistencia_modelo": "discrepa_del_mercado",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "12 lineas: discrepa 2, coh 10; brecha max 16pp (resultado.eh.away.-1). Ref. agregador; enteros: p sin devolucion.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.eh.home.-2",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.eh.draw.-2",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.eh.home.-1",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.eh.draw.-1",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.eh.home.+1",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.eh.draw.+1",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.eh.away.+1",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.eh.home.+2",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.eh.draw.+2",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.eh.away.+2",
+     "consistencia_modelo": "coherente"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-165094e13368|hándicap europeo"
+   ]
+  },
+  {
+   "unit_id": "m-165094e13368|remates",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "90 lineas: sin precio 90. Ref. agregador; enteros: p sin devolucion.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-165094e13368|remates"
+   ]
+  },
+  {
+   "unit_id": "m-165094e13368|remates a puerta",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "60 lineas: sin precio 60. Ref. agregador; enteros: p sin devolucion.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-165094e13368|remates a puerta"
+   ]
+  },
+  {
+   "unit_id": "m-23466f37aa2e|goles total entero",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "10 lineas: coh 10; brecha max 10pp (goles.total_entero.over.2). Ref. agregador; enteros: p sin devolucion.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-23466f37aa2e|goles total entero"
+   ]
+  },
+  {
+   "unit_id": "m-23466f37aa2e|hándicap asiático entero",
+   "consistencia_modelo": "discrepa_del_mercado",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "10 lineas: discrepa 5, coh 5; brecha max 26pp (resultado.ah_entero.away.+0). Ref. agregador; enteros: p sin devolucion.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah_entero.home.-2",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah_entero.away.+2",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah_entero.home.+1",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah_entero.home.+2",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah_entero.away.-2",
+     "consistencia_modelo": "coherente"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-23466f37aa2e|hándicap asiático entero"
+   ]
+  },
+  {
+   "unit_id": "m-23466f37aa2e|hándicap europeo",
+   "consistencia_modelo": "discrepa_del_mercado",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "12 lineas: discrepa 3, coh 9; brecha max 21pp (resultado.eh.away.-1). Ref. agregador; enteros: p sin devolucion.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.eh.home.-2",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.eh.draw.-2",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.eh.home.-1",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.eh.draw.-1",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.eh.draw.+1",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.eh.away.+1",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.eh.home.+2",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.eh.draw.+2",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.eh.away.+2",
+     "consistencia_modelo": "coherente"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-23466f37aa2e|hándicap europeo"
+   ]
+  },
+  {
+   "unit_id": "m-23466f37aa2e|remates",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "90 lineas: sin precio 90. Ref. agregador; enteros: p sin devolucion.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-23466f37aa2e|remates"
+   ]
+  },
+  {
+   "unit_id": "m-23466f37aa2e|remates a puerta",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "60 lineas: sin precio 60. Ref. agregador; enteros: p sin devolucion.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-23466f37aa2e|remates a puerta"
+   ]
+  },
+  {
+   "unit_id": "m-3926df772b15|goles total entero",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "10 lineas: coh 10; brecha max 8pp (goles.total_entero.under.3). Ref. agregador; enteros: p sin devolucion.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-3926df772b15|goles total entero"
+   ]
+  },
+  {
+   "unit_id": "m-3926df772b15|hándicap asiático entero",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "10 lineas: sin precio 2, coh 8; brecha max 9pp (resultado.ah_entero.away.+1). Ref. agregador; enteros: p sin devolucion.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah_entero.home.+0",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "resultado.ah_entero.away.+0",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-3926df772b15|hándicap asiático entero"
+   ]
+  },
+  {
+   "unit_id": "m-3926df772b15|hándicap europeo",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "12 lineas: coh 12; brecha max 10pp (resultado.eh.away.-2). Ref. agregador; enteros: p sin devolucion.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-3926df772b15|hándicap europeo"
+   ]
+  },
+  {
+   "unit_id": "m-3926df772b15|remates",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "90 lineas: sin precio 90. Ref. agregador; enteros: p sin devolucion.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-3926df772b15|remates"
+   ]
+  },
+  {
+   "unit_id": "m-3926df772b15|remates a puerta",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "60 lineas: sin precio 60. Ref. agregador; enteros: p sin devolucion.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-3926df772b15|remates a puerta"
+   ]
+  },
+  {
+   "unit_id": "m-6974b6aa64cf|goles total entero",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "10 lineas: coh 10; brecha max 3pp (goles.total_entero.under.4). Ref. agregador; enteros: p sin devolucion.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-6974b6aa64cf|goles total entero"
+   ]
+  },
+  {
+   "unit_id": "m-6974b6aa64cf|hándicap asiático entero",
+   "consistencia_modelo": "discrepa_del_mercado",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "10 lineas: discrepa 5, coh 5; brecha max 23pp (resultado.ah_entero.home.+0). Ref. agregador; enteros: p sin devolucion.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah_entero.away.+2",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah_entero.home.+1",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah_entero.away.-1",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah_entero.home.+2",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah_entero.away.-2",
+     "consistencia_modelo": "coherente"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-6974b6aa64cf|hándicap asiático entero"
+   ]
+  },
+  {
+   "unit_id": "m-6974b6aa64cf|hándicap europeo",
+   "consistencia_modelo": "discrepa_del_mercado",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "12 lineas: discrepa 3, coh 9; brecha max 17pp (resultado.eh.home.+1). Ref. agregador; enteros: p sin devolucion.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.eh.home.-2",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.eh.draw.-2",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.eh.away.-2",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.eh.draw.-1",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.eh.draw.+1",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.eh.away.+1",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.eh.home.+2",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.eh.draw.+2",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.eh.away.+2",
+     "consistencia_modelo": "coherente"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-6974b6aa64cf|hándicap europeo"
+   ]
+  },
+  {
+   "unit_id": "m-6974b6aa64cf|remates",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "90 lineas: sin estim. 90. Ref. agregador; enteros: p sin devolucion.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-6974b6aa64cf|remates"
+   ]
+  },
+  {
+   "unit_id": "m-6974b6aa64cf|remates a puerta",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "60 lineas: sin estim. 60. Ref. agregador; enteros: p sin devolucion.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-6974b6aa64cf|remates a puerta"
+   ]
+  },
+  {
+   "unit_id": "m-7bc39c89939e|goles total entero",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "10 lineas: sin precio 10. Ref. agregador; enteros: p sin devolucion.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-7bc39c89939e|goles total entero"
+   ]
+  },
+  {
+   "unit_id": "m-7bc39c89939e|hándicap asiático entero",
+   "consistencia_modelo": "discrepa_del_mercado",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "10 lineas: discrepa 2, sin precio 4, coh 4; brecha max 22pp (resultado.ah_entero.away.+0). Ref. agregador; enteros: p sin devolucion.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah_entero.home.-2",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "resultado.ah_entero.away.+2",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "resultado.ah_entero.home.-1",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah_entero.home.+0",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah_entero.home.+1",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah_entero.away.-1",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah_entero.home.+2",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "resultado.ah_entero.away.-2",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-7bc39c89939e|hándicap asiático entero"
+   ]
+  },
+  {
+   "unit_id": "m-7bc39c89939e|hándicap europeo",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "12 lineas: sin precio 12. Ref. agregador; enteros: p sin devolucion.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-7bc39c89939e|hándicap europeo"
+   ]
+  },
+  {
+   "unit_id": "m-7bc39c89939e|remates",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "90 lineas: sin precio 90. Ref. agregador; enteros: p sin devolucion.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-7bc39c89939e|remates"
+   ]
+  },
+  {
+   "unit_id": "m-7bc39c89939e|remates a puerta",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "60 lineas: sin precio 60. Ref. agregador; enteros: p sin devolucion.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-7bc39c89939e|remates a puerta"
+   ]
+  },
+  {
+   "unit_id": "m-b7d38d427cd4|goles total entero",
+   "consistencia_modelo": "discrepa_del_mercado",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "10 lineas: discrepa 4, coh 6; brecha max 21pp (goles.total_entero.over.3). Ref. agregador; enteros: p sin devolucion.",
+   "excepciones": [
+    {
+     "entry_id": "goles.total_entero.over.1",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "goles.total_entero.under.1",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "goles.total_entero.over.2",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "goles.total_entero.under.2",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "goles.total_entero.over.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "goles.total_entero.under.5",
+     "consistencia_modelo": "coherente"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-b7d38d427cd4|goles total entero"
+   ]
+  },
+  {
+   "unit_id": "m-b7d38d427cd4|hándicap asiático entero",
+   "consistencia_modelo": "discrepa_del_mercado",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "10 lineas: discrepa 4, sin precio 3, coh 3; brecha max 33pp (resultado.ah_entero.home.-2). Ref. agregador; enteros: p sin devolucion.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah_entero.home.+0",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "resultado.ah_entero.away.+0",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "resultado.ah_entero.home.+1",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah_entero.away.-1",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah_entero.home.+2",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "resultado.ah_entero.away.-2",
+     "consistencia_modelo": "coherente"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-b7d38d427cd4|hándicap asiático entero"
+   ]
+  },
+  {
+   "unit_id": "m-b7d38d427cd4|hándicap europeo",
+   "consistencia_modelo": "discrepa_del_mercado",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "12 lineas: discrepa 4, coh 8; brecha max 30pp (resultado.eh.home.-1). Ref. agregador; enteros: p sin devolucion.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.eh.draw.-2",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.eh.draw.-1",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.eh.home.+1",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.eh.draw.+1",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.eh.away.+1",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.eh.home.+2",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.eh.draw.+2",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.eh.away.+2",
+     "consistencia_modelo": "coherente"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-b7d38d427cd4|hándicap europeo"
+   ]
+  },
+  {
+   "unit_id": "m-b7d38d427cd4|remates",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "90 lineas: sin estim. 90. Ref. agregador; enteros: p sin devolucion.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-b7d38d427cd4|remates"
+   ]
+  },
+  {
+   "unit_id": "m-b7d38d427cd4|remates a puerta",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "60 lineas: sin estim. 60. Ref. agregador; enteros: p sin devolucion.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-b7d38d427cd4|remates a puerta"
+   ]
+  },
+  {
+   "unit_id": "m-ca57661c3346|goles total entero",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "10 lineas: sin precio 10. Ref. agregador; enteros: p sin devolucion.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ca57661c3346|goles total entero"
+   ]
+  },
+  {
+   "unit_id": "m-ca57661c3346|hándicap asiático entero",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "10 lineas: sin precio 4, coh 6; brecha max 14pp (resultado.ah_entero.away.+0). Ref. agregador; enteros: p sin devolucion.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah_entero.home.-2",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "resultado.ah_entero.away.+2",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "resultado.ah_entero.home.+2",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "resultado.ah_entero.away.-2",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-ca57661c3346|hándicap asiático entero"
+   ]
+  },
+  {
+   "unit_id": "m-ca57661c3346|hándicap europeo",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "12 lineas: sin precio 12. Ref. agregador; enteros: p sin devolucion.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ca57661c3346|hándicap europeo"
+   ]
+  },
+  {
+   "unit_id": "m-ca57661c3346|remates",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "90 lineas: sin precio 90. Ref. agregador; enteros: p sin devolucion.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ca57661c3346|remates"
+   ]
+  },
+  {
+   "unit_id": "m-ca57661c3346|remates a puerta",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "60 lineas: sin precio 60. Ref. agregador; enteros: p sin devolucion.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ca57661c3346|remates a puerta"
+   ]
+  },
+  {
+   "unit_id": "m-ea7f10bbd7fd|goles total entero",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "10 lineas: coh 10; brecha max 6pp (goles.total_entero.under.3). Ref. agregador; enteros: p sin devolucion.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ea7f10bbd7fd|goles total entero"
+   ]
+  },
+  {
+   "unit_id": "m-ea7f10bbd7fd|hándicap asiático entero",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "10 lineas: coh 10; brecha max 15pp (resultado.ah_entero.away.+2). Ref. agregador; enteros: p sin devolucion.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ea7f10bbd7fd|hándicap asiático entero"
+   ]
+  },
+  {
+   "unit_id": "m-ea7f10bbd7fd|hándicap europeo",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "12 lineas: coh 12; brecha max 12pp (resultado.eh.away.-2). Ref. agregador; enteros: p sin devolucion.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ea7f10bbd7fd|hándicap europeo"
+   ]
+  },
+  {
+   "unit_id": "m-ea7f10bbd7fd|remates",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "90 lineas: sin precio 90. Ref. agregador; enteros: p sin devolucion.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ea7f10bbd7fd|remates"
+   ]
+  },
+  {
+   "unit_id": "m-ea7f10bbd7fd|remates a puerta",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "60 lineas: sin precio 60. Ref. agregador; enteros: p sin devolucion.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ea7f10bbd7fd|remates a puerta"
+   ]
+  },
+  {
+   "unit_id": "m-f9847c77e003|goles total entero",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "10 lineas: coh 10; brecha max 6pp (goles.total_entero.over.2). Ref. agregador; enteros: p sin devolucion.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-f9847c77e003|goles total entero"
+   ]
+  },
+  {
+   "unit_id": "m-f9847c77e003|hándicap asiático entero",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "10 lineas: coh 10; brecha max 9pp (resultado.ah_entero.home.+1). Ref. agregador; enteros: p sin devolucion.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-f9847c77e003|hándicap asiático entero"
+   ]
+  },
+  {
+   "unit_id": "m-f9847c77e003|hándicap europeo",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "12 lineas: coh 12; brecha max 6pp (resultado.eh.home.+1). Ref. agregador; enteros: p sin devolucion.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-f9847c77e003|hándicap europeo"
+   ]
+  },
+  {
+   "unit_id": "m-f9847c77e003|remates",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "90 lineas: sin precio 90. Ref. agregador; enteros: p sin devolucion.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-f9847c77e003|remates"
+   ]
+  },
+  {
+   "unit_id": "m-f9847c77e003|remates a puerta",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "60 lineas: sin precio 60. Ref. agregador; enteros: p sin devolucion.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-f9847c77e003|remates a puerta"
+   ]
+  }
+ ],
+ "limitaciones": [
+  "Brecha = p_modelo - 1/cuota (incluye margen); donde hay p_mercado sin margen se contrasta tambien; umbral 15 pp en valor absoluto. Precio de agregador usado como referencia.",
+  "Enteros (goles total, AH entero, europeo): p_modelo es P(gana | sin devolucion) y 1/cuota incluye devolucion; la brecha es aproximada. Modelo no validado (validacion no_evaluada); sin EV.",
+  "Remates y remates a puerta: la mayoria de lineas sin precio en paquete (sin_precio_para_contrastar) y varias sin p_modelo (sin_estimador). Correlacion intra-partido; sin producto de probabilidades. Sin consultas a la API."
+ ]
+}

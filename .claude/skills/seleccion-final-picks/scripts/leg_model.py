@@ -75,6 +75,36 @@ def p_team_over(g, side, line):
     return sum(g[i][j] for i in range(MAX_G + 1) for j in range(MAX_G + 1) if ((i > line) if side == "home" else (j > line)))
 
 
+def _p_diff(g, cond):
+    return sum(g[i][j] for i in range(MAX_G + 1) for j in range(MAX_G + 1) if cond(i, j))
+
+
+def p_whole_over(g, line):
+    """Total ENTERO (devolución si el total es exacto): P(gana | no hay devolución) = P(total>L)/(1-P(total=L)). «Menos» es el complemento."""
+    over = _p_diff(g, lambda i, j: i + j > line)
+    push = _p_diff(g, lambda i, j: i + j == line)
+    return over / (1 - push) if push < 1 else 0.5
+
+
+def p_ah_whole(g, side, line):
+    """Hándicap asiático ENTERO del lado `side` con su propia línea `line` (devolución si el margen ajustado es 0): P(gana | no hay devolución)."""
+    win = _p_diff(g, (lambda i, j: i + line > j) if side == "home" else (lambda i, j: j + line > i))
+    lose = _p_diff(g, (lambda i, j: i + line < j) if side == "home" else (lambda i, j: j + line < i))
+    return win / (win + lose) if win + lose > 0 else 0.5
+
+
+def p_eh(g, outcome, line):
+    """Hándicap europeo (3 resultados) con `line` aplicada al local: local gana / empate / visitante gana tras sumar la línea."""
+    if outcome == "home":
+        return _p_diff(g, lambda i, j: i + line > j)
+    if outcome == "draw":
+        return _p_diff(g, lambda i, j: i + line == j)
+    return _p_diff(g, lambda i, j: i + line < j)
+
+
+HANDICAP_WHOLE = (-2, -1, 0, 1, 2)
+EUROPEAN = (-2, -1, 1, 2)
+GOAL_WHOLE_LINES = (1, 2, 3, 4, 5)
 HANDICAP_HALF = (-2.5, -1.5, -0.5, 0.5, 1.5, 2.5)
 TEAM_GOAL_LINES = (0.5, 1.5, 2.5)
 HALF_LINES = (0.5, 1.5, 2.5)
@@ -108,6 +138,14 @@ def model_probs(form_home, form_away, mu, adv, k=8, share=None):
     for L in HANDICAP_HALF:                                # hándicap asiático de media línea: clave con la línea DEL PROPIO lado (como en el catálogo)
         out[f"ah_home_{L:+.1f}"] = p_handicap(g, "home", L)
         out[f"ah_away_{-L:+.1f}"] = p_handicap(g, "away", -L)
+    for ln in GOAL_WHOLE_LINES:
+        out[f"whole_over_{ln}"] = p_whole_over(g, ln)
+    for L in HANDICAP_WHOLE:                               # asiático entero: clave con la línea DEL PROPIO lado
+        out[f"ahw_home_{L:+d}"] = p_ah_whole(g, "home", L)
+        out[f"ahw_away_{L:+d}"] = p_ah_whole(g, "away", L)
+    for L in EUROPEAN:
+        for o in ("home", "draw", "away"):
+            out[f"eh_{o}_{L:+d}"] = p_eh(g, o, L)
     if share is not None:
         g1 = grid(lh * share, la * share)
         h1, d1, a1 = p_1x2(g1)

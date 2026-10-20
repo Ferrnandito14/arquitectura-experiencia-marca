@@ -96,3 +96,8 @@ CORNER_TOTAL = [6.5 + i for i in range(9)]
 CORNER_TEAM = [2.5 + i for i in range(7)]
 CARD_TOTAL = [1.5 + i for i in range(9)]
 CARD_TEAM = [0.5 + i for i in range(6)]
+
+SOT_TOTAL = [3.5 + i for i in range(12)]
+SOT_TEAM = [1.5 + i for i in range(9)]
+SHOTS_TOTAL = [14.5 + i for i in range(19)]
+SHOTS_TEAM = [6.5 + i for i in range(13)]

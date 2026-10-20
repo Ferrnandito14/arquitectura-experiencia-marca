@@ -1,0 +1,632 @@
+{
+ "agente": "auditor",
+ "version_contrato": 1,
+ "run": "runs/2026-10-20",
+ "unidades": [
+  {
+   "unit_id": "m-0f3fdae71d8c|goles total entero",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Wadi/NBE parejos (O2.5 5/10 ambos); muestras n~10 sin ajuste por rival; Wadi rota ~7 cambios; precio ausente o parcial.",
+   "evidencia": [
+    "paquete:m-0f3fdae71d8c|goles total entero",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-0f3fdae71d8c|hándicap asiático entero",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Wadi/NBE parejos (O2.5 5/10 ambos); muestras n~10 sin ajuste por rival; Wadi rota ~7 cambios; precio ausente o parcial.",
+   "evidencia": [
+    "paquete:m-0f3fdae71d8c|hándicap asiático entero",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-0f3fdae71d8c|hándicap europeo",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Wadi/NBE parejos (O2.5 5/10 ambos); muestras n~10 sin ajuste por rival; Wadi rota ~7 cambios; precio ausente o parcial.",
+   "evidencia": [
+    "paquete:m-0f3fdae71d8c|hándicap europeo",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-0f3fdae71d8c|remates",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Estimador propio; Wadi rota ~7.3 cambios/partido y NBE 4.0; sin alineaciones ni precio de agregador para contrastar.",
+   "evidencia": [
+    "paquete:m-0f3fdae71d8c|remates",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-0f3fdae71d8c|remates a puerta",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Estimador propio; Wadi rota ~7.3 cambios/partido y NBE 4.0; sin alineaciones ni precio de agregador para contrastar.",
+   "evidencia": [
+    "paquete:m-0f3fdae71d8c|remates a puerta",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-1fa59ce5c3eb|goles total entero",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 19pp en lineas 3 (over/under 3); Huddersfield rota ~7 cambios con 3 dias de descanso.",
+   "evidencia": [
+    "paquete:m-1fa59ce5c3eb|goles total entero",
+    "archivo:runs/2026-10-20/rotation.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "goles.total_entero.over.1",
+     "objecion": "rotacion_no_cuantificada"
+    },
+    {
+     "entry_id": "goles.total_entero.under.1",
+     "objecion": "rotacion_no_cuantificada"
+    },
+    {
+     "entry_id": "goles.total_entero.over.2",
+     "objecion": "rotacion_no_cuantificada"
+    },
+    {
+     "entry_id": "goles.total_entero.under.2",
+     "objecion": "rotacion_no_cuantificada"
+    },
+    {
+     "entry_id": "goles.total_entero.over.4",
+     "objecion": "rotacion_no_cuantificada"
+    },
+    {
+     "entry_id": "goles.total_entero.under.4",
+     "objecion": "rotacion_no_cuantificada"
+    },
+    {
+     "entry_id": "goles.total_entero.over.5",
+     "objecion": "rotacion_no_cuantificada"
+    },
+    {
+     "entry_id": "goles.total_entero.under.5",
+     "objecion": "rotacion_no_cuantificada"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-1fa59ce5c3eb|hándicap asiático entero",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Huddersfield rota ~7 cambios con 3 dias de descanso; brecha <=6pp, pero once local incierto afecta al hándicap.",
+   "evidencia": [
+    "paquete:m-1fa59ce5c3eb|hándicap asiático entero",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-1fa59ce5c3eb|hándicap europeo",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Huddersfield rota ~7 cambios con 3 dias de descanso; brecha <=6pp, pero once local incierto afecta al hándicap.",
+   "evidencia": [
+    "paquete:m-1fa59ce5c3eb|hándicap europeo",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-1fa59ce5c3eb|remates",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Estimador propio; Huddersfield rota ~7 cambios con 3 dias; sin alineaciones.",
+   "evidencia": [
+    "paquete:m-1fa59ce5c3eb|remates",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-1fa59ce5c3eb|remates a puerta",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Estimador propio; Huddersfield rota ~7 cambios con 3 dias; sin alineaciones.",
+   "evidencia": [
+    "paquete:m-1fa59ce5c3eb|remates a puerta",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-3470aeccdfcb|goles total entero",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Al Diriyah 0.4 gf en casa (n5) vs Al Riyadh 2.3 gc fuera: señales opuestas, n pequeño; sin precio para contrastar.",
+   "evidencia": [
+    "paquete:m-3470aeccdfcb|goles total entero",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-3470aeccdfcb|hándicap asiático entero",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 30pp (home -1: p 0.21 vs 1/1.835=0.55; away +1 0.79 vs 0.53) con n=5 en casa y señales opuestas.",
+   "evidencia": [
+    "paquete:m-3470aeccdfcb|hándicap asiático entero",
+    "archivo:runs/2026-10-20/rotation.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah_entero.home.+1",
+     "objecion": "muestra_debil"
+    },
+    {
+     "entry_id": "resultado.ah_entero.away.-1",
+     "objecion": "muestra_debil"
+    },
+    {
+     "entry_id": "resultado.ah_entero.home.+2",
+     "objecion": "muestra_debil"
+    },
+    {
+     "entry_id": "resultado.ah_entero.away.-2",
+     "objecion": "muestra_debil"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-3470aeccdfcb|hándicap europeo",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Al Diriyah 0.4 gf en casa (n5) vs Al Riyadh 2.3 gc fuera: señales opuestas, n pequeño; sin precio para contrastar.",
+   "evidencia": [
+    "paquete:m-3470aeccdfcb|hándicap europeo",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-3470aeccdfcb|remates",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Estimador propio con localia dominante; Al Diriyah n=5 en casa de baja anotacion; sin alineaciones ni precio.",
+   "evidencia": [
+    "paquete:m-3470aeccdfcb|remates",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-3470aeccdfcb|remates a puerta",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Estimador propio con localia dominante; Al Diriyah n=5 en casa de baja anotacion; sin alineaciones ni precio.",
+   "evidencia": [
+    "paquete:m-3470aeccdfcb|remates a puerta",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6872b103b64c|goles total entero",
+   "objecion": "muestra_debil",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Bhayangkara casa O2.5 8/10 con mezcla de temporadas; brecha <=12pp; rotacion baja en ambos.",
+   "evidencia": [
+    "paquete:m-6872b103b64c|goles total entero",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6872b103b64c|hándicap asiático entero",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Coherente con el mercado (brecha <=7pp), rotacion baja en ambos (~1.5 cambios); sin objecion especifica.",
+   "evidencia": [
+    "paquete:m-6872b103b64c|hándicap asiático entero",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6872b103b64c|hándicap europeo",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Coherente con el mercado (brecha <=7pp), rotacion baja en ambos (~1.5 cambios); sin objecion especifica.",
+   "evidencia": [
+    "paquete:m-6872b103b64c|hándicap europeo",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-738c8e8b11a5|goles total entero",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Ambos equipos con rotacion alta y 3 dias de descanso (4.3 y 5.7 cambios); muestra mixta CL/Copa/Liga; brecha <=13pp.",
+   "evidencia": [
+    "paquete:m-738c8e8b11a5|goles total entero",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-738c8e8b11a5|hándicap asiático entero",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Ambos equipos con rotacion alta y 3 dias de descanso (4.3 y 5.7 cambios); muestra mixta CL/Copa/Liga; brecha <=13pp.",
+   "evidencia": [
+    "paquete:m-738c8e8b11a5|hándicap asiático entero",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-738c8e8b11a5|hándicap europeo",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Ambos equipos con rotacion alta y 3 dias de descanso (4.3 y 5.7 cambios); muestra mixta CL/Copa/Liga; brecha <=13pp.",
+   "evidencia": [
+    "paquete:m-738c8e8b11a5|hándicap europeo",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-738c8e8b11a5|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador sin probabilidad calculada (p_modelo null en todas las lineas) pese a datos suficientes; no hay base para clasificar.",
+   "evidencia": [
+    "paquete:m-738c8e8b11a5|remates",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-738c8e8b11a5|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador sin probabilidad calculada (p_modelo null en todas las lineas) pese a datos suficientes; no hay base para clasificar.",
+   "evidencia": [
+    "paquete:m-738c8e8b11a5|remates a puerta",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-a7963c41237a|goles total entero",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Ambos rotan (4.7 y 4.0 cambios, 3 dias); Bodo O2.5 8/10 vs Napoli 4/10, n=10 mixto; brecha 5pp.",
+   "evidencia": [
+    "paquete:m-a7963c41237a|goles total entero",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-a7963c41237a|hándicap asiático entero",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Brecha 29-31pp (Napoli -1: p 0.19 vs 1/2.02=0.50); modelo contradice mercado con ambos rotando; muestras n~10 mixtas.",
+   "evidencia": [
+    "paquete:m-a7963c41237a|hándicap asiático entero",
+    "archivo:runs/2026-10-20/rotation.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah_entero.home.+2",
+     "objecion": "rotacion_no_cuantificada"
+    },
+    {
+     "entry_id": "resultado.ah_entero.away.-2",
+     "objecion": "rotacion_no_cuantificada"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-a7963c41237a|hándicap europeo",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Brecha 29-31pp (Napoli -1: p 0.19 vs 1/2.02=0.50); modelo contradice mercado con ambos rotando; muestras n~10 mixtas.",
+   "evidencia": [
+    "paquete:m-a7963c41237a|hándicap europeo",
+    "archivo:runs/2026-10-20/rotation.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "resultado.eh.home.-2",
+     "objecion": "rotacion_no_cuantificada"
+    },
+    {
+     "entry_id": "resultado.eh.draw.-2",
+     "objecion": "rotacion_no_cuantificada"
+    },
+    {
+     "entry_id": "resultado.eh.draw.-1",
+     "objecion": "rotacion_no_cuantificada"
+    },
+    {
+     "entry_id": "resultado.eh.draw.+1",
+     "objecion": "rotacion_no_cuantificada"
+    },
+    {
+     "entry_id": "resultado.eh.away.+1",
+     "objecion": "rotacion_no_cuantificada"
+    },
+    {
+     "entry_id": "resultado.eh.draw.+2",
+     "objecion": "rotacion_no_cuantificada"
+    },
+    {
+     "entry_id": "resultado.eh.away.+2",
+     "objecion": "rotacion_no_cuantificada"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-a7963c41237a|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador sin probabilidad calculada (p_modelo null en todas las lineas) pese a datos suficientes; no hay base para clasificar.",
+   "evidencia": [
+    "paquete:m-a7963c41237a|remates",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-a7963c41237a|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador sin probabilidad calculada (p_modelo null en todas las lineas) pese a datos suficientes; no hay base para clasificar.",
+   "evidencia": [
+    "paquete:m-a7963c41237a|remates a puerta",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-c1160737aa35|goles total entero",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 25pp (p over3 0.25 vs 1/1.9=0.53); Persijap rota ~5 cambios; muestras n~10 con 1V-2E-7D fuera.",
+   "evidencia": [
+    "paquete:m-c1160737aa35|goles total entero",
+    "archivo:runs/2026-10-20/rotation.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "goles.total_entero.over.1",
+     "objecion": "ninguna"
+    },
+    {
+     "entry_id": "goles.total_entero.under.1",
+     "objecion": "ninguna"
+    },
+    {
+     "entry_id": "goles.total_entero.over.5",
+     "objecion": "ninguna"
+    },
+    {
+     "entry_id": "goles.total_entero.under.5",
+     "objecion": "ninguna"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-c1160737aa35|hándicap asiático entero",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Brecha 30-31pp (home -1: p 0.45 vs 1/1.22=0.82; away -1 p 0.40 vs 0.20); muestras n~10 sin ajuste por rival.",
+   "evidencia": [
+    "paquete:m-c1160737aa35|hándicap asiático entero",
+    "archivo:runs/2026-10-20/rotation.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah_entero.home.+0",
+     "objecion": "muestra_debil"
+    },
+    {
+     "entry_id": "resultado.ah_entero.away.+0",
+     "objecion": "muestra_debil"
+    },
+    {
+     "entry_id": "resultado.ah_entero.home.+1",
+     "objecion": "ninguna"
+    },
+    {
+     "entry_id": "resultado.ah_entero.away.-1",
+     "objecion": "ninguna"
+    },
+    {
+     "entry_id": "resultado.ah_entero.home.+2",
+     "objecion": "muestra_debil"
+    },
+    {
+     "entry_id": "resultado.ah_entero.away.-2",
+     "objecion": "muestra_debil"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-c1160737aa35|hándicap europeo",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Brecha 30-31pp (home -1: p 0.45 vs 1/1.22=0.82; away -1 p 0.40 vs 0.20); muestras n~10 sin ajuste por rival.",
+   "evidencia": [
+    "paquete:m-c1160737aa35|hándicap europeo",
+    "archivo:runs/2026-10-20/rotation.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "resultado.eh.draw.-2",
+     "objecion": "ninguna"
+    },
+    {
+     "entry_id": "resultado.eh.draw.-1",
+     "objecion": "ninguna"
+    },
+    {
+     "entry_id": "resultado.eh.home.+1",
+     "objecion": "ninguna"
+    },
+    {
+     "entry_id": "resultado.eh.draw.+1",
+     "objecion": "ninguna"
+    },
+    {
+     "entry_id": "resultado.eh.away.+1",
+     "objecion": "ninguna"
+    },
+    {
+     "entry_id": "resultado.eh.home.+2",
+     "objecion": "ninguna"
+    },
+    {
+     "entry_id": "resultado.eh.draw.+2",
+     "objecion": "ninguna"
+    },
+    {
+     "entry_id": "resultado.eh.away.+2",
+     "objecion": "ninguna"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-e2ceef3f62ee|goles total entero",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Ettifaq rota ~6 cambios con 3 dias de descanso (Ittihad 7 dias); brecha <=8pp; once local incierto.",
+   "evidencia": [
+    "paquete:m-e2ceef3f62ee|goles total entero",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-e2ceef3f62ee|hándicap asiático entero",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Ettifaq rota ~6 cambios con 3 dias de descanso (Ittihad 7 dias); brecha <=8pp; once local incierto.",
+   "evidencia": [
+    "paquete:m-e2ceef3f62ee|hándicap asiático entero",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-e2ceef3f62ee|hándicap europeo",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Ettifaq rota ~6 cambios con 3 dias de descanso (Ittihad 7 dias); brecha <=8pp; once local incierto.",
+   "evidencia": [
+    "paquete:m-e2ceef3f62ee|hándicap europeo",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-e2ceef3f62ee|remates",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Estimador propio; Ettifaq rota ~6 cambios con 3 dias; sin alineaciones ni precio para contrastar.",
+   "evidencia": [
+    "paquete:m-e2ceef3f62ee|remates",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-e2ceef3f62ee|remates a puerta",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Estimador propio; Ettifaq rota ~6 cambios con 3 dias; sin alineaciones ni precio para contrastar.",
+   "evidencia": [
+    "paquete:m-e2ceef3f62ee|remates a puerta",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-f87ad3f8a496|goles total entero",
+   "objecion": "muestra_debil",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Londrina 2V-2E-6D, Cuiaba 4V-3E-3D; n=10 sin ajuste por rival; brecha <=11pp; rotacion baja.",
+   "evidencia": [
+    "paquete:m-f87ad3f8a496|goles total entero",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-f87ad3f8a496|hándicap asiático entero",
+   "objecion": "muestra_debil",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Londrina 2V-2E-6D, Cuiaba 4V-3E-3D; n=10 sin ajuste por rival; brecha <=11pp; rotacion baja.",
+   "evidencia": [
+    "paquete:m-f87ad3f8a496|hándicap asiático entero",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-f87ad3f8a496|hándicap europeo",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 15pp en hándicap europeo, en el umbral; n=10 sin ajuste por rival; rotacion baja.",
+   "evidencia": [
+    "paquete:m-f87ad3f8a496|hándicap europeo",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-f87ad3f8a496|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador sin probabilidad calculada (p_modelo null en todas las lineas) pese a datos suficientes; no hay base para clasificar.",
+   "evidencia": [
+    "paquete:m-f87ad3f8a496|remates",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-f87ad3f8a496|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador sin probabilidad calculada (p_modelo null en todas las lineas) pese a datos suficientes; no hay base para clasificar.",
+   "evidencia": [
+    "paquete:m-f87ad3f8a496|remates a puerta",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  }
+ ],
+ "limitaciones": [
+  "Auditoria sobre paquete.json, rotation.json e informes fusionados; sin consultar fuentes externas ni API. Brecha tomada de cuantitativo (hándicaps con push no comparables 1:1 con 1/cuota).",
+  "Remates y remates a puerta de Liverpool, Napoli y Londrina llegan sin p_modelo en el paquete (sin_probabilidad_calculada); no se afirma estimador. Modelo global sin validar; sin alineaciones."
+ ]
+}

@@ -84,12 +84,18 @@ def _model_probs_by_match(run, matches, mx, samples, raw=None):
         cp = {}
         lid = cov.league_of(m, inv_all)
         filas = (samples.get(lid) or {}).get("filas") or []
-        for name, field, key, tl, ml in (("corners", "corners", "corners", count_model.CORNER_TOTAL, count_model.CORNER_TEAM), ("cards", "cards_pts", "tarjetas", count_model.CARD_TOTAL, count_model.CARD_TEAM)):
-            st = count_model.league_stats([tuple(r[key]) if r.get(key) and None not in r[key] else None for r in filas])
+        for name, field, key, tl, ml in (("corners", "corners", "corners", count_model.CORNER_TOTAL, count_model.CORNER_TEAM), ("cards", "cards_pts", "tarjetas", count_model.CARD_TOTAL, count_model.CARD_TEAM),
+                                         ("sot", "sot", "sot", count_model.SOT_TOTAL, count_model.SOT_TEAM), ("shots", "shots", "shots", count_model.SHOTS_TOTAL, count_model.SHOTS_TEAM)):
+            if name in ("sot", "shots"):      # las muestras de liga no traen remates: la media y la dispersión salen de las filas de forma de la MISMA competición (todos los equipos del día), ya orientadas local-visitante
+                comp_rows = [r for r in by_comp.get(m["competition"], []) if r.get(field) and None not in r[field]]
+                orient_h = [(r[field][0], r[field][1]) if r.get("venue") == "local" else (r[field][1], r[field][0]) for r in comp_rows]
+                st = count_model.league_stats(orient_h)
+            else:
+                st = count_model.league_stats([tuple(r[key]) if r.get(key) and None not in r[key] else None for r in filas])
             def orient(rows):
                 o = []
                 for r in rows:
-                    t = r.get("corners") if field == "corners" else r.get("cards_pts")
+                    t = r.get(field) if field in ("corners", "sot", "shots") else r.get("cards_pts")
                     if t and None not in t:
                         home = r.get("venue") == "local"
                         o.append({"venue": r.get("venue"), "own": t[0] if home else t[1], "opp": t[1] if home else t[0]})

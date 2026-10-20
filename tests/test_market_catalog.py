@@ -129,9 +129,9 @@ class A_Investigacion(unittest.TestCase):
         self.assertTrue(s["certificado_investigacion"])
         self.assertEqual(s["analitica"]["estado"], "CON_LIMITACIONES")
         self.assertEqual(s["precios"]["estado"], "SIN_PRECIOS_REALES")
-        self.assertEqual(by_entry(rows, "resultado.ah_entero.home.-1")["analitica"]["estimador"], "no_implementado")      # sin estimador, pero investigado
+        self.assertEqual(by_entry(rows, "otros.fueras_de_juego.total")["analitica"]["estimador"], "no_implementado")      # sin estimador, pero investigado
         self.assertEqual(by_entry(rows, "otros.fueras_de_juego.total")["investigacion"]["canales"][0]["resultado"], "consultado_no_encontrado")
-        self.assertNotIn("probabilidad", json.dumps(by_entry(rows, "resultado.ah_entero.home.-1")))       # nunca se inventa una probabilidad
+        self.assertNotIn("probabilidad", json.dumps(by_entry(rows, "otros.fueras_de_juego.total")))       # nunca se inventa una probabilidad
 
     def test_una_sola_combinacion_pendiente_basta_para_declararla_incompleta_sin_umbral(self):
         rows, errs = cov.build_records([match(i) for i in range(1, 6)], {f"m{i}": ev() for i in range(1, 6)}, [FakeProvider()])
@@ -217,7 +217,7 @@ class B_Analitica(unittest.TestCase):
         self.assertEqual(r["investigacion"]["canales"][0]["resultado"], "consultado_no_encontrado")     # investigado: el campo no existe
         self.assertEqual(r["analitica"]["datos"], "insuficientes")
         self.assertEqual(r["analitica"]["estimador"], "datos_insuficientes")                         # hay estimador de córners pero faltan los datos
-        self.assertEqual(by_entry(rows, "sot.total.over.8.5")["analitica"]["estimador"], "no_implementado")
+        self.assertEqual(by_entry(rows, "otros.fueras_de_juego.total")["analitica"]["estimador"], "no_implementado")
         g = by_entry(rows, "goles.total.over.2.5")
         self.assertEqual((g["analitica"]["estimador"], g["analitica"]["validacion"]), ("calculable", "insuficiente"))     # hay estimador pero el modelo NO está validado
 
@@ -230,8 +230,9 @@ class B_Analitica(unittest.TestCase):
         self.assertEqual(est["corners.total.over.9.5"], "calculable")
         self.assertEqual(est["cards_pts.equipo.away.over.1.5"], "calculable")
         self.assertEqual(est["primera_parte.total.over.0.5"], "calculable")
-        for eid in ("resultado.ah_entero.home.-1", "resultado.eh.home.-1", "sot.total.over.8.5", "shots.total.over.24.5", "otros.fueras_de_juego.total", "goles.total_entero.over.2"):
-            self.assertEqual(est[eid], "no_implementado", eid)
+        for eid in ("resultado.ah_entero.home.-1", "resultado.eh.home.-1", "goles.total_entero.over.2", "sot.total.over.8.5", "shots.total.over.24.5"):      # estimadores añadidos el 20-oct (Poisson con devolución; conteos NB)
+            self.assertEqual(est[eid], "calculable", eid)
+        self.assertEqual(est["otros.fueras_de_juego.total"], "no_implementado")
 
 
 class C_Precios(unittest.TestCase):

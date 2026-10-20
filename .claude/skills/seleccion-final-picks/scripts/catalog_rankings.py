@@ -45,8 +45,11 @@ PRICE_OK = {"real_verificada": "ejecutable", "otra_fuente": "referencia"}       
 # «no_encontrada/no_ofrecida» del verificador describen la FUENTE DE PRECIOS (la API no publica córners/tarjetas): ya excluyen de combinadas por falta de precio y NO deben ocultar el mercado de los rankings.
 AGENT_BAD = {"cuantitativo": ("defecto_del_modelo", "datos_insuficientes", "sin_estimador"), "verificador": ("no_verificable",)}
 AGENT_SOFT = {"deportivo": ("BAJA", "NO_EVALUABLE")}
+# Criterio de la persona usuaria (20-oct): el promedio de cuotas de las API es suficiente; «cuota no ejecutable», «sin precio de casa» y «una sola casa» NO son objeciones. El auditor solo rechaza por defecto de dato
+# (dato_defectuoso) o por estimador sin validar; «verificar_manualmente» por falta de precio ya no rechaza. Una línea con precio anómalo la frena el filtro de brecha, no el rechazo de toda la unidad.
 AUDITOR_BAD = ("descartar_de_rankings", "verificar_manualmente")
-VERIFIER_BAD_DISCREPANCIES = ("precio_anomalo", "mercado_mal_etiquetado", "linea_distinta", "identidad_partido", "hora", "calendario")
+AUDITOR_BAD_OBJECTIONS = ("dato_defectuoso", "estimador_sin_validar")
+VERIFIER_BAD_DISCREPANCIES = ("mercado_mal_etiquetado", "linea_distinta", "identidad_partido", "hora", "calendario")
 AGENT_ORDER = {"APROBADA": 0, "SIN_REVISION": 1}
 
 
@@ -92,7 +95,7 @@ def agent_status(units, reports, reviewed=None, review_units=None):
                 v = ar.entry_verdict(c, role, e["id"])
                 if v in bad:
                     soft = f"{role}:{v}"
-            if not why and a["recomendacion"] in AUDITOR_BAD:
+            if not why and a["recomendacion"] in AUDITOR_BAD and (ar.entry_verdict(c, "auditor", e["id"]) in AUDITOR_BAD_OBJECTIONS):
                 why = f"auditor:{a['recomendacion']}"
             if not why and any(d in VERIFIER_BAD_DISCREPANCIES for d in vr["discrepancias"]):
                 why = "verificador:discrepancia_de_la_unidad"

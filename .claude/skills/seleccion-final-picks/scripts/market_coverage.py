@@ -98,7 +98,7 @@ def _probe_model_keys():
     keys = set(leg_model.model_probs(rows, rows, 1.3, 1.1, share=0.45).keys())
     crows = [{"venue": "local", "own": 5, "opp": 4}] * 8
     st = {"mu": 5.0, "adv": 1.1, "r_total": None, "r_team": None, "n": 100}
-    for name, tl, ml in (("corners", count_model.CORNER_TOTAL, count_model.CORNER_TEAM), ("cards", count_model.CARD_TOTAL, count_model.CARD_TEAM)):
+    for name, tl, ml in (("corners", count_model.CORNER_TOTAL, count_model.CORNER_TEAM), ("cards", count_model.CARD_TOTAL, count_model.CARD_TEAM), ("sot", count_model.SOT_TOTAL, count_model.SOT_TEAM), ("shots", count_model.SHOTS_TOTAL, count_model.SHOTS_TEAM)):
         keys |= set(count_model.model_probs(name, crows, crows, st, tl, ml))
     return keys
 
@@ -120,11 +120,17 @@ def model_key(entry, keys):
         k = f"ah_{d}_{ln:+.1f}"
     elif m == "team_goals":
         k = f"{entry['scope']}_over_{ln}"
+    elif m == "goals_whole":
+        k = f"whole_over_{int(ln)}"
+    elif m == "ah_whole":
+        k = f"ahw_{d}_{int(ln):+d}"
+    elif m == "eh":
+        k = f"eh_{d}_{int(ln):+d}"
     elif m == "half_1x2":
         k = {"home": "ht_p1", "draw": "ht_px", "away": "ht_p2"}[d]
     elif m == "half_total":
         k = f"ht_over_{ln}"
-    elif m in ("count:corners", "count:cards"):
+    elif m in ("count:corners", "count:cards", "count:sot", "count:shots"):
         name = m.split(":")[1]
         k = f"{name}_{'total' if entry['scope'] == 'match' else entry['scope']}_over_{ln}"
     else:

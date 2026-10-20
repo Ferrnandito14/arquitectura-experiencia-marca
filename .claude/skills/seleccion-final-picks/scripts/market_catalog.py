@@ -126,6 +126,16 @@ def build_catalog():
             e["model"] = "half_1x2"
         elif i.startswith("primera_parte.total."):
             e["model"] = "half_total"
+        elif i.startswith("goles.total_entero."):
+            e["model"] = "goals_whole"
+        elif i.startswith("resultado.ah_entero."):
+            e["model"] = "ah_whole"
+        elif i.startswith("resultado.eh."):
+            e["model"] = "eh"
+        elif i.startswith("sot."):
+            e["model"] = "count:sot"
+        elif i.startswith("shots."):
+            e["model"] = "count:shots"
         elif i.startswith("corners."):
             e["model"] = "count:corners"
         elif i.startswith("cards_pts."):

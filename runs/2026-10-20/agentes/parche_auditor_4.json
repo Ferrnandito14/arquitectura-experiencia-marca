@@ -1,0 +1,720 @@
+{
+ "agente": "auditor",
+ "version_contrato": 1,
+ "run": "runs/2026-10-20",
+ "unidades": [
+  {
+   "unit_id": "m-0aed2494534c|goles total entero",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Ambos rotan ~6 cambios/partido y vienen de 3 dias de descanso; sin alineaciones. Modelo coherente con mercado (<=3pp).",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-0aed2494534c|goles total entero",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-0aed2494534c|hándicap asiático entero",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha hasta 19pp en local +0/+1 (modelo 0.28/0.59 vs mercado 0.44/0.78) y rotacion alta en ambos. Muestra n9 sin ajuste por rival.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah_entero.home.-2",
+     "objecion": "ninguna"
+    },
+    {
+     "entry_id": "resultado.ah_entero.away.+2",
+     "objecion": "ninguna"
+    },
+    {
+     "entry_id": "resultado.ah_entero.home.-1",
+     "objecion": "ninguna"
+    },
+    {
+     "entry_id": "resultado.ah_entero.away.+1",
+     "objecion": "ninguna"
+    },
+    {
+     "entry_id": "resultado.ah_entero.away.+0",
+     "objecion": "ninguna"
+    },
+    {
+     "entry_id": "resultado.ah_entero.away.-1",
+     "objecion": "ninguna"
+    },
+    {
+     "entry_id": "resultado.ah_entero.home.+2",
+     "objecion": "ninguna"
+    },
+    {
+     "entry_id": "resultado.ah_entero.away.-2",
+     "objecion": "ninguna"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-0aed2494534c|hándicap asiático entero",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-0aed2494534c|hándicap europeo",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Ambos rotan ~6 cambios/partido y vienen de 3 dias de descanso; sin alineaciones. Solo eh.home.+1 con brecha 15pp.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.eh.home.+1",
+     "objecion": "brecha_muestra_mercado"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-0aed2494534c|hándicap europeo",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-0aed2494534c|remates",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "n7 por equipo, sin ajuste por rival, rotacion alta en ambos; sin precio para contrastar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-0aed2494534c|remates",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-0aed2494534c|remates a puerta",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "SoT n7 por equipo, sin ajuste por rival, rotacion alta en ambos; sin precio para contrastar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-0aed2494534c|remates a puerta",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-182d9e7f9456|goles total entero",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Modelo (mediana 2) vs mercado: brecha hasta 49pp (over 2: 0.17 vs 0.66); over/under 2.5 de mercado ~1.9/1.8. Estimador no cuadra con el mercado.",
+   "excepciones": [
+    {
+     "entry_id": "goles.total_entero.over.5",
+     "objecion": "ninguna"
+    },
+    {
+     "entry_id": "goles.total_entero.under.5",
+     "objecion": "ninguna"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-182d9e7f9456|goles total entero",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-182d9e7f9456|hándicap asiático entero",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "n10, brecha max 14pp, sin rotacion alta.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-182d9e7f9456|hándicap asiático entero",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-182d9e7f9456|hándicap europeo",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "n10, brecha max 10pp, sin rotacion alta.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-182d9e7f9456|hándicap europeo",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-182d9e7f9456|remates",
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Datos insuficientes (n local 0, visitante 0): estimador sin datos.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-182d9e7f9456|remates",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-182d9e7f9456|remates a puerta",
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Datos SoT insuficientes (n local 0, visitante 0): estimador sin datos.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-182d9e7f9456|remates a puerta",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-3070749aa946|goles total entero",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Rochdale rota ~6 y Grimsby ~4 cambios, ambos con 3 dias de descanso; sin alineaciones. Goles coherentes (<=11pp).",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-3070749aa946|goles total entero",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-3070749aa946|hándicap asiático entero",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Brecha hasta 33pp: modelo da a Rochdale 0.68 sin perder AH0, mercado 1x2 favorece a Grimsby (3.1/3.5/2.1) con dif. goles +0.1/-0.1. Rotacion alta.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah_entero.home.-2",
+     "objecion": "ninguna"
+    },
+    {
+     "entry_id": "resultado.ah_entero.home.+2",
+     "objecion": "ninguna"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-3070749aa946|hándicap asiático entero",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-3070749aa946|hándicap europeo",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Brecha hasta 26pp en EH; modelo contradice la direccion del 1x2 de mercado (Grimsby favorito). Rotacion alta.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.eh.home.-2",
+     "objecion": "ninguna"
+    },
+    {
+     "entry_id": "resultado.eh.draw.-2",
+     "objecion": "ninguna"
+    },
+    {
+     "entry_id": "resultado.eh.draw.-1",
+     "objecion": "ninguna"
+    },
+    {
+     "entry_id": "resultado.eh.draw.+1",
+     "objecion": "ninguna"
+    },
+    {
+     "entry_id": "resultado.eh.away.+2",
+     "objecion": "ninguna"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-3070749aa946|hándicap europeo",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-3070749aa946|remates",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Rochdale rota ~6 y Grimsby ~4 cambios, ambos con 3 dias de descanso; sin alineaciones. n8 sin ajuste por rival.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-3070749aa946|remates",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-3070749aa946|remates a puerta",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Rochdale rota ~6 y Grimsby ~4 cambios, ambos con 3 dias de descanso; sin alineaciones. SoT n8 sin ajuste por rival.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-3070749aa946|remates a puerta",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-50f8cf24d89d|goles total entero",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "n6 por equipo sin ajuste por rival; sin precio para contrastar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-50f8cf24d89d|goles total entero",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-50f8cf24d89d|hándicap asiático entero",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "n6 sin ajuste por rival; lineas +-2 y +-1 extremas sin contraste fiable, brecha no evaluable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-50f8cf24d89d|hándicap asiático entero",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-50f8cf24d89d|hándicap europeo",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "n6 sin ajuste por rival; sin precio para contrastar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-50f8cf24d89d|hándicap europeo",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-73529c850d5a|goles total entero",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "n10, coherente con mercado (<=3pp), sin rotacion alta.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-73529c850d5a|goles total entero",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-73529c850d5a|hándicap asiático entero",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Una sola linea con brecha 16pp; dif. goles local -2.1 (n10) es extrema y sin ajuste por rival.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah_entero.home.+1",
+     "objecion": "brecha_muestra_mercado"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-73529c850d5a|hándicap asiático entero",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-73529c850d5a|remates",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "n6 por equipo, sin ajuste por rival.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-73529c850d5a|remates",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-73529c850d5a|remates a puerta",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "SoT n6 por equipo sin ajuste por rival; dos lineas con brecha ~20pp.",
+   "excepciones": [
+    {
+     "entry_id": "sot.total.under.8.5",
+     "objecion": "brecha_muestra_mercado"
+    },
+    {
+     "entry_id": "sot.equipo.away.under.4.5",
+     "objecion": "brecha_muestra_mercado"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-73529c850d5a|remates a puerta",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-9404223b43dd|goles total entero",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Zed rota ~4.5 cambios con copa/Europa en <=4 dias; sin alineaciones. Coherente (<=9pp).",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9404223b43dd|goles total entero",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-9404223b43dd|hándicap asiático entero",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Zed rota ~4.5 cambios con copa/Europa en <=4 dias; sin alineaciones. Brecha max 14pp.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9404223b43dd|hándicap asiático entero",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-9404223b43dd|hándicap europeo",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Zed rota ~4.5 cambios con copa/Europa en <=4 dias; sin alineaciones. Brecha max 12pp.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9404223b43dd|hándicap europeo",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-9404223b43dd|remates",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Zed rota ~4.5 cambios con copa/Europa en <=4 dias; sin alineaciones. n8-9.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9404223b43dd|remates",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-9404223b43dd|remates a puerta",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Zed rota ~4.5 cambios con copa/Europa en <=4 dias; sin alineaciones. SoT n8-9.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9404223b43dd|remates a puerta",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-bd8ed8d3e54a|goles total entero",
+   "objecion": "muestra_debil",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Historial mixto (eliminatorias, otras ligas), sin ajuste por rival; solo over.3 con brecha 17pp.",
+   "excepciones": [
+    {
+     "entry_id": "goles.total_entero.over.3",
+     "objecion": "brecha_muestra_mercado"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-bd8ed8d3e54a|goles total entero",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-bd8ed8d3e54a|hándicap asiático entero",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Brecha hasta 43pp: mercado 1x2 Fener 1.65 vs Slavia 4.9; modelo da 0.36 a Fener sin perder AH0. Muestra mixta n8-10 sin ajuste por rival/liga.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah_entero.away.-2",
+     "objecion": "ninguna"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-bd8ed8d3e54a|hándicap asiático entero",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "solidez",
+     "problema": "afirmacion_sin_evidencia"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-bd8ed8d3e54a|hándicap europeo",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Brecha hasta 33pp vs mercado (Fener favorito 1.65); muestra mixta sin ajuste por rival/liga.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.eh.draw.-1",
+     "objecion": "ninguna"
+    },
+    {
+     "entry_id": "resultado.eh.draw.+1",
+     "objecion": "ninguna"
+    },
+    {
+     "entry_id": "resultado.eh.draw.+2",
+     "objecion": "ninguna"
+    },
+    {
+     "entry_id": "resultado.eh.away.+2",
+     "objecion": "ninguna"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-bd8ed8d3e54a|hándicap europeo",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "solidez",
+     "problema": "afirmacion_sin_evidencia"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-bd8ed8d3e54a|remates",
+   "objecion": "dato_defectuoso",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador sin probabilidad calculada (mediana modelo 0) pese a n8-9: sin estimador util.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-bd8ed8d3e54a|remates",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "solidez",
+     "problema": "valor_contradice_paquete"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-bd8ed8d3e54a|remates a puerta",
+   "objecion": "dato_defectuoso",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador SoT sin probabilidad calculada (mediana modelo 0): sin estimador util.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-bd8ed8d3e54a|remates a puerta",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "solidez",
+     "problema": "valor_contradice_paquete"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-d0b740eed89a|goles total entero",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Atletico Nacional rota ~4 cambios, 3 dias de descanso; sin alineaciones. Coherente (<=9pp).",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-d0b740eed89a|goles total entero",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-d0b740eed89a|hándicap asiático entero",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Atletico Nacional rota ~4 cambios, 3 dias de descanso; sin alineaciones. Brecha max 9pp.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-d0b740eed89a|hándicap asiático entero",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-d0b740eed89a|hándicap europeo",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Atletico Nacional rota ~4 cambios, 3 dias de descanso; sin alineaciones. Sin precio en varias lineas.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-d0b740eed89a|hándicap europeo",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-d0b740eed89a|remates",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "n6/n7 sin ajuste por rival; rotacion alta del visitante.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-d0b740eed89a|remates",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-d0b740eed89a|remates a puerta",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "SoT n6/n7 sin ajuste por rival; rotacion alta del visitante.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-d0b740eed89a|remates a puerta",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-ec17604d370b|goles total entero",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Luton rota ~4.3 y Barnsley ~3.7 cambios con 3 dias de descanso; sin alineaciones. Brecha <=4pp.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ec17604d370b|goles total entero",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-ec17604d370b|hándicap asiático entero",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Luton rota ~4.3 y Barnsley ~3.7 cambios con 3 dias de descanso; sin alineaciones. Brecha max 11pp.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ec17604d370b|hándicap asiático entero",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-ec17604d370b|remates",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Luton rota ~4.3 y Barnsley ~3.7 cambios con 3 dias de descanso; sin alineaciones. n8.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ec17604d370b|remates",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-ec17604d370b|remates a puerta",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Luton rota ~4.3 y Barnsley ~3.7 cambios con 3 dias de descanso; sin alineaciones. SoT n8.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ec17604d370b|remates a puerta",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-ff2c98e663d4|goles total entero",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Pyramids rota ~9.5 cambios con copa en <=4 dias; sin alineaciones. Brecha <=3pp.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ff2c98e663d4|goles total entero",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-ff2c98e663d4|hándicap asiático entero",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Pyramids rota ~9.5 cambios con copa en <=4 dias; sin alineaciones. Brecha max 11pp.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ff2c98e663d4|hándicap asiático entero",
+    "archivo:runs/2026-10-20/matrix.json",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  }
+ ],
+ "limitaciones": [
+  "Auditoria sobre paquete.json, matrix.json, rotation.json e informes fusionados; sin fuentes externas nuevas ni alineaciones. Brecha = p_modelo - 1/cuota del agregador (incluye margen).",
+  "Rotacion tomada de rotation.json (heuristica); muestras n6-10 sin ajuste por rival; modelo global sin validar (consta en paquete)."
+ ]
+}

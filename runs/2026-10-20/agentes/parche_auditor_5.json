@@ -1,0 +1,507 @@
+{
+ "agente": "auditor",
+ "version_contrato": 1,
+ "run": "runs/2026-10-20",
+ "unidades": [
+  {
+   "unit_id": "m-0e974a5d6a6f|goles total entero",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Modelo coherente con precio (brecha max 3pp). Vuelta de semifinal con 1-0: el estado del global puede abrir o cerrar el partido; sin once.",
+   "evidencia": [
+    "paquete:m-0e974a5d6a6f|goles total entero"
+   ]
+  },
+  {
+   "unit_id": "m-0e974a5d6a6f|hándicap asiático entero",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 13pp vs 1/cuota (<15). Parejo, sin favorito; riesgo de empate en lineas 0/+-1 ya reflejado por el modelo.",
+   "evidencia": [
+    "paquete:m-0e974a5d6a6f|hándicap asiático entero"
+   ]
+  },
+  {
+   "unit_id": "m-0e974a5d6a6f|hándicap europeo",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 12pp vs 1/cuota y <=6pp vs p_mercado devig. Sin objecion especifica.",
+   "evidencia": [
+    "paquete:m-0e974a5d6a6f|hándicap europeo"
+   ]
+  },
+  {
+   "unit_id": "m-0e974a5d6a6f|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "90 lineas con datos suficientes pero sin p_modelo (sin_probabilidad_calculada); 6 con precio sin probabilidad propia con que contrastar.",
+   "evidencia": [
+    "paquete:m-0e974a5d6a6f|remates"
+   ]
+  },
+  {
+   "unit_id": "m-0e974a5d6a6f|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "60 lineas sin p_modelo (sin_probabilidad_calculada) pese a datos suficientes; solo descriptivo, no seleccionable.",
+   "evidencia": [
+    "paquete:m-0e974a5d6a6f|remates a puerta"
+   ]
+  },
+  {
+   "unit_id": "m-1ecfd58e7f39|goles total entero",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Estimador calculable, n10 por equipo; sin precio en el paquete, no hay brecha medible. Sin objecion especifica.",
+   "evidencia": [
+    "paquete:m-1ecfd58e7f39|goles total entero"
+   ]
+  },
+  {
+   "unit_id": "m-1ecfd58e7f39|hándicap asiático entero",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 10pp; parejo. Lineas +-2/+1 solo con precio no_verificable, irrelevantes por cuota ~1.03-1.05.",
+   "evidencia": [
+    "paquete:m-1ecfd58e7f39|hándicap asiático entero"
+   ]
+  },
+  {
+   "unit_id": "m-1ecfd58e7f39|hándicap europeo",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Sin precio para contrastar; forma local n4 corta pero estimador calculable. Sin objecion especifica.",
+   "evidencia": [
+    "paquete:m-1ecfd58e7f39|hándicap europeo"
+   ]
+  },
+  {
+   "unit_id": "m-1ecfd58e7f39|remates",
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "0 de 10 partidos por equipo con tiros; paquete datos_insuficientes: estimador sin datos.",
+   "evidencia": [
+    "paquete:m-1ecfd58e7f39|remates"
+   ]
+  },
+  {
+   "unit_id": "m-1ecfd58e7f39|remates a puerta",
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "0/10 partidos con tiros a puerta; datos_insuficientes: estimador sin datos.",
+   "evidencia": [
+    "paquete:m-1ecfd58e7f39|remates a puerta"
+   ]
+  },
+  {
+   "unit_id": "m-31d73fc9a503|goles total entero",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 4pp; n10 por equipo, BTTS 7/10 y 6/10. Pierde con 0-1/1-0.",
+   "evidencia": [
+    "paquete:m-31d73fc9a503|goles total entero"
+   ]
+  },
+  {
+   "unit_id": "m-31d73fc9a503|hándicap asiático entero",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 9pp. Riesgo de empate (York 4E/10) ya recogido por el modelo; Accrington 0V en 5 fuera.",
+   "evidencia": [
+    "paquete:m-31d73fc9a503|hándicap asiático entero"
+   ]
+  },
+  {
+   "unit_id": "m-31d73fc9a503|hándicap europeo",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Modelo y mercado devig alineados (max 5pp). Rotacion media.",
+   "evidencia": [
+    "paquete:m-31d73fc9a503|hándicap europeo"
+   ]
+  },
+  {
+   "unit_id": "m-31d73fc9a503|remates",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "n8 por equipo, estimador calculable, sin precio: nada que contrastar. Sin ajuste por rival (limite conocido).",
+   "evidencia": [
+    "paquete:m-31d73fc9a503|remates"
+   ]
+  },
+  {
+   "unit_id": "m-31d73fc9a503|remates a puerta",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "n8, estimador calculable, sin precio. Sin objecion especifica.",
+   "evidencia": [
+    "paquete:m-31d73fc9a503|remates a puerta"
+   ]
+  },
+  {
+   "unit_id": "m-601d9c0a0d72|goles total entero",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Rotacion alta ambos (PSG 8.3 y Barca 5.0 cambios/partido, 3 dias). Over2.5 17/20 mezcla ligas sin ajuste rival; modelo over3 80%.",
+   "evidencia": [
+    "paquete:m-601d9c0a0d72|goles total entero",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-601d9c0a0d72|hándicap asiático entero",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Brecha 14-22pp en 6 lineas (p. ej. home+1 modelo 56% vs 78%; home+0 33% vs 52%). Rotacion alta ambos; Barca 10V mixto sin ajuste rival.",
+   "evidencia": [
+    "paquete:m-601d9c0a0d72|hándicap asiático entero"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah_entero.away.+2",
+     "objecion": "ninguna"
+    },
+    {
+     "entry_id": "resultado.ah_entero.home.-2",
+     "objecion": "ninguna"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-601d9c0a0d72|hándicap europeo",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Rotacion alta ambos, 3 dias descanso, sin once. Brecha vs p_mercado devig <15pp; forma mixta sin ajuste por rival.",
+   "evidencia": [
+    "paquete:m-601d9c0a0d72|hándicap europeo",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-601d9c0a0d72|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "90 lineas sin p_modelo (sin_probabilidad_calculada); rotacion alta altera volumen. Sin probabilidad propia no hay contraste con las 6 cuotas.",
+   "evidencia": [
+    "paquete:m-601d9c0a0d72|remates"
+   ]
+  },
+  {
+   "unit_id": "m-601d9c0a0d72|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "60 lineas sin p_modelo; rotacion alta ambos. No hay probabilidad con que contrastar las 6 cuotas.",
+   "evidencia": [
+    "paquete:m-601d9c0a0d72|remates a puerta"
+   ]
+  },
+  {
+   "unit_id": "m-73758aa719b5|goles total entero",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 3pp; Necaxa encaja 2.3/p, BTTS 8/10. Pierde si Chivas (5E/10) cierra el partido.",
+   "evidencia": [
+    "paquete:m-73758aa719b5|goles total entero"
+   ]
+  },
+  {
+   "unit_id": "m-73758aa719b5|hándicap asiático entero",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 10pp; modelo y mercado coinciden en favorito. Empate (5E Chivas) afecta solo a -1/-2.",
+   "evidencia": [
+    "paquete:m-73758aa719b5|hándicap asiático entero"
+   ]
+  },
+  {
+   "unit_id": "m-73758aa719b5|hándicap europeo",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Lineas -2: home 30% vs 50% mercado (-20pp) y away 49% vs 32% (+17pp). Resto <15pp.",
+   "evidencia": [
+    "paquete:m-73758aa719b5|hándicap europeo"
+   ]
+  },
+  {
+   "unit_id": "m-73758aa719b5|remates",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "n8-9, estimador calculable, sin precio; sin objecion especifica.",
+   "evidencia": [
+    "paquete:m-73758aa719b5|remates"
+   ]
+  },
+  {
+   "unit_id": "m-73758aa719b5|remates a puerta",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Estimador calculable, sin precio; sin objecion especifica.",
+   "evidencia": [
+    "paquete:m-73758aa719b5|remates a puerta"
+   ]
+  },
+  {
+   "unit_id": "m-a1bc7dfcb124|goles total entero",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha <10pp; n10 por equipo, O2.5 6/10 ambos. Senales contradictorias pero consistentes con el precio.",
+   "evidencia": [
+    "paquete:m-a1bc7dfcb124|goles total entero"
+   ]
+  },
+  {
+   "unit_id": "m-a1bc7dfcb124|hándicap asiático entero",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Brecha hasta 33pp (home+0 modelo 33% vs mercado 66%; home+1 67% vs 94%). Pereira 0V3E3D en casa, n6; el modelo contradice un mercado de 5 casas.",
+   "evidencia": [
+    "paquete:m-a1bc7dfcb124|hándicap asiático entero"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah_entero.away.+2",
+     "objecion": "ninguna"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-a1bc7dfcb124|hándicap europeo",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Lineas away-1 (76% vs 56%) y home+1 (50% vs 70%) con 20pp de brecha vs p_mercado; resto <15pp.",
+   "evidencia": [
+    "paquete:m-a1bc7dfcb124|hándicap europeo"
+   ]
+  },
+  {
+   "unit_id": "m-a1bc7dfcb124|remates",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Pereira n6 y Chico n8 tiros, sin ajuste por rival; sin precio.",
+   "evidencia": [
+    "paquete:m-a1bc7dfcb124|remates"
+   ]
+  },
+  {
+   "unit_id": "m-a1bc7dfcb124|remates a puerta",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Pereira n6 a puerta (3.7/4.7), Chico n8; sin ajuste por rival; sin precio.",
+   "evidencia": [
+    "paquete:m-a1bc7dfcb124|remates a puerta"
+   ]
+  },
+  {
+   "unit_id": "m-bfb4fb94398d|goles total entero",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Sin precio; n10 por equipo, estimador calculable. Qadsiah 28 GF en 10; pierde si gestiona ventaja.",
+   "evidencia": [
+    "paquete:m-bfb4fb94398d|goles total entero"
+   ]
+  },
+  {
+   "unit_id": "m-bfb4fb94398d|hándicap asiático entero",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Lineas +1/+2 de local y -1/-2 de visitante con 16-23pp de brecha (home+1 24% vs 47%). Taawon local n=4 en forma mixta.",
+   "evidencia": [
+    "paquete:m-bfb4fb94398d|hándicap asiático entero"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah_entero.away.+1",
+     "objecion": "ninguna"
+    }
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "nota",
+     "problema": "valor_contradice_paquete"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-bfb4fb94398d|hándicap europeo",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Sin precio para contrastar; margen amplio favorable a Qadsiah por forma 8V1E1D vs 0V4E6D. Rotacion media.",
+   "evidencia": [
+    "paquete:m-bfb4fb94398d|hándicap europeo"
+   ]
+  },
+  {
+   "unit_id": "m-bfb4fb94398d|remates",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "n10/n8, estimador calculable, sin precio; sin objecion especifica.",
+   "evidencia": [
+    "paquete:m-bfb4fb94398d|remates"
+   ]
+  },
+  {
+   "unit_id": "m-bfb4fb94398d|remates a puerta",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Estimador calculable, sin precio; sin objecion especifica.",
+   "evidencia": [
+    "paquete:m-bfb4fb94398d|remates a puerta"
+   ]
+  },
+  {
+   "unit_id": "m-d76a15c15e81|goles total entero",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Una sola linea con brecha: over2 modelo 47% vs 63% mercado. Resto coherente; Northampton O2.5 0/9.",
+   "evidencia": [
+    "paquete:m-d76a15c15e81|goles total entero"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "goles.total_entero.over.2",
+     "objecion": "brecha_muestra_mercado"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-d76a15c15e81|hándicap asiático entero",
+   "objecion": "muestra_debil",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Northampton local n4 (GF 0.5) sostiene AH0 local 67%; Tranmere 6E/10. Brecha max 13pp.",
+   "evidencia": [
+    "paquete:m-d76a15c15e81|hándicap asiático entero"
+   ]
+  },
+  {
+   "unit_id": "m-d76a15c15e81|hándicap europeo",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha <15pp; empate relevante (Tranmere 6E/10) ya modelado. Rotacion media.",
+   "evidencia": [
+    "paquete:m-d76a15c15e81|hándicap europeo"
+   ]
+  },
+  {
+   "unit_id": "m-d76a15c15e81|remates",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Northampton n7, Tranmere n8, sin ajuste por rival; sin precio.",
+   "evidencia": [
+    "paquete:m-d76a15c15e81|remates"
+   ]
+  },
+  {
+   "unit_id": "m-d76a15c15e81|remates a puerta",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Northampton n7 a puerta (3.0/3.4), Tranmere n8; sin ajuste por rival; sin precio.",
+   "evidencia": [
+    "paquete:m-d76a15c15e81|remates a puerta"
+   ]
+  },
+  {
+   "unit_id": "m-f2654d9445c1|goles total entero",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Wigan rotacion alta (4 cambios, 3 dias); Oxford O2.5 6/8 vs Wigan 3/10. Brecha <10pp.",
+   "evidencia": [
+    "paquete:m-f2654d9445c1|goles total entero",
+    "archivo:runs/2026-10-20/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-f2654d9445c1|hándicap asiático entero",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Lineas away+0/+1/+2 con 16-19pp (away+1 51% vs 71%). Wigan rota ~4 con 3 dias, lo que no explica un modelo mas duro que el mercado.",
+   "evidencia": [
+    "paquete:m-f2654d9445c1|hándicap asiático entero"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah_entero.home.+2",
+     "objecion": "ninguna"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-f2654d9445c1|hándicap europeo",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha vs p_mercado devig <15pp. Empate pesa 22%; Wigan rotacion alta.",
+   "evidencia": [
+    "paquete:m-f2654d9445c1|hándicap europeo"
+   ]
+  },
+  {
+   "unit_id": "m-f2654d9445c1|remates",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Oxford n6, Wigan n8 tiros, sin ajuste por rival; sin precio.",
+   "evidencia": [
+    "paquete:m-f2654d9445c1|remates"
+   ]
+  },
+  {
+   "unit_id": "m-f2654d9445c1|remates a puerta",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Oxford n6 a puerta, Wigan n8; sin ajuste por rival; sin precio.",
+   "evidencia": [
+    "paquete:m-f2654d9445c1|remates a puerta"
+   ]
+  }
+ ],
+ "limitaciones": [
+  "Auditoria sobre paquete.json y parches de otros roles; sin abrir fuentes externas ni API. Brecha vs p_mercado devig, o 1/cuota si falta.",
+  "Lineas AH: p_modelo condicionado a no-push, comparado con 1/cuota sin ajuste de push; brechas AH indicativas.",
+  "Sin alineaciones ni arbitro confirmados; modelo sin validar globalmente."
+ ]
+}

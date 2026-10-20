@@ -115,17 +115,17 @@ Investigación por canal: E encontrado · N consultado_no_encontrado · O la fue
 - goles.equipo.away.under.2.5 | S1 | A1.083 | 0.754
 
 ## m-a7963c41237a|goles total entero · Napoli – Bodo/Glimt · goles total entero · 2026-10-20T19:00:00Z · liga 3 · árbitro José María Sánchez Martínez, Spain · alineaciones sin_snapshot
-  S1: datos sin_extractor · estimador no_implementado · validación None · inv apifootbal=N,datos_depo=E,football-d=O,thestatsap=E
-- goles.total_entero.over.1 | S1 | A1.03 | -
-- goles.total_entero.under.1 | S1 | A15.28 | -
-- goles.total_entero.over.2 | S1 | A1.22 | -
-- goles.total_entero.under.2 | S1 | A5.0 | -
-- goles.total_entero.over.3 | S1 | A1.7575 | -
-- goles.total_entero.under.3 | S1 | A2.165 | -
-- goles.total_entero.over.4 | S1 | A3.27 | -
-- goles.total_entero.under.4 | S1 | A1.4 | -
-- goles.total_entero.over.5 | S1 | A7.12 | -
-- goles.total_entero.under.5 | S1 | A1.14 | -
+  S1: datos sin_extractor · estimador calculable · validación no_evaluada · inv apifootbal=N,datos_depo=E,football-d=O,thestatsap=E
+- goles.total_entero.over.1 | S1 | A1.03 | 0.952
+- goles.total_entero.under.1 | S1 | A15.28 | 0.048
+- goles.total_entero.over.2 | S1 | A1.22 | 0.78
+- goles.total_entero.under.2 | S1 | A5.0 | 0.22
+- goles.total_entero.over.3 | S1 | A1.7575 | 0.507
+- goles.total_entero.under.3 | S1 | A2.165 | 0.493
+- goles.total_entero.over.4 | S1 | A3.27 | 0.263
+- goles.total_entero.under.4 | S1 | A1.4 | 0.737
+- goles.total_entero.over.5 | S1 | A7.12 | 0.117
+- goles.total_entero.under.5 | S1 | A1.14 | 0.883
 
 ## m-a7963c41237a|hándicap · Napoli – Bodo/Glimt · hándicap · 2026-10-20T19:00:00Z · liga 3 · árbitro José María Sánchez Martínez, Spain · alineaciones sin_snapshot
   S1: datos suficientes · estimador calculable · validación no_evaluada · inv apifootbal=E,datos_depo=E,football-d=O,thestatsap=E
@@ -144,38 +144,38 @@ Investigación por canal: E encontrado · N consultado_no_encontrado · O la fue
 - resultado.ah.away.-2.5 | S2 | A38.0 | 0.097
 
 ## m-a7963c41237a|hándicap asiático entero · Napoli – Bodo/Glimt · hándicap asiático entero · 2026-10-20T19:00:00Z · liga 3 · árbitro José María Sánchez Martínez, Spain · alineaciones sin_snapshot
-  S1: datos sin_extractor · estimador no_implementado · validación None · inv apifootbal=E,datos_depo=E,football-d=O,thestatsap=E
-  S2: datos sin_extractor · estimador no_implementado · validación None · inv apifootbal=E,datos_depo=E,football-d=O,thestatsap=N
-  S3: datos sin_extractor · estimador no_implementado · validación None · inv apifootbal=N,datos_depo=E,football-d=O,thestatsap=E
-- resultado.ah_entero.home.-2 | S1 | A3.8 | -
-- resultado.ah_entero.away.+2 | S1 | A1.24 | -
-- resultado.ah_entero.home.-1 | S1 | A2.02 | -
-- resultado.ah_entero.away.+1 | S1 | A1.83 | -
-- resultado.ah_entero.home.+0 | S2 | A1.25 | -
-- resultado.ah_entero.away.+0 | S2 | A3.65 | -
-- resultado.ah_entero.home.+1 | S1 | A1.08 | -
-- resultado.ah_entero.away.-1 | S1 | A11.38 | -
-- resultado.ah_entero.home.+2 | S3 | A1.02 | -
-- resultado.ah_entero.away.-2 | S3 | A36.03 | -
+  S1: datos sin_extractor · estimador calculable · validación no_evaluada · inv apifootbal=E,datos_depo=E,football-d=O,thestatsap=E
+  S2: datos sin_extractor · estimador calculable · validación no_evaluada · inv apifootbal=E,datos_depo=E,football-d=O,thestatsap=N
+  S3: datos sin_extractor · estimador calculable · validación no_evaluada · inv apifootbal=N,datos_depo=E,football-d=O,thestatsap=E
+- resultado.ah_entero.home.-2 | S1 | A3.8 | 0.064
+- resultado.ah_entero.away.+2 | S1 | A1.24 | 0.936
+- resultado.ah_entero.home.-1 | S1 | A2.02 | 0.187
+- resultado.ah_entero.away.+1 | S1 | A1.83 | 0.813
+- resultado.ah_entero.home.+0 | S2 | A1.25 | 0.432
+- resultado.ah_entero.away.+0 | S2 | A3.65 | 0.568
+- resultado.ah_entero.home.+1 | S1 | A1.08 | 0.712
+- resultado.ah_entero.away.-1 | S1 | A11.38 | 0.288
+- resultado.ah_entero.home.+2 | S3 | A1.02 | 0.888
+- resultado.ah_entero.away.-2 | S3 | A36.03 | 0.112
 
 ## m-a7963c41237a|hándicap europeo · Napoli – Bodo/Glimt · hándicap europeo · 2026-10-20T19:00:00Z · liga 3 · árbitro José María Sánchez Martínez, Spain · alineaciones sin_snapshot
-  S1: datos sin_extractor · estimador no_implementado · validación None · inv apifootbal=O,datos_depo=E,football-d=O,thestatsap=E
-- resultado.eh.home.-2 | S1 | A5.0 | -
-- resultado.eh.draw.-2 | S1 | A5.0 | -
-- resultado.eh.away.-2 | S1 | A1.5 | -
-- resultado.eh.home.-1 | S1 | A2.6 | -
-- resultado.eh.draw.-1 | S1 | A4.0 | -
-- resultado.eh.away.-1 | S1 | A2.25 | -
-- resultado.eh.home.+1 | S1 | A1.167 | -
-- resultado.eh.draw.+1 | S1 | A7.5 | -
-- resultado.eh.away.+1 | S1 | A11.0 | -
-- resultado.eh.home.+2 | S1 | A1.05 | -
-- resultado.eh.draw.+2 | S1 | A15.0 | -
-- resultado.eh.away.+2 | S1 | A31.0 | -
+  S1: datos sin_extractor · estimador calculable · validación no_evaluada · inv apifootbal=O,datos_depo=E,football-d=O,thestatsap=E
+- resultado.eh.home.-2 | S1 | A5.0 | 0.058
+- resultado.eh.draw.-2 | S1 | A5.0 | 0.097
+- resultado.eh.away.-2 | S1 | A1.5 | 0.846
+- resultado.eh.home.-1 | S1 | A2.6 | 0.154
+- resultado.eh.draw.-1 | S1 | A4.0 | 0.178
+- resultado.eh.away.-1 | S1 | A2.25 | 0.668
+- resultado.eh.home.+1 | S1 | A1.167 | 0.565
+- resultado.eh.draw.+1 | S1 | A7.5 | 0.207
+- resultado.eh.away.+1 | S1 | A11.0 | 0.228
+- resultado.eh.home.+2 | S1 | A1.05 | 0.772
+- resultado.eh.draw.+2 | S1 | A15.0 | 0.131
+- resultado.eh.away.+2 | S1 | A31.0 | 0.097
 
 ## m-a7963c41237a|remates · Napoli – Bodo/Glimt · remates · 2026-10-20T19:00:00Z · liga 3 · árbitro José María Sánchez Martínez, Spain · alineaciones sin_snapshot
-  S1: datos suficientes · estimador no_implementado · validación None · inv apifootbal=O,datos_depo=E,football-d=O,thestatsap=N
-  S2: datos suficientes · estimador no_implementado · validación None · inv apifootbal=O,datos_depo=E,football-d=O,thestatsap=E
+  S1: datos suficientes · estimador sin_probabilidad_calculada · validación no_evaluada · inv apifootbal=O,datos_depo=E,football-d=O,thestatsap=N
+  S2: datos suficientes · estimador sin_probabilidad_calculada · validación no_evaluada · inv apifootbal=O,datos_depo=E,football-d=O,thestatsap=E
 - shots.total.over.14.5 | S1 | - | -
 - shots.total.under.14.5 | S1 | - | -
 - shots.total.over.15.5 | S1 | - | -
@@ -268,8 +268,8 @@ Investigación por canal: E encontrado · N consultado_no_encontrado · O la fue
 - shots.equipo.away.under.18.5 | S1 | - | -
 
 ## m-a7963c41237a|remates a puerta · Napoli – Bodo/Glimt · remates a puerta · 2026-10-20T19:00:00Z · liga 3 · árbitro José María Sánchez Martínez, Spain · alineaciones sin_snapshot
-  S1: datos suficientes · estimador no_implementado · validación None · inv apifootbal=O,datos_depo=E,football-d=O,thestatsap=N
-  S2: datos suficientes · estimador no_implementado · validación None · inv apifootbal=O,datos_depo=E,football-d=O,thestatsap=E
+  S1: datos suficientes · estimador sin_probabilidad_calculada · validación no_evaluada · inv apifootbal=O,datos_depo=E,football-d=O,thestatsap=N
+  S2: datos suficientes · estimador sin_probabilidad_calculada · validación no_evaluada · inv apifootbal=O,datos_depo=E,football-d=O,thestatsap=E
 - sot.total.over.3.5 | S1 | - | -
 - sot.total.under.3.5 | S1 | - | -
 - sot.total.over.4.5 | S1 | - | -
@@ -496,17 +496,17 @@ Investigación por canal: E encontrado · N consultado_no_encontrado · O la fue
 - goles.equipo.away.under.2.5 | S1 | - | 0.901
 
 ## m-ade74c6c1c24|goles total entero · Atlético – Deportes Quindío · goles total entero · 2026-10-20T20:30:00Z · liga 517 · árbitro s/d · alineaciones sin_snapshot
-  S1: datos sin_extractor · estimador no_implementado · validación None · inv apifootbal=N,datos_depo=E,football-d=O,thestatsap=O
-- goles.total_entero.over.1 | S1 | - | -
-- goles.total_entero.under.1 | S1 | - | -
-- goles.total_entero.over.2 | S1 | - | -
-- goles.total_entero.under.2 | S1 | - | -
-- goles.total_entero.over.3 | S1 | - | -
-- goles.total_entero.under.3 | S1 | - | -
-- goles.total_entero.over.4 | S1 | - | -
-- goles.total_entero.under.4 | S1 | - | -
-- goles.total_entero.over.5 | S1 | - | -
-- goles.total_entero.under.5 | S1 | - | -
+  S1: datos sin_extractor · estimador calculable · validación no_evaluada · inv apifootbal=N,datos_depo=E,football-d=O,thestatsap=O
+- goles.total_entero.over.1 | S1 | - | 0.847
+- goles.total_entero.under.1 | S1 | - | 0.153
+- goles.total_entero.over.2 | S1 | - | 0.502
+- goles.total_entero.under.2 | S1 | - | 0.497
+- goles.total_entero.over.3 | S1 | - | 0.215
+- goles.total_entero.under.3 | S1 | - | 0.785
+- goles.total_entero.over.4 | S1 | - | 0.077
+- goles.total_entero.under.4 | S1 | - | 0.923
+- goles.total_entero.over.5 | S1 | - | 0.024
+- goles.total_entero.under.5 | S1 | - | 0.976
 
 ## m-ade74c6c1c24|hándicap · Atlético – Deportes Quindío · hándicap · 2026-10-20T20:30:00Z · liga 517 · árbitro s/d · alineaciones sin_snapshot
   S1: datos suficientes · estimador calculable · validación no_evaluada · inv apifootbal=N,datos_depo=E,football-d=O,thestatsap=O
@@ -525,36 +525,36 @@ Investigación por canal: E encontrado · N consultado_no_encontrado · O la fue
 - resultado.ah.away.-2.5 | S2 | V7.2 | 0.045
 
 ## m-ade74c6c1c24|hándicap asiático entero · Atlético – Deportes Quindío · hándicap asiático entero · 2026-10-20T20:30:00Z · liga 517 · árbitro s/d · alineaciones sin_snapshot
-  S1: datos sin_extractor · estimador no_implementado · validación None · inv apifootbal=N,datos_depo=E,football-d=O,thestatsap=O
-  S2: datos sin_extractor · estimador no_implementado · validación None · inv apifootbal=E,datos_depo=E,football-d=O,thestatsap=O
-- resultado.ah_entero.home.-2 | S1 | - | -
-- resultado.ah_entero.away.+2 | S1 | - | -
-- resultado.ah_entero.home.-1 | S2 | V7.4 | -
-- resultado.ah_entero.away.+1 | S2 | V1.03 | -
-- resultado.ah_entero.home.+0 | S2 | A2.735 | -
-- resultado.ah_entero.away.+0 | S2 | A1.38 | -
-- resultado.ah_entero.home.+1 | S2 | A1.36 | -
-- resultado.ah_entero.away.-1 | S2 | A2.76 | -
-- resultado.ah_entero.home.+2 | S2 | V1.05 | -
-- resultado.ah_entero.away.-2 | S2 | V6.45 | -
+  S1: datos sin_extractor · estimador calculable · validación no_evaluada · inv apifootbal=N,datos_depo=E,football-d=O,thestatsap=O
+  S2: datos sin_extractor · estimador calculable · validación no_evaluada · inv apifootbal=E,datos_depo=E,football-d=O,thestatsap=O
+- resultado.ah_entero.home.-2 | S1 | - | 0.045
+- resultado.ah_entero.away.+2 | S1 | - | 0.955
+- resultado.ah_entero.home.-1 | S2 | V7.4 | 0.171
+- resultado.ah_entero.away.+1 | S2 | V1.03 | 0.829
+- resultado.ah_entero.home.+0 | S2 | A2.735 | 0.489
+- resultado.ah_entero.away.+0 | S2 | A1.38 | 0.511
+- resultado.ah_entero.home.+1 | S2 | A1.36 | 0.815
+- resultado.ah_entero.away.-1 | S2 | A2.76 | 0.185
+- resultado.ah_entero.home.+2 | S2 | V1.05 | 0.95
+- resultado.ah_entero.away.-2 | S2 | V6.45 | 0.05
 
 ## m-ade74c6c1c24|hándicap europeo · Atlético – Deportes Quindío · hándicap europeo · 2026-10-20T20:30:00Z · liga 517 · árbitro s/d · alineaciones sin_snapshot
-  S1: datos sin_extractor · estimador no_implementado · validación None · inv apifootbal=O,datos_depo=E,football-d=O,thestatsap=O
-- resultado.eh.home.-2 | S1 | - | -
-- resultado.eh.draw.-2 | S1 | - | -
-- resultado.eh.away.-2 | S1 | - | -
-- resultado.eh.home.-1 | S1 | - | -
-- resultado.eh.draw.-1 | S1 | - | -
-- resultado.eh.away.-1 | S1 | - | -
-- resultado.eh.home.+1 | S1 | - | -
-- resultado.eh.draw.+1 | S1 | - | -
-- resultado.eh.away.+1 | S1 | - | -
-- resultado.eh.home.+2 | S1 | - | -
-- resultado.eh.draw.+2 | S1 | - | -
-- resultado.eh.away.+2 | S1 | - | -
+  S1: datos sin_extractor · estimador calculable · validación no_evaluada · inv apifootbal=O,datos_depo=E,football-d=O,thestatsap=O
+- resultado.eh.home.-2 | S1 | - | 0.041
+- resultado.eh.draw.-2 | S1 | - | 0.095
+- resultado.eh.away.-2 | S1 | - | 0.865
+- resultado.eh.home.-1 | S1 | - | 0.135
+- resultado.eh.draw.-1 | S1 | - | 0.21
+- resultado.eh.away.-1 | S1 | - | 0.655
+- resultado.eh.home.+1 | S1 | - | 0.639
+- resultado.eh.draw.+1 | S1 | - | 0.216
+- resultado.eh.away.+1 | S1 | - | 0.145
+- resultado.eh.home.+2 | S1 | - | 0.855
+- resultado.eh.draw.+2 | S1 | - | 0.101
+- resultado.eh.away.+2 | S1 | - | 0.045
 
 ## m-ade74c6c1c24|remates · Atlético – Deportes Quindío · remates · 2026-10-20T20:30:00Z · liga 517 · árbitro s/d · alineaciones sin_snapshot
-  S1: datos insuficientes · estimador no_implementado · validación None · inv apifootbal=O,datos_depo=N,football-d=O,thestatsap=O
+  S1: datos insuficientes · estimador datos_insuficientes · validación no_evaluada · inv apifootbal=O,datos_depo=N,football-d=O,thestatsap=O
 - shots.total.over.14.5 | S1 | - | -
 - shots.total.under.14.5 | S1 | - | -
 - shots.total.over.15.5 | S1 | - | -
@@ -647,7 +647,7 @@ Investigación por canal: E encontrado · N consultado_no_encontrado · O la fue
 - shots.equipo.away.under.18.5 | S1 | - | -
 
 ## m-ade74c6c1c24|remates a puerta · Atlético – Deportes Quindío · remates a puerta · 2026-10-20T20:30:00Z · liga 517 · árbitro s/d · alineaciones sin_snapshot
-  S1: datos insuficientes · estimador no_implementado · validación None · inv apifootbal=O,datos_depo=N,football-d=O,thestatsap=O
+  S1: datos insuficientes · estimador datos_insuficientes · validación no_evaluada · inv apifootbal=O,datos_depo=N,football-d=O,thestatsap=O
 - sot.total.over.3.5 | S1 | - | -
 - sot.total.under.3.5 | S1 | - | -
 - sot.total.over.4.5 | S1 | - | -
@@ -873,17 +873,17 @@ Investigación por canal: E encontrado · N consultado_no_encontrado · O la fue
 - goles.equipo.away.under.2.5 | S1 | A1.02 | 0.931
 
 ## m-b7d38d427cd4|goles total entero · Roma – Slovan Bratislava · goles total entero · 2026-10-20T19:00:00Z · liga 3 · árbitro Sandro Schärer, Switzerland · alineaciones sin_snapshot
-  S1: datos sin_extractor · estimador no_implementado · validación None · inv apifootbal=N,datos_depo=E,football-d=O,thestatsap=E
-- goles.total_entero.over.1 | S1 | A1.01 | -
-- goles.total_entero.under.1 | S1 | A13.5 | -
-- goles.total_entero.over.2 | S1 | A1.12 | -
-- goles.total_entero.under.2 | S1 | A8.43 | -
-- goles.total_entero.over.3 | S1 | A1.41 | -
-- goles.total_entero.under.3 | S1 | A3.2 | -
-- goles.total_entero.over.4 | S1 | A2.16 | -
-- goles.total_entero.under.4 | S1 | A1.7575 | -
-- goles.total_entero.over.5 | S1 | A4.08 | -
-- goles.total_entero.under.5 | S1 | A1.29 | -
+  S1: datos sin_extractor · estimador calculable · validación no_evaluada · inv apifootbal=N,datos_depo=E,football-d=O,thestatsap=E
+- goles.total_entero.over.1 | S1 | A1.01 | 0.952
+- goles.total_entero.under.1 | S1 | A13.5 | 0.048
+- goles.total_entero.over.2 | S1 | A1.12 | 0.779
+- goles.total_entero.under.2 | S1 | A8.43 | 0.221
+- goles.total_entero.over.3 | S1 | A1.41 | 0.504
+- goles.total_entero.under.3 | S1 | A3.2 | 0.496
+- goles.total_entero.over.4 | S1 | A2.16 | 0.261
+- goles.total_entero.under.4 | S1 | A1.7575 | 0.739
+- goles.total_entero.over.5 | S1 | A4.08 | 0.115
+- goles.total_entero.under.5 | S1 | A1.29 | 0.885
 
 ## m-b7d38d427cd4|hándicap · Roma – Slovan Bratislava · hándicap · 2026-10-20T19:00:00Z · liga 3 · árbitro Sandro Schärer, Switzerland · alineaciones sin_snapshot
   S1: datos suficientes · estimador calculable · validación no_evaluada · inv apifootbal=E,datos_depo=E,football-d=O,thestatsap=E
@@ -903,39 +903,39 @@ Investigación por canal: E encontrado · N consultado_no_encontrado · O la fue
 - resultado.ah.away.-2.5 | S2 | A340.0 | 0.012
 
 ## m-b7d38d427cd4|hándicap asiático entero · Roma – Slovan Bratislava · hándicap asiático entero · 2026-10-20T19:00:00Z · liga 3 · árbitro Sandro Schärer, Switzerland · alineaciones sin_snapshot
-  S1: datos sin_extractor · estimador no_implementado · validación None · inv apifootbal=E,datos_depo=E,football-d=O,thestatsap=E
-  S2: datos sin_extractor · estimador no_implementado · validación None · inv apifootbal=E,datos_depo=E,football-d=O,thestatsap=N
-  S3: datos sin_extractor · estimador no_implementado · validación None · inv apifootbal=N,datos_depo=E,football-d=O,thestatsap=E
-  S4: datos sin_extractor · estimador no_implementado · validación None · inv apifootbal=N,datos_depo=E,football-d=O,thestatsap=N
-- resultado.ah_entero.home.-2 | S1 | A1.6 | -
-- resultado.ah_entero.away.+2 | S1 | A2.31 | -
-- resultado.ah_entero.home.-1 | S1 | A1.16 | -
-- resultado.ah_entero.away.+1 | S1 | A4.3 | -
-- resultado.ah_entero.home.+0 | S2 | V1.03 | -
-- resultado.ah_entero.away.+0 | S2 | V12.5 | -
-- resultado.ah_entero.home.+1 | S3 | A1.01 | -
-- resultado.ah_entero.away.-1 | S3 | A72.25 | -
-- resultado.ah_entero.home.+2 | S4 | - | -
-- resultado.ah_entero.away.-2 | S3 | A336.46 | -
+  S1: datos sin_extractor · estimador calculable · validación no_evaluada · inv apifootbal=E,datos_depo=E,football-d=O,thestatsap=E
+  S2: datos sin_extractor · estimador calculable · validación no_evaluada · inv apifootbal=E,datos_depo=E,football-d=O,thestatsap=N
+  S3: datos sin_extractor · estimador calculable · validación no_evaluada · inv apifootbal=N,datos_depo=E,football-d=O,thestatsap=E
+  S4: datos sin_extractor · estimador calculable · validación no_evaluada · inv apifootbal=N,datos_depo=E,football-d=O,thestatsap=N
+- resultado.ah_entero.home.-2 | S1 | A1.6 | 0.295
+- resultado.ah_entero.away.+2 | S1 | A2.31 | 0.705
+- resultado.ah_entero.home.-1 | S1 | A1.16 | 0.569
+- resultado.ah_entero.away.+1 | S1 | A4.3 | 0.431
+- resultado.ah_entero.home.+0 | S2 | V1.03 | 0.823
+- resultado.ah_entero.away.+0 | S2 | V12.5 | 0.177
+- resultado.ah_entero.home.+1 | S3 | A1.01 | 0.948
+- resultado.ah_entero.away.-1 | S3 | A72.25 | 0.052
+- resultado.ah_entero.home.+2 | S4 | - | 0.988
+- resultado.ah_entero.away.-2 | S3 | A336.46 | 0.012
 
 ## m-b7d38d427cd4|hándicap europeo · Roma – Slovan Bratislava · hándicap europeo · 2026-10-20T19:00:00Z · liga 3 · árbitro Sandro Schärer, Switzerland · alineaciones sin_snapshot
-  S1: datos sin_extractor · estimador no_implementado · validación None · inv apifootbal=O,datos_depo=E,football-d=O,thestatsap=E
-- resultado.eh.home.-2 | S1 | A2.0 | -
-- resultado.eh.draw.-2 | S1 | A4.333 | -
-- resultado.eh.away.-2 | S1 | A3.0 | -
-- resultado.eh.home.-1 | S1 | A1.364 | -
-- resultado.eh.draw.-1 | S1 | A5.0 | -
-- resultado.eh.away.-1 | S1 | A6.0 | -
-- resultado.eh.home.+1 | S1 | A1.025 | -
-- resultado.eh.draw.+1 | S1 | A19.0 | -
-- resultado.eh.away.+1 | S1 | A46.0 | -
-- resultado.eh.home.+2 | S1 | A1.01 | -
-- resultado.eh.draw.+2 | S1 | A90.0 | -
-- resultado.eh.away.+2 | S1 | A340.0 | -
+  S1: datos sin_extractor · estimador calculable · validación no_evaluada · inv apifootbal=O,datos_depo=E,football-d=O,thestatsap=E
+- resultado.eh.home.-2 | S1 | A2.0 | 0.236
+- resultado.eh.draw.-2 | S1 | A4.333 | 0.2
+- resultado.eh.away.-2 | S1 | A3.0 | 0.564
+- resultado.eh.home.-1 | S1 | A1.364 | 0.436
+- resultado.eh.draw.-1 | S1 | A5.0 | 0.233
+- resultado.eh.away.-1 | S1 | A6.0 | 0.331
+- resultado.eh.home.+1 | S1 | A1.025 | 0.856
+- resultado.eh.draw.+1 | S1 | A19.0 | 0.097
+- resultado.eh.away.+1 | S1 | A46.0 | 0.047
+- resultado.eh.home.+2 | S1 | A1.01 | 0.953
+- resultado.eh.draw.+2 | S1 | A90.0 | 0.035
+- resultado.eh.away.+2 | S1 | A340.0 | 0.012
 
 ## m-b7d38d427cd4|remates · Roma – Slovan Bratislava · remates · 2026-10-20T19:00:00Z · liga 3 · árbitro Sandro Schärer, Switzerland · alineaciones sin_snapshot
-  S1: datos parciales · estimador no_implementado · validación None · inv apifootbal=O,datos_depo=E,football-d=O,thestatsap=N
-  S2: datos parciales · estimador no_implementado · validación None · inv apifootbal=O,datos_depo=E,football-d=O,thestatsap=E
+  S1: datos parciales · estimador datos_insuficientes · validación no_evaluada · inv apifootbal=O,datos_depo=E,football-d=O,thestatsap=N
+  S2: datos parciales · estimador datos_insuficientes · validación no_evaluada · inv apifootbal=O,datos_depo=E,football-d=O,thestatsap=E
 - shots.total.over.14.5 | S1 | - | -
 - shots.total.under.14.5 | S1 | - | -
 - shots.total.over.15.5 | S1 | - | -
@@ -1028,8 +1028,8 @@ Investigación por canal: E encontrado · N consultado_no_encontrado · O la fue
 - shots.equipo.away.under.18.5 | S1 | - | -
 
 ## m-b7d38d427cd4|remates a puerta · Roma – Slovan Bratislava · remates a puerta · 2026-10-20T19:00:00Z · liga 3 · árbitro Sandro Schärer, Switzerland · alineaciones sin_snapshot
-  S1: datos parciales · estimador no_implementado · validación None · inv apifootbal=O,datos_depo=E,football-d=O,thestatsap=N
-  S2: datos parciales · estimador no_implementado · validación None · inv apifootbal=O,datos_depo=E,football-d=O,thestatsap=E
+  S1: datos parciales · estimador datos_insuficientes · validación no_evaluada · inv apifootbal=O,datos_depo=E,football-d=O,thestatsap=N
+  S2: datos parciales · estimador datos_insuficientes · validación no_evaluada · inv apifootbal=O,datos_depo=E,football-d=O,thestatsap=E
 - sot.total.over.3.5 | S1 | - | -
 - sot.total.under.3.5 | S1 | - | -
 - sot.total.over.4.5 | S1 | - | -
@@ -1257,17 +1257,17 @@ Investigación por canal: E encontrado · N consultado_no_encontrado · O la fue
 - goles.equipo.away.under.2.5 | S1 | A1.182 | 0.874
 
 ## m-bcb6d7155f69|goles total entero · Burton Albion – Bradford City · goles total entero · 2026-10-20T18:45:00Z · liga 154 · árbitro s/d · alineaciones sin_snapshot
-  S1: datos sin_extractor · estimador no_implementado · validación None · inv apifootbal=N,datos_depo=E,football-d=O,thestatsap=E
-- goles.total_entero.over.1 | S1 | A1.11 | -
-- goles.total_entero.under.1 | S1 | A9.27 | -
-- goles.total_entero.over.2 | S1 | A1.55 | -
-- goles.total_entero.under.2 | S1 | A2.66 | -
-- goles.total_entero.over.3 | S1 | A2.98 | -
-- goles.total_entero.under.3 | S1 | A1.47 | -
-- goles.total_entero.over.4 | S1 | A7.13 | -
-- goles.total_entero.under.4 | S1 | A1.14 | -
-- goles.total_entero.over.5 | S1 | A18.58 | -
-- goles.total_entero.under.5 | S1 | A1.03 | -
+  S1: datos sin_extractor · estimador calculable · validación no_evaluada · inv apifootbal=N,datos_depo=E,football-d=O,thestatsap=E
+- goles.total_entero.over.1 | S1 | A1.11 | 0.859
+- goles.total_entero.under.1 | S1 | A9.27 | 0.141
+- goles.total_entero.over.2 | S1 | A1.55 | 0.526
+- goles.total_entero.under.2 | S1 | A2.66 | 0.473
+- goles.total_entero.over.3 | S1 | A2.98 | 0.233
+- goles.total_entero.under.3 | S1 | A1.47 | 0.767
+- goles.total_entero.over.4 | S1 | A7.13 | 0.086
+- goles.total_entero.under.4 | S1 | A1.14 | 0.914
+- goles.total_entero.over.5 | S1 | A18.58 | 0.028
+- goles.total_entero.under.5 | S1 | A1.03 | 0.972
 
 ## m-bcb6d7155f69|hándicap · Burton Albion – Bradford City · hándicap · 2026-10-20T18:45:00Z · liga 154 · árbitro s/d · alineaciones sin_snapshot
   S1: datos suficientes · estimador calculable · validación no_evaluada · inv apifootbal=N,datos_depo=E,football-d=O,thestatsap=E
@@ -1286,190 +1286,190 @@ Investigación por canal: E encontrado · N consultado_no_encontrado · O la fue
 - resultado.ah.away.-2.5 | S2 | A7.7 | 0.061
 
 ## m-bcb6d7155f69|hándicap asiático entero · Burton Albion – Bradford City · hándicap asiático entero · 2026-10-20T18:45:00Z · liga 154 · árbitro s/d · alineaciones sin_snapshot
-  S1: datos sin_extractor · estimador no_implementado · validación None · inv apifootbal=N,datos_depo=E,football-d=O,thestatsap=E
-  S2: datos sin_extractor · estimador no_implementado · validación None · inv apifootbal=E,datos_depo=E,football-d=O,thestatsap=E
-  S3: datos sin_extractor · estimador no_implementado · validación None · inv apifootbal=E,datos_depo=E,football-d=O,thestatsap=N
-- resultado.ah_entero.home.-2 | S1 | A30.37 | -
-- resultado.ah_entero.away.+2 | S1 | A1.02 | -
-- resultado.ah_entero.home.-1 | S2 | A6.25 | -
-- resultado.ah_entero.away.+1 | S2 | A1.06 | -
-- resultado.ah_entero.home.+0 | S3 | A2.56 | -
-- resultado.ah_entero.away.+0 | S3 | A1.49 | -
-- resultado.ah_entero.home.+1 | S2 | A1.33 | -
-- resultado.ah_entero.away.-1 | S2 | A2.92 | -
-- resultado.ah_entero.home.+2 | S2 | A1.04 | -
-- resultado.ah_entero.away.-2 | S2 | A6.95 | -
+  S1: datos sin_extractor · estimador calculable · validación no_evaluada · inv apifootbal=N,datos_depo=E,football-d=O,thestatsap=E
+  S2: datos sin_extractor · estimador calculable · validación no_evaluada · inv apifootbal=E,datos_depo=E,football-d=O,thestatsap=E
+  S3: datos sin_extractor · estimador calculable · validación no_evaluada · inv apifootbal=E,datos_depo=E,football-d=O,thestatsap=N
+- resultado.ah_entero.home.-2 | S1 | A30.37 | 0.035
+- resultado.ah_entero.away.+2 | S1 | A1.02 | 0.965
+- resultado.ah_entero.home.-1 | S2 | A6.25 | 0.139
+- resultado.ah_entero.away.+1 | S2 | A1.06 | 0.861
+- resultado.ah_entero.home.+0 | S3 | A2.56 | 0.424
+- resultado.ah_entero.away.+0 | S3 | A1.49 | 0.576
+- resultado.ah_entero.home.+1 | S2 | A1.33 | 0.766
+- resultado.ah_entero.away.-1 | S2 | A2.92 | 0.234
+- resultado.ah_entero.home.+2 | S2 | A1.04 | 0.931
+- resultado.ah_entero.away.-2 | S2 | A6.95 | 0.069
 
 ## m-bcb6d7155f69|hándicap europeo · Burton Albion – Bradford City · hándicap europeo · 2026-10-20T18:45:00Z · liga 154 · árbitro s/d · alineaciones sin_snapshot
-  S1: datos sin_extractor · estimador no_implementado · validación None · inv apifootbal=O,datos_depo=E,football-d=O,thestatsap=E
-- resultado.eh.home.-2 | S1 | A26.0 | -
-- resultado.eh.draw.-2 | S1 | A12.0 | -
-- resultado.eh.away.-2 | S1 | A1.071 | -
-- resultado.eh.home.-1 | S1 | A9.0 | -
-- resultado.eh.draw.-1 | S1 | A5.5 | -
-- resultado.eh.away.-1 | S1 | A1.286 | -
-- resultado.eh.home.+1 | S1 | A1.8 | -
-- resultado.eh.draw.+1 | S1 | A3.75 | -
-- resultado.eh.away.+1 | S1 | A4.2 | -
-- resultado.eh.home.+2 | S1 | A1.25 | -
-- resultado.eh.draw.+2 | S1 | A6.0 | -
-- resultado.eh.away.+2 | S1 | A10.0 | -
+  S1: datos sin_extractor · estimador calculable · validación no_evaluada · inv apifootbal=O,datos_depo=E,football-d=O,thestatsap=E
+- resultado.eh.home.-2 | S1 | A26.0 | 0.032
+- resultado.eh.draw.-2 | S1 | A12.0 | 0.081
+- resultado.eh.away.-2 | S1 | A1.071 | 0.888
+- resultado.eh.home.-1 | S1 | A9.0 | 0.112
+- resultado.eh.draw.-1 | S1 | A5.5 | 0.19
+- resultado.eh.away.-1 | S1 | A1.286 | 0.698
+- resultado.eh.home.+1 | S1 | A1.8 | 0.589
+- resultado.eh.draw.+1 | S1 | A3.75 | 0.231
+- resultado.eh.away.+1 | S1 | A4.2 | 0.18
+- resultado.eh.home.+2 | S1 | A1.25 | 0.82
+- resultado.eh.draw.+2 | S1 | A6.0 | 0.119
+- resultado.eh.away.+2 | S1 | A10.0 | 0.061
 
 ## m-bcb6d7155f69|remates · Burton Albion – Bradford City · remates · 2026-10-20T18:45:00Z · liga 154 · árbitro s/d · alineaciones sin_snapshot
-  S1: datos suficientes · estimador no_implementado · validación None · inv apifootbal=O,datos_depo=E,football-d=O,thestatsap=N
-- shots.total.over.14.5 | S1 | - | -
-- shots.total.under.14.5 | S1 | - | -
-- shots.total.over.15.5 | S1 | - | -
-- shots.total.under.15.5 | S1 | - | -
-- shots.total.over.16.5 | S1 | - | -
-- shots.total.under.16.5 | S1 | - | -
-- shots.total.over.17.5 | S1 | - | -
-- shots.total.under.17.5 | S1 | - | -
-- shots.total.over.18.5 | S1 | - | -
-- shots.total.under.18.5 | S1 | - | -
-- shots.total.over.19.5 | S1 | - | -
-- shots.total.under.19.5 | S1 | - | -
-- shots.total.over.20.5 | S1 | - | -
-- shots.total.under.20.5 | S1 | - | -
-- shots.total.over.21.5 | S1 | - | -
-- shots.total.under.21.5 | S1 | - | -
-- shots.total.over.22.5 | S1 | - | -
-- shots.total.under.22.5 | S1 | - | -
-- shots.total.over.23.5 | S1 | - | -
-- shots.total.under.23.5 | S1 | - | -
-- shots.total.over.24.5 | S1 | - | -
-- shots.total.under.24.5 | S1 | - | -
-- shots.total.over.25.5 | S1 | - | -
-- shots.total.under.25.5 | S1 | - | -
-- shots.total.over.26.5 | S1 | - | -
-- shots.total.under.26.5 | S1 | - | -
-- shots.total.over.27.5 | S1 | - | -
-- shots.total.under.27.5 | S1 | - | -
-- shots.total.over.28.5 | S1 | - | -
-- shots.total.under.28.5 | S1 | - | -
-- shots.total.over.29.5 | S1 | - | -
-- shots.total.under.29.5 | S1 | - | -
-- shots.total.over.30.5 | S1 | - | -
-- shots.total.under.30.5 | S1 | - | -
-- shots.total.over.31.5 | S1 | - | -
-- shots.total.under.31.5 | S1 | - | -
-- shots.total.over.32.5 | S1 | - | -
-- shots.total.under.32.5 | S1 | - | -
-- shots.equipo.home.over.6.5 | S1 | - | -
-- shots.equipo.home.under.6.5 | S1 | - | -
-- shots.equipo.home.over.7.5 | S1 | - | -
-- shots.equipo.home.under.7.5 | S1 | - | -
-- shots.equipo.home.over.8.5 | S1 | - | -
-- shots.equipo.home.under.8.5 | S1 | - | -
-- shots.equipo.home.over.9.5 | S1 | - | -
-- shots.equipo.home.under.9.5 | S1 | - | -
-- shots.equipo.home.over.10.5 | S1 | - | -
-- shots.equipo.home.under.10.5 | S1 | - | -
-- shots.equipo.home.over.11.5 | S1 | - | -
-- shots.equipo.home.under.11.5 | S1 | - | -
-- shots.equipo.home.over.12.5 | S1 | - | -
-- shots.equipo.home.under.12.5 | S1 | - | -
-- shots.equipo.home.over.13.5 | S1 | - | -
-- shots.equipo.home.under.13.5 | S1 | - | -
-- shots.equipo.home.over.14.5 | S1 | - | -
-- shots.equipo.home.under.14.5 | S1 | - | -
-- shots.equipo.home.over.15.5 | S1 | - | -
-- shots.equipo.home.under.15.5 | S1 | - | -
-- shots.equipo.home.over.16.5 | S1 | - | -
-- shots.equipo.home.under.16.5 | S1 | - | -
-- shots.equipo.home.over.17.5 | S1 | - | -
-- shots.equipo.home.under.17.5 | S1 | - | -
-- shots.equipo.home.over.18.5 | S1 | - | -
-- shots.equipo.home.under.18.5 | S1 | - | -
-- shots.equipo.away.over.6.5 | S1 | - | -
-- shots.equipo.away.under.6.5 | S1 | - | -
-- shots.equipo.away.over.7.5 | S1 | - | -
-- shots.equipo.away.under.7.5 | S1 | - | -
-- shots.equipo.away.over.8.5 | S1 | - | -
-- shots.equipo.away.under.8.5 | S1 | - | -
-- shots.equipo.away.over.9.5 | S1 | - | -
-- shots.equipo.away.under.9.5 | S1 | - | -
-- shots.equipo.away.over.10.5 | S1 | - | -
-- shots.equipo.away.under.10.5 | S1 | - | -
-- shots.equipo.away.over.11.5 | S1 | - | -
-- shots.equipo.away.under.11.5 | S1 | - | -
-- shots.equipo.away.over.12.5 | S1 | - | -
-- shots.equipo.away.under.12.5 | S1 | - | -
-- shots.equipo.away.over.13.5 | S1 | - | -
-- shots.equipo.away.under.13.5 | S1 | - | -
-- shots.equipo.away.over.14.5 | S1 | - | -
-- shots.equipo.away.under.14.5 | S1 | - | -
-- shots.equipo.away.over.15.5 | S1 | - | -
-- shots.equipo.away.under.15.5 | S1 | - | -
-- shots.equipo.away.over.16.5 | S1 | - | -
-- shots.equipo.away.under.16.5 | S1 | - | -
-- shots.equipo.away.over.17.5 | S1 | - | -
-- shots.equipo.away.under.17.5 | S1 | - | -
-- shots.equipo.away.over.18.5 | S1 | - | -
-- shots.equipo.away.under.18.5 | S1 | - | -
+  S1: datos suficientes · estimador calculable · validación no_evaluada · inv apifootbal=O,datos_depo=E,football-d=O,thestatsap=N
+- shots.total.over.14.5 | S1 | - | 0.937
+- shots.total.under.14.5 | S1 | - | 0.063
+- shots.total.over.15.5 | S1 | - | 0.905
+- shots.total.under.15.5 | S1 | - | 0.095
+- shots.total.over.16.5 | S1 | - | 0.864
+- shots.total.under.16.5 | S1 | - | 0.136
+- shots.total.over.17.5 | S1 | - | 0.813
+- shots.total.under.17.5 | S1 | - | 0.187
+- shots.total.over.18.5 | S1 | - | 0.753
+- shots.total.under.18.5 | S1 | - | 0.247
+- shots.total.over.19.5 | S1 | - | 0.686
+- shots.total.under.19.5 | S1 | - | 0.314
+- shots.total.over.20.5 | S1 | - | 0.613
+- shots.total.under.20.5 | S1 | - | 0.387
+- shots.total.over.21.5 | S1 | - | 0.538
+- shots.total.under.21.5 | S1 | - | 0.462
+- shots.total.over.22.5 | S1 | - | 0.463
+- shots.total.under.22.5 | S1 | - | 0.537
+- shots.total.over.23.5 | S1 | - | 0.39
+- shots.total.under.23.5 | S1 | - | 0.61
+- shots.total.over.24.5 | S1 | - | 0.322
+- shots.total.under.24.5 | S1 | - | 0.678
+- shots.total.over.25.5 | S1 | - | 0.261
+- shots.total.under.25.5 | S1 | - | 0.739
+- shots.total.over.26.5 | S1 | - | 0.207
+- shots.total.under.26.5 | S1 | - | 0.793
+- shots.total.over.27.5 | S1 | - | 0.161
+- shots.total.under.27.5 | S1 | - | 0.839
+- shots.total.over.28.5 | S1 | - | 0.122
+- shots.total.under.28.5 | S1 | - | 0.877
+- shots.total.over.29.5 | S1 | - | 0.091
+- shots.total.under.29.5 | S1 | - | 0.908
+- shots.total.over.30.5 | S1 | - | 0.067
+- shots.total.under.30.5 | S1 | - | 0.933
+- shots.total.over.31.5 | S1 | - | 0.048
+- shots.total.under.31.5 | S1 | - | 0.952
+- shots.total.over.32.5 | S1 | - | 0.034
+- shots.total.under.32.5 | S1 | - | 0.966
+- shots.equipo.home.over.6.5 | S1 | - | 0.866
+- shots.equipo.home.under.6.5 | S1 | - | 0.134
+- shots.equipo.home.over.7.5 | S1 | - | 0.798
+- shots.equipo.home.under.7.5 | S1 | - | 0.202
+- shots.equipo.home.over.8.5 | S1 | - | 0.718
+- shots.equipo.home.under.8.5 | S1 | - | 0.282
+- shots.equipo.home.over.9.5 | S1 | - | 0.631
+- shots.equipo.home.under.9.5 | S1 | - | 0.369
+- shots.equipo.home.over.10.5 | S1 | - | 0.542
+- shots.equipo.home.under.10.5 | S1 | - | 0.458
+- shots.equipo.home.over.11.5 | S1 | - | 0.454
+- shots.equipo.home.under.11.5 | S1 | - | 0.546
+- shots.equipo.home.over.12.5 | S1 | - | 0.372
+- shots.equipo.home.under.12.5 | S1 | - | 0.628
+- shots.equipo.home.over.13.5 | S1 | - | 0.298
+- shots.equipo.home.under.13.5 | S1 | - | 0.702
+- shots.equipo.home.over.14.5 | S1 | - | 0.234
+- shots.equipo.home.under.14.5 | S1 | - | 0.766
+- shots.equipo.home.over.15.5 | S1 | - | 0.18
+- shots.equipo.home.under.15.5 | S1 | - | 0.82
+- shots.equipo.home.over.16.5 | S1 | - | 0.136
+- shots.equipo.home.under.16.5 | S1 | - | 0.864
+- shots.equipo.home.over.17.5 | S1 | - | 0.101
+- shots.equipo.home.under.17.5 | S1 | - | 0.899
+- shots.equipo.home.over.18.5 | S1 | - | 0.074
+- shots.equipo.home.under.18.5 | S1 | - | 0.926
+- shots.equipo.away.over.6.5 | S1 | - | 0.839
+- shots.equipo.away.under.6.5 | S1 | - | 0.161
+- shots.equipo.away.over.7.5 | S1 | - | 0.763
+- shots.equipo.away.under.7.5 | S1 | - | 0.237
+- shots.equipo.away.over.8.5 | S1 | - | 0.676
+- shots.equipo.away.under.8.5 | S1 | - | 0.324
+- shots.equipo.away.over.9.5 | S1 | - | 0.583
+- shots.equipo.away.under.9.5 | S1 | - | 0.417
+- shots.equipo.away.over.10.5 | S1 | - | 0.49
+- shots.equipo.away.under.10.5 | S1 | - | 0.509
+- shots.equipo.away.over.11.5 | S1 | - | 0.402
+- shots.equipo.away.under.11.5 | S1 | - | 0.598
+- shots.equipo.away.over.12.5 | S1 | - | 0.322
+- shots.equipo.away.under.12.5 | S1 | - | 0.678
+- shots.equipo.away.over.13.5 | S1 | - | 0.252
+- shots.equipo.away.under.13.5 | S1 | - | 0.748
+- shots.equipo.away.over.14.5 | S1 | - | 0.194
+- shots.equipo.away.under.14.5 | S1 | - | 0.806
+- shots.equipo.away.over.15.5 | S1 | - | 0.145
+- shots.equipo.away.under.15.5 | S1 | - | 0.855
+- shots.equipo.away.over.16.5 | S1 | - | 0.107
+- shots.equipo.away.under.16.5 | S1 | - | 0.893
+- shots.equipo.away.over.17.5 | S1 | - | 0.077
+- shots.equipo.away.under.17.5 | S1 | - | 0.922
+- shots.equipo.away.over.18.5 | S1 | - | 0.055
+- shots.equipo.away.under.18.5 | S1 | - | 0.945
 
 ## m-bcb6d7155f69|remates a puerta · Burton Albion – Bradford City · remates a puerta · 2026-10-20T18:45:00Z · liga 154 · árbitro s/d · alineaciones sin_snapshot
-  S1: datos suficientes · estimador no_implementado · validación None · inv apifootbal=O,datos_depo=E,football-d=O,thestatsap=N
-- sot.total.over.3.5 | S1 | - | -
-- sot.total.under.3.5 | S1 | - | -
-- sot.total.over.4.5 | S1 | - | -
-- sot.total.under.4.5 | S1 | - | -
-- sot.total.over.5.5 | S1 | - | -
-- sot.total.under.5.5 | S1 | - | -
-- sot.total.over.6.5 | S1 | - | -
-- sot.total.under.6.5 | S1 | - | -
-- sot.total.over.7.5 | S1 | - | -
-- sot.total.under.7.5 | S1 | - | -
-- sot.total.over.8.5 | S1 | - | -
-- sot.total.under.8.5 | S1 | - | -
-- sot.total.over.9.5 | S1 | - | -
-- sot.total.under.9.5 | S1 | - | -
-- sot.total.over.10.5 | S1 | - | -
-- sot.total.under.10.5 | S1 | - | -
-- sot.total.over.11.5 | S1 | - | -
-- sot.total.under.11.5 | S1 | - | -
-- sot.total.over.12.5 | S1 | - | -
-- sot.total.under.12.5 | S1 | - | -
-- sot.total.over.13.5 | S1 | - | -
-- sot.total.under.13.5 | S1 | - | -
-- sot.total.over.14.5 | S1 | - | -
-- sot.total.under.14.5 | S1 | - | -
-- sot.equipo.home.over.1.5 | S1 | - | -
-- sot.equipo.home.under.1.5 | S1 | - | -
-- sot.equipo.home.over.2.5 | S1 | - | -
-- sot.equipo.home.under.2.5 | S1 | - | -
-- sot.equipo.home.over.3.5 | S1 | - | -
-- sot.equipo.home.under.3.5 | S1 | - | -
-- sot.equipo.home.over.4.5 | S1 | - | -
-- sot.equipo.home.under.4.5 | S1 | - | -
-- sot.equipo.home.over.5.5 | S1 | - | -
-- sot.equipo.home.under.5.5 | S1 | - | -
-- sot.equipo.home.over.6.5 | S1 | - | -
-- sot.equipo.home.under.6.5 | S1 | - | -
-- sot.equipo.home.over.7.5 | S1 | - | -
-- sot.equipo.home.under.7.5 | S1 | - | -
-- sot.equipo.home.over.8.5 | S1 | - | -
-- sot.equipo.home.under.8.5 | S1 | - | -
-- sot.equipo.home.over.9.5 | S1 | - | -
-- sot.equipo.home.under.9.5 | S1 | - | -
-- sot.equipo.away.over.1.5 | S1 | - | -
-- sot.equipo.away.under.1.5 | S1 | - | -
-- sot.equipo.away.over.2.5 | S1 | - | -
-- sot.equipo.away.under.2.5 | S1 | - | -
-- sot.equipo.away.over.3.5 | S1 | - | -
-- sot.equipo.away.under.3.5 | S1 | - | -
-- sot.equipo.away.over.4.5 | S1 | - | -
-- sot.equipo.away.under.4.5 | S1 | - | -
-- sot.equipo.away.over.5.5 | S1 | - | -
-- sot.equipo.away.under.5.5 | S1 | - | -
-- sot.equipo.away.over.6.5 | S1 | - | -
-- sot.equipo.away.under.6.5 | S1 | - | -
-- sot.equipo.away.over.7.5 | S1 | - | -
-- sot.equipo.away.under.7.5 | S1 | - | -
-- sot.equipo.away.over.8.5 | S1 | - | -
-- sot.equipo.away.under.8.5 | S1 | - | -
-- sot.equipo.away.over.9.5 | S1 | - | -
-- sot.equipo.away.under.9.5 | S1 | - | -
+  S1: datos suficientes · estimador calculable · validación no_evaluada · inv apifootbal=O,datos_depo=E,football-d=O,thestatsap=N
+- sot.total.over.3.5 | S1 | - | 0.835
+- sot.total.under.3.5 | S1 | - | 0.165
+- sot.total.over.4.5 | S1 | - | 0.714
+- sot.total.under.4.5 | S1 | - | 0.286
+- sot.total.over.5.5 | S1 | - | 0.576
+- sot.total.under.5.5 | S1 | - | 0.424
+- sot.total.over.6.5 | S1 | - | 0.438
+- sot.total.under.6.5 | S1 | - | 0.562
+- sot.total.over.7.5 | S1 | - | 0.314
+- sot.total.under.7.5 | S1 | - | 0.686
+- sot.total.over.8.5 | S1 | - | 0.214
+- sot.total.under.8.5 | S1 | - | 0.786
+- sot.total.over.9.5 | S1 | - | 0.139
+- sot.total.under.9.5 | S1 | - | 0.861
+- sot.total.over.10.5 | S1 | - | 0.086
+- sot.total.under.10.5 | S1 | - | 0.914
+- sot.total.over.11.5 | S1 | - | 0.051
+- sot.total.under.11.5 | S1 | - | 0.949
+- sot.total.over.12.5 | S1 | - | 0.029
+- sot.total.under.12.5 | S1 | - | 0.971
+- sot.total.over.13.5 | S1 | - | 0.016
+- sot.total.under.13.5 | S1 | - | 0.984
+- sot.total.over.14.5 | S1 | - | 0.009
+- sot.total.under.14.5 | S1 | - | 0.991
+- sot.equipo.home.over.1.5 | S1 | - | 0.725
+- sot.equipo.home.under.1.5 | S1 | - | 0.275
+- sot.equipo.home.over.2.5 | S1 | - | 0.51
+- sot.equipo.home.under.2.5 | S1 | - | 0.49
+- sot.equipo.home.over.3.5 | S1 | - | 0.322
+- sot.equipo.home.under.3.5 | S1 | - | 0.678
+- sot.equipo.home.over.4.5 | S1 | - | 0.186
+- sot.equipo.home.under.4.5 | S1 | - | 0.814
+- sot.equipo.home.over.5.5 | S1 | - | 0.1
+- sot.equipo.home.under.5.5 | S1 | - | 0.9
+- sot.equipo.home.over.6.5 | S1 | - | 0.051
+- sot.equipo.home.under.6.5 | S1 | - | 0.949
+- sot.equipo.home.over.7.5 | S1 | - | 0.024
+- sot.equipo.home.under.7.5 | S1 | - | 0.976
+- sot.equipo.home.over.8.5 | S1 | - | 0.011
+- sot.equipo.home.under.8.5 | S1 | - | 0.989
+- sot.equipo.home.over.9.5 | S1 | - | 0.005
+- sot.equipo.home.under.9.5 | S1 | - | 0.995
+- sot.equipo.away.over.1.5 | S1 | - | 0.805
+- sot.equipo.away.under.1.5 | S1 | - | 0.195
+- sot.equipo.away.over.2.5 | S1 | - | 0.622
+- sot.equipo.away.under.2.5 | S1 | - | 0.378
+- sot.equipo.away.over.3.5 | S1 | - | 0.438
+- sot.equipo.away.under.3.5 | S1 | - | 0.562
+- sot.equipo.away.over.4.5 | S1 | - | 0.285
+- sot.equipo.away.under.4.5 | S1 | - | 0.715
+- sot.equipo.away.over.5.5 | S1 | - | 0.173
+- sot.equipo.away.under.5.5 | S1 | - | 0.827
+- sot.equipo.away.over.6.5 | S1 | - | 0.1
+- sot.equipo.away.under.6.5 | S1 | - | 0.9
+- sot.equipo.away.over.7.5 | S1 | - | 0.055
+- sot.equipo.away.under.7.5 | S1 | - | 0.945
+- sot.equipo.away.over.8.5 | S1 | - | 0.029
+- sot.equipo.away.under.8.5 | S1 | - | 0.971
+- sot.equipo.away.over.9.5 | S1 | - | 0.015
+- sot.equipo.away.under.9.5 | S1 | - | 0.985
 
 ## m-bcb6d7155f69|resultado · Burton Albion – Bradford City · resultado · 2026-10-20T18:45:00Z · liga 154 · árbitro s/d · alineaciones sin_snapshot
   S1: datos suficientes · estimador calculable · validación parcial · inv apifootbal=E,datos_depo=E,football-d=O,thestatsap=E
@@ -1635,17 +1635,17 @@ Investigación por canal: E encontrado · N consultado_no_encontrado · O la fue
 - goles.equipo.away.under.2.5 | S1 | A1.071 | 0.796
 
 ## m-bd8ed8d3e54a|goles total entero · Fenerbahçe – Slavia Praha · goles total entero · 2026-10-20T16:45:00Z · liga 3 · árbitro Ricardo De Burgos Bengoetxea, Spain · alineaciones sin_snapshot
-  S1: datos sin_extractor · estimador no_implementado · validación None · inv apifootbal=N,datos_depo=E,football-d=O,thestatsap=E
-- goles.total_entero.over.1 | S1 | A1.05 | -
-- goles.total_entero.under.1 | S1 | A17.66 | -
-- goles.total_entero.over.2 | S1 | A1.26 | -
-- goles.total_entero.under.2 | S1 | A4.35 | -
-- goles.total_entero.over.3 | S1 | A1.926 | -
-- goles.total_entero.under.3 | S1 | A1.9849999999999999 | -
-- goles.total_entero.over.4 | S1 | A3.78 | -
-- goles.total_entero.under.4 | S1 | A1.33 | -
-- goles.total_entero.over.5 | S1 | A8.66 | -
-- goles.total_entero.under.5 | S1 | A1.12 | -
+  S1: datos sin_extractor · estimador calculable · validación no_evaluada · inv apifootbal=N,datos_depo=E,football-d=O,thestatsap=E
+- goles.total_entero.over.1 | S1 | A1.05 | 0.914
+- goles.total_entero.under.1 | S1 | A17.66 | 0.086
+- goles.total_entero.over.2 | S1 | A1.26 | 0.659
+- goles.total_entero.under.2 | S1 | A4.35 | 0.341
+- goles.total_entero.over.3 | S1 | A1.926 | 0.354
+- goles.total_entero.under.3 | S1 | A1.9849999999999999 | 0.646
+- goles.total_entero.over.4 | S1 | A3.78 | 0.153
+- goles.total_entero.under.4 | S1 | A1.33 | 0.847
+- goles.total_entero.over.5 | S1 | A8.66 | 0.058
+- goles.total_entero.under.5 | S1 | A1.12 | 0.942
 
 ## m-bd8ed8d3e54a|hándicap · Fenerbahçe – Slavia Praha · hándicap · 2026-10-20T16:45:00Z · liga 3 · árbitro Ricardo De Burgos Bengoetxea, Spain · alineaciones sin_snapshot
   S1: datos suficientes · estimador calculable · validación no_evaluada · inv apifootbal=E,datos_depo=E,football-d=O,thestatsap=E
@@ -1664,38 +1664,38 @@ Investigación por canal: E encontrado · N consultado_no_encontrado · O la fue
 - resultado.ah.away.-2.5 | S2 | A50.0 | 0.098
 
 ## m-bd8ed8d3e54a|hándicap asiático entero · Fenerbahçe – Slavia Praha · hándicap asiático entero · 2026-10-20T16:45:00Z · liga 3 · árbitro Ricardo De Burgos Bengoetxea, Spain · alineaciones sin_snapshot
-  S1: datos sin_extractor · estimador no_implementado · validación None · inv apifootbal=E,datos_depo=E,football-d=O,thestatsap=E
-  S2: datos sin_extractor · estimador no_implementado · validación None · inv apifootbal=E,datos_depo=E,football-d=O,thestatsap=N
-  S3: datos sin_extractor · estimador no_implementado · validación None · inv apifootbal=N,datos_depo=E,football-d=O,thestatsap=E
-- resultado.ah_entero.home.-2 | S1 | A4.05 | -
-- resultado.ah_entero.away.+2 | S1 | A1.19 | -
-- resultado.ah_entero.home.-1 | S1 | A2.07 | -
-- resultado.ah_entero.away.+1 | S1 | A1.76 | -
-- resultado.ah_entero.home.+0 | S2 | A1.26 | -
-- resultado.ah_entero.away.+0 | S2 | A3.8 | -
-- resultado.ah_entero.home.+1 | S1 | A1.07 | -
-- resultado.ah_entero.away.-1 | S1 | A13.68 | -
-- resultado.ah_entero.home.+2 | S3 | A1.01 | -
-- resultado.ah_entero.away.-2 | S3 | A47.77 | -
+  S1: datos sin_extractor · estimador calculable · validación no_evaluada · inv apifootbal=E,datos_depo=E,football-d=O,thestatsap=E
+  S2: datos sin_extractor · estimador calculable · validación no_evaluada · inv apifootbal=E,datos_depo=E,football-d=O,thestatsap=N
+  S3: datos sin_extractor · estimador calculable · validación no_evaluada · inv apifootbal=N,datos_depo=E,football-d=O,thestatsap=E
+- resultado.ah_entero.home.-2 | S1 | A4.05 | 0.034
+- resultado.ah_entero.away.+2 | S1 | A1.19 | 0.966
+- resultado.ah_entero.home.-1 | S1 | A2.07 | 0.126
+- resultado.ah_entero.away.+1 | S1 | A1.76 | 0.874
+- resultado.ah_entero.home.+0 | S2 | A1.26 | 0.363
+- resultado.ah_entero.away.+0 | S2 | A3.8 | 0.636
+- resultado.ah_entero.home.+1 | S1 | A1.07 | 0.684
+- resultado.ah_entero.away.-1 | S1 | A13.68 | 0.316
+- resultado.ah_entero.home.+2 | S3 | A1.01 | 0.885
+- resultado.ah_entero.away.-2 | S3 | A47.77 | 0.115
 
 ## m-bd8ed8d3e54a|hándicap europeo · Fenerbahçe – Slavia Praha · hándicap europeo · 2026-10-20T16:45:00Z · liga 3 · árbitro Ricardo De Burgos Bengoetxea, Spain · alineaciones sin_snapshot
-  S1: datos sin_extractor · estimador no_implementado · validación None · inv apifootbal=O,datos_depo=E,football-d=O,thestatsap=E
-- resultado.eh.home.-2 | S1 | A4.5 | -
-- resultado.eh.draw.-2 | S1 | A4.75 | -
-- resultado.eh.away.-2 | S1 | A1.5 | -
-- resultado.eh.home.-1 | S1 | A2.5 | -
-- resultado.eh.draw.-1 | S1 | A4.0 | -
-- resultado.eh.away.-1 | S1 | A2.3 | -
-- resultado.eh.home.+1 | S1 | A1.167 | -
-- resultado.eh.draw.+1 | S1 | A7.0 | -
-- resultado.eh.away.+1 | S1 | A13.0 | -
-- resultado.eh.home.+2 | S1 | A1.04 | -
-- resultado.eh.draw.+2 | S1 | A15.0 | -
-- resultado.eh.away.+2 | S1 | A34.0 | -
+  S1: datos sin_extractor · estimador calculable · validación no_evaluada · inv apifootbal=O,datos_depo=E,football-d=O,thestatsap=E
+- resultado.eh.home.-2 | S1 | A4.5 | 0.032
+- resultado.eh.draw.-2 | S1 | A4.75 | 0.073
+- resultado.eh.away.-2 | S1 | A1.5 | 0.895
+- resultado.eh.home.-1 | S1 | A2.5 | 0.105
+- resultado.eh.draw.-1 | S1 | A4.0 | 0.166
+- resultado.eh.away.-1 | S1 | A2.3 | 0.729
+- resultado.eh.home.+1 | S1 | A1.167 | 0.525
+- resultado.eh.draw.+1 | S1 | A7.0 | 0.233
+- resultado.eh.away.+1 | S1 | A13.0 | 0.242
+- resultado.eh.home.+2 | S1 | A1.04 | 0.758
+- resultado.eh.draw.+2 | S1 | A15.0 | 0.144
+- resultado.eh.away.+2 | S1 | A34.0 | 0.098
 
 ## m-bd8ed8d3e54a|remates · Fenerbahçe – Slavia Praha · remates · 2026-10-20T16:45:00Z · liga 3 · árbitro Ricardo De Burgos Bengoetxea, Spain · alineaciones sin_snapshot
-  S1: datos suficientes · estimador no_implementado · validación None · inv apifootbal=O,datos_depo=E,football-d=O,thestatsap=N
-  S2: datos suficientes · estimador no_implementado · validación None · inv apifootbal=O,datos_depo=E,football-d=O,thestatsap=E
+  S1: datos suficientes · estimador sin_probabilidad_calculada · validación no_evaluada · inv apifootbal=O,datos_depo=E,football-d=O,thestatsap=N
+  S2: datos suficientes · estimador sin_probabilidad_calculada · validación no_evaluada · inv apifootbal=O,datos_depo=E,football-d=O,thestatsap=E
 - shots.total.over.14.5 | S1 | - | -
 - shots.total.under.14.5 | S1 | - | -
 - shots.total.over.15.5 | S1 | - | -
@@ -1788,8 +1788,8 @@ Investigación por canal: E encontrado · N consultado_no_encontrado · O la fue
 - shots.equipo.away.under.18.5 | S1 | - | -
 
 ## m-bd8ed8d3e54a|remates a puerta · Fenerbahçe – Slavia Praha · remates a puerta · 2026-10-20T16:45:00Z · liga 3 · árbitro Ricardo De Burgos Bengoetxea, Spain · alineaciones sin_snapshot
-  S1: datos suficientes · estimador no_implementado · validación None · inv apifootbal=O,datos_depo=E,football-d=O,thestatsap=N
-  S2: datos suficientes · estimador no_implementado · validación None · inv apifootbal=O,datos_depo=E,football-d=O,thestatsap=E
+  S1: datos suficientes · estimador sin_probabilidad_calculada · validación no_evaluada · inv apifootbal=O,datos_depo=E,football-d=O,thestatsap=N
+  S2: datos suficientes · estimador sin_probabilidad_calculada · validación no_evaluada · inv apifootbal=O,datos_depo=E,football-d=O,thestatsap=E
 - sot.total.over.3.5 | S1 | - | -
 - sot.total.under.3.5 | S1 | - | -
 - sot.total.over.4.5 | S1 | - | -
@@ -2016,17 +2016,17 @@ Investigación por canal: E encontrado · N consultado_no_encontrado · O la fue
 - goles.equipo.away.under.2.5 | S1 | - | 0.483
 
 ## m-bfb4fb94398d|goles total entero · Al Taawon – Al Qadsiah · goles total entero · 2026-10-20T15:10:00Z · liga 278 · árbitro s/d · alineaciones sin_snapshot
-  S1: datos sin_extractor · estimador no_implementado · validación None · inv apifootbal=N,datos_depo=E,football-d=O,thestatsap=O
-- goles.total_entero.over.1 | S1 | - | -
-- goles.total_entero.under.1 | S1 | - | -
-- goles.total_entero.over.2 | S1 | - | -
-- goles.total_entero.under.2 | S1 | - | -
-- goles.total_entero.over.3 | S1 | - | -
-- goles.total_entero.under.3 | S1 | - | -
-- goles.total_entero.over.4 | S1 | - | -
-- goles.total_entero.under.4 | S1 | - | -
-- goles.total_entero.over.5 | S1 | - | -
-- goles.total_entero.under.5 | S1 | - | -
+  S1: datos sin_extractor · estimador calculable · validación no_evaluada · inv apifootbal=N,datos_depo=E,football-d=O,thestatsap=O
+- goles.total_entero.over.1 | S1 | - | 0.962
+- goles.total_entero.under.1 | S1 | - | 0.038
+- goles.total_entero.over.2 | S1 | - | 0.818
+- goles.total_entero.under.2 | S1 | - | 0.182
+- goles.total_entero.over.3 | S1 | - | 0.565
+- goles.total_entero.under.3 | S1 | - | 0.435
+- goles.total_entero.over.4 | S1 | - | 0.314
+- goles.total_entero.under.4 | S1 | - | 0.686
+- goles.total_entero.over.5 | S1 | - | 0.148
+- goles.total_entero.under.5 | S1 | - | 0.852
 
 ## m-bfb4fb94398d|hándicap · Al Taawon – Al Qadsiah · hándicap · 2026-10-20T15:10:00Z · liga 278 · árbitro s/d · alineaciones sin_snapshot
   S1: datos suficientes · estimador calculable · validación no_evaluada · inv apifootbal=N,datos_depo=E,football-d=O,thestatsap=O
@@ -2045,189 +2045,189 @@ Investigación por canal: E encontrado · N consultado_no_encontrado · O la fue
 - resultado.ah.away.-2.5 | S2 | A3.5 | 0.387
 
 ## m-bfb4fb94398d|hándicap asiático entero · Al Taawon – Al Qadsiah · hándicap asiático entero · 2026-10-20T15:10:00Z · liga 278 · árbitro s/d · alineaciones sin_snapshot
-  S1: datos sin_extractor · estimador no_implementado · validación None · inv apifootbal=N,datos_depo=E,football-d=O,thestatsap=O
-  S2: datos sin_extractor · estimador no_implementado · validación None · inv apifootbal=E,datos_depo=E,football-d=O,thestatsap=O
-- resultado.ah_entero.home.-2 | S1 | - | -
-- resultado.ah_entero.away.+2 | S1 | - | -
-- resultado.ah_entero.home.-1 | S2 | V9.1 | -
-- resultado.ah_entero.away.+1 | S2 | V1.015 | -
-- resultado.ah_entero.home.+0 | S2 | A4.55 | -
-- resultado.ah_entero.away.+0 | S2 | A1.13 | -
-- resultado.ah_entero.home.+1 | S2 | A2.125 | -
-- resultado.ah_entero.away.-1 | S2 | A1.65 | -
-- resultado.ah_entero.home.+2 | S2 | A1.36 | -
-- resultado.ah_entero.away.-2 | S2 | A3.0 | -
+  S1: datos sin_extractor · estimador calculable · validación no_evaluada · inv apifootbal=N,datos_depo=E,football-d=O,thestatsap=O
+  S2: datos sin_extractor · estimador calculable · validación no_evaluada · inv apifootbal=E,datos_depo=E,football-d=O,thestatsap=O
+- resultado.ah_entero.home.-2 | S1 | - | 0.003
+- resultado.ah_entero.away.+2 | S1 | - | 0.997
+- resultado.ah_entero.home.-1 | S2 | V9.1 | 0.016
+- resultado.ah_entero.away.+1 | S2 | V1.015 | 0.984
+- resultado.ah_entero.home.+0 | S2 | A4.55 | 0.073
+- resultado.ah_entero.away.+0 | S2 | A1.13 | 0.927
+- resultado.ah_entero.home.+1 | S2 | A2.125 | 0.238
+- resultado.ah_entero.away.-1 | S2 | A1.65 | 0.762
+- resultado.ah_entero.home.+2 | S2 | A1.36 | 0.504
+- resultado.ah_entero.away.-2 | S2 | A3.0 | 0.496
 
 ## m-bfb4fb94398d|hándicap europeo · Al Taawon – Al Qadsiah · hándicap europeo · 2026-10-20T15:10:00Z · liga 278 · árbitro s/d · alineaciones sin_snapshot
-  S1: datos sin_extractor · estimador no_implementado · validación None · inv apifootbal=O,datos_depo=E,football-d=O,thestatsap=O
-- resultado.eh.home.-2 | S1 | - | -
-- resultado.eh.draw.-2 | S1 | - | -
-- resultado.eh.away.-2 | S1 | - | -
-- resultado.eh.home.-1 | S1 | - | -
-- resultado.eh.draw.-1 | S1 | - | -
-- resultado.eh.away.-1 | S1 | - | -
-- resultado.eh.home.+1 | S1 | - | -
-- resultado.eh.draw.+1 | S1 | - | -
-- resultado.eh.away.+1 | S1 | - | -
-- resultado.eh.home.+2 | S1 | - | -
-- resultado.eh.draw.+2 | S1 | - | -
-- resultado.eh.away.+2 | S1 | - | -
+  S1: datos sin_extractor · estimador calculable · validación no_evaluada · inv apifootbal=O,datos_depo=E,football-d=O,thestatsap=O
+- resultado.eh.home.-2 | S1 | - | 0.003
+- resultado.eh.draw.-2 | S1 | - | 0.013
+- resultado.eh.away.-2 | S1 | - | 0.985
+- resultado.eh.home.-1 | S1 | - | 0.015
+- resultado.eh.draw.-1 | S1 | - | 0.048
+- resultado.eh.away.-1 | S1 | - | 0.936
+- resultado.eh.home.+1 | S1 | - | 0.19
+- resultado.eh.draw.+1 | S1 | - | 0.203
+- resultado.eh.away.+1 | S1 | - | 0.607
+- resultado.eh.home.+2 | S1 | - | 0.393
+- resultado.eh.draw.+2 | S1 | - | 0.22
+- resultado.eh.away.+2 | S1 | - | 0.387
 
 ## m-bfb4fb94398d|remates · Al Taawon – Al Qadsiah · remates · 2026-10-20T15:10:00Z · liga 278 · árbitro s/d · alineaciones sin_snapshot
-  S1: datos suficientes · estimador no_implementado · validación None · inv apifootbal=O,datos_depo=E,football-d=O,thestatsap=O
-- shots.total.over.14.5 | S1 | - | -
-- shots.total.under.14.5 | S1 | - | -
-- shots.total.over.15.5 | S1 | - | -
-- shots.total.under.15.5 | S1 | - | -
-- shots.total.over.16.5 | S1 | - | -
-- shots.total.under.16.5 | S1 | - | -
-- shots.total.over.17.5 | S1 | - | -
-- shots.total.under.17.5 | S1 | - | -
-- shots.total.over.18.5 | S1 | - | -
-- shots.total.under.18.5 | S1 | - | -
-- shots.total.over.19.5 | S1 | - | -
-- shots.total.under.19.5 | S1 | - | -
-- shots.total.over.20.5 | S1 | - | -
-- shots.total.under.20.5 | S1 | - | -
-- shots.total.over.21.5 | S1 | - | -
-- shots.total.under.21.5 | S1 | - | -
-- shots.total.over.22.5 | S1 | - | -
-- shots.total.under.22.5 | S1 | - | -
-- shots.total.over.23.5 | S1 | - | -
-- shots.total.under.23.5 | S1 | - | -
-- shots.total.over.24.5 | S1 | - | -
-- shots.total.under.24.5 | S1 | - | -
-- shots.total.over.25.5 | S1 | - | -
-- shots.total.under.25.5 | S1 | - | -
-- shots.total.over.26.5 | S1 | - | -
-- shots.total.under.26.5 | S1 | - | -
-- shots.total.over.27.5 | S1 | - | -
-- shots.total.under.27.5 | S1 | - | -
-- shots.total.over.28.5 | S1 | - | -
-- shots.total.under.28.5 | S1 | - | -
-- shots.total.over.29.5 | S1 | - | -
-- shots.total.under.29.5 | S1 | - | -
-- shots.total.over.30.5 | S1 | - | -
-- shots.total.under.30.5 | S1 | - | -
-- shots.total.over.31.5 | S1 | - | -
-- shots.total.under.31.5 | S1 | - | -
-- shots.total.over.32.5 | S1 | - | -
-- shots.total.under.32.5 | S1 | - | -
-- shots.equipo.home.over.6.5 | S1 | - | -
-- shots.equipo.home.under.6.5 | S1 | - | -
-- shots.equipo.home.over.7.5 | S1 | - | -
-- shots.equipo.home.under.7.5 | S1 | - | -
-- shots.equipo.home.over.8.5 | S1 | - | -
-- shots.equipo.home.under.8.5 | S1 | - | -
-- shots.equipo.home.over.9.5 | S1 | - | -
-- shots.equipo.home.under.9.5 | S1 | - | -
-- shots.equipo.home.over.10.5 | S1 | - | -
-- shots.equipo.home.under.10.5 | S1 | - | -
-- shots.equipo.home.over.11.5 | S1 | - | -
-- shots.equipo.home.under.11.5 | S1 | - | -
-- shots.equipo.home.over.12.5 | S1 | - | -
-- shots.equipo.home.under.12.5 | S1 | - | -
-- shots.equipo.home.over.13.5 | S1 | - | -
-- shots.equipo.home.under.13.5 | S1 | - | -
-- shots.equipo.home.over.14.5 | S1 | - | -
-- shots.equipo.home.under.14.5 | S1 | - | -
-- shots.equipo.home.over.15.5 | S1 | - | -
-- shots.equipo.home.under.15.5 | S1 | - | -
-- shots.equipo.home.over.16.5 | S1 | - | -
-- shots.equipo.home.under.16.5 | S1 | - | -
-- shots.equipo.home.over.17.5 | S1 | - | -
-- shots.equipo.home.under.17.5 | S1 | - | -
-- shots.equipo.home.over.18.5 | S1 | - | -
-- shots.equipo.home.under.18.5 | S1 | - | -
-- shots.equipo.away.over.6.5 | S1 | - | -
-- shots.equipo.away.under.6.5 | S1 | - | -
-- shots.equipo.away.over.7.5 | S1 | - | -
-- shots.equipo.away.under.7.5 | S1 | - | -
-- shots.equipo.away.over.8.5 | S1 | - | -
-- shots.equipo.away.under.8.5 | S1 | - | -
-- shots.equipo.away.over.9.5 | S1 | - | -
-- shots.equipo.away.under.9.5 | S1 | - | -
-- shots.equipo.away.over.10.5 | S1 | - | -
-- shots.equipo.away.under.10.5 | S1 | - | -
-- shots.equipo.away.over.11.5 | S1 | - | -
-- shots.equipo.away.under.11.5 | S1 | - | -
-- shots.equipo.away.over.12.5 | S1 | - | -
-- shots.equipo.away.under.12.5 | S1 | - | -
-- shots.equipo.away.over.13.5 | S1 | - | -
-- shots.equipo.away.under.13.5 | S1 | - | -
-- shots.equipo.away.over.14.5 | S1 | - | -
-- shots.equipo.away.under.14.5 | S1 | - | -
-- shots.equipo.away.over.15.5 | S1 | - | -
-- shots.equipo.away.under.15.5 | S1 | - | -
-- shots.equipo.away.over.16.5 | S1 | - | -
-- shots.equipo.away.under.16.5 | S1 | - | -
-- shots.equipo.away.over.17.5 | S1 | - | -
-- shots.equipo.away.under.17.5 | S1 | - | -
-- shots.equipo.away.over.18.5 | S1 | - | -
-- shots.equipo.away.under.18.5 | S1 | - | -
+  S1: datos suficientes · estimador calculable · validación no_evaluada · inv apifootbal=O,datos_depo=E,football-d=O,thestatsap=O
+- shots.total.over.14.5 | S1 | - | 0.973
+- shots.total.under.14.5 | S1 | - | 0.027
+- shots.total.over.15.5 | S1 | - | 0.959
+- shots.total.under.15.5 | S1 | - | 0.041
+- shots.total.over.16.5 | S1 | - | 0.94
+- shots.total.under.16.5 | S1 | - | 0.06
+- shots.total.over.17.5 | S1 | - | 0.914
+- shots.total.under.17.5 | S1 | - | 0.086
+- shots.total.over.18.5 | S1 | - | 0.882
+- shots.total.under.18.5 | S1 | - | 0.117
+- shots.total.over.19.5 | S1 | - | 0.844
+- shots.total.under.19.5 | S1 | - | 0.156
+- shots.total.over.20.5 | S1 | - | 0.8
+- shots.total.under.20.5 | S1 | - | 0.2
+- shots.total.over.21.5 | S1 | - | 0.75
+- shots.total.under.21.5 | S1 | - | 0.25
+- shots.total.over.22.5 | S1 | - | 0.695
+- shots.total.under.22.5 | S1 | - | 0.305
+- shots.total.over.23.5 | S1 | - | 0.636
+- shots.total.under.23.5 | S1 | - | 0.363
+- shots.total.over.24.5 | S1 | - | 0.576
+- shots.total.under.24.5 | S1 | - | 0.424
+- shots.total.over.25.5 | S1 | - | 0.515
+- shots.total.under.25.5 | S1 | - | 0.485
+- shots.total.over.26.5 | S1 | - | 0.454
+- shots.total.under.26.5 | S1 | - | 0.546
+- shots.total.over.27.5 | S1 | - | 0.396
+- shots.total.under.27.5 | S1 | - | 0.604
+- shots.total.over.28.5 | S1 | - | 0.341
+- shots.total.under.28.5 | S1 | - | 0.659
+- shots.total.over.29.5 | S1 | - | 0.289
+- shots.total.under.29.5 | S1 | - | 0.711
+- shots.total.over.30.5 | S1 | - | 0.243
+- shots.total.under.30.5 | S1 | - | 0.757
+- shots.total.over.31.5 | S1 | - | 0.201
+- shots.total.under.31.5 | S1 | - | 0.799
+- shots.total.over.32.5 | S1 | - | 0.165
+- shots.total.under.32.5 | S1 | - | 0.835
+- shots.equipo.home.over.6.5 | S1 | - | 0.896
+- shots.equipo.home.under.6.5 | S1 | - | 0.104
+- shots.equipo.home.over.7.5 | S1 | - | 0.841
+- shots.equipo.home.under.7.5 | S1 | - | 0.159
+- shots.equipo.home.over.8.5 | S1 | - | 0.775
+- shots.equipo.home.under.8.5 | S1 | - | 0.225
+- shots.equipo.home.over.9.5 | S1 | - | 0.699
+- shots.equipo.home.under.9.5 | S1 | - | 0.301
+- shots.equipo.home.over.10.5 | S1 | - | 0.618
+- shots.equipo.home.under.10.5 | S1 | - | 0.382
+- shots.equipo.home.over.11.5 | S1 | - | 0.536
+- shots.equipo.home.under.11.5 | S1 | - | 0.464
+- shots.equipo.home.over.12.5 | S1 | - | 0.456
+- shots.equipo.home.under.12.5 | S1 | - | 0.544
+- shots.equipo.home.over.13.5 | S1 | - | 0.38
+- shots.equipo.home.under.13.5 | S1 | - | 0.62
+- shots.equipo.home.over.14.5 | S1 | - | 0.312
+- shots.equipo.home.under.14.5 | S1 | - | 0.688
+- shots.equipo.home.over.15.5 | S1 | - | 0.251
+- shots.equipo.home.under.15.5 | S1 | - | 0.749
+- shots.equipo.home.over.16.5 | S1 | - | 0.199
+- shots.equipo.home.under.16.5 | S1 | - | 0.801
+- shots.equipo.home.over.17.5 | S1 | - | 0.155
+- shots.equipo.home.under.17.5 | S1 | - | 0.845
+- shots.equipo.home.over.18.5 | S1 | - | 0.119
+- shots.equipo.home.under.18.5 | S1 | - | 0.881
+- shots.equipo.away.over.6.5 | S1 | - | 0.928
+- shots.equipo.away.under.6.5 | S1 | - | 0.072
+- shots.equipo.away.over.7.5 | S1 | - | 0.886
+- shots.equipo.away.under.7.5 | S1 | - | 0.114
+- shots.equipo.away.over.8.5 | S1 | - | 0.833
+- shots.equipo.away.under.8.5 | S1 | - | 0.167
+- shots.equipo.away.over.9.5 | S1 | - | 0.77
+- shots.equipo.away.under.9.5 | S1 | - | 0.23
+- shots.equipo.away.over.10.5 | S1 | - | 0.699
+- shots.equipo.away.under.10.5 | S1 | - | 0.301
+- shots.equipo.away.over.11.5 | S1 | - | 0.624
+- shots.equipo.away.under.11.5 | S1 | - | 0.376
+- shots.equipo.away.over.12.5 | S1 | - | 0.548
+- shots.equipo.away.under.12.5 | S1 | - | 0.452
+- shots.equipo.away.over.13.5 | S1 | - | 0.472
+- shots.equipo.away.under.13.5 | S1 | - | 0.528
+- shots.equipo.away.over.14.5 | S1 | - | 0.401
+- shots.equipo.away.under.14.5 | S1 | - | 0.599
+- shots.equipo.away.over.15.5 | S1 | - | 0.335
+- shots.equipo.away.under.15.5 | S1 | - | 0.665
+- shots.equipo.away.over.16.5 | S1 | - | 0.275
+- shots.equipo.away.under.16.5 | S1 | - | 0.725
+- shots.equipo.away.over.17.5 | S1 | - | 0.223
+- shots.equipo.away.under.17.5 | S1 | - | 0.777
+- shots.equipo.away.over.18.5 | S1 | - | 0.178
+- shots.equipo.away.under.18.5 | S1 | - | 0.822
 
 ## m-bfb4fb94398d|remates a puerta · Al Taawon – Al Qadsiah · remates a puerta · 2026-10-20T15:10:00Z · liga 278 · árbitro s/d · alineaciones sin_snapshot
-  S1: datos suficientes · estimador no_implementado · validación None · inv apifootbal=O,datos_depo=E,football-d=O,thestatsap=O
-- sot.total.over.3.5 | S1 | - | -
-- sot.total.under.3.5 | S1 | - | -
-- sot.total.over.4.5 | S1 | - | -
-- sot.total.under.4.5 | S1 | - | -
-- sot.total.over.5.5 | S1 | - | -
-- sot.total.under.5.5 | S1 | - | -
-- sot.total.over.6.5 | S1 | - | -
-- sot.total.under.6.5 | S1 | - | -
-- sot.total.over.7.5 | S1 | - | -
-- sot.total.under.7.5 | S1 | - | -
-- sot.total.over.8.5 | S1 | - | -
-- sot.total.under.8.5 | S1 | - | -
-- sot.total.over.9.5 | S1 | - | -
-- sot.total.under.9.5 | S1 | - | -
-- sot.total.over.10.5 | S1 | - | -
-- sot.total.under.10.5 | S1 | - | -
-- sot.total.over.11.5 | S1 | - | -
-- sot.total.under.11.5 | S1 | - | -
-- sot.total.over.12.5 | S1 | - | -
-- sot.total.under.12.5 | S1 | - | -
-- sot.total.over.13.5 | S1 | - | -
-- sot.total.under.13.5 | S1 | - | -
-- sot.total.over.14.5 | S1 | - | -
-- sot.total.under.14.5 | S1 | - | -
-- sot.equipo.home.over.1.5 | S1 | - | -
-- sot.equipo.home.under.1.5 | S1 | - | -
-- sot.equipo.home.over.2.5 | S1 | - | -
-- sot.equipo.home.under.2.5 | S1 | - | -
-- sot.equipo.home.over.3.5 | S1 | - | -
-- sot.equipo.home.under.3.5 | S1 | - | -
-- sot.equipo.home.over.4.5 | S1 | - | -
-- sot.equipo.home.under.4.5 | S1 | - | -
-- sot.equipo.home.over.5.5 | S1 | - | -
-- sot.equipo.home.under.5.5 | S1 | - | -
-- sot.equipo.home.over.6.5 | S1 | - | -
-- sot.equipo.home.under.6.5 | S1 | - | -
-- sot.equipo.home.over.7.5 | S1 | - | -
-- sot.equipo.home.under.7.5 | S1 | - | -
-- sot.equipo.home.over.8.5 | S1 | - | -
-- sot.equipo.home.under.8.5 | S1 | - | -
-- sot.equipo.home.over.9.5 | S1 | - | -
-- sot.equipo.home.under.9.5 | S1 | - | -
-- sot.equipo.away.over.1.5 | S1 | - | -
-- sot.equipo.away.under.1.5 | S1 | - | -
-- sot.equipo.away.over.2.5 | S1 | - | -
-- sot.equipo.away.under.2.5 | S1 | - | -
-- sot.equipo.away.over.3.5 | S1 | - | -
-- sot.equipo.away.under.3.5 | S1 | - | -
-- sot.equipo.away.over.4.5 | S1 | - | -
-- sot.equipo.away.under.4.5 | S1 | - | -
-- sot.equipo.away.over.5.5 | S1 | - | -
-- sot.equipo.away.under.5.5 | S1 | - | -
-- sot.equipo.away.over.6.5 | S1 | - | -
-- sot.equipo.away.under.6.5 | S1 | - | -
-- sot.equipo.away.over.7.5 | S1 | - | -
-- sot.equipo.away.under.7.5 | S1 | - | -
-- sot.equipo.away.over.8.5 | S1 | - | -
-- sot.equipo.away.under.8.5 | S1 | - | -
-- sot.equipo.away.over.9.5 | S1 | - | -
-- sot.equipo.away.under.9.5 | S1 | - | -
+  S1: datos suficientes · estimador calculable · validación no_evaluada · inv apifootbal=O,datos_depo=E,football-d=O,thestatsap=O
+- sot.total.over.3.5 | S1 | - | 0.964
+- sot.total.under.3.5 | S1 | - | 0.036
+- sot.total.over.4.5 | S1 | - | 0.922
+- sot.total.under.4.5 | S1 | - | 0.078
+- sot.total.over.5.5 | S1 | - | 0.859
+- sot.total.under.5.5 | S1 | - | 0.141
+- sot.total.over.6.5 | S1 | - | 0.774
+- sot.total.under.6.5 | S1 | - | 0.226
+- sot.total.over.7.5 | S1 | - | 0.674
+- sot.total.under.7.5 | S1 | - | 0.326
+- sot.total.over.8.5 | S1 | - | 0.567
+- sot.total.under.8.5 | S1 | - | 0.433
+- sot.total.over.9.5 | S1 | - | 0.459
+- sot.total.under.9.5 | S1 | - | 0.541
+- sot.total.over.10.5 | S1 | - | 0.359
+- sot.total.under.10.5 | S1 | - | 0.641
+- sot.total.over.11.5 | S1 | - | 0.272
+- sot.total.under.11.5 | S1 | - | 0.728
+- sot.total.over.12.5 | S1 | - | 0.199
+- sot.total.under.12.5 | S1 | - | 0.801
+- sot.total.over.13.5 | S1 | - | 0.141
+- sot.total.under.13.5 | S1 | - | 0.859
+- sot.total.over.14.5 | S1 | - | 0.098
+- sot.total.under.14.5 | S1 | - | 0.902
+- sot.equipo.home.over.1.5 | S1 | - | 0.742
+- sot.equipo.home.under.1.5 | S1 | - | 0.258
+- sot.equipo.home.over.2.5 | S1 | - | 0.531
+- sot.equipo.home.under.2.5 | S1 | - | 0.469
+- sot.equipo.home.over.3.5 | S1 | - | 0.342
+- sot.equipo.home.under.3.5 | S1 | - | 0.658
+- sot.equipo.home.over.4.5 | S1 | - | 0.202
+- sot.equipo.home.under.4.5 | S1 | - | 0.798
+- sot.equipo.home.over.5.5 | S1 | - | 0.11
+- sot.equipo.home.under.5.5 | S1 | - | 0.89
+- sot.equipo.home.over.6.5 | S1 | - | 0.057
+- sot.equipo.home.under.6.5 | S1 | - | 0.943
+- sot.equipo.home.over.7.5 | S1 | - | 0.028
+- sot.equipo.home.under.7.5 | S1 | - | 0.972
+- sot.equipo.home.over.8.5 | S1 | - | 0.013
+- sot.equipo.home.under.8.5 | S1 | - | 0.987
+- sot.equipo.home.over.9.5 | S1 | - | 0.006
+- sot.equipo.home.under.9.5 | S1 | - | 0.994
+- sot.equipo.away.over.1.5 | S1 | - | 0.959
+- sot.equipo.away.under.1.5 | S1 | - | 0.041
+- sot.equipo.away.over.2.5 | S1 | - | 0.896
+- sot.equipo.away.under.2.5 | S1 | - | 0.104
+- sot.equipo.away.over.3.5 | S1 | - | 0.802
+- sot.equipo.away.under.3.5 | S1 | - | 0.198
+- sot.equipo.away.over.4.5 | S1 | - | 0.688
+- sot.equipo.away.under.4.5 | S1 | - | 0.312
+- sot.equipo.away.over.5.5 | S1 | - | 0.566
+- sot.equipo.away.under.5.5 | S1 | - | 0.434
+- sot.equipo.away.over.6.5 | S1 | - | 0.447
+- sot.equipo.away.under.6.5 | S1 | - | 0.553
+- sot.equipo.away.over.7.5 | S1 | - | 0.341
+- sot.equipo.away.under.7.5 | S1 | - | 0.659
+- sot.equipo.away.over.8.5 | S1 | - | 0.252
+- sot.equipo.away.under.8.5 | S1 | - | 0.748
+- sot.equipo.away.over.9.5 | S1 | - | 0.181
+- sot.equipo.away.under.9.5 | S1 | - | 0.819
 
 ## m-bfb4fb94398d|resultado · Al Taawon – Al Qadsiah · resultado · 2026-10-20T15:10:00Z · liga 278 · árbitro s/d · alineaciones sin_snapshot
   S1: datos suficientes · estimador calculable · validación parcial · inv apifootbal=E,datos_depo=E,football-d=O,thestatsap=O
@@ -2393,17 +2393,17 @@ Investigación por canal: E encontrado · N consultado_no_encontrado · O la fue
 - goles.equipo.away.under.2.5 | S1 | - | 0.967
 
 ## m-c1160737aa35|goles total entero · Dewa United – Persijap · goles total entero · 2026-10-20T12:00:00Z · liga 194 · árbitro s/d · alineaciones sin_snapshot
-  S1: datos sin_extractor · estimador no_implementado · validación None · inv apifootbal=N,datos_depo=E,football-d=O,thestatsap=E
-- goles.total_entero.over.1 | S1 | A1.03 | -
-- goles.total_entero.under.1 | S1 | A10.67 | -
-- goles.total_entero.over.2 | S1 | A1.25 | -
-- goles.total_entero.under.2 | S1 | A4.12 | -
-- goles.total_entero.over.3 | S1 | A1.9 | -
-- goles.total_entero.under.3 | S1 | A1.95 | -
-- goles.total_entero.over.4 | S1 | A3.66 | -
-- goles.total_entero.under.4 | S1 | A1.29 | -
-- goles.total_entero.over.5 | S1 | A8.32 | -
-- goles.total_entero.under.5 | S1 | A1.1 | -
+  S1: datos sin_extractor · estimador calculable · validación no_evaluada · inv apifootbal=N,datos_depo=E,football-d=O,thestatsap=E
+- goles.total_entero.over.1 | S1 | A1.03 | 0.871
+- goles.total_entero.under.1 | S1 | A10.67 | 0.129
+- goles.total_entero.over.2 | S1 | A1.25 | 0.552
+- goles.total_entero.under.2 | S1 | A4.12 | 0.448
+- goles.total_entero.over.3 | S1 | A1.9 | 0.254
+- goles.total_entero.under.3 | S1 | A1.95 | 0.746
+- goles.total_entero.over.4 | S1 | A3.66 | 0.096
+- goles.total_entero.under.4 | S1 | A1.29 | 0.904
+- goles.total_entero.over.5 | S1 | A8.32 | 0.032
+- goles.total_entero.under.5 | S1 | A1.1 | 0.968
 
 ## m-c1160737aa35|hándicap · Dewa United – Persijap · hándicap · 2026-10-20T12:00:00Z · liga 194 · árbitro s/d · alineaciones sin_snapshot
   S1: datos suficientes · estimador calculable · validación no_evaluada · inv apifootbal=E,datos_depo=E,football-d=O,thestatsap=E
@@ -2423,38 +2423,38 @@ Investigación por canal: E encontrado · N consultado_no_encontrado · O la fue
 - resultado.ah.away.-2.5 | S2 | A140.0 | 0.008
 
 ## m-c1160737aa35|hándicap asiático entero · Dewa United – Persijap · hándicap asiático entero · 2026-10-20T12:00:00Z · liga 194 · árbitro s/d · alineaciones sin_snapshot
-  S1: datos sin_extractor · estimador no_implementado · validación None · inv apifootbal=E,datos_depo=E,football-d=O,thestatsap=E
-  S2: datos sin_extractor · estimador no_implementado · validación None · inv apifootbal=E,datos_depo=E,football-d=O,thestatsap=N
-  S3: datos sin_extractor · estimador no_implementado · validación None · inv apifootbal=N,datos_depo=E,football-d=O,thestatsap=E
-  S4: datos sin_extractor · estimador no_implementado · validación None · inv apifootbal=N,datos_depo=E,football-d=O,thestatsap=N
-- resultado.ah_entero.home.-2 | S1 | A1.875 | -
-- resultado.ah_entero.away.+2 | S1 | A1.78 | -
-- resultado.ah_entero.home.-1 | S1 | A1.22 | -
-- resultado.ah_entero.away.+1 | S1 | A3.5 | -
-- resultado.ah_entero.home.+0 | S2 | V1.025 | -
-- resultado.ah_entero.away.+0 | S2 | V10.5 | -
-- resultado.ah_entero.home.+1 | S3 | A1.01 | -
-- resultado.ah_entero.away.-1 | S3 | A70.47 | -
-- resultado.ah_entero.home.+2 | S4 | - | -
-- resultado.ah_entero.away.-2 | S3 | A139.0 | -
+  S1: datos sin_extractor · estimador calculable · validación no_evaluada · inv apifootbal=E,datos_depo=E,football-d=O,thestatsap=E
+  S2: datos sin_extractor · estimador calculable · validación no_evaluada · inv apifootbal=E,datos_depo=E,football-d=O,thestatsap=N
+  S3: datos sin_extractor · estimador calculable · validación no_evaluada · inv apifootbal=N,datos_depo=E,football-d=O,thestatsap=E
+  S4: datos sin_extractor · estimador calculable · validación no_evaluada · inv apifootbal=N,datos_depo=E,football-d=O,thestatsap=N
+- resultado.ah_entero.home.-2 | S1 | A1.875 | 0.175
+- resultado.ah_entero.away.+2 | S1 | A1.78 | 0.825
+- resultado.ah_entero.home.-1 | S1 | A1.22 | 0.45
+- resultado.ah_entero.away.+1 | S1 | A3.5 | 0.55
+- resultado.ah_entero.home.+0 | S2 | V1.025 | 0.793
+- resultado.ah_entero.away.+0 | S2 | V10.5 | 0.207
+- resultado.ah_entero.home.+1 | S3 | A1.01 | 0.953
+- resultado.ah_entero.away.-1 | S3 | A70.47 | 0.048
+- resultado.ah_entero.home.+2 | S4 | - | 0.991
+- resultado.ah_entero.away.-2 | S3 | A139.0 | 0.009
 
 ## m-c1160737aa35|hándicap europeo · Dewa United – Persijap · hándicap europeo · 2026-10-20T12:00:00Z · liga 194 · árbitro s/d · alineaciones sin_snapshot
-  S1: datos sin_extractor · estimador no_implementado · validación None · inv apifootbal=O,datos_depo=E,football-d=O,thestatsap=E
-- resultado.eh.home.-2 | S1 | A2.54 | -
-- resultado.eh.draw.-2 | S1 | A3.875 | -
-- resultado.eh.away.-2 | S1 | A2.2800000000000002 | -
-- resultado.eh.home.-1 | S1 | A1.6004999999999998 | -
-- resultado.eh.draw.-1 | S1 | A3.875 | -
-- resultado.eh.away.-1 | S1 | A4.9 | -
-- resultado.eh.home.+1 | S1 | A1.05 | -
-- resultado.eh.draw.+1 | S1 | A21.0 | -
-- resultado.eh.away.+1 | S1 | A70.0 | -
-- resultado.eh.home.+2 | S1 | A1.01 | -
-- resultado.eh.draw.+2 | S1 | A85.0 | -
-- resultado.eh.away.+2 | S1 | A140.0 | -
+  S1: datos sin_extractor · estimador calculable · validación no_evaluada · inv apifootbal=O,datos_depo=E,football-d=O,thestatsap=E
+- resultado.eh.home.-2 | S1 | A2.54 | 0.143
+- resultado.eh.draw.-2 | S1 | A3.875 | 0.186
+- resultado.eh.away.-2 | S1 | A2.2800000000000002 | 0.671
+- resultado.eh.home.-1 | S1 | A1.6004999999999998 | 0.329
+- resultado.eh.draw.-1 | S1 | A3.875 | 0.269
+- resultado.eh.away.-1 | S1 | A4.9 | 0.402
+- resultado.eh.home.+1 | S1 | A1.05 | 0.844
+- resultado.eh.draw.+1 | S1 | A21.0 | 0.115
+- resultado.eh.away.+1 | S1 | A70.0 | 0.042
+- resultado.eh.home.+2 | S1 | A1.01 | 0.958
+- resultado.eh.draw.+2 | S1 | A85.0 | 0.034
+- resultado.eh.away.+2 | S1 | A140.0 | 0.008
 
 ## m-c1160737aa35|remates · Dewa United – Persijap · remates · 2026-10-20T12:00:00Z · liga 194 · árbitro s/d · alineaciones sin_snapshot
-  S1: datos insuficientes · estimador no_implementado · validación None · inv apifootbal=O,datos_depo=N,football-d=O,thestatsap=N
+  S1: datos insuficientes · estimador datos_insuficientes · validación no_evaluada · inv apifootbal=O,datos_depo=N,football-d=O,thestatsap=N
 - shots.total.over.14.5 | S1 | - | -
 - shots.total.under.14.5 | S1 | - | -
 - shots.total.over.15.5 | S1 | - | -
@@ -2547,7 +2547,7 @@ Investigación por canal: E encontrado · N consultado_no_encontrado · O la fue
 - shots.equipo.away.under.18.5 | S1 | - | -
 
 ## m-c1160737aa35|remates a puerta · Dewa United – Persijap · remates a puerta · 2026-10-20T12:00:00Z · liga 194 · árbitro s/d · alineaciones sin_snapshot
-  S1: datos insuficientes · estimador no_implementado · validación None · inv apifootbal=O,datos_depo=N,football-d=O,thestatsap=N
+  S1: datos insuficientes · estimador datos_insuficientes · validación no_evaluada · inv apifootbal=O,datos_depo=N,football-d=O,thestatsap=N
 - sot.total.over.3.5 | S1 | - | -
 - sot.total.under.3.5 | S1 | - | -
 - sot.total.over.4.5 | S1 | - | -

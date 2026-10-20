@@ -1,0 +1,514 @@
+{
+ "agente": "auditor",
+ "version_contrato": 1,
+ "run": "runs/2026-10-20",
+ "unidades": [
+  {
+   "unit_id": "m-04ef210b51ca|goles total entero",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 9pp (over 3); 10 lineas coherentes. Rotacion (4 cambios, 3d) ya recogida por deportivo MEDIA; sin objecion especifica.",
+   "evidencia": [
+    "paquete:m-04ef210b51ca|goles total entero",
+    "archivo:runs/2026-10-20/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-04ef210b51ca|hándicap asiático entero",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 11pp (away +0). Rotacion alta en ambos (UCL entre semana) sin cuantificar; sin alineaciones. Riesgo aceptable.",
+   "evidencia": [
+    "paquete:m-04ef210b51ca|hándicap asiático entero",
+    "archivo:runs/2026-10-20/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-04ef210b51ca|hándicap europeo",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 7pp. Rotacion alta en ambos y empate a margen 1 ~19% sin alineaciones; deportivo BAJA. Riesgo aceptado.",
+   "evidencia": [
+    "paquete:m-04ef210b51ca|hándicap europeo",
+    "archivo:runs/2026-10-20/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-04ef210b51ca|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "90 lineas sin p_modelo (sin_probabilidad_calculada) pese a datos suficientes: no hay estimador para rankear.",
+   "evidencia": [
+    "paquete:m-04ef210b51ca|remates",
+    "archivo:runs/2026-10-20/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-04ef210b51ca|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "60 lineas sin p_modelo (sin_probabilidad_calculada): no hay estimador para rankear.",
+   "evidencia": [
+    "paquete:m-04ef210b51ca|remates a puerta",
+    "archivo:runs/2026-10-20/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-149952ae228e|goles total entero",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 10pp (over 3), n10 misma liga, 10 lineas coherentes. Sin objecion real.",
+   "evidencia": [
+    "paquete:m-149952ae228e|goles total entero",
+    "archivo:runs/2026-10-20/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-149952ae228e|hándicap asiático entero",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "home +0: modelo 54% vs mercado ~74% (20pp); home -1: 17pp. Forma local plana, sin favorito claro en modelo; cuantitativo ya marca discrepa.",
+   "evidencia": [
+    "paquete:m-149952ae228e|hándicap asiático entero",
+    "archivo:runs/2026-10-20/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-149952ae228e|hándicap europeo",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 13pp (away -1). 12 lineas coherentes; forma local plana ya en deportivo BAJA. Sin objecion real.",
+   "evidencia": [
+    "paquete:m-149952ae228e|hándicap europeo",
+    "archivo:runs/2026-10-20/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-149952ae228e|remates",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Tiros n7/n6 sin ajuste por rival; en las 6 lineas con precio 4 difieren >=15pp (hasta 22pp). Resto sin precio.",
+   "evidencia": [
+    "paquete:m-149952ae228e|remates",
+    "archivo:runs/2026-10-20/agentes/informe_deportivo.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "shots.equipo.home.over.15.5",
+     "objecion": "brecha_muestra_mercado"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.10.5",
+     "objecion": "brecha_muestra_mercado"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-149952ae228e|remates a puerta",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "A puerta n7/n6 y desglose local/visitante n2-5; away under 3.5 con 22pp de brecha y home over 5.5 con 15pp.",
+   "evidencia": [
+    "paquete:m-149952ae228e|remates a puerta",
+    "archivo:runs/2026-10-20/agentes/informe_deportivo.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "sot.equipo.away.under.3.5",
+     "objecion": "brecha_muestra_mercado"
+    },
+    {
+     "entry_id": "sot.equipo.home.over.5.5",
+     "objecion": "brecha_muestra_mercado"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-20603dd663c2|goles total entero",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Sin precio para contrastar; n10 liga. Perfiles opuestos (1/10 vs 6/10 con 3+) ya reflejados en p moderadas (over 2 56%). Sin objecion real.",
+   "evidencia": [
+    "paquete:m-20603dd663c2|goles total entero",
+    "archivo:runs/2026-10-20/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-20603dd663c2|hándicap asiático entero",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "home +0 modelo 54% vs mercado ~77% (23pp, 4 casas); home -1 18pp, home +1 15pp. Modelo no concuerda con Yumbo favorito.",
+   "evidencia": [
+    "paquete:m-20603dd663c2|hándicap asiático entero",
+    "archivo:runs/2026-10-20/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-20603dd663c2|hándicap europeo",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "12 lineas sin precio para contrastar; rotacion baja. Sin objecion real.",
+   "evidencia": [
+    "paquete:m-20603dd663c2|hándicap europeo",
+    "archivo:runs/2026-10-20/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-35a5629d4da4|goles total entero",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "6 lineas con 16-25pp (over 3: 37% vs ~62%). Dortmund 0 partidos de misma competicion y Sabah rota 6; rivales no comparables.",
+   "evidencia": [
+    "paquete:m-35a5629d4da4|goles total entero",
+    "archivo:runs/2026-10-20/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-35a5629d4da4|hándicap asiático entero",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "8/9 lineas >=15pp (hasta 51pp): Dortmund +0 modelo 50% vs mercado ~93%. Modelo ignora la diferencia de nivel; los edges en Sabah +1/+2 son artefacto.",
+   "evidencia": [
+    "paquete:m-35a5629d4da4|hándicap asiático entero",
+    "archivo:runs/2026-10-20/agentes/informe_deportivo.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "nota",
+     "problema": "dato_citado_incorrecto"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-35a5629d4da4|hándicap europeo",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "5 lineas >=15pp (hasta 37pp; away -1 63% vs 87% mercado). Dortmund sin muestra de la competicion y rotacion alta; edges en Sabah +1/+2 son artefacto del modelo.",
+   "evidencia": [
+    "paquete:m-35a5629d4da4|hándicap europeo",
+    "archivo:runs/2026-10-20/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-35a5629d4da4|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin p_modelo (datos_insuficientes, parciales): Sabah n5, Dortmund fuera de competicion. No hay estimador para rankear.",
+   "evidencia": [
+    "paquete:m-35a5629d4da4|remates",
+    "archivo:runs/2026-10-20/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-35a5629d4da4|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin p_modelo (datos_insuficientes, parciales): Sabah n5, Dortmund fuera de competicion. No hay estimador para rankear.",
+   "evidencia": [
+    "paquete:m-35a5629d4da4|remates a puerta",
+    "archivo:runs/2026-10-20/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-693d96cb6dfc|goles total entero",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 3pp; Norrkoping 7/10 con 3+, misma liga n10, rotacion baja. Sin objecion real.",
+   "evidencia": [
+    "paquete:m-693d96cb6dfc|goles total entero",
+    "archivo:runs/2026-10-20/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-693d96cb6dfc|hándicap asiático entero",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 7pp; Norrkoping 8V-2E misma liga, rotacion baja. Sin objecion real.",
+   "evidencia": [
+    "paquete:m-693d96cb6dfc|hándicap asiático entero",
+    "archivo:runs/2026-10-20/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-693d96cb6dfc|hándicap europeo",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 2pp; margen 1 sensible pero ya reflejado en p (empate 23%). Sin objecion real.",
+   "evidencia": [
+    "paquete:m-693d96cb6dfc|hándicap europeo",
+    "archivo:runs/2026-10-20/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-77dc24e42af9|goles total entero",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 5pp. Stockport rota 7.7 cambios (3d) sin alineacion; riesgo aceptado, mercado coincide.",
+   "evidencia": [
+    "paquete:m-77dc24e42af9|goles total entero",
+    "archivo:runs/2026-10-20/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-77dc24e42af9|hándicap asiático entero",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha max 13pp (away +0); muestra visitante de Stockport n4 y rotacion alta (7.7 cambios) sin cuantificar.",
+   "evidencia": [
+    "paquete:m-77dc24e42af9|hándicap asiático entero",
+    "archivo:runs/2026-10-20/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-77dc24e42af9|hándicap europeo",
+   "objecion": "muestra_debil",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 7pp; visitante -1 68% con solo n4 fuera y rotacion alta. Empate a margen 1 18%. Riesgo aceptado.",
+   "evidencia": [
+    "paquete:m-77dc24e42af9|hándicap europeo",
+    "archivo:runs/2026-10-20/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-77dc24e42af9|remates",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Tiros n8 con Stockport 7.7 cambios (3d); 90 lineas sin precio, p_modelo sin contraste. Rotacion distorsiona volumen de tiros.",
+   "evidencia": [
+    "paquete:m-77dc24e42af9|remates",
+    "archivo:runs/2026-10-20/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-77dc24e42af9|remates a puerta",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "A puerta n8, rotacion alta en ambos; 60 lineas sin precio ni contraste con mercado.",
+   "evidencia": [
+    "paquete:m-77dc24e42af9|remates a puerta",
+    "archivo:runs/2026-10-20/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-ade74c6c1c24|goles total entero",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Sin precio para contrastar; n10 liga, perfiles opuestos ya en p moderadas (over 2 50%). Sin objecion real.",
+   "evidencia": [
+    "paquete:m-ade74c6c1c24|goles total entero",
+    "archivo:runs/2026-10-20/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-ade74c6c1c24|hándicap asiático entero",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "away +0 modelo 51% vs mercado ~72% (21pp, 4 casas); away -1 18pp. Atlético local solo n4 en la muestra.",
+   "evidencia": [
+    "paquete:m-ade74c6c1c24|hándicap asiático entero",
+    "archivo:runs/2026-10-20/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-ade74c6c1c24|hándicap europeo",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "12 lineas sin precio para contrastar; EH sin favorito ya en deportivo BAJA. Sin objecion real.",
+   "evidencia": [
+    "paquete:m-ade74c6c1c24|hándicap europeo",
+    "archivo:runs/2026-10-20/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-c666dbddc7fb|goles total entero",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 4pp; perfiles contrarios (Wimbledon GF 0.7, Mansfield 3.7/p) ya en p moderadas. Sin objecion real.",
+   "evidencia": [
+    "paquete:m-c666dbddc7fb|goles total entero",
+    "archivo:runs/2026-10-20/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-c666dbddc7fb|hándicap asiático entero",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 9pp; sin favorito claro en modelo ni mercado. Sin objecion real.",
+   "evidencia": [
+    "paquete:m-c666dbddc7fb|hándicap asiático entero",
+    "archivo:runs/2026-10-20/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-c666dbddc7fb|hándicap europeo",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 2pp; Mansfield rota 5 cambios, riesgo menor ya en deportivo BAJA.",
+   "evidencia": [
+    "paquete:m-c666dbddc7fb|hándicap europeo",
+    "archivo:runs/2026-10-20/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-c666dbddc7fb|remates a puerta",
+   "objecion": "muestra_debil",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "A puerta n8, desglose local/visitante n3-5; 60 lineas sin precio para contrastar. Riesgo aceptado.",
+   "evidencia": [
+    "paquete:m-c666dbddc7fb|remates a puerta",
+    "archivo:runs/2026-10-20/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-e665e3d47fc3|goles total entero",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brecha 12pp (over 3 59% vs ~47%). Muestras mixtas (UCL/copas/liga griega) sin ajuste por rival; mismo estimador falla en AH/EH.",
+   "evidencia": [
+    "paquete:m-e665e3d47fc3|goles total entero",
+    "archivo:runs/2026-10-20/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-e665e3d47fc3|hándicap asiático entero",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "7/8 lineas >=15pp (hasta 66pp): City -1 modelo 24% vs ~90%. Modelo no pondera nivel de rival; edges en AEK +1/+2 son artefacto. Precios extremos con n=1.",
+   "evidencia": [
+    "paquete:m-e665e3d47fc3|hándicap asiático entero",
+    "archivo:runs/2026-10-20/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-e665e3d47fc3|hándicap europeo",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "7/9 lineas >=15pp (hasta 52pp): City -1 20% vs 69% mercado (3 casas). Muestra no comparable; edges en AEK -2/-1 son artefacto del modelo.",
+   "evidencia": [
+    "paquete:m-e665e3d47fc3|hándicap europeo",
+    "archivo:runs/2026-10-20/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-e665e3d47fc3|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "90 lineas sin p_modelo (sin_estimador), muestras no comparables. No hay estimador para rankear.",
+   "evidencia": [
+    "paquete:m-e665e3d47fc3|remates",
+    "archivo:runs/2026-10-20/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-e665e3d47fc3|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "60 lineas sin p_modelo (sin_estimador), muestras no comparables. No hay estimador para rankear.",
+   "evidencia": [
+    "paquete:m-e665e3d47fc3|remates a puerta",
+    "archivo:runs/2026-10-20/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-f982a1ad5f4c|goles total entero",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 2pp; misma liga n10, sin sesgo claro. Sin objecion real.",
+   "evidencia": [
+    "paquete:m-f982a1ad5f4c|goles total entero",
+    "archivo:runs/2026-10-20/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-f982a1ad5f4c|hándicap asiático entero",
+   "objecion": "muestra_debil",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 13pp (home +0/+1); San Luis local solo n5 y contradice precio segun deportivo. Riesgo aceptado.",
+   "evidencia": [
+    "paquete:m-f982a1ad5f4c|hándicap asiático entero",
+    "archivo:runs/2026-10-20/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-f982a1ad5f4c|hándicap europeo",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 8pp; rotacion baja-media. Sin objecion real.",
+   "evidencia": [
+    "paquete:m-f982a1ad5f4c|hándicap europeo",
+    "archivo:runs/2026-10-20/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-f982a1ad5f4c|remates",
+   "objecion": "muestra_debil",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Tiros n7/n8, desglose local/visitante pequeno; brecha max 5pp en 6 lineas con precio. Riesgo aceptado.",
+   "evidencia": [
+    "paquete:m-f982a1ad5f4c|remates",
+    "archivo:runs/2026-10-20/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-f982a1ad5f4c|remates a puerta",
+   "objecion": "muestra_debil",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "A puerta n7/n8; brecha max 8pp en 6 lineas con precio. Riesgo aceptado.",
+   "evidencia": [
+    "paquete:m-f982a1ad5f4c|remates a puerta",
+    "archivo:runs/2026-10-20/agentes/informe_deportivo.json"
+   ]
+  }
+ ],
+ "limitaciones": [
+  "Auditoria sobre paquete.json e informes fusionados; brecha=|p_modelo - p_mercado| (o 1/cuota si falta). No se abrieron fuentes externas ni API.",
+  "Paquete aun marca sin p_modelo los remates/SoT de Stuttgart-Atletico, City-AEK y Sabah-Dortmund (sin_probabilidad_calculada/datos_insuficientes), contra la premisa de estimador propio.",
+  "Sin alineaciones ni bajas confirmadas; rotacion basada en cifras de deportivo no reverificadas.",
+  "Deportivo cita cuota ~1.3 para Dortmund AH+0 (Sabah); el paquete da 1.08 (3 casas). Divergencia leve registrada."
+ ]
+}
