@@ -22,6 +22,8 @@ import api_detalle as ad  # noqa: E402
 
 CCS = ZoneInfo("America/Caracas")
 PC = lambda v: None if v is None else round(v * 100, 1)
+BLOQUES = ("1. OBJETIVO PRINCIPAL del reto (≈ ×1.20)", "2. Clásicas ×1.5–×2.6", "3. SECUNDARIO ≥ ×3 (exposición aparte, no cuenta para el reto)")
+BLOQUE_ORDEN = {"×1.2": 0, "×1.5–1.8": 1, "×2–2.6": 1, "×3": 2, "×3–3.8": 2, "×4": 2}      # auditoría 14–19 oct: ≥×3 propios 1 de 15 (−5,900 Bs) y del libro ×3–×3.8 3 de 17
 CLASSIC_TARGETS = (("×1.5–1.8", 1.5, 1.8, 2), ("×2–2.6", 2.0, 2.6, 3), ("×3–3.8", 3.0, 3.8, 4))
 CORE_GROUPS = ("resultado", "goles")
 RANK_MIN_ODDS = 1.10      # las patas a ~1.01–1.09 (p ≈ 1) no informan: pagan casi nada y llenarían los rankings de «seguridad»
@@ -110,6 +112,8 @@ def alerta(l):
         a.append("EV alto: probable ruido del modelo (no validado)")
     if l.get("p_mercado") is not None and l["p_modelo"] is not None and abs(l["p_modelo"] - l["p_mercado"]) > MODEL_MARKET_PP:
         a.append(f"modelo y mercado sin margen difieren {abs(l['p_modelo'] - l['p_mercado']) * 100:.0f} pp (modelo {l['p_modelo'] * 100:.0f} %, mercado {l['p_mercado'] * 100:.0f} %)")
+    if l.get("ruido_modelo"):
+        a.append(f"P del modelo descartada por ruido (EV ≥ +10 % o modelo > mercado en +15 pp; modelo {(l.get('p_modelo_original') or 0) * 100:.0f} %): se usa la P del mercado sin margen ({(l['p_modelo'] or 0) * 100:.0f} %)")
     if l["cuota"] and l.get("n_casas") == 1:
         a.append("precio de una sola casa")
     if l["cuota"] and l.get("cuota_revisada") and abs(l["cuota"] / l["cuota_revisada"] - 1) >= 0.10:
@@ -247,7 +251,8 @@ def make_workbook(units, summary, legs, rankings, combos, consolidated, rotation
         ["Precios: rankings y combinadas usan SIEMPRE el precio de REFERENCIA (mediana entre casas de un agregador: apifootball o TheStatsAPI), que no depende de ninguna casa concreta y no es una cuota ejecutable. Tu captura de pantalla es una capa OPCIONAL de contraste (columna «Cuota captura (opcional)»): no cambia la probabilidad del modelo, ni la cuota, ni qué patas entran en rankings y combinadas. Córners, tarjetas, goles por equipo, 1.ª parte y remates tienen precio solo cuando TheStatsAPI los cotiza (mira «N.º de casas»); el resto está en «Sin precio» para que pegues una cuota si quieres."],
         ["«P mercado sin margen %» = probabilidad que implica el mercado tras quitar el margen casa por casa (1/cuota ÷ suma del par o trío) y tomar la mediana de las casas; solo existe con el grupo completo (más/menos, sí/no, 1X2, hándicap) y no en líneas enteras ni en doble oportunidad. «Modelo − mercado (pp)» las compara y la columna «Alerta» marca las patas que difieren más de 10 pp."],
         ["Cuota mínima justa = 1/p del modelo (no es una recomendación). EV teórico = p × cuota − 1 con ese p; es una referencia, no el veredicto. Brecha = p modelo − 1/cuota (pp); ≥ 15 pp = señal de ruido o de información que el modelo no tiene."],
-        ["Solidez deportiva / cuantitativo / verificador / auditor = veredicto de cada agente por entrada (contrato cerrado). BAJA o NO_EVALUABLE = degradada: sale de las combinadas pero se muestra."],
+        ["Solidez deportiva / cuantitativo / verificador / auditor = veredicto de cada agente por entrada (contrato cerrado). BAJA o NO_EVALUABLE = «degradada»: desde la auditoría del 14–19 oct es INFORMATIVA (BAJA 72.8 % de acierto frente a MEDIA 72.6 %, n=4,897 y 1,520: no discrimina) y ya no saca la pata de las combinadas; «rechazada» sí las saca."],
+        ["CAMBIOS DESDE LA AUDITORÍA 14–19 oct (docs/AUDITORIA-14-19-oct.md): (1) Regla de ruido: si el modelo ve un EV teórico ≥ +10 % o supera al mercado sin margen en más de 15 pp, su P se descarta y se usa la P del mercado sin margen (esas patas aciertan lo que dice el mercado: 53 % y 57 % frente a 71 % y 77 % que decía el modelo); la fila lo avisa en «Alerta». Sin P de mercado no entra en combinadas. (2) Solidez BAJA informativa (arriba). (3) Hoja Combinadas en bloques: el OBJETIVO PRINCIPAL del reto es ≈ ×1.20; las combinadas ≥ ×3 son un bloque SECUNDARIO con exposición aparte y no cuentan para el reto."],
         [f"Tope por pata: {cr.MAX_LEG_ODDS}. Rankings y combinadas usan solo patas con precio de alguna fuente (los rankings, además, cuota ≥ 1.10), no rechazadas ni degradadas y sin brecha ≥ 15 pp. Combinadas: una pata por partido, topes por dirección/liga/ventana horaria y exposición; P(pérdida) = 1 − producto de las p (independencia declarada)."],
         [f"Cifras: {len(units)} unidades, {len(ids)} partidos, {sum(len(u['entradas']) for u in units)} filas partido × entrada; con estimador propio: {sum(1 for l in legs if l['p_modelo'] is not None)}; con precio de alguna fuente: {sum(1 for l in legs if l['cuota'])}; elegibles para rankings/combinadas: {len(elig)}."],
         ["MULTIPLICADOR de una combinada = producto de las cuotas de sus patas. Ejemplo: patas a 1.50, 1.60 y 1.40 → 1.50 × 1.60 × 1.40 = 3.36 (apostando 100 pagaría 336 si ganan las tres). «Aporte de la pata al multiplicador %» = qué parte del total pone cada pata (en escala logarítmica). «P gana si fueran independientes» = producto de las p del modelo (0.70 × 0.65 × 0.72 = 33 %); si las patas dependen entre sí (misma liga, mismo régimen de goles, horarios cercanos) la probabilidad real puede ser distinta: ver «Nota de correlación»."],
@@ -326,15 +331,16 @@ def make_workbook(units, summary, legs, rankings, combos, consolidated, rotation
     sheet("Top por liga", ["Ranking", "Liga", "#"] + H, tops)
 
     cb = []
-    for name, b in combos.items():
+    for name, b in sorted(combos.items(), key=lambda kv: BLOQUE_ORDEN.get(kv[0].replace("x", "×"), 1)):
+        bloque = BLOQUES[BLOQUE_ORDEN.get(name.replace("x", "×"), 1)]
         for k, c in enumerate(b["combinadas"], 1):
             for p in c["patas"]:
-                cb.append([name, k, c["cuota_total"], c.get("multiplicador"), PC(c["p_conjunta_independiente"]), PC(c["p_perdida"]), PC(c["ev_teorico"]) if c["ev_teorico"] is not None else None, c["tipo_cuota"], c["estado_agentes"],
+                cb.append([bloque, name, k, c["cuota_total"], c.get("multiplicador"), PC(c["p_conjunta_independiente"]), PC(c["p_perdida"]), PC(c["ev_teorico"]) if c["ev_teorico"] is not None else None, c["tipo_cuota"], c["estado_agentes"],
                            c["preparacion_para_apostar"]["estado"], ", ".join(c["preparacion_para_apostar"]["incumplidos"]), caracas(p["hora_utc"]), p["partido"], p["etiqueta"], p["cuota"], p["aporte_log_pct"], p["precio_tipo"], PC(p["p_modelo"]), p["agentes"],
                            c.get("nota_correlacion"), c.get("alerta"), *px({"observado_utc": p.get("observado_utc"), "cuota": p["cuota"], "hora_utc": p.get("hora_utc")})])
         if not b["combinadas"]:
-            cb.append([name, None, None, None, None, None, None, b["aviso"]] + [None] * 13)
-    sheet("Combinadas", ["Objetivo", "Opción", "Cuota total", "Multiplicador (producto de las cuotas)", "P gana si fueran independientes %", "P pierde %", "EV teórico %", "Tipo de cuota", "Estado agentes", "Preparación para apostar",
+            cb.append([bloque, name, None, None, None, None, None, None, b["aviso"]] + [None] * 13)
+    sheet("Combinadas", ["Bloque", "Objetivo", "Opción", "Cuota total", "Multiplicador (producto de las cuotas)", "P gana si fueran independientes %", "P pierde %", "EV teórico %", "Tipo de cuota", "Estado agentes", "Preparación para apostar",
                          "Requisitos que faltan", "Hora Caracas", "Partido", "Selección", "Cuota de la pata", "Aporte de la pata al multiplicador %", "Tipo de precio", "P modelo de la pata %", "Agentes pata", "Nota de correlación", "Alerta", "Cuota observada (Caracas)", "Horas entre la cuota y el inicio"], cb)
 
     ex = []

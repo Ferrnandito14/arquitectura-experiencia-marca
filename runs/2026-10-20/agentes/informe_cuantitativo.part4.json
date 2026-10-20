@@ -1,0 +1,2552 @@
+{
+ "agente": "cuantitativo",
+ "version_contrato": 1,
+ "run": "runs/2026-10-20",
+ "unidades": [
+  {
+   "unit_id": "m-50f8cf24d89d|1.ª parte goles",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Estimador calculable pero sin precio contrastable; sin cuota no hay contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-50f8cf24d89d|1.ª parte goles",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-50f8cf24d89d|1.ª parte resultado",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Estimador calculable pero sin precio contrastable; sin cuota no hay contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-50f8cf24d89d|1.ª parte resultado",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-50f8cf24d89d|córners",
+   "consistencia_modelo": "datos_insuficientes",
+   "riesgo_correlacion": "ninguno",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin p_modelo en el paquete (estimador no implementado o datos insuficientes): sin contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-50f8cf24d89d|córners",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-50f8cf24d89d|doble oportunidad",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Brechas <15 pp vs 1/cuota (incl. margen; max -8.4 pp en resultado.dc.1x); precios de agregador (referencia). Modelo no validado.",
+   "evidencia": [
+    "paquete:m-50f8cf24d89d|doble oportunidad",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-50f8cf24d89d|empate no válido",
+   "consistencia_modelo": "datos_insuficientes",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Datos sin_extractor: p_modelo no es estimacion fiable; sin contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-50f8cf24d89d|empate no válido",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-50f8cf24d89d|fueras de juego",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "ninguno",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin p_modelo en el paquete (estimador no implementado o datos insuficientes): sin contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-50f8cf24d89d|fueras de juego",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-50f8cf24d89d|goles",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Brechas <15 pp vs 1/cuota (incl. margen; max -12.8 pp en goles.btts.no); precios de agregador (referencia). Modelo no validado.",
+   "excepciones": [
+    {
+     "entry_id": "goles.total.over.5.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "goles.total.under.5.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-50f8cf24d89d|goles",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-50f8cf24d89d|goles por equipo",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Estimador calculable pero sin precio contrastable; sin cuota no hay contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-50f8cf24d89d|goles por equipo",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-50f8cf24d89d|goles total entero",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "ninguno",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin p_modelo en el paquete (estimador no implementado o datos insuficientes): sin contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-50f8cf24d89d|goles total entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-50f8cf24d89d|hándicap",
+   "consistencia_modelo": "discrepa_del_mercado",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "1 linea(s) con brecha >=15 pp vs 1/cuota (incl. margen), max -69.6 pp en resultado.ah.home.-1.5; precio de agregador (referencia). Modelo no validado.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.home.-2.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "resultado.ah.away.+2.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "resultado.ah.away.+1.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah.home.-0.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "resultado.ah.away.+0.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "resultado.ah.home.+0.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "resultado.ah.away.-0.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "resultado.ah.home.+1.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "resultado.ah.away.-1.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "resultado.ah.home.+2.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "resultado.ah.away.-2.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-50f8cf24d89d|hándicap",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-50f8cf24d89d|hándicap asiático entero",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "ninguno",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin p_modelo en el paquete (estimador no implementado o datos insuficientes): sin contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-50f8cf24d89d|hándicap asiático entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-50f8cf24d89d|hándicap europeo",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "ninguno",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin p_modelo en el paquete (estimador no implementado o datos insuficientes): sin contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-50f8cf24d89d|hándicap europeo",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-50f8cf24d89d|remates",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "ninguno",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin p_modelo en el paquete (estimador no implementado o datos insuficientes): sin contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-50f8cf24d89d|remates",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-50f8cf24d89d|remates a puerta",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "ninguno",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin p_modelo en el paquete (estimador no implementado o datos insuficientes): sin contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-50f8cf24d89d|remates a puerta",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-50f8cf24d89d|resultado",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Brechas <15 pp vs 1/cuota (incl. margen; max -5.9 pp en resultado.1x2.home); precios de agregador (referencia). Modelo no validado.",
+   "evidencia": [
+    "paquete:m-50f8cf24d89d|resultado",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-50f8cf24d89d|tarjetas",
+   "consistencia_modelo": "datos_insuficientes",
+   "riesgo_correlacion": "ninguno",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin p_modelo en el paquete (estimador no implementado o datos insuficientes): sin contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-50f8cf24d89d|tarjetas",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-601d9c0a0d72|1.ª parte goles",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Brechas <15 pp vs 1/cuota (incl. margen; max -5.3 pp en primera_parte.total.over.1.5); precios de agregador (referencia). Modelo no validado.",
+   "evidencia": [
+    "paquete:m-601d9c0a0d72|1.ª parte goles",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-601d9c0a0d72|1.ª parte resultado",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Brechas <15 pp vs 1/cuota (incl. margen; max -10.5 pp en primera_parte.1x2.home); precios de agregador (referencia). Modelo no validado.",
+   "evidencia": [
+    "paquete:m-601d9c0a0d72|1.ª parte resultado",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-601d9c0a0d72|córners",
+   "consistencia_modelo": "discrepa_del_mercado",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "8 linea(s) con brecha >=15 pp vs 1/cuota (incl. margen), max -22.6 pp en corners.equipo.home.over.3.5; precio de agregador (referencia). Modelo no validado.",
+   "excepciones": [
+    {
+     "entry_id": "corners.total.under.6.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.total.under.7.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.total.under.8.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.total.under.9.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.total.over.10.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.total.under.10.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.total.over.11.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.total.under.11.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.total.over.12.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.total.under.12.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.total.over.13.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.total.under.13.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.total.over.14.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.total.under.14.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.2.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.3.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.4.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.5.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.6.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.6.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.7.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.7.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.8.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.8.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.2.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.2.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.3.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.3.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.4.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.4.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.5.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.5.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.6.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.6.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.7.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.7.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.8.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.8.5",
+     "consistencia_modelo": "coherente"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-601d9c0a0d72|córners",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-601d9c0a0d72|doble oportunidad",
+   "consistencia_modelo": "discrepa_del_mercado",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "1 linea(s) con brecha >=15 pp vs 1/cuota (incl. margen), max -19.4 pp en resultado.dc.1x; precio de agregador (referencia). Modelo no validado.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.dc.12",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.dc.x2",
+     "consistencia_modelo": "coherente"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-601d9c0a0d72|doble oportunidad",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-601d9c0a0d72|empate no válido",
+   "consistencia_modelo": "datos_insuficientes",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Datos sin_extractor: p_modelo no es estimacion fiable; sin contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-601d9c0a0d72|empate no válido",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-601d9c0a0d72|fueras de juego",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "ninguno",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin p_modelo en el paquete (estimador no implementado o datos insuficientes): sin contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-601d9c0a0d72|fueras de juego",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-601d9c0a0d72|goles",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Brechas <15 pp vs 1/cuota (incl. margen; max -11.1 pp en goles.total.under.5.5); precios de agregador (referencia). Modelo no validado.",
+   "evidencia": [
+    "paquete:m-601d9c0a0d72|goles",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-601d9c0a0d72|goles por equipo",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Brechas <15 pp vs 1/cuota (incl. margen; max -14.7 pp en goles.equipo.away.under.2.5); precios de agregador (referencia). Modelo no validado.",
+   "evidencia": [
+    "paquete:m-601d9c0a0d72|goles por equipo",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-601d9c0a0d72|goles total entero",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "ninguno",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin p_modelo en el paquete (estimador no implementado o datos insuficientes): sin contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-601d9c0a0d72|goles total entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-601d9c0a0d72|hándicap",
+   "consistencia_modelo": "discrepa_del_mercado",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "3 linea(s) con brecha >=15 pp vs 1/cuota (incl. margen), max -91.3 pp en resultado.ah.home.-2.5; precio de agregador (referencia). Modelo no validado.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.away.+2.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah.home.-1.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah.away.+1.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah.home.-0.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah.away.+0.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah.away.-0.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah.away.-1.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah.home.+2.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah.away.-2.5",
+     "consistencia_modelo": "coherente"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-601d9c0a0d72|hándicap",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-601d9c0a0d72|hándicap asiático entero",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "ninguno",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin p_modelo en el paquete (estimador no implementado o datos insuficientes): sin contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-601d9c0a0d72|hándicap asiático entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-601d9c0a0d72|hándicap europeo",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "ninguno",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin p_modelo en el paquete (estimador no implementado o datos insuficientes): sin contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-601d9c0a0d72|hándicap europeo",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-601d9c0a0d72|remates",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "ninguno",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin p_modelo en el paquete (estimador no implementado o datos insuficientes): sin contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-601d9c0a0d72|remates",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-601d9c0a0d72|remates a puerta",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "ninguno",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin p_modelo en el paquete (estimador no implementado o datos insuficientes): sin contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-601d9c0a0d72|remates a puerta",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-601d9c0a0d72|resultado",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Brechas <15 pp vs 1/cuota (incl. margen; max +13.8 pp en resultado.1x2.away); precios de agregador (referencia). Modelo no validado.",
+   "evidencia": [
+    "paquete:m-601d9c0a0d72|resultado",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-601d9c0a0d72|tarjetas",
+   "consistencia_modelo": "discrepa_del_mercado",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "2 linea(s) con brecha >=15 pp vs 1/cuota (incl. margen), max -20.4 pp en cards_pts.total.over.2.5; precio de agregador (referencia). Modelo no validado.",
+   "excepciones": [
+    {
+     "entry_id": "cards_pts.total.under.1.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "cards_pts.total.under.2.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "cards_pts.total.over.3.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "cards_pts.total.under.3.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "cards_pts.total.over.4.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "cards_pts.total.under.4.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "cards_pts.total.over.5.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "cards_pts.total.under.5.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "cards_pts.total.over.6.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "cards_pts.total.under.6.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "cards_pts.total.over.7.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "cards_pts.total.under.7.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "cards_pts.total.over.8.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "cards_pts.total.under.8.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "cards_pts.total.over.9.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "cards_pts.total.under.9.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.over.0.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.under.0.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.over.1.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.under.1.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.over.2.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.under.2.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.over.3.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.under.3.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.over.4.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.under.4.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.over.5.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.under.5.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.over.0.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.under.0.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.over.1.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.under.1.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.over.2.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.under.2.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.over.3.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.under.3.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.over.4.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.under.4.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.over.5.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.under.5.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-601d9c0a0d72|tarjetas",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6872b103b64c|1.ª parte goles",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Brechas <15 pp vs 1/cuota (incl. margen; max -5.9 pp en primera_parte.total.over.0.5); precios de agregador (referencia). Modelo no validado.",
+   "evidencia": [
+    "paquete:m-6872b103b64c|1.ª parte goles",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6872b103b64c|1.ª parte resultado",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Brechas <15 pp vs 1/cuota (incl. margen; max -8.2 pp en primera_parte.1x2.home); precios de agregador (referencia). Modelo no validado.",
+   "evidencia": [
+    "paquete:m-6872b103b64c|1.ª parte resultado",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6872b103b64c|córners",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Estimador calculable pero sin precio contrastable; sin cuota no hay contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-6872b103b64c|córners",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6872b103b64c|doble oportunidad",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Brechas <15 pp vs 1/cuota (incl. margen; max -11.7 pp en resultado.dc.1x); precios de agregador (referencia). Modelo no validado.",
+   "evidencia": [
+    "paquete:m-6872b103b64c|doble oportunidad",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6872b103b64c|empate no válido",
+   "consistencia_modelo": "datos_insuficientes",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Datos sin_extractor: p_modelo no es estimacion fiable; sin contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-6872b103b64c|empate no válido",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6872b103b64c|fueras de juego",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "ninguno",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin p_modelo en el paquete (estimador no implementado o datos insuficientes): sin contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-6872b103b64c|fueras de juego",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6872b103b64c|goles",
+   "consistencia_modelo": "discrepa_del_mercado",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "2 linea(s) con brecha >=15 pp vs 1/cuota (incl. margen), max -16.6 pp en goles.total.under.3.5; precio de agregador (referencia). Modelo no validado.",
+   "excepciones": [
+    {
+     "entry_id": "goles.total.over.0.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "goles.total.under.0.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "goles.total.over.1.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "goles.total.under.1.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "goles.total.over.2.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "goles.total.under.2.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "goles.total.over.3.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "goles.total.over.4.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "goles.total.over.5.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "goles.total.under.5.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "goles.btts.yes",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "goles.btts.no",
+     "consistencia_modelo": "coherente"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-6872b103b64c|goles",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6872b103b64c|goles por equipo",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Estimador calculable pero sin precio contrastable; sin cuota no hay contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-6872b103b64c|goles por equipo",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6872b103b64c|goles total entero",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "ninguno",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin p_modelo en el paquete (estimador no implementado o datos insuficientes): sin contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-6872b103b64c|goles total entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6872b103b64c|hándicap",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Brechas <15 pp vs 1/cuota (incl. margen; max -6.5 pp en resultado.ah.home.+0.5); precios de agregador (referencia). Modelo no validado.",
+   "evidencia": [
+    "paquete:m-6872b103b64c|hándicap",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6872b103b64c|hándicap asiático entero",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "ninguno",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin p_modelo en el paquete (estimador no implementado o datos insuficientes): sin contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-6872b103b64c|hándicap asiático entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6872b103b64c|hándicap europeo",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "ninguno",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin p_modelo en el paquete (estimador no implementado o datos insuficientes): sin contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-6872b103b64c|hándicap europeo",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6872b103b64c|remates",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "ninguno",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin p_modelo en el paquete (estimador no implementado o datos insuficientes): sin contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-6872b103b64c|remates",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6872b103b64c|remates a puerta",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "ninguno",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin p_modelo en el paquete (estimador no implementado o datos insuficientes): sin contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-6872b103b64c|remates a puerta",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6872b103b64c|resultado",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Brechas <15 pp vs 1/cuota (incl. margen; max -6.5 pp en resultado.1x2.draw); precios de agregador (referencia). Modelo no validado.",
+   "evidencia": [
+    "paquete:m-6872b103b64c|resultado",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6872b103b64c|tarjetas",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Estimador calculable pero sin precio contrastable; sin cuota no hay contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-6872b103b64c|tarjetas",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-693d96cb6dfc|1.ª parte goles",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Brechas <15 pp vs 1/cuota (incl. margen; max -5.1 pp en primera_parte.total.under.1.5); precios de agregador (referencia). Modelo no validado.",
+   "evidencia": [
+    "paquete:m-693d96cb6dfc|1.ª parte goles",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-693d96cb6dfc|1.ª parte resultado",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Brechas <15 pp vs 1/cuota (incl. margen; max -3.1 pp en primera_parte.1x2.draw); precios de agregador (referencia). Modelo no validado.",
+   "evidencia": [
+    "paquete:m-693d96cb6dfc|1.ª parte resultado",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-693d96cb6dfc|córners",
+   "consistencia_modelo": "discrepa_del_mercado",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "3 linea(s) con brecha >=15 pp vs 1/cuota (incl. margen), max -22.7 pp en corners.equipo.away.under.4.5; precio de agregador (referencia). Modelo no validado.",
+   "excepciones": [
+    {
+     "entry_id": "corners.total.over.6.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.total.under.6.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.total.over.7.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.total.under.7.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.total.over.8.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.total.under.8.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.total.over.9.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.total.under.9.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.total.over.10.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.total.under.10.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.total.over.11.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.total.under.11.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.total.over.12.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.total.under.12.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.total.over.13.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.total.under.13.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.total.over.14.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.total.under.14.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.2.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.2.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.3.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.3.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.4.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.4.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.5.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.5.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.6.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.7.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.7.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.8.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.8.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.2.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.2.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.3.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.3.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.5.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.5.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.6.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.6.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.7.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.7.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.8.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.8.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-693d96cb6dfc|córners",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-693d96cb6dfc|doble oportunidad",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Brechas <15 pp vs 1/cuota (incl. margen; max -5.9 pp en resultado.dc.x2); precios de agregador (referencia). Modelo no validado.",
+   "evidencia": [
+    "paquete:m-693d96cb6dfc|doble oportunidad",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-693d96cb6dfc|empate no válido",
+   "consistencia_modelo": "datos_insuficientes",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Datos sin_extractor: p_modelo no es estimacion fiable; sin contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-693d96cb6dfc|empate no válido",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-693d96cb6dfc|fueras de juego",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "ninguno",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin p_modelo en el paquete (estimador no implementado o datos insuficientes): sin contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-693d96cb6dfc|fueras de juego",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-693d96cb6dfc|goles",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Brechas <15 pp vs 1/cuota (incl. margen; max -8.4 pp en goles.total.under.4.5); precios de agregador (referencia). Modelo no validado.",
+   "evidencia": [
+    "paquete:m-693d96cb6dfc|goles",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-693d96cb6dfc|goles por equipo",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Brechas <15 pp vs 1/cuota (incl. margen; max -5.2 pp en goles.equipo.home.under.2.5); precios de agregador (referencia). Modelo no validado.",
+   "evidencia": [
+    "paquete:m-693d96cb6dfc|goles por equipo",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-693d96cb6dfc|goles total entero",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "ninguno",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin p_modelo en el paquete (estimador no implementado o datos insuficientes): sin contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-693d96cb6dfc|goles total entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-693d96cb6dfc|hándicap",
+   "consistencia_modelo": "discrepa_del_mercado",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "1 linea(s) con brecha >=15 pp vs 1/cuota (incl. margen), max -19.3 pp en resultado.ah.home.-1.5; precio de agregador (referencia). Modelo no validado.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.home.-2.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah.away.+2.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah.away.+1.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah.home.-0.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah.away.+0.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah.home.+0.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah.away.-0.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah.home.+1.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah.away.-1.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah.home.+2.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah.away.-2.5",
+     "consistencia_modelo": "coherente"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-693d96cb6dfc|hándicap",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-693d96cb6dfc|hándicap asiático entero",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "ninguno",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin p_modelo en el paquete (estimador no implementado o datos insuficientes): sin contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-693d96cb6dfc|hándicap asiático entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-693d96cb6dfc|hándicap europeo",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "ninguno",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin p_modelo en el paquete (estimador no implementado o datos insuficientes): sin contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-693d96cb6dfc|hándicap europeo",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-693d96cb6dfc|remates",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "ninguno",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin p_modelo en el paquete (estimador no implementado o datos insuficientes): sin contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-693d96cb6dfc|remates",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-693d96cb6dfc|remates a puerta",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "ninguno",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin p_modelo en el paquete (estimador no implementado o datos insuficientes): sin contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-693d96cb6dfc|remates a puerta",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-693d96cb6dfc|resultado",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Brechas <15 pp vs 1/cuota (incl. margen; max -4.0 pp en resultado.1x2.draw); precios de agregador (referencia). Modelo no validado.",
+   "evidencia": [
+    "paquete:m-693d96cb6dfc|resultado",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-693d96cb6dfc|tarjetas",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Estimador calculable pero sin precio contrastable; sin cuota no hay contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-693d96cb6dfc|tarjetas",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6974b6aa64cf|1.ª parte goles",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Brechas <15 pp vs 1/cuota (incl. margen; max -8.1 pp en primera_parte.total.under.1.5); precios de agregador (referencia). Modelo no validado.",
+   "evidencia": [
+    "paquete:m-6974b6aa64cf|1.ª parte goles",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6974b6aa64cf|1.ª parte resultado",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Brechas <15 pp vs 1/cuota (incl. margen; max -12.7 pp en primera_parte.1x2.home); precios de agregador (referencia). Modelo no validado.",
+   "evidencia": [
+    "paquete:m-6974b6aa64cf|1.ª parte resultado",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6974b6aa64cf|córners",
+   "consistencia_modelo": "discrepa_del_mercado",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "6 linea(s) con brecha >=15 pp vs 1/cuota (incl. margen), max -18.9 pp en corners.equipo.home.over.4.5; precio de agregador (referencia). Modelo no validado.",
+   "excepciones": [
+    {
+     "entry_id": "corners.total.over.6.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.total.under.6.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.total.over.7.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.total.under.7.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.total.over.8.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.total.under.8.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.total.over.9.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.total.under.9.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.total.over.10.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.total.under.10.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.total.over.11.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.total.under.11.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.total.over.12.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.total.under.12.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.total.over.13.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.total.under.13.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.total.over.14.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.total.under.14.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.2.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.3.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.4.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.5.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.6.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.6.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.7.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.7.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.8.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.8.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.2.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.2.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.3.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.3.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.4.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.4.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.5.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.6.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.7.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.7.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.8.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.8.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-6974b6aa64cf|córners",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6974b6aa64cf|doble oportunidad",
+   "consistencia_modelo": "discrepa_del_mercado",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "1 linea(s) con brecha >=15 pp vs 1/cuota (incl. margen), max -17.8 pp en resultado.dc.1x; precio de agregador (referencia). Modelo no validado.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.dc.12",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.dc.x2",
+     "consistencia_modelo": "coherente"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-6974b6aa64cf|doble oportunidad",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6974b6aa64cf|empate no válido",
+   "consistencia_modelo": "datos_insuficientes",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Datos sin_extractor: p_modelo no es estimacion fiable; sin contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-6974b6aa64cf|empate no válido",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6974b6aa64cf|fueras de juego",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "ninguno",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin p_modelo en el paquete (estimador no implementado o datos insuficientes): sin contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-6974b6aa64cf|fueras de juego",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6974b6aa64cf|goles",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Brechas <15 pp vs 1/cuota (incl. margen; max -10.3 pp en goles.total.under.5.5); precios de agregador (referencia). Modelo no validado.",
+   "evidencia": [
+    "paquete:m-6974b6aa64cf|goles",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6974b6aa64cf|goles por equipo",
+   "consistencia_modelo": "discrepa_del_mercado",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "1 linea(s) con brecha >=15 pp vs 1/cuota (incl. margen), max -18.1 pp en goles.equipo.away.under.1.5; precio de agregador (referencia). Modelo no validado.",
+   "excepciones": [
+    {
+     "entry_id": "goles.equipo.home.over.0.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "goles.equipo.home.under.0.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "goles.equipo.home.over.1.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "goles.equipo.home.under.1.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "goles.equipo.home.over.2.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "goles.equipo.home.under.2.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "goles.equipo.away.over.0.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "goles.equipo.away.under.0.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "goles.equipo.away.over.1.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "goles.equipo.away.over.2.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "goles.equipo.away.under.2.5",
+     "consistencia_modelo": "coherente"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-6974b6aa64cf|goles por equipo",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6974b6aa64cf|goles total entero",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "ninguno",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin p_modelo en el paquete (estimador no implementado o datos insuficientes): sin contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-6974b6aa64cf|goles total entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6974b6aa64cf|hándicap",
+   "consistencia_modelo": "discrepa_del_mercado",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "3 linea(s) con brecha >=15 pp vs 1/cuota (incl. margen), max -17.9 pp en resultado.ah.home.-0.5; precio de agregador (referencia). Modelo no validado.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.home.-2.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah.away.+2.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah.away.+1.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah.away.+0.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah.away.-0.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah.home.+1.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah.away.-1.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah.home.+2.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.ah.away.-2.5",
+     "consistencia_modelo": "coherente"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-6974b6aa64cf|hándicap",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6974b6aa64cf|hándicap asiático entero",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "ninguno",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin p_modelo en el paquete (estimador no implementado o datos insuficientes): sin contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-6974b6aa64cf|hándicap asiático entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6974b6aa64cf|hándicap europeo",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "ninguno",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin p_modelo en el paquete (estimador no implementado o datos insuficientes): sin contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-6974b6aa64cf|hándicap europeo",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6974b6aa64cf|remates",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "ninguno",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin p_modelo en el paquete (estimador no implementado o datos insuficientes): sin contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-6974b6aa64cf|remates",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6974b6aa64cf|remates a puerta",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "ninguno",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin p_modelo en el paquete (estimador no implementado o datos insuficientes): sin contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-6974b6aa64cf|remates a puerta",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6974b6aa64cf|resultado",
+   "consistencia_modelo": "discrepa_del_mercado",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "1 linea(s) con brecha >=15 pp vs 1/cuota (incl. margen), max -18.4 pp en resultado.1x2.home; precio de agregador (referencia). Modelo no validado.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.1x2.draw",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "resultado.1x2.away",
+     "consistencia_modelo": "coherente"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-6974b6aa64cf|resultado",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6974b6aa64cf|tarjetas",
+   "consistencia_modelo": "discrepa_del_mercado",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "2 linea(s) con brecha >=15 pp vs 1/cuota (incl. margen), max -18.2 pp en cards_pts.total.over.3.5; precio de agregador (referencia). Modelo no validado.",
+   "excepciones": [
+    {
+     "entry_id": "cards_pts.total.over.1.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "cards_pts.total.under.1.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "cards_pts.total.under.2.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "cards_pts.total.under.3.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "cards_pts.total.over.4.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "cards_pts.total.under.4.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "cards_pts.total.over.5.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "cards_pts.total.under.5.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "cards_pts.total.over.6.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "cards_pts.total.under.6.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "cards_pts.total.over.7.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "cards_pts.total.under.7.5",
+     "consistencia_modelo": "coherente"
+    },
+    {
+     "entry_id": "cards_pts.total.over.8.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "cards_pts.total.under.8.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "cards_pts.total.over.9.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "cards_pts.total.under.9.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.over.0.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.under.0.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.over.1.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.under.1.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.over.2.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.under.2.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.over.3.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.under.3.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.over.4.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.under.4.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.over.5.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.under.5.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.over.0.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.under.0.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.over.1.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.under.1.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.over.2.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.under.2.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.over.3.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.under.3.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.over.4.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.under.4.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.over.5.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.under.5.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-6974b6aa64cf|tarjetas",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6e27e8ef1106|1.ª parte goles",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Estimador calculable pero sin precio contrastable; sin cuota no hay contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-6e27e8ef1106|1.ª parte goles",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6e27e8ef1106|1.ª parte resultado",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Estimador calculable pero sin precio contrastable; sin cuota no hay contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-6e27e8ef1106|1.ª parte resultado",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6e27e8ef1106|córners",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Estimador calculable pero sin precio contrastable; sin cuota no hay contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-6e27e8ef1106|córners",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6e27e8ef1106|doble oportunidad",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Brechas <15 pp vs 1/cuota (incl. margen; max -13.7 pp en resultado.dc.1x); precios de agregador (referencia). Modelo no validado.",
+   "evidencia": [
+    "paquete:m-6e27e8ef1106|doble oportunidad",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6e27e8ef1106|empate no válido",
+   "consistencia_modelo": "datos_insuficientes",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Datos sin_extractor: p_modelo no es estimacion fiable; sin contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-6e27e8ef1106|empate no válido",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6e27e8ef1106|fueras de juego",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "ninguno",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin p_modelo en el paquete (estimador no implementado o datos insuficientes): sin contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-6e27e8ef1106|fueras de juego",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6e27e8ef1106|goles",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Brechas <15 pp vs 1/cuota (incl. margen; max -11.5 pp en goles.btts.no); precios de agregador (referencia). Modelo no validado.",
+   "evidencia": [
+    "paquete:m-6e27e8ef1106|goles",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6e27e8ef1106|goles por equipo",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Estimador calculable pero sin precio contrastable; sin cuota no hay contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-6e27e8ef1106|goles por equipo",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6e27e8ef1106|goles total entero",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "ninguno",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin p_modelo en el paquete (estimador no implementado o datos insuficientes): sin contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-6e27e8ef1106|goles total entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6e27e8ef1106|hándicap",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Brechas <15 pp vs 1/cuota (incl. margen; max -11.4 pp en resultado.ah.home.-1.5); precios de agregador (referencia). Modelo no validado.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.home.-0.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "resultado.ah.away.+0.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "resultado.ah.home.+0.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "resultado.ah.away.-0.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "resultado.ah.home.+1.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "resultado.ah.away.-1.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "resultado.ah.home.+2.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "resultado.ah.away.-2.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-6e27e8ef1106|hándicap",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6e27e8ef1106|hándicap asiático entero",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "ninguno",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin p_modelo en el paquete (estimador no implementado o datos insuficientes): sin contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-6e27e8ef1106|hándicap asiático entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6e27e8ef1106|hándicap europeo",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "ninguno",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin p_modelo en el paquete (estimador no implementado o datos insuficientes): sin contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-6e27e8ef1106|hándicap europeo",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6e27e8ef1106|remates",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "ninguno",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin p_modelo en el paquete (estimador no implementado o datos insuficientes): sin contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-6e27e8ef1106|remates",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6e27e8ef1106|remates a puerta",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "ninguno",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin p_modelo en el paquete (estimador no implementado o datos insuficientes): sin contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-6e27e8ef1106|remates a puerta",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6e27e8ef1106|resultado",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Brechas <15 pp vs 1/cuota (incl. margen; max -12.6 pp en resultado.1x2.home); precios de agregador (referencia). Modelo no validado.",
+   "evidencia": [
+    "paquete:m-6e27e8ef1106|resultado",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-6e27e8ef1106|tarjetas",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Estimador calculable pero sin precio contrastable; sin cuota no hay contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-6e27e8ef1106|tarjetas",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-73529c850d5a|1.ª parte goles",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Brechas <15 pp vs 1/cuota (incl. margen; max -8.4 pp en primera_parte.total.under.1.5); precios de agregador (referencia). Modelo no validado.",
+   "evidencia": [
+    "paquete:m-73529c850d5a|1.ª parte goles",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-73529c850d5a|1.ª parte resultado",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Brechas <15 pp vs 1/cuota (incl. margen; max -5.6 pp en primera_parte.1x2.draw); precios de agregador (referencia). Modelo no validado.",
+   "evidencia": [
+    "paquete:m-73529c850d5a|1.ª parte resultado",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-73529c850d5a|córners",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Brechas <15 pp vs 1/cuota (incl. margen; max -6.9 pp en corners.equipo.home.over.4.5); precios de agregador (referencia). Modelo no validado.",
+   "excepciones": [
+    {
+     "entry_id": "corners.total.over.6.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.total.under.6.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.total.over.7.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.total.under.7.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.total.over.10.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.total.under.10.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.total.over.11.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.total.under.11.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.total.over.12.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.total.under.12.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.total.over.13.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.total.under.13.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.total.over.14.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.total.under.14.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.2.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.2.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.3.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.3.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.5.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.5.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.6.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.6.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.7.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.7.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.8.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.8.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.2.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.2.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.3.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.3.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.5.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.5.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.6.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.6.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.7.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.7.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.8.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.8.5",
+     "consistencia_modelo": "sin_precio_para_contrastar"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-73529c850d5a|córners",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-73529c850d5a|doble oportunidad",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Brechas <15 pp vs 1/cuota (incl. margen; max -13.3 pp en resultado.dc.1x); precios de agregador (referencia). Modelo no validado.",
+   "evidencia": [
+    "paquete:m-73529c850d5a|doble oportunidad",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-73529c850d5a|empate no válido",
+   "consistencia_modelo": "datos_insuficientes",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Datos sin_extractor: p_modelo no es estimacion fiable; sin contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-73529c850d5a|empate no válido",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-73529c850d5a|fueras de juego",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "ninguno",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin p_modelo en el paquete (estimador no implementado o datos insuficientes): sin contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-73529c850d5a|fueras de juego",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-73529c850d5a|goles",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Brechas <15 pp vs 1/cuota (incl. margen; max -12.4 pp en goles.total.under.3.5); precios de agregador (referencia). Modelo no validado.",
+   "evidencia": [
+    "paquete:m-73529c850d5a|goles",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-73529c850d5a|goles por equipo",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Brechas <15 pp vs 1/cuota (incl. margen; max -13.5 pp en goles.equipo.away.under.1.5); precios de agregador (referencia). Modelo no validado.",
+   "evidencia": [
+    "paquete:m-73529c850d5a|goles por equipo",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-73529c850d5a|goles total entero",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "ninguno",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin p_modelo en el paquete (estimador no implementado o datos insuficientes): sin contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-73529c850d5a|goles total entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-73529c850d5a|hándicap",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Brechas <15 pp vs 1/cuota (incl. margen; max -14.7 pp en resultado.ah.home.+1.5); precios de agregador (referencia). Modelo no validado.",
+   "evidencia": [
+    "paquete:m-73529c850d5a|hándicap",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-73529c850d5a|hándicap asiático entero",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "ninguno",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin p_modelo en el paquete (estimador no implementado o datos insuficientes): sin contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-73529c850d5a|hándicap asiático entero",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-73529c850d5a|hándicap europeo",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "ninguno",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin p_modelo en el paquete (estimador no implementado o datos insuficientes): sin contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-73529c850d5a|hándicap europeo",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-73529c850d5a|remates",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "ninguno",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin p_modelo en el paquete (estimador no implementado o datos insuficientes): sin contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-73529c850d5a|remates",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-73529c850d5a|remates a puerta",
+   "consistencia_modelo": "sin_estimador",
+   "riesgo_correlacion": "ninguno",
+   "validacion_aplicable": "no_validado",
+   "nota": "Sin p_modelo en el paquete (estimador no implementado o datos insuficientes): sin contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-73529c850d5a|remates a puerta",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-73529c850d5a|resultado",
+   "consistencia_modelo": "coherente",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Brechas <15 pp vs 1/cuota (incl. margen; max -7.3 pp en resultado.1x2.home); precios de agregador (referencia). Modelo no validado.",
+   "evidencia": [
+    "paquete:m-73529c850d5a|resultado",
+    "archivo:data/model_validation.json"
+   ]
+  },
+  {
+   "unit_id": "m-73529c850d5a|tarjetas",
+   "consistencia_modelo": "sin_precio_para_contrastar",
+   "riesgo_correlacion": "mismo_partido",
+   "validacion_aplicable": "no_validado",
+   "nota": "Estimador calculable pero sin precio contrastable; sin cuota no hay contraste ni EV. Modelo no validado.",
+   "evidencia": [
+    "paquete:m-73529c850d5a|tarjetas",
+    "archivo:data/model_validation.json"
+   ]
+  }
+ ],
+ "limitaciones": [
+  "p_modelo no validado (model_validation.json: familias insuficiente/parcial); no se calculo EV.",
+  "Brecha = p_modelo - 1/cuota (incluye margen, sin retirar vig); umbral 15 pp en valor absoluto solo con precio R o A; precios V no se usaron.",
+  "Precios A son referencia de agregador, no ejecutables.",
+  "Sin estimador para varias familias (remates, fueras de juego, handicap europeo/asiatico entero, goles total entero).",
+  "Correlacion juzgada dentro de la unidad; no se usa producto de probabilidades. Sin consultas a la API."
+ ]
+}

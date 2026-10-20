@@ -17,10 +17,13 @@ OVER = [e["id"] for e in mc.CATALOG if e["market"] == "goles" and e["direction"]
 UNDER = [e["id"] for e in mc.CATALOG if e["market"] == "goles" and e["direction"] == "under"][:3]
 
 
-def entrada(eid, odds=None, p=0.7, estado="real_verificada", datos="suficientes"):
-    return {"id": eid, "linea": None, "direccion": mc.BY_ID[eid]["direction"], "alcance": "match", "investigacion": {"datos_deportivos": "encontrado", "agregador": "encontrado"},
+def entrada(eid, odds=None, p=0.7, estado="real_verificada", datos="suficientes", pm=None):
+    e = {"id": eid, "linea": None, "direccion": mc.BY_ID[eid]["direction"], "alcance": "match", "investigacion": {"datos_deportivos": "encontrado", "agregador": "encontrado"},
             "precio": {"estado": estado if odds else "sin_precio", "cuota": odds, "fuente": "casa X" if odds else None, "tipo": "casa" if odds else None, "cumple_limite_2_10": None},
             "datos": datos, "estimador": "calculable" if p is not None else "no_implementado", "validacion": "insuficiente", "p_modelo": p}
+    if pm is not None:
+        e["precio"]["p_mercado"] = {"p": pm, "n_casas": 3}
+    return e
 
 
 def unit(i, entries, liga="L1", hora="2026-10-14T20:00:00Z", grupo="goles"):
@@ -47,6 +50,24 @@ class Patas(unittest.TestCase):
         self.assertIn("brecha_modelo_vs_precio", neg[UNDER[2]]["motivos_exclusion"])
         self.assertEqual(L[OVER[0]]["limite_2_10"], "sin_precio_justa_ok")                    # 1/0.7 = 1.43 ≤ 2.10
         self.assertEqual(L[OVER[2]]["limite_2_10"], "excede")
+
+    def test_regla_de_ruido_usa_la_p_del_mercado_cuando_el_modelo_ve_un_ev_alto_o_supera_al_mercado_en_mas_de_15_pp(self):
+        # EJEMPLO — NO REAL. Auditoría 14–19 oct: EV ≥ +10 % o modelo > mercado en +15 pp es ruido del modelo
+        e = [entrada(OVER[0], 1.6, 0.80, pm=0.60), entrada(OVER[1], 1.5, 0.62, pm=0.62), entrada(OVER[2], 1.6, 0.70, pm=0.50)]
+        L = {l["entry_id"]: l for l in legs_of([unit(1, e)])}
+        self.assertTrue(L[OVER[0]]["ruido_modelo"])
+        self.assertEqual(L[OVER[0]]["p_modelo"], 0.60)                    # se usa la P del mercado sin margen
+        self.assertEqual(L[OVER[0]]["p_modelo_original"], 0.80)
+        self.assertAlmostEqual(L[OVER[0]]["ev_teorico"], 0.60 * 1.6 - 1, places=3)
+        self.assertEqual(L[OVER[0]]["motivos_exclusion"], [])             # sigue siendo candidata, pero con la P del mercado
+        self.assertFalse(L[OVER[1]]["ruido_modelo"])                      # modelo = mercado: sin cambios
+        self.assertEqual(L[OVER[1]]["p_modelo"], 0.62)
+        self.assertTrue(L[OVER[2]]["ruido_modelo"])                       # +20 pp sobre el mercado
+
+    def test_ev_alto_sin_p_de_mercado_no_entra_en_combinadas(self):
+        l = legs_of([unit(1, [entrada(OVER[0], 1.6, 0.80)])])[0]
+        self.assertFalse(l["ruido_modelo"])
+        self.assertIn("ev_alto_sin_p_de_mercado", l["motivos_exclusion"])
 
     def test_la_etiqueta_nombra_a_los_equipos(self):
         eid = next(e["id"] for e in mc.CATALOG if "{home}" in e["label"])
@@ -155,7 +176,7 @@ class Agentes(unittest.TestCase):
         ok = cr.agent_status(us, self.reports(us[:1]))
         self.assertEqual(ok[(us[0]["unit_id"], OVER[0])], "aprobada")
         legs = legs_of(us, st)
-        self.assertEqual([l["match_id"] for l in cr.eligible(legs)], ["m2"])             # la rechazada no entra; la sin revisión sí, rotulada
+        self.assertEqual([l["match_id"] for l in cr.eligible(legs)], ["m1", "m2"])        # «degradada» (solidez BAJA) es informativa desde la auditoría 14–19 oct: sigue siendo candidata; solo «rechazada» sale
 
     def test_combinada_aprobada_solo_si_todas_las_patas_estan_aprobadas(self):
         us = [unit(i, [entrada(OVER[0], 1.5, 0.7)], liga=f"L{i}", hora=f"2026-10-14T{8 + 3 * i:02d}:00:00Z") for i in range(3)]
@@ -164,6 +185,13 @@ class Agentes(unittest.TestCase):
         self.assertTrue(c)
         self.assertEqual(c[0]["estado_agentes"], "APROBADA")          # las dos aprobadas van primero
         self.assertTrue(all(p["agentes"] == "aprobada" for p in c[0]["patas"]))
+
+    def test_combinada_con_pata_degradada_se_rotula_revisada_con_solidez_baja_informativa(self):
+        us = [unit(i, [entrada(OVER[0], 1.5, 0.7)], liga=f"L{i}", hora=f"2026-10-14T{8 + 3 * i:02d}:00:00Z") for i in range(2)]
+        st = {(u["unit_id"], OVER[0]): ("aprobada" if i == 0 else "degradada:deportivo:BAJA") for i, u in enumerate(us)}
+        c = cr.build_combos(legs_of(us, st), targets=(("x2", 2.2, 2.3, 2),))["x2"]["combinadas"]
+        self.assertTrue(c)
+        self.assertEqual(c[0]["estado_agentes"], "REVISADA_SOLIDEZ_BAJA_INFORMATIVA")
 
     def test_objecion_abierta_del_auditor_quita_la_aprobacion(self):
         us = [unit(1, [entrada(OVER[0], 1.5, 0.7), entrada(OVER[1], 1.5, 0.7)])]
@@ -177,7 +205,7 @@ class Agentes(unittest.TestCase):
         c = cr._combo_record("x", [l for l in legs if l["entry_id"] == OVER[0]], True)
         self.assertEqual(c["estado_agentes"], "OBJETADA")
 
-    def test_degradada_sale_de_combinadas_pero_sigue_en_rankings_y_rechazada_sale_de_ambos(self):
+    def test_degradada_es_informativa_y_rechazada_sale_de_rankings_y_combinadas(self):
         us = [unit(1, [entrada(OVER[0], None, 0.80), entrada(OVER[1], 1.6, 0.66)])]
         st = {(us[0]["unit_id"], OVER[0]): "degradada:deportivo:BAJA", (us[0]["unit_id"], OVER[1]): "rechazada:verificador:no_verificable"}
         legs = legs_of(us, st)

@@ -1,0 +1,5366 @@
+{
+ "agente": "verificador",
+ "version_contrato": 1,
+ "run": "runs/2026-10-20",
+ "unidades": [
+  {
+   "unit_id": "m-ea7f10bbd7fd|1.ª parte goles",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 815693 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "6/6 lineas con precio de agregador, no ejecutable; sin captura de casa.",
+   "evidencia": [
+    "paquete:m-ea7f10bbd7fd|1.ª parte goles",
+    "apif_query:get_events match_id=815693",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-ea7f10bbd7fd|1.ª parte resultado",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 815693 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "3/3 lineas con precio de agregador, no ejecutable; sin captura de casa.",
+   "evidencia": [
+    "paquete:m-ea7f10bbd7fd|1.ª parte resultado",
+    "apif_query:get_events match_id=815693",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-ea7f10bbd7fd|córners",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 815693 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "6/46 lineas con precio de agregador, no ejecutable; sin captura de casa. 4 con n_casas=1, 0 no_verificables. 40 sin precio.",
+   "evidencia": [
+    "paquete:m-ea7f10bbd7fd|córners",
+    "apif_query:get_events match_id=815693",
+    "archivo:runs/2026-10-20/inventory.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "corners.total.over.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.9.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.9.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.11.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.11.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.12.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.12.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.13.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.13.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.14.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.14.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.4.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.4.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.4.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.4.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.8.5",
+     "disponibilidad": "no_encontrada"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-ea7f10bbd7fd|doble oportunidad",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 815693 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "3/3 lineas con precio de agregador, no ejecutable; sin captura de casa.",
+   "evidencia": [
+    "paquete:m-ea7f10bbd7fd|doble oportunidad",
+    "apif_query:get_events match_id=815693",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-ea7f10bbd7fd|empate no válido",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 815693 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "2/2 lineas con precio de agregador, no ejecutable; sin captura de casa.",
+   "evidencia": [
+    "paquete:m-ea7f10bbd7fd|empate no válido",
+    "apif_query:get_events match_id=815693",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-ea7f10bbd7fd|fueras de juego",
+   "disponibilidad": "no_encontrada",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 815693 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "Sin precio en apifootball ni thestatsapi para 1 lineas; oferta en la casa no verificada.",
+   "evidencia": [
+    "paquete:m-ea7f10bbd7fd|fueras de juego",
+    "apif_query:get_events match_id=815693",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-ea7f10bbd7fd|goles",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 815693 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "14/14 lineas con precio de agregador, no ejecutable; sin captura de casa.",
+   "evidencia": [
+    "paquete:m-ea7f10bbd7fd|goles",
+    "apif_query:get_events match_id=815693",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-ea7f10bbd7fd|goles por equipo",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 815693 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "12/12 lineas con precio de agregador, no ejecutable; sin captura de casa. 12 con n_casas=1, 0 no_verificables.",
+   "evidencia": [
+    "paquete:m-ea7f10bbd7fd|goles por equipo",
+    "apif_query:get_events match_id=815693",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-ea7f10bbd7fd|goles total entero",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 815693 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "10/10 lineas con precio de agregador, no ejecutable; sin captura de casa. 8 con n_casas=1, 0 no_verificables.",
+   "evidencia": [
+    "paquete:m-ea7f10bbd7fd|goles total entero",
+    "apif_query:get_events match_id=815693",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-ea7f10bbd7fd|hándicap",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 815693 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "12/12 lineas con precio de agregador, no ejecutable; sin captura de casa. 4 con n_casas=1, 0 no_verificables.",
+   "evidencia": [
+    "paquete:m-ea7f10bbd7fd|hándicap",
+    "apif_query:get_events match_id=815693",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-ea7f10bbd7fd|hándicap asiático entero",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 815693 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "10/10 lineas con precio de agregador, no ejecutable; sin captura de casa. 4 con n_casas=1, 0 no_verificables.",
+   "evidencia": [
+    "paquete:m-ea7f10bbd7fd|hándicap asiático entero",
+    "apif_query:get_events match_id=815693",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-ea7f10bbd7fd|hándicap europeo",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 815693 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "12/12 lineas con precio de agregador, no ejecutable; sin captura de casa.",
+   "evidencia": [
+    "paquete:m-ea7f10bbd7fd|hándicap europeo",
+    "apif_query:get_events match_id=815693",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-ea7f10bbd7fd|remates",
+   "disponibilidad": "no_encontrada",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 815693 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "Sin precio en apifootball ni thestatsapi para 90 lineas; oferta en la casa no verificada.",
+   "evidencia": [
+    "paquete:m-ea7f10bbd7fd|remates",
+    "apif_query:get_events match_id=815693",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-ea7f10bbd7fd|remates a puerta",
+   "disponibilidad": "no_encontrada",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 815693 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "Sin precio en apifootball ni thestatsapi para 60 lineas; oferta en la casa no verificada.",
+   "evidencia": [
+    "paquete:m-ea7f10bbd7fd|remates a puerta",
+    "apif_query:get_events match_id=815693",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-ea7f10bbd7fd|resultado",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 815693 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "3/3 lineas con precio de agregador, no ejecutable; sin captura de casa.",
+   "evidencia": [
+    "paquete:m-ea7f10bbd7fd|resultado",
+    "apif_query:get_events match_id=815693",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-ea7f10bbd7fd|tarjetas",
+   "disponibilidad": "no_encontrada",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 815693 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "Sin precio en apifootball ni thestatsapi para 42 lineas; oferta en la casa no verificada.",
+   "evidencia": [
+    "paquete:m-ea7f10bbd7fd|tarjetas",
+    "apif_query:get_events match_id=815693",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-eb47a87967af|1.ª parte goles",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 815699 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "6/6 lineas con precio de agregador, no ejecutable; sin captura de casa.",
+   "evidencia": [
+    "paquete:m-eb47a87967af|1.ª parte goles",
+    "apif_query:get_events match_id=815699",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-eb47a87967af|1.ª parte resultado",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 815699 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "3/3 lineas con precio de agregador, no ejecutable; sin captura de casa.",
+   "evidencia": [
+    "paquete:m-eb47a87967af|1.ª parte resultado",
+    "apif_query:get_events match_id=815699",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-eb47a87967af|córners",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 815699 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "6/46 lineas con precio de agregador, no ejecutable; sin captura de casa. 4 con n_casas=1, 0 no_verificables. 40 sin precio.",
+   "evidencia": [
+    "paquete:m-eb47a87967af|córners",
+    "apif_query:get_events match_id=815699",
+    "archivo:runs/2026-10-20/inventory.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "corners.total.over.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.10.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.10.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.11.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.11.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.12.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.12.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.13.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.13.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.14.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.14.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.8.5",
+     "disponibilidad": "no_encontrada"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-eb47a87967af|doble oportunidad",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 815699 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "3/3 lineas con precio de agregador, no ejecutable; sin captura de casa.",
+   "evidencia": [
+    "paquete:m-eb47a87967af|doble oportunidad",
+    "apif_query:get_events match_id=815699",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-eb47a87967af|empate no válido",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 815699 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "2/2 lineas con precio de agregador, no ejecutable; sin captura de casa.",
+   "evidencia": [
+    "paquete:m-eb47a87967af|empate no válido",
+    "apif_query:get_events match_id=815699",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-eb47a87967af|fueras de juego",
+   "disponibilidad": "no_encontrada",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 815699 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "Sin precio en apifootball ni thestatsapi para 1 lineas; oferta en la casa no verificada.",
+   "evidencia": [
+    "paquete:m-eb47a87967af|fueras de juego",
+    "apif_query:get_events match_id=815699",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-eb47a87967af|goles",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 815699 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "14/14 lineas con precio de agregador, no ejecutable; sin captura de casa.",
+   "evidencia": [
+    "paquete:m-eb47a87967af|goles",
+    "apif_query:get_events match_id=815699",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-eb47a87967af|goles por equipo",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 815699 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "12/12 lineas con precio de agregador, no ejecutable; sin captura de casa. 12 con n_casas=1, 0 no_verificables.",
+   "evidencia": [
+    "paquete:m-eb47a87967af|goles por equipo",
+    "apif_query:get_events match_id=815699",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-eb47a87967af|goles total entero",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 815699 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "10/10 lineas con precio de agregador, no ejecutable; sin captura de casa. 8 con n_casas=1, 0 no_verificables.",
+   "evidencia": [
+    "paquete:m-eb47a87967af|goles total entero",
+    "apif_query:get_events match_id=815699",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-eb47a87967af|hándicap",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 815699 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "12/12 lineas con precio de agregador, no ejecutable; sin captura de casa. 4 con n_casas=1, 0 no_verificables.",
+   "evidencia": [
+    "paquete:m-eb47a87967af|hándicap",
+    "apif_query:get_events match_id=815699",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-eb47a87967af|hándicap asiático entero",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 815699 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "10/10 lineas con precio de agregador, no ejecutable; sin captura de casa. 4 con n_casas=1, 0 no_verificables.",
+   "evidencia": [
+    "paquete:m-eb47a87967af|hándicap asiático entero",
+    "apif_query:get_events match_id=815699",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-eb47a87967af|hándicap europeo",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 815699 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "12/12 lineas con precio de agregador, no ejecutable; sin captura de casa.",
+   "evidencia": [
+    "paquete:m-eb47a87967af|hándicap europeo",
+    "apif_query:get_events match_id=815699",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-eb47a87967af|remates",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 815699 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "4/90 lineas con precio de agregador, no ejecutable; sin captura de casa. 4 con n_casas=1, 0 no_verificables. 86 sin precio.",
+   "evidencia": [
+    "paquete:m-eb47a87967af|remates",
+    "apif_query:get_events match_id=815699",
+    "archivo:runs/2026-10-20/inventory.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "shots.total.over.14.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.under.14.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.over.15.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.under.15.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.over.16.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.under.16.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.over.17.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.under.17.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.over.18.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.under.18.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.over.19.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.under.19.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.over.20.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.under.20.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.over.21.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.under.21.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.over.22.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.under.22.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.over.23.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.under.23.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.over.24.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.under.24.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.over.25.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.under.25.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.over.26.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.under.26.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.over.27.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.under.27.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.over.28.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.under.28.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.over.29.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.under.29.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.over.30.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.under.30.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.over.31.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.under.31.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.over.32.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.under.32.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.under.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.under.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.under.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.9.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.under.9.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.10.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.under.10.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.12.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.under.12.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.13.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.under.13.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.14.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.under.14.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.15.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.under.15.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.16.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.under.16.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.17.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.under.17.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.18.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.under.18.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.9.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.9.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.10.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.10.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.12.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.12.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.13.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.13.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.14.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.14.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.15.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.15.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.16.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.16.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.17.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.17.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.18.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.18.5",
+     "disponibilidad": "no_encontrada"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-eb47a87967af|remates a puerta",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 815699 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "6/60 lineas con precio de agregador, no ejecutable; sin captura de casa. 6 con n_casas=1, 0 no_verificables. 54 sin precio.",
+   "evidencia": [
+    "paquete:m-eb47a87967af|remates a puerta",
+    "apif_query:get_events match_id=815699",
+    "archivo:runs/2026-10-20/inventory.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "sot.total.over.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.under.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.over.4.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.under.4.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.over.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.under.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.over.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.under.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.over.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.under.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.over.9.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.under.9.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.over.10.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.under.10.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.over.11.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.under.11.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.over.12.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.under.12.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.over.13.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.under.13.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.over.14.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.under.14.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.home.over.1.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.home.under.1.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.home.over.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.home.under.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.home.over.4.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.home.under.4.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.home.over.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.home.under.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.home.over.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.home.under.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.home.over.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.home.under.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.home.over.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.home.under.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.home.over.9.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.home.under.9.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.away.over.1.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.away.under.1.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.away.over.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.away.under.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.away.over.4.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.away.under.4.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.away.over.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.away.under.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.away.over.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.away.under.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.away.over.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.away.under.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.away.over.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.away.under.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.away.over.9.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.away.under.9.5",
+     "disponibilidad": "no_encontrada"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-eb47a87967af|resultado",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 815699 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "3/3 lineas con precio de agregador, no ejecutable; sin captura de casa.",
+   "evidencia": [
+    "paquete:m-eb47a87967af|resultado",
+    "apif_query:get_events match_id=815699",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-eb47a87967af|tarjetas",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 815699 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "2/42 lineas con precio de agregador, no ejecutable; sin captura de casa. 2 con n_casas=1, 0 no_verificables. 40 sin precio.",
+   "evidencia": [
+    "paquete:m-eb47a87967af|tarjetas",
+    "apif_query:get_events match_id=815699",
+    "archivo:runs/2026-10-20/inventory.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "cards_pts.total.over.1.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.1.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.over.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.over.4.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.4.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.over.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.over.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.over.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.over.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.over.9.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.9.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.over.0.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.under.0.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.over.1.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.under.1.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.over.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.under.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.over.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.under.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.over.4.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.under.4.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.over.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.under.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.over.0.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.under.0.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.over.1.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.under.1.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.over.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.under.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.over.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.under.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.over.4.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.under.4.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.over.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.under.5.5",
+     "disponibilidad": "no_encontrada"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-ec17604d370b|1.ª parte goles",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 811685 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "6/6 lineas con precio de agregador, no ejecutable; sin captura de casa.",
+   "evidencia": [
+    "paquete:m-ec17604d370b|1.ª parte goles",
+    "apif_query:get_events match_id=811685",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-ec17604d370b|1.ª parte resultado",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 811685 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "3/3 lineas con precio de agregador, no ejecutable; sin captura de casa.",
+   "evidencia": [
+    "paquete:m-ec17604d370b|1.ª parte resultado",
+    "apif_query:get_events match_id=811685",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-ec17604d370b|córners",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 811685 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "8/46 lineas con precio de agregador, no ejecutable; sin captura de casa. 8 con n_casas=1, 0 no_verificables. 38 sin precio.",
+   "evidencia": [
+    "paquete:m-ec17604d370b|córners",
+    "apif_query:get_events match_id=811685",
+    "archivo:runs/2026-10-20/inventory.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "corners.total.over.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.9.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.9.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.12.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.12.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.13.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.13.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.14.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.14.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.4.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.4.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.8.5",
+     "disponibilidad": "no_encontrada"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-ec17604d370b|doble oportunidad",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 811685 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "3/3 lineas con precio de agregador, no ejecutable; sin captura de casa.",
+   "evidencia": [
+    "paquete:m-ec17604d370b|doble oportunidad",
+    "apif_query:get_events match_id=811685",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-ec17604d370b|empate no válido",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 811685 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "2/2 lineas con precio de agregador, no ejecutable; sin captura de casa.",
+   "evidencia": [
+    "paquete:m-ec17604d370b|empate no válido",
+    "apif_query:get_events match_id=811685",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-ec17604d370b|fueras de juego",
+   "disponibilidad": "no_encontrada",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 811685 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "Sin precio en apifootball ni thestatsapi para 1 lineas; oferta en la casa no verificada.",
+   "evidencia": [
+    "paquete:m-ec17604d370b|fueras de juego",
+    "apif_query:get_events match_id=811685",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-ec17604d370b|goles",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 811685 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "14/14 lineas con precio de agregador, no ejecutable; sin captura de casa.",
+   "evidencia": [
+    "paquete:m-ec17604d370b|goles",
+    "apif_query:get_events match_id=811685",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-ec17604d370b|goles por equipo",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 811685 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "12/12 lineas con precio de agregador, no ejecutable; sin captura de casa. 12 con n_casas=1, 0 no_verificables.",
+   "evidencia": [
+    "paquete:m-ec17604d370b|goles por equipo",
+    "apif_query:get_events match_id=811685",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-ec17604d370b|goles total entero",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 811685 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "8/10 lineas con precio de agregador, no ejecutable; sin captura de casa. 8 con n_casas=1, 0 no_verificables. 2 sin precio.",
+   "evidencia": [
+    "paquete:m-ec17604d370b|goles total entero",
+    "apif_query:get_events match_id=811685",
+    "archivo:runs/2026-10-20/inventory.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "goles.total_entero.over.1",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "goles.total_entero.under.1",
+     "disponibilidad": "no_encontrada"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-ec17604d370b|hándicap",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 811685 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "12/12 lineas con precio de agregador, no ejecutable; sin captura de casa. 4 con n_casas=1, 0 no_verificables.",
+   "evidencia": [
+    "paquete:m-ec17604d370b|hándicap",
+    "apif_query:get_events match_id=811685",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-ec17604d370b|hándicap asiático entero",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 811685 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "10/10 lineas con precio de agregador, no ejecutable; sin captura de casa. 4 con n_casas=1, 0 no_verificables.",
+   "evidencia": [
+    "paquete:m-ec17604d370b|hándicap asiático entero",
+    "apif_query:get_events match_id=811685",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-ec17604d370b|hándicap europeo",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 811685 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "12/12 lineas con precio de agregador, no ejecutable; sin captura de casa.",
+   "evidencia": [
+    "paquete:m-ec17604d370b|hándicap europeo",
+    "apif_query:get_events match_id=811685",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-ec17604d370b|remates",
+   "disponibilidad": "no_encontrada",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 811685 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "Sin precio en apifootball ni thestatsapi para 90 lineas; oferta en la casa no verificada.",
+   "evidencia": [
+    "paquete:m-ec17604d370b|remates",
+    "apif_query:get_events match_id=811685",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-ec17604d370b|remates a puerta",
+   "disponibilidad": "no_encontrada",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 811685 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "Sin precio en apifootball ni thestatsapi para 60 lineas; oferta en la casa no verificada.",
+   "evidencia": [
+    "paquete:m-ec17604d370b|remates a puerta",
+    "apif_query:get_events match_id=811685",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-ec17604d370b|resultado",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 811685 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "3/3 lineas con precio de agregador, no ejecutable; sin captura de casa.",
+   "evidencia": [
+    "paquete:m-ec17604d370b|resultado",
+    "apif_query:get_events match_id=811685",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-ec17604d370b|tarjetas",
+   "disponibilidad": "no_encontrada",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 811685 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "Sin precio en apifootball ni thestatsapi para 42 lineas; oferta en la casa no verificada.",
+   "evidencia": [
+    "paquete:m-ec17604d370b|tarjetas",
+    "apif_query:get_events match_id=811685",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-f2654d9445c1|1.ª parte goles",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 811687 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "6/6 lineas con precio de agregador, no ejecutable; sin captura de casa.",
+   "evidencia": [
+    "paquete:m-f2654d9445c1|1.ª parte goles",
+    "apif_query:get_events match_id=811687",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-f2654d9445c1|1.ª parte resultado",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 811687 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "3/3 lineas con precio de agregador, no ejecutable; sin captura de casa.",
+   "evidencia": [
+    "paquete:m-f2654d9445c1|1.ª parte resultado",
+    "apif_query:get_events match_id=811687",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-f2654d9445c1|córners",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 811687 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "6/46 lineas con precio de agregador, no ejecutable; sin captura de casa. 4 con n_casas=1, 0 no_verificables. 40 sin precio.",
+   "evidencia": [
+    "paquete:m-f2654d9445c1|córners",
+    "apif_query:get_events match_id=811687",
+    "archivo:runs/2026-10-20/inventory.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "corners.total.over.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.9.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.9.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.11.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.11.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.12.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.12.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.13.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.13.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.14.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.14.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.4.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.4.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.8.5",
+     "disponibilidad": "no_encontrada"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-f2654d9445c1|doble oportunidad",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 811687 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "3/3 lineas con precio de agregador, no ejecutable; sin captura de casa.",
+   "evidencia": [
+    "paquete:m-f2654d9445c1|doble oportunidad",
+    "apif_query:get_events match_id=811687",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-f2654d9445c1|empate no válido",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 811687 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "2/2 lineas con precio de agregador, no ejecutable; sin captura de casa.",
+   "evidencia": [
+    "paquete:m-f2654d9445c1|empate no válido",
+    "apif_query:get_events match_id=811687",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-f2654d9445c1|fueras de juego",
+   "disponibilidad": "no_encontrada",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 811687 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "Sin precio en apifootball ni thestatsapi para 1 lineas; oferta en la casa no verificada.",
+   "evidencia": [
+    "paquete:m-f2654d9445c1|fueras de juego",
+    "apif_query:get_events match_id=811687",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-f2654d9445c1|goles",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 811687 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "14/14 lineas con precio de agregador, no ejecutable; sin captura de casa.",
+   "evidencia": [
+    "paquete:m-f2654d9445c1|goles",
+    "apif_query:get_events match_id=811687",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-f2654d9445c1|goles por equipo",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 811687 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "12/12 lineas con precio de agregador, no ejecutable; sin captura de casa. 12 con n_casas=1, 0 no_verificables.",
+   "evidencia": [
+    "paquete:m-f2654d9445c1|goles por equipo",
+    "apif_query:get_events match_id=811687",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-f2654d9445c1|goles total entero",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 811687 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "10/10 lineas con precio de agregador, no ejecutable; sin captura de casa. 10 con n_casas=1, 0 no_verificables.",
+   "evidencia": [
+    "paquete:m-f2654d9445c1|goles total entero",
+    "apif_query:get_events match_id=811687",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-f2654d9445c1|hándicap",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 811687 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "12/12 lineas con precio de agregador, no ejecutable; sin captura de casa. 4 con n_casas=1, 0 no_verificables.",
+   "evidencia": [
+    "paquete:m-f2654d9445c1|hándicap",
+    "apif_query:get_events match_id=811687",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-f2654d9445c1|hándicap asiático entero",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 811687 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "10/10 lineas con precio de agregador, no ejecutable; sin captura de casa. 2 con n_casas=1, 0 no_verificables.",
+   "evidencia": [
+    "paquete:m-f2654d9445c1|hándicap asiático entero",
+    "apif_query:get_events match_id=811687",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-f2654d9445c1|hándicap europeo",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 811687 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "12/12 lineas con precio de agregador, no ejecutable; sin captura de casa.",
+   "evidencia": [
+    "paquete:m-f2654d9445c1|hándicap europeo",
+    "apif_query:get_events match_id=811687",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-f2654d9445c1|remates",
+   "disponibilidad": "no_encontrada",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 811687 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "Sin precio en apifootball ni thestatsapi para 90 lineas; oferta en la casa no verificada.",
+   "evidencia": [
+    "paquete:m-f2654d9445c1|remates",
+    "apif_query:get_events match_id=811687",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-f2654d9445c1|remates a puerta",
+   "disponibilidad": "no_encontrada",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 811687 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "Sin precio en apifootball ni thestatsapi para 60 lineas; oferta en la casa no verificada.",
+   "evidencia": [
+    "paquete:m-f2654d9445c1|remates a puerta",
+    "apif_query:get_events match_id=811687",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-f2654d9445c1|resultado",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 811687 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "3/3 lineas con precio de agregador, no ejecutable; sin captura de casa.",
+   "evidencia": [
+    "paquete:m-f2654d9445c1|resultado",
+    "apif_query:get_events match_id=811687",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-f2654d9445c1|tarjetas",
+   "disponibilidad": "no_encontrada",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 811687 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "Sin precio en apifootball ni thestatsapi para 42 lineas; oferta en la casa no verificada.",
+   "evidencia": [
+    "paquete:m-f2654d9445c1|tarjetas",
+    "apif_query:get_events match_id=811687",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-f87ad3f8a496|1.ª parte goles",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 740648 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "6/6 lineas con precio de agregador, no ejecutable; sin captura de casa.",
+   "evidencia": [
+    "paquete:m-f87ad3f8a496|1.ª parte goles",
+    "apif_query:get_events match_id=740648",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-f87ad3f8a496|1.ª parte resultado",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 740648 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "3/3 lineas con precio de agregador, no ejecutable; sin captura de casa.",
+   "evidencia": [
+    "paquete:m-f87ad3f8a496|1.ª parte resultado",
+    "apif_query:get_events match_id=740648",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-f87ad3f8a496|córners",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 740648 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "8/46 lineas con precio de agregador, no ejecutable; sin captura de casa. 8 con n_casas=1, 0 no_verificables. 38 sin precio.",
+   "evidencia": [
+    "paquete:m-f87ad3f8a496|córners",
+    "apif_query:get_events match_id=740648",
+    "archivo:runs/2026-10-20/inventory.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "corners.total.over.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.11.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.11.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.12.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.12.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.13.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.13.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.14.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.14.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.4.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.4.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.8.5",
+     "disponibilidad": "no_encontrada"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-f87ad3f8a496|doble oportunidad",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 740648 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "3/3 lineas con precio de agregador, no ejecutable; sin captura de casa.",
+   "evidencia": [
+    "paquete:m-f87ad3f8a496|doble oportunidad",
+    "apif_query:get_events match_id=740648",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-f87ad3f8a496|empate no válido",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 740648 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "2/2 lineas con precio de agregador, no ejecutable; sin captura de casa.",
+   "evidencia": [
+    "paquete:m-f87ad3f8a496|empate no válido",
+    "apif_query:get_events match_id=740648",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-f87ad3f8a496|fueras de juego",
+   "disponibilidad": "no_encontrada",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 740648 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "Sin precio en apifootball ni thestatsapi para 1 lineas; oferta en la casa no verificada.",
+   "evidencia": [
+    "paquete:m-f87ad3f8a496|fueras de juego",
+    "apif_query:get_events match_id=740648",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-f87ad3f8a496|goles",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 740648 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "14/14 lineas con precio de agregador, no ejecutable; sin captura de casa.",
+   "evidencia": [
+    "paquete:m-f87ad3f8a496|goles",
+    "apif_query:get_events match_id=740648",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-f87ad3f8a496|goles por equipo",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 740648 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "12/12 lineas con precio de agregador, no ejecutable; sin captura de casa. 12 con n_casas=1, 0 no_verificables.",
+   "evidencia": [
+    "paquete:m-f87ad3f8a496|goles por equipo",
+    "apif_query:get_events match_id=740648",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-f87ad3f8a496|goles total entero",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 740648 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "10/10 lineas con precio de agregador, no ejecutable; sin captura de casa. 8 con n_casas=1, 0 no_verificables.",
+   "evidencia": [
+    "paquete:m-f87ad3f8a496|goles total entero",
+    "apif_query:get_events match_id=740648",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-f87ad3f8a496|hándicap",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 740648 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "12/12 lineas con precio de agregador, no ejecutable; sin captura de casa. 4 con n_casas=1, 0 no_verificables.",
+   "evidencia": [
+    "paquete:m-f87ad3f8a496|hándicap",
+    "apif_query:get_events match_id=740648",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-f87ad3f8a496|hándicap asiático entero",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 740648 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "10/10 lineas con precio de agregador, no ejecutable; sin captura de casa. 4 con n_casas=1, 0 no_verificables.",
+   "evidencia": [
+    "paquete:m-f87ad3f8a496|hándicap asiático entero",
+    "apif_query:get_events match_id=740648",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-f87ad3f8a496|hándicap europeo",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 740648 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "12/12 lineas con precio de agregador, no ejecutable; sin captura de casa.",
+   "evidencia": [
+    "paquete:m-f87ad3f8a496|hándicap europeo",
+    "apif_query:get_events match_id=740648",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-f87ad3f8a496|remates",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 740648 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "6/90 lineas con precio de agregador, no ejecutable; sin captura de casa. 6 con n_casas=1, 0 no_verificables. 84 sin precio.",
+   "evidencia": [
+    "paquete:m-f87ad3f8a496|remates",
+    "apif_query:get_events match_id=740648",
+    "archivo:runs/2026-10-20/inventory.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "shots.total.over.14.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.under.14.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.over.15.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.under.15.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.over.16.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.under.16.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.over.17.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.under.17.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.over.18.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.under.18.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.over.19.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.under.19.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.over.20.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.under.20.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.over.21.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.under.21.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.over.22.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.under.22.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.over.23.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.under.23.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.over.24.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.under.24.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.over.25.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.under.25.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.over.26.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.under.26.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.over.28.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.under.28.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.over.29.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.under.29.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.over.30.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.under.30.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.over.31.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.under.31.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.over.32.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.under.32.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.under.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.under.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.under.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.9.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.under.9.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.10.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.under.10.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.11.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.under.11.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.12.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.under.12.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.13.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.under.13.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.15.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.under.15.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.16.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.under.16.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.17.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.under.17.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.18.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.under.18.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.9.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.9.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.10.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.10.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.11.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.11.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.13.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.13.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.14.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.14.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.15.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.15.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.16.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.16.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.17.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.17.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.18.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.18.5",
+     "disponibilidad": "no_encontrada"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-f87ad3f8a496|remates a puerta",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 740648 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "6/60 lineas con precio de agregador, no ejecutable; sin captura de casa. 6 con n_casas=1, 0 no_verificables. 54 sin precio.",
+   "evidencia": [
+    "paquete:m-f87ad3f8a496|remates a puerta",
+    "apif_query:get_events match_id=740648",
+    "archivo:runs/2026-10-20/inventory.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "sot.total.over.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.under.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.over.4.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.under.4.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.over.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.under.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.over.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.under.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.over.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.under.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.over.9.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.under.9.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.over.10.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.under.10.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.over.11.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.under.11.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.over.12.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.under.12.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.over.13.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.under.13.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.over.14.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.under.14.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.home.over.1.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.home.under.1.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.home.over.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.home.under.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.home.over.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.home.under.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.home.over.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.home.under.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.home.over.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.home.under.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.home.over.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.home.under.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.home.over.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.home.under.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.home.over.9.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.home.under.9.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.away.over.1.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.away.under.1.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.away.over.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.away.under.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.away.over.4.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.away.under.4.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.away.over.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.away.under.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.away.over.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.away.under.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.away.over.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.away.under.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.away.over.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.away.under.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.away.over.9.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.away.under.9.5",
+     "disponibilidad": "no_encontrada"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-f87ad3f8a496|resultado",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 740648 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "3/3 lineas con precio de agregador, no ejecutable; sin captura de casa.",
+   "evidencia": [
+    "paquete:m-f87ad3f8a496|resultado",
+    "apif_query:get_events match_id=740648",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-f87ad3f8a496|tarjetas",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 740648 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "4/42 lineas con precio de agregador, no ejecutable; sin captura de casa. 4 con n_casas=1, 0 no_verificables. 38 sin precio.",
+   "evidencia": [
+    "paquete:m-f87ad3f8a496|tarjetas",
+    "apif_query:get_events match_id=740648",
+    "archivo:runs/2026-10-20/inventory.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "cards_pts.total.over.1.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.1.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.over.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.over.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.over.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.over.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.over.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.over.9.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.total.under.9.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.over.0.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.under.0.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.over.1.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.under.1.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.over.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.under.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.over.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.under.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.over.4.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.under.4.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.over.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.under.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.over.0.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.under.0.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.over.1.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.under.1.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.over.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.under.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.over.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.under.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.over.4.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.under.4.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.over.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.under.5.5",
+     "disponibilidad": "no_encontrada"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-f982a1ad5f4c|1.ª parte goles",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 774779 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "6/6 lineas con precio de agregador, no ejecutable; sin captura de casa.",
+   "evidencia": [
+    "paquete:m-f982a1ad5f4c|1.ª parte goles",
+    "apif_query:get_events match_id=774779",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-f982a1ad5f4c|1.ª parte resultado",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 774779 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "3/3 lineas con precio de agregador, no ejecutable; sin captura de casa.",
+   "evidencia": [
+    "paquete:m-f982a1ad5f4c|1.ª parte resultado",
+    "apif_query:get_events match_id=774779",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-f982a1ad5f4c|córners",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 774779 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "8/46 lineas con precio de agregador, no ejecutable; sin captura de casa. 8 con n_casas=1, 0 no_verificables. 38 sin precio.",
+   "evidencia": [
+    "paquete:m-f982a1ad5f4c|córners",
+    "apif_query:get_events match_id=774779",
+    "archivo:runs/2026-10-20/inventory.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "corners.total.over.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.10.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.10.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.11.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.11.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.12.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.12.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.13.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.13.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.14.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.14.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.4.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.4.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.8.5",
+     "disponibilidad": "no_encontrada"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-f982a1ad5f4c|doble oportunidad",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 774779 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "3/3 lineas con precio de agregador, no ejecutable; sin captura de casa.",
+   "evidencia": [
+    "paquete:m-f982a1ad5f4c|doble oportunidad",
+    "apif_query:get_events match_id=774779",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-f982a1ad5f4c|empate no válido",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 774779 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "2/2 lineas con precio de agregador, no ejecutable; sin captura de casa.",
+   "evidencia": [
+    "paquete:m-f982a1ad5f4c|empate no válido",
+    "apif_query:get_events match_id=774779",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-f982a1ad5f4c|fueras de juego",
+   "disponibilidad": "no_encontrada",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 774779 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "Sin precio en apifootball ni thestatsapi para 1 lineas; oferta en la casa no verificada.",
+   "evidencia": [
+    "paquete:m-f982a1ad5f4c|fueras de juego",
+    "apif_query:get_events match_id=774779",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-f982a1ad5f4c|goles",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 774779 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "14/14 lineas con precio de agregador, no ejecutable; sin captura de casa.",
+   "evidencia": [
+    "paquete:m-f982a1ad5f4c|goles",
+    "apif_query:get_events match_id=774779",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-f982a1ad5f4c|goles por equipo",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 774779 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "12/12 lineas con precio de agregador, no ejecutable; sin captura de casa. 12 con n_casas=1, 0 no_verificables.",
+   "evidencia": [
+    "paquete:m-f982a1ad5f4c|goles por equipo",
+    "apif_query:get_events match_id=774779",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-f982a1ad5f4c|goles total entero",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 774779 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "10/10 lineas con precio de agregador, no ejecutable; sin captura de casa. 10 con n_casas=1, 0 no_verificables.",
+   "evidencia": [
+    "paquete:m-f982a1ad5f4c|goles total entero",
+    "apif_query:get_events match_id=774779",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-f982a1ad5f4c|hándicap",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 774779 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "12/12 lineas con precio de agregador, no ejecutable; sin captura de casa. 4 con n_casas=1, 0 no_verificables.",
+   "evidencia": [
+    "paquete:m-f982a1ad5f4c|hándicap",
+    "apif_query:get_events match_id=774779",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-f982a1ad5f4c|hándicap asiático entero",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 774779 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "10/10 lineas con precio de agregador, no ejecutable; sin captura de casa. 4 con n_casas=1, 0 no_verificables.",
+   "evidencia": [
+    "paquete:m-f982a1ad5f4c|hándicap asiático entero",
+    "apif_query:get_events match_id=774779",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-f982a1ad5f4c|hándicap europeo",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 774779 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "12/12 lineas con precio de agregador, no ejecutable; sin captura de casa.",
+   "evidencia": [
+    "paquete:m-f982a1ad5f4c|hándicap europeo",
+    "apif_query:get_events match_id=774779",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-f982a1ad5f4c|remates",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 774779 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "6/90 lineas con precio de agregador, no ejecutable; sin captura de casa. 6 con n_casas=1, 0 no_verificables. 84 sin precio.",
+   "evidencia": [
+    "paquete:m-f982a1ad5f4c|remates",
+    "apif_query:get_events match_id=774779",
+    "archivo:runs/2026-10-20/inventory.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "shots.total.over.14.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.under.14.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.over.15.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.under.15.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.over.16.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.under.16.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.over.17.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.under.17.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.over.18.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.under.18.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.over.19.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.under.19.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.over.20.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.under.20.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.over.21.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.under.21.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.over.22.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.under.22.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.over.23.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.under.23.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.over.24.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.under.24.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.over.25.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.under.25.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.over.26.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.under.26.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.over.28.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.under.28.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.over.29.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.under.29.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.over.30.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.under.30.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.over.31.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.under.31.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.over.32.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.total.under.32.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.under.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.under.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.under.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.9.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.under.9.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.10.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.under.10.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.11.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.under.11.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.12.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.under.12.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.13.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.under.13.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.15.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.under.15.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.16.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.under.16.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.17.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.under.17.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.18.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.home.under.18.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.9.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.9.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.10.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.10.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.11.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.11.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.13.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.13.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.14.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.14.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.15.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.15.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.16.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.16.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.17.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.17.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.18.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.18.5",
+     "disponibilidad": "no_encontrada"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-f982a1ad5f4c|remates a puerta",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 774779 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "6/60 lineas con precio de agregador, no ejecutable; sin captura de casa. 6 con n_casas=1, 0 no_verificables. 54 sin precio.",
+   "evidencia": [
+    "paquete:m-f982a1ad5f4c|remates a puerta",
+    "apif_query:get_events match_id=774779",
+    "archivo:runs/2026-10-20/inventory.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "sot.total.over.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.under.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.over.4.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.under.4.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.over.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.under.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.over.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.under.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.over.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.under.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.over.9.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.under.9.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.over.10.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.under.10.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.over.11.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.under.11.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.over.12.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.under.12.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.over.13.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.under.13.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.over.14.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.total.under.14.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.home.over.1.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.home.under.1.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.home.over.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.home.under.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.home.over.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.home.under.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.home.over.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.home.under.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.home.over.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.home.under.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.home.over.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.home.under.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.home.over.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.home.under.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.home.over.9.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.home.under.9.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.away.over.1.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.away.under.1.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.away.over.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.away.under.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.away.over.4.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.away.under.4.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.away.over.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.away.under.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.away.over.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.away.under.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.away.over.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.away.under.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.away.over.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.away.under.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.away.over.9.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "sot.equipo.away.under.9.5",
+     "disponibilidad": "no_encontrada"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-f982a1ad5f4c|resultado",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 774779 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "3/3 lineas con precio de agregador, no ejecutable; sin captura de casa.",
+   "evidencia": [
+    "paquete:m-f982a1ad5f4c|resultado",
+    "apif_query:get_events match_id=774779",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-f982a1ad5f4c|tarjetas",
+   "disponibilidad": "no_encontrada",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 774779 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "Sin precio en apifootball ni thestatsapi para 42 lineas; oferta en la casa no verificada.",
+   "evidencia": [
+    "paquete:m-f982a1ad5f4c|tarjetas",
+    "apif_query:get_events match_id=774779",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-f9847c77e003|1.ª parte goles",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 811688 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "6/6 lineas con precio de agregador, no ejecutable; sin captura de casa.",
+   "evidencia": [
+    "paquete:m-f9847c77e003|1.ª parte goles",
+    "apif_query:get_events match_id=811688",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-f9847c77e003|1.ª parte resultado",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 811688 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "3/3 lineas con precio de agregador, no ejecutable; sin captura de casa.",
+   "evidencia": [
+    "paquete:m-f9847c77e003|1.ª parte resultado",
+    "apif_query:get_events match_id=811688",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-f9847c77e003|córners",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 811688 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "6/46 lineas con precio de agregador, no ejecutable; sin captura de casa. 4 con n_casas=1, 0 no_verificables. 40 sin precio.",
+   "evidencia": [
+    "paquete:m-f9847c77e003|córners",
+    "apif_query:get_events match_id=811688",
+    "archivo:runs/2026-10-20/inventory.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "corners.total.over.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.10.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.10.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.11.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.11.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.12.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.12.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.13.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.13.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.over.14.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.total.under.14.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.2.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.3.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.5.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.6.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.7.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.8.5",
+     "disponibilidad": "no_encontrada"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.8.5",
+     "disponibilidad": "no_encontrada"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-f9847c77e003|doble oportunidad",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 811688 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "3/3 lineas con precio de agregador, no ejecutable; sin captura de casa.",
+   "evidencia": [
+    "paquete:m-f9847c77e003|doble oportunidad",
+    "apif_query:get_events match_id=811688",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-f9847c77e003|empate no válido",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 811688 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "2/2 lineas con precio de agregador, no ejecutable; sin captura de casa.",
+   "evidencia": [
+    "paquete:m-f9847c77e003|empate no válido",
+    "apif_query:get_events match_id=811688",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-f9847c77e003|fueras de juego",
+   "disponibilidad": "no_encontrada",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 811688 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "Sin precio en apifootball ni thestatsapi para 1 lineas; oferta en la casa no verificada.",
+   "evidencia": [
+    "paquete:m-f9847c77e003|fueras de juego",
+    "apif_query:get_events match_id=811688",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-f9847c77e003|goles",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 811688 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "14/14 lineas con precio de agregador, no ejecutable; sin captura de casa.",
+   "evidencia": [
+    "paquete:m-f9847c77e003|goles",
+    "apif_query:get_events match_id=811688",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-f9847c77e003|goles por equipo",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 811688 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "12/12 lineas con precio de agregador, no ejecutable; sin captura de casa. 12 con n_casas=1, 0 no_verificables.",
+   "evidencia": [
+    "paquete:m-f9847c77e003|goles por equipo",
+    "apif_query:get_events match_id=811688",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-f9847c77e003|goles total entero",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 811688 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "10/10 lineas con precio de agregador, no ejecutable; sin captura de casa. 10 con n_casas=1, 0 no_verificables.",
+   "evidencia": [
+    "paquete:m-f9847c77e003|goles total entero",
+    "apif_query:get_events match_id=811688",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-f9847c77e003|hándicap",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 811688 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "12/12 lineas con precio de agregador, no ejecutable; sin captura de casa. 4 con n_casas=1, 0 no_verificables.",
+   "evidencia": [
+    "paquete:m-f9847c77e003|hándicap",
+    "apif_query:get_events match_id=811688",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-f9847c77e003|hándicap asiático entero",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "precio_anomalo"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 811688 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "10/10 lineas con precio de agregador, no ejecutable; sin captura de casa. 4 con n_casas=1, 0 no_verificables.",
+   "evidencia": [
+    "paquete:m-f9847c77e003|hándicap asiático entero",
+    "apif_query:get_events match_id=811688",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-f9847c77e003|hándicap europeo",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 811688 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "12/12 lineas con precio de agregador, no ejecutable; sin captura de casa.",
+   "evidencia": [
+    "paquete:m-f9847c77e003|hándicap europeo",
+    "apif_query:get_events match_id=811688",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-f9847c77e003|remates",
+   "disponibilidad": "no_encontrada",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 811688 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "Sin precio en apifootball ni thestatsapi para 90 lineas; oferta en la casa no verificada.",
+   "evidencia": [
+    "paquete:m-f9847c77e003|remates",
+    "apif_query:get_events match_id=811688",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-f9847c77e003|remates a puerta",
+   "disponibilidad": "no_encontrada",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 811688 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "Sin precio en apifootball ni thestatsapi para 60 lineas; oferta en la casa no verificada.",
+   "evidencia": [
+    "paquete:m-f9847c77e003|remates a puerta",
+    "apif_query:get_events match_id=811688",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-f9847c77e003|resultado",
+   "disponibilidad": "verificada_en_fuente",
+   "precio": "referencia_agregador",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 811688 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "3/3 lineas con precio de agregador, no ejecutable; sin captura de casa.",
+   "evidencia": [
+    "paquete:m-f9847c77e003|resultado",
+    "apif_query:get_events match_id=811688",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  },
+  {
+   "unit_id": "m-f9847c77e003|tarjetas",
+   "disponibilidad": "no_encontrada",
+   "precio": "sin_precio",
+   "discrepancias": [
+    "ninguna"
+   ],
+   "fuentes_consultadas": [
+    "apifootball get_events 811688 (hora/estado, 2026-10-20)",
+    "paquete.json (unidad)",
+    "inventory.json (calendario)",
+    "apifootball/thestatsapi cuotas del paquete (agregador)"
+   ],
+   "nota": "Sin precio en apifootball ni thestatsapi para 42 lineas; oferta en la casa no verificada.",
+   "evidencia": [
+    "paquete:m-f9847c77e003|tarjetas",
+    "apif_query:get_events match_id=811688",
+    "archivo:runs/2026-10-20/inventory.json"
+   ]
+  }
+ ],
+ "limitaciones": [
+  "No se abrieron webs de terceros; solo apifootball get_events (7 partidos, 2026-10-20 UTC), paquete.json e inventory.json.",
+  "Hora y estado confirmados por apifootball (sin iniciar, match_live=0) y coinciden con el paquete (18:45, 19:00, 22:30 UTC y 01:00 UTC del 21-oct).",
+  "Todas las cuotas son de agregador, no ejecutables; sin captura de casa ni cuota del usuario. Precios del paquete no re-consultados en get_odds.",
+  "Lineas con n_casas=1 o no_verificable se marcan precio_anomalo; no son evidencia de precio real.",
+  "no_encontrada solo respecto a las fuentes consultadas, no a la casa; liquidacion de corners/tarjetas/remates/fueras de juego en la casa no comprobada."
+ ]
+}

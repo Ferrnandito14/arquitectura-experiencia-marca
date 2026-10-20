@@ -156,6 +156,14 @@ class Libro(unittest.TestCase):
         self.wb.save(os.path.join(tempfile.mkdtemp(), "ligas-v2.xlsx"))
         self.assertEqual(before, h())
 
+class BloquesDeCombinadas(unittest.TestCase):
+    def test_el_x1_2_es_el_objetivo_principal_y_los_x3_o_mas_son_un_bloque_secundario(self):
+        import build_xlsx_catalog as bx
+        self.assertEqual(bx.BLOQUE_ORDEN["×1.2"], 0)
+        self.assertTrue(all(bx.BLOQUE_ORDEN[k] == 2 for k in ("×3", "×3–3.8", "×4")))
+        self.assertIn("OBJETIVO PRINCIPAL", bx.BLOQUES[0])
+        self.assertIn("SECUNDARIO", bx.BLOQUES[2])
+
 
 if __name__ == "__main__":
     unittest.main()
