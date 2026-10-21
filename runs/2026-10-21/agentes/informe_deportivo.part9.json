@@ -1,0 +1,493 @@
+{
+ "agente": "deportivo",
+ "version_contrato": 1,
+ "run": "runs/2026-10-21",
+ "unidades": [
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "under",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Modelo: 1P under 1.5 p=0.68, over 0.5 p=0.68; cuotas solo agregador, sin validar. Rotación alta puede alterar el arranque.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-fa8fd4e6aba1|1.ª parte goles",
+    "archivo:runs/2026-10-21/matrix.json",
+    "archivo:runs/2026-10-21/rotation.json",
+    "archivo:runs/2026-10-21/league_samples/212.json"
+   ],
+   "unit_id": "m-fa8fd4e6aba1|1.ª parte goles"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "empate",
+   "escenario_perdida": "penal_o_expulsion",
+   "nota": "Modelo da empate 1P p=0.43 (cuota A2.18), local 0.34. Sin validación; un gol temprano rompe la lectura.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-fa8fd4e6aba1|1.ª parte resultado",
+    "archivo:runs/2026-10-21/matrix.json",
+    "archivo:runs/2026-10-21/rotation.json",
+    "archivo:runs/2026-10-21/league_samples/212.json"
+   ],
+   "unit_id": "m-fa8fd4e6aba1|1.ª parte resultado"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Estimador calculable pero validación insuficiente; mediana modelo ~11 córners. Árbitro s/d, datos de córners incompletos en J2 (muestra con huecos).",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-fa8fd4e6aba1|córners",
+    "archivo:runs/2026-10-21/matrix.json",
+    "archivo:runs/2026-10-21/rotation.json",
+    "archivo:runs/2026-10-21/league_samples/212.json"
+   ],
+   "unit_id": "m-fa8fd4e6aba1|córners"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "localia",
+   "direccion_favorable": "local",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Modelo: 1X p=0.71, 12 p=0.74; validación parcial. Local favorito moderado (1X2 local 0.456); rotación alta en ambos.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-fa8fd4e6aba1|doble oportunidad",
+    "archivo:runs/2026-10-21/matrix.json",
+    "archivo:runs/2026-10-21/rotation.json",
+    "archivo:runs/2026-10-21/league_samples/212.json"
+   ],
+   "unit_id": "m-fa8fd4e6aba1|doble oportunidad"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "DNB local p=0.61 derivado del 1X2; sin extractor y validación no evaluada. Rotación fuerte en ambos equipos.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-fa8fd4e6aba1|empate no válido",
+    "archivo:runs/2026-10-21/matrix.json",
+    "archivo:runs/2026-10-21/rotation.json",
+    "archivo:runs/2026-10-21/league_samples/212.json"
+   ],
+   "unit_id": "m-fa8fd4e6aba1|empate no válido"
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin estimador implementado (no_implementado) ni datos de fueras de juego en el paquete.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-fa8fd4e6aba1|fueras de juego",
+    "archivo:runs/2026-10-21/matrix.json",
+    "archivo:runs/2026-10-21/rotation.json",
+    "archivo:runs/2026-10-21/league_samples/212.json"
+   ],
+   "unit_id": "m-fa8fd4e6aba1|fueras de juego"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Over 2.5 p=0.51 (casi moneda al aire), BTTS sí 0.57; validación insuficiente. Rotación alta aumenta la varianza.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-fa8fd4e6aba1|goles",
+    "archivo:runs/2026-10-21/matrix.json",
+    "archivo:runs/2026-10-21/rotation.json",
+    "archivo:runs/2026-10-21/league_samples/212.json"
+   ],
+   "unit_id": "m-fa8fd4e6aba1|goles"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Local over 0.5 p=0.78, over 1.5 0.44; visitante over 0.5 0.68. Validación parcial. El visitante puede quedarse sin marcar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-fa8fd4e6aba1|goles por equipo",
+    "archivo:runs/2026-10-21/matrix.json",
+    "archivo:runs/2026-10-21/rotation.json",
+    "archivo:runs/2026-10-21/league_samples/212.json"
+   ],
+   "unit_id": "m-fa8fd4e6aba1|goles por equipo"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Derivado de goles: over 2 p=0.65, over 3 p=0.35 (push en entero); sin extractor, validación no evaluada.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-fa8fd4e6aba1|goles total entero",
+    "archivo:runs/2026-10-21/matrix.json",
+    "archivo:runs/2026-10-21/rotation.json",
+    "archivo:runs/2026-10-21/league_samples/212.json"
+   ],
+   "unit_id": "m-fa8fd4e6aba1|goles total entero"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "localia",
+   "direccion_favorable": "local",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "AH local -0.5 p=0.46, +0.5 p=0.71; local favorito leve. Validación no evaluada; rotación alta de ambos.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-fa8fd4e6aba1|hándicap",
+    "archivo:runs/2026-10-21/matrix.json",
+    "archivo:runs/2026-10-21/rotation.json",
+    "archivo:runs/2026-10-21/league_samples/212.json"
+   ],
+   "unit_id": "m-fa8fd4e6aba1|hándicap"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "localia",
+   "direccion_favorable": "local",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Derivado del 1X2: AH 0 local p=0.61, -1 p=0.30, +1 p=0.86; sin extractor, validación no evaluada.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-fa8fd4e6aba1|hándicap asiático entero",
+    "archivo:runs/2026-10-21/matrix.json",
+    "archivo:runs/2026-10-21/rotation.json",
+    "archivo:runs/2026-10-21/league_samples/212.json"
+   ],
+   "unit_id": "m-fa8fd4e6aba1|hándicap asiático entero"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "localia",
+   "direccion_favorable": "local",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Derivado del 1X2; local -1 p=0.23, +1 p=0.71. Sin extractor, validación no evaluada; favorito moderado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-fa8fd4e6aba1|hándicap europeo",
+    "archivo:runs/2026-10-21/matrix.json",
+    "archivo:runs/2026-10-21/rotation.json",
+    "archivo:runs/2026-10-21/league_samples/212.json"
+   ],
+   "unit_id": "m-fa8fd4e6aba1|hándicap europeo"
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Estimador datos_insuficientes: sin remates propios/concedidos fiables de J2 en el paquete.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-fa8fd4e6aba1|remates",
+    "archivo:runs/2026-10-21/matrix.json",
+    "archivo:runs/2026-10-21/rotation.json",
+    "archivo:runs/2026-10-21/league_samples/212.json"
+   ],
+   "unit_id": "m-fa8fd4e6aba1|remates"
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Estimador datos_insuficientes: sin tiros a puerta fiables de J2 en el paquete.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-fa8fd4e6aba1|remates a puerta",
+    "archivo:runs/2026-10-21/matrix.json",
+    "archivo:runs/2026-10-21/rotation.json",
+    "archivo:runs/2026-10-21/league_samples/212.json"
+   ],
+   "unit_id": "m-fa8fd4e6aba1|remates a puerta"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "localia",
+   "direccion_favorable": "local",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "1X2: local 0.456, empate 0.257, visitante 0.287; ventaja leve de localía. Validación parcial; rotación alta.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-fa8fd4e6aba1|resultado",
+    "archivo:runs/2026-10-21/matrix.json",
+    "archivo:runs/2026-10-21/rotation.json",
+    "archivo:runs/2026-10-21/league_samples/212.json"
+   ],
+   "unit_id": "m-fa8fd4e6aba1|resultado"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "arbitro",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "tarjetas_atipicas",
+   "nota": "Puntos de tarjetas: over 2.5 p=0.53, visitante más tarjetas que local. Árbitro s/d; validación insuficiente.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-fa8fd4e6aba1|tarjetas",
+    "archivo:runs/2026-10-21/matrix.json",
+    "archivo:runs/2026-10-21/rotation.json",
+    "archivo:runs/2026-10-21/league_samples/212.json"
+   ],
+   "unit_id": "m-fa8fd4e6aba1|tarjetas"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Datos suficientes pero estimador sin probabilidad calculada; sin lectura cuantitativa de goles en 1P.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-fe7ad0eacfe2|1.ª parte goles",
+    "archivo:runs/2026-10-21/matrix.json",
+    "archivo:runs/2026-10-21/rotation.json",
+    "archivo:runs/2026-10-21/league_samples/475.json"
+   ],
+   "unit_id": "m-fe7ad0eacfe2|1.ª parte goles"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin probabilidad calculada para 1X2 de 1P; solo muestra de liga. Rotación media en ambos.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-fe7ad0eacfe2|1.ª parte resultado",
+    "archivo:runs/2026-10-21/matrix.json",
+    "archivo:runs/2026-10-21/rotation.json",
+    "archivo:runs/2026-10-21/league_samples/475.json"
+   ],
+   "unit_id": "m-fe7ad0eacfe2|1.ª parte resultado"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin probabilidad calculada; validación insuficiente. Árbitro s/d; liga 475 con córners incompletos en la muestra.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-fe7ad0eacfe2|córners",
+    "archivo:runs/2026-10-21/matrix.json",
+    "archivo:runs/2026-10-21/rotation.json",
+    "archivo:runs/2026-10-21/league_samples/475.json"
+   ],
+   "unit_id": "m-fe7ad0eacfe2|córners"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin probabilidad calculada para 1X/12/X2; validación parcial, sin favorito claro derivable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-fe7ad0eacfe2|doble oportunidad",
+    "archivo:runs/2026-10-21/matrix.json",
+    "archivo:runs/2026-10-21/rotation.json",
+    "archivo:runs/2026-10-21/league_samples/475.json"
+   ],
+   "unit_id": "m-fe7ad0eacfe2|doble oportunidad"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni probabilidad calculada; sin lectura de favorito.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-fe7ad0eacfe2|empate no válido",
+    "archivo:runs/2026-10-21/matrix.json",
+    "archivo:runs/2026-10-21/rotation.json",
+    "archivo:runs/2026-10-21/league_samples/475.json"
+   ],
+   "unit_id": "m-fe7ad0eacfe2|empate no válido"
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin estimador implementado ni datos de fueras de juego en el paquete.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-fe7ad0eacfe2|fueras de juego",
+    "archivo:runs/2026-10-21/matrix.json",
+    "archivo:runs/2026-10-21/rotation.json",
+    "archivo:runs/2026-10-21/league_samples/475.json"
+   ],
+   "unit_id": "m-fe7ad0eacfe2|fueras de juego"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin probabilidad calculada para totales ni BTTS; validación insuficiente. Rotación media en ambos.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-fe7ad0eacfe2|goles",
+    "archivo:runs/2026-10-21/matrix.json",
+    "archivo:runs/2026-10-21/rotation.json",
+    "archivo:runs/2026-10-21/league_samples/475.json"
+   ],
+   "unit_id": "m-fe7ad0eacfe2|goles"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin probabilidad calculada por equipo; validación parcial, sin lectura direccional.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-fe7ad0eacfe2|goles por equipo",
+    "archivo:runs/2026-10-21/matrix.json",
+    "archivo:runs/2026-10-21/rotation.json",
+    "archivo:runs/2026-10-21/league_samples/475.json"
+   ],
+   "unit_id": "m-fe7ad0eacfe2|goles por equipo"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni probabilidad calculada; no se puede derivar ritmo de goles del partido.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-fe7ad0eacfe2|goles total entero",
+    "archivo:runs/2026-10-21/matrix.json",
+    "archivo:runs/2026-10-21/rotation.json",
+    "archivo:runs/2026-10-21/league_samples/475.json"
+   ],
+   "unit_id": "m-fe7ad0eacfe2|goles total entero"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "localia",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin probabilidad calculada; favorito no identificable con el paquete. Validación no evaluada.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-fe7ad0eacfe2|hándicap",
+    "archivo:runs/2026-10-21/matrix.json",
+    "archivo:runs/2026-10-21/rotation.json",
+    "archivo:runs/2026-10-21/league_samples/475.json"
+   ],
+   "unit_id": "m-fe7ad0eacfe2|hándicap"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "localia",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni probabilidad calculada; favorito no identificable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-fe7ad0eacfe2|hándicap asiático entero",
+    "archivo:runs/2026-10-21/matrix.json",
+    "archivo:runs/2026-10-21/rotation.json",
+    "archivo:runs/2026-10-21/league_samples/475.json"
+   ],
+   "unit_id": "m-fe7ad0eacfe2|hándicap asiático entero"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "localia",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni probabilidad calculada; favorito no identificable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-fe7ad0eacfe2|hándicap europeo",
+    "archivo:runs/2026-10-21/matrix.json",
+    "archivo:runs/2026-10-21/rotation.json",
+    "archivo:runs/2026-10-21/league_samples/475.json"
+   ],
+   "unit_id": "m-fe7ad0eacfe2|hándicap europeo"
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Estimador datos_insuficientes: sin remates fiables de la liga 475 en el paquete.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-fe7ad0eacfe2|remates",
+    "archivo:runs/2026-10-21/matrix.json",
+    "archivo:runs/2026-10-21/rotation.json",
+    "archivo:runs/2026-10-21/league_samples/475.json"
+   ],
+   "unit_id": "m-fe7ad0eacfe2|remates"
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Estimador datos_insuficientes: sin tiros a puerta fiables de la liga 475.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-fe7ad0eacfe2|remates a puerta",
+    "archivo:runs/2026-10-21/matrix.json",
+    "archivo:runs/2026-10-21/rotation.json",
+    "archivo:runs/2026-10-21/league_samples/475.json"
+   ],
+   "unit_id": "m-fe7ad0eacfe2|remates a puerta"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "localia",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin probabilidad calculada para 1X2; validación insuficiente. Rotación media en ambos, sin lectura de favorito.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-fe7ad0eacfe2|resultado",
+    "archivo:runs/2026-10-21/matrix.json",
+    "archivo:runs/2026-10-21/rotation.json",
+    "archivo:runs/2026-10-21/league_samples/475.json"
+   ],
+   "unit_id": "m-fe7ad0eacfe2|resultado"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "arbitro",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "tarjetas_atipicas",
+   "nota": "Sin probabilidad calculada; árbitro s/d y tarjetas ausentes en la muestra de liga 475.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-fe7ad0eacfe2|tarjetas",
+    "archivo:runs/2026-10-21/matrix.json",
+    "archivo:runs/2026-10-21/rotation.json",
+    "archivo:runs/2026-10-21/league_samples/475.json"
+   ],
+   "unit_id": "m-fe7ad0eacfe2|tarjetas"
+  }
+ ],
+ "limitaciones": [
+  "Sin snapshot de alineaciones ni árbitro designado en ambos partidos.",
+  "Cuotas solo de agregadores (referencia).",
+  "Barranquilla–America de Cali: ningún mercado con probabilidad calculada.",
+  "Remates, tiros a puerta y fueras de juego sin datos/estimador."
+ ]
+}

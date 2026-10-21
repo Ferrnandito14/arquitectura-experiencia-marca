@@ -1,0 +1,929 @@
+{
+ "agente": "auditor",
+ "version_contrato": 1,
+ "run": "runs/2026-10-21",
+ "unidades": [
+  {
+   "unit_id": "m-c103305722f6|1.ª parte goles",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin muestra por mitades validada (ht_goals solo historial propio); sin precio; p over1.5 0.33 no contrastable.",
+   "evidencia": [
+    "paquete:m-c103305722f6|1.ª parte goles"
+   ]
+  },
+  {
+   "unit_id": "m-c103305722f6|1.ª parte resultado",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "1X2 de 1.ª parte sin muestra por mitades validada ni precio; mismo sesgo visitante que el 1X2 (modelo vs mercado).",
+   "evidencia": [
+    "paquete:m-c103305722f6|1.ª parte resultado"
+   ]
+  },
+  {
+   "unit_id": "m-c103305722f6|córners",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador datos_insuficientes en 46 lineas; solo media ~8.1 (n min 5, mixta); sin p ni precio.",
+   "evidencia": [
+    "paquete:m-c103305722f6|córners"
+   ]
+  },
+  {
+   "unit_id": "m-c103305722f6|doble oportunidad",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "1X: p 0.55 vs 1/1.17 (31pp); X2 18pp. Modelo visitante 0.45 vs mercado local favorito; Monagas n=6 mixta, Tachira rota ~5.",
+   "evidencia": [
+    "paquete:m-c103305722f6|doble oportunidad"
+   ]
+  },
+  {
+   "unit_id": "m-c103305722f6|empate no válido",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "DNB local p 0.42 vs ~0.80 implicita (38pp) y visitante 28pp; Monagas n=6 mezcla competiciones; rotacion Tachira ~5.",
+   "evidencia": [
+    "paquete:m-c103305722f6|empate no válido"
+   ]
+  },
+  {
+   "unit_id": "m-c103305722f6|goles",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "6 lineas con brecha>=15pp (under/over 3.5 y 4.5, ~17pp); over2.5 .69 vs mercado ~.54; visitante n=6 mixta.",
+   "evidencia": [
+    "paquete:m-c103305722f6|goles"
+   ]
+  },
+  {
+   "unit_id": "m-c103305722f6|goles total entero",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio; derivado de ritmo con visitante n=6 mixta; modelo over2.5 .69 sobre mercado (~15pp en goles); push posible.",
+   "evidencia": [
+    "paquete:m-c103305722f6|goles total entero"
+   ]
+  },
+  {
+   "unit_id": "m-c103305722f6|hándicap",
+   "objecion": "dato_defectuoso",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "ah.home.-1.5 @1.03 incoherente con -2.5 @5.55 y away+1.5 @1.35 (suma 1/cuotas 1.7): linea mal identificada, brecha 81pp ficticia.",
+   "evidencia": [
+    "paquete:m-c103305722f6|hándicap"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.home.-1.5",
+     "objecion": "dato_defectuoso"
+    },
+    {
+     "entry_id": "resultado.ah.away.+1.5",
+     "objecion": "brecha_muestra_mercado"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-c103305722f6|hándicap asiático entero",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "6 lineas >=15pp (+0 local 38pp, -1 local 28pp, +1 local 28pp); modelo visitante vs mercado local; lineas +1/-1 y +2/-2 con 2 casas.",
+   "evidencia": [
+    "paquete:m-c103305722f6|hándicap asiático entero"
+   ]
+  },
+  {
+   "unit_id": "m-c103305722f6|hándicap europeo",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio; deriva del 1X2 donde modelo visitante 0.45 vs mercado local (27pp); Monagas n=6 mixta.",
+   "evidencia": [
+    "paquete:m-c103305722f6|hándicap europeo"
+   ]
+  },
+  {
+   "unit_id": "m-c103305722f6|resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "Local 1.66: p .33 vs ~.60 (27pp); visitante 4.4: p .45 vs ~.23 (22pp). Monagas n=6, historial mezcla competiciones, Tachira rota ~5.",
+   "evidencia": [
+    "paquete:m-c103305722f6|resultado"
+   ]
+  },
+  {
+   "unit_id": "m-d374d3eea610|1.ª parte goles",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin muestra por mitades validada ni precio; local 0.9 GF vs visitante 2.8 GF (n=6 mixta) hace inestable el ritmo.",
+   "evidencia": [
+    "paquete:m-d374d3eea610|1.ª parte goles"
+   ]
+  },
+  {
+   "unit_id": "m-d374d3eea610|1.ª parte resultado",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "1X2 1.ª parte sin muestra por mitades validada ni precio; visitante n=6 mixta.",
+   "evidencia": [
+    "paquete:m-d374d3eea610|1.ª parte resultado"
+   ]
+  },
+  {
+   "unit_id": "m-d374d3eea610|córners",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador datos_insuficientes en 46 lineas; media ~9.9 (n min 5, mixta, sin ajuste rival/arbitro); sin p ni precio.",
+   "evidencia": [
+    "paquete:m-d374d3eea610|córners"
+   ]
+  },
+  {
+   "unit_id": "m-d374d3eea610|doble oportunidad",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "1X p .52 vs ~.76 (24pp). Portuguesa rota ~5 cambios con 3 dias descanso; Zamora n=6 mixta; lineup sin snapshot.",
+   "evidencia": [
+    "paquete:m-d374d3eea610|doble oportunidad"
+   ]
+  },
+  {
+   "unit_id": "m-d374d3eea610|empate no válido",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "DNB local p .37 vs ~.61 (24pp), visitante 15pp; Zamora n=6 mixta; rotacion Portuguesa alta no cuantificada.",
+   "evidencia": [
+    "paquete:m-d374d3eea610|empate no válido"
+   ]
+  },
+  {
+   "unit_id": "m-d374d3eea610|goles",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Local 0.9/0.8 vs visitante 2.8/0.8 (n=6 mixta) muy dispares; brecha max 13pp (<15) pero ritmo visitante poco fiable.",
+   "evidencia": [
+    "paquete:m-d374d3eea610|goles"
+   ]
+  },
+  {
+   "unit_id": "m-d374d3eea610|goles por equipo",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio; visitante 2.8 GF sobre n=6 mixta frente a local 0.9 GF; goles por equipo muy sensibles a esa muestra.",
+   "evidencia": [
+    "paquete:m-d374d3eea610|goles por equipo"
+   ]
+  },
+  {
+   "unit_id": "m-d374d3eea610|goles total entero",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio; derivado de ritmo con visitante n=6 mixta; push posible en linea entera.",
+   "evidencia": [
+    "paquete:m-d374d3eea610|goles total entero"
+   ]
+  },
+  {
+   "unit_id": "m-d374d3eea610|hándicap",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "ah.home.+1.5 @1.06 vs p .76 (19pp); 5 de 6 precios solo de 2 casas; Portuguesa rota ~5; Zamora n=6.",
+   "evidencia": [
+    "paquete:m-d374d3eea610|hándicap"
+   ]
+  },
+  {
+   "unit_id": "m-d374d3eea610|hándicap asiático entero",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "3 lineas >=15pp (+1 local 24pp, +0 local 24pp, away +0 15pp); mismo desacuerdo modelo visitante vs mercado local.",
+   "evidencia": [
+    "paquete:m-d374d3eea610|hándicap asiático entero"
+   ]
+  },
+  {
+   "unit_id": "m-d374d3eea610|hándicap europeo",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio; hereda desacuerdo del 1X2 (modelo visitante .475 vs local .27, mercado local favorito); rotacion alta.",
+   "evidencia": [
+    "paquete:m-d374d3eea610|hándicap europeo"
+   ]
+  },
+  {
+   "unit_id": "m-d374d3eea610|resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Local @2.30 p .27 vs ~.43 (16pp); visitante 14pp. Portuguesa rota ~5 con 3 dias descanso; Zamora n=6 mixta.",
+   "evidencia": [
+    "paquete:m-d374d3eea610|resultado"
+   ]
+  },
+  {
+   "unit_id": "m-d8aedccddd35|1.ª parte goles",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin muestra por mitades validada; ht_goals solo historial propio; brecha max 11pp, pero modelo no contrastado con datos de mitad.",
+   "evidencia": [
+    "paquete:m-d8aedccddd35|1.ª parte goles"
+   ]
+  },
+  {
+   "unit_id": "m-d8aedccddd35|1.ª parte resultado",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "1X2 1.ª parte sin muestra por mitades validada; brecha max 9pp (empate).",
+   "evidencia": [
+    "paquete:m-d8aedccddd35|1.ª parte resultado"
+   ]
+  },
+  {
+   "unit_id": "m-d8aedccddd35|córners",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Media ~9.4 (n min 10, mixta) sin ajuste rival/arbitro; p modelo vs mercado <=7pp en 6 lineas; validacion insuficiente.",
+   "evidencia": [
+    "paquete:m-d8aedccddd35|córners"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "nota",
+     "problema": "valor_contradice_paquete"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-d8aedccddd35|empate no válido",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "J2 misma competicion n=10, rotacion baja; DNB brecha max 6pp; modelo coincide con mercado.",
+   "evidencia": [
+    "paquete:m-d8aedccddd35|empate no válido"
+   ]
+  },
+  {
+   "unit_id": "m-d8aedccddd35|goles total entero",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Misma competicion n=10, rotacion baja; brecha max 3pp; push posible en linea entera (regla de liquidacion a confirmar).",
+   "evidencia": [
+    "paquete:m-d8aedccddd35|goles total entero"
+   ]
+  },
+  {
+   "unit_id": "m-d8aedccddd35|hándicap asiático entero",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Misma competicion n=10, rotacion baja; brecha max 11pp (<15); 9 lineas con precio de agregador.",
+   "evidencia": [
+    "paquete:m-d8aedccddd35|hándicap asiático entero"
+   ]
+  },
+  {
+   "unit_id": "m-d8aedccddd35|hándicap europeo",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Misma competicion n=10, rotacion baja; brecha max 9pp (<15) en 12 lineas.",
+   "evidencia": [
+    "paquete:m-d8aedccddd35|hándicap europeo"
+   ]
+  },
+  {
+   "unit_id": "m-d8aedccddd35|tarjetas",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio ni p contrastable; puntos ~3.5 (n min 8), arbitro sin designar, sin ajuste de rival.",
+   "evidencia": [
+    "paquete:m-d8aedccddd35|tarjetas"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "nota",
+     "problema": "valor_contradice_paquete"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-df504f7da634|1.ª parte goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin probabilidad calculada (sin_probabilidad_calculada) ni precio; sin muestra por mitades.",
+   "evidencia": [
+    "paquete:m-df504f7da634|1.ª parte goles"
+   ]
+  },
+  {
+   "unit_id": "m-df504f7da634|1.ª parte resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin probabilidad calculada ni precio; sin muestra por mitades.",
+   "evidencia": [
+    "paquete:m-df504f7da634|1.ª parte resultado"
+   ]
+  },
+  {
+   "unit_id": "m-df504f7da634|córners",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin probabilidad calculada; solo media ~8.9 (n min 10, mixta) sin ajuste rival/arbitro.",
+   "evidencia": [
+    "paquete:m-df504f7da634|córners"
+   ]
+  },
+  {
+   "unit_id": "m-df504f7da634|empate no válido",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin probabilidad del modelo; solo cuotas medias; LASK rota ~6.3 cambios.",
+   "evidencia": [
+    "paquete:m-df504f7da634|empate no válido"
+   ]
+  },
+  {
+   "unit_id": "m-df504f7da634|goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin probabilidad calculada; solo cuotas medias (over fuerte) y medias n=10 mixtas; Sporting 8 dias descanso.",
+   "evidencia": [
+    "paquete:m-df504f7da634|goles"
+   ]
+  },
+  {
+   "unit_id": "m-df504f7da634|goles por equipo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin probabilidad calculada; medias n=10 mixtas, sin ajuste rival.",
+   "evidencia": [
+    "paquete:m-df504f7da634|goles por equipo"
+   ]
+  },
+  {
+   "unit_id": "m-df504f7da634|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin probabilidad calculada; derivado de medias mixtas; push posible.",
+   "evidencia": [
+    "paquete:m-df504f7da634|goles total entero"
+   ]
+  },
+  {
+   "unit_id": "m-df504f7da634|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin probabilidad del modelo; solo cuotas medias; LASK rota ~6.3.",
+   "evidencia": [
+    "paquete:m-df504f7da634|hándicap asiático entero"
+   ]
+  },
+  {
+   "unit_id": "m-df504f7da634|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin probabilidad del modelo; solo cuotas medias; LASK rota ~6.3.",
+   "evidencia": [
+    "paquete:m-df504f7da634|hándicap europeo"
+   ]
+  },
+  {
+   "unit_id": "m-df504f7da634|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin probabilidad ni estimador; media ~26.3 (n min 8) sin ajuste rival/localia.",
+   "evidencia": [
+    "paquete:m-df504f7da634|remates"
+   ]
+  },
+  {
+   "unit_id": "m-df504f7da634|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin probabilidad ni estimador; media ~9.4 (n min 8) sin ajuste rival/localia.",
+   "evidencia": [
+    "paquete:m-df504f7da634|remates a puerta"
+   ]
+  },
+  {
+   "unit_id": "m-df504f7da634|tarjetas",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin probabilidad ni estimador; puntos ~3.9, arbitro Nick Walsh sin n en liga; sin ajuste de rival.",
+   "evidencia": [
+    "paquete:m-df504f7da634|tarjetas"
+   ]
+  },
+  {
+   "unit_id": "m-e11629a467f2|1.ª parte goles",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin muestra por mitades validada; brecha 2pp no valida el modelo (ht_goals solo historial propio).",
+   "evidencia": [
+    "paquete:m-e11629a467f2|1.ª parte goles"
+   ]
+  },
+  {
+   "unit_id": "m-e11629a467f2|1.ª parte resultado",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin muestra por mitades validada; visitante p .29 vs ~.42 (13pp, cerca de 15).",
+   "evidencia": [
+    "paquete:m-e11629a467f2|1.ª parte resultado"
+   ]
+  },
+  {
+   "unit_id": "m-e11629a467f2|córners",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Media ~10.3 (n min 9, mixta) sin ajuste rival/arbitro; validacion insuficiente; solo 8 lineas con precio.",
+   "evidencia": [
+    "paquete:m-e11629a467f2|córners"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "nota",
+     "problema": "valor_contradice_paquete"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-e11629a467f2|doble oportunidad",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "X2 p .63 vs ~.82 (19pp): modelo parejo vs mercado visitante favorito; Monterrey 3 dias descanso, rotacion no cuantificada.",
+   "evidencia": [
+    "paquete:m-e11629a467f2|doble oportunidad"
+   ]
+  },
+  {
+   "unit_id": "m-e11629a467f2|empate no válido",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "DNB visitante p .49 vs ~.72 (23pp), local 17pp; modelo parejo contra mercado favorito visitante.",
+   "evidencia": [
+    "paquete:m-e11629a467f2|empate no válido"
+   ]
+  },
+  {
+   "unit_id": "m-e11629a467f2|goles",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Liga MX n=10; brecha max 5pp; modelo coherente con mercado. Muestra mixta local/visitante y validacion insuficiente ya constan.",
+   "evidencia": [
+    "paquete:m-e11629a467f2|goles"
+   ]
+  },
+  {
+   "unit_id": "m-e11629a467f2|goles por equipo",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Visitante 1.5 goles: p under .65 vs ~.50 (15pp) y 2.5 12pp; visitante 1.6 GF en n=10.",
+   "evidencia": [
+    "paquete:m-e11629a467f2|goles por equipo"
+   ]
+  },
+  {
+   "unit_id": "m-e11629a467f2|goles total entero",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Liga MX n=10; brecha max 9pp; push posible en linea entera (liquidacion a confirmar).",
+   "evidencia": [
+    "paquete:m-e11629a467f2|goles total entero"
+   ]
+  },
+  {
+   "unit_id": "m-e11629a467f2|hándicap",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "4 lineas >=15pp (away -0.5 19pp); modelo parejo vs mercado favorito visitante; Monterrey 3 dias descanso.",
+   "evidencia": [
+    "paquete:m-e11629a467f2|hándicap"
+   ]
+  },
+  {
+   "unit_id": "m-e11629a467f2|hándicap asiático entero",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "4 lineas >=15pp (away +0 23pp, -1 20pp, +1 18pp); mismo desacuerdo modelo parejo vs mercado.",
+   "evidencia": [
+    "paquete:m-e11629a467f2|hándicap asiático entero"
+   ]
+  },
+  {
+   "unit_id": "m-e11629a467f2|hándicap europeo",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "away -1 p .63 vs ~.80 (17pp); mismo desacuerdo modelo parejo vs mercado visitante.",
+   "evidencia": [
+    "paquete:m-e11629a467f2|hándicap europeo"
+   ]
+  },
+  {
+   "unit_id": "m-e11629a467f2|remates",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Media ~26.8 (n min 7) sin ajuste rival/localia; solo 6 lineas con precio; sin validacion.",
+   "evidencia": [
+    "paquete:m-e11629a467f2|remates"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "nota",
+     "problema": "valor_contradice_paquete"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-e11629a467f2|remates a puerta",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Media ~8.7 (n min 7) sin ajuste rival/localia; solo 6 lineas con precio; sin validacion.",
+   "evidencia": [
+    "paquete:m-e11629a467f2|remates a puerta"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "nota",
+     "problema": "valor_contradice_paquete"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-e11629a467f2|resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Visitante @1.855 p .36 vs ~.52 (18pp), local 12pp; local 1.0 GF n=10; Monterrey 3 dias descanso.",
+   "evidencia": [
+    "paquete:m-e11629a467f2|resultado"
+   ]
+  },
+  {
+   "unit_id": "m-e11629a467f2|tarjetas",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Puntos ~4.4 (n min 8), arbitro sin designar, sin ajuste de rival; solo 2 lineas con precio.",
+   "evidencia": [
+    "paquete:m-e11629a467f2|tarjetas"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "nota",
+     "problema": "valor_contradice_paquete"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-e8c6bce54746|1.ª parte goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin probabilidad calculada (sin_probabilidad_calculada) ni precio contrastable; Betis rota ~5.3; Feyenoord muestra mixta; muestras mixtas n~10.",
+   "evidencia": [
+    "paquete:m-e8c6bce54746|1.ª parte goles"
+   ]
+  },
+  {
+   "unit_id": "m-e8c6bce54746|1.ª parte resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin probabilidad calculada (sin_probabilidad_calculada) ni precio contrastable; Betis rota ~5.3; Feyenoord muestra mixta; muestras mixtas n~10.",
+   "evidencia": [
+    "paquete:m-e8c6bce54746|1.ª parte resultado"
+   ]
+  },
+  {
+   "unit_id": "m-e8c6bce54746|córners",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin probabilidad calculada (sin_probabilidad_calculada) ni precio contrastable; Betis rota ~5.3; Feyenoord muestra mixta; muestras mixtas n~10.",
+   "evidencia": [
+    "paquete:m-e8c6bce54746|córners"
+   ]
+  },
+  {
+   "unit_id": "m-e8c6bce54746|doble oportunidad",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin probabilidad calculada (sin_probabilidad_calculada) ni precio contrastable; Betis rota ~5.3; Feyenoord muestra mixta; muestras mixtas n~10.",
+   "evidencia": [
+    "paquete:m-e8c6bce54746|doble oportunidad"
+   ]
+  },
+  {
+   "unit_id": "m-e8c6bce54746|empate no válido",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin probabilidad calculada (sin_probabilidad_calculada) ni precio contrastable; Betis rota ~5.3; Feyenoord muestra mixta; muestras mixtas n~10.",
+   "evidencia": [
+    "paquete:m-e8c6bce54746|empate no válido"
+   ]
+  },
+  {
+   "unit_id": "m-e8c6bce54746|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin probabilidad calculada (sin_probabilidad_calculada) ni precio contrastable; Betis rota ~5.3; Feyenoord muestra mixta; muestras mixtas n~10.",
+   "evidencia": [
+    "paquete:m-e8c6bce54746|goles total entero"
+   ]
+  },
+  {
+   "unit_id": "m-e8c6bce54746|hándicap",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin probabilidad calculada (sin_probabilidad_calculada) ni precio contrastable; Betis rota ~5.3; Feyenoord muestra mixta; muestras mixtas n~10.",
+   "evidencia": [
+    "paquete:m-e8c6bce54746|hándicap"
+   ]
+  },
+  {
+   "unit_id": "m-e8c6bce54746|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin probabilidad calculada (sin_probabilidad_calculada) ni precio contrastable; Betis rota ~5.3; Feyenoord muestra mixta; muestras mixtas n~10.",
+   "evidencia": [
+    "paquete:m-e8c6bce54746|hándicap asiático entero"
+   ]
+  },
+  {
+   "unit_id": "m-e8c6bce54746|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin probabilidad calculada (sin_probabilidad_calculada) ni precio contrastable; Betis rota ~5.3; Feyenoord muestra mixta; muestras mixtas n~10.",
+   "evidencia": [
+    "paquete:m-e8c6bce54746|hándicap europeo"
+   ]
+  },
+  {
+   "unit_id": "m-e8c6bce54746|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin probabilidad calculada (sin_probabilidad_calculada) ni precio contrastable; Betis rota ~5.3; Feyenoord muestra mixta; muestras mixtas n~10.",
+   "evidencia": [
+    "paquete:m-e8c6bce54746|remates"
+   ]
+  },
+  {
+   "unit_id": "m-e8c6bce54746|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin probabilidad calculada (sin_probabilidad_calculada) ni precio contrastable; Betis rota ~5.3; Feyenoord muestra mixta; muestras mixtas n~10.",
+   "evidencia": [
+    "paquete:m-e8c6bce54746|remates a puerta"
+   ]
+  },
+  {
+   "unit_id": "m-e8c6bce54746|resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin probabilidad calculada (sin_probabilidad_calculada) ni precio contrastable; Betis rota ~5.3; Feyenoord muestra mixta; muestras mixtas n~10.",
+   "evidencia": [
+    "paquete:m-e8c6bce54746|resultado"
+   ]
+  },
+  {
+   "unit_id": "m-e8c6bce54746|tarjetas",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin probabilidad calculada (sin_probabilidad_calculada) ni precio contrastable; Betis rota ~5.3; Feyenoord muestra mixta; muestras mixtas n~10.",
+   "evidencia": [
+    "paquete:m-e8c6bce54746|tarjetas"
+   ]
+  },
+  {
+   "unit_id": "m-f7ea487c3d0c|1.ª parte goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin probabilidad calculada (sin_probabilidad_calculada) ni precio contrastable; Lens rota ~6 con 4 dias descanso; muestras mixtas n~10.",
+   "evidencia": [
+    "paquete:m-f7ea487c3d0c|1.ª parte goles"
+   ]
+  },
+  {
+   "unit_id": "m-f7ea487c3d0c|1.ª parte resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin probabilidad calculada (sin_probabilidad_calculada) ni precio contrastable; Lens rota ~6 con 4 dias descanso; muestras mixtas n~10.",
+   "evidencia": [
+    "paquete:m-f7ea487c3d0c|1.ª parte resultado"
+   ]
+  },
+  {
+   "unit_id": "m-f7ea487c3d0c|córners",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin probabilidad calculada (sin_probabilidad_calculada) ni precio contrastable; Lens rota ~6 con 4 dias descanso; muestras mixtas n~10.",
+   "evidencia": [
+    "paquete:m-f7ea487c3d0c|córners"
+   ]
+  },
+  {
+   "unit_id": "m-f7ea487c3d0c|doble oportunidad",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin probabilidad calculada (sin_probabilidad_calculada) ni precio contrastable; Lens rota ~6 con 4 dias descanso; muestras mixtas n~10.",
+   "evidencia": [
+    "paquete:m-f7ea487c3d0c|doble oportunidad"
+   ]
+  },
+  {
+   "unit_id": "m-f7ea487c3d0c|empate no válido",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin probabilidad calculada (sin_probabilidad_calculada) ni precio contrastable; Lens rota ~6 con 4 dias descanso; muestras mixtas n~10.",
+   "evidencia": [
+    "paquete:m-f7ea487c3d0c|empate no válido"
+   ]
+  },
+  {
+   "unit_id": "m-f7ea487c3d0c|goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin probabilidad calculada (sin_probabilidad_calculada) ni precio contrastable; Lens rota ~6 con 4 dias descanso; muestras mixtas n~10.",
+   "evidencia": [
+    "paquete:m-f7ea487c3d0c|goles"
+   ]
+  },
+  {
+   "unit_id": "m-f7ea487c3d0c|goles por equipo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin probabilidad calculada (sin_probabilidad_calculada) ni precio contrastable; Lens rota ~6 con 4 dias descanso; muestras mixtas n~10.",
+   "evidencia": [
+    "paquete:m-f7ea487c3d0c|goles por equipo"
+   ]
+  },
+  {
+   "unit_id": "m-f7ea487c3d0c|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin probabilidad calculada (sin_probabilidad_calculada) ni precio contrastable; Lens rota ~6 con 4 dias descanso; muestras mixtas n~10.",
+   "evidencia": [
+    "paquete:m-f7ea487c3d0c|goles total entero"
+   ]
+  },
+  {
+   "unit_id": "m-f7ea487c3d0c|hándicap",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin probabilidad calculada (sin_probabilidad_calculada) ni precio contrastable; Lens rota ~6 con 4 dias descanso; muestras mixtas n~10.",
+   "evidencia": [
+    "paquete:m-f7ea487c3d0c|hándicap"
+   ]
+  },
+  {
+   "unit_id": "m-f7ea487c3d0c|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin probabilidad calculada (sin_probabilidad_calculada) ni precio contrastable; Lens rota ~6 con 4 dias descanso; muestras mixtas n~10.",
+   "evidencia": [
+    "paquete:m-f7ea487c3d0c|hándicap asiático entero"
+   ]
+  },
+  {
+   "unit_id": "m-f7ea487c3d0c|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin probabilidad calculada (sin_probabilidad_calculada) ni precio contrastable; Lens rota ~6 con 4 dias descanso; muestras mixtas n~10.",
+   "evidencia": [
+    "paquete:m-f7ea487c3d0c|hándicap europeo"
+   ]
+  },
+  {
+   "unit_id": "m-f7ea487c3d0c|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin probabilidad calculada (sin_probabilidad_calculada) ni precio contrastable; Lens rota ~6 con 4 dias descanso; muestras mixtas n~10.",
+   "evidencia": [
+    "paquete:m-f7ea487c3d0c|remates"
+   ]
+  },
+  {
+   "unit_id": "m-f7ea487c3d0c|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin probabilidad calculada (sin_probabilidad_calculada) ni precio contrastable; Lens rota ~6 con 4 dias descanso; muestras mixtas n~10.",
+   "evidencia": [
+    "paquete:m-f7ea487c3d0c|remates a puerta"
+   ]
+  },
+  {
+   "unit_id": "m-f7ea487c3d0c|resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin probabilidad calculada (sin_probabilidad_calculada) ni precio contrastable; Lens rota ~6 con 4 dias descanso; muestras mixtas n~10.",
+   "evidencia": [
+    "paquete:m-f7ea487c3d0c|resultado"
+   ]
+  },
+  {
+   "unit_id": "m-f7ea487c3d0c|tarjetas",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin probabilidad calculada (sin_probabilidad_calculada) ni precio contrastable; Lens rota ~6 con 4 dias descanso; muestras mixtas n~10.",
+   "evidencia": [
+    "paquete:m-f7ea487c3d0c|tarjetas"
+   ]
+  }
+ ],
+ "limitaciones": [
+  "Brechas calculadas por mi con 1/cuota (devig en pares); no abri fuentes externas ni API, me apoyo en paquete e informes.",
+  "Sin alineaciones ni arbitros confirmados en casi todos los partidos."
+ ]
+}

@@ -1,0 +1,1365 @@
+{
+  "analitica": {
+    "datos": {
+      "insuficientes": 4961,
+      "parciales": 1263,
+      "sin_datos": 0,
+      "sin_extractor": 2030,
+      "suficientes": 10654
+    },
+    "estado": "CON_LIMITACIONES",
+    "estimador": {
+      "calculable": 12524,
+      "datos_insuficientes": 6326,
+      "no_implementado": 58
+    },
+    "incidencias": [
+      {
+        "cantidad": 1,
+        "ejemplos": [
+          "otros.fueras_de_juego.total"
+        ],
+        "tipo": "sin_estimador_propio"
+      },
+      {
+        "cantidad": 35,
+        "ejemplos": [
+          "goles.total_entero.over.1",
+          "goles.total_entero.over.2",
+          "goles.total_entero.over.3",
+          "goles.total_entero.over.4"
+        ],
+        "tipo": "sin_extractor_de_estadistica"
+      },
+      {
+        "cantidad": 4961,
+        "ejemplos": [],
+        "por_familia": {
+          "corners": 138,
+          "goles": 32,
+          "resultado": 21,
+          "tarjetas": 420,
+          "tiros": 4350
+        },
+        "tipo": "datos_insuficientes"
+      },
+      {
+        "blend_weight": null,
+        "cantidad": 18850,
+        "familias": {
+          "1x2": {
+            "nivel": "parcial",
+            "partidos_vs_mercado": 1362,
+            "partidos_walk_forward": 3840,
+            "vs_mercado": "peor",
+            "vs_tasa_base": "supera"
+          },
+          "btts": {
+            "nivel": "insuficiente",
+            "partidos_vs_mercado": 1297,
+            "partidos_walk_forward": 3840,
+            "vs_mercado": "peor",
+            "vs_tasa_base": "no_concluyente"
+          },
+          "cards_total": {
+            "nivel": "insuficiente",
+            "partidos_vs_mercado": 0,
+            "partidos_walk_forward": 3586,
+            "vs_mercado": "no_evaluable_sin_cuotas_historicas",
+            "vs_tasa_base": "no_concluyente"
+          },
+          "corners_total": {
+            "nivel": "insuficiente",
+            "partidos_vs_mercado": 1181,
+            "partidos_walk_forward": 3708,
+            "vs_mercado": "no_concluyente",
+            "vs_tasa_base": "no_concluyente"
+          },
+          "dc": {
+            "nivel": "parcial",
+            "partidos_vs_mercado": 1362,
+            "partidos_walk_forward": 3840,
+            "vs_mercado": "peor",
+            "vs_tasa_base": "supera"
+          },
+          "goals_total": {
+            "nivel": "insuficiente",
+            "partidos_vs_mercado": 1297,
+            "partidos_walk_forward": 3840,
+            "vs_mercado": "peor",
+            "vs_tasa_base": "no_concluyente"
+          },
+          "team_goals": {
+            "nivel": "parcial",
+            "partidos_vs_mercado": 1228,
+            "partidos_walk_forward": 3840,
+            "vs_mercado": "peor",
+            "vs_tasa_base": "supera"
+          }
+        },
+        "generado_utc": "2026-10-15T17:19:06Z",
+        "motivo": "1x2: parcial (base supera, mercado peor); btts: insuficiente (base no_concluyente, mercado peor); cards_total: insuficiente (base no_concluyente, mercado no_evaluable_sin_cuotas_historicas); corners_total: insuficiente (base no_concluyente, mercado no_concluyente); dc: parcial (base supera, mercado peor); goals_total: insuficiente (base no_concluyente, mercado peor); team_goals: parcial (base supera, mercado peor)",
+        "nivel": "parcial",
+        "referencia": "docs/BACKTEST-cierre.md",
+        "tipo": "modelo_sin_validacion_suficiente"
+      },
+      {
+        "cantidad": 13,
+        "ejemplos": [
+          "120",
+          "141",
+          "194",
+          "209",
+          "212",
+          "235",
+          "277",
+          "3",
+          "330",
+          "346",
+          "475",
+          "8092",
+          "8105"
+        ],
+        "nota": "partidos de la muestra de liga con el dato / partidos de la muestra",
+        "por_liga": {
+          "120": "253/262",
+          "141": "193/200",
+          "194": "147/149",
+          "209": "199/223",
+          "212": "315/353",
+          "235": "198/205",
+          "277": "152/158",
+          "3": "146/152",
+          "330": "353/361",
+          "346": "13/85",
+          "475": "16/61",
+          "8092": "2/55",
+          "8105": "25/31"
+        },
+        "tipo": "liga_con_registro_incompleto_de_tarjetas"
+      },
+      {
+        "cantidad": 11,
+        "ejemplos": [
+          "120",
+          "194",
+          "209",
+          "212",
+          "235",
+          "277",
+          "330",
+          "346",
+          "475",
+          "8092",
+          "8105"
+        ],
+        "nota": "partidos de la muestra de liga con el dato / partidos de la muestra",
+        "por_liga": {
+          "120": "256/262",
+          "194": "141/149",
+          "209": "213/223",
+          "212": "329/353",
+          "235": "193/205",
+          "277": "157/158",
+          "330": "357/361",
+          "346": "46/85",
+          "475": "58/61",
+          "8092": "48/55",
+          "8105": "30/31"
+        },
+        "tipo": "liga_con_registro_incompleto_de_corners"
+      },
+      {
+        "cantidad": 47,
+        "ejemplos": [
+          "m-18851448cf85",
+          "m-05e1b9d8b71c",
+          "m-000983169e80"
+        ],
+        "tipo": "arbitro_no_designado"
+      },
+      {
+        "cantidad": 1,
+        "ejemplos": [
+          "m-5253ab17ca20"
+        ],
+        "tipo": "arbitro_designado_sin_partidos_en_la_muestra"
+      },
+      {
+        "cantidad": 58,
+        "ejemplos": [
+          "m-18851448cf85",
+          "m-05e1b9d8b71c",
+          "m-000983169e80"
+        ],
+        "por_estado": {
+          "sin_snapshot": 58
+        },
+        "tipo": "alineaciones_no_publicadas"
+      }
+    ],
+    "modelo_validacion": "parcial"
+  },
+  "aviso": "INVESTIGACIÓN CERTIFICADA (solo exhaustividad de la investigación; no es una aprobación para apostar) · analítica: CON_LIMITACIONES · precios: SIN_PRECIOS_REALES · revisión de agentes: NO_EJECUTADA · preparación para apostar: NO APTA (0 filas aptas)",
+  "certificado_investigacion": true,
+  "contexto_partidos": {
+    "m-000983169e80": {
+      "alineaciones": {
+        "estado": "sin_snapshot"
+      },
+      "arbitro": {
+        "designado": null,
+        "partidos_en_muestra_liga": 0
+      },
+      "liga_id": "277",
+      "muestra_liga": {
+        "con_arbitro": 64,
+        "con_corners": 157,
+        "con_tarjetas": 152,
+        "ejecutada": true,
+        "partidos": 158
+      }
+    },
+    "m-04f6561f11cb": {
+      "alineaciones": {
+        "estado": "sin_snapshot"
+      },
+      "arbitro": {
+        "designado": null,
+        "partidos_en_muestra_liga": 0
+      },
+      "liga_id": "330",
+      "muestra_liga": {
+        "con_arbitro": 351,
+        "con_corners": 357,
+        "con_tarjetas": 353,
+        "ejecutada": true,
+        "partidos": 361
+      }
+    },
+    "m-05b538f004f1": {
+      "alineaciones": {
+        "estado": "sin_snapshot"
+      },
+      "arbitro": {
+        "designado": null,
+        "partidos_en_muestra_liga": 0
+      },
+      "liga_id": "120",
+      "muestra_liga": {
+        "con_arbitro": 257,
+        "con_corners": 256,
+        "con_tarjetas": 253,
+        "ejecutada": true,
+        "partidos": 262
+      }
+    },
+    "m-05e1b9d8b71c": {
+      "alineaciones": {
+        "estado": "sin_snapshot"
+      },
+      "arbitro": {
+        "designado": null,
+        "partidos_en_muestra_liga": 0
+      },
+      "liga_id": "141",
+      "muestra_liga": {
+        "con_arbitro": 192,
+        "con_corners": 200,
+        "con_tarjetas": 193,
+        "ejecutada": true,
+        "partidos": 200
+      }
+    },
+    "m-0616c91877ea": {
+      "alineaciones": {
+        "estado": "sin_snapshot"
+      },
+      "arbitro": {
+        "designado": "Sven Jablonski, Germany",
+        "partidos_en_muestra_liga": 3
+      },
+      "liga_id": "3",
+      "muestra_liga": {
+        "con_arbitro": 151,
+        "con_corners": 152,
+        "con_tarjetas": 146,
+        "ejecutada": true,
+        "partidos": 152
+      }
+    },
+    "m-0b05f4ae20d3": {
+      "alineaciones": {
+        "estado": "sin_snapshot"
+      },
+      "arbitro": {
+        "designado": null,
+        "partidos_en_muestra_liga": 0
+      },
+      "liga_id": "235",
+      "muestra_liga": {
+        "con_arbitro": 203,
+        "con_corners": 193,
+        "con_tarjetas": 198,
+        "ejecutada": true,
+        "partidos": 205
+      }
+    },
+    "m-0b860bd9dd84": {
+      "alineaciones": {
+        "estado": "sin_snapshot"
+      },
+      "arbitro": {
+        "designado": null,
+        "partidos_en_muestra_liga": 0
+      },
+      "liga_id": "209",
+      "muestra_liga": {
+        "con_arbitro": 223,
+        "con_corners": 213,
+        "con_tarjetas": 199,
+        "ejecutada": true,
+        "partidos": 223
+      }
+    },
+    "m-0fb1491b51a7": {
+      "alineaciones": {
+        "estado": "sin_snapshot"
+      },
+      "arbitro": {
+        "designado": null,
+        "partidos_en_muestra_liga": 0
+      },
+      "liga_id": "212",
+      "muestra_liga": {
+        "con_arbitro": 129,
+        "con_corners": 329,
+        "con_tarjetas": 315,
+        "ejecutada": true,
+        "partidos": 353
+      }
+    },
+    "m-18851448cf85": {
+      "alineaciones": {
+        "estado": "sin_snapshot"
+      },
+      "arbitro": {
+        "designado": null,
+        "partidos_en_muestra_liga": 0
+      },
+      "liga_id": "346",
+      "muestra_liga": {
+        "con_arbitro": 13,
+        "con_corners": 46,
+        "con_tarjetas": 13,
+        "ejecutada": true,
+        "partidos": 85
+      }
+    },
+    "m-18ef86371005": {
+      "alineaciones": {
+        "estado": "sin_snapshot"
+      },
+      "arbitro": {
+        "designado": null,
+        "partidos_en_muestra_liga": 0
+      },
+      "liga_id": "277",
+      "muestra_liga": {
+        "con_arbitro": 64,
+        "con_corners": 157,
+        "con_tarjetas": 152,
+        "ejecutada": true,
+        "partidos": 158
+      }
+    },
+    "m-2487c73a87b3": {
+      "alineaciones": {
+        "estado": "sin_snapshot"
+      },
+      "arbitro": {
+        "designado": null,
+        "partidos_en_muestra_liga": 0
+      },
+      "liga_id": "209",
+      "muestra_liga": {
+        "con_arbitro": 223,
+        "con_corners": 213,
+        "con_tarjetas": 199,
+        "ejecutada": true,
+        "partidos": 223
+      }
+    },
+    "m-2ccbb63bbe6e": {
+      "alineaciones": {
+        "estado": "sin_snapshot"
+      },
+      "arbitro": {
+        "designado": null,
+        "partidos_en_muestra_liga": 0
+      },
+      "liga_id": "8105",
+      "muestra_liga": {
+        "con_arbitro": 16,
+        "con_corners": 30,
+        "con_tarjetas": 25,
+        "ejecutada": true,
+        "partidos": 31
+      }
+    },
+    "m-348929b51333": {
+      "alineaciones": {
+        "estado": "sin_snapshot"
+      },
+      "arbitro": {
+        "designado": null,
+        "partidos_en_muestra_liga": 0
+      },
+      "liga_id": "209",
+      "muestra_liga": {
+        "con_arbitro": 223,
+        "con_corners": 213,
+        "con_tarjetas": 199,
+        "ejecutada": true,
+        "partidos": 223
+      }
+    },
+    "m-3b5f764d0d87": {
+      "alineaciones": {
+        "estado": "sin_snapshot"
+      },
+      "arbitro": {
+        "designado": "Sebastian Gishamer, Austria",
+        "partidos_en_muestra_liga": 1
+      },
+      "liga_id": "3",
+      "muestra_liga": {
+        "con_arbitro": 151,
+        "con_corners": 152,
+        "con_tarjetas": 146,
+        "ejecutada": true,
+        "partidos": 152
+      }
+    },
+    "m-3dcad007162c": {
+      "alineaciones": {
+        "estado": "sin_snapshot"
+      },
+      "arbitro": {
+        "designado": null,
+        "partidos_en_muestra_liga": 0
+      },
+      "liga_id": "209",
+      "muestra_liga": {
+        "con_arbitro": 223,
+        "con_corners": 213,
+        "con_tarjetas": 199,
+        "ejecutada": true,
+        "partidos": 223
+      }
+    },
+    "m-41a0b7fb5867": {
+      "alineaciones": {
+        "estado": "sin_snapshot"
+      },
+      "arbitro": {
+        "designado": null,
+        "partidos_en_muestra_liga": 0
+      },
+      "liga_id": "212",
+      "muestra_liga": {
+        "con_arbitro": 129,
+        "con_corners": 329,
+        "con_tarjetas": 315,
+        "ejecutada": true,
+        "partidos": 353
+      }
+    },
+    "m-4326596558b8": {
+      "alineaciones": {
+        "estado": "sin_snapshot"
+      },
+      "arbitro": {
+        "designado": null,
+        "partidos_en_muestra_liga": 0
+      },
+      "liga_id": "8105",
+      "muestra_liga": {
+        "con_arbitro": 16,
+        "con_corners": 30,
+        "con_tarjetas": 25,
+        "ejecutada": true,
+        "partidos": 31
+      }
+    },
+    "m-4aff4c4ba6c5": {
+      "alineaciones": {
+        "estado": "sin_snapshot"
+      },
+      "arbitro": {
+        "designado": null,
+        "partidos_en_muestra_liga": 0
+      },
+      "liga_id": "209",
+      "muestra_liga": {
+        "con_arbitro": 223,
+        "con_corners": 213,
+        "con_tarjetas": 199,
+        "ejecutada": true,
+        "partidos": 223
+      }
+    },
+    "m-4d7e3ddc5a96": {
+      "alineaciones": {
+        "estado": "sin_snapshot"
+      },
+      "arbitro": {
+        "designado": null,
+        "partidos_en_muestra_liga": 0
+      },
+      "liga_id": "209",
+      "muestra_liga": {
+        "con_arbitro": 223,
+        "con_corners": 213,
+        "con_tarjetas": 199,
+        "ejecutada": true,
+        "partidos": 223
+      }
+    },
+    "m-51f67d68dce2": {
+      "alineaciones": {
+        "estado": "sin_snapshot"
+      },
+      "arbitro": {
+        "designado": null,
+        "partidos_en_muestra_liga": 0
+      },
+      "liga_id": "212",
+      "muestra_liga": {
+        "con_arbitro": 129,
+        "con_corners": 329,
+        "con_tarjetas": 315,
+        "ejecutada": true,
+        "partidos": 353
+      }
+    },
+    "m-5253ab17ca20": {
+      "alineaciones": {
+        "estado": "sin_snapshot"
+      },
+      "arbitro": {
+        "designado": "Harm Osmers, Germany",
+        "partidos_en_muestra_liga": 0
+      },
+      "liga_id": "3",
+      "muestra_liga": {
+        "con_arbitro": 151,
+        "con_corners": 152,
+        "con_tarjetas": 146,
+        "ejecutada": true,
+        "partidos": 152
+      }
+    },
+    "m-5a105b152e44": {
+      "alineaciones": {
+        "estado": "sin_snapshot"
+      },
+      "arbitro": {
+        "designado": null,
+        "partidos_en_muestra_liga": 0
+      },
+      "liga_id": "212",
+      "muestra_liga": {
+        "con_arbitro": 129,
+        "con_corners": 329,
+        "con_tarjetas": 315,
+        "ejecutada": true,
+        "partidos": 353
+      }
+    },
+    "m-5f61459f3705": {
+      "alineaciones": {
+        "estado": "sin_snapshot"
+      },
+      "arbitro": {
+        "designado": null,
+        "partidos_en_muestra_liga": 0
+      },
+      "liga_id": "194",
+      "muestra_liga": {
+        "con_arbitro": 134,
+        "con_corners": 141,
+        "con_tarjetas": 147,
+        "ejecutada": true,
+        "partidos": 149
+      }
+    },
+    "m-66c2243894e2": {
+      "alineaciones": {
+        "estado": "sin_snapshot"
+      },
+      "arbitro": {
+        "designado": null,
+        "partidos_en_muestra_liga": 0
+      },
+      "liga_id": "277",
+      "muestra_liga": {
+        "con_arbitro": 64,
+        "con_corners": 157,
+        "con_tarjetas": 152,
+        "ejecutada": true,
+        "partidos": 158
+      }
+    },
+    "m-6defd1d4a318": {
+      "alineaciones": {
+        "estado": "sin_snapshot"
+      },
+      "arbitro": {
+        "designado": "E. Garcia",
+        "partidos_en_muestra_liga": 16
+      },
+      "liga_id": "330",
+      "muestra_liga": {
+        "con_arbitro": 351,
+        "con_corners": 357,
+        "con_tarjetas": 353,
+        "ejecutada": true,
+        "partidos": 361
+      }
+    },
+    "m-713fb4e0e2d1": {
+      "alineaciones": {
+        "estado": "sin_snapshot"
+      },
+      "arbitro": {
+        "designado": null,
+        "partidos_en_muestra_liga": 0
+      },
+      "liga_id": "212",
+      "muestra_liga": {
+        "con_arbitro": 129,
+        "con_corners": 329,
+        "con_tarjetas": 315,
+        "ejecutada": true,
+        "partidos": 353
+      }
+    },
+    "m-732e123b2f38": {
+      "alineaciones": {
+        "estado": "sin_snapshot"
+      },
+      "arbitro": {
+        "designado": null,
+        "partidos_en_muestra_liga": 0
+      },
+      "liga_id": "194",
+      "muestra_liga": {
+        "con_arbitro": 134,
+        "con_corners": 141,
+        "con_tarjetas": 147,
+        "ejecutada": true,
+        "partidos": 149
+      }
+    },
+    "m-73803c58b87c": {
+      "alineaciones": {
+        "estado": "sin_snapshot"
+      },
+      "arbitro": {
+        "designado": null,
+        "partidos_en_muestra_liga": 0
+      },
+      "liga_id": "8105",
+      "muestra_liga": {
+        "con_arbitro": 16,
+        "con_corners": 30,
+        "con_tarjetas": 25,
+        "ejecutada": true,
+        "partidos": 31
+      }
+    },
+    "m-7c3216d53446": {
+      "alineaciones": {
+        "estado": "sin_snapshot"
+      },
+      "arbitro": {
+        "designado": null,
+        "partidos_en_muestra_liga": 0
+      },
+      "liga_id": "8092",
+      "muestra_liga": {
+        "con_arbitro": 0,
+        "con_corners": 48,
+        "con_tarjetas": 2,
+        "ejecutada": true,
+        "partidos": 55
+      }
+    },
+    "m-80a13a1061bb": {
+      "alineaciones": {
+        "estado": "sin_snapshot"
+      },
+      "arbitro": {
+        "designado": "Rade Obrenovič, Slovenia",
+        "partidos_en_muestra_liga": 2
+      },
+      "liga_id": "3",
+      "muestra_liga": {
+        "con_arbitro": 151,
+        "con_corners": 152,
+        "con_tarjetas": 146,
+        "ejecutada": true,
+        "partidos": 152
+      }
+    },
+    "m-80e2ef55c9e9": {
+      "alineaciones": {
+        "estado": "sin_snapshot"
+      },
+      "arbitro": {
+        "designado": null,
+        "partidos_en_muestra_liga": 0
+      },
+      "liga_id": "8092",
+      "muestra_liga": {
+        "con_arbitro": 0,
+        "con_corners": 48,
+        "con_tarjetas": 2,
+        "ejecutada": true,
+        "partidos": 55
+      }
+    },
+    "m-82962b840d89": {
+      "alineaciones": {
+        "estado": "sin_snapshot"
+      },
+      "arbitro": {
+        "designado": "Davide Massa, Italy",
+        "partidos_en_muestra_liga": 3
+      },
+      "liga_id": "3",
+      "muestra_liga": {
+        "con_arbitro": 151,
+        "con_corners": 152,
+        "con_tarjetas": 146,
+        "ejecutada": true,
+        "partidos": 152
+      }
+    },
+    "m-865cebc1f44a": {
+      "alineaciones": {
+        "estado": "sin_snapshot"
+      },
+      "arbitro": {
+        "designado": null,
+        "partidos_en_muestra_liga": 0
+      },
+      "liga_id": "8092",
+      "muestra_liga": {
+        "con_arbitro": 0,
+        "con_corners": 48,
+        "con_tarjetas": 2,
+        "ejecutada": true,
+        "partidos": 55
+      }
+    },
+    "m-867029deffcf": {
+      "alineaciones": {
+        "estado": "sin_snapshot"
+      },
+      "arbitro": {
+        "designado": null,
+        "partidos_en_muestra_liga": 0
+      },
+      "liga_id": "141",
+      "muestra_liga": {
+        "con_arbitro": 192,
+        "con_corners": 200,
+        "con_tarjetas": 193,
+        "ejecutada": true,
+        "partidos": 200
+      }
+    },
+    "m-870f0eb6c1c1": {
+      "alineaciones": {
+        "estado": "sin_snapshot"
+      },
+      "arbitro": {
+        "designado": null,
+        "partidos_en_muestra_liga": 0
+      },
+      "liga_id": "475",
+      "muestra_liga": {
+        "con_arbitro": 7,
+        "con_corners": 58,
+        "con_tarjetas": 16,
+        "ejecutada": true,
+        "partidos": 61
+      }
+    },
+    "m-872073f53465": {
+      "alineaciones": {
+        "estado": "sin_snapshot"
+      },
+      "arbitro": {
+        "designado": null,
+        "partidos_en_muestra_liga": 0
+      },
+      "liga_id": "209",
+      "muestra_liga": {
+        "con_arbitro": 223,
+        "con_corners": 213,
+        "con_tarjetas": 199,
+        "ejecutada": true,
+        "partidos": 223
+      }
+    },
+    "m-8c69ad7b0aeb": {
+      "alineaciones": {
+        "estado": "sin_snapshot"
+      },
+      "arbitro": {
+        "designado": "F. Ossa Orozco",
+        "partidos_en_muestra_liga": 4
+      },
+      "liga_id": "120",
+      "muestra_liga": {
+        "con_arbitro": 257,
+        "con_corners": 256,
+        "con_tarjetas": 253,
+        "ejecutada": true,
+        "partidos": 262
+      }
+    },
+    "m-93492fc1a6a4": {
+      "alineaciones": {
+        "estado": "sin_snapshot"
+      },
+      "arbitro": {
+        "designado": null,
+        "partidos_en_muestra_liga": 0
+      },
+      "liga_id": "209",
+      "muestra_liga": {
+        "con_arbitro": 223,
+        "con_corners": 213,
+        "con_tarjetas": 199,
+        "ejecutada": true,
+        "partidos": 223
+      }
+    },
+    "m-981feae4c011": {
+      "alineaciones": {
+        "estado": "sin_snapshot"
+      },
+      "arbitro": {
+        "designado": null,
+        "partidos_en_muestra_liga": 0
+      },
+      "liga_id": "235",
+      "muestra_liga": {
+        "con_arbitro": 203,
+        "con_corners": 193,
+        "con_tarjetas": 198,
+        "ejecutada": true,
+        "partidos": 205
+      }
+    },
+    "m-98d963a1f73c": {
+      "alineaciones": {
+        "estado": "sin_snapshot"
+      },
+      "arbitro": {
+        "designado": null,
+        "partidos_en_muestra_liga": 0
+      },
+      "liga_id": "209",
+      "muestra_liga": {
+        "con_arbitro": 223,
+        "con_corners": 213,
+        "con_tarjetas": 199,
+        "ejecutada": true,
+        "partidos": 223
+      }
+    },
+    "m-9f487782d0fd": {
+      "alineaciones": {
+        "estado": "sin_snapshot"
+      },
+      "arbitro": {
+        "designado": null,
+        "partidos_en_muestra_liga": 0
+      },
+      "liga_id": "141",
+      "muestra_liga": {
+        "con_arbitro": 192,
+        "con_corners": 200,
+        "con_tarjetas": 193,
+        "ejecutada": true,
+        "partidos": 200
+      }
+    },
+    "m-a478900d38b8": {
+      "alineaciones": {
+        "estado": "sin_snapshot"
+      },
+      "arbitro": {
+        "designado": "Istvan Kovacs, Romania",
+        "partidos_en_muestra_liga": 1
+      },
+      "liga_id": "3",
+      "muestra_liga": {
+        "con_arbitro": 151,
+        "con_corners": 152,
+        "con_tarjetas": 146,
+        "ejecutada": true,
+        "partidos": 152
+      }
+    },
+    "m-a5f1ae4bbfaf": {
+      "alineaciones": {
+        "estado": "sin_snapshot"
+      },
+      "arbitro": {
+        "designado": null,
+        "partidos_en_muestra_liga": 0
+      },
+      "liga_id": "346",
+      "muestra_liga": {
+        "con_arbitro": 13,
+        "con_corners": 46,
+        "con_tarjetas": 13,
+        "ejecutada": true,
+        "partidos": 85
+      }
+    },
+    "m-ac9203be9875": {
+      "alineaciones": {
+        "estado": "sin_snapshot"
+      },
+      "arbitro": {
+        "designado": null,
+        "partidos_en_muestra_liga": 0
+      },
+      "liga_id": "235",
+      "muestra_liga": {
+        "con_arbitro": 203,
+        "con_corners": 193,
+        "con_tarjetas": 198,
+        "ejecutada": true,
+        "partidos": 205
+      }
+    },
+    "m-af8f4188d956": {
+      "alineaciones": {
+        "estado": "sin_snapshot"
+      },
+      "arbitro": {
+        "designado": null,
+        "partidos_en_muestra_liga": 0
+      },
+      "liga_id": "235",
+      "muestra_liga": {
+        "con_arbitro": 203,
+        "con_corners": 193,
+        "con_tarjetas": 198,
+        "ejecutada": true,
+        "partidos": 205
+      }
+    },
+    "m-b439c1754229": {
+      "alineaciones": {
+        "estado": "sin_snapshot"
+      },
+      "arbitro": {
+        "designado": null,
+        "partidos_en_muestra_liga": 0
+      },
+      "liga_id": "8092",
+      "muestra_liga": {
+        "con_arbitro": 0,
+        "con_corners": 48,
+        "con_tarjetas": 2,
+        "ejecutada": true,
+        "partidos": 55
+      }
+    },
+    "m-baa92fd83e8e": {
+      "alineaciones": {
+        "estado": "sin_snapshot"
+      },
+      "arbitro": {
+        "designado": null,
+        "partidos_en_muestra_liga": 0
+      },
+      "liga_id": "212",
+      "muestra_liga": {
+        "con_arbitro": 129,
+        "con_corners": 329,
+        "con_tarjetas": 315,
+        "ejecutada": true,
+        "partidos": 353
+      }
+    },
+    "m-bac03650789b": {
+      "alineaciones": {
+        "estado": "sin_snapshot"
+      },
+      "arbitro": {
+        "designado": null,
+        "partidos_en_muestra_liga": 0
+      },
+      "liga_id": "212",
+      "muestra_liga": {
+        "con_arbitro": 129,
+        "con_corners": 329,
+        "con_tarjetas": 315,
+        "ejecutada": true,
+        "partidos": 353
+      }
+    },
+    "m-bd92185a34d8": {
+      "alineaciones": {
+        "estado": "sin_snapshot"
+      },
+      "arbitro": {
+        "designado": null,
+        "partidos_en_muestra_liga": 0
+      },
+      "liga_id": "209",
+      "muestra_liga": {
+        "con_arbitro": 223,
+        "con_corners": 213,
+        "con_tarjetas": 199,
+        "ejecutada": true,
+        "partidos": 223
+      }
+    },
+    "m-c103305722f6": {
+      "alineaciones": {
+        "estado": "sin_snapshot"
+      },
+      "arbitro": {
+        "designado": null,
+        "partidos_en_muestra_liga": 0
+      },
+      "liga_id": "8092",
+      "muestra_liga": {
+        "con_arbitro": 0,
+        "con_corners": 48,
+        "con_tarjetas": 2,
+        "ejecutada": true,
+        "partidos": 55
+      }
+    },
+    "m-d374d3eea610": {
+      "alineaciones": {
+        "estado": "sin_snapshot"
+      },
+      "arbitro": {
+        "designado": null,
+        "partidos_en_muestra_liga": 0
+      },
+      "liga_id": "8092",
+      "muestra_liga": {
+        "con_arbitro": 0,
+        "con_corners": 48,
+        "con_tarjetas": 2,
+        "ejecutada": true,
+        "partidos": 55
+      }
+    },
+    "m-d8aedccddd35": {
+      "alineaciones": {
+        "estado": "sin_snapshot"
+      },
+      "arbitro": {
+        "designado": null,
+        "partidos_en_muestra_liga": 0
+      },
+      "liga_id": "212",
+      "muestra_liga": {
+        "con_arbitro": 129,
+        "con_corners": 329,
+        "con_tarjetas": 315,
+        "ejecutada": true,
+        "partidos": 353
+      }
+    },
+    "m-df504f7da634": {
+      "alineaciones": {
+        "estado": "sin_snapshot"
+      },
+      "arbitro": {
+        "designado": "Nick Walsh, Scotland",
+        "partidos_en_muestra_liga": 2
+      },
+      "liga_id": "3",
+      "muestra_liga": {
+        "con_arbitro": 151,
+        "con_corners": 152,
+        "con_tarjetas": 146,
+        "ejecutada": true,
+        "partidos": 152
+      }
+    },
+    "m-e11629a467f2": {
+      "alineaciones": {
+        "estado": "sin_snapshot"
+      },
+      "arbitro": {
+        "designado": null,
+        "partidos_en_muestra_liga": 0
+      },
+      "liga_id": "235",
+      "muestra_liga": {
+        "con_arbitro": 203,
+        "con_corners": 193,
+        "con_tarjetas": 198,
+        "ejecutada": true,
+        "partidos": 205
+      }
+    },
+    "m-e8c6bce54746": {
+      "alineaciones": {
+        "estado": "sin_snapshot"
+      },
+      "arbitro": {
+        "designado": "Simone Sozza, Italy",
+        "partidos_en_muestra_liga": 1
+      },
+      "liga_id": "3",
+      "muestra_liga": {
+        "con_arbitro": 151,
+        "con_corners": 152,
+        "con_tarjetas": 146,
+        "ejecutada": true,
+        "partidos": 152
+      }
+    },
+    "m-f7ea487c3d0c": {
+      "alineaciones": {
+        "estado": "sin_snapshot"
+      },
+      "arbitro": {
+        "designado": "Luís Godinho, Portugal",
+        "partidos_en_muestra_liga": 1
+      },
+      "liga_id": "3",
+      "muestra_liga": {
+        "con_arbitro": 151,
+        "con_corners": 152,
+        "con_tarjetas": 146,
+        "ejecutada": true,
+        "partidos": 152
+      }
+    },
+    "m-fa8fd4e6aba1": {
+      "alineaciones": {
+        "estado": "sin_snapshot"
+      },
+      "arbitro": {
+        "designado": null,
+        "partidos_en_muestra_liga": 0
+      },
+      "liga_id": "212",
+      "muestra_liga": {
+        "con_arbitro": 129,
+        "con_corners": 329,
+        "con_tarjetas": 315,
+        "ejecutada": true,
+        "partidos": 353
+      }
+    },
+    "m-fe7ad0eacfe2": {
+      "alineaciones": {
+        "estado": "sin_snapshot"
+      },
+      "arbitro": {
+        "designado": null,
+        "partidos_en_muestra_liga": 0
+      },
+      "liga_id": "475",
+      "muestra_liga": {
+        "con_arbitro": 7,
+        "con_corners": 58,
+        "con_tarjetas": 16,
+        "ejecutada": true,
+        "partidos": 61
+      }
+    }
+  },
+  "entradas_catalogo": 326,
+  "errores_proveedores": [],
+  "filas": 18908,
+  "investigacion": {
+    "canales": [
+      "datos_deportivos",
+      "apifootball (agregador)",
+      "football-data (fixtures, Bet365)",
+      "thestatsapi (agregador)"
+    ],
+    "combinaciones_requeridas": 75632,
+    "estado": "INVESTIGACION_COMPLETA",
+    "incidencias": [],
+    "por_canal": {
+      "apifootball (agregador)": {
+        "cobertura_informativa": 1.0,
+        "consultado_no_encontrado": 1342,
+        "encontrado": 1790,
+        "fuente_no_ofrece": 15776,
+        "no_verificable": 0,
+        "pendiente": 0,
+        "registradas": 18908,
+        "requeridas": 18908,
+        "semantica": "encontrado = la fuente, consultada para este partido, devolvió precio; consultado_no_encontrado = consultada sin precio; fuente_no_ofrece = la fuente no publica el mercado; pendiente = sin constancia de consulta o adaptador sin mapear"
+      },
+      "datos_deportivos": {
+        "campo_ausente_en_historial_local": 4192,
+        "campo_presente_en_historial_local": 14716,
+        "cobertura_informativa": 1.0,
+        "con_consulta_externa_registrada": 18908,
+        "consultado_no_encontrado": 4192,
+        "encontrado": 14716,
+        "fuente_no_ofrece": 0,
+        "no_verificable": 0,
+        "pendiente": 0,
+        "registradas": 18908,
+        "requeridas": 18908,
+        "semantica": "encontrado = el historial obtenido por una consulta externa REGISTRADA contiene el campo que el mercado necesita en ≥1 fila; consultado_no_encontrado = el campo falta en todas las filas; NO significa estadística suficiente (analítica) ni que el mercado/línea concreto se consultara en una fuente externa",
+        "sin_constancia_de_consulta_externa": 0
+      },
+      "football-data (fixtures, Bet365)": {
+        "cobertura_informativa": 1.0,
+        "consultado_no_encontrado": 0,
+        "encontrado": 0,
+        "fuente_no_ofrece": 18908,
+        "no_verificable": 0,
+        "pendiente": 0,
+        "registradas": 18908,
+        "requeridas": 18908,
+        "semantica": "encontrado = la fuente, consultada para este partido, devolvió precio; consultado_no_encontrado = consultada sin precio; fuente_no_ofrece = la fuente no publica el mercado; pendiente = sin constancia de consulta o adaptador sin mapear"
+      },
+      "thestatsapi (agregador)": {
+        "cobertura_informativa": 1.0,
+        "consultado_no_encontrado": 8158,
+        "encontrado": 4183,
+        "fuente_no_ofrece": 6567,
+        "no_verificable": 0,
+        "pendiente": 0,
+        "registradas": 18908,
+        "requeridas": 18908,
+        "semantica": "encontrado = la fuente, consultada para este partido, devolvió precio; consultado_no_encontrado = consultada sin precio; fuente_no_ofrece = la fuente no publica el mercado; pendiente = sin constancia de consulta o adaptador sin mapear"
+      }
+    }
+  },
+  "investigacion_certificada": true,
+  "modo": "enforce",
+  "partidos_autorizados": 58,
+  "partidos_ids": [
+    "m-18851448cf85",
+    "m-05e1b9d8b71c",
+    "m-000983169e80",
+    "m-18ef86371005",
+    "m-bac03650789b",
+    "m-3b5f764d0d87",
+    "m-af8f4188d956",
+    "m-0b860bd9dd84",
+    "m-732e123b2f38",
+    "m-fe7ad0eacfe2",
+    "m-82962b840d89",
+    "m-e8c6bce54746",
+    "m-6defd1d4a318",
+    "m-7c3216d53446",
+    "m-9f487782d0fd",
+    "m-f7ea487c3d0c",
+    "m-0616c91877ea",
+    "m-c103305722f6",
+    "m-865cebc1f44a",
+    "m-2487c73a87b3",
+    "m-867029deffcf",
+    "m-2ccbb63bbe6e",
+    "m-5253ab17ca20",
+    "m-51f67d68dce2",
+    "m-66c2243894e2",
+    "m-73803c58b87c",
+    "m-bd92185a34d8",
+    "m-5a105b152e44",
+    "m-872073f53465",
+    "m-b439c1754229",
+    "m-80a13a1061bb",
+    "m-05b538f004f1",
+    "m-93492fc1a6a4",
+    "m-3dcad007162c",
+    "m-baa92fd83e8e",
+    "m-981feae4c011",
+    "m-5f61459f3705",
+    "m-d374d3eea610",
+    "m-e11629a467f2",
+    "m-80e2ef55c9e9",
+    "m-a478900d38b8",
+    "m-8c69ad7b0aeb",
+    "m-870f0eb6c1c1",
+    "m-0b05f4ae20d3",
+    "m-4d7e3ddc5a96",
+    "m-fa8fd4e6aba1",
+    "m-df504f7da634",
+    "m-04f6561f11cb",
+    "m-4326596558b8",
+    "m-0fb1491b51a7",
+    "m-41a0b7fb5867",
+    "m-713fb4e0e2d1",
+    "m-ac9203be9875",
+    "m-348929b51333",
+    "m-4aff4c4ba6c5",
+    "m-d8aedccddd35",
+    "m-98d963a1f73c",
+    "m-a5f1ae4bbfaf"
+  ],
+  "precios": {
+    "estado": "SIN_PRECIOS_REALES",
+    "filas_con_precio_que_cumple_requisitos": 0,
+    "incidencias": [
+      {
+        "cantidad": 18908,
+        "ejemplos": [],
+        "tipo": "sin_precios_reales_verificados"
+      }
+    ],
+    "limite_individual": 2.1,
+    "nota": "cumplir los requisitos de PRECIO no equivale a estar preparado para apostar (ver preparacion_para_apostar)",
+    "por_estado": {
+      "no_consultado": 0,
+      "no_verificable": 118,
+      "otra_fuente": 4523,
+      "real_verificada": 0,
+      "sin_precio": 14267
+    }
+  },
+  "preparacion_para_apostar": {
+    "estado": "NINGUNA_FILA_APTA",
+    "filas": 18908,
+    "filas_aptas": 0,
+    "modelo_validacion": "parcial",
+    "nota": "estado independiente de investigacion_certificada: con el modelo sin validar no hay filas aptas aunque la investigación esté certificada",
+    "requisitos_incumplidos": {
+      "cuota_dentro_del_limite": 16440,
+      "datos_suficientes": 8254,
+      "estimador_propio_disponible": 6384,
+      "investigacion_resuelta": 0,
+      "modelo_validado": 18908,
+      "precio_real_verificado": 18908,
+      "revision_agentes_completa": 18908
+    }
+  },
+  "revision_agentes": {
+    "estado": "NO_EJECUTADA",
+    "incidencias": 0,
+    "unidades_esperadas": null
+  },
+  "semantica": {
+    "investigacion_certificada": "SOLO significa que cada combinación requerida partido × mercado × canal tiene un registro resuelto con evidencia (modo enforce). NO aprueba apostar.",
+    "preparacion_para_apostar": "estado independiente: exige precio real verificado, cuota ≤ límite, datos suficientes, estimador propio y modelo validado; el modelo no validado impide recomendar."
+  }
+}

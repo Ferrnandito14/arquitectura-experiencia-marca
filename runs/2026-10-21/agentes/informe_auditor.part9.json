@@ -1,0 +1,272 @@
+{
+ "agente": "auditor",
+ "version_contrato": 1,
+ "run": "runs/2026-10-21",
+ "unidades": [
+  {
+   "unit_id": "m-fa8fd4e6aba1|1.ª parte goles",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 4,3pp (p .68 vs 1/1.382); muestra J2 n=353. Alineaciones sin snapshot: rotacion no confirmada.",
+   "evidencia": [
+    "paquete:m-fa8fd4e6aba1|1.ª parte goles"
+   ]
+  },
+  {
+   "unit_id": "m-fa8fd4e6aba1|1.ª parte resultado",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 4,4pp; empate 1P p .43 vs mercado .46. Sin objecion real; un gol temprano es riesgo inherente.",
+   "evidencia": [
+    "paquete:m-fa8fd4e6aba1|1.ª parte resultado"
+   ]
+  },
+  {
+   "unit_id": "m-fa8fd4e6aba1|empate no válido",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 7,9pp en visitante; derivado del 1X2. Misma pierna logica que 1X2/AH0/DNB: no apilar.",
+   "evidencia": [
+    "paquete:m-fa8fd4e6aba1|empate no válido"
+   ]
+  },
+  {
+   "unit_id": "m-fa8fd4e6aba1|goles",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 9,5pp (under 3.5); over 2.5 p .514 vs .513. Sin objecion especifica.",
+   "evidencia": [
+    "paquete:m-fa8fd4e6aba1|goles"
+   ]
+  },
+  {
+   "unit_id": "m-fa8fd4e6aba1|goles total entero",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 3,2pp; liquidacion con push en lineas enteras, p derivada de goles.",
+   "evidencia": [
+    "paquete:m-fa8fd4e6aba1|goles total entero"
+   ]
+  },
+  {
+   "unit_id": "m-fa8fd4e6aba1|hándicap",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 8,5pp. Correlacion total con 1X2/DC/EH del mismo partido; no combinar. Deportivo afirma rotacion alta sin snapshot de alineaciones.",
+   "evidencia": [
+    "paquete:m-fa8fd4e6aba1|hándicap"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "nota",
+     "problema": "afirmacion_sin_evidencia"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-fa8fd4e6aba1|hándicap asiático entero",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 8,8pp; AH0 repite cuotas del DNB (1.6/2.15), no es evidencia independiente. Push en enteros.",
+   "evidencia": [
+    "paquete:m-fa8fd4e6aba1|hándicap asiático entero"
+   ]
+  },
+  {
+   "unit_id": "m-fa8fd4e6aba1|hándicap europeo",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 7,6pp; derivado del mismo 1X2, correlacion total con resultado/AH.",
+   "evidencia": [
+    "paquete:m-fa8fd4e6aba1|hándicap europeo"
+   ]
+  },
+  {
+   "unit_id": "m-fa8fd4e6aba1|resultado",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 5,0pp; local .456 vs .444. Sin objecion real; rotacion sin snapshot de alineaciones. Deportivo afirma rotacion alta sin snapshot de alineaciones.",
+   "evidencia": [
+    "paquete:m-fa8fd4e6aba1|resultado"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "nota",
+     "problema": "afirmacion_sin_evidencia"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-fa8fd4e6aba1|córners",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Solo 6/46 lineas con precio; under 10.5 p .377 vs mercado .524 (-14,7pp, rozando 15pp). Resto sin contraste.",
+   "excepciones": [
+    {
+     "entry_id": "corners.total.under.10.5",
+     "objecion": "brecha_muestra_mercado"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-fa8fd4e6aba1|córners"
+   ]
+  },
+  {
+   "unit_id": "m-fa8fd4e6aba1|tarjetas",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Arbitro sin designar y sin contraste de mercado; tarjetas en puntos: confirmar regla de liquidacion (roja) antes de usar.",
+   "evidencia": [
+    "paquete:m-fa8fd4e6aba1|tarjetas"
+   ]
+  },
+  {
+   "unit_id": "m-fe7ad0eacfe2|1.ª parte goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador sin probabilidad calculada y sin precio: nada que evaluar. Liga 475 muestra n=61, alineaciones sin snapshot.",
+   "evidencia": [
+    "paquete:m-fe7ad0eacfe2|1.ª parte goles"
+   ]
+  },
+  {
+   "unit_id": "m-fe7ad0eacfe2|1.ª parte resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador sin probabilidad calculada y sin precio: nada que evaluar. Liga 475 muestra n=61, alineaciones sin snapshot.",
+   "evidencia": [
+    "paquete:m-fe7ad0eacfe2|1.ª parte resultado"
+   ]
+  },
+  {
+   "unit_id": "m-fe7ad0eacfe2|córners",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin p_modelo ni precio; muestra liga 475 n=61 (58 con corners). Nada que evaluar.",
+   "evidencia": [
+    "paquete:m-fe7ad0eacfe2|córners"
+   ]
+  },
+  {
+   "unit_id": "m-fe7ad0eacfe2|doble oportunidad",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador sin probabilidad calculada y sin precio: nada que evaluar. Liga 475 muestra n=61, alineaciones sin snapshot.",
+   "evidencia": [
+    "paquete:m-fe7ad0eacfe2|doble oportunidad"
+   ]
+  },
+  {
+   "unit_id": "m-fe7ad0eacfe2|empate no válido",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador sin probabilidad calculada y sin precio: nada que evaluar. Liga 475 muestra n=61, alineaciones sin snapshot.",
+   "evidencia": [
+    "paquete:m-fe7ad0eacfe2|empate no válido"
+   ]
+  },
+  {
+   "unit_id": "m-fe7ad0eacfe2|goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador sin probabilidad calculada y sin precio: nada que evaluar. Liga 475 muestra n=61, alineaciones sin snapshot.",
+   "evidencia": [
+    "paquete:m-fe7ad0eacfe2|goles"
+   ]
+  },
+  {
+   "unit_id": "m-fe7ad0eacfe2|goles por equipo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador sin probabilidad calculada y sin precio: nada que evaluar. Liga 475 muestra n=61, alineaciones sin snapshot.",
+   "evidencia": [
+    "paquete:m-fe7ad0eacfe2|goles por equipo"
+   ]
+  },
+  {
+   "unit_id": "m-fe7ad0eacfe2|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador sin probabilidad calculada y sin precio: nada que evaluar. Liga 475 muestra n=61, alineaciones sin snapshot.",
+   "evidencia": [
+    "paquete:m-fe7ad0eacfe2|goles total entero"
+   ]
+  },
+  {
+   "unit_id": "m-fe7ad0eacfe2|hándicap",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador sin probabilidad calculada y sin precio: nada que evaluar. Liga 475 muestra n=61, alineaciones sin snapshot.",
+   "evidencia": [
+    "paquete:m-fe7ad0eacfe2|hándicap"
+   ]
+  },
+  {
+   "unit_id": "m-fe7ad0eacfe2|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador sin probabilidad calculada y sin precio: nada que evaluar. Liga 475 muestra n=61, alineaciones sin snapshot.",
+   "evidencia": [
+    "paquete:m-fe7ad0eacfe2|hándicap asiático entero"
+   ]
+  },
+  {
+   "unit_id": "m-fe7ad0eacfe2|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador sin probabilidad calculada y sin precio: nada que evaluar. Liga 475 muestra n=61, alineaciones sin snapshot.",
+   "evidencia": [
+    "paquete:m-fe7ad0eacfe2|hándicap europeo"
+   ]
+  },
+  {
+   "unit_id": "m-fe7ad0eacfe2|resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador sin probabilidad calculada y sin precio: nada que evaluar. Liga 475 muestra n=61, alineaciones sin snapshot.",
+   "evidencia": [
+    "paquete:m-fe7ad0eacfe2|resultado"
+   ]
+  },
+  {
+   "unit_id": "m-fe7ad0eacfe2|tarjetas",
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Solo 16/61 partidos de liga 475 con tarjetas, 7 con arbitro; arbitro s/d; sin p_modelo ni precio.",
+   "evidencia": [
+    "paquete:m-fe7ad0eacfe2|tarjetas"
+   ]
+  }
+ ],
+ "limitaciones": [
+  "Sin consulta a API ni fuentes externas: auditoria sobre paquete; alineaciones sin snapshot, arbitros no designados."
+ ]
+}

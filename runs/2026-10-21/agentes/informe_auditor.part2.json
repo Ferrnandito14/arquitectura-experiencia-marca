@@ -1,0 +1,1420 @@
+{
+ "agente": "auditor",
+ "version_contrato": 1,
+ "run": "runs/2026-10-21",
+ "unidades": [
+  {
+   "unit_id": "m-0fb1491b51a7|1.ª parte goles",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Sin objecion especifica: n=10 J2, brecha max <12 pp vs mercado sin margen; arbitro s/d sin efecto en este mercado.",
+   "evidencia": [
+    "paquete:m-0fb1491b51a7|1.ª parte goles"
+   ]
+  },
+  {
+   "unit_id": "m-0fb1491b51a7|1.ª parte resultado",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Local rota ~6,3 cambios/partido con 4 d de descanso (rotation.json), sin cuantificar en p. Brecha vs mercado sin margen <12 pp.",
+   "evidencia": [
+    "paquete:m-0fb1491b51a7|1.ª parte resultado",
+    "archivo:runs/2026-10-21/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-0fb1491b51a7|córners",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Sin objecion especifica: n=10 J2, brecha max <12 pp vs mercado sin margen; arbitro s/d sin efecto en este mercado.",
+   "evidencia": [
+    "paquete:m-0fb1491b51a7|córners"
+   ]
+  },
+  {
+   "unit_id": "m-0fb1491b51a7|doble oportunidad",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Local rota ~6,3 cambios/partido con 4 d de descanso (rotation.json), sin cuantificar en p. Brecha vs mercado sin margen <12 pp.",
+   "evidencia": [
+    "paquete:m-0fb1491b51a7|doble oportunidad",
+    "archivo:runs/2026-10-21/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-0fb1491b51a7|empate no válido",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Local rota ~6,3 cambios/partido con 4 d de descanso (rotation.json), sin cuantificar en p. Brecha vs mercado sin margen <12 pp.",
+   "evidencia": [
+    "paquete:m-0fb1491b51a7|empate no válido",
+    "archivo:runs/2026-10-21/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-0fb1491b51a7|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador ni datos de la muestra para fueras de juego; no evaluable.",
+   "evidencia": [
+    "paquete:m-0fb1491b51a7|fueras de juego"
+   ]
+  },
+  {
+   "unit_id": "m-0fb1491b51a7|goles",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 9,7 pp (BTTS); n=10 J2. Verificador marca precio_anomalo pero pares over/under y escalera de cuotas son coherentes (sumas 1/c 1,04-1,08).",
+   "evidencia": [
+    "paquete:m-0fb1491b51a7|goles"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "verificador",
+     "campo": "discrepancias",
+     "problema": "valor_contradice_paquete"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-0fb1491b51a7|goles por equipo",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Sin objecion especifica: n=10 J2, brecha max <12 pp vs mercado sin margen; arbitro s/d sin efecto en este mercado.",
+   "evidencia": [
+    "paquete:m-0fb1491b51a7|goles por equipo"
+   ]
+  },
+  {
+   "unit_id": "m-0fb1491b51a7|goles total entero",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Sin objecion especifica: n=10 J2, brecha max <12 pp vs mercado sin margen; arbitro s/d sin efecto en este mercado.",
+   "evidencia": [
+    "paquete:m-0fb1491b51a7|goles total entero"
+   ]
+  },
+  {
+   "unit_id": "m-0fb1491b51a7|hándicap",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Local rota ~6,3 cambios/partido con 4 d de descanso (rotation.json), sin cuantificar en p. Brecha vs mercado sin margen <12 pp.",
+   "evidencia": [
+    "paquete:m-0fb1491b51a7|hándicap",
+    "archivo:runs/2026-10-21/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-0fb1491b51a7|hándicap asiático entero",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Local rota ~6,3 cambios/partido con 4 d de descanso (rotation.json), sin cuantificar en p. Brecha vs mercado sin margen <12 pp.",
+   "evidencia": [
+    "paquete:m-0fb1491b51a7|hándicap asiático entero",
+    "archivo:runs/2026-10-21/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-0fb1491b51a7|hándicap europeo",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Local rota ~6,3 cambios/partido con 4 d de descanso (rotation.json), sin cuantificar en p. Brecha vs mercado sin margen <12 pp.",
+   "evidencia": [
+    "paquete:m-0fb1491b51a7|hándicap europeo",
+    "archivo:runs/2026-10-21/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-0fb1491b51a7|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Remates/SoT nulos en toda la muestra J2 (shots null): estimador sin datos, no rankeable.",
+   "evidencia": [
+    "paquete:m-0fb1491b51a7|remates"
+   ]
+  },
+  {
+   "unit_id": "m-0fb1491b51a7|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Remates/SoT nulos en toda la muestra J2 (shots null): estimador sin datos, no rankeable.",
+   "evidencia": [
+    "paquete:m-0fb1491b51a7|remates a puerta"
+   ]
+  },
+  {
+   "unit_id": "m-0fb1491b51a7|resultado",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Local rota ~6,3 cambios/partido con 4 d de descanso (rotation.json), sin cuantificar en p. Brecha vs mercado sin margen <12 pp.",
+   "evidencia": [
+    "paquete:m-0fb1491b51a7|resultado",
+    "archivo:runs/2026-10-21/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-0fb1491b51a7|tarjetas",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Arbitro sin designar y puntos n=9 (2,2/2,8); sin brecha contrastable. Sin objecion especifica de dato.",
+   "evidencia": [
+    "paquete:m-0fb1491b51a7|tarjetas"
+   ]
+  },
+  {
+   "unit_id": "m-18851448cf85|1.ª parte goles",
+   "objecion": "dato_defectuoso",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Partido etiquetado \"CAF CL - Final\" pero apifootball lista la ronda 21-23 oct como vuelta de eliminatoria (resto de \"Final\" 16-18 oct ya jugados); local n=2; sin estimador.",
+   "evidencia": [
+    "paquete:m-18851448cf85|1.ª parte goles",
+    "apif_query:get_events from=2026-10-14 to=2026-10-23 league_id=346",
+    "apif_query:get_events match_id=861289",
+    "archivo:runs/2026-10-21/rotation.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "nota",
+     "problema": "afirmacion_sin_evidencia"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-18851448cf85|1.ª parte resultado",
+   "objecion": "dato_defectuoso",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Partido etiquetado \"CAF CL - Final\" pero apifootball lista la ronda 21-23 oct como vuelta de eliminatoria (resto de \"Final\" 16-18 oct ya jugados); local n=2; sin estimador.",
+   "evidencia": [
+    "paquete:m-18851448cf85|1.ª parte resultado",
+    "apif_query:get_events from=2026-10-14 to=2026-10-23 league_id=346",
+    "apif_query:get_events match_id=861289",
+    "archivo:runs/2026-10-21/rotation.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "nota",
+     "problema": "afirmacion_sin_evidencia"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-18851448cf85|córners",
+   "objecion": "dato_defectuoso",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Partido etiquetado \"CAF CL - Final\" pero apifootball lista la ronda 21-23 oct como vuelta de eliminatoria (resto de \"Final\" 16-18 oct ya jugados); local n=2; sin estimador.",
+   "evidencia": [
+    "paquete:m-18851448cf85|córners",
+    "apif_query:get_events from=2026-10-14 to=2026-10-23 league_id=346",
+    "apif_query:get_events match_id=861289",
+    "archivo:runs/2026-10-21/rotation.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "nota",
+     "problema": "afirmacion_sin_evidencia"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-18851448cf85|doble oportunidad",
+   "objecion": "dato_defectuoso",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Partido etiquetado \"CAF CL - Final\" pero apifootball lista la ronda 21-23 oct como vuelta de eliminatoria (resto de \"Final\" 16-18 oct ya jugados); local n=2; sin estimador.",
+   "evidencia": [
+    "paquete:m-18851448cf85|doble oportunidad",
+    "apif_query:get_events from=2026-10-14 to=2026-10-23 league_id=346",
+    "apif_query:get_events match_id=861289",
+    "archivo:runs/2026-10-21/rotation.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "nota",
+     "problema": "afirmacion_sin_evidencia"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-18851448cf85|empate no válido",
+   "objecion": "dato_defectuoso",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Partido etiquetado \"CAF CL - Final\" pero apifootball lista la ronda 21-23 oct como vuelta de eliminatoria (resto de \"Final\" 16-18 oct ya jugados); local n=2; sin estimador.",
+   "evidencia": [
+    "paquete:m-18851448cf85|empate no válido",
+    "apif_query:get_events from=2026-10-14 to=2026-10-23 league_id=346",
+    "apif_query:get_events match_id=861289",
+    "archivo:runs/2026-10-21/rotation.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "nota",
+     "problema": "afirmacion_sin_evidencia"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-18851448cf85|fueras de juego",
+   "objecion": "dato_defectuoso",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Partido etiquetado \"CAF CL - Final\" pero apifootball lista la ronda 21-23 oct como vuelta de eliminatoria (resto de \"Final\" 16-18 oct ya jugados); local n=2; sin estimador.",
+   "evidencia": [
+    "paquete:m-18851448cf85|fueras de juego",
+    "apif_query:get_events from=2026-10-14 to=2026-10-23 league_id=346",
+    "apif_query:get_events match_id=861289",
+    "archivo:runs/2026-10-21/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-18851448cf85|goles",
+   "objecion": "dato_defectuoso",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Partido etiquetado \"CAF CL - Final\" pero apifootball lista la ronda 21-23 oct como vuelta de eliminatoria (resto de \"Final\" 16-18 oct ya jugados); local n=2; sin estimador.",
+   "evidencia": [
+    "paquete:m-18851448cf85|goles",
+    "apif_query:get_events from=2026-10-14 to=2026-10-23 league_id=346",
+    "apif_query:get_events match_id=861289",
+    "archivo:runs/2026-10-21/rotation.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "nota",
+     "problema": "afirmacion_sin_evidencia"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-18851448cf85|goles por equipo",
+   "objecion": "dato_defectuoso",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Partido etiquetado \"CAF CL - Final\" pero apifootball lista la ronda 21-23 oct como vuelta de eliminatoria (resto de \"Final\" 16-18 oct ya jugados); local n=2; sin estimador.",
+   "evidencia": [
+    "paquete:m-18851448cf85|goles por equipo",
+    "apif_query:get_events from=2026-10-14 to=2026-10-23 league_id=346",
+    "apif_query:get_events match_id=861289",
+    "archivo:runs/2026-10-21/rotation.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "nota",
+     "problema": "afirmacion_sin_evidencia"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-18851448cf85|goles total entero",
+   "objecion": "dato_defectuoso",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Partido etiquetado \"CAF CL - Final\" pero apifootball lista la ronda 21-23 oct como vuelta de eliminatoria (resto de \"Final\" 16-18 oct ya jugados); local n=2; sin estimador.",
+   "evidencia": [
+    "paquete:m-18851448cf85|goles total entero",
+    "apif_query:get_events from=2026-10-14 to=2026-10-23 league_id=346",
+    "apif_query:get_events match_id=861289",
+    "archivo:runs/2026-10-21/rotation.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "nota",
+     "problema": "afirmacion_sin_evidencia"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-18851448cf85|hándicap",
+   "objecion": "dato_defectuoso",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Partido etiquetado \"CAF CL - Final\" pero apifootball lista la ronda 21-23 oct como vuelta de eliminatoria (resto de \"Final\" 16-18 oct ya jugados); local n=2; sin estimador.",
+   "evidencia": [
+    "paquete:m-18851448cf85|hándicap",
+    "apif_query:get_events from=2026-10-14 to=2026-10-23 league_id=346",
+    "apif_query:get_events match_id=861289",
+    "archivo:runs/2026-10-21/rotation.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "nota",
+     "problema": "afirmacion_sin_evidencia"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-18851448cf85|hándicap asiático entero",
+   "objecion": "dato_defectuoso",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Partido etiquetado \"CAF CL - Final\" pero apifootball lista la ronda 21-23 oct como vuelta de eliminatoria (resto de \"Final\" 16-18 oct ya jugados); local n=2; sin estimador.",
+   "evidencia": [
+    "paquete:m-18851448cf85|hándicap asiático entero",
+    "apif_query:get_events from=2026-10-14 to=2026-10-23 league_id=346",
+    "apif_query:get_events match_id=861289",
+    "archivo:runs/2026-10-21/rotation.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "nota",
+     "problema": "afirmacion_sin_evidencia"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-18851448cf85|hándicap europeo",
+   "objecion": "dato_defectuoso",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Partido etiquetado \"CAF CL - Final\" pero apifootball lista la ronda 21-23 oct como vuelta de eliminatoria (resto de \"Final\" 16-18 oct ya jugados); local n=2; sin estimador.",
+   "evidencia": [
+    "paquete:m-18851448cf85|hándicap europeo",
+    "apif_query:get_events from=2026-10-14 to=2026-10-23 league_id=346",
+    "apif_query:get_events match_id=861289",
+    "archivo:runs/2026-10-21/rotation.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "nota",
+     "problema": "afirmacion_sin_evidencia"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-18851448cf85|remates",
+   "objecion": "dato_defectuoso",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Partido etiquetado \"CAF CL - Final\" pero apifootball lista la ronda 21-23 oct como vuelta de eliminatoria (resto de \"Final\" 16-18 oct ya jugados); local n=2; sin estimador.",
+   "evidencia": [
+    "paquete:m-18851448cf85|remates",
+    "apif_query:get_events from=2026-10-14 to=2026-10-23 league_id=346",
+    "apif_query:get_events match_id=861289",
+    "archivo:runs/2026-10-21/rotation.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "nota",
+     "problema": "afirmacion_sin_evidencia"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-18851448cf85|remates a puerta",
+   "objecion": "dato_defectuoso",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Partido etiquetado \"CAF CL - Final\" pero apifootball lista la ronda 21-23 oct como vuelta de eliminatoria (resto de \"Final\" 16-18 oct ya jugados); local n=2; sin estimador.",
+   "evidencia": [
+    "paquete:m-18851448cf85|remates a puerta",
+    "apif_query:get_events from=2026-10-14 to=2026-10-23 league_id=346",
+    "apif_query:get_events match_id=861289",
+    "archivo:runs/2026-10-21/rotation.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "nota",
+     "problema": "afirmacion_sin_evidencia"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-18851448cf85|resultado",
+   "objecion": "dato_defectuoso",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Partido etiquetado \"CAF CL - Final\" pero apifootball lista la ronda 21-23 oct como vuelta de eliminatoria (resto de \"Final\" 16-18 oct ya jugados); local n=2; sin estimador.",
+   "evidencia": [
+    "paquete:m-18851448cf85|resultado",
+    "apif_query:get_events from=2026-10-14 to=2026-10-23 league_id=346",
+    "apif_query:get_events match_id=861289",
+    "archivo:runs/2026-10-21/rotation.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "nota",
+     "problema": "afirmacion_sin_evidencia"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-18851448cf85|tarjetas",
+   "objecion": "dato_defectuoso",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Partido etiquetado \"CAF CL - Final\" pero apifootball lista la ronda 21-23 oct como vuelta de eliminatoria (resto de \"Final\" 16-18 oct ya jugados); local n=2; sin estimador.",
+   "evidencia": [
+    "paquete:m-18851448cf85|tarjetas",
+    "apif_query:get_events from=2026-10-14 to=2026-10-23 league_id=346",
+    "apif_query:get_events match_id=861289",
+    "archivo:runs/2026-10-21/rotation.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "nota",
+     "problema": "afirmacion_sin_evidencia"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-18ef86371005|1.ª parte goles",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Local n=6 (0 goles en 6, 31 d sin jugar, rota ~4,5); visitante mezcla temporadas (mayo-oct). Sin ajuste por rival; cifra de 0 goles no contrastada con 2.ª fuente.",
+   "evidencia": [
+    "paquete:m-18ef86371005|1.ª parte goles",
+    "archivo:runs/2026-10-21/rotation.json",
+    "archivo:runs/2026-10-21/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-18ef86371005|1.ª parte resultado",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Local n=6 (0 goles en 6, 31 d sin jugar, rota ~4,5); visitante mezcla temporadas (mayo-oct). Sin ajuste por rival; cifra de 0 goles no contrastada con 2.ª fuente.",
+   "evidencia": [
+    "paquete:m-18ef86371005|1.ª parte resultado",
+    "archivo:runs/2026-10-21/rotation.json",
+    "archivo:runs/2026-10-21/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-18ef86371005|córners",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Local n=6 (0 goles en 6, 31 d sin jugar, rota ~4,5); visitante mezcla temporadas (mayo-oct). Sin ajuste por rival; cifra de 0 goles no contrastada con 2.ª fuente.",
+   "evidencia": [
+    "paquete:m-18ef86371005|córners",
+    "archivo:runs/2026-10-21/rotation.json",
+    "archivo:runs/2026-10-21/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-18ef86371005|doble oportunidad",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Local n=6 (0 goles en 6, 31 d sin jugar, rota ~4,5); visitante mezcla temporadas (mayo-oct). Sin ajuste por rival; cifra de 0 goles no contrastada con 2.ª fuente.",
+   "evidencia": [
+    "paquete:m-18ef86371005|doble oportunidad",
+    "archivo:runs/2026-10-21/rotation.json",
+    "archivo:runs/2026-10-21/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-18ef86371005|empate no válido",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Local n=6 (0 goles en 6, 31 d sin jugar, rota ~4,5); visitante mezcla temporadas (mayo-oct). Sin ajuste por rival; cifra de 0 goles no contrastada con 2.ª fuente.",
+   "evidencia": [
+    "paquete:m-18ef86371005|empate no válido",
+    "archivo:runs/2026-10-21/rotation.json",
+    "archivo:runs/2026-10-21/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-18ef86371005|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador ni datos de la muestra para fueras de juego; no evaluable.",
+   "evidencia": [
+    "paquete:m-18ef86371005|fueras de juego"
+   ]
+  },
+  {
+   "unit_id": "m-18ef86371005|goles",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Local n=6 (0 goles en 6, 31 d sin jugar, rota ~4,5); visitante mezcla temporadas (mayo-oct). Sin ajuste por rival; cifra de 0 goles no contrastada con 2.ª fuente.",
+   "evidencia": [
+    "paquete:m-18ef86371005|goles",
+    "archivo:runs/2026-10-21/rotation.json",
+    "archivo:runs/2026-10-21/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-18ef86371005|goles por equipo",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Local n=6 (0 goles en 6, 31 d sin jugar, rota ~4,5); visitante mezcla temporadas (mayo-oct). Sin ajuste por rival; cifra de 0 goles no contrastada con 2.ª fuente.",
+   "evidencia": [
+    "paquete:m-18ef86371005|goles por equipo",
+    "archivo:runs/2026-10-21/rotation.json",
+    "archivo:runs/2026-10-21/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-18ef86371005|goles total entero",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Local n=6 (0 goles en 6, 31 d sin jugar, rota ~4,5); visitante mezcla temporadas (mayo-oct). Sin ajuste por rival; cifra de 0 goles no contrastada con 2.ª fuente.",
+   "evidencia": [
+    "paquete:m-18ef86371005|goles total entero",
+    "archivo:runs/2026-10-21/rotation.json",
+    "archivo:runs/2026-10-21/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-18ef86371005|hándicap",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Local n=6 (0 goles en 6, 31 d sin jugar, rota ~4,5); visitante mezcla temporadas (mayo-oct). Sin ajuste por rival; cifra de 0 goles no contrastada con 2.ª fuente.",
+   "evidencia": [
+    "paquete:m-18ef86371005|hándicap",
+    "archivo:runs/2026-10-21/rotation.json",
+    "archivo:runs/2026-10-21/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-18ef86371005|hándicap asiático entero",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Local n=6 (0 goles en 6, 31 d sin jugar, rota ~4,5); visitante mezcla temporadas (mayo-oct). Sin ajuste por rival; cifra de 0 goles no contrastada con 2.ª fuente.",
+   "evidencia": [
+    "paquete:m-18ef86371005|hándicap asiático entero",
+    "archivo:runs/2026-10-21/rotation.json",
+    "archivo:runs/2026-10-21/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-18ef86371005|hándicap europeo",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Local n=6 (0 goles en 6, 31 d sin jugar, rota ~4,5); visitante mezcla temporadas (mayo-oct). Sin ajuste por rival; cifra de 0 goles no contrastada con 2.ª fuente.",
+   "evidencia": [
+    "paquete:m-18ef86371005|hándicap europeo",
+    "archivo:runs/2026-10-21/rotation.json",
+    "archivo:runs/2026-10-21/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-18ef86371005|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no calculable (shots/SoT nulos; tarjetas n=5 parcial): sin datos suficientes.",
+   "evidencia": [
+    "paquete:m-18ef86371005|remates"
+   ]
+  },
+  {
+   "unit_id": "m-18ef86371005|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no calculable (shots/SoT nulos; tarjetas n=5 parcial): sin datos suficientes.",
+   "evidencia": [
+    "paquete:m-18ef86371005|remates a puerta"
+   ]
+  },
+  {
+   "unit_id": "m-18ef86371005|resultado",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Local n=6 (0 goles en 6, 31 d sin jugar, rota ~4,5); visitante mezcla temporadas (mayo-oct). Sin ajuste por rival; cifra de 0 goles no contrastada con 2.ª fuente.",
+   "evidencia": [
+    "paquete:m-18ef86371005|resultado",
+    "archivo:runs/2026-10-21/rotation.json",
+    "archivo:runs/2026-10-21/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-18ef86371005|tarjetas",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Estimador no calculable (shots/SoT nulos; tarjetas n=5 parcial): sin datos suficientes.",
+   "evidencia": [
+    "paquete:m-18ef86371005|tarjetas"
+   ]
+  },
+  {
+   "unit_id": "m-2487c73a87b3|1.ª parte goles",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Sin objecion especifica: n=10 J1, brecha max <9 pp; arbitro s/d.",
+   "evidencia": [
+    "paquete:m-2487c73a87b3|1.ª parte goles"
+   ]
+  },
+  {
+   "unit_id": "m-2487c73a87b3|1.ª parte resultado",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Sin objecion especifica: n=10 J1, brecha max <9 pp; arbitro s/d.",
+   "evidencia": [
+    "paquete:m-2487c73a87b3|1.ª parte resultado"
+   ]
+  },
+  {
+   "unit_id": "m-2487c73a87b3|córners",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Sin objecion especifica: n=10 J1, brecha max <9 pp; arbitro s/d.",
+   "evidencia": [
+    "paquete:m-2487c73a87b3|córners"
+   ]
+  },
+  {
+   "unit_id": "m-2487c73a87b3|doble oportunidad",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "mantener",
+   "nota": "Ambos rotan mucho (8,7 y 6,3 cambios, 4 d); modelo +8/+10 pp sobre mercado en local (6 victorias/10 sin ajuste por rival).",
+   "evidencia": [
+    "paquete:m-2487c73a87b3|doble oportunidad",
+    "archivo:runs/2026-10-21/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-2487c73a87b3|empate no válido",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "mantener",
+   "nota": "Ambos rotan mucho (8,7 y 6,3 cambios, 4 d); modelo +8/+10 pp sobre mercado en local (6 victorias/10 sin ajuste por rival).",
+   "evidencia": [
+    "paquete:m-2487c73a87b3|empate no válido",
+    "archivo:runs/2026-10-21/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-2487c73a87b3|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador ni datos de la muestra para fueras de juego; no evaluable.",
+   "evidencia": [
+    "paquete:m-2487c73a87b3|fueras de juego"
+   ]
+  },
+  {
+   "unit_id": "m-2487c73a87b3|goles",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Modelo +12 a +14 pp sobre el mercado en Over (medias J1 n=10 sin ajuste por rival; visit. 3,9 goles/partido); ambos rotan 6-9 cambios.",
+   "evidencia": [
+    "paquete:m-2487c73a87b3|goles",
+    "archivo:runs/2026-10-21/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-2487c73a87b3|goles por equipo",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Modelo +12 a +14 pp sobre el mercado en Over (medias J1 n=10 sin ajuste por rival; visit. 3,9 goles/partido); ambos rotan 6-9 cambios.",
+   "evidencia": [
+    "paquete:m-2487c73a87b3|goles por equipo",
+    "archivo:runs/2026-10-21/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-2487c73a87b3|goles total entero",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Modelo +12 a +14 pp sobre el mercado en Over (medias J1 n=10 sin ajuste por rival; visit. 3,9 goles/partido); ambos rotan 6-9 cambios.",
+   "evidencia": [
+    "paquete:m-2487c73a87b3|goles total entero",
+    "archivo:runs/2026-10-21/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-2487c73a87b3|hándicap",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Ambos rotan mucho (8,7 y 6,3 cambios, 4 d); modelo +8/+10 pp sobre mercado en local (6 victorias/10 sin ajuste por rival).",
+   "evidencia": [
+    "paquete:m-2487c73a87b3|hándicap",
+    "archivo:runs/2026-10-21/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-2487c73a87b3|hándicap asiático entero",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Ambos rotan mucho (8,7 y 6,3 cambios, 4 d); modelo +8/+10 pp sobre mercado en local (6 victorias/10 sin ajuste por rival).",
+   "evidencia": [
+    "paquete:m-2487c73a87b3|hándicap asiático entero",
+    "archivo:runs/2026-10-21/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-2487c73a87b3|hándicap europeo",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Ambos rotan mucho (8,7 y 6,3 cambios, 4 d); modelo +8/+10 pp sobre mercado en local (6 victorias/10 sin ajuste por rival).",
+   "evidencia": [
+    "paquete:m-2487c73a87b3|hándicap europeo",
+    "archivo:runs/2026-10-21/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-2487c73a87b3|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Muestra parcial (local n=7, visit. n=5) y estimador no implementado: sin estimador utilizable.",
+   "evidencia": [
+    "paquete:m-2487c73a87b3|remates"
+   ]
+  },
+  {
+   "unit_id": "m-2487c73a87b3|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Muestra parcial (local n=7, visit. n=5) y estimador no implementado: sin estimador utilizable.",
+   "evidencia": [
+    "paquete:m-2487c73a87b3|remates a puerta"
+   ]
+  },
+  {
+   "unit_id": "m-2487c73a87b3|resultado",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "mantener",
+   "nota": "Ambos rotan mucho (8,7 y 6,3 cambios, 4 d); modelo +8/+10 pp sobre mercado en local (6 victorias/10 sin ajuste por rival).",
+   "evidencia": [
+    "paquete:m-2487c73a87b3|resultado",
+    "archivo:runs/2026-10-21/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-2487c73a87b3|tarjetas",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Sin objecion especifica: n=10 J1, brecha max <9 pp; arbitro s/d.",
+   "evidencia": [
+    "paquete:m-2487c73a87b3|tarjetas"
+   ]
+  },
+  {
+   "unit_id": "m-2ccbb63bbe6e|1.ª parte goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Paquete sin probabilidad calculada ni precio; muestras de ligas distintas sin ajuste por rival (AFC Challenge, liga 31 partidos).",
+   "evidencia": [
+    "paquete:m-2ccbb63bbe6e|1.ª parte goles",
+    "archivo:runs/2026-10-21/league_samples/8105.json"
+   ]
+  },
+  {
+   "unit_id": "m-2ccbb63bbe6e|1.ª parte resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Paquete sin probabilidad calculada ni precio; muestras de ligas distintas sin ajuste por rival (AFC Challenge, liga 31 partidos).",
+   "evidencia": [
+    "paquete:m-2ccbb63bbe6e|1.ª parte resultado",
+    "archivo:runs/2026-10-21/league_samples/8105.json"
+   ]
+  },
+  {
+   "unit_id": "m-2ccbb63bbe6e|córners",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Paquete sin probabilidad calculada ni precio; muestras de ligas distintas sin ajuste por rival (AFC Challenge, liga 31 partidos).",
+   "evidencia": [
+    "paquete:m-2ccbb63bbe6e|córners",
+    "archivo:runs/2026-10-21/league_samples/8105.json"
+   ]
+  },
+  {
+   "unit_id": "m-2ccbb63bbe6e|doble oportunidad",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Paquete sin probabilidad calculada ni precio; muestras de ligas distintas sin ajuste por rival (AFC Challenge, liga 31 partidos).",
+   "evidencia": [
+    "paquete:m-2ccbb63bbe6e|doble oportunidad",
+    "archivo:runs/2026-10-21/league_samples/8105.json"
+   ]
+  },
+  {
+   "unit_id": "m-2ccbb63bbe6e|empate no válido",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Paquete sin probabilidad calculada ni precio; muestras de ligas distintas sin ajuste por rival (AFC Challenge, liga 31 partidos).",
+   "evidencia": [
+    "paquete:m-2ccbb63bbe6e|empate no válido",
+    "archivo:runs/2026-10-21/league_samples/8105.json"
+   ]
+  },
+  {
+   "unit_id": "m-2ccbb63bbe6e|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador utilizable (datos insuficientes/no implementado): no rankeable.",
+   "evidencia": [
+    "paquete:m-2ccbb63bbe6e|fueras de juego"
+   ]
+  },
+  {
+   "unit_id": "m-2ccbb63bbe6e|goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Paquete sin probabilidad calculada ni precio; muestras de ligas distintas sin ajuste por rival (AFC Challenge, liga 31 partidos).",
+   "evidencia": [
+    "paquete:m-2ccbb63bbe6e|goles",
+    "archivo:runs/2026-10-21/league_samples/8105.json"
+   ]
+  },
+  {
+   "unit_id": "m-2ccbb63bbe6e|goles por equipo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Paquete sin probabilidad calculada ni precio; muestras de ligas distintas sin ajuste por rival (AFC Challenge, liga 31 partidos).",
+   "evidencia": [
+    "paquete:m-2ccbb63bbe6e|goles por equipo",
+    "archivo:runs/2026-10-21/league_samples/8105.json"
+   ]
+  },
+  {
+   "unit_id": "m-2ccbb63bbe6e|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Paquete sin probabilidad calculada ni precio; muestras de ligas distintas sin ajuste por rival (AFC Challenge, liga 31 partidos).",
+   "evidencia": [
+    "paquete:m-2ccbb63bbe6e|goles total entero",
+    "archivo:runs/2026-10-21/league_samples/8105.json"
+   ]
+  },
+  {
+   "unit_id": "m-2ccbb63bbe6e|hándicap",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Paquete sin probabilidad calculada ni precio; muestras de ligas distintas sin ajuste por rival (AFC Challenge, liga 31 partidos).",
+   "evidencia": [
+    "paquete:m-2ccbb63bbe6e|hándicap",
+    "archivo:runs/2026-10-21/league_samples/8105.json"
+   ]
+  },
+  {
+   "unit_id": "m-2ccbb63bbe6e|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Paquete sin probabilidad calculada ni precio; muestras de ligas distintas sin ajuste por rival (AFC Challenge, liga 31 partidos).",
+   "evidencia": [
+    "paquete:m-2ccbb63bbe6e|hándicap asiático entero",
+    "archivo:runs/2026-10-21/league_samples/8105.json"
+   ]
+  },
+  {
+   "unit_id": "m-2ccbb63bbe6e|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Paquete sin probabilidad calculada ni precio; muestras de ligas distintas sin ajuste por rival (AFC Challenge, liga 31 partidos).",
+   "evidencia": [
+    "paquete:m-2ccbb63bbe6e|hándicap europeo",
+    "archivo:runs/2026-10-21/league_samples/8105.json"
+   ]
+  },
+  {
+   "unit_id": "m-2ccbb63bbe6e|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador utilizable (datos insuficientes/no implementado): no rankeable.",
+   "evidencia": [
+    "paquete:m-2ccbb63bbe6e|remates"
+   ]
+  },
+  {
+   "unit_id": "m-2ccbb63bbe6e|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador utilizable (datos insuficientes/no implementado): no rankeable.",
+   "evidencia": [
+    "paquete:m-2ccbb63bbe6e|remates a puerta"
+   ]
+  },
+  {
+   "unit_id": "m-2ccbb63bbe6e|resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Paquete sin probabilidad calculada ni precio; muestras de ligas distintas sin ajuste por rival (AFC Challenge, liga 31 partidos).",
+   "evidencia": [
+    "paquete:m-2ccbb63bbe6e|resultado",
+    "archivo:runs/2026-10-21/league_samples/8105.json"
+   ]
+  },
+  {
+   "unit_id": "m-2ccbb63bbe6e|tarjetas",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador utilizable (datos insuficientes/no implementado): no rankeable.",
+   "evidencia": [
+    "paquete:m-2ccbb63bbe6e|tarjetas"
+   ]
+  },
+  {
+   "unit_id": "m-348929b51333|1.ª parte goles",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Modelo +13 pp sobre mercado en Over (local concede 2,1, total 3,8 n=10 J1 sin ajuste por rival); local rota ~9,3 cambios.",
+   "evidencia": [
+    "paquete:m-348929b51333|1.ª parte goles",
+    "archivo:runs/2026-10-21/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-348929b51333|1.ª parte resultado",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "mantener",
+   "nota": "Local rota ~9,3 cambios/partido con 4 d de descanso; forma J1 de 10 partidos con onces distintos. Brecha vs mercado <7 pp.",
+   "evidencia": [
+    "paquete:m-348929b51333|1.ª parte resultado",
+    "archivo:runs/2026-10-21/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-348929b51333|córners",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Sin objecion especifica: n=10 J1, brecha <9 pp; arbitro s/d.",
+   "evidencia": [
+    "paquete:m-348929b51333|córners"
+   ]
+  },
+  {
+   "unit_id": "m-348929b51333|doble oportunidad",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "mantener",
+   "nota": "Local rota ~9,3 cambios/partido con 4 d de descanso; forma J1 de 10 partidos con onces distintos. Brecha vs mercado <7 pp.",
+   "evidencia": [
+    "paquete:m-348929b51333|doble oportunidad",
+    "archivo:runs/2026-10-21/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-348929b51333|empate no válido",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "mantener",
+   "nota": "Local rota ~9,3 cambios/partido con 4 d de descanso; forma J1 de 10 partidos con onces distintos. Brecha vs mercado <7 pp.",
+   "evidencia": [
+    "paquete:m-348929b51333|empate no válido",
+    "archivo:runs/2026-10-21/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-348929b51333|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador ni datos de la muestra para fueras de juego; no evaluable.",
+   "evidencia": [
+    "paquete:m-348929b51333|fueras de juego"
+   ]
+  },
+  {
+   "unit_id": "m-348929b51333|goles",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Modelo +13 pp sobre mercado en Over (local concede 2,1, total 3,8 n=10 J1 sin ajuste por rival); local rota ~9,3 cambios.",
+   "evidencia": [
+    "paquete:m-348929b51333|goles",
+    "archivo:runs/2026-10-21/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-348929b51333|goles por equipo",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Modelo +13 pp sobre mercado en Over (local concede 2,1, total 3,8 n=10 J1 sin ajuste por rival); local rota ~9,3 cambios.",
+   "evidencia": [
+    "paquete:m-348929b51333|goles por equipo",
+    "archivo:runs/2026-10-21/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-348929b51333|goles total entero",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Modelo +13 pp sobre mercado en Over (local concede 2,1, total 3,8 n=10 J1 sin ajuste por rival); local rota ~9,3 cambios.",
+   "evidencia": [
+    "paquete:m-348929b51333|goles total entero",
+    "archivo:runs/2026-10-21/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-348929b51333|hándicap",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "AH local -1,5 @1,89 (p .53) contradice EH -1 @2,7 (.37) y AH -1 @2,15: linea defectuosa; excluir ese par. Local rota ~9,3 cambios.",
+   "evidencia": [
+    "paquete:m-348929b51333|hándicap",
+    "archivo:runs/2026-10-21/rotation.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.home.-1.5",
+     "objecion": "dato_defectuoso"
+    },
+    {
+     "entry_id": "resultado.ah.away.+1.5",
+     "objecion": "dato_defectuoso"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-348929b51333|hándicap asiático entero",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "mantener",
+   "nota": "Local rota ~9,3 cambios. Verificador marca precio_anomalo, pero AH -1 @2,15 es coherente con EH -1 @2,7 ajustando el push; el defecto esta en AH -1,5.",
+   "evidencia": [
+    "paquete:m-348929b51333|hándicap asiático entero",
+    "archivo:runs/2026-10-21/rotation.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "verificador",
+     "campo": "discrepancias",
+     "problema": "valor_contradice_paquete"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-348929b51333|hándicap europeo",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "mantener",
+   "nota": "Local rota ~9,3 cambios/partido con 4 d de descanso; forma J1 de 10 partidos con onces distintos. Brecha vs mercado <7 pp.",
+   "evidencia": [
+    "paquete:m-348929b51333|hándicap europeo",
+    "archivo:runs/2026-10-21/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-348929b51333|remates",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Local n=9, visitante n=7 (<8); local rota ~9,3 cambios/partido; sin precio ni validacion.",
+   "evidencia": [
+    "paquete:m-348929b51333|remates",
+    "archivo:runs/2026-10-21/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-348929b51333|remates a puerta",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Local n=9, visitante n=7 (<8); local rota ~9,3 cambios/partido; sin precio ni validacion.",
+   "evidencia": [
+    "paquete:m-348929b51333|remates a puerta",
+    "archivo:runs/2026-10-21/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-348929b51333|resultado",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "mantener",
+   "nota": "Local rota ~9,3 cambios/partido con 4 d de descanso; forma J1 de 10 partidos con onces distintos. Brecha vs mercado <7 pp.",
+   "evidencia": [
+    "paquete:m-348929b51333|resultado",
+    "archivo:runs/2026-10-21/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-348929b51333|tarjetas",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Sin objecion especifica: n=10 J1, brecha <9 pp; arbitro s/d.",
+   "evidencia": [
+    "paquete:m-348929b51333|tarjetas"
+   ]
+  },
+  {
+   "unit_id": "m-3b5f764d0d87|1.ª parte goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Paquete sin probabilidad calculada; 1P/goles de ligas mezcladas (n=10) sin ajuste por rival.",
+   "evidencia": [
+    "paquete:m-3b5f764d0d87|1.ª parte goles"
+   ]
+  },
+  {
+   "unit_id": "m-3b5f764d0d87|1.ª parte resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin probabilidad calculada: margen del favorito no cuantificable; Villa rota ~5 cambios con 4 d de descanso.",
+   "evidencia": [
+    "paquete:m-3b5f764d0d87|1.ª parte resultado",
+    "archivo:runs/2026-10-21/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-3b5f764d0d87|córners",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin p calculada; Viking 12,5 corners vs Villa 8,7 en ligas mezcladas. Deportivo cita \"UEL\" y el evento es UCL (apif 853142).",
+   "evidencia": [
+    "paquete:m-3b5f764d0d87|córners",
+    "apif_query:get_events match_id=853142"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "nota",
+     "problema": "dato_citado_incorrecto"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-3b5f764d0d87|doble oportunidad",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin probabilidad calculada: margen del favorito no cuantificable; Villa rota ~5 cambios con 4 d de descanso.",
+   "evidencia": [
+    "paquete:m-3b5f764d0d87|doble oportunidad",
+    "archivo:runs/2026-10-21/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-3b5f764d0d87|empate no válido",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin probabilidad calculada: margen del favorito no cuantificable; Villa rota ~5 cambios con 4 d de descanso.",
+   "evidencia": [
+    "paquete:m-3b5f764d0d87|empate no válido",
+    "archivo:runs/2026-10-21/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-3b5f764d0d87|goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin p calculada; ligas mezcladas. Deportivo cita UEL (evento UCL); verificador marca precio_anomalo pero pares over/under coherentes.",
+   "evidencia": [
+    "paquete:m-3b5f764d0d87|goles",
+    "apif_query:get_events match_id=853142"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "nota",
+     "problema": "dato_citado_incorrecto"
+    },
+    {
+     "entry_id": null,
+     "agente": "verificador",
+     "campo": "discrepancias",
+     "problema": "valor_contradice_paquete"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-3b5f764d0d87|goles por equipo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Paquete sin probabilidad calculada; 1P/goles de ligas mezcladas (n=10) sin ajuste por rival.",
+   "evidencia": [
+    "paquete:m-3b5f764d0d87|goles por equipo"
+   ]
+  },
+  {
+   "unit_id": "m-3b5f764d0d87|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Paquete sin probabilidad calculada; 1P/goles de ligas mezcladas (n=10) sin ajuste por rival.",
+   "evidencia": [
+    "paquete:m-3b5f764d0d87|goles total entero"
+   ]
+  },
+  {
+   "unit_id": "m-3b5f764d0d87|hándicap",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin probabilidad calculada: margen del favorito no cuantificable; Villa rota ~5 cambios con 4 d de descanso.",
+   "evidencia": [
+    "paquete:m-3b5f764d0d87|hándicap",
+    "archivo:runs/2026-10-21/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-3b5f764d0d87|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin probabilidad calculada: margen del favorito no cuantificable; Villa rota ~5 cambios con 4 d de descanso.",
+   "evidencia": [
+    "paquete:m-3b5f764d0d87|hándicap asiático entero",
+    "archivo:runs/2026-10-21/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-3b5f764d0d87|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin probabilidad calculada: margen del favorito no cuantificable; Villa rota ~5 cambios con 4 d de descanso.",
+   "evidencia": [
+    "paquete:m-3b5f764d0d87|hándicap europeo",
+    "archivo:runs/2026-10-21/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-3b5f764d0d87|remates",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin probabilidad calculada; muestras de ligas mezcladas (Viking n=8) sin ajuste por rival.",
+   "evidencia": [
+    "paquete:m-3b5f764d0d87|remates"
+   ]
+  },
+  {
+   "unit_id": "m-3b5f764d0d87|remates a puerta",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin probabilidad calculada; muestras de ligas mezcladas (Viking n=8) sin ajuste por rival.",
+   "evidencia": [
+    "paquete:m-3b5f764d0d87|remates a puerta"
+   ]
+  },
+  {
+   "unit_id": "m-3b5f764d0d87|resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin probabilidad calculada: margen del favorito no cuantificable; Villa rota ~5 cambios con 4 d de descanso.",
+   "evidencia": [
+    "paquete:m-3b5f764d0d87|resultado",
+    "archivo:runs/2026-10-21/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-3b5f764d0d87|tarjetas",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin p calculada; arbitro Gishamer sin partidos en esta liga (1 en muestra); puntos Villa 5,3 mezcla ligas. Deportivo cita UEL, el paquete dice UCL.",
+   "evidencia": [
+    "paquete:m-3b5f764d0d87|tarjetas",
+    "apif_query:get_events match_id=853142"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "nota",
+     "problema": "dato_citado_incorrecto"
+    }
+   ]
+  }
+ ],
+ "limitaciones": [
+  "Segunda fuente de calendario/estadisticas no abierta salvo busqueda web (foot-africa inaccesible); contrastes por API y paquete.",
+  "Revision automatizada de coherencia de cuotas (escalera y pares) sobre el paquete; sin acceso a casas."
+ ]
+}

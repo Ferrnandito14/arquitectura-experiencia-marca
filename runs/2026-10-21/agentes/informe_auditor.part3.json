@@ -1,0 +1,938 @@
+{
+ "agente": "auditor",
+ "version_contrato": 1,
+ "run": "runs/2026-10-21",
+ "unidades": [
+  {
+   "unit_id": "m-3dcad007162c|1.ª parte goles",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 8pp (<15); rotacion media 6.67 cambios sin cuantificar efecto, alineacion sin snapshot; muestra n=10 sin ajuste rival.",
+   "evidencia": [
+    "paquete:m-3dcad007162c|1.ª parte goles",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-3dcad007162c|1.ª parte resultado",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 11pp (<15); rotacion media 6.67 cambios sin cuantificar efecto, alineacion sin snapshot; muestra n=10 sin ajuste rival.",
+   "evidencia": [
+    "paquete:m-3dcad007162c|1.ª parte resultado",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-3dcad007162c|córners",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 9pp (<15); rotacion media 6.67 cambios sin cuantificar efecto, alineacion sin snapshot; muestra n=10 sin ajuste rival.",
+   "evidencia": [
+    "paquete:m-3dcad007162c|córners",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-3dcad007162c|doble oportunidad",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "1/3 lineas con brecha p_modelo vs 1/cuota >=15pp (max 19pp); muestra n=10 sin ajuste por rival; alineaciones sin snapshot.",
+   "evidencia": [
+    "paquete:m-3dcad007162c|doble oportunidad",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-3dcad007162c|empate no válido",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "2/2 lineas con brecha p_modelo vs 1/cuota >=15pp (max 25pp); muestra n=10 sin ajuste por rival; alineaciones sin snapshot.",
+   "evidencia": [
+    "paquete:m-3dcad007162c|empate no válido",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-3dcad007162c|goles por equipo",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "3/12 lineas con brecha p_modelo vs 1/cuota >=15pp (max 16pp); muestra n=10 sin ajuste por rival; alineaciones sin snapshot. Deportivo MEDIA pese a brecha>=15pp.",
+   "evidencia": [
+    "paquete:m-3dcad007162c|goles por equipo",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "solidez",
+     "problema": "valor_contradice_paquete"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-3dcad007162c|goles total entero",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 5pp (<15); rotacion media 6.67 cambios sin cuantificar efecto, alineacion sin snapshot; muestra n=10 sin ajuste rival.",
+   "evidencia": [
+    "paquete:m-3dcad007162c|goles total entero",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-3dcad007162c|hándicap",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "3/12 lineas con brecha p_modelo vs 1/cuota >=15pp (max 17pp); muestra n=10 sin ajuste por rival; alineaciones sin snapshot.",
+   "evidencia": [
+    "paquete:m-3dcad007162c|hándicap",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-3dcad007162c|hándicap asiático entero",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "3/10 lineas con brecha p_modelo vs 1/cuota >=15pp (max 25pp); muestra n=10 sin ajuste por rival; alineaciones sin snapshot.",
+   "evidencia": [
+    "paquete:m-3dcad007162c|hándicap asiático entero",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-3dcad007162c|hándicap europeo",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "1/12 lineas con brecha p_modelo vs 1/cuota >=15pp (max 18pp); muestra n=10 sin ajuste por rival; alineaciones sin snapshot.",
+   "evidencia": [
+    "paquete:m-3dcad007162c|hándicap europeo",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-3dcad007162c|remates",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio para contrastar; muestra n<=10 mezcla local/visita sin ajuste por rival; arbitro s/d; validacion no concluyente. Rotacion 6.67 cambios.",
+   "evidencia": [
+    "paquete:m-3dcad007162c|remates",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-3dcad007162c|remates a puerta",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio para contrastar; muestra n<=10 mezcla local/visita sin ajuste por rival; arbitro s/d; validacion no concluyente. Rotacion 6.67 cambios.",
+   "evidencia": [
+    "paquete:m-3dcad007162c|remates a puerta",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-3dcad007162c|resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "1/3 lineas con brecha p_modelo vs 1/cuota >=15pp (max 18pp); muestra n=10 sin ajuste por rival; alineaciones sin snapshot.",
+   "evidencia": [
+    "paquete:m-3dcad007162c|resultado",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-3dcad007162c|tarjetas",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio para contrastar; muestra n<=10 mezcla local/visita sin ajuste por rival; arbitro s/d; validacion no concluyente. Rotacion 6.67 cambios.",
+   "evidencia": [
+    "paquete:m-3dcad007162c|tarjetas",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-41a0b7fb5867|1.ª parte goles",
+   "objecion": "muestra_debil",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 8pp (<15); muestra n=10 mezcla local/visita sin ajuste por rival; alineaciones sin snapshot.",
+   "evidencia": [
+    "paquete:m-41a0b7fb5867|1.ª parte goles",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-41a0b7fb5867|1.ª parte resultado",
+   "objecion": "muestra_debil",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 5pp (<15); muestra n=10 mezcla local/visita sin ajuste por rival; alineaciones sin snapshot.",
+   "evidencia": [
+    "paquete:m-41a0b7fb5867|1.ª parte resultado",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-41a0b7fb5867|córners",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "1/6 lineas con brecha p_modelo vs 1/cuota >=15pp (max 16pp); muestra n=10 sin ajuste por rival; alineaciones sin snapshot.",
+   "evidencia": [
+    "paquete:m-41a0b7fb5867|córners",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-41a0b7fb5867|empate no válido",
+   "objecion": "muestra_debil",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 5pp (<15); muestra n=10 mezcla local/visita sin ajuste por rival; alineaciones sin snapshot.",
+   "evidencia": [
+    "paquete:m-41a0b7fb5867|empate no válido",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-41a0b7fb5867|goles total entero",
+   "objecion": "muestra_debil",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 7pp (<15); muestra n=10 mezcla local/visita sin ajuste por rival; alineaciones sin snapshot.",
+   "evidencia": [
+    "paquete:m-41a0b7fb5867|goles total entero",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-41a0b7fb5867|hándicap asiático entero",
+   "objecion": "muestra_debil",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 7pp (<15); muestra n=10 mezcla local/visita sin ajuste por rival; alineaciones sin snapshot.",
+   "evidencia": [
+    "paquete:m-41a0b7fb5867|hándicap asiático entero",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-41a0b7fb5867|hándicap europeo",
+   "objecion": "muestra_debil",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 6pp (<15); muestra n=10 mezcla local/visita sin ajuste por rival; alineaciones sin snapshot.",
+   "evidencia": [
+    "paquete:m-41a0b7fb5867|hándicap europeo",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-41a0b7fb5867|tarjetas",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "42/42 lineas sin p_modelo (estimador sin datos/prob.); 0 con precio de agregador sin contraste posible. Deportivo: BAJA.",
+   "evidencia": [
+    "paquete:m-41a0b7fb5867|tarjetas",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-4326596558b8|1.ª parte goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "6/6 lineas sin p_modelo (estimador sin datos/prob.); 0 con precio de agregador sin contraste posible. Deportivo: BAJA.",
+   "evidencia": [
+    "paquete:m-4326596558b8|1.ª parte goles",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-4326596558b8|1.ª parte resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "3/3 lineas sin p_modelo (estimador sin datos/prob.); 0 con precio de agregador sin contraste posible. Deportivo: BAJA.",
+   "evidencia": [
+    "paquete:m-4326596558b8|1.ª parte resultado",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-4326596558b8|doble oportunidad",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "3/3 lineas sin p_modelo (estimador sin datos/prob.); 0 con precio de agregador sin contraste posible. Deportivo: BAJA.",
+   "evidencia": [
+    "paquete:m-4326596558b8|doble oportunidad",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-4326596558b8|empate no válido",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "2/2 lineas sin p_modelo (estimador sin datos/prob.); 0 con precio de agregador sin contraste posible. Deportivo: BAJA.",
+   "evidencia": [
+    "paquete:m-4326596558b8|empate no válido",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-4326596558b8|goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "14/14 lineas sin p_modelo (estimador sin datos/prob.); 0 con precio de agregador sin contraste posible. Deportivo: BAJA.",
+   "evidencia": [
+    "paquete:m-4326596558b8|goles",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-4326596558b8|goles por equipo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "12/12 lineas sin p_modelo (estimador sin datos/prob.); 0 con precio de agregador sin contraste posible. Deportivo: BAJA.",
+   "evidencia": [
+    "paquete:m-4326596558b8|goles por equipo",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-4326596558b8|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "10/10 lineas sin p_modelo (estimador sin datos/prob.); 0 con precio de agregador sin contraste posible. Deportivo: BAJA.",
+   "evidencia": [
+    "paquete:m-4326596558b8|goles total entero",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-4326596558b8|hándicap",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "12/12 lineas sin p_modelo (estimador sin datos/prob.); 0 con precio de agregador sin contraste posible. Deportivo: BAJA.",
+   "evidencia": [
+    "paquete:m-4326596558b8|hándicap",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-4326596558b8|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "10/10 lineas sin p_modelo (estimador sin datos/prob.); 0 con precio de agregador sin contraste posible. Deportivo: BAJA.",
+   "evidencia": [
+    "paquete:m-4326596558b8|hándicap asiático entero",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-4326596558b8|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "12/12 lineas sin p_modelo (estimador sin datos/prob.); 0 con precio de agregador sin contraste posible. Deportivo: BAJA.",
+   "evidencia": [
+    "paquete:m-4326596558b8|hándicap europeo",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-4326596558b8|resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "3/3 lineas sin p_modelo (estimador sin datos/prob.); 0 con precio de agregador sin contraste posible. Deportivo: BAJA.",
+   "evidencia": [
+    "paquete:m-4326596558b8|resultado",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-4aff4c4ba6c5|1.ª parte goles",
+   "objecion": "muestra_debil",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 10pp (<15); muestra n=10 mezcla local/visita sin ajuste por rival; alineaciones sin snapshot.",
+   "evidencia": [
+    "paquete:m-4aff4c4ba6c5|1.ª parte goles",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-4aff4c4ba6c5|1.ª parte resultado",
+   "objecion": "muestra_debil",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 7pp (<15); muestra n=10 mezcla local/visita sin ajuste por rival; alineaciones sin snapshot.",
+   "evidencia": [
+    "paquete:m-4aff4c4ba6c5|1.ª parte resultado",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-4aff4c4ba6c5|córners",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "1/8 lineas con brecha p_modelo vs 1/cuota >=15pp (max 15pp); muestra n=10 sin ajuste por rival; alineaciones sin snapshot.",
+   "evidencia": [
+    "paquete:m-4aff4c4ba6c5|córners",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-4aff4c4ba6c5|empate no válido",
+   "objecion": "muestra_debil",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 4pp (<15); muestra n=10 mezcla local/visita sin ajuste por rival; alineaciones sin snapshot.",
+   "evidencia": [
+    "paquete:m-4aff4c4ba6c5|empate no válido",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-4aff4c4ba6c5|goles total entero",
+   "objecion": "muestra_debil",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 5pp (<15); muestra n=10 mezcla local/visita sin ajuste por rival; alineaciones sin snapshot.",
+   "evidencia": [
+    "paquete:m-4aff4c4ba6c5|goles total entero",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-4aff4c4ba6c5|hándicap asiático entero",
+   "objecion": "muestra_debil",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 7pp (<15); muestra n=10 mezcla local/visita sin ajuste por rival; alineaciones sin snapshot.",
+   "evidencia": [
+    "paquete:m-4aff4c4ba6c5|hándicap asiático entero",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-4aff4c4ba6c5|hándicap europeo",
+   "objecion": "muestra_debil",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 5pp (<15); muestra n=10 mezcla local/visita sin ajuste por rival; alineaciones sin snapshot.",
+   "evidencia": [
+    "paquete:m-4aff4c4ba6c5|hándicap europeo",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-4aff4c4ba6c5|remates",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio para contrastar; muestra n<=10 mezcla local/visita sin ajuste por rival; arbitro s/d; validacion no concluyente. Rotacion 3.67 cambios.",
+   "evidencia": [
+    "paquete:m-4aff4c4ba6c5|remates",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-4aff4c4ba6c5|remates a puerta",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio para contrastar; muestra n<=10 mezcla local/visita sin ajuste por rival; arbitro s/d; validacion no concluyente. Rotacion 3.67 cambios.",
+   "evidencia": [
+    "paquete:m-4aff4c4ba6c5|remates a puerta",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-4aff4c4ba6c5|tarjetas",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio para contrastar; muestra n<=10 mezcla local/visita sin ajuste por rival; arbitro s/d; validacion no concluyente. Rotacion 3.67 cambios.",
+   "evidencia": [
+    "paquete:m-4aff4c4ba6c5|tarjetas",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-4d7e3ddc5a96|1.ª parte goles",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 12pp (<15); rotacion media 8.67 cambios sin cuantificar efecto, alineacion sin snapshot; muestra n=10 sin ajuste rival.",
+   "evidencia": [
+    "paquete:m-4d7e3ddc5a96|1.ª parte goles",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-4d7e3ddc5a96|1.ª parte resultado",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 7pp (<15); rotacion media 8.67 cambios sin cuantificar efecto, alineacion sin snapshot; muestra n=10 sin ajuste rival.",
+   "evidencia": [
+    "paquete:m-4d7e3ddc5a96|1.ª parte resultado",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-4d7e3ddc5a96|córners",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 10pp (<15); rotacion media 8.67 cambios sin cuantificar efecto, alineacion sin snapshot; muestra n=10 sin ajuste rival.",
+   "evidencia": [
+    "paquete:m-4d7e3ddc5a96|córners",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-4d7e3ddc5a96|doble oportunidad",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 11pp (<15); rotacion media 8.67 cambios sin cuantificar efecto, alineacion sin snapshot; muestra n=10 sin ajuste rival.",
+   "evidencia": [
+    "paquete:m-4d7e3ddc5a96|doble oportunidad",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-4d7e3ddc5a96|empate no válido",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 9pp (<15); rotacion media 8.67 cambios sin cuantificar efecto, alineacion sin snapshot; muestra n=10 sin ajuste rival.",
+   "evidencia": [
+    "paquete:m-4d7e3ddc5a96|empate no válido",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-4d7e3ddc5a96|goles",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "1/14 lineas con brecha p_modelo vs 1/cuota >=15pp (max 15pp); muestra n=10 sin ajuste por rival; alineaciones sin snapshot. Deportivo MEDIA pese a brecha>=15pp.",
+   "evidencia": [
+    "paquete:m-4d7e3ddc5a96|goles",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "solidez",
+     "problema": "valor_contradice_paquete"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-4d7e3ddc5a96|goles total entero",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 10pp (<15); rotacion media 8.67 cambios sin cuantificar efecto, alineacion sin snapshot; muestra n=10 sin ajuste rival.",
+   "evidencia": [
+    "paquete:m-4d7e3ddc5a96|goles total entero",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-4d7e3ddc5a96|hándicap",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 14pp (<15); rotacion media 8.67 cambios sin cuantificar efecto, alineacion sin snapshot; muestra n=10 sin ajuste rival.",
+   "evidencia": [
+    "paquete:m-4d7e3ddc5a96|hándicap",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-4d7e3ddc5a96|hándicap asiático entero",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 14pp (<15); rotacion media 8.67 cambios sin cuantificar efecto, alineacion sin snapshot; muestra n=10 sin ajuste rival.",
+   "evidencia": [
+    "paquete:m-4d7e3ddc5a96|hándicap asiático entero",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-4d7e3ddc5a96|hándicap europeo",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 10pp (<15); rotacion media 8.67 cambios sin cuantificar efecto, alineacion sin snapshot; muestra n=10 sin ajuste rival.",
+   "evidencia": [
+    "paquete:m-4d7e3ddc5a96|hándicap europeo",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-4d7e3ddc5a96|remates",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio para contrastar; muestra n<=10 mezcla local/visita sin ajuste por rival; arbitro s/d; validacion no concluyente. Rotacion 8.67 cambios.",
+   "evidencia": [
+    "paquete:m-4d7e3ddc5a96|remates",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-4d7e3ddc5a96|remates a puerta",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio para contrastar; muestra n<=10 mezcla local/visita sin ajuste por rival; arbitro s/d; validacion no concluyente. Rotacion 8.67 cambios.",
+   "evidencia": [
+    "paquete:m-4d7e3ddc5a96|remates a puerta",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-4d7e3ddc5a96|resultado",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 6pp (<15); rotacion media 8.67 cambios sin cuantificar efecto, alineacion sin snapshot; muestra n=10 sin ajuste rival.",
+   "evidencia": [
+    "paquete:m-4d7e3ddc5a96|resultado",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-4d7e3ddc5a96|tarjetas",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio para contrastar; muestra n<=10 mezcla local/visita sin ajuste por rival; arbitro s/d; validacion no concluyente. Rotacion 8.67 cambios.",
+   "evidencia": [
+    "paquete:m-4d7e3ddc5a96|tarjetas",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-51f67d68dce2|1.ª parte goles",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 6pp (<15); rotacion media 8.0 cambios sin cuantificar efecto, alineacion sin snapshot; muestra n=10 sin ajuste rival.",
+   "evidencia": [
+    "paquete:m-51f67d68dce2|1.ª parte goles",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-51f67d68dce2|1.ª parte resultado",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 14pp (<15); rotacion media 8.0 cambios sin cuantificar efecto, alineacion sin snapshot; muestra n=10 sin ajuste rival.",
+   "evidencia": [
+    "paquete:m-51f67d68dce2|1.ª parte resultado",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-51f67d68dce2|córners",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 6pp (<15); rotacion media 8.0 cambios sin cuantificar efecto, alineacion sin snapshot; muestra n=10 sin ajuste rival.",
+   "evidencia": [
+    "paquete:m-51f67d68dce2|córners",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-51f67d68dce2|doble oportunidad",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "1/3 lineas con brecha p_modelo vs 1/cuota >=15pp (max 23pp); muestra n=10 sin ajuste por rival; alineaciones sin snapshot.",
+   "evidencia": [
+    "paquete:m-51f67d68dce2|doble oportunidad",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-51f67d68dce2|empate no válido",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "2/2 lineas con brecha p_modelo vs 1/cuota >=15pp (max 29pp); muestra n=10 sin ajuste por rival; alineaciones sin snapshot.",
+   "evidencia": [
+    "paquete:m-51f67d68dce2|empate no válido",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-51f67d68dce2|goles por equipo",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "4/12 lineas con brecha p_modelo vs 1/cuota >=15pp (max 20pp); muestra n=10 sin ajuste por rival; alineaciones sin snapshot. Deportivo MEDIA pese a brecha>=15pp.",
+   "evidencia": [
+    "paquete:m-51f67d68dce2|goles por equipo",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "solidez",
+     "problema": "valor_contradice_paquete"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-51f67d68dce2|goles total entero",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "mantener",
+   "nota": "Brecha max 4pp (<15); rotacion media 8.0 cambios sin cuantificar efecto, alineacion sin snapshot; muestra n=10 sin ajuste rival.",
+   "evidencia": [
+    "paquete:m-51f67d68dce2|goles total entero",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-51f67d68dce2|hándicap",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "5/12 lineas con brecha p_modelo vs 1/cuota >=15pp (max 21pp); muestra n=10 sin ajuste por rival; alineaciones sin snapshot.",
+   "evidencia": [
+    "paquete:m-51f67d68dce2|hándicap",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-51f67d68dce2|hándicap asiático entero",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "4/10 lineas con brecha p_modelo vs 1/cuota >=15pp (max 29pp); muestra n=10 sin ajuste por rival; alineaciones sin snapshot.",
+   "evidencia": [
+    "paquete:m-51f67d68dce2|hándicap asiático entero",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-51f67d68dce2|hándicap europeo",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "3/12 lineas con brecha p_modelo vs 1/cuota >=15pp (max 21pp); muestra n=10 sin ajuste por rival; alineaciones sin snapshot.",
+   "evidencia": [
+    "paquete:m-51f67d68dce2|hándicap europeo",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-51f67d68dce2|resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "2/3 lineas con brecha p_modelo vs 1/cuota >=15pp (max 21pp); muestra n=10 sin ajuste por rival; alineaciones sin snapshot.",
+   "evidencia": [
+    "paquete:m-51f67d68dce2|resultado",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-51f67d68dce2|tarjetas",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio para contrastar; muestra n<=10 mezcla local/visita sin ajuste por rival; arbitro s/d; validacion no concluyente. Rotacion 8.0 cambios.",
+   "evidencia": [
+    "paquete:m-51f67d68dce2|tarjetas",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-5253ab17ca20|1.ª parte goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "6/6 lineas sin p_modelo (estimador sin datos/prob.); 6 con precio de agregador sin contraste posible. Deportivo: BAJA.",
+   "evidencia": [
+    "paquete:m-5253ab17ca20|1.ª parte goles",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-5253ab17ca20|1.ª parte resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "3/3 lineas sin p_modelo (estimador sin datos/prob.); 3 con precio de agregador sin contraste posible. Deportivo: BAJA.",
+   "evidencia": [
+    "paquete:m-5253ab17ca20|1.ª parte resultado",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-5253ab17ca20|córners",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "46/46 lineas sin p_modelo (estimador sin datos/prob.); 42 con precio de agregador sin contraste posible. Deportivo: BAJA.",
+   "evidencia": [
+    "paquete:m-5253ab17ca20|córners",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-5253ab17ca20|doble oportunidad",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "3/3 lineas sin p_modelo (estimador sin datos/prob.); 3 con precio de agregador sin contraste posible. Deportivo: BAJA.",
+   "evidencia": [
+    "paquete:m-5253ab17ca20|doble oportunidad",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-5253ab17ca20|empate no válido",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "2/2 lineas sin p_modelo (estimador sin datos/prob.); 2 con precio de agregador sin contraste posible. Deportivo: BAJA.",
+   "evidencia": [
+    "paquete:m-5253ab17ca20|empate no válido",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-5253ab17ca20|goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "14/14 lineas sin p_modelo (estimador sin datos/prob.); 14 con precio de agregador sin contraste posible. Deportivo: BAJA.",
+   "evidencia": [
+    "paquete:m-5253ab17ca20|goles",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-5253ab17ca20|goles por equipo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "12/12 lineas sin p_modelo (estimador sin datos/prob.); 12 con precio de agregador sin contraste posible. Deportivo: BAJA.",
+   "evidencia": [
+    "paquete:m-5253ab17ca20|goles por equipo",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-5253ab17ca20|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "10/10 lineas sin p_modelo (estimador sin datos/prob.); 10 con precio de agregador sin contraste posible. Deportivo: BAJA.",
+   "evidencia": [
+    "paquete:m-5253ab17ca20|goles total entero",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-5253ab17ca20|hándicap",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "12/12 lineas sin p_modelo (estimador sin datos/prob.); 11 con precio de agregador sin contraste posible. Deportivo: BAJA.",
+   "evidencia": [
+    "paquete:m-5253ab17ca20|hándicap",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-5253ab17ca20|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "10/10 lineas sin p_modelo (estimador sin datos/prob.); 9 con precio de agregador sin contraste posible. Deportivo: BAJA.",
+   "evidencia": [
+    "paquete:m-5253ab17ca20|hándicap asiático entero",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-5253ab17ca20|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "12/12 lineas sin p_modelo (estimador sin datos/prob.); 12 con precio de agregador sin contraste posible. Deportivo: BAJA.",
+   "evidencia": [
+    "paquete:m-5253ab17ca20|hándicap europeo",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-5253ab17ca20|resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "3/3 lineas sin p_modelo (estimador sin datos/prob.); 3 con precio de agregador sin contraste posible. Deportivo: BAJA.",
+   "evidencia": [
+    "paquete:m-5253ab17ca20|resultado",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  },
+  {
+   "unit_id": "m-5253ab17ca20|tarjetas",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "42/42 lineas sin p_modelo (estimador sin datos/prob.); 12 con precio de agregador sin contraste posible. Deportivo: BAJA.",
+   "evidencia": [
+    "paquete:m-5253ab17ca20|tarjetas",
+    "archivo:runs/2026-10-21/agentes/informe_deportivo.json"
+   ]
+  }
+ ],
+ "limitaciones": [
+  "Sin abrir webs de terceros; auditoria sobre paquete, informes de otros roles y rotation/league_samples citados por deportivo.",
+  "Brecha medida contra 1/cuota de agregador (incluye margen); en enteros/europeo p_modelo es P(gana|sin devolucion), comparacion aproximada.",
+  "Estimador global sin validar, ya consta en el paquete; no se usa como objecion por si solo."
+ ]
+}
