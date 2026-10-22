@@ -9,3 +9,10 @@ Copiadas tal cual (MIT, ver licencias) desde repos públicos. Para actualizar, v
 | book-to-skill | https://github.com/virgiliojr94/book-to-skill (raíz: SKILL.md, scripts/, book_to_skill/) |
 
 No se instalaron los hooks de i-have-adhd (always-on) ni scripts de evaluación.
+
+## Plugins (declarados en `.claude/settings.json`)
+
+Se instalan al abrir el repo y aceptar la confianza de la carpeta (requiere Claude Code 2.1.289+ y Node 22+).
+
+- `claude-code-mods` (hamzafer): activados context-bar, usage-meter, where-am-i, blast-radius. El resto: `/plugin install <mod>@claude-code-mods`.
+- `agent-router-tools` (alexandernicholson): activado keepalive. `agent-router` queda disponible sin activar: necesita un endpoint compatible con Anthropic (`/plugin install agent-router@agent-router-tools`).
