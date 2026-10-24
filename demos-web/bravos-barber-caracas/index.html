@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Bravos Barber Caracas | Barbería en Centro Plaza</title>
+<meta name="description" content="Barbería en Centro Plaza, Los Palos Grandes, Caracas. Cortes y barba. Reserva por WhatsApp.">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--negro:#0E0E0E;--hueso:#F4F1EA;--gris:#B9B5AB;--linea:#2A2A2A;--filo:#E5E2DA}
+*{box-sizing:border-box;margin:0}
+html,body{overflow-x:hidden}
+body{font-family:Inter,system-ui,sans-serif;background:var(--hueso);color:var(--negro);line-height:1.6;font-size:17px}
+a{color:inherit}
+a:focus-visible{outline:3px solid #fff;outline-offset:3px;box-shadow:0 0 0 6px var(--negro)}
+.wrap{max-width:1000px;margin:0 auto;padding:0 22px}
+header{background:var(--negro);color:var(--hueso)}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
+.logo{font-family:Archivo,sans-serif;font-weight:900;text-transform:uppercase;letter-spacing:.04em;text-decoration:none}
+.btn{display:inline-flex;align-items:center;min-height:52px;padding:0 28px;background:var(--hueso);color:var(--negro);font-weight:800;text-decoration:none;font-family:Archivo,sans-serif}
+.btn.mini{min-height:44px;padding:0 18px;font-size:.95rem}
+.btn.neg{background:var(--negro);color:var(--hueso)}
+.hero{padding:40px 0 70px}
+.hero h1{font-family:Archivo,sans-serif;font-weight:900;font-size:clamp(3.4rem,15vw,8.5rem);line-height:.88;letter-spacing:-.03em;text-transform:uppercase}
+.hero p{margin-top:24px;max-width:34ch;font-size:1.15rem;color:var(--gris)}
+.acciones{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:30px}
+.dato{color:var(--gris);font-size:.98rem}
+.dato b{color:#fff}
+section{padding:64px 0}
+h2{font-family:Archivo,sans-serif;font-weight:900;text-transform:uppercase;font-size:clamp(1.9rem,6vw,2.8rem);line-height:1;letter-spacing:-.01em;margin-bottom:14px}
+.lead{color:#555;max-width:48ch;margin-bottom:30px}
+.lista{border-top:3px solid var(--negro)}
+.fila{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 18px;padding:20px 0;border-bottom:1px solid var(--negro)}
+.fila h3{font-family:Archivo,sans-serif;font-weight:800;font-size:1.2rem}
+.fila small{display:block;color:#555}
+.pc{font-weight:600;font-size:.92rem;color:#555}
+.negra{background:var(--negro);color:var(--hueso)}
+.negra .lead{color:var(--gris)}
+.cols{display:grid;gap:30px}
+@media(min-width:780px){.cols{grid-template-columns:1fr 1fr}}
+dt{font-weight:700;margin-top:14px;font-family:Archivo,sans-serif;text-transform:uppercase;font-size:.9rem;letter-spacing:.06em}
+dd{color:var(--gris)}
+.fotos{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.foto{aspect-ratio:3/4;border:2px dashed #888;display:grid;place-items:center;text-align:center;color:#555;font-size:.85rem;padding:8px}
+footer{padding:30px 0 46px;background:var(--negro);color:var(--gris);font-size:.9rem}
+.demo{margin-top:10px;border-left:4px solid var(--hueso);padding-left:12px}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <nav class="nav" aria-label="Principal">
+      <a class="logo" href="#inicio">Bravos Barber</a>
+      <a class="btn mini" href="#reservar">Reservar</a>
+    </nav>
+    <div class="hero" id="inicio">
+      <h1>Cortes con carácter.</h1>
+      <p>Barbería en Centro Plaza, Los Palos Grandes. Cortes y barba con turno.</p>
+      <div class="acciones">
+        <a class="btn" id="reservar" href="https://wa.me/PON_AQUI_EL_NUMERO?text=Hola%2C%20quiero%20reservar%20un%20turno%20en%20Bravos%20Barber">Reservar por WhatsApp</a>
+        <span class="dato"><b>Abierto</b> hasta las 6 p. m.</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+<section aria-labelledby="serv">
+  <div class="wrap">
+    <h2 id="serv">Servicios</h2>
+    <p class="lead">Lista de ejemplo. El negocio confirma qué ofrece y los precios antes de publicarla.</p>
+    <div class="lista">
+      <div class="fila"><div><h3>Corte</h3><small>Clásico, fade o a tijera</small></div><span class="pc">precio por confirmar</span></div>
+      <div class="fila"><div><h3>Barba</h3><small>Perfilado y acabado</small></div><span class="pc">precio por confirmar</span></div>
+      <div class="fila"><div><h3>Corte y barba</h3><small>Combo</small></div><span class="pc">precio por confirmar</span></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0" aria-labelledby="tra">
+  <div class="wrap">
+    <h2 id="tra">Trabajos</h2>
+    <p class="lead">Aquí van los cortes terminados del equipo, fotos propias del negocio.</p>
+    <div class="fotos"><div class="foto">Corte 1</div><div class="foto">Corte 2</div><div class="foto">Corte 3</div></div>
+  </div>
+</section>
+
+<section class="negra" aria-labelledby="donde">
+  <div class="wrap cols">
+    <div>
+      <h2 id="donde">Dónde</h2>
+      <dl>
+        <dt>Local</dt><dd>Centro Plaza, Nivel 6, Torre C, Local CC 6-16. Los Palos Grandes, Caracas</dd>
+        <dt>Horario</dt><dd>Hasta las 6 p. m. Días por confirmar.</dd>
+        <dt>Reservas</dt><dd>Por WhatsApp</dd>
+      </dl>
+      <div class="acciones"><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Bravos+Barber+Caracas+Centro+Plaza">Cómo llegar</a></div>
+    </div>
+    <div>
+      <h2 style="font-size:1.6rem">Llega con turno</h2>
+      <p class="lead" style="margin-bottom:0">Escribe por WhatsApp el día y la hora y te confirmamos.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">Bravos Barber Caracas · Centro Plaza, Los Palos Grandes
+    <p class="demo">Demo de propuesta preparada con información pública. No es el sitio oficial del negocio.</p>
+  </div>
+</footer>
+</body>
+</html>

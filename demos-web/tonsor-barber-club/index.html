@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Tonsor Barber Club | Barbería y café en Los Palos Grandes</title>
+<meta name="description" content="Barbería para caballeros en Los Palos Grandes, Caracas. Corte, barba, café y buen ambiente. Reserva por WhatsApp.">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--espresso:#241813;--madera:#3A271D;--cobre:#C98A52;--crema:#F2E8D8;--tenue:#CDBFA9}
+*{box-sizing:border-box;margin:0}
+html,body{overflow-x:hidden}
+body{font-family:Inter,system-ui,sans-serif;background:var(--espresso);color:var(--crema);line-height:1.6;font-size:17px}
+a{color:inherit}
+a:focus-visible{outline:3px solid var(--cobre);outline-offset:3px}
+.wrap{max-width:1000px;margin:0 auto;padding:0 22px}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
+.logo{font-family:'DM Serif Display',serif;font-size:1.5rem;text-decoration:none;letter-spacing:.01em}
+.btn{display:inline-flex;align-items:center;min-height:52px;padding:0 28px;border-radius:6px;background:var(--cobre);color:var(--espresso);font-weight:700;text-decoration:none}
+.btn.mini{min-height:44px;padding:0 18px;font-size:.95rem}
+.btn.ghost{background:transparent;color:var(--crema);border:1.5px solid var(--tenue)}
+.hero{padding:70px 0 84px;display:grid;gap:34px}
+@media(min-width:820px){.hero{grid-template-columns:1.25fr .75fr;align-items:end}}
+.hero h1{font-family:'DM Serif Display',serif;font-weight:400;font-size:clamp(3rem,10vw,6rem);line-height:.98}
+.hero h1 em{font-style:italic;color:var(--cobre)}
+.hero p{max-width:36ch;font-size:1.15rem;color:var(--tenue);margin-top:22px}
+.acciones{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.ficha{border-left:3px solid var(--cobre);padding-left:20px}
+.ficha b{display:block;font-family:'DM Serif Display',serif;font-size:2.6rem;font-weight:400;line-height:1}
+.ficha span{color:var(--tenue);font-size:.95rem}
+.ficha + .ficha{margin-top:20px}
+section{padding:64px 0;background:var(--madera)}
+section.claro{background:var(--crema);color:var(--espresso)}
+h2{font-family:'DM Serif Display',serif;font-weight:400;font-size:clamp(2rem,6vw,3rem);line-height:1.1;margin-bottom:12px}
+.lead{color:var(--tenue);max-width:48ch;margin-bottom:30px}
+.claro .lead{color:#5B4636}
+.lista{display:grid;gap:0;border-top:1px solid #5A4132}
+.claro .lista{border-color:#CDBB9C}
+.fila{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 18px;padding:20px 2px;border-bottom:1px solid #5A4132}
+.claro .fila{border-color:#CDBB9C}
+.fila h3{font-size:1.1rem}
+.fila small{display:block;color:var(--tenue);font-weight:400}
+.claro .fila small{color:#5B4636}
+.fila .pc{color:var(--cobre);font-weight:600;font-size:.92rem}
+.claro .fila .pc{color:#8A4F1F}
+.cols{display:grid;gap:30px}
+@media(min-width:780px){.cols{grid-template-columns:1fr 1fr}}
+dt{font-weight:700;margin-top:14px}
+dd{color:var(--tenue)}
+.claro dd{color:#5B4636}
+.fotos{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:8px}
+.foto{aspect-ratio:4/5;border:2px dashed #5A4132;border-radius:8px;display:grid;place-items:center;text-align:center;color:var(--tenue);font-size:.85rem;padding:8px}
+section.claro .foto{border-color:#B8A585;color:#5B4636}
+footer{padding:30px 0 46px;color:var(--tenue);font-size:.9rem}
+.demo{margin-top:10px;border-left:4px solid var(--cobre);padding-left:12px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="nav" aria-label="Principal">
+    <a class="logo" href="#inicio">Tonsor Barber Club</a>
+    <a class="btn mini" href="#reservar">Reservar</a>
+  </nav>
+  <div class="hero" id="inicio">
+    <div>
+      <h1>Barbería y <em>café</em> para caballeros.</h1>
+      <p>Un corte sin apuro en Los Palos Grandes. Calificación 4,8 en Google con 173 opiniones.</p>
+      <div class="acciones">
+        <a class="btn" id="reservar" href="https://wa.me/PON_AQUI_EL_NUMERO?text=Hola%2C%20quiero%20reservar%20un%20turno%20en%20Tonsor">Reservar por WhatsApp</a>
+        <a class="btn ghost" href="https://instagram.com/tonsorbarberclub">Ver Instagram</a>
+      </div>
+    </div>
+    <aside>
+      <div class="ficha"><b>4,8</b><span>en Google, 173 opiniones</span></div>
+      <div class="ficha"><b>7 p. m.</b><span>hora de cierre</span></div>
+    </aside>
+  </div>
+</div>
+
+<section aria-labelledby="serv">
+  <div class="wrap">
+    <h2 id="serv">Servicios</h2>
+    <p class="lead">Lista de ejemplo. El negocio confirma qué ofrece y los precios antes de publicarla.</p>
+    <div class="lista">
+      <div class="fila"><div><h3>Corte de cabello</h3><small>Con lavado y acabado</small></div><span class="pc">precio por confirmar</span></div>
+      <div class="fila"><div><h3>Barba y perfilado</h3><small>Toalla caliente</small></div><span class="pc">precio por confirmar</span></div>
+      <div class="fila"><div><h3>Corte y barba</h3><small>El combo</small></div><span class="pc">precio por confirmar</span></div>
+      <div class="fila"><div><h3>Café de la casa</h3><small>Mientras esperas tu turno</small></div><span class="pc">por confirmar</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="claro" aria-labelledby="amb">
+  <div class="wrap">
+    <h2 id="amb">El ambiente</h2>
+    <p class="lead">Los clientes mencionan en sus opiniones el café, el ambiente y el trato de caballeros. Aquí van las fotos propias del local.</p>
+    <div class="fotos"><div class="foto">Foto del local</div><div class="foto">Foto de un corte</div><div class="foto">Foto del café</div></div>
+  </div>
+</section>
+
+<section aria-labelledby="donde">
+  <div class="wrap cols">
+    <div>
+      <h2 id="donde">Dónde estamos</h2>
+      <dl>
+        <dt>Dirección</dt><dd>Av. Andrés Bello, 2.ª Transversal, Edificio Intercontinental, planta baja. Los Palos Grandes, Caracas</dd>
+        <dt>Horario</dt><dd>Cerramos a las 7 p. m. Días por confirmar.</dd>
+        <dt>Reservas</dt><dd>Por WhatsApp</dd>
+      </dl>
+      <div class="acciones"><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Tonsor+Barber+Club+Los+Palos+Grandes+Caracas">Cómo llegar</a></div>
+    </div>
+    <div>
+      <h2 style="font-size:1.7rem">Sin esperas</h2>
+      <p class="lead">Escríbenos por WhatsApp con el día y la hora que prefieres y te confirmamos el turno.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">Tonsor Barber Club · Los Palos Grandes, Caracas
+    <p class="demo">Demo de propuesta preparada con información pública. No es el sitio oficial del negocio.</p>
+  </div>
+</footer>
+</body>
+</html>
