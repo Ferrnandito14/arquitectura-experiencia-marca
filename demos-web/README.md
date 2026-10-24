@@ -54,8 +54,21 @@ Cita por WhatsApp, lista de tratamientos que la clínica confirma, cómo es la p
 
 Reserva por WhatsApp visible desde el primer vistazo, servicios con precios, horario y días, ubicación con botón "cómo llegar", fotos propias del local y de cortes terminados, y la calificación de Google como prueba. Funciona en teléfono primero, porque casi todo el tráfico llega desde Instagram o WhatsApp.
 
+## Identidad de cada negocio (investigada el 2026-10-24)
+
+Sacada de las fotos de su ficha de Google Maps (las del negocio y las de clientes), de los temas que más se repiten en sus opiniones y de búsquedas web. No se usan sus fotos ni sus logos en las demos: los espacios de fotos quedan para que el negocio ponga las suyas.
+
+| Negocio | Lo que se vio | Cómo se aplicó |
+|---|---|---|
+| Barbería Hermanos Mora | Postes de barbero cromados, papel tapiz damasco dorado, piso de damero, sillas cromadas de cuero caramelo. Opiniones: limpieza, buena música, trato amable, mejor con cita | Fondo damasco, franjas de damero, poste animado, acentos caramelo y rojo-azul |
+| Tonsor Barber Club | Paredes azul cobalto, estantes de nogal con productos, logo circular, retratos en las paredes, barra de espresso | Azul cobalto, nogal, sello circular, tres pilares: barbería, café y tienda |
+| Bravos Barber Studio | Logo "BRAVOS · Barber Studio" geométrico y ancho, sillas negras con dorado, espejos con marco de luz, sillones de terciopelo petróleo | Negro y dorado, tipografía ancha, marco de luz en el titular, bloque petróleo |
+| Odontología Gran Caracas | Degradado azul rey a marino, logo en letra cursiva con diente celeste, uniformes azul rey, paredes de mármol, "Agenda tu cita" y "Visítanos" | Degradado azul, cursiva en el logo, fondo de mármol, piso 7 oficina 76 |
+| La Flor de Altamira | Mostradores y columnas azul rey con molduras doradas, vitrinas llenas de tortas, cachitos, pizzas, charcutería, terraza | Azul rey, moldura dorada, vitrina con repisas, productos según opiniones |
+| Restaurant El Barquero | Letrero azul marino con "El Barquero" en cursiva y el lema "La Embajada de los Mares en Caracas", fachada de piedra con arcos, vigas de madera, paredes de vino, manteles a cuadros azules | Letrero como portada, lema propio, franjas de mantel a cuadros, madera, platos de mar según opiniones |
+
 ## Límites de lo hecho
 
-- No pude ver el Instagram de los negocios (pide iniciar sesión), así que la identidad visual de la demo de Hermanos Mora sale de su foto en Google Maps (poste de barbero rojo y azul, madera oscura). Hay que contrastarla con su logo real.
-- Seis demos hechas en cuatro rubros. La identidad real de cada negocio (logo y colores propios) sigue pendiente.
-- Cada demo tiene su propio diseño y tipografía, pensados para el negocio: poste de barbero (Hermanos Mora), café y cobre (Tonsor), blanco y negro (Bravos), azul petróleo (clínica), verde y rosa (La Flor), azul noche y azulejo (El Barquero). Las identidades de Tonsor, Bravos, La Flor, El Barquero y la clínica salen del rubro y de lo poco que se ve en Maps, no de su logo oficial.
+- Instagram pide iniciar sesión, así que no vi sus logos oficiales en alta calidad. Las paletas y estilos salen de las fotos de Maps y hay que contrastarlos con el negocio.
+- Odontología Gran Caracas tiene una opinión muy negativa de un paciente que se siente engañado con un tratamiento pagado. La demo no muestra calificación. Fernando decide si conviene ofrecerle la web.
+- Precios, carta, horario por día y fotos quedan "por confirmar" en todas.

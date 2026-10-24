@@ -4,69 +4,80 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Odontología Gran Caracas | Clínica dental en Caracas</title>
-<meta name="description" content="Clínica dental en Torre A, Centro Perú, Av. Francisco de Miranda, Caracas. Pide tu cita por WhatsApp.">
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<title>Odontología Gran Caracas | Centro Perú, Av. Francisco de Miranda</title>
+<meta name="description" content="Clínica odontológica en Centro Perú, Torre A, piso 7, Caracas. Agenda tu cita por WhatsApp.">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--teal:#0F4C5C;--teal2:#0B3945;--agua:#EAF4F3;--arena:#FAF6EF;--tinta:#16303A;--suave:#4D6670;--acento:#C2552B}
+:root{--rey:#1F55B8;--marino:#0C1E4E;--cielo:#8CCBF2;--hielo:#EEF5FC;--tinta:#13213F;--suave:#4E5B74}
 *{box-sizing:border-box;margin:0}
 html,body{overflow-x:hidden}
-body{font-family:Manrope,system-ui,sans-serif;background:var(--arena);color:var(--tinta);line-height:1.65;font-size:17px}
+body{font-family:Montserrat,system-ui,sans-serif;background:#fff;color:var(--tinta);line-height:1.65;font-size:16.5px}
 a{color:inherit}
-a:focus-visible{outline:3px solid var(--acento);outline-offset:3px}
+a:focus-visible{outline:3px solid #F2B84B;outline-offset:3px}
 .wrap{max-width:1000px;margin:0 auto;padding:0 22px}
-header{background:var(--teal);color:#fff}
-.nav{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
-.logo{font-weight:800;text-decoration:none;letter-spacing:-.01em;font-size:1.15rem}
-.btn{display:inline-flex;align-items:center;min-height:52px;padding:0 28px;border-radius:12px;background:var(--acento);color:#fff;font-weight:700;text-decoration:none}
-.btn.mini{min-height:44px;padding:0 18px;font-size:.95rem;background:#fff;color:var(--teal)}
-.btn.claro{background:#fff;color:var(--teal)}
-.hero{padding:56px 0 76px}
-.hero h1{font-weight:800;font-size:clamp(2.4rem,8vw,4.4rem);line-height:1.05;letter-spacing:-.025em;max-width:15ch}
-.hero p{margin-top:20px;max-width:40ch;font-size:1.15rem;color:#CFE3E2}
-.acciones{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:30px}
-.dato{color:#CFE3E2;font-size:.98rem}
+header{background:linear-gradient(170deg,var(--rey) 0%,#163E92 45%,var(--marino) 100%);color:#fff;position:relative;overflow:hidden}
+header::after{content:"";position:absolute;right:-170px;top:30px;width:260px;height:300px;opacity:.7;border:3px solid rgba(140,203,242,.45);border-radius:46% 46% 40% 40% / 38% 38% 62% 62%;pointer-events:none}
+@media(min-width:900px){header::after{right:-40px}}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:18px 0;position:relative;z-index:1}
+.logo{text-decoration:none;line-height:1}
+.logo i{display:block;font-family:'Dancing Script',cursive;font-style:normal;font-weight:700;font-size:1.65rem}
+.logo small{display:block;font-weight:700;font-size:.62rem;letter-spacing:.32em;margin-top:2px;color:var(--cielo)}
+.btn{display:inline-flex;align-items:center;min-height:52px;padding:0 28px;border-radius:999px;background:#fff;color:var(--rey);font-weight:800;text-decoration:none}
+.btn.mini{min-height:44px;padding:0 18px;font-size:.92rem}
+.btn.azul{background:var(--rey);color:#fff}
+.hero{padding:48px 0 84px;position:relative;z-index:1}
+.hero .script{font-family:'Dancing Script',cursive;font-size:clamp(1.6rem,6vw,2.4rem);color:var(--cielo)}
+.hero h1{font-weight:800;font-size:clamp(2.4rem,8.5vw,4.4rem);line-height:1.04;letter-spacing:-.02em;max-width:13ch}
+.hero p{margin-top:18px;max-width:40ch;font-size:1.08rem;color:#DCE7FA}
+.acciones{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:28px}
+.dato{color:#DCE7FA;font-size:.95rem}
 .dato b{color:#fff}
+.puntos{display:flex;gap:6px;margin:18px 0 6px}
+.puntos i{width:8px;height:8px;border-radius:50%;background:#fff;opacity:.85}
 section{padding:64px 0}
-h2{font-weight:800;font-size:clamp(1.8rem,5.5vw,2.6rem);line-height:1.1;letter-spacing:-.02em;margin-bottom:12px}
-.lead{color:var(--suave);max-width:50ch;margin-bottom:30px}
+h2{font-weight:800;font-size:clamp(1.8rem,5.5vw,2.5rem);line-height:1.1;letter-spacing:-.015em;margin-bottom:12px}
+.lead{color:var(--suave);max-width:52ch;margin-bottom:30px}
+.marmol{background:#F7F8FA;background-image:
+ linear-gradient(115deg,transparent 47%,rgba(160,170,185,.18) 48%,transparent 50%),
+ linear-gradient(160deg,transparent 60%,rgba(160,170,185,.14) 61%,transparent 63%),
+ linear-gradient(80deg,transparent 30%,rgba(160,170,185,.10) 31%,transparent 33%)}
 .grid{display:grid;gap:14px}
 @media(min-width:700px){.grid{grid-template-columns:repeat(2,1fr)}}
 @media(min-width:960px){.grid.tres{grid-template-columns:repeat(3,1fr)}}
-.card{background:#fff;border:1px solid #E1E9E8;border-radius:16px;padding:24px}
-.card h3{font-size:1.1rem;margin-bottom:4px}
-.card p{color:var(--suave);font-size:.97rem}
-.pc{display:inline-block;margin-top:10px;font-size:.88rem;font-weight:600;color:#8F3D1B}
-.pasos{counter-reset:p;list-style:none;padding:0;display:grid;gap:14px}
-.pasos li{counter-increment:p;display:flex;gap:16px;align-items:flex-start;background:var(--agua);border-radius:16px;padding:20px 22px}
-.pasos li::before{content:counter(p);flex:none;width:36px;height:36px;border-radius:50%;background:var(--teal);color:#fff;font-weight:800;display:grid;place-items:center}
+.card{background:#fff;border:1px solid #DCE6F3;border-radius:18px;padding:22px 24px}
+.card h3{font-size:1.06rem;color:var(--rey);margin-bottom:4px}
+.card p{color:var(--suave);font-size:.95rem}
+.pc{display:inline-block;margin-top:10px;font-size:.84rem;font-weight:700;color:#8A3D12}
+.pasos{counter-reset:p;list-style:none;padding:0;display:grid;gap:12px}
+.pasos li{counter-increment:p;display:flex;gap:16px;align-items:flex-start;background:var(--hielo);border-radius:18px;padding:20px 22px}
+.pasos li::before{content:counter(p);flex:none;width:38px;height:38px;border-radius:50%;background:var(--rey);color:#fff;font-weight:800;display:grid;place-items:center}
 .pasos b{display:block}
-.pasos span{color:var(--suave);font-size:.97rem}
-.donde{background:var(--teal2);color:#fff}
-.donde .lead{color:#CFE3E2}
-.cols{display:grid;gap:30px}
-@media(min-width:780px){.cols{grid-template-columns:1fr 1fr}}
-dt{font-weight:700;margin-top:14px}
-dd{color:#CFE3E2}
-details{background:#fff;border:1px solid #E1E9E8;border-radius:14px;padding:16px 20px;margin-bottom:10px}
-summary{font-weight:700;cursor:pointer;min-height:28px}
+.pasos span{color:var(--suave);font-size:.95rem}
+details{background:#fff;border:1px solid #DCE6F3;border-radius:14px;padding:16px 20px;margin-bottom:10px}
+summary{font-weight:700;cursor:pointer}
 details p{color:var(--suave);margin-top:8px}
-footer{padding:30px 0 46px;color:var(--suave);font-size:.9rem}
-.demo{margin-top:10px;border-left:4px solid var(--acento);padding-left:12px}
+.visita{background:linear-gradient(170deg,var(--rey),var(--marino));color:#fff;text-align:center}
+.visita .script{font-family:'Dancing Script',cursive;font-size:clamp(2.4rem,8vw,3.6rem);line-height:1}
+.visita p{color:#DCE7FA}
+.visita .dir{font-size:1.15rem;font-weight:700;color:#fff;margin:14px 0 6px}
+.visita .acciones{justify-content:center}
+footer{padding:28px 0 40px;color:var(--suave);font-size:.88rem}
+.demo{margin-top:10px;border-left:4px solid var(--rey);padding-left:12px}
 </style>
 </head>
 <body>
 <header>
   <div class="wrap">
     <nav class="nav" aria-label="Principal">
-      <a class="logo" href="#inicio">Odontología Gran Caracas</a>
-      <a class="btn mini" href="#cita">Pedir cita</a>
+      <a class="logo" href="#inicio"><i>Odontología</i><small>GRAN CARACAS</small></a>
+      <a class="btn mini" href="#cita">Agenda tu cita</a>
     </nav>
     <div class="hero" id="inicio">
-      <h1>Tu consulta dental, sin complicaciones.</h1>
-      <p>Clínica dental en la Av. Francisco de Miranda, Caracas. Escríbenos y te confirmamos el horario de tu cita.</p>
+      <div class="script">Tu sonrisa, en buenas manos</div>
+      <h1>Agenda tu cita en Centro Perú.</h1>
+      <p>Clínica odontológica con un equipo de profesionales de la salud bucal. Torre A, piso 7, en la Av. Francisco de Miranda.</p>
       <div class="acciones">
-        <a class="btn" id="cita" href="https://wa.me/PON_AQUI_EL_NUMERO?text=Hola%2C%20quiero%20pedir%20una%20cita%20dental">Pedir cita por WhatsApp</a>
+        <a class="btn" id="cita" href="https://wa.me/PON_AQUI_EL_NUMERO?text=Hola%2C%20quiero%20agendar%20una%20cita">Agendar por WhatsApp</a>
         <span class="dato"><b>Abierto</b> hasta las 6 p. m.</span>
       </div>
     </div>
@@ -74,64 +85,59 @@ footer{padding:30px 0 46px;color:var(--suave);font-size:.9rem}
 </header>
 
 <main>
-<section aria-labelledby="serv">
+<section class="marmol" aria-labelledby="trat">
   <div class="wrap">
-    <h2 id="serv">Tratamientos</h2>
-    <p class="lead">Lista de ejemplo. La clínica confirma cuáles ofrece. No se promete ningún resultado clínico.</p>
+    <h2 id="trat">Tratamientos</h2>
+    <p class="lead">Lista de ejemplo. La clínica confirma cuáles ofrece. Esta página no promete resultados clínicos: eso lo explica el odontólogo en consulta.</p>
     <div class="grid tres">
-      <div class="card"><h3>Consulta y diagnóstico</h3><p>Revisión inicial y plan de tratamiento.</p><span class="pc">por confirmar</span></div>
+      <div class="card"><h3>Consulta y diagnóstico</h3><p>Revisión, radiografía si hace falta y plan de tratamiento.</p><span class="pc">por confirmar</span></div>
       <div class="card"><h3>Limpieza dental</h3><p>Profilaxis de rutina.</p><span class="pc">por confirmar</span></div>
-      <div class="card"><h3>Restauraciones</h3><p>Reparación de caries y piezas dañadas.</p><span class="pc">por confirmar</span></div>
-      <div class="card"><h3>Ortodoncia</h3><p>Alineación de dientes.</p><span class="pc">por confirmar</span></div>
+      <div class="card"><h3>Restauraciones</h3><p>Tratamiento de caries y piezas dañadas.</p><span class="pc">por confirmar</span></div>
       <div class="card"><h3>Endodoncia</h3><p>Tratamiento de conducto.</p><span class="pc">por confirmar</span></div>
-      <div class="card"><h3>Urgencias</h3><p>Dolor o golpes: cómo atenderlos.</p><span class="pc">por confirmar</span></div>
+      <div class="card"><h3>Ortodoncia</h3><p>Alineación de los dientes.</p><span class="pc">por confirmar</span></div>
+      <div class="card"><h3>Urgencias</h3><p>Dolor o golpes: cómo atenderte.</p><span class="pc">por confirmar</span></div>
     </div>
   </div>
 </section>
 
-<section style="padding-top:0" aria-labelledby="pasos">
+<section aria-labelledby="pasos">
   <div class="wrap">
-    <h2 id="pasos">Cómo es tu primera visita</h2>
-    <p class="lead">Quien duda de ir al dentista suele dudar de lo que viene. Aquí se explica paso a paso.</p>
+    <h2 id="pasos">Tu primera visita</h2>
+    <p class="lead">Paso a paso, para que sepas qué esperar.</p>
     <ol class="pasos">
-      <li><div><b>Escribes por WhatsApp</b><span>Nos dices el motivo y el día que prefieres.</span></div></li>
-      <li><div><b>Confirmamos tu cita</b><span>Te respondemos con fecha, hora y qué llevar.</span></div></li>
-      <li><div><b>Consulta y plan</b><span>El odontólogo te revisa y te explica las opciones y sus costos.</span></div></li>
+      <li><div><b>Nos escribes por WhatsApp</b><span>Cuéntanos el motivo y el día que te conviene.</span></div></li>
+      <li><div><b>Confirmamos tu cita</b><span>Te respondemos con fecha, hora y qué traer.</span></div></li>
+      <li><div><b>Consulta y plan</b><span>El odontólogo te revisa y te explica las opciones, los tiempos y los costos antes de empezar.</span></div></li>
     </ol>
   </div>
 </section>
 
-<section style="padding-top:0" aria-labelledby="faq">
+<section class="marmol" aria-labelledby="faq">
   <div class="wrap">
     <h2 id="faq">Preguntas frecuentes</h2>
-    <details><summary>¿Cómo pido una cita?</summary><p>Por WhatsApp. Te confirmamos el horario disponible.</p></details>
+    <details><summary>¿Cómo agendo una cita?</summary><p>Por WhatsApp. Te confirmamos el horario disponible.</p></details>
     <details><summary>¿Cuánto cuesta la primera consulta?</summary><p>Por confirmar con la clínica.</p></details>
     <details><summary>¿Qué formas de pago aceptan?</summary><p>Por confirmar con la clínica.</p></details>
     <details><summary>¿Atienden urgencias?</summary><p>Por confirmar con la clínica.</p></details>
   </div>
 </section>
 
-<section class="donde" aria-labelledby="donde">
-  <div class="wrap cols">
-    <div>
-      <h2 id="donde">Dónde estamos</h2>
-      <dl>
-        <dt>Dirección</dt><dd>Torre A, Av. Francisco de Miranda, Centro Perú. Caracas</dd>
-        <dt>Horario</dt><dd>Hasta las 6 p. m. Días por confirmar.</dd>
-        <dt>Citas</dt><dd>Por WhatsApp</dd>
-      </dl>
-      <div class="acciones"><a class="btn claro" href="https://www.google.com/maps/search/?api=1&amp;query=Odontolog%C3%ADa+Gran+Caracas+Centro+Per%C3%BA+Caracas">Cómo llegar</a></div>
-    </div>
-    <div>
-      <h2 style="font-size:1.6rem">Antes de venir</h2>
-      <p class="lead" style="margin-bottom:0">Escríbenos y te decimos qué traer y cuánto tiempo dura la visita.</p>
+<section class="visita" aria-labelledby="visit">
+  <div class="wrap">
+    <div class="script" id="visit">Visítanos</div>
+    <div class="puntos" style="justify-content:center" aria-hidden="true"><i></i><i></i><i></i></div>
+    <p class="dir">Centro Perú, Torre A, piso 7, oficina 76</p>
+    <p>Av. Francisco de Miranda, Caracas. Hasta las 6 p. m., días por confirmar.</p>
+    <div class="acciones">
+      <a class="btn" href="https://wa.me/PON_AQUI_EL_NUMERO?text=Hola%2C%20quiero%20agendar%20una%20cita">Agenda tu cita</a>
+      <a class="btn" style="background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.7)" href="https://www.google.com/maps/search/?api=1&amp;query=Odontolog%C3%ADa+Gran+Caracas+Centro+Per%C3%BA">Cómo llegar</a>
     </div>
   </div>
 </section>
 </main>
 
 <footer>
-  <div class="wrap">Odontología Gran Caracas · Av. Francisco de Miranda, Caracas
+  <div class="wrap">Odontología Gran Caracas · Centro Perú, Caracas
     <p class="demo">Demo de propuesta preparada con información pública. No es el sitio oficial del negocio.</p>
   </div>
 </footer>

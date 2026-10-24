@@ -4,123 +4,153 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Barbería Hermanos Mora | Los Palos Grandes, Caracas</title>
-<meta name="description" content="Barbería en Los Palos Grandes, Caracas. Cortes, barba y reserva por WhatsApp.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<title>Barbería Hermanos Mora | Barbería clásica en Los Palos Grandes</title>
+<meta name="description" content="Barbería clásica en Los Palos Grandes, Caracas. Corte, barba y buena música en un local impecable. Reserva por WhatsApp.">
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--madera:#2B1D15;--crema:#F4ECDD;--rojo:#A4281F;--azul:#1E3560;--papel:#FBF6EB;--texto:#3A2A20;--suave:#6B5748}
+:root{--cafe:#24160F;--cafe2:#33211A;--oro:#C29A55;--crema:#F5EDE0;--rojo:#B3241E;--azul:#1F3B78;--cuero:#B9824B;--suave:#5E4A3C}
 *{box-sizing:border-box;margin:0}
-html{scroll-behavior:smooth}
 html,body{overflow-x:hidden}
-body{font-family:Inter,system-ui,sans-serif;background:var(--crema);color:var(--texto);line-height:1.6;font-size:17px}
+body{font-family:Inter,system-ui,sans-serif;background:var(--crema);color:var(--cafe);line-height:1.6;font-size:17px}
 a{color:inherit}
-.poste{height:14px;background:repeating-linear-gradient(135deg,var(--rojo) 0 18px,var(--crema) 18px 36px,var(--azul) 36px 54px,var(--crema) 54px 72px);background-size:102px 100%}
-@media (prefers-reduced-motion:no-preference){.poste{animation:gira 6s linear infinite}@keyframes gira{to{background-position:102px 0}}}
-.wrap{max-width:980px;margin:0 auto;padding:0 20px}
-header{background:var(--madera);color:var(--crema)}
-.nav{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
-.marca{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:1.35rem;letter-spacing:.01em;text-decoration:none}
-.nav a.cta-mini{background:var(--crema);color:var(--madera);text-decoration:none;font-weight:600;font-size:.95rem;padding:10px 18px;border-radius:999px;min-height:44px;display:inline-flex;align-items:center}
-.hero{padding:56px 0 72px}
-.hero h1{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(2.7rem,9vw,5.2rem);line-height:1.02;letter-spacing:-.01em;max-width:11ch}
-.hero p{margin-top:20px;max-width:34ch;font-size:1.15rem;color:#E4D8C3}
-.hero .acciones{margin-top:32px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
-.btn{display:inline-flex;align-items:center;min-height:52px;padding:0 28px;border-radius:999px;background:var(--rojo);color:#fff;font-weight:700;text-decoration:none;font-size:1.05rem}
-.btn:focus-visible,a:focus-visible{outline:3px solid #F4C95D;outline-offset:3px}
-.dato{font-size:.98rem;color:#E4D8C3}
-.dato strong{color:#fff}
+a:focus-visible{outline:3px solid var(--oro);outline-offset:3px}
+.wrap{max-width:1000px;margin:0 auto;padding:0 22px}
+/* papel damasco del local */
+.damasco{background-color:var(--cafe);background-image:
+ radial-gradient(ellipse 18px 30px at 50% 50%,rgba(194,154,85,.22) 45%,transparent 47%),
+ radial-gradient(circle at 50% 18%,rgba(194,154,85,.18) 6px,transparent 7px),
+ radial-gradient(circle at 50% 82%,rgba(194,154,85,.18) 6px,transparent 7px),
+ radial-gradient(ellipse 10px 16px at 0 0,rgba(194,154,85,.16) 45%,transparent 47%),
+ radial-gradient(ellipse 10px 16px at 100% 100%,rgba(194,154,85,.16) 45%,transparent 47%);
+ background-size:64px 80px}
+/* piso de damero */
+.damero{height:28px;background:conic-gradient(#111 25%,#F2F2F2 0 50%,#111 0 75%,#F2F2F2 0) 0 0/28px 28px}
+.poste{width:18px;border-radius:9px;background:repeating-linear-gradient(160deg,var(--rojo) 0 12px,#fff 12px 22px,var(--azul) 22px 34px,#fff 34px 44px);box-shadow:inset 0 0 0 3px #C9CED6,0 0 0 2px #8E949C}
+@media (prefers-reduced-motion:no-preference){.poste{background-size:100% 88px;animation:gira 3s linear infinite}@keyframes gira{to{background-position:0 88px}}}
+header{color:var(--crema)}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
+.logo{font-family:'Abril Fatface',serif;font-size:1.3rem;text-decoration:none;letter-spacing:.01em}
+.btn{display:inline-flex;align-items:center;min-height:52px;padding:0 28px;border-radius:999px;background:var(--rojo);color:#fff;font-weight:700;text-decoration:none}
+.btn.mini{min-height:44px;padding:0 18px;font-size:.95rem;background:var(--crema);color:var(--cafe)}
+.btn.oro{background:var(--oro);color:var(--cafe)}
+.hero{display:grid;grid-template-columns:1fr auto;gap:22px;padding:46px 0 70px;align-items:stretch}
+.hero h1{font-family:'Abril Fatface',serif;font-weight:400;font-size:clamp(2.7rem,10vw,5.6rem);line-height:1;letter-spacing:.005em}
+.hero h1 span{color:var(--oro)}
+.hero p{margin-top:20px;max-width:36ch;font-size:1.13rem;color:#E9DCC8}
+.acciones{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:28px}
+.dato{color:#E9DCC8;font-size:.98rem}
+.dato b{color:#fff}
+.estrellas{margin-top:26px;display:inline-flex;gap:12px;align-items:center;border:1px solid rgba(194,154,85,.6);border-radius:999px;padding:8px 16px;color:#E9DCC8;font-size:.95rem}
+.estrellas b{font-family:'Abril Fatface',serif;font-weight:400;font-size:1.5rem;color:var(--oro)}
 section{padding:64px 0}
-h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,6vw,3rem);line-height:1.1;margin-bottom:12px}
-.lead{color:var(--suave);max-width:46ch;margin-bottom:32px}
-.servicios{display:grid;gap:14px}
+h2{font-family:'Abril Fatface',serif;font-weight:400;font-size:clamp(2rem,6.5vw,3rem);line-height:1.08;margin-bottom:12px}
+.lead{color:var(--suave);max-width:50ch;margin-bottom:30px}
+.servicios{display:grid;gap:12px}
 @media(min-width:700px){.servicios{grid-template-columns:repeat(2,1fr)}}
-.serv{background:var(--papel);border:1px solid #E3D6BE;border-radius:14px;padding:22px 24px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 16px;align-items:baseline}
+.serv{background:#fff;border-left:6px solid var(--cuero);border-radius:10px;padding:20px 22px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 16px;align-items:baseline;box-shadow:0 1px 0 #E5D8C3}
 .serv h3{font-size:1.1rem}
-.serv small{display:block;color:var(--suave);font-size:.93rem}
-.precio{font-weight:700;color:var(--azul)}
-.por-confirmar{font-weight:500;color:var(--suave);font-size:.9rem}
-.donde{background:var(--madera);color:var(--crema)}
-.donde .lead{color:#E4D8C3}
-.cols{display:grid;gap:28px}
-@media(min-width:760px){.cols{grid-template-columns:1fr 1fr}}
-.donde dt{font-weight:700;color:#fff;margin-top:14px}
-.donde dd{color:#E4D8C3}
+.serv small{display:block;color:var(--suave)}
+.pc{font-weight:600;color:#8A3B18;font-size:.9rem}
+.dicen{display:grid;gap:12px}
+@media(min-width:700px){.dicen{grid-template-columns:repeat(3,1fr)}}
+.dicen div{background:var(--cafe2);color:var(--crema);border-radius:14px;padding:22px}
+.dicen b{display:block;font-family:'Abril Fatface',serif;font-weight:400;font-size:1.45rem;color:var(--oro);margin-bottom:4px}
+.dicen p{color:#E9DCC8;font-size:.97rem}
+.oscura{color:var(--crema)}
+.oscura .lead{color:#E9DCC8}
+.cols{display:grid;gap:30px}
+@media(min-width:780px){.cols{grid-template-columns:1fr 1fr}}
+dt{font-weight:700;margin-top:14px;color:#fff}
+dd{color:#E9DCC8}
 .fotos{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.foto{aspect-ratio:1;border:2px dashed #CDBB9C;border-radius:12px;display:grid;place-items:center;text-align:center;color:var(--suave);font-size:.85rem;padding:8px}
-footer{padding:30px 0 44px;color:var(--suave);font-size:.9rem}
-footer .demo{margin-top:10px;border-left:4px solid var(--rojo);padding-left:12px}
+.foto{aspect-ratio:3/4;border:2px dashed #C9B48F;border-radius:10px;display:grid;place-items:center;text-align:center;color:var(--suave);font-size:.85rem;padding:8px}
+footer{padding:28px 0 40px;color:var(--suave);font-size:.9rem}
+.demo{margin-top:10px;border-left:4px solid var(--rojo);padding-left:12px}
 </style>
 </head>
 <body>
-<div class="poste" aria-hidden="true"></div>
-<header>
+<header class="damasco">
   <div class="wrap">
     <nav class="nav" aria-label="Principal">
-      <a class="marca" href="#inicio">Barbería Hermanos Mora</a>
-      <a class="cta-mini" href="#reservar">Reservar</a>
+      <a class="logo" href="#inicio">Hermanos Mora</a>
+      <a class="btn mini" href="#reservar">Reservar</a>
     </nav>
     <div class="hero" id="inicio">
-      <h1>Corte clásico en Los Palos Grandes.</h1>
-      <p>Barbería de barrio con 274 opiniones en Google y una calificación de 4,6.</p>
-      <div class="acciones">
-        <a class="btn" id="reservar" href="#reservar">Reservar por WhatsApp</a>
-        <span class="dato"><strong>Abierto</strong> hasta las 6 p. m.</span>
+      <div>
+        <h1>Barbería <span>clásica</span> en Los Palos Grandes.</h1>
+        <p>Corte, barba y buena música en un local impecable. Sillas de cuero, espejos y el poste de siempre en la puerta.</p>
+        <div class="acciones">
+          <a class="btn" id="reservar" href="#reservar">Reservar por WhatsApp</a>
+          <span class="dato"><b>Abierto</b> hasta las 6 p. m.</span>
+        </div>
+        <div class="estrellas"><b>4,6</b> en Google · 274 opiniones</div>
       </div>
+      <div class="poste" aria-hidden="true"></div>
     </div>
   </div>
 </header>
+<div class="damero" aria-hidden="true"></div>
 
 <main>
 <section aria-labelledby="serv">
   <div class="wrap">
     <h2 id="serv">Servicios</h2>
-    <p class="lead">Lista de ejemplo. El negocio confirma qué ofrece y cuánto cuesta antes de publicarla.</p>
+    <p class="lead">Los que mencionan los clientes en sus opiniones. El negocio confirma la lista y los precios antes de publicarla.</p>
     <div class="servicios">
-      <div class="serv"><div><h3>Corte de cabello</h3><small>Clásico o moderno</small></div><span class="precio por-confirmar">precio por confirmar</span></div>
-      <div class="serv"><div><h3>Arreglo de barba</h3><small>Perfilado y afeitado</small></div><span class="precio por-confirmar">precio por confirmar</span></div>
-      <div class="serv"><div><h3>Corte y barba</h3><small>Combo</small></div><span class="precio por-confirmar">precio por confirmar</span></div>
-      <div class="serv"><div><h3>Otros servicios</h3><small>Por definir con el negocio</small></div><span class="precio por-confirmar">por confirmar</span></div>
+      <div class="serv"><div><h3>Corte con lavado</h3><small>Clásico o moderno</small></div><span class="pc">precio por confirmar</span></div>
+      <div class="serv"><div><h3>Barba</h3><small>Perfilado y afeitado</small></div><span class="pc">precio por confirmar</span></div>
+      <div class="serv"><div><h3>Corte y barba</h3><small>El servicio completo</small></div><span class="pc">precio por confirmar</span></div>
+      <div class="serv"><div><h3>Masaje breve</h3><small>Al terminar el corte</small></div><span class="pc">por confirmar</span></div>
     </div>
   </div>
 </section>
 
-<section aria-labelledby="fotos-t" style="padding-top:0">
+<section class="damasco oscura" aria-labelledby="dicen">
   <div class="wrap">
-    <h2 id="fotos-t">El local</h2>
-    <p class="lead">Aquí van las fotos propias de la barbería: el poste, los sillones, los cortes terminados.</p>
-    <div class="fotos">
-      <div class="foto">Foto del local</div><div class="foto">Foto de un corte</div><div class="foto">Foto del equipo</div>
+    <h2 id="dicen">Lo que dicen los clientes</h2>
+    <p class="lead">Resumen de las opiniones en Google.</p>
+    <div class="dicen">
+      <div><b>Impecable</b><p>Lo que más repiten: el local siempre está limpio y cuidado.</p></div>
+      <div><b>Buena música</b><p>Atención amable y buen ambiente mientras esperas.</p></div>
+      <div><b>Mejor con cita</b><p>Reservar antes asegura que te atiendan sin espera.</p></div>
     </div>
   </div>
 </section>
+<div class="damero" aria-hidden="true"></div>
 
-<section class="donde" aria-labelledby="donde-t">
+<section aria-labelledby="local">
+  <div class="wrap">
+    <h2 id="local">El local</h2>
+    <p class="lead">Aquí van las fotos propias de la barbería: el poste cromado, las sillas de cuero, el papel tapiz y los cortes terminados.</p>
+    <div class="fotos"><div class="foto">Foto del poste</div><div class="foto">Foto de las sillas</div><div class="foto">Foto de un corte</div></div>
+  </div>
+</section>
+
+<section class="damasco oscura" aria-labelledby="donde">
   <div class="wrap cols">
     <div>
-      <h2 id="donde-t">Dónde estamos</h2>
-      <p class="lead">Los Palos Grandes, Caracas.</p>
+      <h2 id="donde">Dónde estamos</h2>
       <dl>
-        <dt>Dirección</dt><dd>Av. 1, Los Palos Grandes, Caracas 1060, Miranda</dd>
-        <dt>Horario</dt><dd>Abierto hasta las 6 p. m. Días por confirmar.</dd>
-        <dt>Reservas</dt><dd>Por WhatsApp</dd>
+        <dt>Dirección</dt><dd>Av. 1, Los Palos Grandes, Caracas</dd>
+        <dt>Horario</dt><dd>Hasta las 6 p. m. Días por confirmar.</dd>
+        <dt>Acceso</dt><dd>Espacio accesible para silla de ruedas</dd>
       </dl>
-      <p style="margin-top:24px"><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Barber%C3%ADa+Hermanos+Mora+Los+Palos+Grandes+Caracas">Cómo llegar</a></p>
+      <div class="acciones"><a class="btn oro" href="https://www.google.com/maps/search/?api=1&amp;query=Barber%C3%ADa+Hermanos+Mora+Los+Palos+Grandes+Caracas">Cómo llegar</a></div>
     </div>
     <div>
-      <h2 style="font-size:1.6rem">Antes de ir</h2>
-      <p class="lead" style="margin-bottom:0">Escríbenos por WhatsApp para confirmar tu turno y evitar la espera.</p>
+      <h2 style="font-size:1.7rem">Reserva tu turno</h2>
+      <p class="lead">Escríbenos por WhatsApp con el día y la hora que prefieres y te confirmamos.</p>
+      <a class="btn" href="#reservar">Reservar por WhatsApp</a>
     </div>
   </div>
 </section>
+<div class="damero" aria-hidden="true"></div>
 </main>
 
 <footer>
-  <div class="wrap">
-    Barbería Hermanos Mora · Los Palos Grandes, Caracas
+  <div class="wrap">Barbería Hermanos Mora · Los Palos Grandes, Caracas
     <p class="demo">Demo de propuesta preparada con información pública. No es el sitio oficial del negocio.</p>
   </div>
 </footer>
-<div class="poste" aria-hidden="true"></div>
 </body>
 </html>

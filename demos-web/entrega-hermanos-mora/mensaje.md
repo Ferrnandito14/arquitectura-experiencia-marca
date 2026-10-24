@@ -19,6 +19,14 @@ Borrador para que Fernando lo apruebe. Nada se envía hasta que él lo diga, y l
 
 (Adjuntar `vista-telefono.png`.)
 
+## Versión con enlace (si Fernando prefiere que la pruebe en el teléfono)
+
+Es la misma versión corta, cambiando solo el último párrafo:
+
+> Te dejo el enlace para que la pruebes en el teléfono: [enlace]. Los botones son de ejemplo. Si te gusta, la ajustamos con tus servicios, precios y fotos. Si no, no pasa nada.
+
+Para tener el enlace, Fernando sube `demo.html` él mismo a un alojamiento gratuito de su elección (por ejemplo, arrastrar la carpeta `entrega-hermanos-mora` a un servicio de alojamiento estático). La página ya lleva `noindex` (no sale en buscadores) y el aviso de demo al pie. Se borra el sitio si el negocio dice que no.
+
 ## Versión un poco más larga (si responde con interés)
 
 > Gracias por responder. Esto es lo que incluiría tu página:

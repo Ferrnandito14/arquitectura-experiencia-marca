@@ -4,128 +4,155 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Restaurant El Barquero | Cocina española en Altamira, Caracas</title>
-<meta name="description" content="Cocina española, música y tradición en Altamira, Caracas. Reserva tu mesa por WhatsApp.">
-<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<title>Restaurant El Barquero | La Embajada de los Mares en Caracas</title>
+<meta name="description" content="Restaurant El Barquero, la embajada de los mares en Caracas. Cocina de mar, vinos, música y baile en Altamira. Reserva por WhatsApp.">
+<link href="https://fonts.googleapis.com/css2?family=Yellowtail&family=Cinzel:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--azul:#1B2A41;--azul2:#121D2E;--terracota:#C4562F;--hueso:#F6EFE2;--tinta:#221F1B;--suave:#5C554A;--azulejo:#2F4A73}
+:root{--marino:#13294B;--marino2:#0C1C36;--piedra:#E5D9C2;--piedra2:#CDBB98;--madera:#4A2A18;--celosia:#E3B23C;--blanco:#FFFFFF;--tinta:#1B1A17;--suave:#5A5145}
 *{box-sizing:border-box;margin:0}
 html,body{overflow-x:hidden}
-body{font-family:Inter,system-ui,sans-serif;background:var(--hueso);color:var(--tinta);line-height:1.6;font-size:17px}
+body{font-family:Inter,system-ui,sans-serif;background:var(--piedra);color:var(--tinta);line-height:1.6;font-size:17px}
 a{color:inherit}
-a:focus-visible{outline:3px solid #F2C14E;outline-offset:3px}
+a:focus-visible{outline:3px solid var(--celosia);outline-offset:3px}
 .wrap{max-width:1000px;margin:0 auto;padding:0 22px}
-.azulejos{height:22px;background:
- conic-gradient(from 45deg at 50% 50%,var(--terracota) 0 25%,var(--hueso) 0 50%,var(--azulejo) 0 75%,var(--hueso) 0) 0 0/22px 22px}
-header{background:var(--azul);color:var(--hueso)}
-.nav{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
-.logo{font-family:'Young Serif',serif;font-size:1.3rem;text-decoration:none}
-.btn{display:inline-flex;align-items:center;min-height:52px;padding:0 28px;border-radius:8px;background:var(--terracota);color:#fff;font-weight:700;text-decoration:none}
-.btn.mini{min-height:44px;padding:0 18px;font-size:.95rem}
-.btn.claro{background:var(--hueso);color:var(--azul)}
-.hero{padding:56px 0 78px}
-.hero h1{font-family:'Young Serif',serif;font-weight:400;font-size:clamp(2.6rem,9vw,5rem);line-height:1.02;max-width:14ch}
-.hero p{margin-top:20px;max-width:36ch;font-size:1.15rem;color:#C9D3E3}
-.acciones{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:30px}
-.dato{color:#C9D3E3;font-size:.98rem}
+/* mantel a cuadros azul del salón */
+.mantel{height:24px;background:
+ linear-gradient(90deg,rgba(19,41,75,.55) 50%,transparent 0) 0 0/24px 24px,
+ linear-gradient(rgba(19,41,75,.55) 50%,#fff 0) 0 0/24px 24px}
+header{background:var(--marino);color:#fff}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:16px 0}
+.logo{text-decoration:none;line-height:1;text-align:center}
+.logo small{display:block;font-family:Cinzel,serif;font-weight:700;font-size:.62rem;letter-spacing:.35em}
+.logo b{display:block;font-family:Yellowtail,cursive;font-weight:400;font-size:1.9rem;margin-top:2px}
+.btn{display:inline-flex;align-items:center;min-height:52px;padding:0 28px;border-radius:6px;background:var(--celosia);color:var(--marino2);font-weight:800;text-decoration:none}
+.btn.mini{min-height:44px;padding:0 18px;font-size:.95rem;background:#fff;color:var(--marino)}
+.btn.marino{background:var(--marino);color:#fff}
+.btn.borde{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.75)}
+/* letrero de la fachada */
+.letrero{margin:30px auto 0;max-width:620px;text-align:center;border:3px solid #fff;outline:6px solid var(--marino);box-shadow:0 0 0 9px #fff;padding:26px 18px 22px;background:var(--marino)}
+.letrero small{display:block;font-family:Cinzel,serif;font-weight:700;letter-spacing:.4em;font-size:.8rem}
+.letrero h1{font-family:Yellowtail,cursive;font-weight:400;font-size:clamp(3.2rem,13vw,5.6rem);line-height:1;margin:6px 0 8px}
+.letrero p{font-size:1rem;letter-spacing:.02em;color:#DCE3EE}
+.hero{padding:16px 0 72px;text-align:center}
+.hero .sub{margin:30px auto 0;max-width:40ch;font-size:1.12rem;color:#DCE3EE}
+.acciones{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:26px}
+.hero .acciones{justify-content:center}
+.dato{color:#DCE3EE;font-size:.98rem}
 .dato b{color:#fff}
 section{padding:64px 0}
-h2{font-family:'Young Serif',serif;font-weight:400;font-size:clamp(1.9rem,6vw,2.8rem);line-height:1.1;margin-bottom:12px}
-.lead{color:var(--suave);max-width:50ch;margin-bottom:30px}
-.menu{display:grid;gap:14px}
-@media(min-width:700px){.menu{grid-template-columns:repeat(2,1fr)}}
-.plato{border-top:3px solid var(--azul);padding:18px 2px 8px}
-.plato h3{font-family:'Young Serif',serif;font-weight:400;font-size:1.3rem}
-.plato p{color:var(--suave);font-size:.97rem}
-.pc{display:inline-block;margin-top:6px;font-size:.85rem;font-weight:600;color:#9A3E1E}
-.musica{background:var(--azul);color:var(--hueso)}
-.musica .lead{color:#C9D3E3}
+h2{font-family:Cinzel,serif;font-weight:700;font-size:clamp(1.7rem,5.5vw,2.5rem);line-height:1.12;margin-bottom:12px;color:var(--marino)}
+.lead{color:var(--suave);max-width:52ch;margin-bottom:30px}
+.carta{display:grid;gap:14px}
+@media(min-width:700px){.carta{grid-template-columns:repeat(2,1fr)}}
+.plato{background:#fff;border-radius:10px;padding:22px;border:1px solid var(--piedra2)}
+.plato h3{font-family:Cinzel,serif;font-size:1.15rem;color:var(--marino)}
+.plato p{color:var(--suave);font-size:.96rem}
+.menc{display:inline-block;margin-top:10px;font-size:.82rem;font-weight:700;color:#7A4A06;background:#FBEBC4;padding:4px 12px;border-radius:999px}
+.taberna{background:var(--madera);color:#fff;background-image:repeating-linear-gradient(90deg,transparent 0 160px,rgba(0,0,0,.25) 160px 176px)}
+.taberna h2{color:#fff}
+.taberna .lead{color:#EADBC9}
 .cifras{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:26px}
-.cifras div{border:1.5px solid #3D5278;border-radius:12px;padding:16px}
-.cifras b{display:block;font-family:'Young Serif',serif;font-weight:400;font-size:2.2rem;line-height:1;color:#F2C14E}
-.cifras span{font-size:.88rem;color:#C9D3E3}
+.cifras div{background:rgba(0,0,0,.25);border-radius:10px;padding:16px}
+.cifras b{display:block;font-family:Cinzel,serif;font-size:2rem;line-height:1;color:var(--celosia)}
+.cifras span{font-size:.86rem;color:#EADBC9}
 .cols{display:grid;gap:30px}
 @media(min-width:780px){.cols{grid-template-columns:1fr 1fr}}
-dt{font-weight:700;margin-top:14px}
+dt{font-weight:700;margin-top:14px;color:var(--marino)}
 dd{color:var(--suave)}
 .fotos{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.foto{aspect-ratio:1;border:2px dashed #BBA982;border-radius:10px;display:grid;place-items:center;text-align:center;color:var(--suave);font-size:.85rem;padding:8px}
-footer{padding:30px 0 46px;color:var(--suave);font-size:.9rem}
-.demo{margin-top:10px;border-left:4px solid var(--terracota);padding-left:12px}
+.foto{aspect-ratio:1;border-radius:50% 50% 8px 8px;border:2px dashed var(--piedra2);background:rgba(255,255,255,.4);display:grid;place-items:center;text-align:center;color:var(--suave);font-size:.82rem;padding:10px}
+footer{padding:28px 0 40px;color:var(--suave);font-size:.9rem}
+.demo{margin-top:10px;border-left:4px solid var(--marino);padding-left:12px}
 </style>
 </head>
 <body>
-<div class="azulejos" aria-hidden="true"></div>
 <header>
   <div class="wrap">
     <nav class="nav" aria-label="Principal">
-      <a class="logo" href="#inicio">El Barquero</a>
+      <a class="logo" href="#inicio"><small>RESTAURANT</small><b>El Barquero</b></a>
       <a class="btn mini" href="#reservar">Reservar</a>
     </nav>
     <div class="hero" id="inicio">
-      <h1>Cocina española, con música.</h1>
-      <p>Restaurante en Altamira con 2.281 opiniones en Google y una calificación de 4,5.</p>
+      <div class="letrero">
+        <small>RESTAURANT</small>
+        <h1>El Barquero</h1>
+        <p>La Embajada de los Mares en Caracas</p>
+      </div>
+      <p class="sub">Cocina de mar, vinos, música y baile en Altamira. 4,5 en Google con 2.281 opiniones.</p>
       <div class="acciones">
-        <a class="btn" id="reservar" href="https://wa.me/PON_AQUI_EL_NUMERO?text=Hola%2C%20quiero%20reservar%20una%20mesa">Reservar mesa por WhatsApp</a>
+        <a class="btn" id="reservar" href="https://wa.me/PON_AQUI_EL_NUMERO?text=Hola%2C%20quiero%20reservar%20una%20mesa">Reservar mesa</a>
         <span class="dato"><b>Abierto</b> hasta las 11:30 p. m.</span>
       </div>
     </div>
   </div>
 </header>
+<div class="mantel" aria-hidden="true"></div>
 
 <main>
-<section aria-labelledby="carta">
+<section aria-labelledby="mar">
   <div class="wrap">
-    <h2 id="carta">La carta</h2>
-    <p class="lead">Estructura de ejemplo. El restaurante carga su carta real, con precios, y la actualiza cuando cambie.</p>
-    <div class="menu">
-      <div class="plato"><h3>Para empezar</h3><p>Tapas y entradas para compartir.</p><span class="pc">por confirmar</span></div>
-      <div class="plato"><h3>Arroces y paellas</h3><p>Para la mesa.</p><span class="pc">por confirmar</span></div>
-      <div class="plato"><h3>Carnes y pescados</h3><p>Platos principales.</p><span class="pc">por confirmar</span></div>
-      <div class="plato"><h3>Postres y bebidas</h3><p>Para cerrar la noche.</p><span class="pc">por confirmar</span></div>
+    <h2 id="mar">Del mar a la mesa</h2>
+    <p class="lead">Los platos que más nombran los clientes en sus opiniones. El restaurante carga su carta real con precios, en texto y no en PDF, para que se lea bien en el teléfono.</p>
+    <div class="carta">
+      <div class="plato"><h3>Ceviche</h3><p>Para empezar.</p><span class="menc">mencionado en 10 opiniones</span></div>
+      <div class="plato"><h3>Asopao</h3><p>Caldo de mar.</p><span class="menc">mencionado en 5 opiniones</span></div>
+      <div class="plato"><h3>Consomé</h3><p>Un clásico de la casa.</p><span class="menc">mencionado en 5 opiniones</span></div>
+      <div class="plato"><h3>Pescados en salsa</h3><p>Platos principales del mar.</p><span class="menc">carta por confirmar</span></div>
     </div>
   </div>
 </section>
 
-<section class="musica" aria-labelledby="mus">
+<section class="taberna" aria-labelledby="noche">
   <div class="wrap">
-    <h2 id="mus">Música y tradición</h2>
-    <p class="lead">En las opiniones de Google, los clientes destacan la música y el baile. La programación real se publica aquí cuando el restaurante la confirme.</p>
+    <h2 id="noche">Música, baile y tradición</h2>
+    <p class="lead">Vigas de madera, paredes de vino y manteles a cuadros. Los clientes destacan la música, el baile, los tragos y la atención de los mesoneros.</p>
     <div class="cifras">
-      <div><b>87</b><span>opiniones mencionan la música</span></div>
-      <div><b>35</b><span>mencionan el baile</span></div>
-      <div><b>23</b><span>la tradición</span></div>
+      <div><b>87</b><span>opiniones hablan de la música</span></div>
+      <div><b>35</b><span>del baile</span></div>
+      <div><b>23</b><span>de la tradición</span></div>
     </div>
-    <a class="btn claro" href="https://wa.me/PON_AQUI_EL_NUMERO?text=Hola%2C%20quiero%20saber%20la%20programaci%C3%B3n%20de%20m%C3%BAsica">Preguntar por la programación</a>
+    <div class="acciones"><a class="btn borde" href="https://wa.me/PON_AQUI_EL_NUMERO?text=Hola%2C%20quiero%20saber%20la%20programaci%C3%B3n%20de%20m%C3%BAsica">Preguntar por la música de esta semana</a></div>
   </div>
 </section>
 
-<section aria-labelledby="mesa">
+<section aria-labelledby="reun">
   <div class="wrap cols">
     <div>
-      <h2 id="mesa">Dónde estamos</h2>
+      <h2 id="reun">Reuniones y celebraciones</h2>
+      <p class="lead">Varios clientes cuentan que celebran aquí sus reuniones. Capacidad, menú para grupos y condiciones: por confirmar con el restaurante.</p>
+      <a class="btn marino" href="https://wa.me/PON_AQUI_EL_NUMERO?text=Hola%2C%20quiero%20consultar%20por%20una%20reuni%C3%B3n">Consultar por una reunión</a>
+    </div>
+    <div>
+      <div class="fotos"><div class="foto">Foto de la fachada</div><div class="foto">Foto del salón</div><div class="foto">Foto de un plato</div></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0" aria-labelledby="donde">
+  <div class="wrap cols">
+    <div>
+      <h2 id="donde">Dónde estamos</h2>
       <dl>
         <dt>Dirección</dt><dd>3.ª Transversal con 4.ª Avenida, Altamira, Caracas</dd>
         <dt>Horario</dt><dd>Hasta las 11:30 p. m. Días por confirmar.</dd>
-        <dt>Estacionamiento</dt><dd>Algunos clientes mencionan valet parking. Por confirmar.</dd>
-        <dt>Reservas</dt><dd>Por WhatsApp</dd>
+        <dt>Estacionamiento</dt><dd>Los clientes mencionan valet parking. Por confirmar.</dd>
       </dl>
-      <div class="acciones"><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Restaurant+El+Barquero+Altamira+Caracas">Cómo llegar</a></div>
     </div>
     <div>
-      <h2 style="font-size:1.6rem">El local</h2>
-      <p class="lead">Aquí van las fotos propias del restaurante.</p>
-      <div class="fotos"><div class="foto">Foto del salón</div><div class="foto">Foto de un plato</div><div class="foto">Foto de la noche</div></div>
+      <div class="acciones">
+        <a class="btn marino" href="https://www.google.com/maps/search/?api=1&amp;query=Restaurant+El+Barquero+Altamira+Caracas">Cómo llegar</a>
+        <a class="btn" href="https://wa.me/PON_AQUI_EL_NUMERO?text=Hola%2C%20quiero%20reservar%20una%20mesa">Reservar mesa</a>
+      </div>
     </div>
   </div>
 </section>
 </main>
+<div class="mantel" aria-hidden="true"></div>
 
 <footer>
   <div class="wrap">Restaurant El Barquero · Altamira, Caracas
     <p class="demo">Demo de propuesta preparada con información pública. No es el sitio oficial del negocio.</p>
   </div>
 </footer>
-<div class="azulejos" aria-hidden="true"></div>
 </body>
 </html>

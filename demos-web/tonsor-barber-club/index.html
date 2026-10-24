@@ -4,118 +4,130 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Tonsor Barber Club | Barbería y café en Los Palos Grandes</title>
-<meta name="description" content="Barbería para caballeros en Los Palos Grandes, Caracas. Corte, barba, café y buen ambiente. Reserva por WhatsApp.">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<title>Tonsor Barber Club | Barbería, café y tienda en Los Palos Grandes</title>
+<meta name="description" content="Barbería para caballeros con café y tienda de productos en Los Palos Grandes, Caracas. Reserva por WhatsApp.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--espresso:#241813;--madera:#3A271D;--cobre:#C98A52;--crema:#F2E8D8;--tenue:#CDBFA9}
+:root{--cobalto:#1C3FA0;--cobalto2:#14307D;--nogal:#7A4B2A;--nogal2:#5C3820;--blanco:#FFFFFF;--hueso:#F4F1EA;--tinta:#16203A;--suave:#4B5568}
 *{box-sizing:border-box;margin:0}
 html,body{overflow-x:hidden}
-body{font-family:Inter,system-ui,sans-serif;background:var(--espresso);color:var(--crema);line-height:1.6;font-size:17px}
+body{font-family:Inter,system-ui,sans-serif;background:var(--hueso);color:var(--tinta);line-height:1.6;font-size:17px}
 a{color:inherit}
-a:focus-visible{outline:3px solid var(--cobre);outline-offset:3px}
+a:focus-visible{outline:3px solid #F3C969;outline-offset:3px}
 .wrap{max-width:1000px;margin:0 auto;padding:0 22px}
-.nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
-.logo{font-family:'DM Serif Display',serif;font-size:1.5rem;text-decoration:none;letter-spacing:.01em}
-.btn{display:inline-flex;align-items:center;min-height:52px;padding:0 28px;border-radius:6px;background:var(--cobre);color:var(--espresso);font-weight:700;text-decoration:none}
+header{background:var(--cobalto);color:#fff}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
+.marca{display:flex;align-items:center;gap:12px;text-decoration:none}
+.sello{width:52px;height:52px;border-radius:50%;background:#fff;color:var(--cobalto);display:grid;place-items:center;font-family:'Playfair Display SC',serif;font-weight:900;font-size:1.3rem;box-shadow:0 0 0 3px var(--cobalto),0 0 0 5px #fff}
+.marca span{font-family:'Playfair Display SC',serif;font-weight:700;font-size:1.05rem;letter-spacing:.06em;line-height:1.1}
+.btn{display:inline-flex;align-items:center;min-height:52px;padding:0 28px;border-radius:6px;background:#fff;color:var(--cobalto);font-weight:700;text-decoration:none}
 .btn.mini{min-height:44px;padding:0 18px;font-size:.95rem}
-.btn.ghost{background:transparent;color:var(--crema);border:1.5px solid var(--tenue)}
-.hero{padding:70px 0 84px;display:grid;gap:34px}
-@media(min-width:820px){.hero{grid-template-columns:1.25fr .75fr;align-items:end}}
-.hero h1{font-family:'DM Serif Display',serif;font-weight:400;font-size:clamp(3rem,10vw,6rem);line-height:.98}
-.hero h1 em{font-style:italic;color:var(--cobre)}
-.hero p{max-width:36ch;font-size:1.15rem;color:var(--tenue);margin-top:22px}
-.acciones{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
-.ficha{border-left:3px solid var(--cobre);padding-left:20px}
-.ficha b{display:block;font-family:'DM Serif Display',serif;font-size:2.6rem;font-weight:400;line-height:1}
-.ficha span{color:var(--tenue);font-size:.95rem}
-.ficha + .ficha{margin-top:20px}
-section{padding:64px 0;background:var(--madera)}
-section.claro{background:var(--crema);color:var(--espresso)}
-h2{font-family:'DM Serif Display',serif;font-weight:400;font-size:clamp(2rem,6vw,3rem);line-height:1.1;margin-bottom:12px}
-.lead{color:var(--tenue);max-width:48ch;margin-bottom:30px}
-.claro .lead{color:#5B4636}
-.lista{display:grid;gap:0;border-top:1px solid #5A4132}
-.claro .lista{border-color:#CDBB9C}
-.fila{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 18px;padding:20px 2px;border-bottom:1px solid #5A4132}
-.claro .fila{border-color:#CDBB9C}
-.fila h3{font-size:1.1rem}
-.fila small{display:block;color:var(--tenue);font-weight:400}
-.claro .fila small{color:#5B4636}
-.fila .pc{color:var(--cobre);font-weight:600;font-size:.92rem}
-.claro .fila .pc{color:#8A4F1F}
+.btn.nogal{background:var(--nogal);color:#fff}
+.btn.borde{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.7)}
+.hero{padding:54px 0 80px}
+.hero h1{font-family:'Playfair Display SC',serif;font-weight:900;font-size:clamp(2.5rem,9vw,5rem);line-height:1.02;max-width:13ch}
+.hero p{margin-top:20px;max-width:38ch;font-size:1.13rem;color:#D9E1F6}
+.acciones{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:28px}
+.franja{height:16px;background:repeating-linear-gradient(90deg,var(--nogal) 0 70px,var(--nogal2) 70px 72px)}
+section{padding:64px 0}
+h2{font-family:'Playfair Display SC',serif;font-weight:900;font-size:clamp(1.9rem,6vw,2.8rem);line-height:1.08;margin-bottom:12px}
+.lead{color:var(--suave);max-width:50ch;margin-bottom:30px}
+.tres{display:grid;gap:14px}
+@media(min-width:760px){.tres{grid-template-columns:repeat(3,1fr)}}
+.pilar{background:#fff;border-top:6px solid var(--cobalto);border-radius:8px;padding:24px;box-shadow:0 1px 0 #E3DED3}
+.pilar h3{font-family:'Playfair Display SC',serif;font-size:1.35rem;margin-bottom:6px}
+.pilar p{color:var(--suave);font-size:.97rem}
+.pilar small{display:block;margin-top:10px;font-weight:600;color:var(--nogal)}
+.estante{background:var(--nogal);color:#fff;border-top:10px solid var(--nogal2);border-bottom:10px solid var(--nogal2)}
+.estante .lead{color:#F1E3D6}
+.lista{display:grid;gap:0;border-top:1px solid rgba(255,255,255,.35)}
+.fila{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 18px;padding:18px 2px;border-bottom:1px solid rgba(255,255,255,.35)}
+.fila h3{font-size:1.08rem}
+.fila small{display:block;color:#F1E3D6}
+.fila .pc{font-weight:600;color:#FFE2B8;font-size:.9rem}
+.galeria{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.cuadro{aspect-ratio:3/4;background:#11131a;border:8px solid #2a2a2a;outline:2px solid #6B6B6B;display:grid;place-items:center;text-align:center;color:#C7CBD6;font-size:.82rem;padding:8px}
+.donde{background:var(--cobalto2);color:#fff}
+.donde .lead{color:#D9E1F6}
 .cols{display:grid;gap:30px}
 @media(min-width:780px){.cols{grid-template-columns:1fr 1fr}}
 dt{font-weight:700;margin-top:14px}
-dd{color:var(--tenue)}
-.claro dd{color:#5B4636}
-.fotos{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:8px}
-.foto{aspect-ratio:4/5;border:2px dashed #5A4132;border-radius:8px;display:grid;place-items:center;text-align:center;color:var(--tenue);font-size:.85rem;padding:8px}
-section.claro .foto{border-color:#B8A585;color:#5B4636}
-footer{padding:30px 0 46px;color:var(--tenue);font-size:.9rem}
-.demo{margin-top:10px;border-left:4px solid var(--cobre);padding-left:12px}
+dd{color:#D9E1F6}
+footer{padding:28px 0 40px;color:var(--suave);font-size:.9rem}
+.demo{margin-top:10px;border-left:4px solid var(--cobalto);padding-left:12px}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <nav class="nav" aria-label="Principal">
-    <a class="logo" href="#inicio">Tonsor Barber Club</a>
-    <a class="btn mini" href="#reservar">Reservar</a>
-  </nav>
-  <div class="hero" id="inicio">
-    <div>
-      <h1>Barbería y <em>café</em> para caballeros.</h1>
-      <p>Un corte sin apuro en Los Palos Grandes. Calificación 4,8 en Google con 173 opiniones.</p>
+<header>
+  <div class="wrap">
+    <nav class="nav" aria-label="Principal">
+      <a class="marca" href="#inicio"><span class="sello" aria-hidden="true">T</span><span>Tonsor<br>Barber Club</span></a>
+      <a class="btn mini" href="#reservar">Reservar</a>
+    </nav>
+    <div class="hero" id="inicio">
+      <h1>Barbería, café y tienda para caballeros.</h1>
+      <p>Un club en Los Palos Grandes: te cortas el pelo, te tomas un espresso y te llevas tus productos. 4,8 en Google con 173 opiniones.</p>
       <div class="acciones">
-        <a class="btn" id="reservar" href="https://wa.me/PON_AQUI_EL_NUMERO?text=Hola%2C%20quiero%20reservar%20un%20turno%20en%20Tonsor">Reservar por WhatsApp</a>
-        <a class="btn ghost" href="https://instagram.com/tonsorbarberclub">Ver Instagram</a>
+        <a class="btn" id="reservar" href="https://wa.me/PON_AQUI_EL_NUMERO?text=Hola%2C%20quiero%20reservar%20en%20Tonsor">Reservar por WhatsApp</a>
+        <a class="btn borde" href="https://instagram.com/tonsorbarberclub">Instagram</a>
       </div>
     </div>
-    <aside>
-      <div class="ficha"><b>4,8</b><span>en Google, 173 opiniones</span></div>
-      <div class="ficha"><b>7 p. m.</b><span>hora de cierre</span></div>
-    </aside>
   </div>
-</div>
+</header>
+<div class="franja" aria-hidden="true"></div>
 
-<section aria-labelledby="serv">
+<main>
+<section aria-labelledby="club">
   <div class="wrap">
-    <h2 id="serv">Servicios</h2>
-    <p class="lead">Lista de ejemplo. El negocio confirma qué ofrece y los precios antes de publicarla.</p>
-    <div class="lista">
-      <div class="fila"><div><h3>Corte de cabello</h3><small>Con lavado y acabado</small></div><span class="pc">precio por confirmar</span></div>
-      <div class="fila"><div><h3>Barba y perfilado</h3><small>Toalla caliente</small></div><span class="pc">precio por confirmar</span></div>
-      <div class="fila"><div><h3>Corte y barba</h3><small>El combo</small></div><span class="pc">precio por confirmar</span></div>
-      <div class="fila"><div><h3>Café de la casa</h3><small>Mientras esperas tu turno</small></div><span class="pc">por confirmar</span></div>
+    <h2 id="club">El club</h2>
+    <p class="lead">Tres cosas en un mismo lugar. Así lo describen los clientes en sus opiniones: café, ambiente y trato de caballeros.</p>
+    <div class="tres">
+      <div class="pilar"><h3>Barbería</h3><p>Corte, barba y tratamientos faciales.</p><small>Servicios y precios por confirmar</small></div>
+      <div class="pilar"><h3>Café</h3><p>Barra de espresso y bebidas mientras esperas tu turno.</p><small>Carta por confirmar</small></div>
+      <div class="pilar"><h3>Tienda</h3><p>Estantes de productos para el cuidado del cabello y la barba.</p><small>Marcas por confirmar</small></div>
     </div>
   </div>
 </section>
 
-<section class="claro" aria-labelledby="amb">
+<section class="estante" aria-labelledby="serv">
   <div class="wrap">
-    <h2 id="amb">El ambiente</h2>
-    <p class="lead">Los clientes mencionan en sus opiniones el café, el ambiente y el trato de caballeros. Aquí van las fotos propias del local.</p>
-    <div class="fotos"><div class="foto">Foto del local</div><div class="foto">Foto de un corte</div><div class="foto">Foto del café</div></div>
+    <h2 id="serv">Servicios</h2>
+    <p class="lead">Lista de ejemplo. El club confirma qué ofrece y los precios.</p>
+    <div class="lista">
+      <div class="fila"><div><h3>Corte de cabello</h3><small>Con lavado y acabado</small></div><span class="pc">precio por confirmar</span></div>
+      <div class="fila"><div><h3>Barba</h3><small>Perfilado y toalla caliente</small></div><span class="pc">precio por confirmar</span></div>
+      <div class="fila"><div><h3>Mascarilla facial</h3><small>Para completar el servicio</small></div><span class="pc">precio por confirmar</span></div>
+      <div class="fila"><div><h3>Corte y barba</h3><small>El servicio completo</small></div><span class="pc">precio por confirmar</span></div>
+    </div>
   </div>
 </section>
 
-<section aria-labelledby="donde">
+<section aria-labelledby="gal">
+  <div class="wrap">
+    <h2 id="gal">La galería</h2>
+    <p class="lead">Las paredes azules del club tienen retratos en blanco y negro. Aquí van fotos propias del local, el café y la tienda.</p>
+    <div class="galeria"><div class="cuadro">Foto del local</div><div class="cuadro">Foto de la barra de café</div><div class="cuadro">Foto de la tienda</div></div>
+  </div>
+</section>
+
+<section class="donde" aria-labelledby="donde">
   <div class="wrap cols">
     <div>
       <h2 id="donde">Dónde estamos</h2>
       <dl>
-        <dt>Dirección</dt><dd>Av. Andrés Bello, 2.ª Transversal, Edificio Intercontinental, planta baja. Los Palos Grandes, Caracas</dd>
-        <dt>Horario</dt><dd>Cerramos a las 7 p. m. Días por confirmar.</dd>
-        <dt>Reservas</dt><dd>Por WhatsApp</dd>
+        <dt>Dirección</dt><dd>Av. Andrés Bello con 2.ª Transversal, Edificio Intercontinental, planta baja. Los Palos Grandes, Caracas</dd>
+        <dt>Horario</dt><dd>Hasta las 7 p. m. Días por confirmar.</dd>
       </dl>
       <div class="acciones"><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Tonsor+Barber+Club+Los+Palos+Grandes+Caracas">Cómo llegar</a></div>
     </div>
     <div>
-      <h2 style="font-size:1.7rem">Sin esperas</h2>
-      <p class="lead">Escríbenos por WhatsApp con el día y la hora que prefieres y te confirmamos el turno.</p>
+      <h2 style="font-size:1.6rem">Tu turno, sin esperar</h2>
+      <p class="lead">Escríbenos por WhatsApp con el día y la hora que prefieres.</p>
+      <a class="btn nogal" href="https://wa.me/PON_AQUI_EL_NUMERO?text=Hola%2C%20quiero%20reservar%20en%20Tonsor">Reservar por WhatsApp</a>
     </div>
   </div>
 </section>
+</main>
 
 <footer>
   <div class="wrap">Tonsor Barber Club · Los Palos Grandes, Caracas
