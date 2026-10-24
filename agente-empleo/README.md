@@ -11,7 +11,8 @@ Variables de entorno (nunca en el repo): `COMPOSIO_API_KEY` y `COMPOSIO_USER_ID`
 
 ```
 npm install
-npm run verificar
+npm run verificar-linkedin
+npm run verificar-instagram
 ```
 
 El toolkit de LinkedIn tiene herramientas de perfil, publicaciones y estadísticas. No incluye búsqueda de empleo.
