@@ -4,7 +4,7 @@ Estado de cada demo con los negocios. Sin teléfonos ni datos personales. Solo F
 
 | Negocio | Estado | Fecha | Notas |
 |---|---|---|---|
-| Barbería Hermanos Mora | Página y mensaje aprobados, falta decidir cómo se envía | 2026-10-24 | Versión corta con `vista-telefono.png`. Un solo mensaje, sin insistir. |
+| Barbería Hermanos Mora | Página y mensaje profesional aprobados, falta decidir quién lo envía | 2026-10-24 | Versión corta con `vista-telefono.png`. Un solo mensaje, sin insistir. |
 | Tonsor Barber Club | Página aprobada, sin contactar | 2026-10-24 | |
 | Bravos Barber Caracas | Página aprobada, sin contactar | 2026-10-24 | |
 | Odontología Gran Caracas | Página aprobada, sin contactar | 2026-10-24 | |
