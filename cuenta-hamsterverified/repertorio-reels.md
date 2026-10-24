@@ -36,7 +36,7 @@ Fuente: pies y fotogramas de los reels, más búsqueda web del 2026-10-24. Nada 
 | UI UX Pro Max (repo nextlevelbuilder/ui-ux-pro-max-skill) | Skill de diseño con catálogo de estilos, paletas, tipografías y guías de UX. Licencia MIT según listados de terceros. | Mejorar tipografía, color y composición de `generar.py`. | Revisada e instalada en `.claude/skills/` (2026-10-24). Scripts locales, sin red |
 | frontend-design (skill de Anthropic) | Skill oficial de diseño frontend, se recomienda junto a la anterior. | Misma mejora visual, con origen oficial. | Revisada e instalada en `.claude/skills/` (2026-10-24). Solo un SKILL.md |
 | 21st.dev | Biblioteca de componentes web que se instala con shadcn y pide una clave de API. | Solo sirve para páginas web, no para piezas de Instagram. | No aplica ahora. La clave iría en variable de entorno, nunca en el repo |
-| Motion (antes Framer Motion) | Librería de animación para web. | Solo para páginas web. | No aplica ahora |
+| Motion (antes Framer Motion), skill de Schoepplake | Patrones de animación para React y Next.js. | Para páginas web que se pidan más adelante, no para piezas de Instagram. | Revisada e instalada en `.claude/skills/framer-motion` (2026-10-24). Solo un SKILL.md |
 | Picsart, Shorts, Google, Chrome | Se nombran como parte de recetas de "ganar dinero". | Ninguna para nosotros. No hay método verificable en lo que vi. | Descartado por `REGLAS.md` (no se publican promesas de dinero) |
 
 Lo que no pude ver: el contenido de las "3 skills" de `miguebaenaia` y de la guía de `claudecode_es` está en el video o detrás de enlaces de su bio, no en el pie. Si Fernando quiere ese detalle, hay que ver cada video completo.
