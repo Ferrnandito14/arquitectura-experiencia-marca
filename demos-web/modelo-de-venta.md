@@ -68,6 +68,6 @@ A cambio del precio de lanzamiento se pide por escrito: permiso para mostrar la 
 
 Referencia de mercado (agencias en Venezuela, 2026): landing de $80 a $500, mantenimiento de pymes de $25 a $75 al mes.
 
-## Nombre del servicio
+## Cómo se presenta
 
-Nodo Caracas. Dominio sugerido: `nodocaracas.com` (parecía libre el 2026-10-24; lo compra Fernando). Las demos llevan una franja fija "Propuesta de diseño · Nodo Caracas" y el aviso al pie.
+Como Fernando Romero, persona y no empresa: da más confianza mientras el servicio empieza. Las demos llevan una franja fija "Propuesta de diseño · Fernando Romero" y el aviso al pie. El nombre "Nodo Caracas" (`nodocaracas.com`) queda como opción para más adelante.

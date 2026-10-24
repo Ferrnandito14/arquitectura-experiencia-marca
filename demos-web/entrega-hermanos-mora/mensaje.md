@@ -11,11 +11,11 @@ Borrador para que Fernando lo apruebe. Nada se envía hasta que él lo diga, y l
 
 ## Versión corta (WhatsApp)
 
-> Hola, buenas tardes. Soy Fernando, de Nodo Caracas: hacemos páginas web para negocios de la ciudad. Vi que Barbería Hermanos Mora tiene muy buenas opiniones en Google (4,6 con 274) pero no aparece una página web.
+> Hola, buenas tardes. Soy Fernando Romero. Hago páginas web para negocios de Caracas. Vi que Barbería Hermanos Mora tiene muy buenas opiniones en Google (4,6 con 274) pero no aparece una página web.
 >
 > Preparé un ejemplo de cómo podría verse la suya, con la información que ya es pública: ubicación, horario y botón para reservar por WhatsApp. Es solo una propuesta, sin compromiso. La armé con ayuda de una herramienta de inteligencia artificial y la reviso yo.
 >
-> Te mando una foto de cómo se ve en el teléfono. Si te gusta, la ajustamos con tus servicios, precios y fotos. Si no, no pasa nada.
+> Te mando una foto de cómo se ve en el teléfono. Si te gusta, la ajusto con tus servicios, precios y fotos. Si no, no pasa nada.
 
 (Adjuntar `vista-telefono.png`.)
 
@@ -23,7 +23,7 @@ Borrador para que Fernando lo apruebe. Nada se envía hasta que él lo diga, y l
 
 Es la misma versión corta, cambiando solo el último párrafo:
 
-> Te dejo el enlace para que la pruebes en el teléfono: [enlace]. Los botones son de ejemplo. Si te gusta, la ajustamos con tus servicios, precios y fotos. Si no, no pasa nada.
+> Te dejo el enlace para que la pruebes en el teléfono: [enlace]. Los botones son de ejemplo. Si te gusta, la ajusto con tus servicios, precios y fotos. Si no, no pasa nada.
 
 Para tener el enlace, Fernando sube `demo.html` él mismo a un alojamiento gratuito de su elección (por ejemplo, arrastrar la carpeta `entrega-hermanos-mora` a un servicio de alojamiento estático). La página ya lleva `noindex` (no sale en buscadores) y el aviso de demo al pie. Se borra el sitio si el negocio dice que no.
 
@@ -40,7 +40,7 @@ Para tener el enlace, Fernando sube `demo.html` él mismo a un alojamiento gratu
 >
 > Para dejarla lista necesito: la lista de servicios con precios, los días y horas de atención, tu número de WhatsApp para reservas y unas cuantas fotos buenas.
 >
-> El precio de lanzamiento es $130: $65 para empezar y $65 cuando la publiquemos. Después, $20 al mes cubren el alojamiento, los cambios de precios, horarios y fotos, y que todo siga funcionando. El dominio queda a tu nombre.
+> El precio de lanzamiento es $130: $65 para empezar y $65 cuando la publique. Después, $20 al mes cubren el alojamiento, los cambios de precios, horarios y fotos, y que todo siga funcionando. El dominio queda a tu nombre.
 
 ## Si no responde o dice que no
 
