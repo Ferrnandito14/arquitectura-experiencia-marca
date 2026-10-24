@@ -21,3 +21,8 @@ Se instalan al abrir el repo y aceptar la confianza de la carpeta (requiere Clau
 
 - Copiadas de https://github.com/Paramchoudhary/ResumeSkills (licencia en `_licenses/`): resume-ats-optimizer, resume-tailor, resume-bullet-writer, resume-quantifier, linkedin-profile-optimizer, cover-letter-generator, job-description-analyzer, interview-prep-generator, cold-email-writer, resume-section-builder, career-changer-translator. Quedaron fuera las demás del repo (ejecutivo, académico, portafolio, ofertas, etc.).
 - Plugin `resume-optimizer` (https://github.com/KivancSerefoglu/resume-optimizer), declarado en `settings.json`: puntúa una oferta contra tu trayectoria, adapta el CV y escribe la carta sin inventar datos. Usa Chrome o Edge para generar el PDF y `pdftotext` o `pypdf` para revisar el ATS. Solo carga en la terminal de Claude Code.
+
+## Skills de diseño (para las piezas de la cuenta de Instagram)
+
+- `ui-ux-pro-max`: copiada de https://github.com/nextlevelbuilder/ui-ux-pro-max-skill (commit d14efff, MIT, licencia en `_licenses/`). Solo la carpeta de la skill, sin los tests. Revisada el 2026-10-24: los scripts son locales (sin red, sin subprocess, sin escritura de archivos fuera de lo que se les pide) y los datos son tablas de estilos, paletas y tipografías. No se instalaron las otras skills del repo (design, ui-styling, brand, slides, banner-design): algunas llaman a APIs externas con claves o a shadcn.
+- `frontend-design`: copiada de https://github.com/anthropics/skills (commit dbd4588, Apache 2.0, licencia en `_licenses/`). Es solo un SKILL.md con guía de diseño, sin scripts.
