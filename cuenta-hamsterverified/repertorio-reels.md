@@ -40,3 +40,17 @@ Fuente: pies y fotogramas de los reels, más búsqueda web del 2026-10-24. Nada 
 | Picsart, Shorts, Google, Chrome | Se nombran como parte de recetas de "ganar dinero". | Ninguna para nosotros. No hay método verificable en lo que vi. | Descartado por `REGLAS.md` (no se publican promesas de dinero) |
 
 Lo que no pude ver: el contenido de las "3 skills" de `miguebaenaia` y de la guía de `claudecode_es` está en el video o detrás de enlaces de su bio, no en el pie. Si Fernando quiere ese detalle, hay que ver cada video completo.
+
+## Cambios al generador (2026-10-24)
+
+Hechos con `frontend-design` y `ui-ux-pro-max`, probados con 2 carruseles y 2 diapositivas de reel renderizadas a tamaño real.
+
+- Chrome se detecta solo (variable `HAMSTER_CHROME`, nube, Windows, Linux). Antes la ruta era fija y solo servía en la nube.
+- Inter se carga de verdad (antes caía a una fuente por defecto) y el render espera a que cargue.
+- Etiqueta superior ("Esencia de...") en minúsculas y con más contraste (de 3.6 a 5.0). Se quitó el estilo de etiqueta en mayúsculas con espaciado, que `frontend-design` marca como señal de plantilla.
+- Tamaño de titular automático según el largo del texto (`tamano` sigue mandando si se pone). En reels sale 15 % más grande.
+- Zona segura de reels: contenido entre 250 px arriba y 500 px abajo, para que la interfaz de Instagram no tape nada. El pie con el nombre de la cuenta sube dentro de esa zona.
+- Colores como variables (papel, tinta, texto, etiqueta, pie), con contraste verificado sobre el fondo: tinta 14.9, texto 8.3, etiqueta 5.0, pie 6.5.
+- Se mantiene el fondo crema, el hámster y el sello: son la identidad ya publicada. El sello VERDADERO/FALSO conserva las mayúsculas porque es un sello.
+
+No verificado: el MP4 de los reels (aquí no hay ffmpeg, solo probé las diapositivas). Se prueba en la nube con la próxima producción.

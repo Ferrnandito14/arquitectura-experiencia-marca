@@ -6,10 +6,23 @@ Formato del JSON: {"piezas": [{"id": "dia1-a", "tipo": "carrusel" | "reel", "dia
   {"kicker": "...", "grande": "...", "pequeno": "...", "tamano": 110, "hamster": 300, "sello": ["FALSO", "#C0392B"], "pie": "desliza →"}]}]}
 Las diapositivas de un reel salen en 1080x1920 y se unen en un MP4 con fundidos.
 """
-import html, json, pathlib, subprocess, sys
+import html, json, os, pathlib, re, shutil, subprocess, sys
 from PIL import Image
 
-CHROME = '/opt/pw-browsers/chromium-1194/chrome-linux/chrome'
+def buscar_chrome():
+    # HAMSTER_CHROME manda; luego los lugares habituales (nube, Windows, Linux).
+    candidatos = [os.environ.get('HAMSTER_CHROME'),
+        '/opt/pw-browsers/chromium-1194/chrome-linux/chrome',
+        r'C:\Program Files\Google\Chrome\Application\chrome.exe',
+        r'C:\Program Files (x86)\Google\Chrome\Application\chrome.exe',
+        r'C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe']
+    for c in candidatos:
+        if c and pathlib.Path(c).exists(): return c
+    for nombre in ('google-chrome', 'chromium', 'chromium-browser', 'chrome'):
+        if shutil.which(nombre): return shutil.which(nombre)
+    sys.exit('No encuentro Chrome. Define HAMSTER_CHROME con la ruta del ejecutable.')
+
+CHROME = buscar_chrome()
 HAMSTER = '''<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" width="{w}" height="{w}">
 <ellipse cx="200" cy="360" rx="120" ry="14" fill="#3B2A20" opacity=".12"/>
 <circle cx="112" cy="118" r="44" fill="#E3A862"/><circle cx="112" cy="118" r="26" fill="#F4B9B0"/>
@@ -24,15 +37,25 @@ HAMSTER = '''<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" width
 <path d="M200 247 v14 M178 266 q22 14 44 0" stroke="#2B1D16" stroke-width="5" fill="none" stroke-linecap="round"/>
 <g transform="translate(292 296)"><circle r="40" fill="#1D9BF0"/><path d="M-18 2 l12 13 l25 -28" stroke="#fff" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
 </svg>'''
-CSS = '''*{box-sizing:border-box;margin:0}
-body{width:1080px;height:%(h)spx;background:#FFF4E0;font-family:'Inter',sans-serif;color:#3B2A20;position:relative;overflow:hidden}
-.wrap{position:absolute;inset:90px 90px 170px 90px;display:flex;flex-direction:column;justify-content:center}
-.kicker{font-size:34px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#C8671B;margin-bottom:36px}
-.big{font-size:%(size)spx;font-weight:800;line-height:1.08;letter-spacing:-.02em}
-.small{font-size:50px;font-weight:500;line-height:1.35;margin-top:44px;color:#5A4437}
-.foot{position:absolute;left:90px;right:90px;bottom:%(foot)spx;display:flex;justify-content:space-between;font-size:30px;font-weight:600;color:#7A6455}
-.stamp{display:inline-block;align-self:flex-start;border:10px solid %(stamp)s;color:%(stamp)s;font-size:96px;font-weight:900;letter-spacing:.06em;padding:6px 36px;transform:rotate(-6deg);border-radius:14px;margin-bottom:56px}
+# Colores (contraste sobre el papel, WCAG): tinta 14.9, texto 8.3, kicker 5.0, pie 6.5.
+# Zona segura de reels: Instagram tapa unos 250 px arriba y 380 px abajo (1080x1920).
+CSS = '''@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800;900&display=swap');
+:root{--papel:#FFF4E0;--tinta:#2B1D16;--texto:#5A4437;--kicker:#A9500E;--pie:#6B5444}
+*{box-sizing:border-box;margin:0}
+body{width:1080px;height:%(h)spx;background:var(--papel);font-family:'Inter','Segoe UI',Arial,sans-serif;color:var(--tinta);position:relative;overflow:hidden}
+.wrap{position:absolute;inset:%(top)spx 90px %(bottom)spx 90px;display:flex;flex-direction:column;justify-content:center}
+.kicker{font-size:44px;font-weight:700;line-height:1.2;color:var(--kicker);margin-bottom:30px}
+.big{font-size:%(size)spx;font-weight:800;line-height:1.06;letter-spacing:-.025em;text-wrap:balance}
+.small{font-size:54px;font-weight:500;line-height:1.3;margin-top:44px;color:var(--texto);max-width:880px}
+.foot{position:absolute;left:90px;right:90px;bottom:%(foot)spx;display:flex;justify-content:space-between;font-size:34px;font-weight:700;color:var(--pie)}
+.stamp{display:inline-block;align-self:flex-start;border:10px solid %(stamp)s;color:%(stamp)s;font-size:96px;font-weight:900;letter-spacing:.06em;padding:6px 36px;transform:rotate(-6deg);border-radius:14px;margin-bottom:76px}
 .ham{position:absolute;right:50px;bottom:%(ham_b)spx}'''
+
+def tamano_auto(texto, reel=False):
+    n = len(re.sub(r'<[^>]+>', '', texto))
+    for limite, px in ((22, 140), (36, 120), (55, 104), (80, 88)):
+        if n <= limite: return round(px * (1.15 if reel else 1))
+    return round(74 * (1.15 if reel else 1))
 
 def diapositiva(ruta, d, alto):
     sello = d.get('sello')
@@ -42,10 +65,12 @@ def diapositiva(ruta, d, alto):
     cuerpo += f'<div class="big">{d["grande"]}</div>'
     if d.get('pequeno'): cuerpo += f'<div class="small">{d["pequeno"]}</div>'
     ham = f'<div class="ham">{HAMSTER.format(w=d["hamster"])}</div>' if d.get('hamster') else ''
-    css = CSS % dict(h=alto, size=d.get('tamano', 100), stamp=(sello[1] if sello else '#000'), foot=60 if alto == 1350 else 120, ham_b=110 if alto == 1350 else 200)
+    reel_ = alto == 1920
+    css = CSS % dict(h=alto, size=d.get('tamano') or tamano_auto(d['grande'], reel_), stamp=(sello[1] if sello else '#000'),
+                     top=250 if reel_ else 90, bottom=500 if reel_ else 170, foot=400 if reel_ else 60, ham_b=430 if reel_ else 110)
     pagina = f'<!doctype html><html><head><meta charset="utf-8"><style>{css}</style></head><body><div class="wrap">{cuerpo}</div>{ham}<div class="foot"><span>hamsterverified</span><span>{html.escape(d.get("pie", ""))}</span></div></body></html>'
     f = ruta.with_suffix('.html'); f.write_text(pagina, encoding='utf-8')
-    subprocess.run([CHROME, '--headless', '--no-sandbox', '--disable-gpu', '--hide-scrollbars', f'--screenshot={ruta}', f'--window-size=1080,{alto + 150}', f'file://{f.resolve()}'], check=True, capture_output=True)
+    subprocess.run([CHROME, '--headless', '--no-sandbox', '--disable-gpu', '--hide-scrollbars', '--virtual-time-budget=6000', f'--screenshot={ruta}', f'--window-size=1080,{alto + 150}', f'file://{f.resolve()}'], check=True, capture_output=True)
     Image.open(ruta).convert('RGB').crop((0, 0, 1080, alto)).save(ruta)
     f.unlink()
 
