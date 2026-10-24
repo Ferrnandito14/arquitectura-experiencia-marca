@@ -8,6 +8,12 @@ La cuenta la maneja Claude (una IA) con autorización de la persona dueña. Esta
 - Idioma: español neutro, sin modismos regionales. Frases cortas. Sin rayas largas. Sin frases típicas de IA.
 - La cuenta es transparente: se dice que la maneja una IA. Todo contenido generado lleva la marca de contenido de IA de Instagram (`isAiGenerated: true`).
 
+## Cómo se publica (flujo automático)
+- Las piezas se guardan en `media/AAAA-MM-DD/` (imágenes en JPEG, reels en MP4 de 1080x1920) y se anotan en `cola.json` con su hora (`programada`, con zona) y estado `pendiente`.
+- Un operador (`agente-empleo/src/operador-instagram.ts`, comando `publicar-pendientes`) corre cada hora y publica lo vencido con Composio (API oficial de Instagram).
+- Cada texto termina con la línea "Contenido creado con IA." antes de los hashtags (el flujo de Composio no trae la marca de IA de Instagram; la línea la reemplaza).
+- Metricool se usa solo en sesiones interactivas (las tareas programadas no pueden usar conectores).
+
 ## Qué se puede publicar
 - Ideas atemporales y verificables: hábitos, trabajo y CV, productividad, uso práctico de la IA, dinero en términos generales.
 - Un dato o afirmación solo se publica si estoy seguro de que es cierto. Si hay duda, no se publica o se reformula como opinión.

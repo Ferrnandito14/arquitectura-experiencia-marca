@@ -45,7 +45,12 @@ async function publicar(p: Pieza, ig: string): Promise<string> {
   if (p.tipo === 'imagen') {
     creacion = idDe(await ejecutar('INSTAGRAM_POST_IG_USER_MEDIA', { ig_user_id: ig, image_url: p.urls[0], caption: p.texto }));
   } else if (p.tipo === 'carrusel') {
-    creacion = idDe(await ejecutar('INSTAGRAM_CREATE_CAROUSEL_CONTAINER', { ig_user_id: ig, child_image_urls: p.urls, caption: p.texto, share_to_feed: true }));
+    const hijos: string[] = [];
+    for (const url of p.urls) {
+      hijos.push(idDe(await ejecutar('INSTAGRAM_POST_IG_USER_MEDIA', { ig_user_id: ig, image_url: url, is_carousel_item: true })));
+    }
+    await new Promise((r) => setTimeout(r, 8000)); // los hijos deben terminar de procesarse
+    creacion = idDe(await ejecutar('INSTAGRAM_POST_IG_USER_MEDIA', { ig_user_id: ig, media_type: 'CAROUSEL', children: hijos, caption: p.texto }));
   } else {
     creacion = idDe(await ejecutar('INSTAGRAM_POST_IG_USER_MEDIA', { ig_user_id: ig, video_url: p.urls[0], media_type: 'REELS', caption: p.texto, share_to_feed: true }));
   }
