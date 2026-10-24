@@ -32,6 +32,9 @@ Autorización de la persona dueña: puedes usar su Chrome real, con sus sesiones
 - Skills de diseño: ella las va a agregar para mejorar las piezas. Cuando estén, aplícalas a `generador/generar.py` (tipografía, color, composición), prueba con una pieza y revisa el resultado a tamaño real.
 - Cómo se comporta el Claude de `claudecode_es` (cuenta de un creador, no oficial): quiere entender su "independencia" y qué se puede lograr así.
 
+## Buzón
+Anota lo que veas y propongas en `COMUNICACION.md` (estado `nueva`). La sesión en la nube lo lee y lo aplica.
+
 ## Cómo trabajar
 - Rama: `claude/funny-clarke-e1d7h3` (almacén permanente de la cuenta). Haz `git pull` antes de cambiar nada. Commits normales, nunca force push. No toques `cola.json` mientras haya piezas pendientes sin avisar.
 - Los cambios al generador o a las reglas los empuja esta sesión; la nube los usará al día siguiente.
