@@ -20,6 +20,12 @@ Autorización de la persona dueña: puedes usar su Chrome real, con sus sesiones
 - Ver cómo se ven nuestras publicaciones en Instagram y reportar problemas visuales (texto cortado, imágenes que no cargan, orden de diapositivas).
 - Cambios de perfil (nombre, bio, foto) solo si ella te lo pide o lo confirma antes.
 
+## Actualización (2026-10-24)
+- Fernando autorizó operar la cuenta `hamster.2511058` con total autorización, dentro de `REGLAS.md`. En el navegador se usa SOLO esa cuenta, nunca `fernando_.romero`.
+- El hilo de mensajes con los reels de referencia se puede leer. Resumen en `COMUNICACION.md` y técnicas en `repertorio-reels.md`.
+- Foto y bio no se cambian por ahora.
+- Las acciones en masa o sobre cuentas ajenas (seguir, dar me gusta, comentar en otras cuentas, mensajes) siguen prohibidas por `REGLAS.md`.
+
 ## Límites firmes
 - No des me gusta, no sigas, no dejes de seguir, no comentes ni envíes mensajes desde el navegador. Es automatización prohibida por Instagram y pone en riesgo la cuenta.
 - No publiques desde el navegador: la publicación ya la hacen Metricool y Composio.
