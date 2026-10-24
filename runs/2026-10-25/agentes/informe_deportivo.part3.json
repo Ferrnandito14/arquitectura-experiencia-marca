@@ -1,0 +1,1694 @@
+{
+ "agente": "deportivo",
+ "version_contrato": 1,
+ "run": "runs/2026-10-25",
+ "unidades": [
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "under",
+   "escenario_perdida": "partido_abierto",
+   "nota": "1T goles L 1.1 n10, V 0.5 n10 (Clausura). Modelo under1.5 0.81. Aldosivi rota ~4.3 cambios. Muestra sin ajustar por rival.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-54e89399dae6|1.ª parte goles",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/44.json"
+   ],
+   "unit_id": "m-54e89399dae6|1.ª parte goles"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "empate",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Modelo empate 1T 0.52; L GF/GA 1.2/1.8 n10, V 1.2/0.8 n10. 1T de pocos goles favorece empate, pero un gol temprano lo rompe. Sin validar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-54e89399dae6|1.ª parte resultado",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/44.json"
+   ],
+   "unit_id": "m-54e89399dae6|1.ª parte resultado"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Córners L 4.5 fav/6.3 contra n10, V 4.7/4.0 n10: suma ~9.7. Zunino 8.6 por partido n21. Modelo 9.5=0.505: sin sesgo claro.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-54e89399dae6|córners",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/44.json"
+   ],
+   "unit_id": "m-54e89399dae6|córners"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "penal_o_expulsion",
+   "nota": "X2 modelo 0.78: V GA 0.8 n10 (0.2 fuera n5) vs L GA 1.8 n10. L rota ~4.3 cambios. Falla con victoria local corta o a balón parado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-54e89399dae6|doble oportunidad",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/44.json"
+   ],
+   "unit_id": "m-54e89399dae6|doble oportunidad"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "penal_o_expulsion",
+   "nota": "Empate no válido V 0.71 (sin extractor). V fuera GF/GA 1.2/0.2 n5 contra L 1.2/1.8 n10; muestra corta y sin ajustar por rival.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-54e89399dae6|empate no válido",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/44.json"
+   ],
+   "unit_id": "m-54e89399dae6|empate no válido"
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni estimador de fueras de juego; el paquete no trae datos propios para evaluarlo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-54e89399dae6|fueras de juego",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/44.json"
+   ],
+   "unit_id": "m-54e89399dae6|fueras de juego"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Señales cruzadas: L 7/10 over2.5 y 7/10 BTTS, V 3/10 y 4/10; Zunino 2.1 goles n21 (over2.5 33%). Modelo over2.5 0.49: sin sesgo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-54e89399dae6|goles",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/44.json"
+   ],
+   "unit_id": "m-54e89399dae6|goles"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "under",
+   "escenario_perdida": "partido_abierto",
+   "nota": "L GF 1.2 n10 (modelo under1.5 0.76); V concede 0.8 n10. Aldosivi encaja 1.8: el visitante marca con probabilidad media-alta. Líneas extremas poco informativas.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-54e89399dae6|goles por equipo",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/44.json"
+   ],
+   "unit_id": "m-54e89399dae6|goles por equipo"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Derivado de goles: P(total=2) ~0.22 y P(total=3) ~0.18 por modelo; devolución en la entera. Señales de goles cruzadas, sin extractor propio.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-54e89399dae6|goles total entero",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/44.json"
+   ],
+   "unit_id": "m-54e89399dae6|goles total entero"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "penal_o_expulsion",
+   "nota": "V -0.5 modelo 0.53 con cuota de agregador ~2.05: ventaja marginal. Líneas +1.5/+2.5 del V casi seguras pero sin valor. Sin validar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-54e89399dae6|hándicap",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/44.json"
+   ],
+   "unit_id": "m-54e89399dae6|hándicap"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "penal_o_expulsion",
+   "nota": "Hándicap entero derivado: V 0 (DNB) 0.71, V -1 0.38. Sin extractor y validación no_evaluada; edge pequeño frente a mercado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-54e89399dae6|hándicap asiático entero",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/44.json"
+   ],
+   "unit_id": "m-54e89399dae6|hándicap asiático entero"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "penal_o_expulsion",
+   "nota": "Europeo derivado del modelo: V -1 0.78 como lectura de 3 vías con empate 0.14. Sin extractor, validación no_evaluada.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-54e89399dae6|hándicap europeo",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/44.json"
+   ],
+   "unit_id": "m-54e89399dae6|hándicap europeo"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Remates L 14.4/17.3 contra n10, V 13.7/11.3 n9: ~28 en total; modelo 27.5=0.52. Sin sesgo; muestra con un partido sin dato.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-54e89399dae6|remates",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/44.json"
+   ],
+   "unit_id": "m-54e89399dae6|remates"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "A puerta L 4.8/4.7 contra n10, V 4.8/3.9 n9: ~9 de suma; modelo 8.5=0.54. Sin ajustar por rival; sin sesgo claro.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-54e89399dae6|remates a puerta",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/44.json"
+   ],
+   "unit_id": "m-54e89399dae6|remates a puerta"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "V modelo 0.53 (cuota agregador 2.05): V fuera GA 0.2 n5, L encaja 1.8 n10 y rota ~4.3 cambios. Se pierde con empate o gol de L a balón parado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-54e89399dae6|resultado",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/44.json"
+   ],
+   "unit_id": "m-54e89399dae6|resultado"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "arbitro",
+   "direccion_favorable": "over",
+   "escenario_perdida": "tarjetas_atipicas",
+   "nota": "Zunino 5.43 tarjetas n21 (over4.5 62%); amarillas L 2.8, V 2.2 n10. Modelo over4.5 0.49 por debajo del árbitro. Falla si el partido va poco trabado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-54e89399dae6|tarjetas",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/44.json"
+   ],
+   "unit_id": "m-54e89399dae6|tarjetas"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "1T goles L 1.5, V 1.7 n10 (Eredivisie). Modelo over0.5 0.80, over1.5 0.47. Apoyo sólido en over0.5; over1.5 es moneda al aire.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-595a88971fd9|1.ª parte goles",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/244.json"
+   ],
+   "unit_id": "m-595a88971fd9|1.ª parte goles"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "1T modelo L 0.27, X 0.35, V 0.37: sin favorito. Ambos con 1T goleador (1.5 y 1.7). Sin validar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-595a88971fd9|1.ª parte resultado",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/244.json"
+   ],
+   "unit_id": "m-595a88971fd9|1.ª parte resultado"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "L 2.5 fav/7.8 contra n10, V 3.6/5.1 n10: suma ~9.5; Oostrom 8.3 n7 (muestra corta). Modelo 8.5=0.54, 9.5=0.42. Sin sesgo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-595a88971fd9|córners",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/244.json"
+   ],
+   "unit_id": "m-595a88971fd9|córners"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "12 favorecida: empate modelo 0.21 (cuota agregador 3.6), L y V encajan ~2 y marcan ~1.6-1.9. Falla con empate; modelo y mercado difieren en el favorito.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-595a88971fd9|doble oportunidad",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/244.json"
+   ],
+   "unit_id": "m-595a88971fd9|doble oportunidad"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "DNB modelo favorece al V pero el mercado ve favorito al L (2.37 vs 2.81). Discrepancia modelo-mercado, sin extractor.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-595a88971fd9|empate no válido",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/244.json"
+   ],
+   "unit_id": "m-595a88971fd9|empate no válido"
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni estimador de fueras de juego; el paquete no trae datos propios para evaluarlo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-595a88971fd9|fueras de juego",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/244.json"
+   ],
+   "unit_id": "m-595a88971fd9|fueras de juego"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Over2.5: V 10/10 y L 6/10 (n10), BTTS 7/10 en ambos, Oostrom 6/7 over2.5 (n7). Modelo over2.5 0.71. Falla con partido cerrado/1-0.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-595a88971fd9|goles",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/244.json"
+   ],
+   "unit_id": "m-595a88971fd9|goles"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "L GF 1.6, V 1.9 n10 y ambos encajan ~2: marcar 1+ cada uno es lo más respaldado. Over1.5 por equipo requiere más; se pierde si uno queda en blanco.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-595a88971fd9|goles por equipo",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/244.json"
+   ],
+   "unit_id": "m-595a88971fd9|goles por equipo"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Derivado: over2 ~0.79 por modelo (over1.5 0.87, over2.5 0.71); push total=2 ~0.15. Sin extractor, confianza de goles pero no validada.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-595a88971fd9|goles total entero",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/244.json"
+   ],
+   "unit_id": "m-595a88971fd9|goles total entero"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Modelo da V ligero favorito, mercado L ligero favorito: línea ±0.5 sin sesgo. Ambos con GD cercano a 0. Sin validar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-595a88971fd9|hándicap",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/244.json"
+   ],
+   "unit_id": "m-595a88971fd9|hándicap"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Hándicap entero 0 derivado del DNB, discrepa del mercado. Sin extractor, sin ventaja clara.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-595a88971fd9|hándicap asiático entero",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/244.json"
+   ],
+   "unit_id": "m-595a88971fd9|hándicap asiático entero"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Europeo derivado: tres vías muy abiertas por goleo alto de ambos (marcador esperable ±1). Sin extractor.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-595a88971fd9|hándicap europeo",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/244.json"
+   ],
+   "unit_id": "m-595a88971fd9|hándicap europeo"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "L 10.3 fav/19.5 contra n10, V 11.3/15.9 n9: suma ~28.5; modelo 27.5=0.51. L concede muchos tiros; sin sesgo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-595a88971fd9|remates",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/244.json"
+   ],
+   "unit_id": "m-595a88971fd9|remates"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "A puerta L 4.2/6.1 contra, V 3.7/5.6 contra (n10/n9): ~9.8; modelo 9.5=0.50. Sin sesgo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-595a88971fd9|remates a puerta",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/244.json"
+   ],
+   "unit_id": "m-595a88971fd9|remates a puerta"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Modelo V 0.47 vs mercado L favorito (2.37 vs 2.81): discrepancia. L en casa 1.25/2.25 n4; V fuera 2.3/1.7 n6. Sin sesgo seguro.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-595a88971fd9|resultado",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/244.json"
+   ],
+   "unit_id": "m-595a88971fd9|resultado"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "arbitro",
+   "direccion_favorable": "under",
+   "escenario_perdida": "tarjetas_atipicas",
+   "nota": "Oostrom 2.7 tarjetas n6; amarillas L 1.3, V 1.3 n10/n9. Modelo over2.5 0.53, over3.5 0.35: under3.5 respaldado. Falla con rojas.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-595a88971fd9|tarjetas",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/244.json"
+   ],
+   "unit_id": "m-595a88971fd9|tarjetas"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "1T goles L 1.7, V 0.9 n10. Modelo over0.5 0.73 y over1.5 0.38. Over0.5 respaldado; Braga rota mucho con 3 días de descanso.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-5bccc42ffa40|1.ª parte goles",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/266.json"
+   ],
+   "unit_id": "m-5bccc42ffa40|1.ª parte goles"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "empate",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Modelo X 0.39, V 0.36: reparto abierto. V con 1T flojo (0.9 goles n10) pero cuota 1T de V baja. Sin validar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-5bccc42ffa40|1.ª parte resultado",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/266.json"
+   ],
+   "unit_id": "m-5bccc42ffa40|1.ª parte resultado"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "under",
+   "escenario_perdida": "partido_abierto",
+   "nota": "L 4.3 fav/4.8 contra, V 4.2/3.2 n10: suma ~8.3. Modelo 8.5=0.42, 7.5=0.55. Árbitro Bessa sin muestra en el paquete.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-5bccc42ffa40|córners",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/266.json"
+   ],
+   "unit_id": "m-5bccc42ffa40|córners"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "X2 respaldada por forma: V GA 1.4 vs L GA 2.0 (n10). Braga rota ~4.7 cambios con 3 días de descanso y copa en ≤4 días. Falla con empate/ L por rotación.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-5bccc42ffa40|doble oportunidad",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/266.json"
+   ],
+   "unit_id": "m-5bccc42ffa40|doble oportunidad"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "DNB V respaldado por mejor nivel (modelo 0.475 vs mercado 1.56), pero Braga rota mucho. Sin extractor, discrepancia modelo-mercado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-5bccc42ffa40|empate no válido",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/266.json"
+   ],
+   "unit_id": "m-5bccc42ffa40|empate no válido"
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni estimador de fueras de juego; el paquete no trae datos propios para evaluarlo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-5bccc42ffa40|fueras de juego",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/266.json"
+   ],
+   "unit_id": "m-5bccc42ffa40|fueras de juego"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "BTTS: L 4/10, V 7/10; over2.5 L 5/10, V 7/10 (n10). Modelo over2.5 0.58, BTTS 0.60. Ligero over sin árbitro conocido.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-5bccc42ffa40|goles",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/266.json"
+   ],
+   "unit_id": "m-5bccc42ffa40|goles"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "L GF 1.1 n10 (1.4 en casa n5) y encaja 2.0; V GF 1.3 n10. Braga rota; ambos 1+ plausible, equipo concreto sin ventaja clara.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-5bccc42ffa40|goles por equipo",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/266.json"
+   ],
+   "unit_id": "m-5bccc42ffa40|goles por equipo"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Derivado: over2 ~0.69 (over1.5 0.78, over2.5 0.58); push total=2 ~0.2. Sin extractor, goles de señal mixta.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-5bccc42ffa40|goles total entero",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/266.json"
+   ],
+   "unit_id": "m-5bccc42ffa40|goles total entero"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "V -0.5 favorable por modelo, pero rotación alta de Braga y L en casa con GF 1.4 n5 invita a cautela. Sin validar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-5bccc42ffa40|hándicap",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/266.json"
+   ],
+   "unit_id": "m-5bccc42ffa40|hándicap"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Hándicap entero derivado del DNB V; sin extractor. Rotación de Braga reduce margen del -1.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-5bccc42ffa40|hándicap asiático entero",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/266.json"
+   ],
+   "unit_id": "m-5bccc42ffa40|hándicap asiático entero"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Europeo derivado; sin extractor. Empate ~0.24 y victoria V por 1 plausible, V por 2+ poco respaldado por GF 1.3.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-5bccc42ffa40|hándicap europeo",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/266.json"
+   ],
+   "unit_id": "m-5bccc42ffa40|hándicap europeo"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "L 10.5 fav/14.2 contra, V 11.8/9.8 n10/n9: suma ~23; modelo 22.5=0.57, 23.5=0.49. Sin sesgo; rotación de V añade ruido.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-5bccc42ffa40|remates",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/266.json"
+   ],
+   "unit_id": "m-5bccc42ffa40|remates"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "A puerta L 2.9/5.6 contra, V 3.9/3.6 (n10/n9): ~8; modelo 7.5=0.57, 8.5=0.43. Sin sesgo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-5bccc42ffa40|remates a puerta",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/266.json"
+   ],
+   "unit_id": "m-5bccc42ffa40|remates a puerta"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "V modelo 0.475 (mercado 1.56 → más alto): mejor GD que L (GA 2.0 n10). Braga rota ~4.7 cambios y descansa 3 días. Falla con empate o rotación.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-5bccc42ffa40|resultado",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/266.json"
+   ],
+   "unit_id": "m-5bccc42ffa40|resultado"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "arbitro",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "tarjetas_atipicas",
+   "nota": "Amarillas L 1.7/2.5 contra, V 2.0/2.8 (n10): ~4.5; modelo over4.5 0.46. Árbitro Bessa sin muestra en el paquete: dato pendiente.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-5bccc42ffa40|tarjetas",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/266.json"
+   ],
+   "unit_id": "m-5bccc42ffa40|tarjetas"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_abierto",
+   "nota": "1T goles L 1.7, V 2.4 n10 (Eredivisie). Modelo over0.5 0.87, over1.5 0.60. Muy goleador en 1T; V cae en 1T con pocos goles en pocos casos.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9188fdb7a7a5|1.ª parte goles",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/244.json"
+   ],
+   "unit_id": "m-9188fdb7a7a5|1.ª parte goles"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Modelo 1T L 0.30, X 0.30, V 0.40: sin favorito; ambos marcan pronto (1T goles 1.7 y 2.4). Sin validar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9188fdb7a7a5|1.ª parte resultado",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/244.json"
+   ],
+   "unit_id": "m-9188fdb7a7a5|1.ª parte resultado"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "L en casa 7.8 fav/3.2 contra n6, V fuera 2.4/6.0 n5; van den Kerkhof 10.6 n9 (over9.5 67%). Modelo 9.5=0.48. Falla con poca presión de L.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9188fdb7a7a5|córners",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/244.json"
+   ],
+   "unit_id": "m-9188fdb7a7a5|córners"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "12 respaldada: empate modelo 0.21 (cuota agregador 3.9), ambos goleadores (GF 1.7 y 2.2 n10). Falla con empate; modelo y mercado difieren en favorito.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9188fdb7a7a5|doble oportunidad",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/244.json"
+   ],
+   "unit_id": "m-9188fdb7a7a5|doble oportunidad"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Modelo favorece V (0.465 vs L 0.325), mercado L (2.25 vs 2.8). Discrepancia modelo-mercado, sin extractor.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9188fdb7a7a5|empate no válido",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/244.json"
+   ],
+   "unit_id": "m-9188fdb7a7a5|empate no válido"
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni estimador de fueras de juego; el paquete no trae datos propios para evaluarlo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9188fdb7a7a5|fueras de juego",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/244.json"
+   ],
+   "unit_id": "m-9188fdb7a7a5|fueras de juego"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Over2.5: L 8/10, V 8/10 y BTTS 9/10 y 8/10 (n10); van den Kerkhof 3.6 goles n9. Modelo over2.5 0.73, BTTS 0.68. Falla con 1-0 por descanso corto de L.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9188fdb7a7a5|goles",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/244.json"
+   ],
+   "unit_id": "m-9188fdb7a7a5|goles"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "L GF 1.7 (1.5 en casa n6), V 2.2 n10 y ambos encajan ~1.7-2.1: marcar 1+ cada uno muy plausible. Líneas altas por equipo no apoyadas.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9188fdb7a7a5|goles por equipo",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/244.json"
+   ],
+   "unit_id": "m-9188fdb7a7a5|goles por equipo"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Derivado: over2 ~0.83 (over1.5 0.88, over2.5 0.73); push total=2 ~0.15. Sin extractor, buena señal pero no validada.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9188fdb7a7a5|goles total entero",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/244.json"
+   ],
+   "unit_id": "m-9188fdb7a7a5|goles total entero"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Modelo V -0.5 ligeramente favorito, mercado L: sin sesgo en ±0.5. Ambos GD ~0. Sin validar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9188fdb7a7a5|hándicap",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/244.json"
+   ],
+   "unit_id": "m-9188fdb7a7a5|hándicap"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Hándicap entero derivado del DNB; discrepa del mercado. Sin extractor, sin ventaja clara.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9188fdb7a7a5|hándicap asiático entero",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/244.json"
+   ],
+   "unit_id": "m-9188fdb7a7a5|hándicap asiático entero"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Europeo derivado: partido de muchos goles y marcador ±1 probable. Sin extractor, sin sesgo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9188fdb7a7a5|hándicap europeo",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/244.json"
+   ],
+   "unit_id": "m-9188fdb7a7a5|hándicap europeo"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "L 17.6 fav/10.7 contra n10 (21.3 en casa n6), V 13.9/15.0 n10: suma ~28.6; modelo 28.5=0.54. Dominio local pero 3 días de descanso.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9188fdb7a7a5|remates",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/244.json"
+   ],
+   "unit_id": "m-9188fdb7a7a5|remates"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "A puerta L 5.0/4.1, V 5.3/5.8 contra n10: ~10; modelo 9.5=0.56, 10.5=0.44. Sin sesgo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9188fdb7a7a5|remates a puerta",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/244.json"
+   ],
+   "unit_id": "m-9188fdb7a7a5|remates a puerta"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Modelo V 0.465 vs mercado L favorito (2.25 vs 2.8). L descansa 3 días; V gana pocos fuera (2.2/2.0 n5). Discrepancia, sin sesgo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9188fdb7a7a5|resultado",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/244.json"
+   ],
+   "unit_id": "m-9188fdb7a7a5|resultado"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "arbitro",
+   "direccion_favorable": "under",
+   "escenario_perdida": "tarjetas_atipicas",
+   "nota": "van den Kerkhof 3.0 tarjetas n7; amarillas L 1.4, V 1.3 n10. Modelo over2.5 0.55, over3.5 0.37: under3.5 respaldado. Falla con rojas.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9188fdb7a7a5|tarjetas",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/244.json"
+   ],
+   "unit_id": "m-9188fdb7a7a5|tarjetas"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "1T goles L 1.4, V 1.7 n10/n7. Modelo over0.5 0.79, over1.5 0.46. Over0.5 respaldado; V solo 7 partidos.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-926a48fd0066|1.ª parte goles",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/168.json"
+   ],
+   "unit_id": "m-926a48fd0066|1.ª parte goles"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Modelo 1T L 0.35, X 0.36, V 0.29: sin favorito. Sin validar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-926a48fd0066|1.ª parte resultado",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/168.json"
+   ],
+   "unit_id": "m-926a48fd0066|1.ª parte resultado"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "L 5.5 fav/6.4 contra n10, V 2.7/5.9 n7: ~10; Delajod 8.6 n10 (over9.5 30%). Modelo 9.5=0.57, 10.5=0.46: señales cruzadas.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-926a48fd0066|córners",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/168.json"
+   ],
+   "unit_id": "m-926a48fd0066|córners"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "penal_o_expulsion",
+   "nota": "1X: L modelo 0.44 y X 0.22; L 0 puntos en últimos 4 (rotation.json). L GF/GA 1.8/1.9 n10 frente a V 1.4/2.1 n7. Muestra de V corta.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-926a48fd0066|doble oportunidad",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/168.json"
+   ],
+   "unit_id": "m-926a48fd0066|doble oportunidad"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "penal_o_expulsion",
+   "nota": "DNB L apoyado por mayor GF y V rota ~4 cambios, pero L viene sin puntos (0 en 4) y V solo n7. Sin extractor.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-926a48fd0066|empate no válido",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/168.json"
+   ],
+   "unit_id": "m-926a48fd0066|empate no válido"
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni estimador de fueras de juego; el paquete no trae datos propios para evaluarlo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-926a48fd0066|fueras de juego",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/168.json"
+   ],
+   "unit_id": "m-926a48fd0066|fueras de juego"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Over2.5: L 8/10, V 6/7; BTTS 8/10 y 6/7. Modelo over2.5 0.71, BTTS 0.67; Delajod 2.4 goles n10 (over2.5 40%) discrepa. Falla con 1-0.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-926a48fd0066|goles",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/168.json"
+   ],
+   "unit_id": "m-926a48fd0066|goles"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "L GF 1.8, V 1.4 n10/n7 y ambos encajan ~2: 1+ gol de cada equipo respaldado. Líneas altas por equipo, no.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-926a48fd0066|goles por equipo",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/168.json"
+   ],
+   "unit_id": "m-926a48fd0066|goles por equipo"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Derivado: over2 ~0.81 (over1.5 0.87, over2.5 0.71); push total=2 ~0.15. Sin extractor; árbitro de pocos goles discrepa.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-926a48fd0066|goles total entero",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/168.json"
+   ],
+   "unit_id": "m-926a48fd0066|goles total entero"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "penal_o_expulsion",
+   "nota": "L -0.5 modelo ~0.44; mercado L ligero favorito. Ventaja corta con L en mala racha. Sin validar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-926a48fd0066|hándicap",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/168.json"
+   ],
+   "unit_id": "m-926a48fd0066|hándicap"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "penal_o_expulsion",
+   "nota": "Hándicap entero derivado del DNB L; sin extractor; L -1 no respaldado por GD de L (1.8/1.9).",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-926a48fd0066|hándicap asiático entero",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/168.json"
+   ],
+   "unit_id": "m-926a48fd0066|hándicap asiático entero"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "penal_o_expulsion",
+   "nota": "Europeo derivado; sin extractor. L +1 y empate cubren más escenarios, ventaja del L moderada.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-926a48fd0066|hándicap europeo",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/168.json"
+   ],
+   "unit_id": "m-926a48fd0066|hándicap europeo"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "L 12.2 fav/13.5 contra n10, V 10.8/15.8 n6: suma ~26; modelo 25.5=0.51. V con muestra de 6 con dato. Sin sesgo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-926a48fd0066|remates",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/168.json"
+   ],
+   "unit_id": "m-926a48fd0066|remates"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "A puerta L 5.4/5.8 contra n10, V 4.2/5.7 n6: ~10.5; modelo 10.5=0.48. Sin sesgo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-926a48fd0066|remates a puerta",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/168.json"
+   ],
+   "unit_id": "m-926a48fd0066|remates a puerta"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "penal_o_expulsion",
+   "nota": "L modelo 0.44 (cuota agregador 2.09) con V rotando ~4 cambios, pero L sin puntos en 4 partidos. Se pierde con empate o V; V solo n7.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-926a48fd0066|resultado",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/168.json"
+   ],
+   "unit_id": "m-926a48fd0066|resultado"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "arbitro",
+   "direccion_favorable": "under",
+   "escenario_perdida": "tarjetas_atipicas",
+   "nota": "Delajod 3.6 tarjetas n10 (over4.5 20%); amarillas L 1.5, V 2.4 (n7). Modelo over3.5 0.53, over4.5 0.38: under4.5 respaldado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-926a48fd0066|tarjetas",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/168.json"
+   ],
+   "unit_id": "m-926a48fd0066|tarjetas"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "under",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "1T goles L 1.0, V 0.6 n10. Modelo under1.5 0.80, over0.5 0.56. Under1.5 respaldado; se rompe con gol temprano. Rotación alta en ambos.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9636e93e5a8c|1.ª parte goles",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/302.json"
+   ],
+   "unit_id": "m-9636e93e5a8c|1.ª parte goles"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "empate",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "1T modelo X 0.51: L 1T 1.0 y V 0.6 goles (n10). Empate 1T respaldado por escasez de goles. Falla con gol temprano.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9636e93e5a8c|1.ª parte resultado",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/302.json"
+   ],
+   "unit_id": "m-9636e93e5a8c|1.ª parte resultado"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "L 5.8 fav/3.6 contra n10 (6.0 en casa n5), V 4.0/5.8 (2.8 fuera n4): ~9. Modelo 9.5=0.53. Árbitro por designar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9636e93e5a8c|córners",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/302.json"
+   ],
+   "unit_id": "m-9636e93e5a8c|córners"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "localia",
+   "direccion_favorable": "local",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "1X: L en casa 1.2/1.0 n5; Getafe fuera 0.0 GF n4. Rotación alta en ambos (5.0 y 5.7 cambios, copa en ≤4 días). Falla con victoria visitante.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9636e93e5a8c|doble oportunidad",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/302.json"
+   ],
+   "unit_id": "m-9636e93e5a8c|doble oportunidad"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "localia",
+   "direccion_favorable": "local",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "DNB L: Getafe sin marcar fuera en n4, pero muestra corta y rotación alta de ambos; mercado L 1.58. Sin extractor.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9636e93e5a8c|empate no válido",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/302.json"
+   ],
+   "unit_id": "m-9636e93e5a8c|empate no válido"
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni estimador de fueras de juego; el paquete no trae datos propios para evaluarlo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9636e93e5a8c|fueras de juego",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/302.json"
+   ],
+   "unit_id": "m-9636e93e5a8c|fueras de juego"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "under",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Under2.5: V over2.5 solo 2/10, L 4/10 (n10); BTTS 3/10 y 5/10. Modelo under2.5 0.59. Rotación alta puede abrir el partido; árbitro s/d.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9636e93e5a8c|goles",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/302.json"
+   ],
+   "unit_id": "m-9636e93e5a8c|goles"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "under",
+   "escenario_perdida": "partido_abierto",
+   "nota": "V GF 0.6 n10 (0.0 fuera n4), L GF 1.1: V under1.5 respaldado. L over1.5 poco; rotación puede cambiar. Falla con goleada L.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9636e93e5a8c|goles por equipo",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/302.json"
+   ],
+   "unit_id": "m-9636e93e5a8c|goles por equipo"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "under",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Derivado: under3 ~0.78 (under2.5 0.59, under3.5 0.78); push total=2 ~0.2. Sin extractor, rotación y árbitro s/d.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9636e93e5a8c|goles total entero",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/302.json"
+   ],
+   "unit_id": "m-9636e93e5a8c|goles total entero"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "localia",
+   "direccion_favorable": "local",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "L -0.5 modelo ~0.50; mercado L favorito 1.58. L +1.5 muy probable pero sin valor. Rotación de ambos añade ruido. Sin validar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9636e93e5a8c|hándicap",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/302.json"
+   ],
+   "unit_id": "m-9636e93e5a8c|hándicap"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "localia",
+   "direccion_favorable": "local",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Hándicap entero derivado del DNB L; sin extractor. L -1 requiere ganar por 2; GF de L 1.1 n10 no lo apoya.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9636e93e5a8c|hándicap asiático entero",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/302.json"
+   ],
+   "unit_id": "m-9636e93e5a8c|hándicap asiático entero"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "localia",
+   "direccion_favorable": "local",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Europeo derivado; sin extractor. Victoria corta de L es el escenario central; goleada local poco respaldada.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9636e93e5a8c|hándicap europeo",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/302.json"
+   ],
+   "unit_id": "m-9636e93e5a8c|hándicap europeo"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "L 14.0 fav/9.4 contra (16.2 en casa n5), V 10.3/14.8 n10: ~24; modelo 23.5=0.54. L domina remates; rotación alta de ambos.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9636e93e5a8c|remates",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/302.json"
+   ],
+   "unit_id": "m-9636e93e5a8c|remates"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "A puerta L 3.9/3.8, V 2.7/4.9 contra n10: ~7.7; modelo 7.5=0.48. Sin sesgo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9636e93e5a8c|remates a puerta",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/302.json"
+   ],
+   "unit_id": "m-9636e93e5a8c|remates a puerta"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "localia",
+   "direccion_favorable": "local",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "L modelo 0.50 (cuota agregador 1.58 más alta): V sin goles fuera (0.0 GF n4). Ambos rotan mucho (5.0-5.7 cambios, copa en ≤4 días). Falla con empate.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9636e93e5a8c|resultado",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/302.json"
+   ],
+   "unit_id": "m-9636e93e5a8c|resultado"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "over",
+   "escenario_perdida": "tarjetas_atipicas",
+   "nota": "V amarillas 3.5/partido n10 (+0.4 rojas), faltas 14.3; L 1.8. Modelo over4.5 0.54. Árbitro s/d: dato pendiente. Falla con árbitro permisivo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9636e93e5a8c|tarjetas",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/302.json"
+   ],
+   "unit_id": "m-9636e93e5a8c|tarjetas"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "contexto_competicion",
+   "direccion_favorable": "under",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Sin estimador. 1T goles L 1.0, V 1.1 n10 mezclando competiciones. Con 2-0 de ventaja de ida, el L puede gestionar; V debe buscar gol.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9a440ace39b9|1.ª parte goles",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/346.json"
+   ],
+   "unit_id": "m-9a440ace39b9|1.ª parte goles"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "contexto_competicion",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Sin estimador. Mercado 1T L 1.95, X 2.2: L favorito. Muestra mixta sin ajustar por rival; ida 2-0 para L.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9a440ace39b9|1.ª parte resultado",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/346.json"
+   ],
+   "unit_id": "m-9a440ace39b9|1.ª parte resultado"
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Córners solo en n5 (L) y n4 (V) de 10 partidos, estimador con datos insuficientes; árbitro s/d.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9a440ace39b9|córners",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/346.json"
+   ],
+   "unit_id": "m-9a440ace39b9|córners"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "contexto_competicion",
+   "direccion_favorable": "local",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Ida 18-oct: Sidama 0-2 Al Hilal (apifootball, n1). L GA 0.6 n10; cuota agregador 1X baja. Sin estimador. Falla si V gana (necesita 2 goles).",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9a440ace39b9|doble oportunidad",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/346.json"
+   ],
+   "unit_id": "m-9a440ace39b9|doble oportunidad"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "contexto_competicion",
+   "direccion_favorable": "local",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Ida 18-oct: Sidama 0-2 Al Hilal (apifootball, n1). L GA 0.6 n10, V GF 1.0. Sin estimador ni extractor; ligas domésticas no comparables.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9a440ace39b9|empate no válido",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/346.json"
+   ],
+   "unit_id": "m-9a440ace39b9|empate no válido"
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni estimador de fueras de juego; el paquete no trae datos propios para evaluarlo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9a440ace39b9|fueras de juego",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/346.json"
+   ],
+   "unit_id": "m-9a440ace39b9|fueras de juego"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "contexto_competicion",
+   "direccion_favorable": "under",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Sin estimador. BTTS L 3/10, V 3/10; over2.5 4/10 y 3/10 (n10 mixtos). Ida 2-0: V obligado a atacar puede abrir. H2H n1.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9a440ace39b9|goles",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/346.json"
+   ],
+   "unit_id": "m-9a440ace39b9|goles"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "contexto_competicion",
+   "direccion_favorable": "under",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Sin estimador. V GF 1.0 n10 con rivales de otro nivel (liga etíope, Kagame); L GF 1.7. V marcando 1+ es la clave, no calculada.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9a440ace39b9|goles por equipo",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/346.json"
+   ],
+   "unit_id": "m-9a440ace39b9|goles por equipo"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "contexto_competicion",
+   "direccion_favorable": "under",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Sin estimador ni extractor. Con 2-0 de ida y L GA 0.6 el total bajo plausible; V obligado a arriesgar puede abrir. Muestras mixtas.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9a440ace39b9|goles total entero",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/346.json"
+   ],
+   "unit_id": "m-9a440ace39b9|goles total entero"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "contexto_competicion",
+   "direccion_favorable": "local",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Sin estimador. L favorito claro (1.4), ida 2-0 a favor. Líneas de hándicap sin probabilidad propia; muestras mixtas sin ajuste por rival.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9a440ace39b9|hándicap",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/346.json"
+   ],
+   "unit_id": "m-9a440ace39b9|hándicap"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "contexto_competicion",
+   "direccion_favorable": "local",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Sin estimador ni extractor. L -1 depende de que el V arriesgue; sin datos para ponderar.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9a440ace39b9|hándicap asiático entero",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/346.json"
+   ],
+   "unit_id": "m-9a440ace39b9|hándicap asiático entero"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "contexto_competicion",
+   "direccion_favorable": "local",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Sin estimador ni extractor. Líneas europeas sin probabilidad propia; solo contexto de ida 2-0 y GA 0.6 del L.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9a440ace39b9|hándicap europeo",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/346.json"
+   ],
+   "unit_id": "m-9a440ace39b9|hándicap europeo"
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin datos de remates en la muestra (todos null); estimador con datos insuficientes.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9a440ace39b9|remates",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/346.json"
+   ],
+   "unit_id": "m-9a440ace39b9|remates"
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin datos de remates a puerta en la muestra; estimador con datos insuficientes.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9a440ace39b9|remates a puerta",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/346.json"
+   ],
+   "unit_id": "m-9a440ace39b9|remates a puerta"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "contexto_competicion",
+   "direccion_favorable": "local",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Ida 18-oct: Sidama 0-2 Al Hilal (apifootball, n1). L GA 0.6 n10 (mezcla Kagame/CAF/Premier), V GF 1.0; mercado L 1.4. Sin estimador propio; rivales de nivel desigual.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9a440ace39b9|resultado",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/346.json"
+   ],
+   "unit_id": "m-9a440ace39b9|resultado"
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Tarjetas con n1 de 10 partidos y árbitro s/d; estimador con datos insuficientes.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-9a440ace39b9|tarjetas",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/346.json"
+   ],
+   "unit_id": "m-9a440ace39b9|tarjetas"
+  }
+ ],
+ "limitaciones": [
+  "Muestras de apifootball (ult. 10, mezcla local/visitante, sin ajustar por rival); H2H solo disponible como la ida de la final CAF (n1). Alineaciones sin snapshot: bajas y onces sin verificar.",
+  "Al Hilal Omdurman-Sidama Bunna (CAF CL): sin estimador; muestras mixtas con ligas domésticas y copas regionales de nivel desigual, sin córners/remates/tarjetas; H2H n1 (ida 0-2). Datos de la liga doméstica de L no comparables.",
+  "Árbitro Bessa (Nacional-Braga) sin muestra en league_samples/266; árbitros de Ath Bilbao-Getafe y Al Hilal-Sidama s/d. Oostrom/van den Kerkhof tarjetas con n6-n7, muestra débil.",
+  "Totales enteros, hándicap asiático entero y europeo derivados de goles/resultado del modelo; no hay extractor propio. Fueras de juego sin datos en todos los partidos.",
+  "Cuotas de agregador usadas solo como referencia de mercado; no se asume precio de casa. No se abrieron fuentes web ni API; no se verificaron lesiones ni alineaciones."
+ ]
+}

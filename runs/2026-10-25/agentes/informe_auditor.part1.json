@@ -1,0 +1,1398 @@
+{
+ "agente": "auditor",
+ "version_contrato": 1,
+ "run": "runs/2026-10-25",
+ "unidades": [
+  {
+   "unit_id": "m-029eceabaeb6|1.ª parte goles",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Sin objecion especifica: n10 sin ajuste por rival, sin brecha >=15 pp relevante.",
+   "evidencia": [
+    "paquete:m-029eceabaeb6|1.ª parte goles"
+   ]
+  },
+  {
+   "unit_id": "m-029eceabaeb6|1.ª parte resultado",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Monaco 3d/6 cambios (rotation.json), alineaciones sin_snapshot; efecto sobre 1X2/handicap no cuantificado.",
+   "evidencia": [
+    "paquete:m-029eceabaeb6|1.ª parte resultado",
+    "archivo:runs/2026-10-25/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-029eceabaeb6|córners",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Equipos 9.2 esperado vs Letexier 11.7 (n10) y liga 9.9: fuentes en conflicto, pero ninguna linea con brecha >=15 pp.",
+   "evidencia": [
+    "paquete:m-029eceabaeb6|córners"
+   ]
+  },
+  {
+   "unit_id": "m-029eceabaeb6|doble oportunidad",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Monaco 3d/6 cambios (rotation.json), alineaciones sin_snapshot; efecto sobre 1X2/handicap no cuantificado.",
+   "evidencia": [
+    "paquete:m-029eceabaeb6|doble oportunidad",
+    "archivo:runs/2026-10-25/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-029eceabaeb6|empate no válido",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "2/2 lineas con p_modelo vs P mercado (agregador) >=15 pp; max 19 pp. Modelo n10 sin ajuste por rival; sin alineaciones; Monaco 3d/6 cambios.",
+   "evidencia": [
+    "paquete:m-029eceabaeb6|empate no válido",
+    "archivo:runs/2026-10-25/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-029eceabaeb6|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador ni extractor de datos para fueras de juego; sin precio. No evaluable (estimador sin datos).",
+   "evidencia": [
+    "paquete:m-029eceabaeb6|fueras de juego"
+   ]
+  },
+  {
+   "unit_id": "m-029eceabaeb6|goles",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Sin objecion especifica: n10 sin ajuste por rival, sin brecha >=15 pp relevante.",
+   "evidencia": [
+    "paquete:m-029eceabaeb6|goles"
+   ]
+  },
+  {
+   "unit_id": "m-029eceabaeb6|goles por equipo",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "2 linea(s) con brecha >=15 pp vs mercado (max 17 pp), resto sin objecion; n10 sin ajuste por rival.",
+   "evidencia": [
+    "paquete:m-029eceabaeb6|goles por equipo"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "goles.equipo.home.over.1.5",
+     "objecion": "brecha_muestra_mercado"
+    },
+    {
+     "entry_id": "goles.equipo.home.under.1.5",
+     "objecion": "brecha_muestra_mercado"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-029eceabaeb6|goles total entero",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Sin objecion especifica: n10 sin ajuste por rival, sin brecha >=15 pp relevante.",
+   "evidencia": [
+    "paquete:m-029eceabaeb6|goles total entero"
+   ]
+  },
+  {
+   "unit_id": "m-029eceabaeb6|hándicap",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Monaco 3d/6 cambios (rotation.json), alineaciones sin_snapshot; efecto sobre 1X2/handicap no cuantificado.",
+   "evidencia": [
+    "paquete:m-029eceabaeb6|hándicap",
+    "archivo:runs/2026-10-25/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-029eceabaeb6|hándicap asiático entero",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Monaco 3d/6 cambios (rotation.json), alineaciones sin_snapshot; efecto sobre 1X2/handicap no cuantificado.",
+   "evidencia": [
+    "paquete:m-029eceabaeb6|hándicap asiático entero",
+    "archivo:runs/2026-10-25/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-029eceabaeb6|hándicap europeo",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Monaco 3d/6 cambios (rotation.json), alineaciones sin_snapshot; efecto sobre 1X2/handicap no cuantificado.",
+   "evidencia": [
+    "paquete:m-029eceabaeb6|hándicap europeo",
+    "archivo:runs/2026-10-25/rotation.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "resultado.eh.away.-1",
+     "objecion": "brecha_muestra_mercado"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-029eceabaeb6|remates",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "4/6 lineas con p_modelo vs P mercado (agregador) >=15 pp; max 20 pp. Modelo n10 sin ajuste por rival; sin alineaciones.",
+   "evidencia": [
+    "paquete:m-029eceabaeb6|remates"
+   ]
+  },
+  {
+   "unit_id": "m-029eceabaeb6|remates a puerta",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "2 linea(s) con brecha >=15 pp vs mercado (max 23 pp), resto sin objecion; n10 sin ajuste por rival.",
+   "evidencia": [
+    "paquete:m-029eceabaeb6|remates a puerta"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "sot.equipo.home.over.4.5",
+     "objecion": "brecha_muestra_mercado"
+    },
+    {
+     "entry_id": "sot.equipo.home.under.4.5",
+     "objecion": "brecha_muestra_mercado"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-029eceabaeb6|resultado",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Monaco 3d/6 cambios (rotation.json), alineaciones sin_snapshot; efecto sobre 1X2/handicap no cuantificado.",
+   "evidencia": [
+    "paquete:m-029eceabaeb6|resultado",
+    "archivo:runs/2026-10-25/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-029eceabaeb6|tarjetas",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Sin objecion especifica: n10 sin ajuste por rival, sin brecha >=15 pp relevante.",
+   "evidencia": [
+    "paquete:m-029eceabaeb6|tarjetas"
+   ]
+  },
+  {
+   "unit_id": "m-09653a7daeb6|1.ª parte goles",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Sin objecion especifica: n10 sin ajuste por rival, sin brecha >=15 pp relevante.",
+   "evidencia": [
+    "paquete:m-09653a7daeb6|1.ª parte goles"
+   ]
+  },
+  {
+   "unit_id": "m-09653a7daeb6|1.ª parte resultado",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Rennes 3d/5 cambios (rotation.json), alineaciones sin_snapshot; efecto sobre 1X2/handicap no cuantificado.",
+   "evidencia": [
+    "paquete:m-09653a7daeb6|1.ª parte resultado",
+    "archivo:runs/2026-10-25/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-09653a7daeb6|córners",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Sin objecion especifica: n10 sin ajuste por rival, sin brecha >=15 pp relevante.",
+   "evidencia": [
+    "paquete:m-09653a7daeb6|córners"
+   ]
+  },
+  {
+   "unit_id": "m-09653a7daeb6|doble oportunidad",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Rennes 3d/5 cambios (rotation.json), alineaciones sin_snapshot; efecto sobre 1X2/handicap no cuantificado.",
+   "evidencia": [
+    "paquete:m-09653a7daeb6|doble oportunidad",
+    "archivo:runs/2026-10-25/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-09653a7daeb6|empate no válido",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "2/2 lineas con p_modelo vs P mercado (agregador) >=15 pp; max 22 pp. Modelo n10 sin ajuste por rival; sin alineaciones; Rennes 3d/5 cambios.",
+   "evidencia": [
+    "paquete:m-09653a7daeb6|empate no válido",
+    "archivo:runs/2026-10-25/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-09653a7daeb6|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador ni extractor de datos para fueras de juego; sin precio. No evaluable (estimador sin datos).",
+   "evidencia": [
+    "paquete:m-09653a7daeb6|fueras de juego"
+   ]
+  },
+  {
+   "unit_id": "m-09653a7daeb6|goles",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "6/12 lineas con p_modelo vs P mercado (agregador) >=15 pp; max 21 pp. Modelo n10 sin ajuste por rival; sin alineaciones.",
+   "evidencia": [
+    "paquete:m-09653a7daeb6|goles"
+   ]
+  },
+  {
+   "unit_id": "m-09653a7daeb6|goles por equipo",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Sin objecion especifica: n10 sin ajuste por rival, sin brecha >=15 pp relevante.",
+   "evidencia": [
+    "paquete:m-09653a7daeb6|goles por equipo"
+   ]
+  },
+  {
+   "unit_id": "m-09653a7daeb6|goles total entero",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Sin objecion especifica: n10 sin ajuste por rival, sin brecha >=15 pp relevante.",
+   "evidencia": [
+    "paquete:m-09653a7daeb6|goles total entero"
+   ]
+  },
+  {
+   "unit_id": "m-09653a7daeb6|hándicap",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Rennes 3d/5 cambios (rotation.json), alineaciones sin_snapshot; efecto sobre 1X2/handicap no cuantificado.",
+   "evidencia": [
+    "paquete:m-09653a7daeb6|hándicap",
+    "archivo:runs/2026-10-25/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-09653a7daeb6|hándicap asiático entero",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Rennes 3d/5 cambios (rotation.json), alineaciones sin_snapshot; efecto sobre 1X2/handicap no cuantificado.",
+   "evidencia": [
+    "paquete:m-09653a7daeb6|hándicap asiático entero",
+    "archivo:runs/2026-10-25/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-09653a7daeb6|hándicap europeo",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Rennes 3d/5 cambios (rotation.json), alineaciones sin_snapshot; efecto sobre 1X2/handicap no cuantificado.",
+   "evidencia": [
+    "paquete:m-09653a7daeb6|hándicap europeo",
+    "archivo:runs/2026-10-25/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-09653a7daeb6|remates",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Sin objecion especifica: n10 sin ajuste por rival, sin brecha >=15 pp relevante.",
+   "evidencia": [
+    "paquete:m-09653a7daeb6|remates"
+   ]
+  },
+  {
+   "unit_id": "m-09653a7daeb6|remates a puerta",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Sin objecion especifica: n10 sin ajuste por rival, sin brecha >=15 pp relevante.",
+   "evidencia": [
+    "paquete:m-09653a7daeb6|remates a puerta"
+   ]
+  },
+  {
+   "unit_id": "m-09653a7daeb6|resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "2/3 lineas con p_modelo vs P mercado (agregador) >=15 pp; max 19 pp. Modelo n10 sin ajuste por rival; sin alineaciones; Rennes 3d/5 cambios.",
+   "evidencia": [
+    "paquete:m-09653a7daeb6|resultado",
+    "archivo:runs/2026-10-25/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-09653a7daeb6|tarjetas",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Sin objecion especifica: n10 sin ajuste por rival, sin brecha >=15 pp relevante.",
+   "evidencia": [
+    "paquete:m-09653a7daeb6|tarjetas"
+   ]
+  },
+  {
+   "unit_id": "m-0b0c6974a0ae|1.ª parte goles",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Sin objecion especifica: n10 sin ajuste por rival, sin brecha >=15 pp relevante.",
+   "evidencia": [
+    "paquete:m-0b0c6974a0ae|1.ª parte goles"
+   ]
+  },
+  {
+   "unit_id": "m-0b0c6974a0ae|1.ª parte resultado",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brighton 3d/7.7 cambios (rotation.json), alineaciones sin_snapshot; efecto sobre 1X2/handicap no cuantificado.",
+   "evidencia": [
+    "paquete:m-0b0c6974a0ae|1.ª parte resultado",
+    "archivo:runs/2026-10-25/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-0b0c6974a0ae|córners",
+   "objecion": "muestra_debil",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Splits local/visitante Liverpool n5 / Brighton n4; esperado ~10.2 vs 9.5, sin brecha >=15 pp.",
+   "evidencia": [
+    "paquete:m-0b0c6974a0ae|córners"
+   ]
+  },
+  {
+   "unit_id": "m-0b0c6974a0ae|doble oportunidad",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Brighton 3d/7.7 cambios (rotation.json), alineaciones sin_snapshot; efecto sobre 1X2/handicap no cuantificado.",
+   "evidencia": [
+    "paquete:m-0b0c6974a0ae|doble oportunidad",
+    "archivo:runs/2026-10-25/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-0b0c6974a0ae|empate no válido",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "2/2 lineas con p_modelo vs P mercado (agregador) >=15 pp; max 29 pp. Modelo n10 sin ajuste por rival; sin alineaciones; Brighton 3d/7.7 cambios.",
+   "evidencia": [
+    "paquete:m-0b0c6974a0ae|empate no válido",
+    "archivo:runs/2026-10-25/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-0b0c6974a0ae|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador ni extractor de datos para fueras de juego; sin precio. No evaluable (estimador sin datos).",
+   "evidencia": [
+    "paquete:m-0b0c6974a0ae|fueras de juego"
+   ]
+  },
+  {
+   "unit_id": "m-0b0c6974a0ae|goles",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Sin objecion especifica: n10 sin ajuste por rival, sin brecha >=15 pp relevante.",
+   "evidencia": [
+    "paquete:m-0b0c6974a0ae|goles"
+   ]
+  },
+  {
+   "unit_id": "m-0b0c6974a0ae|goles por equipo",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "4 linea(s) con brecha >=15 pp vs mercado (max 20 pp), resto sin objecion; n10 sin ajuste por rival.",
+   "evidencia": [
+    "paquete:m-0b0c6974a0ae|goles por equipo"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "goles.equipo.home.over.1.5",
+     "objecion": "brecha_muestra_mercado"
+    },
+    {
+     "entry_id": "goles.equipo.home.under.1.5",
+     "objecion": "brecha_muestra_mercado"
+    },
+    {
+     "entry_id": "goles.equipo.home.over.2.5",
+     "objecion": "brecha_muestra_mercado"
+    },
+    {
+     "entry_id": "goles.equipo.home.under.2.5",
+     "objecion": "brecha_muestra_mercado"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-0b0c6974a0ae|goles total entero",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Sin objecion especifica: n10 sin ajuste por rival, sin brecha >=15 pp relevante.",
+   "evidencia": [
+    "paquete:m-0b0c6974a0ae|goles total entero"
+   ]
+  },
+  {
+   "unit_id": "m-0b0c6974a0ae|hándicap",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "8/12 lineas con p_modelo vs P mercado (agregador) >=15 pp; max 23 pp. Modelo n10 sin ajuste por rival; sin alineaciones; Brighton 3d/7.7 cambios.",
+   "evidencia": [
+    "paquete:m-0b0c6974a0ae|hándicap",
+    "archivo:runs/2026-10-25/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-0b0c6974a0ae|hándicap asiático entero",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brighton 3d/7.7 cambios (rotation.json), alineaciones sin_snapshot; efecto sobre 1X2/handicap no cuantificado.",
+   "evidencia": [
+    "paquete:m-0b0c6974a0ae|hándicap asiático entero",
+    "archivo:runs/2026-10-25/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-0b0c6974a0ae|hándicap europeo",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Brighton 3d/7.7 cambios (rotation.json), alineaciones sin_snapshot; efecto sobre 1X2/handicap no cuantificado.",
+   "evidencia": [
+    "paquete:m-0b0c6974a0ae|hándicap europeo",
+    "archivo:runs/2026-10-25/rotation.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "resultado.eh.away.-2",
+     "objecion": "brecha_muestra_mercado"
+    },
+    {
+     "entry_id": "resultado.eh.home.-1",
+     "objecion": "brecha_muestra_mercado"
+    },
+    {
+     "entry_id": "resultado.eh.away.-1",
+     "objecion": "brecha_muestra_mercado"
+    },
+    {
+     "entry_id": "resultado.eh.home.+1",
+     "objecion": "brecha_muestra_mercado"
+    },
+    {
+     "entry_id": "resultado.eh.away.+1",
+     "objecion": "brecha_muestra_mercado"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-0b0c6974a0ae|remates",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "2 linea(s) con brecha >=15 pp vs mercado (max 26 pp), resto sin objecion; n10 sin ajuste por rival.",
+   "evidencia": [
+    "paquete:m-0b0c6974a0ae|remates"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "shots.equipo.home.over.14.5",
+     "objecion": "brecha_muestra_mercado"
+    },
+    {
+     "entry_id": "shots.equipo.home.under.14.5",
+     "objecion": "brecha_muestra_mercado"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-0b0c6974a0ae|remates a puerta",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "4/6 lineas con p_modelo vs P mercado (agregador) >=15 pp; max 22 pp. Modelo n10 sin ajuste por rival; sin alineaciones.",
+   "evidencia": [
+    "paquete:m-0b0c6974a0ae|remates a puerta"
+   ]
+  },
+  {
+   "unit_id": "m-0b0c6974a0ae|resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "2/3 lineas con p_modelo vs P mercado (agregador) >=15 pp; max 23 pp. Modelo n10 sin ajuste por rival; sin alineaciones; Brighton 3d/7.7 cambios.",
+   "evidencia": [
+    "paquete:m-0b0c6974a0ae|resultado",
+    "archivo:runs/2026-10-25/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-0b0c6974a0ae|tarjetas",
+   "objecion": "muestra_debil",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Equipos n8 y arbitro Barrott n9; incierto si el mercado liquida puntos o tarjetas.",
+   "evidencia": [
+    "paquete:m-0b0c6974a0ae|tarjetas"
+   ]
+  },
+  {
+   "unit_id": "m-0b1f785db75d|1.ª parte goles",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Sin objecion especifica: n10 sin ajuste por rival, sin brecha >=15 pp relevante.",
+   "evidencia": [
+    "paquete:m-0b1f785db75d|1.ª parte goles"
+   ]
+  },
+  {
+   "unit_id": "m-0b1f785db75d|1.ª parte resultado",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Juve 3d/5.7 cambios (rotation.json), alineaciones sin_snapshot; efecto sobre 1X2/handicap no cuantificado.",
+   "evidencia": [
+    "paquete:m-0b1f785db75d|1.ª parte resultado",
+    "archivo:runs/2026-10-25/rotation.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "primera_parte.1x2.away",
+     "objecion": "brecha_muestra_mercado"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-0b1f785db75d|córners",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Sin objecion especifica: n10 sin ajuste por rival, sin brecha >=15 pp relevante.",
+   "evidencia": [
+    "paquete:m-0b1f785db75d|córners"
+   ]
+  },
+  {
+   "unit_id": "m-0b1f785db75d|doble oportunidad",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Juve 3d/5.7 cambios (rotation.json), alineaciones sin_snapshot; efecto sobre 1X2/handicap no cuantificado.",
+   "evidencia": [
+    "paquete:m-0b1f785db75d|doble oportunidad",
+    "archivo:runs/2026-10-25/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-0b1f785db75d|empate no válido",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "2/2 lineas con p_modelo vs P mercado (agregador) >=15 pp; max 27 pp. Modelo n10 sin ajuste por rival; sin alineaciones; Juve 3d/5.7 cambios.",
+   "evidencia": [
+    "paquete:m-0b1f785db75d|empate no válido",
+    "archivo:runs/2026-10-25/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-0b1f785db75d|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador ni extractor de datos para fueras de juego; sin precio. No evaluable (estimador sin datos).",
+   "evidencia": [
+    "paquete:m-0b1f785db75d|fueras de juego"
+   ]
+  },
+  {
+   "unit_id": "m-0b1f785db75d|goles",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Sin objecion especifica: n10 sin ajuste por rival, sin brecha >=15 pp relevante.",
+   "evidencia": [
+    "paquete:m-0b1f785db75d|goles"
+   ]
+  },
+  {
+   "unit_id": "m-0b1f785db75d|goles por equipo",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "6/12 lineas con p_modelo vs P mercado (agregador) >=15 pp; max 19 pp. Modelo n10 sin ajuste por rival; sin alineaciones.",
+   "evidencia": [
+    "paquete:m-0b1f785db75d|goles por equipo"
+   ]
+  },
+  {
+   "unit_id": "m-0b1f785db75d|goles total entero",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Sin objecion especifica: n10 sin ajuste por rival, sin brecha >=15 pp relevante.",
+   "evidencia": [
+    "paquete:m-0b1f785db75d|goles total entero"
+   ]
+  },
+  {
+   "unit_id": "m-0b1f785db75d|hándicap",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "8/10 lineas con p_modelo vs P mercado (agregador) >=15 pp; max 24 pp. Modelo n10 sin ajuste por rival; sin alineaciones; Juve 3d/5.7 cambios.",
+   "evidencia": [
+    "paquete:m-0b1f785db75d|hándicap",
+    "archivo:runs/2026-10-25/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-0b1f785db75d|hándicap asiático entero",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Juve 3d/5.7 cambios (rotation.json), alineaciones sin_snapshot; efecto sobre 1X2/handicap no cuantificado.",
+   "evidencia": [
+    "paquete:m-0b1f785db75d|hándicap asiático entero",
+    "archivo:runs/2026-10-25/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-0b1f785db75d|hándicap europeo",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Juve 3d/5.7 cambios (rotation.json), alineaciones sin_snapshot; efecto sobre 1X2/handicap no cuantificado.",
+   "evidencia": [
+    "paquete:m-0b1f785db75d|hándicap europeo",
+    "archivo:runs/2026-10-25/rotation.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "resultado.eh.away.-1",
+     "objecion": "brecha_muestra_mercado"
+    },
+    {
+     "entry_id": "resultado.eh.home.+1",
+     "objecion": "brecha_muestra_mercado"
+    },
+    {
+     "entry_id": "resultado.eh.away.+1",
+     "objecion": "brecha_muestra_mercado"
+    },
+    {
+     "entry_id": "resultado.eh.home.+2",
+     "objecion": "brecha_muestra_mercado"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-0b1f785db75d|remates",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Sin objecion especifica: n10 sin ajuste por rival, sin brecha >=15 pp relevante.",
+   "evidencia": [
+    "paquete:m-0b1f785db75d|remates"
+   ]
+  },
+  {
+   "unit_id": "m-0b1f785db75d|remates a puerta",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "2 linea(s) con brecha >=15 pp vs mercado (max 16 pp), resto sin objecion; n10 sin ajuste por rival.",
+   "evidencia": [
+    "paquete:m-0b1f785db75d|remates a puerta"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "sot.equipo.home.over.2.5",
+     "objecion": "brecha_muestra_mercado"
+    },
+    {
+     "entry_id": "sot.equipo.home.under.2.5",
+     "objecion": "brecha_muestra_mercado"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-0b1f785db75d|resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "2/3 lineas con p_modelo vs P mercado (agregador) >=15 pp; max 24 pp. Modelo n10 sin ajuste por rival; sin alineaciones; Juve 3d/5.7 cambios.",
+   "evidencia": [
+    "paquete:m-0b1f785db75d|resultado",
+    "archivo:runs/2026-10-25/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-0b1f785db75d|tarjetas",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Arbitro Maresca 6.0 pts n9 (89% >3.5) contradice esperado de equipos ~3.2; modelo o3.5 .42 ignora el arbitro.",
+   "evidencia": [
+    "paquete:m-0b1f785db75d|tarjetas"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "cards_pts.total.over.2.5",
+     "objecion": "brecha_muestra_mercado"
+    },
+    {
+     "entry_id": "cards_pts.total.under.2.5",
+     "objecion": "brecha_muestra_mercado"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-0dabe736f9d3|1.ª parte goles",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Sin objecion especifica: n10 sin ajuste por rival, sin brecha >=15 pp relevante.",
+   "evidencia": [
+    "paquete:m-0dabe736f9d3|1.ª parte goles"
+   ]
+  },
+  {
+   "unit_id": "m-0dabe736f9d3|1.ª parte resultado",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Sunderland 3d/6 cambios (rotation.json), alineaciones sin_snapshot; efecto sobre 1X2/handicap no cuantificado.",
+   "evidencia": [
+    "paquete:m-0dabe736f9d3|1.ª parte resultado",
+    "archivo:runs/2026-10-25/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-0dabe736f9d3|córners",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Sin objecion especifica: n10 sin ajuste por rival, sin brecha >=15 pp relevante.",
+   "evidencia": [
+    "paquete:m-0dabe736f9d3|córners"
+   ]
+  },
+  {
+   "unit_id": "m-0dabe736f9d3|doble oportunidad",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sunderland 3d/6 cambios (rotation.json), alineaciones sin_snapshot; efecto sobre 1X2/handicap no cuantificado.",
+   "evidencia": [
+    "paquete:m-0dabe736f9d3|doble oportunidad",
+    "archivo:runs/2026-10-25/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-0dabe736f9d3|empate no válido",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sunderland 3d/6 cambios (rotation.json), alineaciones sin_snapshot; efecto sobre 1X2/handicap no cuantificado.",
+   "evidencia": [
+    "paquete:m-0dabe736f9d3|empate no válido",
+    "archivo:runs/2026-10-25/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-0dabe736f9d3|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador ni extractor de datos para fueras de juego; sin precio. No evaluable (estimador sin datos).",
+   "evidencia": [
+    "paquete:m-0dabe736f9d3|fueras de juego"
+   ]
+  },
+  {
+   "unit_id": "m-0dabe736f9d3|goles",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Sin objecion especifica: n10 sin ajuste por rival, sin brecha >=15 pp relevante.",
+   "evidencia": [
+    "paquete:m-0dabe736f9d3|goles"
+   ]
+  },
+  {
+   "unit_id": "m-0dabe736f9d3|goles por equipo",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Sin objecion especifica: n10 sin ajuste por rival, sin brecha >=15 pp relevante.",
+   "evidencia": [
+    "paquete:m-0dabe736f9d3|goles por equipo"
+   ]
+  },
+  {
+   "unit_id": "m-0dabe736f9d3|goles total entero",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Sin objecion especifica: n10 sin ajuste por rival, sin brecha >=15 pp relevante.",
+   "evidencia": [
+    "paquete:m-0dabe736f9d3|goles total entero"
+   ]
+  },
+  {
+   "unit_id": "m-0dabe736f9d3|hándicap",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Sunderland 3d/6 cambios (rotation.json), alineaciones sin_snapshot; efecto sobre 1X2/handicap no cuantificado.",
+   "evidencia": [
+    "paquete:m-0dabe736f9d3|hándicap",
+    "archivo:runs/2026-10-25/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-0dabe736f9d3|hándicap asiático entero",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Sunderland 3d/6 cambios (rotation.json), alineaciones sin_snapshot; efecto sobre 1X2/handicap no cuantificado.",
+   "evidencia": [
+    "paquete:m-0dabe736f9d3|hándicap asiático entero",
+    "archivo:runs/2026-10-25/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-0dabe736f9d3|hándicap europeo",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Sunderland 3d/6 cambios (rotation.json), alineaciones sin_snapshot; efecto sobre 1X2/handicap no cuantificado.",
+   "evidencia": [
+    "paquete:m-0dabe736f9d3|hándicap europeo",
+    "archivo:runs/2026-10-25/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-0dabe736f9d3|remates",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Sin objecion especifica: n10 sin ajuste por rival, sin brecha >=15 pp relevante.",
+   "evidencia": [
+    "paquete:m-0dabe736f9d3|remates"
+   ]
+  },
+  {
+   "unit_id": "m-0dabe736f9d3|remates a puerta",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Sin objecion especifica: n10 sin ajuste por rival, sin brecha >=15 pp relevante.",
+   "evidencia": [
+    "paquete:m-0dabe736f9d3|remates a puerta"
+   ]
+  },
+  {
+   "unit_id": "m-0dabe736f9d3|resultado",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sunderland 3d/6 cambios (rotation.json), alineaciones sin_snapshot; efecto sobre 1X2/handicap no cuantificado.",
+   "evidencia": [
+    "paquete:m-0dabe736f9d3|resultado",
+    "archivo:runs/2026-10-25/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-0dabe736f9d3|tarjetas",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Attwell 5.6 pts n12 vs equipos ~3.6 (Sunderland n8): modelo o4.5 .34 contradice al arbitro.",
+   "evidencia": [
+    "paquete:m-0dabe736f9d3|tarjetas"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "cards_pts.total.over.2.5",
+     "objecion": "brecha_muestra_mercado"
+    },
+    {
+     "entry_id": "cards_pts.total.under.2.5",
+     "objecion": "brecha_muestra_mercado"
+    },
+    {
+     "entry_id": "cards_pts.total.over.3.5",
+     "objecion": "brecha_muestra_mercado"
+    },
+    {
+     "entry_id": "cards_pts.total.under.3.5",
+     "objecion": "brecha_muestra_mercado"
+    },
+    {
+     "entry_id": "cards_pts.total.over.4.5",
+     "objecion": "brecha_muestra_mercado"
+    },
+    {
+     "entry_id": "cards_pts.total.under.4.5",
+     "objecion": "brecha_muestra_mercado"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-11a7800b9cb9|1.ª parte goles",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Muestra corta: Hull n7, arb Jones n6 (<8 partidos, verificado en league_samples/152 Hull n7, Jones n6).",
+   "evidencia": [
+    "paquete:m-11a7800b9cb9|1.ª parte goles",
+    "archivo:runs/2026-10-25/league_samples/152.json"
+   ]
+  },
+  {
+   "unit_id": "m-11a7800b9cb9|1.ª parte resultado",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Muestra corta: Hull n7, arb Jones n6 (<8 partidos, verificado en league_samples/152 Hull n7, Jones n6).",
+   "evidencia": [
+    "paquete:m-11a7800b9cb9|1.ª parte resultado",
+    "archivo:runs/2026-10-25/league_samples/152.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "primera_parte.1x2.away",
+     "objecion": "brecha_muestra_mercado"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-11a7800b9cb9|córners",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Muestra corta: Hull n7, arb Jones n6 (<8 partidos, verificado en league_samples/152 Hull n7, Jones n6).",
+   "evidencia": [
+    "paquete:m-11a7800b9cb9|córners",
+    "archivo:runs/2026-10-25/league_samples/152.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "corners.equipo.home.over.4.5",
+     "objecion": "brecha_muestra_mercado"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.4.5",
+     "objecion": "brecha_muestra_mercado"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.5.5",
+     "objecion": "brecha_muestra_mercado"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.5.5",
+     "objecion": "brecha_muestra_mercado"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-11a7800b9cb9|doble oportunidad",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Muestra corta: Hull n7, arb Jones n6 (<8 partidos, verificado en league_samples/152 Hull n7, Jones n6).",
+   "evidencia": [
+    "paquete:m-11a7800b9cb9|doble oportunidad",
+    "archivo:runs/2026-10-25/league_samples/152.json"
+   ]
+  },
+  {
+   "unit_id": "m-11a7800b9cb9|empate no válido",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "2/2 lineas con p_modelo vs P mercado (agregador) >=15 pp; max 31 pp. Modelo n10 sin ajuste por rival; sin alineaciones.",
+   "evidencia": [
+    "paquete:m-11a7800b9cb9|empate no válido",
+    "archivo:runs/2026-10-25/league_samples/152.json"
+   ]
+  },
+  {
+   "unit_id": "m-11a7800b9cb9|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador ni extractor de datos para fueras de juego; sin precio. No evaluable (estimador sin datos).",
+   "evidencia": [
+    "paquete:m-11a7800b9cb9|fueras de juego",
+    "archivo:runs/2026-10-25/league_samples/152.json"
+   ]
+  },
+  {
+   "unit_id": "m-11a7800b9cb9|goles",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Muestra corta: Hull n7, arb Jones n6 (<8 partidos, verificado en league_samples/152 Hull n7, Jones n6).",
+   "evidencia": [
+    "paquete:m-11a7800b9cb9|goles",
+    "archivo:runs/2026-10-25/league_samples/152.json"
+   ]
+  },
+  {
+   "unit_id": "m-11a7800b9cb9|goles por equipo",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Muestra corta: Hull n7, arb Jones n6 (<8 partidos, verificado en league_samples/152 Hull n7, Jones n6).",
+   "evidencia": [
+    "paquete:m-11a7800b9cb9|goles por equipo",
+    "archivo:runs/2026-10-25/league_samples/152.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "goles.equipo.away.over.1.5",
+     "objecion": "brecha_muestra_mercado"
+    },
+    {
+     "entry_id": "goles.equipo.away.under.1.5",
+     "objecion": "brecha_muestra_mercado"
+    },
+    {
+     "entry_id": "goles.equipo.away.over.2.5",
+     "objecion": "brecha_muestra_mercado"
+    },
+    {
+     "entry_id": "goles.equipo.away.under.2.5",
+     "objecion": "brecha_muestra_mercado"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-11a7800b9cb9|goles total entero",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Muestra corta: Hull n7, arb Jones n6 (<8 partidos, verificado en league_samples/152 Hull n7, Jones n6).",
+   "evidencia": [
+    "paquete:m-11a7800b9cb9|goles total entero",
+    "archivo:runs/2026-10-25/league_samples/152.json"
+   ]
+  },
+  {
+   "unit_id": "m-11a7800b9cb9|hándicap",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "6/12 lineas con p_modelo vs P mercado (agregador) >=15 pp; max 24 pp. Modelo n10 sin ajuste por rival; sin alineaciones.",
+   "evidencia": [
+    "paquete:m-11a7800b9cb9|hándicap",
+    "archivo:runs/2026-10-25/league_samples/152.json"
+   ]
+  },
+  {
+   "unit_id": "m-11a7800b9cb9|hándicap asiático entero",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Muestra corta: Hull n7, arb Jones n6 (<8 partidos, verificado en league_samples/152 Hull n7, Jones n6).",
+   "evidencia": [
+    "paquete:m-11a7800b9cb9|hándicap asiático entero",
+    "archivo:runs/2026-10-25/league_samples/152.json"
+   ]
+  },
+  {
+   "unit_id": "m-11a7800b9cb9|hándicap europeo",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Muestra corta: Hull n7, arb Jones n6 (<8 partidos, verificado en league_samples/152 Hull n7, Jones n6).",
+   "evidencia": [
+    "paquete:m-11a7800b9cb9|hándicap europeo",
+    "archivo:runs/2026-10-25/league_samples/152.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "resultado.eh.away.-1",
+     "objecion": "brecha_muestra_mercado"
+    },
+    {
+     "entry_id": "resultado.eh.home.+1",
+     "objecion": "brecha_muestra_mercado"
+    },
+    {
+     "entry_id": "resultado.eh.away.+1",
+     "objecion": "brecha_muestra_mercado"
+    },
+    {
+     "entry_id": "resultado.eh.home.+2",
+     "objecion": "brecha_muestra_mercado"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-11a7800b9cb9|remates",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Muestra corta: Hull n7, arb Jones n6 (<8 partidos, verificado en league_samples/152 Hull n7, Jones n6).",
+   "evidencia": [
+    "paquete:m-11a7800b9cb9|remates",
+    "archivo:runs/2026-10-25/league_samples/152.json"
+   ]
+  },
+  {
+   "unit_id": "m-11a7800b9cb9|remates a puerta",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Muestra corta: Hull n7, arb Jones n6 (<8 partidos, verificado en league_samples/152 Hull n7, Jones n6).",
+   "evidencia": [
+    "paquete:m-11a7800b9cb9|remates a puerta",
+    "archivo:runs/2026-10-25/league_samples/152.json"
+   ],
+   "excepciones": [
+    {
+     "entry_id": "sot.equipo.home.over.3.5",
+     "objecion": "brecha_muestra_mercado"
+    },
+    {
+     "entry_id": "sot.equipo.home.under.3.5",
+     "objecion": "brecha_muestra_mercado"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-11a7800b9cb9|resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "2/3 lineas con p_modelo vs P mercado (agregador) >=15 pp; max 24 pp. Modelo n10 sin ajuste por rival; sin alineaciones.",
+   "evidencia": [
+    "paquete:m-11a7800b9cb9|resultado",
+    "archivo:runs/2026-10-25/league_samples/152.json"
+   ]
+  },
+  {
+   "unit_id": "m-11a7800b9cb9|tarjetas",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Muestra corta: Hull n7, arb Jones n6 (<8 partidos, verificado en league_samples/152 Hull n7, Jones n6).",
+   "evidencia": [
+    "paquete:m-11a7800b9cb9|tarjetas",
+    "archivo:runs/2026-10-25/league_samples/152.json"
+   ]
+  },
+  {
+   "unit_id": "m-20aefcf2067a|1.ª parte goles",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Muestra corta: Venezia n7, arb Sozza n7 (<8 partidos).",
+   "evidencia": [
+    "paquete:m-20aefcf2067a|1.ª parte goles"
+   ]
+  },
+  {
+   "unit_id": "m-20aefcf2067a|1.ª parte resultado",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Muestra corta: Venezia n7, arb Sozza n7 (<8 partidos).",
+   "evidencia": [
+    "paquete:m-20aefcf2067a|1.ª parte resultado"
+   ]
+  },
+  {
+   "unit_id": "m-20aefcf2067a|córners",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Muestra corta: Venezia n7, arb Sozza n7 (<8 partidos).",
+   "evidencia": [
+    "paquete:m-20aefcf2067a|córners"
+   ]
+  },
+  {
+   "unit_id": "m-20aefcf2067a|doble oportunidad",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Muestra corta: Venezia n7, arb Sozza n7 (<8 partidos).",
+   "evidencia": [
+    "paquete:m-20aefcf2067a|doble oportunidad"
+   ]
+  },
+  {
+   "unit_id": "m-20aefcf2067a|empate no válido",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "2/2 lineas con p_modelo vs P mercado (agregador) >=15 pp; max 16 pp. Modelo n10 sin ajuste por rival; sin alineaciones.",
+   "evidencia": [
+    "paquete:m-20aefcf2067a|empate no válido"
+   ]
+  },
+  {
+   "unit_id": "m-20aefcf2067a|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador ni extractor de datos para fueras de juego; sin precio. No evaluable (estimador sin datos).",
+   "evidencia": [
+    "paquete:m-20aefcf2067a|fueras de juego"
+   ]
+  },
+  {
+   "unit_id": "m-20aefcf2067a|goles",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Muestra corta: Venezia n7, arb Sozza n7 (<8 partidos).",
+   "evidencia": [
+    "paquete:m-20aefcf2067a|goles"
+   ]
+  },
+  {
+   "unit_id": "m-20aefcf2067a|goles por equipo",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Muestra corta: Venezia n7, arb Sozza n7 (<8 partidos).",
+   "evidencia": [
+    "paquete:m-20aefcf2067a|goles por equipo"
+   ]
+  },
+  {
+   "unit_id": "m-20aefcf2067a|goles total entero",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Muestra corta: Venezia n7, arb Sozza n7 (<8 partidos).",
+   "evidencia": [
+    "paquete:m-20aefcf2067a|goles total entero"
+   ]
+  },
+  {
+   "unit_id": "m-20aefcf2067a|hándicap",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Muestra corta: Venezia n7, arb Sozza n7 (<8 partidos).",
+   "evidencia": [
+    "paquete:m-20aefcf2067a|hándicap"
+   ]
+  },
+  {
+   "unit_id": "m-20aefcf2067a|hándicap asiático entero",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Muestra corta: Venezia n7, arb Sozza n7 (<8 partidos).",
+   "evidencia": [
+    "paquete:m-20aefcf2067a|hándicap asiático entero"
+   ]
+  },
+  {
+   "unit_id": "m-20aefcf2067a|hándicap europeo",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Muestra corta: Venezia n7, arb Sozza n7 (<8 partidos).",
+   "evidencia": [
+    "paquete:m-20aefcf2067a|hándicap europeo"
+   ]
+  },
+  {
+   "unit_id": "m-20aefcf2067a|remates",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Muestra corta: Venezia n7, arb Sozza n7 (<8 partidos).",
+   "evidencia": [
+    "paquete:m-20aefcf2067a|remates"
+   ]
+  },
+  {
+   "unit_id": "m-20aefcf2067a|remates a puerta",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Muestra corta: Venezia n7, arb Sozza n7 (<8 partidos).",
+   "evidencia": [
+    "paquete:m-20aefcf2067a|remates a puerta"
+   ]
+  },
+  {
+   "unit_id": "m-20aefcf2067a|resultado",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Muestra corta: Venezia n7, arb Sozza n7 (<8 partidos).",
+   "evidencia": [
+    "paquete:m-20aefcf2067a|resultado"
+   ]
+  },
+  {
+   "unit_id": "m-20aefcf2067a|tarjetas",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Muestra corta: Venezia n7, arb Sozza n7 (<8 partidos).",
+   "evidencia": [
+    "paquete:m-20aefcf2067a|tarjetas"
+   ]
+  }
+ ],
+ "limitaciones": [
+  "Sin snapshot de alineaciones: rotacion estimada solo por rotation.json (descanso/cambios).",
+  "Brechas medidas contra P mercado de agregador (referencia); modelo global no validado. Solo se verifico Hull n7 y Jones n6 en league_samples/152."
+ ]
+}
