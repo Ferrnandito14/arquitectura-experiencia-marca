@@ -56,8 +56,18 @@ Así el negocio sabe desde el inicio que no queda atrapado, y Fernando no regala
 - Revisión mensual: que los botones funcionen, que el horario y los precios estén al día, copia de seguridad.
 - Un resumen corto cada mes al cliente con lo que se hizo.
 
+## Precios decididos (2026-10-24)
+
+| Concepto | Precio | Cómo se cobra |
+|---|---|---|
+| Página personalizada (precio de lanzamiento, primeros clientes) | $130 | $65 de anticipo para empezar a personalizar, $65 al publicar |
+| Plan mensual | $20 al mes | Alojamiento, cambios de precios, horarios y fotos, revisión mensual y copia de seguridad |
+| Dominio `.com` | Lo paga el negocio (unos $10 a $15 al año) | A nombre del negocio |
+
+A cambio del precio de lanzamiento se pide por escrito: permiso para mostrar la página como ejemplo y una opinión breve del dueño al publicarla.
+
+Referencia de mercado (agencias en Venezuela, 2026): landing de $80 a $500, mantenimiento de pymes de $25 a $75 al mes.
+
 ## Decisiones pendientes de Fernando
 
-1. Precio de la página y del plan mensual.
-2. Si prefiere plan mensual (recomendado) o pago único con mantenimiento opcional.
-3. Nombre y dominio de su servicio para las demos y los enlaces.
+1. Nombre y dominio de su servicio para las demos y los enlaces (propuesta: Fachada Web, `fachadaweb.com`).
