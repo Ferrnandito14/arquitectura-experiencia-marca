@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Barbería Hermanos Mora | Los Palos Grandes, Caracas</title>
+<meta name="description" content="Barbería en Los Palos Grandes, Caracas. Cortes, barba y reserva por WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--madera:#2B1D15;--crema:#F4ECDD;--rojo:#A4281F;--azul:#1E3560;--papel:#FBF6EB;--texto:#3A2A20;--suave:#6B5748}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+html,body{overflow-x:hidden}
+body{font-family:Inter,system-ui,sans-serif;background:var(--crema);color:var(--texto);line-height:1.6;font-size:17px}
+a{color:inherit}
+.poste{height:14px;background:repeating-linear-gradient(135deg,var(--rojo) 0 18px,var(--crema) 18px 36px,var(--azul) 36px 54px,var(--crema) 54px 72px);background-size:102px 100%}
+@media (prefers-reduced-motion:no-preference){.poste{animation:gira 6s linear infinite}@keyframes gira{to{background-position:102px 0}}}
+.wrap{max-width:980px;margin:0 auto;padding:0 20px}
+header{background:var(--madera);color:var(--crema)}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
+.marca{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:1.35rem;letter-spacing:.01em;text-decoration:none}
+.nav a.cta-mini{background:var(--crema);color:var(--madera);text-decoration:none;font-weight:600;font-size:.95rem;padding:10px 18px;border-radius:999px;min-height:44px;display:inline-flex;align-items:center}
+.hero{padding:56px 0 72px}
+.hero h1{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(2.7rem,9vw,5.2rem);line-height:1.02;letter-spacing:-.01em;max-width:11ch}
+.hero p{margin-top:20px;max-width:34ch;font-size:1.15rem;color:#E4D8C3}
+.hero .acciones{margin-top:32px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.btn{display:inline-flex;align-items:center;min-height:52px;padding:0 28px;border-radius:999px;background:var(--rojo);color:#fff;font-weight:700;text-decoration:none;font-size:1.05rem}
+.btn:focus-visible,a:focus-visible{outline:3px solid #F4C95D;outline-offset:3px}
+.dato{font-size:.98rem;color:#E4D8C3}
+.dato strong{color:#fff}
+section{padding:64px 0}
+h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,6vw,3rem);line-height:1.1;margin-bottom:12px}
+.lead{color:var(--suave);max-width:46ch;margin-bottom:32px}
+.servicios{display:grid;gap:14px}
+@media(min-width:700px){.servicios{grid-template-columns:repeat(2,1fr)}}
+.serv{background:var(--papel);border:1px solid #E3D6BE;border-radius:14px;padding:22px 24px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 16px;align-items:baseline}
+.serv h3{font-size:1.1rem}
+.serv small{display:block;color:var(--suave);font-size:.93rem}
+.precio{font-weight:700;color:var(--azul)}
+.por-confirmar{font-weight:500;color:var(--suave);font-size:.9rem}
+.donde{background:var(--madera);color:var(--crema)}
+.donde .lead{color:#E4D8C3}
+.cols{display:grid;gap:28px}
+@media(min-width:760px){.cols{grid-template-columns:1fr 1fr}}
+.donde dt{font-weight:700;color:#fff;margin-top:14px}
+.donde dd{color:#E4D8C3}
+.fotos{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.foto{aspect-ratio:1;border:2px dashed #CDBB9C;border-radius:12px;display:grid;place-items:center;text-align:center;color:var(--suave);font-size:.85rem;padding:8px}
+footer{padding:30px 0 44px;color:var(--suave);font-size:.9rem}
+footer .demo{margin-top:10px;border-left:4px solid var(--rojo);padding-left:12px}
+</style>
+</head>
+<body>
+<div class="poste" aria-hidden="true"></div>
+<header>
+  <div class="wrap">
+    <nav class="nav" aria-label="Principal">
+      <a class="marca" href="#inicio">Barbería Hermanos Mora</a>
+      <a class="cta-mini" href="#reservar">Reservar</a>
+    </nav>
+    <div class="hero" id="inicio">
+      <h1>Corte clásico en Los Palos Grandes.</h1>
+      <p>Barbería de barrio con 274 opiniones en Google y una calificación de 4,6.</p>
+      <div class="acciones">
+        <a class="btn" id="reservar" href="#reservar">Reservar por WhatsApp</a>
+        <span class="dato"><strong>Abierto</strong> hasta las 6 p. m.</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+<section aria-labelledby="serv">
+  <div class="wrap">
+    <h2 id="serv">Servicios</h2>
+    <p class="lead">Lista de ejemplo. El negocio confirma qué ofrece y cuánto cuesta antes de publicarla.</p>
+    <div class="servicios">
+      <div class="serv"><div><h3>Corte de cabello</h3><small>Clásico o moderno</small></div><span class="precio por-confirmar">precio por confirmar</span></div>
+      <div class="serv"><div><h3>Arreglo de barba</h3><small>Perfilado y afeitado</small></div><span class="precio por-confirmar">precio por confirmar</span></div>
+      <div class="serv"><div><h3>Corte y barba</h3><small>Combo</small></div><span class="precio por-confirmar">precio por confirmar</span></div>
+      <div class="serv"><div><h3>Otros servicios</h3><small>Por definir con el negocio</small></div><span class="precio por-confirmar">por confirmar</span></div>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="fotos-t" style="padding-top:0">
+  <div class="wrap">
+    <h2 id="fotos-t">El local</h2>
+    <p class="lead">Aquí van las fotos propias de la barbería: el poste, los sillones, los cortes terminados.</p>
+    <div class="fotos">
+      <div class="foto">Foto del local</div><div class="foto">Foto de un corte</div><div class="foto">Foto del equipo</div>
+    </div>
+  </div>
+</section>
+
+<section class="donde" aria-labelledby="donde-t">
+  <div class="wrap cols">
+    <div>
+      <h2 id="donde-t">Dónde estamos</h2>
+      <p class="lead">Los Palos Grandes, Caracas.</p>
+      <dl>
+        <dt>Dirección</dt><dd>Av. 1, Los Palos Grandes, Caracas 1060, Miranda</dd>
+        <dt>Horario</dt><dd>Abierto hasta las 6 p. m. Días por confirmar.</dd>
+        <dt>Reservas</dt><dd>Por WhatsApp</dd>
+      </dl>
+      <p style="margin-top:24px"><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Barber%C3%ADa+Hermanos+Mora+Los+Palos+Grandes+Caracas">Cómo llegar</a></p>
+    </div>
+    <div>
+      <h2 style="font-size:1.6rem">Antes de ir</h2>
+      <p class="lead" style="margin-bottom:0">Escríbenos por WhatsApp para confirmar tu turno y evitar la espera.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    Barbería Hermanos Mora · Los Palos Grandes, Caracas
+    <p class="demo">Demo de propuesta preparada con información pública. No es el sitio oficial del negocio.</p>
+  </div>
+</footer>
+<div class="poste" aria-hidden="true"></div>
+</body>
+</html>
