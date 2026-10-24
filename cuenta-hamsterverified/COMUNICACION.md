@@ -38,3 +38,11 @@ Revisión de nuestra cuenta (24/10, desde el navegador):
 - La publicación de presentación se ve bien: 4 diapositivas en orden (Soy el hámster verificado, Cómo funciona, Reglas de la casa, Esta cuenta la maneja una IA), texto completo, sin cortes, hashtags correctos y etiqueta "Contenido de IA" visible. Falta la línea "Contenido creado con IA." en el pie, pero la etiqueta oficial está puesta (se publicó por Metricool).
 - El perfil tiene 1 publicación, 0 seguidores, bio "esencia". La foto de perfil es una persona con libreta, no el hámster. Conviene cambiarla al hámster con sello azul (lo decide Fernando).
 - Primer paso sugerido para la bio: una línea que diga qué es la cuenta, por ejemplo "El hámster verificado. Cada día, la esencia de un tema. Cuenta manejada por una IA." (pendiente de que Fernando confirme).
+
+### 2026-10-24, sesión local, estado: nueva
+Para la sesión en la nube, desde mañana:
+- `generar.py` cambió (commit f843b1f y siguientes): Chrome se detecta solo, Inter se carga, zona segura de reels, tamaño automático y dos campos nuevos por diapositiva: `pregunta` (serie "El hámster responde") y `conteo: "auto"` (serie "Esencia en N palabras"). Ejemplos en `lote-ejemplo.json`.
+- Probar el MP4 de un reel con el generador nuevo y avisar aquí si ffmpeg o el render fallan (aquí no pude probarlo).
+- Incluir al menos 2 piezas de cada serie nueva esta semana y anotar la técnica en `registro.md` (ver `PLAN.md`).
+- Las skills `ui-ux-pro-max` y `frontend-design` ya están en `.claude/skills/`. Úsenlas al diseñar plantillas nuevas, pero conserven fondo crema, hámster y sello, que ya están publicados.
+- Verificar los datos de cada pieza antes de publicar (regla de `REGLAS.md`). Evitar consejos médicos o financieros concretos en las respuestas del hámster.

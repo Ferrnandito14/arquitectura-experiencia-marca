@@ -3,7 +3,8 @@
 
 Uso: python3 generar.py lote.json carpeta_salida
 Formato del JSON: {"piezas": [{"id": "dia1-a", "tipo": "carrusel" | "reel", "diapositivas": [
-  {"kicker": "...", "grande": "...", "pequeno": "...", "tamano": 110, "hamster": 300, "sello": ["FALSO", "#C0392B"], "pie": "desliza →"}]}]}
+  {"kicker": "...", "grande": "...", "pequeno": "...", "tamano": 110, "hamster": 300, "sello": ["FALSO", "#C0392B"], "pie": "desliza →",
+  "pregunta": "texto de la serie El hámster responde", "conteo": "auto"}]}]}
 Las diapositivas de un reel salen en 1080x1920 y se unen en un MP4 con fundidos.
 """
 import html, json, os, pathlib, re, shutil, subprocess, sys
@@ -49,7 +50,10 @@ body{width:1080px;height:%(h)spx;background:var(--papel);font-family:'Inter','Se
 .small{font-size:54px;font-weight:500;line-height:1.3;margin-top:44px;color:var(--texto);max-width:880px}
 .foot{position:absolute;left:90px;right:90px;bottom:%(foot)spx;display:flex;justify-content:space-between;font-size:34px;font-weight:700;color:var(--pie)}
 .stamp{display:inline-block;align-self:flex-start;border:10px solid %(stamp)s;color:%(stamp)s;font-size:96px;font-weight:900;letter-spacing:.06em;padding:6px 36px;transform:rotate(-6deg);border-radius:14px;margin-bottom:76px}
-.ham{position:absolute;right:50px;bottom:%(ham_b)spx}'''
+.ham{position:absolute;right:50px;bottom:%(ham_b)spx}
+.qtag{font-size:34px;font-weight:700;color:var(--pie);margin-bottom:14px}
+.q{align-self:flex-start;background:#fff;border:4px solid #E8D5B5;border-radius:40px 40px 40px 10px;padding:30px 42px;font-size:50px;font-weight:600;line-height:1.25;color:var(--texto);max-width:840px;margin-bottom:56px}
+.count{align-self:flex-start;background:var(--tinta);color:var(--papel);border-radius:999px;padding:8px 32px;font-size:40px;font-weight:800;margin-bottom:36px}'''
 
 def tamano_auto(texto, reel=False):
     n = len(re.sub(r'<[^>]+>', '', texto))
@@ -61,6 +65,11 @@ def diapositiva(ruta, d, alto):
     sello = d.get('sello')
     cuerpo = ''
     if sello: cuerpo += f'<div class="stamp">{html.escape(sello[0])}</div>'
+    if d.get('pregunta'): cuerpo += f'<div class="qtag">Pregunta común</div><div class="q">{html.escape(d["pregunta"])}</div>'
+    if d.get('conteo'):
+        # "auto" cuenta las palabras reales del titular para que la etiqueta nunca mienta.
+        n = len(re.sub(r'<[^>]+>', ' ', d['grande']).split())
+        cuerpo += f'<div class="count">{n} palabras</div>' if d['conteo'] == 'auto' else f'<div class="count">{html.escape(d["conteo"])}</div>'
     if d.get('kicker'): cuerpo += f'<div class="kicker">{html.escape(d["kicker"])}</div>'
     cuerpo += f'<div class="big">{d["grande"]}</div>'
     if d.get('pequeno'): cuerpo += f'<div class="small">{d["pequeno"]}</div>'
