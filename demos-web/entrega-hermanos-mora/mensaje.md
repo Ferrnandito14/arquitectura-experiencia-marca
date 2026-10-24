@@ -11,36 +11,40 @@ Borrador para que Fernando lo apruebe. Nada se envía hasta que él lo diga, y l
 
 ## Versión corta (WhatsApp)
 
-> Hola, buenas tardes. Soy Fernando Romero. Hago páginas web para negocios de Caracas. Vi que Barbería Hermanos Mora tiene muy buenas opiniones en Google (4,6 con 274) pero no aparece una página web.
+> Buenas tardes. Mi nombre es Fernando Romero, diseño y desarrollo páginas web para comercios de Caracas.
 >
-> Preparé un ejemplo de cómo podría verse la suya, con la información que ya es pública: ubicación, horario y botón para reservar por WhatsApp. Es solo una propuesta, sin compromiso. La armé con ayuda de una herramienta de inteligencia artificial y la reviso yo.
+> Revisando la presencia en Google de Barbería Hermanos Mora, vi que tienen una excelente reputación (4,6 con 274 opiniones), pero aún no cuentan con una página web propia.
 >
-> Te mando una foto de cómo se ve en el teléfono. Si te gusta, la ajusto con tus servicios, precios y fotos. Si no, no pasa nada.
+> Preparé una propuesta de diseño pensada para su barbería, con la información que ya es pública: ubicación, horario y un botón para que sus clientes reserven por WhatsApp. Se la comparto en la imagen adjunta, sin ningún compromiso. Trabajo con herramientas de inteligencia artificial y reviso personalmente cada detalle.
+>
+> Si le interesa, puedo adaptarla con sus servicios, precios y fotos, y dejarla publicada en pocos días. Quedo atento a sus comentarios.
 
 (Adjuntar `vista-telefono.png`.)
 
 ## Versión con enlace (si Fernando prefiere que la pruebe en el teléfono)
 
-Es la misma versión corta, cambiando solo el último párrafo:
+Es la misma versión corta, cambiando la última parte del tercer párrafo:
 
-> Te dejo el enlace para que la pruebes en el teléfono: [enlace]. Los botones son de ejemplo. Si te gusta, la ajusto con tus servicios, precios y fotos. Si no, no pasa nada.
+> Puede verla y probarla desde su teléfono en este enlace: [enlace]. Los botones son de demostración.
 
 Para tener el enlace, Fernando sube `demo.html` él mismo a un alojamiento gratuito de su elección (por ejemplo, arrastrar la carpeta `entrega-hermanos-mora` a un servicio de alojamiento estático). La página ya lleva `noindex` (no sale en buscadores) y el aviso de demo al pie. Se borra el sitio si el negocio dice que no.
 
 ## Versión un poco más larga (si responde con interés)
 
-> Gracias por responder. Esto es lo que incluiría tu página:
+> Muchas gracias por su respuesta. La página incluiría:
 >
-> - Botón para que los clientes reserven por WhatsApp.
-> - Tus servicios con precios.
-> - Tu horario y los días que abres.
-> - La ubicación con botón "cómo llegar".
-> - Tus propias fotos del local y de los cortes.
-> - Tu calificación de Google como prueba.
+> - Botón para que sus clientes reserven por WhatsApp.
+> - Sus servicios con precios.
+> - Horario y días de atención.
+> - Ubicación con botón "cómo llegar".
+> - Fotos propias del local y de los cortes.
+> - Su calificación de Google como respaldo.
 >
-> Para dejarla lista necesito: la lista de servicios con precios, los días y horas de atención, tu número de WhatsApp para reservas y unas cuantas fotos buenas.
+> Para tenerla lista necesitaría la lista de servicios con precios, los días y horas de atención, el número de WhatsApp para reservas y algunas fotos del local.
 >
-> El precio de lanzamiento es $130: $65 para empezar y $65 cuando la publique. Después, $20 al mes cubren el alojamiento, los cambios de precios, horarios y fotos, y que todo siga funcionando. El dominio queda a tu nombre.
+> La inversión es de $130 (precio de lanzamiento): $65 al iniciar y $65 al publicarla. Luego, un plan de $20 mensuales cubre el alojamiento, las actualizaciones de precios, horarios y fotos, y el mantenimiento para que todo funcione correctamente. El dominio queda registrado a nombre de su negocio.
+>
+> Si le parece bien, le envío el acuerdo de servicio con estos detalles.
 
 ## Si no responde o dice que no
 
