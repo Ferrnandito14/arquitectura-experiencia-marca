@@ -32,7 +32,6 @@ Elegí una clínica y no a un doctor con nombre propio para no usar el nombre de
 Cita por WhatsApp, lista de tratamientos que la clínica confirma, cómo es la primera visita (la duda del paciente nuevo), preguntas frecuentes (costos, pago, urgencias), ubicación y horario. Sin promesas de resultados clínicos, sin antes y después y sin consejos médicos: eso lo decide el odontólogo.
 
 ## Qué debe tener la página de una barbería
- la página de una barbería
 
 Reserva por WhatsApp visible desde el primer vistazo, servicios con precios, horario y días, ubicación con botón "cómo llegar", fotos propias del local y de cortes terminados, y la calificación de Google como prueba. Funciona en teléfono primero, porque casi todo el tráfico llega desde Instagram o WhatsApp.
 
