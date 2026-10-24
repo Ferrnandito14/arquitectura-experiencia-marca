@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>La Flor de Altamira | Panadería y pastelería en Altamira, Caracas</title>
+<meta name="description" content="Cachitos, pan de jamón, pizzas y jugos en Altamira, Caracas. Haz tu pedido por WhatsApp.">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--verde:#1F4D3A;--verde2:#173A2B;--petalo:#E9A3AB;--crema:#FBF3E4;--tinta:#2A2A24;--suave:#5E5B4F;--miel:#C98A1B}
+*{box-sizing:border-box;margin:0}
+html,body{overflow-x:hidden}
+body{font-family:Inter,system-ui,sans-serif;background:var(--crema);color:var(--tinta);line-height:1.6;font-size:17px}
+a{color:inherit}
+a:focus-visible{outline:3px solid var(--miel);outline-offset:3px}
+.wrap{max-width:1000px;margin:0 auto;padding:0 22px}
+header{background:var(--verde);color:var(--crema)}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
+.logo{font-family:Fraunces,serif;font-weight:800;font-size:1.3rem;text-decoration:none}
+.btn{display:inline-flex;align-items:center;min-height:52px;padding:0 28px;border-radius:999px;background:var(--petalo);color:var(--verde2);font-weight:700;text-decoration:none}
+.btn.mini{min-height:44px;padding:0 18px;font-size:.95rem;background:var(--crema)}
+.btn.verde{background:var(--verde);color:var(--crema)}
+.hero{padding:54px 0 76px;display:grid;gap:30px}
+@media(min-width:820px){.hero{grid-template-columns:1.3fr .7fr;align-items:end}}
+.hero h1{font-family:Fraunces,serif;font-weight:800;font-size:clamp(2.6rem,9vw,5rem);line-height:1;letter-spacing:-.02em}
+.hero h1 span{color:var(--petalo)}
+.hero p{margin-top:20px;max-width:36ch;font-size:1.15rem;color:#D8E6DD}
+.acciones{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:30px}
+.dato{color:#D8E6DD;font-size:.98rem}
+.dato b{color:#fff}
+.num{border:2px solid var(--petalo);border-radius:20px;padding:20px 22px}
+.num b{display:block;font-family:Fraunces,serif;font-size:3rem;line-height:1;color:var(--petalo)}
+.num span{color:#D8E6DD;font-size:.95rem}
+section{padding:64px 0}
+h2{font-family:Fraunces,serif;font-weight:800;font-size:clamp(1.9rem,6vw,2.8rem);line-height:1.1;letter-spacing:-.015em;margin-bottom:12px}
+.lead{color:var(--suave);max-width:50ch;margin-bottom:30px}
+.grid{display:grid;gap:14px}
+@media(min-width:700px){.grid{grid-template-columns:repeat(2,1fr)}}
+.card{background:#fff;border:1px solid #EADFC9;border-radius:20px;padding:24px}
+.card h3{font-family:Fraunces,serif;font-size:1.3rem}
+.card p{color:var(--suave);font-size:.97rem}
+.card .menc{display:inline-block;margin-top:10px;background:#F6E6E8;color:#7C2F3A;font-weight:600;font-size:.85rem;padding:4px 12px;border-radius:999px}
+.pc{display:inline-block;margin-top:10px;margin-left:6px;font-size:.85rem;font-weight:600;color:#8A5B0E}
+.pedido{background:var(--verde2);color:var(--crema)}
+.pedido .lead{color:#D8E6DD}
+.cols{display:grid;gap:30px}
+@media(min-width:780px){.cols{grid-template-columns:1fr 1fr}}
+dt{font-weight:700;margin-top:14px}
+dd{color:#D8E6DD}
+.fotos{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.foto{aspect-ratio:1;border:2px dashed #CDB98F;border-radius:16px;display:grid;place-items:center;text-align:center;color:var(--suave);font-size:.85rem;padding:8px}
+footer{padding:30px 0 46px;color:var(--suave);font-size:.9rem}
+.demo{margin-top:10px;border-left:4px solid var(--petalo);padding-left:12px}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <nav class="nav" aria-label="Principal">
+      <a class="logo" href="#inicio">La Flor de Altamira</a>
+      <a class="btn mini" href="#pedido">Hacer pedido</a>
+    </nav>
+    <div class="hero" id="inicio">
+      <div>
+        <h1>Cachitos, pizzas y <span>pan de jamón</span> en Altamira.</h1>
+        <p>Panadería y pastelería en la Av. Transversal 6, Altamira. Escríbenos por WhatsApp para tu pedido.</p>
+        <div class="acciones">
+          <a class="btn" id="pedido" href="https://wa.me/PON_AQUI_EL_NUMERO?text=Hola%2C%20quiero%20hacer%20un%20pedido">Pedir por WhatsApp</a>
+          <span class="dato"><b>Abierto</b> hasta las 8 p. m.</span>
+        </div>
+      </div>
+      <aside class="num"><b>4,5</b><span>en Google, con más de 4.400 opiniones</span></aside>
+    </div>
+  </div>
+</header>
+
+<main>
+<section aria-labelledby="piden">
+  <div class="wrap">
+    <h2 id="piden">Lo que más mencionan los clientes</h2>
+    <p class="lead">En las opiniones de Google, estos son los productos que más aparecen. El negocio completa la lista con su menú real y sus precios.</p>
+    <div class="grid">
+      <div class="card"><h3>Cachitos</h3><p>El favorito de la casa según las opiniones.</p><span class="menc">267 menciones</span><span class="pc">precio por confirmar</span></div>
+      <div class="card"><h3>Pizzas</h3><p>Una de las cosas que más piden.</p><span class="menc">135 menciones</span><span class="pc">precio por confirmar</span></div>
+      <div class="card"><h3>Jugos</h3><p>Para acompañar el desayuno o la merienda.</p><span class="menc">30 menciones</span><span class="pc">por confirmar</span></div>
+      <div class="card"><h3>Pan de jamón</h3><p>Clásico venezolano.</p><span class="menc">26 menciones</span><span class="pc">por confirmar</span></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0" aria-labelledby="vit">
+  <div class="wrap">
+    <h2 id="vit">La vitrina</h2>
+    <p class="lead">Aquí van las fotos propias del local: la vitrina, los cachitos recién hechos, las tortas. Tortas y encargos: por confirmar con el negocio.</p>
+    <div class="fotos"><div class="foto">Foto de la vitrina</div><div class="foto">Foto de cachitos</div><div class="foto">Foto del local</div></div>
+  </div>
+</section>
+
+<section class="pedido" aria-labelledby="donde">
+  <div class="wrap cols">
+    <div>
+      <h2 id="donde">Dónde estamos</h2>
+      <dl>
+        <dt>Dirección</dt><dd>Av. Transversal 6, Altamira, Caracas</dd>
+        <dt>Horario</dt><dd>Hasta las 8 p. m. Días por confirmar.</dd>
+        <dt>Pedidos</dt><dd>Por WhatsApp</dd>
+      </dl>
+      <div class="acciones"><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=La+Flor+de+Altamira+Caracas">Cómo llegar</a></div>
+    </div>
+    <div>
+      <h2 style="font-size:1.6rem">Antes de salir</h2>
+      <p class="lead" style="margin-bottom:0">Escribe lo que quieres y te confirmamos tu pedido.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">La Flor de Altamira · Altamira, Caracas
+    <p class="demo">Demo de propuesta preparada con información pública. No es el sitio oficial del negocio.</p>
+  </div>
+</footer>
+</body>
+</html>
