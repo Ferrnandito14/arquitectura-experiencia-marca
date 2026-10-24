@@ -68,6 +68,6 @@ A cambio del precio de lanzamiento se pide por escrito: permiso para mostrar la 
 
 Referencia de mercado (agencias en Venezuela, 2026): landing de $80 a $500, mantenimiento de pymes de $25 a $75 al mes.
 
-## Decisiones pendientes de Fernando
+## Nombre del servicio
 
-1. Nombre y dominio de su servicio para las demos y los enlaces (propuesta: Fachada Web, `fachadaweb.com`).
+Nodo Caracas. Dominio sugerido: `nodocaracas.com` (parecía libre el 2026-10-24; lo compra Fernando). Las demos llevan una franja fija "Propuesta de diseño · Nodo Caracas" y el aviso al pie.

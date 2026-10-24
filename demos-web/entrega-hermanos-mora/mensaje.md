@@ -5,13 +5,13 @@ Borrador para que Fernando lo apruebe. Nada se envía hasta que él lo diga, y l
 ## Antes de enviar
 
 1. Decidir cómo contactar: la ficha de Google Maps del negocio muestra un teléfono público. Fernando decide si lo usa. El teléfono no está en el repo.
-2. Completar los datos entre corchetes: [precio] y [tu forma de contacto].
+2. Precios ya definidos: $130 la página y $20 al mes el plan (ver `../modelo-de-venta.md`).
 3. Decidir si quiere decir que la página la preparó con ayuda de una IA. Recomendado: sí, en una línea (está en la versión corta).
 4. Mirar `vista-telefono.png` para confirmar que se ve como quiere enseñarla.
 
 ## Versión corta (WhatsApp)
 
-> Hola, buenas tardes. Soy Fernando. Vi que Barbería Hermanos Mora tiene muy buenas opiniones en Google (4,6 con 274) pero no aparece una página web.
+> Hola, buenas tardes. Soy Fernando, de Nodo Caracas: hacemos páginas web para negocios de la ciudad. Vi que Barbería Hermanos Mora tiene muy buenas opiniones en Google (4,6 con 274) pero no aparece una página web.
 >
 > Preparé un ejemplo de cómo podría verse la suya, con la información que ya es pública: ubicación, horario y botón para reservar por WhatsApp. Es solo una propuesta, sin compromiso. La armé con ayuda de una herramienta de inteligencia artificial y la reviso yo.
 >
@@ -40,7 +40,7 @@ Para tener el enlace, Fernando sube `demo.html` él mismo a un alojamiento gratu
 >
 > Para dejarla lista necesito: la lista de servicios con precios, los días y horas de atención, tu número de WhatsApp para reservas y unas cuantas fotos buenas.
 >
-> El costo sería [precio]. Te la entrego funcionando y te explico cómo cambiar lo que quieras.
+> El precio de lanzamiento es $130: $65 para empezar y $65 cuando la publiquemos. Después, $20 al mes cubren el alojamiento, los cambios de precios, horarios y fotos, y que todo siga funcionando. El dominio queda a tu nombre.
 
 ## Si no responde o dice que no
 
