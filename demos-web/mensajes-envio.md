@@ -63,3 +63,41 @@ Mismo estilo que el mensaje aprobado para Hermanos Mora, adaptado a cada negocio
 > https://propuesta-el-barquero.netlify.app
 >
 > Trabajo con herramientas de inteligencia artificial y reviso personalmente cada detalle. Si le interesa, puedo adaptarla con su carta, precios y fotos, y dejarla publicada en pocos días. Quedo atento a sus comentarios.
+
+## Plantilla desde el 2026-10-26: con el porqué de la página
+
+Basada en `por-que-una-pagina-web.md`. Mismo mensaje de antes, más un párrafo corto que explica por qué importa, con un dato y su fuente. No se prometen clientes ni ventas.
+
+> [Saludo según la hora]. Mi nombre es Fernando Romero, diseño y desarrollo páginas web para comercios de Caracas.
+>
+> Revisando la presencia en Google de [negocio], vi que [dato real de su reputación], pero aún no cuentan con una página web propia.
+>
+> [Párrafo del porqué, según el rubro, abajo]
+>
+> Preparé una propuesta de diseño pensada para [su barbería / su restaurante / su clínica / su panadería], con la información que ya es pública: [lo que trae la demo]. Puede verla y recorrerla desde su teléfono, sin ningún compromiso:
+>
+> [enlace]
+>
+> Trabajo con herramientas de inteligencia artificial y reviso personalmente cada detalle. Si le interesa, puedo adaptarla con sus servicios, precios y fotos, y dejarla publicada en pocos días. Quedo atento a sus comentarios.
+
+### Párrafo del porqué por rubro
+
+- **General (cualquier negocio):** ¿Por qué importa? Más de la mitad de las personas entra a la página web de un negocio después de leer sus opiniones en Google (encuesta BrightLocal 2026, en EE. UU.). Si no hay página, esa visita se pierde o se va a otro lugar.
+- **Barbería:** ¿Por qué importa? Mucha gente busca dónde cortarse cuando el local ya cerró: en estudios del sector, cerca de la mitad de las reservas de salones se hacen fuera del horario de atención. Una página con sus servicios, precios y botón de WhatsApp atiende a esos clientes a cualquier hora.
+- **Restaurante:** ¿Por qué importa? La mayoría de los comensales revisa el menú antes de ir (83 % en una encuesta de US Foods en EE. UU.). Una carta clara en el teléfono, con horario y reservas, convierte esa búsqueda en una mesa.
+- **Clínica dental:** ¿Por qué importa? Antes de pedir cita, la mayoría de los pacientes busca al odontólogo en internet y compara opiniones (cerca de 7 de cada 10 en encuestas del sector en EE. UU.). Una página que explique los tratamientos y cómo es la primera visita le da al paciente la confianza para escribir, a cualquier hora.
+- **Panadería:** usar el párrafo general.
+
+### Odontología Gran Caracas (pendiente, lunes 26 a las 9:30 a. m.)
+
+> Buenos días. Mi nombre es Fernando Romero, diseño y desarrollo páginas web para comercios de Caracas.
+>
+> Revisando la presencia en Google de Odontología Gran Caracas, vi que aún no cuentan con una página web propia.
+>
+> ¿Por qué importa? Antes de pedir cita, la mayoría de los pacientes busca al odontólogo en internet y compara opiniones (cerca de 7 de cada 10 en encuestas del sector en EE. UU.). Una página que explique los tratamientos y cómo es la primera visita le da al paciente la confianza para escribir, a cualquier hora.
+>
+> Preparé una propuesta de diseño pensada para su clínica, con la información que ya es pública: tratamientos, cómo es la primera visita, preguntas frecuentes, ubicación en Centro Perú y un botón para que sus pacientes agenden su cita por WhatsApp. Puede verla y recorrerla desde su teléfono, sin ningún compromiso:
+>
+> https://propuesta-odontologia-gran-caracas.netlify.app
+>
+> Trabajo con herramientas de inteligencia artificial y reviso personalmente cada detalle. Si le interesa, puedo adaptarla con sus tratamientos, precios y fotos, y dejarla publicada en pocos días. Quedo atento a sus comentarios.
