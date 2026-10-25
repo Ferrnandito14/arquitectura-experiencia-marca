@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>La Flor de Altamira | Panadería y pastelería en Altamira, Caracas</title>
+<meta name="description" content="Cachitos, tortas, pizzas, charcutería y jugos en Altamira, Caracas. Pide por WhatsApp.">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;1,9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--azul:#1C48A0;--azul2:#123477;--oro:#D9A92B;--blanco:#FFFFFF;--nata:#FBF8F1;--tinta:#1A2238;--suave:#525A6C;--fresa:#C8323B}
+*{box-sizing:border-box;margin:0}
+html,body{overflow-x:hidden}
+body{font-family:Inter,system-ui,sans-serif;background:var(--nata);color:var(--tinta);line-height:1.6;font-size:17px}
+a{color:inherit}
+a:focus-visible{outline:3px solid var(--oro);outline-offset:3px}
+.wrap{max-width:1000px;margin:0 auto;padding:0 22px}
+header{background:var(--azul);color:#fff}
+.moldura{height:10px;background:linear-gradient(var(--oro),var(--oro)) 0 3px/100% 3px no-repeat,var(--azul2)}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
+.logo{font-family:Fraunces,serif;font-style:italic;font-weight:700;font-size:1.45rem;text-decoration:none}
+.btn{display:inline-flex;align-items:center;min-height:52px;padding:0 28px;border-radius:12px;background:var(--oro);color:var(--azul2);font-weight:800;text-decoration:none}
+.btn.mini{min-height:44px;padding:0 18px;font-size:.95rem;background:#fff;color:var(--azul)}
+.btn.azul{background:var(--azul);color:#fff}
+.hero{padding:50px 0 74px;display:grid;gap:30px}
+@media(min-width:840px){.hero{grid-template-columns:1.3fr .7fr;align-items:end}}
+.hero h1{font-family:Fraunces,serif;font-weight:800;font-size:clamp(2.6rem,9vw,5rem);line-height:1;letter-spacing:-.015em}
+.hero h1 em{font-weight:700;color:var(--oro)}
+.hero p{margin-top:18px;max-width:38ch;font-size:1.13rem;color:#DCE4F5}
+.acciones{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:28px}
+.dato{color:#DCE4F5;font-size:.98rem}
+.dato b{color:#fff}
+.sello{background:#fff;color:var(--azul2);border-radius:18px;padding:22px;box-shadow:0 0 0 4px var(--oro)}
+.sello b{display:block;font-family:Fraunces,serif;font-size:3rem;line-height:1;color:var(--azul)}
+.sello span{font-size:.95rem;color:var(--suave)}
+section{padding:64px 0}
+h2{font-family:Fraunces,serif;font-weight:800;font-size:clamp(1.9rem,6vw,2.8rem);line-height:1.08;margin-bottom:12px;color:var(--azul2)}
+.lead{color:var(--suave);max-width:52ch;margin-bottom:30px}
+.grid{display:grid;gap:14px}
+@media(min-width:700px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:960px){.grid.tres{grid-template-columns:repeat(3,1fr)}}
+.card{background:#fff;border:1px solid #E3E8F2;border-top:5px solid var(--azul);border-radius:14px;padding:22px}
+.card h3{font-family:Fraunces,serif;font-size:1.35rem;color:var(--azul2)}
+.card p{color:var(--suave);font-size:.96rem}
+.menc{display:inline-block;margin-top:10px;background:#FFF3D6;color:#7A5300;font-weight:700;font-size:.82rem;padding:4px 12px;border-radius:999px}
+.vitrina{background:var(--azul2);color:#fff}
+.vitrina h2{color:#fff}
+.vitrina .lead{color:#DCE4F5}
+.repisas{display:grid;gap:10px}
+.repisa{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding-bottom:10px;border-bottom:4px solid var(--oro)}
+.torta{aspect-ratio:1;border-radius:12px;background:rgba(255,255,255,.08);border:1.5px dashed rgba(255,255,255,.5);display:grid;place-items:center;text-align:center;color:#DCE4F5;font-size:.82rem;padding:6px}
+.cols{display:grid;gap:30px}
+@media(min-width:780px){.cols{grid-template-columns:1fr 1fr}}
+dt{font-weight:700;margin-top:14px}
+dd{color:var(--suave)}
+footer{padding:28px 0 40px;color:var(--suave);font-size:.9rem}
+.demo{margin-top:10px;border-left:4px solid var(--oro);padding-left:12px}
+.nodo-franja{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:50;background:rgba(17,17,17,.88);color:#fff;font:600 13px/1.2 system-ui,sans-serif;letter-spacing:.02em;padding:9px 16px;border-radius:999px;box-shadow:0 2px 10px rgba(0,0,0,.25);pointer-events:none;white-space:nowrap}
+.nodo-franja b{color:#8FD3FF}
+.nodo-aviso{position:fixed;left:50%;bottom:64px;transform:translateX(-50%) translateY(20px);z-index:60;max-width:min(92vw,420px);background:#fff;color:#111;font:500 15px/1.4 system-ui,sans-serif;padding:14px 18px;border-radius:14px;box-shadow:0 6px 24px rgba(0,0,0,.28);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;text-align:center}
+.nodo-aviso.ver{opacity:1;transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <nav class="nav" aria-label="Principal">
+      <a class="logo" href="#inicio">La Flor de Altamira</a>
+      <a class="btn mini" href="#pedido">Hacer pedido</a>
+    </nav>
+    <div class="hero" id="inicio">
+      <div>
+        <h1>Cachitos, tortas y <em>pizza</em> en Altamira.</h1>
+        <p>La panadería y pastelería de la Transversal 6: vitrinas llenas de dulces, charcutería y una terraza para quedarse.</p>
+        <div class="acciones">
+          <a class="btn" id="pedido" href="https://wa.me/PON_AQUI_EL_NUMERO?text=Hola%2C%20quiero%20hacer%20un%20pedido">Pedir por WhatsApp</a>
+          <span class="dato"><b>Abierto</b> hasta las 8 p. m.</span>
+        </div>
+      </div>
+      <aside class="sello"><b>4,5</b><span>en Google, con más de 4.400 opiniones</span></aside>
+    </div>
+  </div>
+  <div class="moldura" aria-hidden="true"></div>
+</header>
+
+<main>
+<section aria-labelledby="piden">
+  <div class="wrap">
+    <h2 id="piden">Lo que más piden</h2>
+    <p class="lead">Según las opiniones de Google. El negocio completa la lista con su menú real y sus precios.</p>
+    <div class="grid tres">
+      <div class="card"><h3>Cachitos</h3><p>El favorito de la casa.</p><span class="menc">267 opiniones lo mencionan</span></div>
+      <div class="card"><h3>Pizzas</h3><p>Una de las más nombradas.</p><span class="menc">135 opiniones</span></div>
+      <div class="card"><h3>Pan de jamón</h3><p>Clásico venezolano.</p><span class="menc">26 opiniones</span></div>
+      <div class="card"><h3>Charcutería</h3><p>Mortadela, pavo y carpaccio.</p><span class="menc">mencionada en las opiniones</span></div>
+      <div class="card"><h3>Jugos</h3><p>Para el desayuno o la merienda.</p><span class="menc">30 opiniones</span></div>
+      <div class="card"><h3>Terraza</h3><p>Para comer en el sitio.</p><span class="menc">24 opiniones</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="vitrina" aria-labelledby="vit">
+  <div class="wrap">
+    <h2 id="vit">La vitrina</h2>
+    <p class="lead">Tortas, dulces y pasteles en repisas. Aquí van las fotos propias de cada producto. Encargos de tortas: por confirmar con el negocio.</p>
+    <div class="repisas">
+      <div class="repisa"><div class="torta">Foto de torta</div><div class="torta">Foto de torta</div><div class="torta">Foto de torta</div></div>
+      <div class="repisa"><div class="torta">Foto de dulces</div><div class="torta">Foto de cachitos</div><div class="torta">Foto de pizza</div></div>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="donde">
+  <div class="wrap cols">
+    <div>
+      <h2 id="donde">Dónde estamos</h2>
+      <dl>
+        <dt>Dirección</dt><dd>Av. Transversal 6, Altamira, Caracas</dd>
+        <dt>Horario</dt><dd>Hasta las 8 p. m. Días por confirmar.</dd>
+        <dt>Pedidos</dt><dd>Por WhatsApp</dd>
+      </dl>
+      <div class="acciones"><a class="btn azul" href="https://www.google.com/maps/search/?api=1&amp;query=La+Flor+de+Altamira+Caracas">Cómo llegar</a></div>
+    </div>
+    <div>
+      <h2 style="font-size:1.6rem">Antes de salir</h2>
+      <p class="lead">Escribe lo que quieres y te confirmamos tu pedido.</p>
+      <a class="btn" href="https://wa.me/PON_AQUI_EL_NUMERO?text=Hola%2C%20quiero%20hacer%20un%20pedido">Pedir por WhatsApp</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer style="padding-bottom:70px">
+  <div class="wrap">La Flor de Altamira · Altamira, Caracas
+    <p class="demo">Propuesta de diseño de Fernando Romero, preparada con información pública. No es el sitio oficial del negocio.</p>
+  </div>
+</footer>
+<div class="nodo-franja" aria-hidden="true">Propuesta de diseño · <b>Fernando Romero</b></div>
+<div class="nodo-aviso" id="nodoAviso" role="status" aria-live="polite"></div>
+<script>
+(function(){var a=document.getElementById('nodoAviso'),t;
+document.addEventListener('click',function(e){var l=e.target.closest('a[href*="wa.me/"]');if(!l)return;e.preventDefault();
+a.textContent='En la versión final, este botón abre el WhatsApp de su negocio con el mensaje listo para el cliente.';
+a.classList.add('ver');clearTimeout(t);t=setTimeout(function(){a.classList.remove('ver')},3800);});})();
+</script>
+</body>
+</html>

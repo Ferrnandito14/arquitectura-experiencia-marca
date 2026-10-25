@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Bravos Barber Studio | Centro Plaza, Caracas</title>
+<meta name="description" content="Barber studio en Centro Plaza, Los Palos Grandes, Caracas. Dinos cómo quieres tu corte. Reserva por WhatsApp.">
+<link href="https://fonts.googleapis.com/css2?family=Michroma&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--negro:#0A0A0A;--negro2:#151515;--oro:#C9A24A;--oro2:#E3C77E;--petroleo:#1E4D5B;--luz:#F4F6F7;--gris:#A9ADB2}
+*{box-sizing:border-box;margin:0}
+html,body{overflow-x:hidden}
+body{font-family:Inter,system-ui,sans-serif;background:var(--negro);color:var(--luz);line-height:1.6;font-size:17px}
+a{color:inherit}
+a:focus-visible{outline:3px solid var(--oro2);outline-offset:3px}
+.wrap{max-width:1000px;margin:0 auto;padding:0 22px}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
+.logo{text-decoration:none;line-height:1}
+.logo b{display:block;font-family:Michroma,sans-serif;font-weight:400;font-size:1.25rem;letter-spacing:.32em}
+.logo small{display:block;font-family:Michroma,sans-serif;font-size:.5rem;letter-spacing:.5em;color:var(--gris);margin-top:5px}
+.btn{display:inline-flex;align-items:center;min-height:52px;padding:0 28px;background:var(--oro);color:var(--negro);font-weight:700;text-decoration:none;border-radius:2px}
+.btn.mini{min-height:44px;padding:0 18px;font-size:.95rem}
+.btn.linea{background:transparent;color:var(--luz);border:1px solid var(--oro)}
+/* marco de luz LED como los espejos del local */
+.espejo{position:relative;border:2px solid rgba(255,255,255,.85);border-radius:4px;box-shadow:0 0 18px rgba(255,255,255,.35),inset 0 0 18px rgba(255,255,255,.12);padding:40px 26px 44px;margin:30px 0 70px}
+.hero h1{font-family:Michroma,sans-serif;font-weight:400;font-size:clamp(1.9rem,7.2vw,3.9rem);line-height:1.18;letter-spacing:.02em;text-transform:uppercase}
+.hero h1 span{color:var(--oro2)}
+.hero p{margin-top:20px;max-width:38ch;font-size:1.12rem;color:#D3D6DA}
+.acciones{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:28px}
+.dato{color:var(--gris);font-size:.98rem}
+.dato b{color:#fff}
+section{padding:64px 0}
+h2{font-family:Michroma,sans-serif;font-weight:400;font-size:clamp(1.3rem,4.5vw,2rem);letter-spacing:.08em;text-transform:uppercase;line-height:1.2;margin-bottom:14px}
+.lead{color:#C4C8CD;max-width:50ch;margin-bottom:30px}
+.lista{border-top:1px solid var(--oro)}
+.fila{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 18px;padding:20px 0;border-bottom:1px solid #2C2C2C}
+.fila h3{font-size:1.1rem;font-weight:700}
+.fila small{display:block;color:var(--gris)}
+.pc{font-weight:600;font-size:.9rem;color:var(--oro2)}
+.terciopelo{background:var(--petroleo);background-image:radial-gradient(120% 80% at 20% 0%,rgba(255,255,255,.08),transparent 60%)}
+.terciopelo .lead{color:#D5E3E6}
+.tres{display:grid;gap:12px}
+@media(min-width:760px){.tres{grid-template-columns:repeat(3,1fr)}}
+.tres div{border:1px solid rgba(255,255,255,.25);border-radius:4px;padding:22px}
+.tres b{display:block;font-family:Michroma,sans-serif;font-weight:400;font-size:.95rem;letter-spacing:.06em;color:var(--oro2);margin-bottom:8px;text-transform:uppercase}
+.tres p{color:#D5E3E6;font-size:.97rem}
+.fotos{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.foto{aspect-ratio:3/4;border:1px solid rgba(255,255,255,.6);box-shadow:0 0 12px rgba(255,255,255,.18);display:grid;place-items:center;text-align:center;color:var(--gris);font-size:.82rem;padding:8px}
+.cols{display:grid;gap:30px}
+@media(min-width:780px){.cols{grid-template-columns:1fr 1fr}}
+dt{font-weight:700;margin-top:14px;color:var(--oro2)}
+dd{color:#D3D6DA}
+footer{padding:28px 0 40px;color:var(--gris);font-size:.9rem;border-top:1px solid #222}
+.demo{margin-top:10px;border-left:4px solid var(--oro);padding-left:12px}
+.nodo-franja{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:50;background:rgba(17,17,17,.88);color:#fff;font:600 13px/1.2 system-ui,sans-serif;letter-spacing:.02em;padding:9px 16px;border-radius:999px;box-shadow:0 2px 10px rgba(0,0,0,.25);pointer-events:none;white-space:nowrap}
+.nodo-franja b{color:#8FD3FF}
+.nodo-aviso{position:fixed;left:50%;bottom:64px;transform:translateX(-50%) translateY(20px);z-index:60;max-width:min(92vw,420px);background:#fff;color:#111;font:500 15px/1.4 system-ui,sans-serif;padding:14px 18px;border-radius:14px;box-shadow:0 6px 24px rgba(0,0,0,.28);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;text-align:center}
+.nodo-aviso.ver{opacity:1;transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <nav class="nav" aria-label="Principal">
+      <a class="logo" href="#inicio"><b>BRAVOS</b><small>BARBER STUDIO</small></a>
+      <a class="btn mini" href="#reservar">Reservar</a>
+    </nav>
+    <div class="hero espejo" id="inicio">
+      <h1>Dinos cómo lo quieres. <span>Así sale.</span></h1>
+      <p>Barber studio en Centro Plaza. Técnica, tiempo para cada corte y un espacio cómodo para esperar.</p>
+      <div class="acciones">
+        <a class="btn" id="reservar" href="https://wa.me/PON_AQUI_EL_NUMERO?text=Hola%2C%20quiero%20reservar%20en%20Bravos">Reservar por WhatsApp</a>
+        <span class="dato"><b>Abierto</b> hasta las 6 p. m.</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+<section aria-labelledby="serv" style="padding-top:0">
+  <div class="wrap">
+    <h2 id="serv">Servicios</h2>
+    <p class="lead">Lista de ejemplo. El studio confirma qué ofrece y los precios.</p>
+    <div class="lista">
+      <div class="fila"><div><h3>Corte</h3><small>Clásico, degradado o a tijera</small></div><span class="pc">precio por confirmar</span></div>
+      <div class="fila"><div><h3>Barba</h3><small>Perfilado y acabado</small></div><span class="pc">precio por confirmar</span></div>
+      <div class="fila"><div><h3>Corte y barba</h3><small>El servicio completo</small></div><span class="pc">precio por confirmar</span></div>
+      <div class="fila"><div><h3>Corte para niños</h3><small>También atendemos a los más pequeños</small></div><span class="pc">precio por confirmar</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="terciopelo" aria-labelledby="dicen">
+  <div class="wrap">
+    <h2 id="dicen">Lo que dicen</h2>
+    <p class="lead">Resumen de las opiniones en Google, todas de cinco estrellas.</p>
+    <div class="tres">
+      <div><b>Te entienden</b><p>Explicas el corte que quieres y sale como lo pediste.</p></div>
+      <div><b>Sin apuro</b><p>Técnica y el tiempo necesario en cada corte.</p></div>
+      <div><b>Para todos</b><p>Atienden bien también a los niños.</p></div>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="studio">
+  <div class="wrap">
+    <h2 id="studio">El studio</h2>
+    <p class="lead">Sillas negras con detalles dorados, espejos con marco de luz y sillones de terciopelo. Aquí van fotos propias del local y de los cortes.</p>
+    <div class="fotos"><div class="foto">Foto del studio</div><div class="foto">Foto de un corte</div><div class="foto">Foto de los espejos</div></div>
+  </div>
+</section>
+
+<section aria-labelledby="donde" style="padding-top:0">
+  <div class="wrap cols">
+    <div>
+      <h2 id="donde">Dónde</h2>
+      <dl>
+        <dt>Local</dt><dd>Centro Plaza, Nivel 6, Torre C, Local CC 6-16. Los Palos Grandes, Caracas</dd>
+        <dt>Horario</dt><dd>Hasta las 6 p. m. Días por confirmar.</dd>
+      </dl>
+      <div class="acciones"><a class="btn linea" href="https://www.google.com/maps/search/?api=1&amp;query=Bravos+Barber+Caracas+Centro+Plaza">Cómo llegar</a></div>
+    </div>
+    <div>
+      <h2 style="font-size:1.1rem">Reserva tu turno</h2>
+      <p class="lead">Escribe el día y la hora por WhatsApp y te confirmamos.</p>
+      <a class="btn" href="https://wa.me/PON_AQUI_EL_NUMERO?text=Hola%2C%20quiero%20reservar%20en%20Bravos">Reservar por WhatsApp</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer style="padding-bottom:70px">
+  <div class="wrap">Bravos Barber Studio · Centro Plaza, Caracas
+    <p class="demo">Propuesta de diseño de Fernando Romero, preparada con información pública. No es el sitio oficial del negocio.</p>
+  </div>
+</footer>
+<div class="nodo-franja" aria-hidden="true">Propuesta de diseño · <b>Fernando Romero</b></div>
+<div class="nodo-aviso" id="nodoAviso" role="status" aria-live="polite"></div>
+<script>
+(function(){var a=document.getElementById('nodoAviso'),t;
+document.addEventListener('click',function(e){var l=e.target.closest('a[href*="wa.me/"]');if(!l)return;e.preventDefault();
+a.textContent='En la versión final, este botón abre el WhatsApp de su negocio con el mensaje listo para el cliente.';
+a.classList.add('ver');clearTimeout(t);t=setTimeout(function(){a.classList.remove('ver')},3800);});})();
+</script>
+</body>
+</html>

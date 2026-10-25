@@ -15,17 +15,17 @@ Borrador para que Fernando lo apruebe. Nada se envía hasta que él lo diga, y l
 >
 > Revisando la presencia en Google de Barbería Hermanos Mora, vi que tienen una excelente reputación (4,6 con 274 opiniones), pero aún no cuentan con una página web propia.
 >
-> Preparé una propuesta de diseño pensada para su barbería, con la información que ya es pública: ubicación, horario y un botón para que sus clientes reserven por WhatsApp. Se la comparto en la imagen adjunta, sin ningún compromiso. Trabajo con herramientas de inteligencia artificial y reviso personalmente cada detalle.
+> Preparé una propuesta de diseño pensada para su barbería, con la información que ya es pública: ubicación, horario y un botón para que sus clientes reserven por WhatsApp. Puede verla y recorrerla desde su teléfono, sin ningún compromiso:
 >
-> Si le interesa, puedo adaptarla con sus servicios, precios y fotos, y dejarla publicada en pocos días. Quedo atento a sus comentarios.
+> [enlace de la propuesta]
+>
+> Trabajo con herramientas de inteligencia artificial y reviso personalmente cada detalle. Si le interesa, puedo adaptarla con sus servicios, precios y fotos, y dejarla publicada en pocos días. Quedo atento a sus comentarios.
 
-(Adjuntar `vista-telefono.png`.)
+El enlace sale de publicar la carpeta `../publicar/barberia-hermanos-mora` (ver `../publicar/COMO-PUBLICAR.md`). No se adjunta imagen: el cliente prueba la página.
 
-## Versión con enlace (si Fernando prefiere que la pruebe en el teléfono)
+## Versión con imagen (solo si no se puede publicar el enlace)
 
-Es la misma versión corta, cambiando la última parte del tercer párrafo:
-
-> Puede verla y probarla desde su teléfono en este enlace: [enlace]. Los botones son de demostración.
+Igual que la anterior, cambiando el enlace por: "Se la comparto en la imagen adjunta." y adjuntando `vista-telefono.png`.
 
 Para tener el enlace, Fernando sube `demo.html` él mismo a un alojamiento gratuito de su elección (por ejemplo, arrastrar la carpeta `entrega-hermanos-mora` a un servicio de alojamiento estático). La página ya lleva `noindex` (no sale en buscadores) y el aviso de demo al pie. Se borra el sitio si el negocio dice que no.
 
@@ -54,9 +54,9 @@ No insistir. Un solo mensaje. Si dice que no, se borra la demo y no se vuelve a 
 
 Opciones, de la más segura a la más abierta. Fernando elige.
 
-1. Imagen (recomendada para el primer mensaje): `vista-telefono.png`. Se ve igual que la página, no necesita enlace y no queda nada en internet.
-2. Archivo: `demo.html` se puede mandar por WhatsApp y se abre en el navegador del teléfono. Los botones de reserva no funcionan en esta copia, porque no tiene número.
-3. Enlace temporal: Fernando puede subir `demo.html` a un servicio de alojamiento gratuito que él elija y mandar ese enlace, solo después de que el dueño muestre interés. Yo no la publico: una página con el nombre de un negocio real puede confundirse con la suya si queda en línea.
+1. Enlace a la demo publicada (recomendado): el cliente la recorre y prueba en su teléfono. Ver `../publicar/COMO-PUBLICAR.md`.
+2. Imagen: `vista-telefono.png`, solo como respaldo.
+3. Archivo (no recomendado, se puede copiar): `demo.html` se puede mandar por WhatsApp y se abre en el navegador del teléfono. Los botones de reserva no funcionan en esta copia, porque no tiene número.
 
 ## Qué contiene la carpeta
 
