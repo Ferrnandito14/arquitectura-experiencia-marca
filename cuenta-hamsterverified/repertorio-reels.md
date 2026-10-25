@@ -54,3 +54,15 @@ Hechos con `frontend-design` y `ui-ux-pro-max`, probados con 2 carruseles y 2 di
 - Se mantiene el fondo crema, el hámster y el sello: son la identidad ya publicada. El sello VERDADERO/FALSO conserva las mayúsculas porque es un sello.
 
 No verificado: el MP4 de los reels (aquí no hay ffmpeg, solo probé las diapositivas). Se prueba en la nube con la próxima producción.
+
+## Segunda tanda de reels (enviados el 2026-10-24, revisados el 2026-10-25)
+
+Vistos desde la cuenta hamster.2511058. Los cinco cierran con "comenta PALABRA y te mando la guía", que nuestras reglas no usan.
+
+| Cuenta | De qué trata | Qué nos sirve | Estado |
+|---|---|---|---|
+| idanbuild (31,9 mil me gusta) | Google Maps + Claude para encontrar negocios y venderles webs interactivas. Promete "$67.492 al mes" | Es el mismo modelo de `demos-web/`. Lo más útil está en los comentarios: piden quién aloja, quién maneja el DNS, cómo edita el cliente, datos estructurados, sitemap, indexación en Google Search Console, formularios. Otro comentario muy votado lo llama "vender webs a medio hacer". Aplicado en `demos-web/modelo-de-venta.md` (lista de entrega) | Idea aplicada. La cifra de ingresos no se usa: no es verificable |
+| paul.mccubbinn | "Tu web hecha con IA no tiene por qué verse hecha con IA": 4 skills para que Claude diseñe como un diseñador | Confirma el enfoque de `frontend-design` y `ui-ux-pro-max`. No dice cuáles son las 4 en el pie | Ya cubierto |
+| danielbrown.ia | Videos de motion graphics con Claude y Remotion | Remotion genera video con código (React). Podría reemplazar el MP4 de diapositivas con fundidos de `generar.py` por reels animados de verdad | Pendiente de revisar código y permisos antes de instalar. Necesita Node |
+| valentinpanizza | OmniRoute: "uso ilimitado conectando Claude" | Nada. Ya se revisó y no se instaló: es un enrutador para saltarse límites, con riesgo para la cuenta | Descartado |
+| aldushmedia (16,3 mil me gusta) | Claude conectado a LinkedIn para manejar "la cuenta entera" | Relacionado con el conector de LinkedIn por Composio que ya está listo y espera la autorización de Fernando | Sin cambios: lo decide Fernando |

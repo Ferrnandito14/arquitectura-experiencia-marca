@@ -50,6 +50,22 @@ Así el negocio sabe desde el inicio que no queda atrapado, y Fernando no regala
 - Código en el repo de Fernando (privado). El cliente nunca recibe acceso al repo.
 - Las claves de acceso no se guardan en el repo ni se envían por chat.
 
+## Lista de entrega de una página vendida
+
+Sale de las preguntas que más se repiten cuando alguien vende webs con IA (comentarios del reel de idanbuild, 2026-10-25). Una página vendida no se entrega sin esto:
+
+1. Dominio a nombre del cliente y DNS configurado (Fernando como administrador).
+2. Alojamiento en la cuenta de Fernando, con HTTPS.
+3. Quitar `noindex` y la franja de propuesta; poner el número real de WhatsApp.
+4. Datos estructurados `LocalBusiness` (nombre, dirección, horario, teléfono) para que Google entienda el negocio.
+5. `sitemap.xml` y verificación en Google Search Console; confirmar que la página queda indexada.
+6. Enlace desde la ficha de Google Maps del negocio a la página (lo hace el dueño o con su acceso).
+7. Textos, precios y fotos aprobados por escrito por el cliente.
+8. Cómo pide cambios el cliente (WhatsApp) y en cuánto tiempo se hacen, según el plan.
+9. Copia de seguridad del sitio.
+
+Fuera del precio de lanzamiento: blog, tienda, formularios con base de datos y automatizaciones. Se cotizan aparte.
+
 ## 5. Mantenimiento
 
 - Cambios pedidos por WhatsApp, con un tiempo de respuesta acordado.
