@@ -17,7 +17,7 @@ Borrador para que Fernando lo apruebe. Nada se envía hasta que él lo diga, y l
 >
 > Preparé una propuesta de diseño pensada para su barbería, con la información que ya es pública: ubicación, horario y un botón para que sus clientes reserven por WhatsApp. Puede verla y recorrerla desde su teléfono, sin ningún compromiso:
 >
-> [enlace de la propuesta]
+> https://propuesta-hermanos-mora.netlify.app
 >
 > Trabajo con herramientas de inteligencia artificial y reviso personalmente cada detalle. Si le interesa, puedo adaptarla con sus servicios, precios y fotos, y dejarla publicada en pocos días. Quedo atento a sus comentarios.
 
