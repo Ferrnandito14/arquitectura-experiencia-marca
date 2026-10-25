@@ -4,7 +4,7 @@ Estado de cada demo con los negocios. Sin teléfonos ni datos personales. Solo F
 
 | Negocio | Estado | Fecha | Notas |
 |---|---|---|---|
-| Barbería Hermanos Mora | Demo publicada, mensaje aprobado, sin enviar | 2026-10-24 | https://propuesta-hermanos-mora.netlify.app (Netlify, producción pública, `noindex`). Borrar el sitio si dicen que no o a los 7 días sin respuesta. |
+| Barbería Hermanos Mora | Enviado (WhatsApp, 8:58 p. m.), esperando respuesta | 2026-10-24 | https://propuesta-hermanos-mora.netlify.app (Netlify, producción pública, `noindex`). Borrar el sitio si dicen que no o el 2026-10-31 si no responden. No escribir de nuevo. |
 | Tonsor Barber Club | Página aprobada, sin contactar | 2026-10-24 | |
 | Bravos Barber Caracas | Página aprobada, sin contactar | 2026-10-24 | |
 | Odontología Gran Caracas | Página aprobada, sin contactar | 2026-10-24 | |
