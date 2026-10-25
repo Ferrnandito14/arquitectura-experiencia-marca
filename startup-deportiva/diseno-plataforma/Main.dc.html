@@ -1,0 +1,180 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=Source+Sans+3:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <style>
+    :root {
+      --bg: #F2F5F1; --surface: #FFFFFF; --surface-2: #E9EEE9;
+      --text: #12231C; --text-muted: #4B5F55; --line: rgba(18,35,28,0.14);
+      --accent: #1F6F4A; --accent-ink: #FFFFFF; --accent-soft: #E1EFE6;
+      --accent-2: #D65A2C; --accent-2-soft: #FBE6DA;
+    }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: 'Source Sans 3', 'Segoe UI', sans-serif; }
+    h1, h2, h3, .display { font-family: 'Big Shoulders Display', 'Arial Narrow', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.01em; margin: 0; text-wrap: balance; }
+    .mono { font-family: 'IBM Plex Mono', ui-monospace, monospace; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-2); }
+    .btn-primary { background: var(--accent); color: var(--accent-ink); font-weight: 700; padding: 14px 28px; border-radius: 10px; font-size: 16px; border: none; }
+    .btn-ghost { background: transparent; color: var(--text); font-weight: 600; padding: 14px 24px; border-radius: 10px; font-size: 16px; border: 1px solid var(--line); }
+    .chip { font-size: 13px; padding: 6px 14px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--text-muted); }
+    .card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; box-shadow: 0 1px 2px rgba(18,35,28,0.06), 0 8px 24px -12px rgba(18,35,28,0.18); }
+  </style>
+</helmet>
+
+<div style="width:1440px; background:var(--bg); display:flex; flex-direction:column;">
+
+  <!-- NAV -->
+  <div style="display:flex; align-items:center; justify-content:space-between; padding:22px 64px; border-bottom:1px solid var(--line);">
+    <div style="display:flex; align-items:center; gap:10px;">
+      <div style="width:14px; height:14px; border-radius:3px; background:var(--accent); transform:rotate(45deg);"></div>
+      <span class="display" style="font-size:22px;">Startup Deportiva</span>
+    </div>
+    <div style="display:flex; align-items:center; gap:36px;">
+      <span style="font-size:15px; color:var(--text-muted); font-weight:600;">Cómo funciona</span>
+      <span style="font-size:15px; color:var(--text-muted); font-weight:600;">Para deportistas</span>
+      <span style="font-size:15px; color:var(--text-muted); font-weight:600;">Para organizaciones</span>
+    </div>
+    <div style="display:flex; align-items:center; gap:14px;">
+      <span style="font-size:15px; color:var(--text); font-weight:600;">Iniciar sesión</span>
+      <button class="btn-primary" style="padding:10px 22px; font-size:15px;">Crear cuenta</button>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div style="display:flex; align-items:center; gap:64px; padding:96px 64px 80px;">
+    <div style="flex:1; display:flex; flex-direction:column; gap:28px;">
+      <span class="chip" style="align-self:flex-start; background:var(--accent-soft); color:var(--accent); border-color:transparent; font-weight:700;">Fútbol formativo · Venezuela</span>
+      <h1 style="font-size:56px; line-height:1.02; color:var(--text);">Un mismo ecosistema deportivo.<br>Una plataforma que entiende<br>tu momento.</h1>
+      <p style="font-size:19px; color:var(--text-muted); max-width:46ch; line-height:1.5; text-transform:none; font-family:'Source Sans 3',sans-serif; font-weight:400;">No importa si acabas de empezar, buscas tu próximo club o necesitas cubrir cuatro vacantes en tu academia: le contamos a la plataforma quién eres una vez, y ella decide qué mostrarte según lo que estás viviendo ahora.</p>
+      <div style="display:flex; gap:16px;">
+        <button class="btn-primary">Crear cuenta gratis</button>
+        <button class="btn-ghost">Ver cómo funciona</button>
+      </div>
+    </div>
+    <div style="flex:1; display:flex; flex-direction:column; gap:14px;">
+      <div class="card" style="padding:24px 26px; display:flex; flex-direction:column; gap:10px;">
+        <span style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-muted);">Contexto interpretado</span>
+        <h3 style="font-size:26px; color:var(--accent); text-transform:none; letter-spacing:0;">Desarrollo competitivo</h3>
+        <span class="mono" style="font-size:13px; color:var(--text-muted);">16-17 años · Sub-17 · lateral · nivel competitivo</span>
+        <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap;">
+          <span class="chip">Clubes</span><span class="chip">Scouts</span><span class="chip">Competiciones</span>
+        </div>
+      </div>
+      <div class="card" style="padding:20px 24px; display:flex; align-items:center; justify-content:space-between; margin-left:40px;">
+        <div style="display:flex; flex-direction:column; gap:4px;">
+          <span style="font-size:11px; font-weight:700; text-transform:uppercase; color:var(--accent-2); background:var(--accent-2-soft); padding:2px 8px; border-radius:5px; align-self:flex-start;">Tryout</span>
+          <span style="font-size:16px; font-weight:700;">Club Atlético Norte · Sub-17</span>
+          <span class="mono" style="font-size:12px; color:var(--text-muted);">Liga FUTVE Junior · 14 sep 2026 · 30 cupos</span>
+        </div>
+      </div>
+      <span style="font-size:11px; color:var(--text-muted); margin-left:40px;">Categoría y liga son reales — club, fecha y cupos son de ejemplo.</span>
+    </div>
+  </div>
+
+  <!-- COMO FUNCIONA -->
+  <div style="padding:72px 64px; background:var(--surface-2); display:flex; flex-direction:column; gap:44px;">
+    <div style="display:flex; flex-direction:column; gap:10px; max-width:60ch;">
+      <span style="font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-muted);">Cómo funciona</span>
+      <h2 style="font-size:34px; text-transform:none; letter-spacing:0;">Cuatro pasos, no veinticinco funcionalidades</h2>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:24px;">
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <span class="display" style="font-size:40px; color:var(--accent-soft); -webkit-text-stroke:2px var(--accent);">01</span>
+        <h3 style="font-size:18px; text-transform:none; letter-spacing:0;">Perfil mínimo</h3>
+        <p style="font-size:15px; color:var(--text-muted); font-family:'Source Sans 3',sans-serif; text-transform:none; margin:0; line-height:1.5;">Quién eres, tu deporte, tu categoría, tu ubicación. Nada más para empezar.</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <span class="display" style="font-size:40px; color:var(--accent-soft); -webkit-text-stroke:2px var(--accent);">02</span>
+        <h3 style="font-size:18px; text-transform:none; letter-spacing:0;">Contexto</h3>
+        <p style="font-size:15px; color:var(--text-muted); font-family:'Source Sans 3',sans-serif; text-transform:none; margin:0; line-height:1.5;">La plataforma interpreta qué estás viviendo ahora — no solo qué tipo de cuenta tienes.</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <span class="display" style="font-size:40px; color:var(--accent-soft); -webkit-text-stroke:2px var(--accent);">03</span>
+        <h3 style="font-size:18px; text-transform:none; letter-spacing:0;">Recomendación</h3>
+        <p style="font-size:15px; color:var(--text-muted); font-family:'Source Sans 3',sans-serif; text-transform:none; margin:0; line-height:1.5;">Academias, clubes, profesionales u oportunidades — solo lo relevante para ese contexto.</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <span class="display" style="font-size:40px; color:var(--accent-soft); -webkit-text-stroke:2px var(--accent);">04</span>
+        <h3 style="font-size:18px; text-transform:none; letter-spacing:0;">Nuevo contexto</h3>
+        <p style="font-size:15px; color:var(--text-muted); font-family:'Source Sans 3',sans-serif; text-transform:none; margin:0; line-height:1.5;">Una lesión, un cambio de club, una temporada que termina — la plataforma se adapta contigo.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- EJEMPLOS POR ROL -->
+  <div style="padding:72px 64px; display:flex; flex-direction:column; gap:36px;">
+    <div style="display:flex; flex-direction:column; gap:10px; max-width:60ch;">
+      <span style="font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-muted);">Según quién eres</span>
+      <h2 style="font-size:34px; text-transform:none; letter-spacing:0;">Un mismo perfil, contextos que cambian con él</h2>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:20px;">
+      <div class="card" style="padding:24px; display:flex; flex-direction:column; gap:8px;">
+        <span style="font-size:12px; font-weight:700; text-transform:uppercase; color:var(--accent);">Iniciación</span>
+        <h3 style="font-size:19px; text-transform:none; letter-spacing:0;">Familia buscando dónde empezar</h3>
+        <p style="font-size:14px; color:var(--text-muted); font-family:'Source Sans 3',sans-serif; text-transform:none; margin:0; line-height:1.5;">Le muestra academias y escuelas cercanas — nunca scouting profesional.</p>
+      </div>
+      <div class="card" style="padding:24px; display:flex; flex-direction:column; gap:8px;">
+        <span style="font-size:12px; font-weight:700; text-transform:uppercase; color:var(--accent);">Desarrollo / scouting</span>
+        <h3 style="font-size:19px; text-transform:none; letter-spacing:0;">Jugador Sub-17 buscando club</h3>
+        <p style="font-size:14px; color:var(--text-muted); font-family:'Source Sans 3',sans-serif; text-transform:none; margin:0; line-height:1.5;">Prioriza tryouts, scouts y clubes por categoría y posición.</p>
+      </div>
+      <div class="card" style="padding:24px; display:flex; flex-direction:column; gap:8px;">
+        <span style="font-size:12px; font-weight:700; text-transform:uppercase; color:var(--accent);">Recuperación</span>
+        <h3 style="font-size:19px; text-transform:none; letter-spacing:0;">Deportista con una lesión</h3>
+        <p style="font-size:14px; color:var(--text-muted); font-family:'Source Sans 3',sans-serif; text-transform:none; margin:0; line-height:1.5;">Conecta con fisioterapeutas cercanos — nunca diagnostica.</p>
+      </div>
+      <div class="card" style="padding:24px; display:flex; flex-direction:column; gap:8px;">
+        <span style="font-size:12px; font-weight:700; text-transform:uppercase; color:var(--accent);">Oportunidad profesional</span>
+        <h3 style="font-size:19px; text-transform:none; letter-spacing:0;">Entrenador que también juega</h3>
+        <p style="font-size:14px; color:var(--text-muted); font-family:'Source Sans 3',sans-serif; text-transform:none; margin:0; line-height:1.5;">Un mismo perfil, dos contextos activos a la vez — sin dos cuentas.</p>
+      </div>
+      <div class="card" style="padding:24px; display:flex; flex-direction:column; gap:8px;">
+        <span style="font-size:12px; font-weight:700; text-transform:uppercase; color:var(--accent);">Necesidad organizacional</span>
+        <h3 style="font-size:19px; text-transform:none; letter-spacing:0;">Club con cuatro vacantes</h3>
+        <p style="font-size:14px; color:var(--text-muted); font-family:'Source Sans 3',sans-serif; text-transform:none; margin:0; line-height:1.5;">Cada necesidad avanza por separado, con su propio progreso.</p>
+      </div>
+      <div class="card" style="padding:24px; display:flex; flex-direction:column; gap:8px; background:var(--surface-2); border-style:dashed;">
+        <span style="font-size:12px; font-weight:700; text-transform:uppercase; color:var(--text-muted);">Y más contextos</span>
+        <h3 style="font-size:19px; text-transform:none; letter-spacing:0; color:var(--text-muted);">Formación, transición, descubrimiento…</h3>
+        <p style="font-size:14px; color:var(--text-muted); font-family:'Source Sans 3',sans-serif; text-transform:none; margin:0; line-height:1.5;">Catalogados en la Matriz de Contexto — se activan a medida que se validan.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ECOSISTEMA REAL -->
+  <div style="padding:64px; background:var(--text); color:var(--bg); display:flex; flex-direction:column; gap:32px;">
+    <div style="display:flex; flex-direction:column; gap:10px; max-width:60ch;">
+      <span style="font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:#A7BDB1;">Empezamos por Venezuela</span>
+      <h2 style="font-size:30px; text-transform:none; letter-spacing:0; color:var(--bg);">Un ecosistema real, no una hipótesis</h2>
+      <p style="font-size:15px; color:#A7BDB1; font-family:'Source Sans 3',sans-serif; text-transform:none; margin:0; line-height:1.5;">Partimos de la estructura real del fútbol formativo del Distrito Capital — con su propio catálogo de categorías, sus ligas y sus clubes — para diseñar un modelo que después pueda extenderse a otras federaciones y países.</p>
+    </div>
+    <div style="display:flex; gap:56px;">
+      <div style="display:flex; flex-direction:column;"><span class="mono" style="font-size:34px; color:var(--accent-soft);">102</span><span style="font-size:13px; color:#A7BDB1;">clubes afiliados (AFDC)</span></div>
+      <div style="display:flex; flex-direction:column;"><span class="mono" style="font-size:34px; color:var(--accent-soft);">429</span><span style="font-size:13px; color:#A7BDB1;">equipos</span></div>
+      <div style="display:flex; flex-direction:column;"><span class="mono" style="font-size:34px; color:var(--accent-soft);">~7.900</span><span style="font-size:13px; color:#A7BDB1;">jugadores, 6-20 años</span></div>
+    </div>
+    <div style="display:flex; gap:10px; flex-wrap:wrap;">
+      <span class="chip" style="background:transparent; border-color:#3A4A42; color:#A7BDB1;">Liga FUTVE Junior</span>
+      <span class="chip" style="background:transparent; border-color:#3A4A42; color:#A7BDB1;">Liga Canguro Diamante</span>
+      <span class="chip" style="background:transparent; border-color:#3A4A42; color:#A7BDB1;">Liga Pipo Rossi</span>
+      <span class="chip" style="background:transparent; border-color:#3A4A42; color:#A7BDB1;">+ próximas federaciones</span>
+    </div>
+    <span class="mono" style="font-size:11px; color:#6E8378;">Fuente: Asociación de Fútbol del Distrito Capital (asofutbolcaracas.com) y FVF</span>
+  </div>
+
+  <!-- FOOTER -->
+  <div style="padding:28px 64px; display:flex; align-items:center; justify-content:space-between; border-top:1px solid var(--line);">
+    <span class="display" style="font-size:16px;">Startup Deportiva</span>
+    <span class="mono" style="font-size:12px; color:var(--text-muted);">Prototipo conceptual · Fase 4 en curso</span>
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>

@@ -1,0 +1,1437 @@
+<title>Startup Deportiva</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=Source+Sans+3:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #F6F8F4;
+    --surface: #FFFFFF;
+    --surface-2: #EEF3EC;
+    --surface-3: #E2E9DF;
+    --text: #14251D;
+    --text-muted: #56695B;
+    --text-faint: #7C8C7F;
+    --line: rgba(20, 37, 29, 0.11);
+    --line-strong: rgba(20, 37, 29, 0.2);
+    --accent: #1F6F4A;
+    --accent-ink: #FFFFFF;
+    --accent-soft: #E1EFE6;
+    --accent-hover: #185A3B;
+    --accent-2: #D65A2C;
+    --accent-2-soft: #FBE6DA;
+    --warn: #9A6B12;
+    --warn-soft: #F7ECD3;
+    --danger: #B23A3A;
+    --danger-soft: #F8E3E1;
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 20px;
+    --shadow-sm: 0 1px 2px rgba(20, 37, 29, 0.05), 0 1px 1px rgba(20, 37, 29, 0.04);
+    --shadow-md: 0 4px 10px -4px rgba(20, 37, 29, 0.12), 0 12px 28px -14px rgba(20, 37, 29, 0.18);
+    --shadow-lg: 0 8px 20px -6px rgba(20, 37, 29, 0.16), 0 24px 48px -20px rgba(20, 37, 29, 0.24);
+    color-scheme: light;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0E1712;
+      --surface: #16211B;
+      --surface-2: #1C2A22;
+      --surface-3: #24352A;
+      --text: #EAF1EC;
+      --text-muted: #A6B7AB;
+      --text-faint: #7E9184;
+      --line: rgba(234, 241, 236, 0.12);
+      --line-strong: rgba(234, 241, 236, 0.22);
+      --accent: #55C58C;
+      --accent-ink: #06150F;
+      --accent-soft: #1E3A2C;
+      --accent-hover: #6ED3A0;
+      --accent-2: #FF9163;
+      --accent-2-soft: #3C2517;
+      --warn: #E3B04B;
+      --warn-soft: #3B2E12;
+      --danger: #E88B8B;
+      --danger-soft: #3A1F1F;
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
+      --shadow-md: 0 8px 20px -8px rgba(0, 0, 0, 0.55);
+      --shadow-lg: 0 16px 36px -12px rgba(0, 0, 0, 0.65);
+      color-scheme: dark;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #0E1712;
+    --surface: #16211B;
+    --surface-2: #1C2A22;
+    --surface-3: #24352A;
+    --text: #EAF1EC;
+    --text-muted: #A6B7AB;
+    --text-faint: #7E9184;
+    --line: rgba(234, 241, 236, 0.12);
+    --line-strong: rgba(234, 241, 236, 0.22);
+    --accent: #55C58C;
+    --accent-ink: #06150F;
+    --accent-soft: #1E3A2C;
+    --accent-hover: #6ED3A0;
+    --accent-2: #FF9163;
+    --accent-2-soft: #3C2517;
+    --warn: #E3B04B;
+    --warn-soft: #3B2E12;
+    --danger: #E88B8B;
+    --danger-soft: #3A1F1F;
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
+    --shadow-md: 0 8px 20px -8px rgba(0, 0, 0, 0.55);
+    --shadow-lg: 0 16px 36px -12px rgba(0, 0, 0, 0.65);
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+  }
+
+  body { min-height: 100vh; }
+
+  h1, h2, h3, h4, .display {
+    font-family: "Big Shoulders Display", "Arial Narrow", sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    text-wrap: balance;
+    margin: 0;
+  }
+
+  p { margin: 0; text-wrap: pretty; }
+
+  .mono {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-variant-numeric: tabular-nums;
+  }
+
+  a { color: inherit; }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    background: var(--accent);
+    color: var(--accent-ink);
+    padding: 0.6rem 1rem;
+    border-radius: 0 0 8px 0;
+    z-index: 100;
+    font-weight: 600;
+  }
+  .skip-link:focus { left: 0; }
+
+  svg.icon {
+    width: 1.05em;
+    height: 1.05em;
+    flex: none;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  svg.icon.filled { fill: currentColor; stroke: none; }
+
+  .shell {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 1.5rem 4rem;
+  }
+
+  /* ---------- header ---------- */
+
+  header.top {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: color-mix(in srgb, var(--bg) 92%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .top-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+  }
+
+  .wordmark {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+  }
+
+  .wordmark .mark {
+    width: 0.65em;
+    height: 0.65em;
+    border-radius: 3px;
+    background: var(--accent);
+    transform: rotate(45deg);
+    display: inline-block;
+  }
+
+  .wordmark h1 {
+    font-size: clamp(1.2rem, 1rem + 1vw, 1.55rem);
+  }
+
+  .wordmark .tag {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    text-transform: none;
+    font-family: "Source Sans 3", sans-serif;
+    letter-spacing: 0;
+    font-weight: 600;
+  }
+
+  .steps {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-faint);
+  }
+
+  .steps .step {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.35rem 0.7rem;
+    border-radius: 999px;
+  }
+
+  .steps .step.current {
+    background: var(--accent-soft);
+    color: var(--accent);
+  }
+
+  .steps .step .num {
+    width: 1.3rem;
+    height: 1.3rem;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--surface-2);
+    color: var(--text-muted);
+    font-size: 0.72rem;
+  }
+
+  .steps .step.current .num {
+    background: var(--accent);
+    color: var(--accent-ink);
+  }
+
+  .steps .sep { color: var(--line-strong); }
+
+  @media (max-width: 720px) {
+    .steps .step span.label { display: none; }
+  }
+
+  /* ---------- generic buttons ---------- */
+
+  .btn {
+    font: inherit;
+    font-weight: 600;
+    font-size: 0.86rem;
+    padding: 0.6rem 1.05rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--line);
+    background: var(--surface);
+    color: var(--text);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    transition: border-color 0.15s ease, background 0.15s ease, transform 0.1s ease;
+  }
+  .btn:hover { border-color: var(--line-strong); }
+  .btn:active { transform: translateY(1px); }
+
+  .btn-primary {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--accent-ink);
+    font-weight: 700;
+  }
+  .btn-primary:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
+
+  .btn-ghost {
+    background: transparent;
+    border-color: transparent;
+    color: var(--text-muted);
+  }
+  .btn-ghost:hover { background: var(--surface-2); color: var(--text); }
+
+  .btn-sm { padding: 0.42rem 0.75rem; font-size: 0.78rem; }
+
+  .btn[data-active="true"] {
+    background: var(--accent-soft);
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .btn, .card, .panel-reveal, .view { transition: none !important; }
+  }
+
+  /* ---------- views ---------- */
+
+  .view { padding-top: 2.2rem; }
+  .view[hidden] { display: none; }
+
+  .intro {
+    max-width: 62ch;
+  }
+
+  .intro .eyebrow {
+    font-size: 0.76rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent-2);
+  }
+
+  .intro h2 {
+    font-size: clamp(1.7rem, 1.2rem + 2vw, 2.5rem);
+    margin-top: 0.4rem;
+    color: var(--text);
+  }
+
+  .intro p {
+    color: var(--text-muted);
+    margin-top: 0.8rem;
+    font-size: 1.02rem;
+  }
+
+  /* ---------- eco-real ---------- */
+
+  .eco-real {
+    margin-top: 1.6rem;
+    background: var(--surface-2);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: 1.1rem 1.3rem;
+    max-width: 62ch;
+  }
+
+  .eco-real > .label {
+    font-size: 0.74rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+    display: block;
+    margin-bottom: 0.8rem;
+  }
+
+  .eco-stats {
+    display: flex;
+    gap: 1.6rem;
+    flex-wrap: wrap;
+  }
+
+  .eco-stat { display: flex; flex-direction: column; }
+  .eco-stat .num { font-size: 1.4rem; font-weight: 600; color: var(--accent); }
+  .eco-stat .cap { font-size: 0.74rem; color: var(--text-muted); }
+
+  .chip-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+
+  .chip {
+    font-size: 0.78rem;
+    padding: 0.32rem 0.7rem;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    color: var(--text-muted);
+  }
+
+  .eco-real .caption {
+    display: block;
+    margin-top: 0.9rem;
+    font-size: 0.72rem;
+    color: var(--text-faint);
+  }
+
+  /* ---------- form ---------- */
+
+  form#perfilForm { margin-top: 2.4rem; max-width: 62ch; }
+
+  .field-section-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+    margin: 2rem 0 0.9rem;
+  }
+
+  .role-picker {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.8rem;
+  }
+  @media (max-width: 640px) { .role-picker { grid-template-columns: 1fr; } }
+
+  .role-card {
+    display: block;
+    cursor: pointer;
+    background: var(--surface);
+    border: 1.5px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: 1.1rem 1.1rem;
+    box-shadow: var(--shadow-sm);
+    transition: border-color 0.15s ease, background 0.15s ease, transform 0.12s ease;
+  }
+  .role-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+  .role-card input { position: absolute; opacity: 0; pointer-events: none; }
+  .role-card input:focus-visible ~ .role-card-body { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+  .role-card:has(input:checked) {
+    border-color: var(--accent);
+    background: var(--accent-soft);
+  }
+  .role-card-body { display: flex; flex-direction: column; gap: 0.3rem; }
+  .role-card-body strong { font-size: 1rem; }
+  .role-card-body span { font-size: 0.82rem; color: var(--text-muted); }
+  .role-card:has(input:checked) .role-card-body span { color: var(--text); }
+
+  .role-fields { margin-top: 1.6rem; }
+  .role-fields[hidden] { display: none; }
+
+  .field-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem 1.2rem;
+  }
+  @media (max-width: 560px) { .field-grid { grid-template-columns: 1fr; } }
+
+  .field { display: flex; flex-direction: column; gap: 0.4rem; }
+  .field.span-2 { grid-column: 1 / -1; }
+
+  .field label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .field .hint { font-size: 0.74rem; color: var(--text-faint); font-weight: 400; }
+
+  .field input, .field select, .field textarea {
+    font: inherit;
+    font-size: 0.9rem;
+    padding: 0.62rem 0.8rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--line);
+    background: var(--surface);
+    color: var(--text);
+  }
+  .field input:focus-visible, .field select:focus-visible, .field textarea:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 1px;
+  }
+
+  .checkline {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-size: 0.86rem;
+  }
+  .checkline input { width: 1.05rem; height: 1.05rem; accent-color: var(--accent); }
+
+  .form-actions {
+    margin-top: 2.2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .form-actions .btn-primary { font-size: 0.94rem; padding: 0.78rem 1.5rem; }
+
+  /* ---------- dashboard ---------- */
+
+  .dash-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    padding-bottom: 1.4rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .dash-header .hello { font-size: 0.86rem; color: var(--text-muted); font-weight: 600; }
+  .dash-header h2 { font-size: clamp(1.5rem, 1.1rem + 1.6vw, 2.1rem); color: var(--accent); margin-top: 0.2rem; }
+  .dash-header .recap { font-size: 0.82rem; color: var(--text-muted); margin-top: 0.5rem; max-width: 52ch; }
+  .dash-header .recap .mono { color: var(--text); }
+
+  .dash-grid {
+    margin-top: 1.8rem;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 300px;
+    gap: 2rem;
+    align-items: start;
+  }
+  @media (max-width: 900px) {
+    .dash-grid { grid-template-columns: 1fr; }
+  }
+
+  .section-label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+    font-weight: 700;
+    margin: 0 0 0.8rem;
+  }
+
+  .block { margin-top: 2rem; }
+  .block:first-child { margin-top: 0; }
+
+  .group-nav { display: flex; flex-wrap: wrap; gap: 0.55rem; }
+  .group-nav button {
+    font: inherit;
+    font-weight: 600;
+    font-size: 0.84rem;
+    padding: 0.5rem 0.95rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--line);
+    background: var(--surface);
+    color: var(--text);
+    cursor: pointer;
+  }
+  .group-nav button:first-child {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--accent-ink);
+  }
+
+  .secondary-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .secondary-chips .chip { cursor: default; }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 1.1rem;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: 1.2rem 1.3rem 1.3rem;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    transition: box-shadow 0.18s ease, transform 0.18s ease, border-color 0.18s ease;
+  }
+  .card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); border-color: var(--line-strong); }
+
+  .card-top-row { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; width: 100%; }
+
+  .kind {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.28rem 0.6rem;
+    border-radius: 999px;
+    background: var(--accent-2-soft);
+    color: var(--accent-2);
+  }
+
+  .match {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 0.26rem 0.6rem;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .match::before { content: ""; width: 0.4rem; height: 0.4rem; border-radius: 50%; background: currentColor; flex: none; }
+  .match-muyalto { background: var(--accent-soft); color: var(--accent); }
+  .match-alto { background: var(--accent-soft); color: var(--accent); opacity: 0.82; }
+  .match-medio { background: var(--warn-soft); color: var(--warn); }
+  .match-bajo { background: var(--accent-2-soft); color: var(--accent-2); }
+
+  .card h3 { font-size: 1.12rem; text-transform: none; letter-spacing: 0; font-family: "Source Sans 3", sans-serif; font-weight: 700; }
+
+  .card dl {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.32rem 0.7rem;
+    margin: 0;
+    font-size: 0.85rem;
+  }
+  .card dt { color: var(--text-faint); }
+  .card dd { margin: 0; font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.81rem; }
+
+  .why {
+    margin: 0;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    background: var(--surface-2);
+    border-radius: var(--radius-sm);
+    padding: 0.6rem 0.75rem;
+  }
+  .why strong { color: var(--text); font-weight: 600; }
+
+  .status {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.76rem;
+    font-weight: 600;
+    color: var(--accent);
+  }
+  .status .dot { width: 0.45rem; height: 0.45rem; border-radius: 50%; background: var(--accent); }
+
+  .card-actions {
+    margin-top: auto;
+    padding-top: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    border-top: 1px solid var(--line);
+  }
+
+  .panel-reveal {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.22s ease;
+  }
+  .panel-reveal.open { max-height: 420px; }
+  .panel-reveal .panel-inner {
+    background: var(--surface-3);
+    border-radius: var(--radius-sm);
+    padding: 0.85rem 0.9rem;
+    margin-top: 0.65rem;
+    font-size: 0.84rem;
+    color: var(--text-muted);
+  }
+
+  .panel-inner .detail-text { color: var(--text-muted); }
+
+  .compose textarea {
+    width: 100%;
+    resize: vertical;
+    min-height: 4.2rem;
+    font: inherit;
+    font-size: 0.85rem;
+    padding: 0.6rem 0.7rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--line);
+    background: var(--surface);
+    color: var(--text);
+    margin-top: 0.5rem;
+  }
+  .compose .compose-row { display: flex; justify-content: flex-end; gap: 0.5rem; margin-top: 0.6rem; }
+
+  .sent-confirm {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.84rem;
+  }
+  .sent-confirm svg { margin-top: 0.15rem; }
+  .sent-confirm .sub { display: block; font-weight: 400; color: var(--text-muted); margin-top: 0.2rem; }
+
+  .empty-state {
+    grid-column: 1 / -1;
+    border: 1px dashed var(--line);
+    border-radius: var(--radius-md);
+    padding: 1.2rem;
+    text-align: center;
+    font-size: 0.86rem;
+    color: var(--text-muted);
+  }
+
+  /* ---------- need summary card (club) ---------- */
+
+  .need-summary {
+    background: linear-gradient(155deg, var(--accent-soft), var(--surface-2));
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: 1.3rem 1.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .need-summary .kind { align-self: flex-start; }
+  .need-summary .count-row { display: flex; align-items: baseline; gap: 0.6rem; margin-top: 0.3rem; }
+  .need-summary .count { font-family: "Big Shoulders Display", sans-serif; font-size: 2.4rem; font-weight: 800; color: var(--accent); line-height: 1; }
+  .need-summary .count-label { font-size: 0.82rem; color: var(--text-muted); max-width: 32ch; }
+
+  /* ---------- aside / activity ---------- */
+
+  .dash-aside {
+    position: sticky;
+    top: 5.2rem;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: 1.2rem 1.2rem 1.3rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .dash-aside h4 { font-size: 0.95rem; text-transform: none; letter-spacing: 0; font-family: "Source Sans 3", sans-serif; font-weight: 700; }
+  .dash-aside .aside-sub { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.3rem; }
+
+  .activity-list { list-style: none; margin: 1rem 0 0; padding: 0; display: flex; flex-direction: column; gap: 0.6rem; }
+
+  .activity-item {
+    display: flex;
+    gap: 0.6rem;
+    align-items: flex-start;
+    font-size: 0.8rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .activity-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .activity-item .icon-wrap {
+    width: 1.7rem; height: 1.7rem; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--accent-soft); color: var(--accent); flex: none;
+  }
+  .activity-item.saved .icon-wrap { background: var(--accent-2-soft); color: var(--accent-2); }
+  .activity-item .body strong { display: block; font-weight: 600; }
+  .activity-item .body span { color: var(--text-faint); font-size: 0.74rem; }
+
+  .activity-empty { font-size: 0.8rem; color: var(--text-faint); margin-top: 1rem; }
+
+  /* ---------- toast ---------- */
+
+  .toast {
+    position: fixed;
+    left: 50%;
+    bottom: 1.6rem;
+    transform: translate(-50%, 0.5rem);
+    background: var(--text);
+    color: var(--bg);
+    padding: 0.7rem 1.1rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.86rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    box-shadow: var(--shadow-lg);
+    max-width: 90vw;
+    text-align: center;
+    z-index: 50;
+  }
+  .toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+  footer {
+    margin-top: 3.5rem;
+    padding-top: 1.3rem;
+    border-top: 1px solid var(--line);
+    font-size: 0.78rem;
+    color: var(--text-faint);
+  }
+  footer .mono { color: var(--text-muted); }
+
+  .note {
+    margin-top: 1.3rem;
+    display: flex;
+    gap: 0.6rem;
+    align-items: flex-start;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: 0.8rem 0.95rem;
+    box-shadow: var(--shadow-sm);
+    font-size: 0.84rem;
+    color: var(--text-muted);
+    max-width: 62ch;
+  }
+  .note strong { color: var(--text); }
+  .note svg { margin-top: 0.15rem; color: var(--accent-2); }
+</style>
+
+<a class="skip-link" href="#main">Saltar al contenido</a>
+
+<header class="top">
+  <div class="top-inner">
+    <div class="wordmark">
+      <span class="mark" aria-hidden="true"></span>
+      <h1>Startup Deportiva</h1>
+      <span class="tag">boceto interactivo</span>
+    </div>
+    <div class="steps" id="stepsIndicator">
+      <span class="step current" data-step="1"><span class="num">1</span><span class="label">Tu perfil</span></span>
+      <span class="sep">›</span>
+      <span class="step" data-step="2"><span class="num">2</span><span class="label">Contexto</span></span>
+      <span class="sep">›</span>
+      <span class="step" data-step="3"><span class="num">3</span><span class="label">Oportunidades</span></span>
+    </div>
+  </div>
+</header>
+
+<main id="main" class="shell">
+
+  <!-- ============ VISTA 1: REGISTRO / PERFIL MÍNIMO ============ -->
+  <section class="view" id="view-registro">
+
+    <div class="intro">
+      <span class="eyebrow">Empieza por aquí</span>
+      <h2>Cuéntanos quién eres</h2>
+      <p>La plataforma no empieza mostrándote el ecosistema completo. Empieza por tu perfil mínimo — con eso interpreta un contexto y prioriza lo relevante para ti. Puedes volver a editarlo cuando quieras.</p>
+    </div>
+
+    <div class="eco-real">
+      <span class="label">Ecosistema real de referencia — Distrito Capital, fútbol formativo</span>
+      <div class="eco-stats">
+        <div class="eco-stat"><span class="num mono">102</span><span class="cap">clubes afiliados</span></div>
+        <div class="eco-stat"><span class="num mono">429</span><span class="cap">equipos</span></div>
+        <div class="eco-stat"><span class="num mono">~7.900</span><span class="cap">jugadores, 6-20 años</span></div>
+      </div>
+      <div class="chip-row">
+        <span class="chip">Liga FUTVE Junior (Sub-15 a Sub-21)</span>
+        <span class="chip">Liga Canguro Diamante (Sub-8 a Sub-18)</span>
+        <span class="chip">Liga Pipo Rossi (Compotas/Sub-06 a Sub-19)</span>
+      </div>
+      <span class="caption">Fuente: Asociación de Fútbol del Distrito Capital (asofutbolcaracas.com) y FVF. Estos nombres y cifras son reales; no implican que un club en particular tenga una vacante o necesidad activa. Hoy solo Venezuela tiene datos reales cargados — el campo País queda libre para escalar a otras federaciones.</span>
+    </div>
+
+    <form id="perfilForm" novalidate>
+      <div class="field-section-label">¿Quién eres?</div>
+      <div class="role-picker" id="rolePicker">
+        <label class="role-card">
+          <input type="radio" name="rol" value="deportista" required>
+          <span class="role-card-body"><strong>Soy deportista</strong><span>Niño, joven o adulto que entrena o compite</span></span>
+        </label>
+        <label class="role-card">
+          <input type="radio" name="rol" value="profesional">
+          <span class="role-card-body"><strong>Soy profesional</strong><span>Entrenador, fisio, preparador físico, scout o staff</span></span>
+        </label>
+        <label class="role-card">
+          <input type="radio" name="rol" value="club">
+          <span class="role-card-body"><strong>Soy un club u organización</strong><span>Academia, equipo o club con una necesidad</span></span>
+        </label>
+      </div>
+
+      <!-- DEPORTISTA -->
+      <div class="role-fields" id="fields-deportista" hidden>
+        <div class="field-section-label">Tu perfil</div>
+        <div class="field-grid">
+          <div class="field"><label for="d-nombre">Nombre</label><input id="d-nombre" name="nombre" type="text" placeholder="Tu nombre"></div>
+          <div class="field"><label for="d-edad">Edad</label><input id="d-edad" name="edad" type="number" min="4" max="80" placeholder="Ej. 11"></div>
+          <div class="field"><label for="d-pais">País</label><input id="d-pais" name="pais" type="text" placeholder="Ej. Venezuela" value="Venezuela"></div>
+          <div class="field"><label for="d-ciudad">Ciudad</label><input id="d-ciudad" name="ciudad" type="text" placeholder="Ej. Caracas"></div>
+          <div class="field">
+            <label for="d-experiencia">Experiencia</label>
+            <select id="d-experiencia" name="experiencia">
+              <option value="sin_experiencia">Sin experiencia — nunca he jugado</option>
+              <option value="principiante">Principiante</option>
+              <option value="formativo">Formativo / recreativo</option>
+              <option value="competitivo">Competitivo</option>
+              <option value="alto_rendimiento">Alto rendimiento / profesional</option>
+            </select>
+          </div>
+          <div class="field"><label for="d-posicion">Posición <span class="hint">(si aplica)</span></label><input id="d-posicion" name="posicion" type="text" placeholder="Ej. Lateral derecho"></div>
+          <div class="field">
+            <label for="d-objetivo">Objetivo principal</label>
+            <select id="d-objetivo" name="objetivo">
+              <option value="comenzar">Comenzar a entrenar</option>
+              <option value="mejorar">Mejorar mi nivel</option>
+              <option value="competir">Competir</option>
+              <option value="ser_descubierto">Ser descubierto / scouting</option>
+              <option value="cambiar_club">Cambiar de club</option>
+              <option value="conseguir_club">Conseguir un club</option>
+            </select>
+          </div>
+          <div class="field"><label for="d-disponibilidad">Disponibilidad <span class="hint">(opcional)</span></label><input id="d-disponibilidad" name="disponibilidad" type="text" placeholder="Ej. martes y jueves, tarde"></div>
+          <div class="field span-2"><label for="d-presupuesto">Presupuesto mensual <span class="hint">(opcional — solo lo usa la plataforma, no se muestra públicamente)</span></label><input id="d-presupuesto" name="presupuesto" type="text" placeholder="Ej. hasta $150/mes"></div>
+        </div>
+      </div>
+
+      <!-- PROFESIONAL -->
+      <div class="role-fields" id="fields-profesional" hidden>
+        <div class="field-section-label">Tu perfil profesional</div>
+        <div class="field-grid">
+          <div class="field"><label for="p-nombre">Nombre</label><input id="p-nombre" name="nombre" type="text" placeholder="Tu nombre"></div>
+          <div class="field">
+            <label for="p-rol">Rol específico</label>
+            <select id="p-rol" name="rolEspecifico">
+              <option value="entrenador">Entrenador</option>
+              <option value="fisioterapeuta">Fisioterapeuta</option>
+              <option value="preparador">Preparador físico</option>
+              <option value="scout">Scout</option>
+              <option value="staff">Staff / otro</option>
+            </select>
+          </div>
+          <div class="field"><label for="p-pais">País</label><input id="p-pais" name="pais" type="text" value="Venezuela"></div>
+          <div class="field"><label for="p-ciudad">Ciudad</label><input id="p-ciudad" name="ciudad" type="text" placeholder="Ej. Caracas"></div>
+          <div class="field"><label for="p-experiencia">Años de experiencia</label><input id="p-experiencia" name="experienciaAnios" type="number" min="0" max="60" placeholder="Ej. 5"></div>
+          <div class="field">
+            <label for="p-objetivo">Objetivo principal</label>
+            <select id="p-objetivo" name="objetivo">
+              <option value="buscar_trabajo">Buscar trabajo</option>
+              <option value="buscar_colaboracion">Buscar colaboraciones / servicios</option>
+            </select>
+          </div>
+          <div class="field span-2">
+            <label class="checkline"><input type="checkbox" name="certificado" id="p-certificado"> Tengo una certificación vigente en mi especialidad</label>
+          </div>
+          <div class="field span-2"><label for="p-disponibilidad">Disponibilidad <span class="hint">(opcional)</span></label><input id="p-disponibilidad" name="disponibilidad" type="text" placeholder="Ej. inmediata, tiempo completo"></div>
+        </div>
+      </div>
+
+      <!-- CLUB -->
+      <div class="role-fields" id="fields-club" hidden>
+        <div class="field-section-label">Tu organización y tu necesidad</div>
+        <div class="field-grid">
+          <div class="field"><label for="c-nombre">Nombre del club u organización</label><input id="c-nombre" name="nombre" type="text" placeholder="Ej. Club Atlético Norte"></div>
+          <div class="field"><label for="c-ciudad">Ciudad</label><input id="c-ciudad" name="ciudad" type="text" placeholder="Ej. Caracas"></div>
+          <div class="field">
+            <label for="c-tipo">¿Qué necesitas?</label>
+            <select id="c-tipo" name="tipoNecesidad">
+              <option value="jugador">Un jugador</option>
+              <option value="entrenador">Un entrenador</option>
+              <option value="fisio">Fisioterapeuta / preparador físico</option>
+              <option value="staff">Staff / otro</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="c-nivel">Nivel</label>
+            <select id="c-nivel" name="nivel">
+              <option value="formativo">Formativo</option>
+              <option value="competitivo">Competitivo</option>
+              <option value="alto_rendimiento">Alto rendimiento</option>
+            </select>
+          </div>
+          <div class="field"><label for="c-categoria">Categoría <span class="hint">(si aplica)</span></label><input id="c-categoria" name="categoria" type="text" placeholder="Ej. Sub-17"></div>
+          <div class="field"><label for="c-posicion">Posición / especialidad <span class="hint">(si aplica)</span></label><input id="c-posicion" name="posicion" type="text" placeholder="Ej. Lateral derecho"></div>
+          <div class="field span-2">
+            <label for="c-urgencia">Disponibilidad / urgencia</label>
+            <select id="c-urgencia" name="urgencia">
+              <option value="inmediata">Inmediata</option>
+              <option value="proxima_temporada">Próxima temporada</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="note" id="registroNote" hidden>
+        <svg class="icon" viewBox="0 0 24 24"><path d="M12 9v4m0 4h.01M10.3 3.9 2.4 18a1.8 1.8 0 0 0 1.5 2.7h16.2a1.8 1.8 0 0 0 1.5-2.7L13.7 3.9a1.8 1.8 0 0 0-3.4 0Z"/></svg>
+        <span>Elige una opción arriba para ver los campos de tu perfil.</span>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          Crear mi perfil
+        </button>
+        <span class="hint" style="font-size:0.8rem; color:var(--text-faint);">Boceto sin backend — nada de esto se guarda fuera de tu navegador.</span>
+      </div>
+    </form>
+  </section>
+
+  <!-- ============ VISTA 2: DASHBOARD PERSONALIZADO ============ -->
+  <section class="view" id="view-dashboard" hidden>
+    <div class="dash-header">
+      <div>
+        <div class="hello" id="dashHello">Hola</div>
+        <h2 id="dashContextLabel">Contexto</h2>
+        <p class="recap" id="dashRecap"></p>
+      </div>
+      <button type="button" class="btn btn-ghost" id="editProfileBtn">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+        Editar mi perfil
+      </button>
+    </div>
+
+    <div class="dash-grid">
+      <div class="dash-main" id="dashMain"><!-- se rellena por JS --></div>
+
+      <aside class="dash-aside" aria-label="Tu actividad">
+        <h4>Tu actividad</h4>
+        <p class="aside-sub">Lo que guardas y contactas aparece aquí — así no dependes de una sola ventana de acción.</p>
+        <ul class="activity-list" id="activityList"></ul>
+        <p class="activity-empty" id="activityEmpty">Todavía no has guardado ni contactado nada.</p>
+      </aside>
+    </div>
+  </section>
+
+  <footer>
+    Basado en <span class="mono">CONTEXTO-MAESTRO.md</span> (secciones 20-22, 26, 55-56), <span class="mono">MATRIZ-CONTEXTO.md</span> V0.1, <span class="mono">MATRIZ-MATCHING.md</span> V0.1 (clasificación y explicabilidad) y <span class="mono">MATRIZ-RECOMENDACIONES.md</span> V0.1 (acciones por tipo de oportunidad, sección 55: Contactar, Postular, Ver detalle). El registro de perfil es real — lo que escribas aquí decide qué ves. Los mensajes y postulaciones son simulados: no se envía nada a ninguna organización real. Categorías y ligas reales según <span class="mono">INVESTIGACION-ECOSISTEMA-VE.md</span>; nombres de clubes, academias y personas en las tarjetas de ejemplo son ficticios a propósito. Quedan 9 contextos de la matriz (Formación, Cambio de club, Preparación física, Recuperación, Entrenamiento individual, Profesionalización, Descubrimiento, Transición) todavía sin representar aquí, y la priorización real de recomendaciones (orden por peso) todavía no está definida.
+  </footer>
+
+</main>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ---------------- icons ---------------- */
+  var ICONS = {
+    message: '<svg class="icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5Z"/></svg>',
+    bookmarkOutline: '<svg class="icon" viewBox="0 0 24 24"><path d="M19 21 12 16l-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2Z"/></svg>',
+    bookmarkFilled: '<svg class="icon filled" viewBox="0 0 24 24"><path d="M19 21 12 16l-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2Z"/></svg>',
+    chevronDown: '<svg class="icon" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>',
+    send: '<svg class="icon" viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>',
+    check: '<svg class="icon" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>',
+    apply: '<svg class="icon" viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6M9 8h1M4 5a2 2 0 0 1 2-2h9l5 5v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/></svg>'
+  };
+
+  function $(sel, root) { return (root || document).querySelector(sel); }
+  function $all(sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); }
+
+  function el(tag, attrs, children) {
+    var node = document.createElement(tag);
+    attrs = attrs || {};
+    Object.keys(attrs).forEach(function (k) {
+      if (k === "html") { node.innerHTML = attrs[k]; }
+      else if (k === "text") { node.textContent = attrs[k]; }
+      else if (k.indexOf("on") === 0 && typeof attrs[k] === "function") { node.addEventListener(k.slice(2), attrs[k]); }
+      else { node.setAttribute(k, attrs[k]); }
+    });
+    (children || []).forEach(function (c) { if (c) node.appendChild(c); });
+    return node;
+  }
+
+  /* ---------------- toast ---------------- */
+  var toastEl = $("#toast");
+  var toastTimer = null;
+  function toast(msg) {
+    toastEl.textContent = msg;
+    toastEl.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { toastEl.classList.remove("show"); }, 3200);
+  }
+
+  /* ---------------- role fields toggling ---------------- */
+  var roleFieldsMap = { deportista: "#fields-deportista", profesional: "#fields-profesional", club: "#fields-club" };
+  $all('input[name="rol"]').forEach(function (radio) {
+    radio.addEventListener("change", function () {
+      Object.keys(roleFieldsMap).forEach(function (key) {
+        $(roleFieldsMap[key]).hidden = key !== radio.value;
+      });
+      $("#registroNote").hidden = true;
+    });
+  });
+
+  /* ---------------- context data ---------------- */
+  var CONTEXTS = {
+    iniciacion: {
+      label: "Iniciación deportiva",
+      actores: ["Academias", "Escuelas", "Clubes formativos", "Familias"],
+      gruposPrincipales: ["Buscar academia", "Entrenar", "Clubes cercanos", "Competición"],
+      secundarios: ["Preparación física básica", "Camps de iniciación", "Equipamiento recomendado"],
+      cards: [
+        {
+          kind: "Inscripción", title: "Academia Los Álamos", match: "muyalto", type: "organizacion",
+          fields: [["Deporte", "Fútbol 7"], ["Categoría", "Sub-09"], ["Liga", "Liga Pipo Rossi"], ["Ubicación", "2.3 km"], ["Horario", "Mar/Jue 16-18h"], ["Precio", "desde $25/mes"]],
+          why: "<strong>acepta principiantes</strong> ✓ · <strong>2.3 km</strong> ✓ · horario compatible ✓ · precio dentro de rango habitual ✓.",
+          detail: "Academia formativa con foco en iniciación Sub-06 a Sub-12. Instalaciones cubiertas, dos entrenadores certificados en la categoría. Cupos abiertos para la temporada actual.",
+          actions: ["contactar", "guardar", "detalle"],
+          contactWith: "la Academia Los Álamos", contactPersonName: "Academia Los Álamos"
+        },
+        {
+          kind: "Entrenamiento", title: "Escuela Municipal Norte", match: "medio", type: "organizacion",
+          fields: [["Deporte", "Fútbol 7"], ["Categoría", "Compotas / Sub-06"], ["Liga", "Liga Pipo Rossi"], ["Ubicación", "4.1 km"], ["Horario", "Sáb 9-11h"], ["Precio", "gratuito"]],
+          why: "gratuita ✓ · 4.1 km ✓ — pero su categoría (Compotas/Sub-06) es para edades menores, así que el encaje por nivel es parcial.",
+          detail: "Programa municipal gratuito, un entrenamiento semanal los sábados. Pensado para primer contacto con el deporte antes de pasar a una academia con más frecuencia.",
+          actions: ["contactar", "guardar", "detalle"],
+          contactWith: "la Escuela Municipal Norte", contactPersonName: "Escuela Municipal Norte"
+        },
+        {
+          kind: "Servicio", title: "Entrenador Carlos M.", match: "alto", type: "persona",
+          fields: [["Especialidad", "Iniciación fútbol"], ["Modalidad", "Individual o grupo pequeño"], ["Ubicación", "6 km"], ["Disponibilidad", "Tardes entre semana"], ["Precio", "$20/sesión"]],
+          why: "especialidad en iniciación ✓ · disponibilidad compatible ✓ — sesión individual, no es un club.",
+          detail: "Entrenador independiente, certificado en formación de base. Ofrece sesiones 1 a 1 o en grupos de hasta 4 niños para reforzar fundamentos antes de entrar a un club.",
+          actions: ["contactar", "guardar", "detalle"],
+          contactWith: "Carlos M.", contactPersonName: "Carlos M. (Entrenador)"
+        }
+      ]
+    },
+    desarrollo: {
+      label: "Desarrollo competitivo / scouting",
+      actores: ["Clubes", "Scouts", "Entrenadores", "Representantes", "Competiciones"],
+      gruposPrincipales: ["Buscar club", "Tryouts", "Scouting", "Oportunidades", "Entrenadores"],
+      secundarios: ["Preparación física", "Fisioterapia deportiva", "Análisis de rendimiento"],
+      cards: [
+        {
+          kind: "Tryout", title: "Club Atlético Norte", match: "muyalto", type: "organizacion",
+          fields: [["Categoría", "Sub-17"], ["Liga", "Liga FUTVE Junior"], ["Posiciones", "Lateral / extremo"], ["Ubicación", "12 km"], ["Fecha", "14 sep 2026"], ["Cupos", "30"]],
+          why: "categoría Sub-17 ✓ · posición lateral ✓ · nivel competitivo ✓ · cupos abiertos ✓.",
+          detail: "Tryout abierto de la categoría Sub-17, con evaluación en dos jornadas. El club juega la Liga FUTVE Junior y tiene equipo filial en Sub-19.",
+          actions: ["contactar", "postular", "guardar", "detalle"],
+          contactWith: "el Club Atlético Norte", contactPersonName: "Coordinador de captación, Club Atlético Norte"
+        },
+        {
+          kind: "Scouting", title: "Red de Ojeadores Regional", match: "alto", type: "persona",
+          fields: [["Categoría", "Sub-17 / Sub-19"], ["Liga", "Liga Canguro Diamante"], ["Cobertura", "Zona metropolitana"], ["Requisito", "video reciente"]],
+          why: "categoría ✓ · cobertura de tu zona ✓ — falta un requisito adicional (video reciente) que todavía no está en tu perfil.",
+          detail: "Red de ojeadores independiente que cubre la zona metropolitana para clubes de Liga Canguro Diamante. Piden un video de 3-5 minutos con jugadas recientes.",
+          actions: ["contactar", "guardar", "detalle"],
+          contactWith: "la Red de Ojeadores Regional", contactPersonName: "Ojeador de zona, Red de Ojeadores Regional"
+        }
+      ]
+    },
+    profesional: {
+      label: "Oportunidad profesional",
+      actores: ["Clubes con vacantes", "Academias", "Equipos", "Organizaciones"],
+      gruposPrincipales: ["Buscar trabajo", "Clubes", "Equipos", "Jugadores", "Staff"],
+      secundarios: ["Certificaciones vigentes en tu especialidad", "Redes de colegas"],
+      cards: [
+        {
+          kind: "Empleo", title: "Academia Los Álamos", match: "muyalto", type: "organizacion",
+          fields: [["Rol", "Entrenador formativo"], ["Categoría", "Sub-09 – Sub-11"], ["Liga", "Liga Pipo Rossi"], ["Disponibilidad", "inmediata"], ["Ubicación", "6 km"]],
+          why: "disponibilidad inmediata ✓ · certificación válida ✓ · 6 km ✓.",
+          detail: "Vacante para reemplazar a un entrenador formativo que sale de temporada. Dos grupos, 4 sesiones semanales, contrato por temporada.",
+          actions: ["contactar", "postular", "guardar", "detalle"],
+          contactWith: "la Academia Los Álamos", contactPersonName: "Coordinador Deportivo, Academia Los Álamos"
+        },
+        {
+          kind: "Empleo", title: "Club Atlético Norte", match: "alto", type: "organizacion",
+          fields: [["Rol", "Asistente técnico Sub-17"], ["Categoría", "Sub-17"], ["Disponibilidad", "inicio de temporada"], ["Ubicación", "12 km"]],
+          why: "certificación válida ✓ · experiencia ✓ — la disponibilidad pedida (inicio de temporada) es algo posterior a tu disponibilidad inmediata.",
+          detail: "Puesto de asistente técnico para la Sub-17, reportando al entrenador principal. Incluye análisis de rivales y planificación de microciclos.",
+          actions: ["contactar", "postular", "guardar", "detalle"],
+          contactWith: "el Club Atlético Norte", contactPersonName: "Director Técnico, Club Atlético Norte"
+        }
+      ]
+    },
+    necesidad: {
+      label: "Necesidad de talento",
+      actores: ["Deportistas", "Scouts", "Representantes"],
+      gruposPrincipales: ["Buscar jugadores", "Buscar entrenadores", "Buscar staff", "Crear tryout", "Crear necesidad"],
+      secundarios: ["Servicios médicos para el plantel", "Análisis de rendimiento"],
+      cards: [
+        {
+          kind: "Perfil · Jugador", title: "Jugador A", match: "muyalto", type: "persona",
+          fields: [["Posición", "Lateral derecho"], ["Categoría", "Sub-17"], ["Nivel", "Competitivo"], ["Ubicación", "8 km"], ["Disponibilidad", "inmediata"]],
+          why: "posición ✓ · categoría ✓ · nivel ✓ · dentro del radio de 20 km ✓ · disponibilidad ✓.",
+          detail: "Perfil de ejemplo — no es una persona real. Lateral derecho con 3 temporadas en ligas formativas, disponible de inmediato.",
+          actions: ["contactar", "guardar", "detalle"],
+          contactWith: "el Jugador A", contactPersonName: "Jugador A (perfil de ejemplo)"
+        },
+        {
+          kind: "Perfil · Jugador", title: "Jugador B", match: "alto", type: "persona",
+          fields: [["Posición", "Lateral derecho"], ["Categoría", "Sub-16"], ["Nivel", "Competitivo"], ["Ubicación", "15 km"], ["Disponibilidad", "inmediata"]],
+          why: "posición ✓ · nivel ✓ · dentro del radio ✓ — categoría (Sub-16) es una temporada por debajo de lo buscado.",
+          detail: "Perfil de ejemplo — no es una persona real. Lateral derecho, un año por debajo de la categoría buscada pero con nivel competitivo confirmado.",
+          actions: ["contactar", "guardar", "detalle"],
+          contactWith: "el Jugador B", contactPersonName: "Jugador B (perfil de ejemplo)"
+        },
+        {
+          kind: "Perfil · Jugador", title: "Jugador C", match: "medio", type: "persona",
+          fields: [["Posición", "Central"], ["Categoría", "Sub-17"], ["Nivel", "Competitivo"], ["Ubicación", "5 km"], ["Disponibilidad", "inmediata"]],
+          why: "categoría ✓ · nivel ✓ · muy cerca ✓ — juega de central, no de lateral derecho (la posición era un criterio obligatorio).",
+          detail: "Perfil de ejemplo — no es una persona real. Central polivalente, podría evaluarse como alternativa si la posición deja de ser un criterio obligatorio.",
+          actions: ["contactar", "guardar", "detalle"],
+          contactWith: "el Jugador C", contactPersonName: "Jugador C (perfil de ejemplo)"
+        }
+      ]
+    }
+  };
+
+  /* ---------------- context derivation ---------------- */
+  function deriveContext(profile) {
+    if (profile.rol === "profesional") return "profesional";
+    if (profile.rol === "club") return "necesidad";
+    var early = profile.experiencia === "sin_experiencia" || profile.experiencia === "principiante";
+    if (early || profile.objetivo === "comenzar") return "iniciacion";
+    return "desarrollo";
+  }
+
+  var EXPERIENCIA_LABEL = {
+    sin_experiencia: "sin experiencia", principiante: "principiante", formativo: "formativo/recreativo",
+    competitivo: "nivel competitivo", alto_rendimiento: "alto rendimiento"
+  };
+  var OBJETIVO_LABEL_D = {
+    comenzar: "comenzar a entrenar", mejorar: "mejorar su nivel", competir: "competir",
+    ser_descubierto: "ser descubierto", cambiar_club: "cambiar de club", conseguir_club: "conseguir club"
+  };
+  var ROL_ESP_LABEL = { entrenador: "Entrenador", fisioterapeuta: "Fisioterapeuta", preparador: "Preparador físico", scout: "Scout", staff: "Staff" };
+  var OBJETIVO_LABEL_P = { buscar_trabajo: "buscar trabajo", buscar_colaboracion: "buscar colaboraciones" };
+  var TIPO_NECESIDAD_LABEL = { jugador: "un jugador", entrenador: "un entrenador", fisio: "fisioterapeuta/preparador físico", staff: "staff" };
+
+  function readProfile() {
+    var rol = ($('input[name="rol"]:checked') || {}).value;
+    if (!rol) return null;
+    var profile = { rol: rol };
+    if (rol === "deportista") {
+      profile.nombre = $("#d-nombre").value.trim() || "tu perfil";
+      profile.edad = $("#d-edad").value.trim();
+      profile.pais = $("#d-pais").value.trim();
+      profile.ciudad = $("#d-ciudad").value.trim();
+      profile.experiencia = $("#d-experiencia").value;
+      profile.posicion = $("#d-posicion").value.trim();
+      profile.objetivo = $("#d-objetivo").value;
+      profile.disponibilidad = $("#d-disponibilidad").value.trim();
+      profile.presupuesto = $("#d-presupuesto").value.trim();
+    } else if (rol === "profesional") {
+      profile.nombre = $("#p-nombre").value.trim() || "tu perfil";
+      profile.rolEspecifico = $("#p-rol").value;
+      profile.pais = $("#p-pais").value.trim();
+      profile.ciudad = $("#p-ciudad").value.trim();
+      profile.experienciaAnios = $("#p-experiencia").value.trim();
+      profile.objetivo = $("#p-objetivo").value;
+      profile.certificado = $("#p-certificado").checked;
+      profile.disponibilidad = $("#p-disponibilidad").value.trim();
+    } else if (rol === "club") {
+      profile.nombre = $("#c-nombre").value.trim() || "tu club";
+      profile.ciudad = $("#c-ciudad").value.trim();
+      profile.tipoNecesidad = $("#c-tipo").value;
+      profile.nivel = $("#c-nivel").value;
+      profile.categoria = $("#c-categoria").value.trim();
+      profile.posicion = $("#c-posicion").value.trim();
+      profile.urgencia = $("#c-urgencia").value;
+    }
+    return profile;
+  }
+
+  function recapText(profile) {
+    if (profile.rol === "deportista") {
+      var parts = [profile.edad ? profile.edad + " años" : null, profile.ciudad ? profile.ciudad + (profile.pais ? ", " + profile.pais : "") : profile.pais, EXPERIENCIA_LABEL[profile.experiencia], "objetivo: " + OBJETIVO_LABEL_D[profile.objetivo]];
+      return parts.filter(Boolean).join(" · ");
+    }
+    if (profile.rol === "profesional") {
+      var p2 = [ROL_ESP_LABEL[profile.rolEspecifico], profile.ciudad ? profile.ciudad + (profile.pais ? ", " + profile.pais : "") : profile.pais, profile.experienciaAnios ? profile.experienciaAnios + " años de experiencia" : null, profile.certificado ? "certificado" : "sin certificación registrada", "objetivo: " + OBJETIVO_LABEL_P[profile.objetivo]];
+      return p2.filter(Boolean).join(" · ");
+    }
+    var p3 = [profile.ciudad, "busca " + TIPO_NECESIDAD_LABEL[profile.tipoNecesidad], profile.categoria ? "categoría " + profile.categoria : null, profile.posicion ? profile.posicion : null, profile.nivel, profile.urgencia === "inmediata" ? "disponibilidad inmediata" : "próxima temporada"];
+    return p3.filter(Boolean).join(" · ");
+  }
+
+  /* ---------------- activity log ---------------- */
+  var activity = [];
+  function logActivity(type, title, note) {
+    activity.unshift({ type: type, title: title, note: note, ts: new Date() });
+    renderActivity();
+  }
+  function renderActivity() {
+    var list = $("#activityList");
+    var empty = $("#activityEmpty");
+    list.innerHTML = "";
+    if (!activity.length) { empty.hidden = false; return; }
+    empty.hidden = true;
+    activity.slice(0, 12).forEach(function (item) {
+      var iconHtml = item.type === "saved" ? ICONS.bookmarkFilled : (item.type === "applied" ? ICONS.apply : ICONS.message);
+      var li = el("li", { class: "activity-item" + (item.type === "saved" ? " saved" : "") }, [
+        el("span", { class: "icon-wrap", html: iconHtml }),
+        el("span", { class: "body" }, [
+          el("strong", { text: item.title }),
+          el("span", { text: item.note })
+        ])
+      ]);
+      list.appendChild(li);
+    });
+  }
+
+  /* ---------------- card rendering ---------------- */
+  var cardState = {};
+
+  function cardId(contextKey, title) { return contextKey + "::" + title.replace(/\s+/g, "-").toLowerCase(); }
+  function matchLabel(m) { return { muyalto: "Match muy alto", alto: "Match alto", medio: "Match medio", bajo: "Match bajo" }[m]; }
+
+  function buildCard(data, contextKey) {
+    var id = cardId(contextKey, data.title);
+    if (!cardState[id]) cardState[id] = { saved: false, contacted: false, applied: false };
+    var state = cardState[id];
+
+    var dl = el("dl", {});
+    data.fields.forEach(function (f) {
+      dl.appendChild(el("dt", { text: f[0] }));
+      dl.appendChild(el("dd", { text: f[1] }));
+    });
+
+    var topRow = el("div", { class: "card-top-row" }, [
+      el("span", { class: "kind", text: data.kind }),
+      el("span", { class: "match match-" + data.match, text: matchLabel(data.match) })
+    ]);
+
+    var whyPrefix = data.type === "persona" && data.kind.indexOf("Perfil") === 0 ? "Coincide en: " : "Te lo mostramos porque: ";
+    var why = el("p", { class: "why", html: whyPrefix + data.why });
+
+    var statusText = data.type === "persona" && data.kind.indexOf("Perfil") === 0 ? "Perfil activo" : "Activa";
+    var status = el("span", { class: "status" }, [el("span", { class: "dot" }), document.createTextNode(statusText)]);
+
+    var detailPanel = el("div", { class: "panel-reveal", id: id + "-detail" }, [
+      el("div", { class: "panel-inner" }, [el("p", { class: "detail-text", text: data.detail })])
+    ]);
+
+    var contactBody = el("div", { class: "panel-inner compose" });
+    var contactPanel = el("div", { class: "panel-reveal", id: id + "-contact" }, [contactBody]);
+    renderContactPanel(contactBody, data, state);
+
+    var actionsRow = el("div", { class: "card-actions" });
+    data.actions.forEach(function (action) {
+      if (action === "contactar") {
+        actionsRow.appendChild(el("button", {
+          type: "button", class: "btn btn-sm", html: ICONS.message + " Contactar",
+          onclick: function () { togglePanel(contactPanel, [detailPanel]); }
+        }));
+      } else if (action === "postular") {
+        var applyBtn = el("button", {
+          type: "button", class: "btn btn-sm", html: (state.applied ? ICONS.check + " Postulado" : ICONS.apply + " Postular"),
+          "data-active": state.applied ? "true" : "false",
+          onclick: function () {
+            if (state.applied) return;
+            state.applied = true;
+            applyBtn.innerHTML = ICONS.check + " Postulado";
+            applyBtn.setAttribute("data-active", "true");
+            toast("Postulación enviada a " + data.title + " (simulada).");
+            logActivity("applied", data.title, "Postulación enviada");
+          }
+        });
+        actionsRow.appendChild(applyBtn);
+      } else if (action === "guardar") {
+        var saveBtn = el("button", {
+          type: "button", class: "btn btn-sm", html: (state.saved ? ICONS.bookmarkFilled + " Guardado" : ICONS.bookmarkOutline + " Guardar"),
+          "data-active": state.saved ? "true" : "false", "aria-pressed": state.saved ? "true" : "false",
+          onclick: function () {
+            state.saved = !state.saved;
+            saveBtn.innerHTML = state.saved ? ICONS.bookmarkFilled + " Guardado" : ICONS.bookmarkOutline + " Guardar";
+            saveBtn.setAttribute("data-active", state.saved ? "true" : "false");
+            saveBtn.setAttribute("aria-pressed", state.saved ? "true" : "false");
+            if (state.saved) { toast(data.title + " guardado."); logActivity("saved", data.title, "Guardado en tu lista"); }
+          }
+        });
+        actionsRow.appendChild(saveBtn);
+      } else if (action === "detalle") {
+        actionsRow.appendChild(el("button", {
+          type: "button", class: "btn btn-sm", html: ICONS.chevronDown + " Ver detalle",
+          onclick: function () { togglePanel(detailPanel, [contactPanel]); }
+        }));
+      }
+    });
+
+    return el("article", { class: "card" }, [topRow, el("h3", { text: data.title }), dl, why, status, actionsRow, detailPanel, contactPanel]);
+  }
+
+  function togglePanel(panel, others) {
+    var willOpen = !panel.classList.contains("open");
+    others.forEach(function (p) { p.classList.remove("open"); });
+    panel.classList.toggle("open", willOpen);
+  }
+
+  function renderContactPanel(container, data, state) {
+    container.innerHTML = "";
+    if (state.contacted) {
+      container.appendChild(el("div", { class: "sent-confirm" }, [
+        el("span", { html: ICONS.check }),
+        el("span", {}, [document.createTextNode("Mensaje enviado a " + data.title + "."), el("span", { class: "sub", text: "Esto es un boceto: ningún mensaje real fue enviado." })])
+      ]));
+      return;
+    }
+    var label = el("label", { style: "font-size:0.8rem; font-weight:600; color: var(--text); display:block;", text: "Mensaje para " + data.contactPersonName });
+    var textarea = el("textarea", { placeholder: "Hola, me interesa " + (data.kind.toLowerCase().indexOf("perfil") === 0 ? "tu perfil" : "esta oportunidad") + ". ¿Podemos conversar?" });
+    var sendBtn = el("button", {
+      type: "button", class: "btn btn-primary btn-sm", html: ICONS.send + " Enviar mensaje",
+      onclick: function () {
+        state.contacted = true;
+        renderContactPanel(container, data, state);
+        toast("Mensaje enviado a " + data.contactWith + " (simulado).");
+        logActivity("contacted", data.title, "Mensaje enviado");
+      }
+    });
+    var row = el("div", { class: "compose-row" }, [sendBtn]);
+    container.appendChild(label);
+    container.appendChild(textarea);
+    container.appendChild(row);
+  }
+
+  /* ---------------- dashboard rendering ---------------- */
+  function renderDashboard(profile) {
+    var contextKey = deriveContext(profile);
+    var ctx = CONTEXTS[contextKey];
+
+    $("#dashHello").textContent = "Hola, " + profile.nombre;
+    $("#dashContextLabel").textContent = ctx.label;
+    $("#dashRecap").innerHTML = "Perfil registrado: <span class=\"mono\">" + recapText(profile) + "</span>";
+
+    var main = $("#dashMain");
+    main.innerHTML = "";
+
+    var actoresChips = el("div", { class: "chip-row" });
+    ctx.actores.forEach(function (a) { actoresChips.appendChild(el("span", { class: "chip", text: a })); });
+    main.appendChild(el("div", { class: "block" }, [el("div", { class: "section-label", text: "Actores relevantes ahora" }), actoresChips]));
+
+    var nav = el("nav", { class: "group-nav" });
+    ctx.gruposPrincipales.forEach(function (g) { nav.appendChild(el("button", { type: "button", text: g })); });
+    main.appendChild(el("div", { class: "block" }, [el("div", { class: "section-label", text: "Grupos relevantes ahora" }), nav]));
+
+    if (contextKey === "necesidad") {
+      var needSummary = el("div", { class: "need-summary" }, [
+        el("span", { class: "kind", text: "Necesidad · " + TIPO_NECESIDAD_LABEL[profile.tipoNecesidad] }),
+        el("h3", { text: (profile.posicion || profile.categoria || TIPO_NECESIDAD_LABEL[profile.tipoNecesidad]) }),
+        el("div", { class: "count-row" }, [
+          el("span", { class: "count", text: String(ctx.cards.length) }),
+          el("span", { class: "count-label", text: "perfiles de ejemplo evaluados según categoría, posición, nivel y disponibilidad." })
+        ])
+      ]);
+      main.appendChild(el("div", { class: "block" }, [el("div", { class: "section-label", text: "Tu necesidad creada" }), needSummary]));
+    }
+
+    var grid = el("div", { class: "card-grid" });
+    ctx.cards.forEach(function (c) { grid.appendChild(buildCard(c, contextKey)); });
+    var mainLabel = contextKey === "necesidad" ? "Perfiles compatibles (ejemplo — no son personas reales)" : "Oportunidades relevantes";
+    main.appendChild(el("div", { class: "block" }, [el("div", { class: "section-label", text: mainLabel }), grid]));
+
+    var secChips = el("div", { class: "secondary-chips" });
+    ctx.secundarios.forEach(function (s) { secChips.appendChild(el("span", { class: "chip", text: s })); });
+    main.appendChild(el("div", { class: "block" }, [el("div", { class: "section-label", text: "También puede interesarte" }), secChips]));
+
+    $all(".steps .step").forEach(function (s) { s.classList.toggle("current", s.getAttribute("data-step") === "3"); });
+
+    renderActivity();
+  }
+
+  /* ---------------- view switching ---------------- */
+  function showDashboard() {
+    $("#view-registro").hidden = true;
+    $("#view-dashboard").hidden = false;
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+  function showRegistro() {
+    $("#view-dashboard").hidden = true;
+    $("#view-registro").hidden = false;
+    $all(".steps .step").forEach(function (s) { s.classList.toggle("current", s.getAttribute("data-step") === "1"); });
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  $("#perfilForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var profile = readProfile();
+    if (!profile) { $("#registroNote").hidden = false; $("#registroNote").scrollIntoView({ behavior: "smooth", block: "center" }); return; }
+    renderDashboard(profile);
+    showDashboard();
+  });
+
+  $("#editProfileBtn").addEventListener("click", showRegistro);
+
+})();
+</script>

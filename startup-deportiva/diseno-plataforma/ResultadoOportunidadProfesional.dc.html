@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=Source+Sans+3:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <style>
+    :root {
+      --bg: #F2F5F1; --surface: #FFFFFF; --surface-2: #E9EEE9;
+      --text: #12231C; --text-muted: #4B5F55; --line: rgba(18,35,28,0.14);
+      --accent: #1F6F4A; --accent-ink: #FFFFFF; --accent-soft: #E1EFE6;
+      --accent-2: #D65A2C; --accent-2-soft: #FBE6DA;
+    }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: 'Source Sans 3', 'Segoe UI', sans-serif; }
+    h1, h2, h3, .display { font-family: 'Big Shoulders Display', 'Arial Narrow', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.01em; margin: 0; }
+    .mono { font-family: 'IBM Plex Mono', ui-monospace, monospace; }
+    .chip { font-size: 12px; padding: 5px 12px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--text-muted); }
+    .card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 1px 2px rgba(18,35,28,0.06), 0 8px 24px -12px rgba(18,35,28,0.18); }
+  </style>
+</helmet>
+
+<div style="width:1280px; height:900px; background:var(--bg); box-sizing:border-box; display:flex; flex-direction:column; overflow:hidden;">
+
+  <div style="display:flex; align-items:center; justify-content:space-between; padding:16px 40px; border-bottom:1px solid var(--line);">
+    <div style="display:flex; align-items:center; gap:10px;">
+      <div style="width:12px; height:12px; border-radius:2px; background:var(--accent); transform:rotate(45deg);"></div>
+      <span class="display" style="font-size:16px;">Startup Deportiva</span>
+    </div>
+    <div style="display:flex; align-items:center; gap:10px;">
+      <span class="chip">Luis Fernández</span>
+      <div style="width:34px; height:34px; border-radius:50%; background:var(--accent-soft); display:flex; align-items:center; justify-content:center; font-weight:700; color:var(--accent); font-size:13px;">LF</div>
+    </div>
+  </div>
+
+  <div style="padding:32px 40px; display:flex; flex-direction:column; gap:24px; overflow:hidden;">
+
+    <div style="display:flex; align-items:flex-end; justify-content:space-between; padding-bottom:16px; border-bottom:1px solid var(--line);">
+      <div>
+        <span style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-muted);">Contexto interpretado</span>
+        <h1 style="font-size:32px; color:var(--accent); margin-top:4px;">Cambio de club</h1>
+      </div>
+      <div style="text-align:right;">
+        <span style="font-size:12px; color:var(--text-muted);">Un perfil, dos roles activos</span><br>
+        <span class="mono" style="font-size:13px;">jugador (busca club) · entrenador certificado (busca trabajo)</span>
+      </div>
+    </div>
+
+    <!-- PRIMARY CONTEXT -->
+    <div style="display:flex; flex-direction:column; gap:14px;">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <span style="width:8px; height:8px; border-radius:50%; background:var(--accent);"></span>
+        <span style="font-size:11px; font-weight:700; text-transform:uppercase; color:var(--accent);">Contexto activo</span>
+        <h2 style="font-size:20px; text-transform:none; letter-spacing:0; color:var(--text);">Como jugador — cambio de club</h2>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:16px;">
+        <div class="card" style="padding:16px 18px; display:flex; flex-direction:column; gap:8px;">
+          <span class="mono" style="font-size:11px; font-weight:700; text-transform:uppercase; color:var(--accent-2); background:var(--accent-2-soft); padding:3px 8px; border-radius:5px; align-self:flex-start;">Tryout</span>
+          <h3 style="font-size:16px; text-transform:none; letter-spacing:0;">Deportivo Alianza Sur</h3>
+          <span style="font-size:13px; color:var(--text-muted);">Sub-18 · Liga Canguro Diamante · 9 km</span>
+        </div>
+        <div class="card" style="padding:16px 18px; display:flex; flex-direction:column; gap:8px;">
+          <span class="mono" style="font-size:11px; font-weight:700; text-transform:uppercase; color:var(--accent-2); background:var(--accent-2-soft); padding:3px 8px; border-radius:5px; align-self:flex-start;">Tryout</span>
+          <h3 style="font-size:16px; text-transform:none; letter-spacing:0;">Escuela Táchira FC</h3>
+          <span style="font-size:13px; color:var(--text-muted);">Sub-18 · Liga Distrital Titanio · 15 km</span>
+        </div>
+      </div>
+      <button style="align-self:flex-start; background:var(--accent); color:var(--accent-ink); font-weight:700; padding:11px 22px; border-radius:10px; font-size:14px; border:none;">Ver tryouts</button>
+    </div>
+
+    <div style="height:1px; background:var(--line);"></div>
+
+    <!-- SECONDARY CONTEXT -->
+    <div style="display:flex; flex-direction:column; gap:14px;">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <span style="width:8px; height:8px; border-radius:50%; background:var(--text-muted);"></span>
+        <span style="font-size:11px; font-weight:700; text-transform:uppercase; color:var(--text-muted);">Tu otro contexto activo</span>
+        <h2 style="font-size:20px; text-transform:none; letter-spacing:0; color:var(--text-muted);">Oportunidad profesional — como entrenador</h2>
+      </div>
+      <div class="card" style="padding:16px 18px; display:flex; align-items:center; justify-content:space-between;">
+        <div style="display:flex; flex-direction:column; gap:4px;">
+          <span class="mono" style="font-size:11px; font-weight:700; text-transform:uppercase; color:var(--accent-2); background:var(--accent-2-soft); padding:3px 8px; border-radius:5px; align-self:flex-start;">Empleo</span>
+          <h3 style="font-size:16px; text-transform:none; letter-spacing:0;">Entrenador asistente Sub-13</h3>
+          <span style="font-size:13px; color:var(--text-muted);">Academia Los Álamos · Liga Pipo Rossi · disponibilidad inmediata</span>
+        </div>
+        <span style="font-size:13px; font-weight:600; color:var(--accent);">Ver vacantes de entrenador →</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+</x-dc>
+</body>
+</html>
