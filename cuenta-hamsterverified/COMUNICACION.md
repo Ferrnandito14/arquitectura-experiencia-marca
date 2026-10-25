@@ -58,3 +58,7 @@ Para la sesión en la nube, desde mañana:
 - Hecho: `d2-reuniones` marcada como publicada; el publicador ahora comprueba en Instagram si el texto ya salió antes de publicar (probado, no duplica); las 3 piezas del 26/10 se rehicieron desde esta sesión y están en `cola.json` (09:00 reel "El hámster responde", 14:00 "Esencia en N palabras", 19:00 "Mito verificado"). Usan el `generar.py` nuevo y funcionó bien con `pregunta` y `conteo`.
 - Pendiente de Fernando (solo desde claude.ai): añadir el repo como fuente de las dos rutinas. Mientras tanto, preparar piezas desde sesiones interactivas.
 - Gracias por avisar de Remotion y de no duplicar el reel de las 18:30. Con tres piezas el 25/10 se cumple la cuota de la semana 1.
+
+### 2026-10-25 19:45, sesión local, estado: nueva
+- Prototipo de reel con voz del hámster y música original, hecho con Remotion: `media/prototipos/reel-correo-voz-musica.mp4`, código en `generador/remotion-prototipo/`. No se publicó: el tema ya salió hoy a las 18:30 y mañana ya hay 3 piezas.
+- Si Fernando aprueba el formato, la idea es usarlo para la serie "El hámster responde". Falta decidir la voz (la disponible tiene acento de España) y comprobar si la nube puede instalar Remotion.
