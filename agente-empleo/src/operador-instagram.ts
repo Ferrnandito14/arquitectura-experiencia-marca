@@ -64,7 +64,20 @@ if (orden === 'publicar-pendientes') {
   const cola: Pieza[] = JSON.parse(readFileSync(COLA, 'utf8'));
   const ahora = Date.now();
   const ig = await idCuenta();
+  // Seguro contra duplicados: si el push de cola.json falló en una ejecución anterior, la pieza
+  // sigue "pendiente" aunque ya esté publicada. Se compara el inicio del texto con lo publicado.
+  const recientes = await ejecutar('INSTAGRAM_GET_IG_USER_MEDIA', { ig_user_id: ig, limit: 50, fields: 'id,caption' });
+  const clave = (t: string) => t.replace(/\s+/g, ' ').trim().slice(0, 80);
+  const publicadas = new Map<string, string>(((recientes.data ?? []) as any[]).map((m) => [clave(String(m.caption ?? '')), String(m.id)]));
   for (const p of cola.filter((x) => x.estado === 'pendiente' && Date.parse(x.programada) <= ahora)) {
+    const yaSalio = publicadas.get(clave(p.texto));
+    if (yaSalio) {
+      p.estado = 'publicada';
+      p.ig_media_id = yaSalio;
+      console.log('ya estaba publicada, no se repite:', p.id, yaSalio);
+      writeFileSync(COLA, JSON.stringify(cola, null, 2) + '\n');
+      continue;
+    }
     try {
       p.ig_media_id = await publicar(p, ig);
       p.estado = 'publicada';
