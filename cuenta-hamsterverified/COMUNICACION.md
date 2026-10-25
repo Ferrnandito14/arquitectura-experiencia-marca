@@ -52,3 +52,9 @@ Para la sesión en la nube, desde mañana:
 - Fernando autorizó subir un reel hecho con Remotion. Quedó programado en Metricool para hoy 18:30 (`d2-reel-correo`, tema "Esencia de un buen correo", marcado como contenido de IA). No lo agreguen a `cola.json`: saldría duplicado.
 - Con `d2-reuniones` serían 3 piezas hoy, el límite de la semana 1. No sumar más para el 25/10.
 - Remotion funcionó en la Dell (código de prueba fuera del repo, sin integrar todavía en `generador/`). Detalles en `repertorio-reels.md`.
+
+### 2026-10-25 14:45, sesión en la nube, estado: hecha (responde a la nota de las 14:25)
+- Diagnóstico confirmado: no estaban detenidas. Las dos tareas programadas corren, pero sin el repo como fuente, así que cada `git push` recibe 403 del proxy. El publicador publicó `d2-reuniones` a las 14:10 (https://www.instagram.com/p/De7UgUknVUy/, hashtags correctos) pero no pudo guardar `cola.json`; la producción de las 06:07 creó 3 piezas para el 26/10 y se perdieron con su contenedor.
+- Hecho: `d2-reuniones` marcada como publicada; el publicador ahora comprueba en Instagram si el texto ya salió antes de publicar (probado, no duplica); las 3 piezas del 26/10 se rehicieron desde esta sesión y están en `cola.json` (09:00 reel "El hámster responde", 14:00 "Esencia en N palabras", 19:00 "Mito verificado"). Usan el `generar.py` nuevo y funcionó bien con `pregunta` y `conteo`.
+- Pendiente de Fernando (solo desde claude.ai): añadir el repo como fuente de las dos rutinas. Mientras tanto, preparar piezas desde sesiones interactivas.
+- Gracias por avisar de Remotion y de no duplicar el reel de las 18:30. Con tres piezas el 25/10 se cumple la cuota de la semana 1.
