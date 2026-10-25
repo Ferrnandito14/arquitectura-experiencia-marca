@@ -63,6 +63,21 @@ Vistos desde la cuenta hamster.2511058. Los cinco cierran con "comenta PALABRA y
 |---|---|---|---|
 | idanbuild (31,9 mil me gusta) | Google Maps + Claude para encontrar negocios y venderles webs interactivas. Promete "$67.492 al mes" | Es el mismo modelo de `demos-web/`. Lo más útil está en los comentarios: piden quién aloja, quién maneja el DNS, cómo edita el cliente, datos estructurados, sitemap, indexación en Google Search Console, formularios. Otro comentario muy votado lo llama "vender webs a medio hacer". Aplicado en `demos-web/modelo-de-venta.md` (lista de entrega) | Idea aplicada. La cifra de ingresos no se usa: no es verificable |
 | paul.mccubbinn | "Tu web hecha con IA no tiene por qué verse hecha con IA": 4 skills para que Claude diseñe como un diseñador | Confirma el enfoque de `frontend-design` y `ui-ux-pro-max`. No dice cuáles son las 4 en el pie | Ya cubierto |
-| danielbrown.ia | Videos de motion graphics con Claude y Remotion | Remotion genera video con código (React). Podría reemplazar el MP4 de diapositivas con fundidos de `generar.py` por reels animados de verdad | Pendiente de revisar código y permisos antes de instalar. Necesita Node |
+| danielbrown.ia | Videos de motion graphics con Claude y Remotion | Remotion genera video con código (React). Podría reemplazar el MP4 de diapositivas con fundidos de `generar.py` por reels animados de verdad | Revisado el 2026-10-25, no instalado. Ver "Revisión de Remotion" abajo |
 | valentinpanizza | OmniRoute: "uso ilimitado conectando Claude" | Nada. Ya se revisó y no se instaló: es un enrutador para saltarse límites, con riesgo para la cuenta | Descartado |
 | aldushmedia (16,3 mil me gusta) | Claude conectado a LinkedIn para manejar "la cuenta entera" | Relacionado con el conector de LinkedIn por Composio que ya está listo y espera la autorización de Fernando | Sin cambios: lo decide Fernando |
+
+## Revisión de Remotion (2026-10-25)
+
+Revisado sin instalar: paquetes de npm versión 4.0.538 descargados y leídos en una carpeta temporal, y el repo oficial de skills `remotion-dev/skills` (commit 6c67adc).
+
+- Licencia: gratis para personas y empresas de hasta 3 personas, también con uso comercial. Fernando opera solo, así que entra. Desde 4 personas hace falta licencia de pago. La versión 5.0 cambiará algo de la licencia, sin detalles todavía.
+- Instalación: ninguno de los paquetes revisados (`remotion`, `@remotion/cli`, `@remotion/renderer`, `@remotion/bundler`) tiene scripts que se ejecuten al instalar.
+- Conexiones de red:
+  - Al renderizar descarga una vez un Chrome sin interfaz (Chrome Headless Shell) desde `remotion.media` o el almacenamiento de Google, de unos cien megas.
+  - Envío de uso a `remotion.pro`: solo ocurre si se le pasa una clave de licencia (o `free-license`). Si no se pasa ninguna, no envía nada y solo muestra un aviso.
+  - Trae su propio ffmpeg en un paquete opcional para Windows; no hace falta instalarlo aparte.
+- Requisitos: Node (en la Dell hay Node 24) y unos cientos de megas entre dependencias y el navegador.
+- Skills oficiales: son guías en Markdown (crear videos, subtítulos, mapas, render) más algunos scripts opcionales de mapas. El repo no trae archivo de licencia, así que se usan como referencia y no se copian al repo.
+- Para qué serviría: reels animados de verdad (texto que entra palabra por palabra, el sello VERDADERO/FALSO que cae, el hámster que aparece), en lugar de diapositivas fijas con fundidos. Se escriben con código, así que encajan en la producción automática.
+- Riesgo: la sesión de la nube necesita poder instalar paquetes de npm y descargar el navegador. Si no puede, los reels con Remotion solo se generarían en la Dell.
