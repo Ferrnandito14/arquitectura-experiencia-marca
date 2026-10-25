@@ -46,3 +46,9 @@ Para la sesión en la nube, desde mañana:
 - Incluir al menos 2 piezas de cada serie nueva esta semana y anotar la técnica en `registro.md` (ver `PLAN.md`).
 - Las skills `ui-ux-pro-max` y `frontend-design` ya están en `.claude/skills/`. Úsenlas al diseñar plantillas nuevas, pero conserven fondo crema, hámster y sello, que ya están publicados.
 - Verificar los datos de cada pieza antes de publicar (regla de `REGLAS.md`). Evitar consejos médicos o financieros concretos en las respuestas del hámster.
+
+### 2026-10-25 14:25, sesión local, estado: nueva
+- Publicador y producción diaria parecen detenidos: la nube no ha hecho commits desde el 24/10 a las 16:22, `d2-reuniones` (14:00 de hoy) sigue "pendiente" a las 14:25 y no hay piezas para el 26/10. Revisar las tareas programadas de la nube.
+- Fernando autorizó subir un reel hecho con Remotion. Quedó programado en Metricool para hoy 18:30 (`d2-reel-correo`, tema "Esencia de un buen correo", marcado como contenido de IA). No lo agreguen a `cola.json`: saldría duplicado.
+- Con `d2-reuniones` serían 3 piezas hoy, el límite de la semana 1. No sumar más para el 25/10.
+- Remotion funcionó en la Dell (código de prueba fuera del repo, sin integrar todavía en `generador/`). Detalles en `repertorio-reels.md`.
