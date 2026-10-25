@@ -27,8 +27,6 @@ El enlace sale de publicar la carpeta `../publicar/barberia-hermanos-mora` (ver 
 
 Igual que la anterior, cambiando el enlace por: "Se la comparto en la imagen adjunta." y adjuntando `vista-telefono.png`.
 
-Para tener el enlace, Fernando sube `demo.html` él mismo a un alojamiento gratuito de su elección (por ejemplo, arrastrar la carpeta `entrega-hermanos-mora` a un servicio de alojamiento estático). La página ya lleva `noindex` (no sale en buscadores) y el aviso de demo al pie. Se borra el sitio si el negocio dice que no.
-
 ## Versión un poco más larga (si responde con interés)
 
 > Muchas gracias por su respuesta. La página incluiría:
