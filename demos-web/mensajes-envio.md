@@ -1,6 +1,6 @@
 # Mensajes de presentación (2026-10-24)
 
-Enviado: Tonsor Barber Club (9:20 p. m. del sábado). Pendientes por hora: Bravos, Odontología Gran Caracas, La Flor de Altamira y El Barquero. Al enviarlos de día, el saludo cambia a "Buenos días" o "Buenas tardes".
+Enviados: Tonsor Barber Club (sábado 9:20 p. m.), Bravos Barber (domingo 12:32 p. m.) y El Barquero (domingo 12:34 p. m.), estos dos con "Buenas tardes". No enviado: La Flor de Altamira (su teléfono no tiene WhatsApp). Pendiente: Odontología Gran Caracas, lunes 9:30 a. m., con "Buenos días".
 
 Mismo estilo que el mensaje aprobado para Hermanos Mora, adaptado a cada negocio. Fernando autorizó prepararlos y enviarlos. Un solo mensaje por negocio, sin imagen, desde su WhatsApp. Los teléfonos salen de la ficha pública de Google Maps de cada negocio y no se guardan aquí.
 
