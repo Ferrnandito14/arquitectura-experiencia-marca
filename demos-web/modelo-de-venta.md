@@ -64,6 +64,10 @@ Sale de las preguntas que más se repiten cuando alguien vende webs con IA (come
 8. Reserva o pedido en línea conectado de verdad: en las demos el formulario no envía nada. En la página vendida se conecta a un servicio que guarde las solicitudes y avise al negocio (por ejemplo, el formulario de Netlify con aviso por correo, o una agenda en línea). Se le dice al cliente qué datos se piden (nombre y WhatsApp), para qué se usan y quién los ve.
 9. Cómo pide cambios el cliente (WhatsApp) y en cuánto tiempo se hacen, según el plan.
 10. Copia de seguridad del sitio.
+11. Revisión antes de publicar (lista de 20 puntos del reel de millocreador.ia, adaptada a una página de una sola pantalla sin cuentas de usuario):
+    - Ya en las demos: HTTPS (lo da Netlify), descripción para Google, vista previa del enlace al compartirlo por WhatsApp (`og:title` y `og:description`), ícono de pestaña, color de barra en el teléfono, versión móvil, enlaces internos sin romper, validación del formulario y botón principal claro. Lo aplica `reserva/cabecera.py`.
+    - Al vender: aviso de privacidad corto junto al formulario (qué datos, para qué, quién los ve); campo trampa contra spam en el formulario; imagen de vista previa (`og:image`) con una foto del local aprobada; página 404 con el botón de reservar; fotos comprimidas (WebP) con texto alternativo; medición de visitas solo si el cliente la quiere, y entonces con aviso de cookies.
+    - No aplica: términos y condiciones, claves de API (la página no usa ninguna).
 
 Fuera del precio de lanzamiento: blog, tienda, formularios con base de datos y automatizaciones. Se cotizan aparte.
 

@@ -81,3 +81,14 @@ Revisado sin instalar: paquetes de npm versión 4.0.538 descargados y leídos en
 - Skills oficiales: son guías en Markdown (crear videos, subtítulos, mapas, render) más algunos scripts opcionales de mapas. El repo no trae archivo de licencia, así que se usan como referencia y no se copian al repo.
 - Para qué serviría: reels animados de verdad (texto que entra palabra por palabra, el sello VERDADERO/FALSO que cae, el hámster que aparece), en lugar de diapositivas fijas con fundidos. Se escriben con código, así que encajan en la producción automática.
 - Riesgo: la sesión de la nube necesita poder instalar paquetes de npm y descargar el navegador. Si no puede, los reels con Remotion solo se generarían en la Dell.
+
+## Tercera tanda (2026-10-25, noche)
+
+Vistos desde la cuenta hamster.2511058. Los tres cierran otra vez con "comenta PALABRA y te mando el recurso".
+
+| Cuenta | De qué trata | Qué nos sirve | Estado |
+|---|---|---|---|
+| millocreador.ia (7,7 mil me gusta) | "20 cosas que pedirle a Claude antes de publicar tu web": privacidad, términos, claves, HTTPS, cookies, metadescripciones, vista previa del enlace, ícono, sitemap y robots, texto alternativo, imágenes comprimidas, velocidad, contraste, móvil, 404, enlaces rotos, validar formularios, anti-spam, analítica y botón claro | Auditadas las seis demos. Faltaban vista previa del enlace (importa porque se mandan por WhatsApp), ícono y color de barra; la descripción aún decía "Reserva por WhatsApp". Aplicado con `demos-web/reserva/cabecera.py`. Lo que solo toca al vender quedó en la lista de entrega de `demos-web/modelo-de-venta.md` | Aplicado |
+| aress.pw (2,2 mil me gusta) | Página de arquitectura de aspecto caro hecha con Claude ("EXCEPTIONAL places") | Confirma la apuesta por tipografía grande y foto de fondo. Nada nuevo que aplicar | Ya cubierto |
+| joacoquiroogaa | Un repositorio para que "tus páginas dejen de ser horribles y las vendas por más de $1000". Por los comentarios es shadcn/ui | Son componentes de React. Las demos son un solo HTML sin dependencias, que es lo que permite mandarlas y alojarlas gratis; meter React no compensa. La cifra de $1000 no se usa | Descartado para las demos |
+
