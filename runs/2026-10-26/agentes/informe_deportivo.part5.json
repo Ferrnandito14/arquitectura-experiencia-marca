@@ -1,0 +1,1819 @@
+{
+ "agente": "deportivo",
+ "version_contrato": 1,
+ "run": "runs/2026-10-26",
+ "unidades": [
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Partidos con gol al descanso: AMG 5/10, Cuiabá 8/10 (n10); HT a favor 0.2/0.4. Modelo o0.5 .52 vs muestra ~.65: señales mixtas.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c7d68b7c7859|1.ª parte goles",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/75.json"
+   ],
+   "unit_id": "m-c7d68b7c7859|1.ª parte goles"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "empate",
+   "escenario_perdida": "partido_abierto",
+   "nota": "HT a favor AMG 0.2, Cuiabá 0.4 (n10): marcadores cortos, empate al descanso .55 en modelo, pero sin ventaja clara sobre el precio.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c7d68b7c7859|1.ª parte resultado",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/75.json"
+   ],
+   "unit_id": "m-c7d68b7c7859|1.ª parte resultado"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Esperado ~11.3 (AMG 5.5/6.0, Cuiabá 6.1/5.0, n10) vs liga 10.7; >9.5: AMG casa 4/6, Cuiabá fuera 4/6. Árbitro sin muestra. 10.5+ más frágil.",
+   "excepciones": [
+    {
+     "entry_id": "corners.total.over.10.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.total.under.10.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.total.over.11.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.total.under.11.5",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-c7d68b7c7859|córners",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/75.json"
+   ],
+   "unit_id": "m-c7d68b7c7859|córners"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "localia",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "AMG 3V0E3D en casa, 3V de 10 y GF 0.6; Cuiabá fuera 1V2E3D, GF 0.5. Equipos flojos y parejos: ninguna doble oportunidad destaca.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c7d68b7c7859|doble oportunidad",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/75.json"
+   ],
+   "unit_id": "m-c7d68b7c7859|doble oportunidad"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "DNB depende de un 1X2 sin consenso (modelo plano .33/.32/.35). AMG 3V/10, Cuiabá fuera 1V/6. Sin ventaja.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c7d68b7c7859|empate no válido",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/75.json"
+   ],
+   "unit_id": "m-c7d68b7c7859|empate no válido"
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni estimador de fueras de juego; el paquete no trae datos propios.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c7d68b7c7859|fueras de juego",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/75.json"
+   ],
+   "unit_id": "m-c7d68b7c7859|fueras de juego"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "under",
+   "escenario_perdida": "partido_abierto",
+   "nota": "O2.5: AMG 2/10, Cuiabá 4/10 (n10) vs liga 43%; BTTS 2/10 y 2/10. Under 2.5 y BTTS no apoyados; árbitro sin muestra.",
+   "excepciones": [
+    {
+     "entry_id": "goles.total.over.0.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.total.under.0.5",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-c7d68b7c7859|goles",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/75.json"
+   ],
+   "unit_id": "m-c7d68b7c7859|goles"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "under",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Marcó: AMG 4/10 (GF 0.6), Cuiabá 5/10 (fuera 2/6, GF 0.5). Under 1.5 por equipo respaldado; over 0.5 solo ~50%.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c7d68b7c7859|goles por equipo",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/75.json"
+   ],
+   "unit_id": "m-c7d68b7c7859|goles por equipo"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "under",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Total >=4: AMG 1/10, Cuiabá 0/10; <=2 goles 7/10 y 6/10. Under 3 respaldado (push en 3). Over 1 y 2 menos claros.",
+   "excepciones": [
+    {
+     "entry_id": "goles.total_entero.over.1",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.total_entero.under.1",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.total_entero.over.2",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.total_entero.under.2",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-c7d68b7c7859|goles total entero",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/75.json"
+   ],
+   "unit_id": "m-c7d68b7c7859|goles total entero"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Cuiabá gana por 2+ fuera 0/6; AMG pierde por 2+ en casa 1/6 (n10 c/u). Colchón +1.5/+2.5 de AMG apoyado; ±0.5 depende del 1X2 sin consenso.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.home.+1.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "resultado.ah.home.+2.5",
+     "solidez": "MEDIA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-c7d68b7c7859|hándicap",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/75.json"
+   ],
+   "unit_id": "m-c7d68b7c7859|hándicap"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Cuiabá gana por 2+ fuera 0/6 (n6): AMG +2 respaldado; resto de líneas enteras dependen del 1X2 plano.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah_entero.home.+2",
+     "solidez": "MEDIA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-c7d68b7c7859|hándicap asiático entero",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/75.json"
+   ],
+   "unit_id": "m-c7d68b7c7859|hándicap asiático entero"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Tres vías con empate sobre un 1X2 sin consenso; Cuiabá fuera sin victorias por 2+ (0/6). Sin ventaja clara.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c7d68b7c7859|hándicap europeo",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/75.json"
+   ],
+   "unit_id": "m-c7d68b7c7859|hándicap europeo"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Esperado ~31.5 (AMG 17.1/16.9 n8, Cuiabá 16.4/12.6 n9) vs línea 27.5; incluye un 35-7 atípico. Over total respaldado, líneas por equipo menos.",
+   "excepciones": [
+    {
+     "entry_id": "shots.equipo.home.over.13.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.home.under.13.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.14.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.14.5",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-c7d68b7c7859|remates",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/75.json"
+   ],
+   "unit_id": "m-c7d68b7c7859|remates"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "SoT esperado ~8.4 (AMG 5.5/3.6, Cuiabá 4.4/3.3, n8-9) vs línea 7.5; margen ~0.9 con muestra corta. Ventaja leve.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c7d68b7c7859|remates a puerta",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/75.json"
+   ],
+   "unit_id": "m-c7d68b7c7859|remates a puerta"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Mercado favorece a Cuiabá (~.47) pero fuera 1V2E3D, GF 0.5 (n6); AMG 3V0E3D en casa. Modelo plano. Sin once confirmado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c7d68b7c7859|resultado",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/75.json"
+   ],
+   "unit_id": "m-c7d68b7c7859|resultado"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "arbitro",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "tarjetas_atipicas",
+   "nota": "Pts esperados ~3.7 (AMG 2.1/2.0, Cuiabá 1.6/1.7, n10). Árbitro Jodis sin partidos en la muestra de liga: sin dato propio. Línea 3.5 pareja.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-c7d68b7c7859|tarjetas",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/75.json"
+   ],
+   "unit_id": "m-c7d68b7c7859|tarjetas"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Gol al descanso: Chicago 7/10, SMSJ 6/10 (n10) vs modelo o0.5 .50: discrepan. Chicago GF 0.4/partido; sin ventaja.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ca811b0bdbc3|1.ª parte goles",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/41.json"
+   ],
+   "unit_id": "m-ca811b0bdbc3|1.ª parte goles"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "empate",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Modelo empate HT .57 vs precio ~.55; ambos equipos de marcadores bajos (HT a favor ~0.3). Sin ventaja neta.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ca811b0bdbc3|1.ª parte resultado",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/41.json"
+   ],
+   "unit_id": "m-ca811b0bdbc3|1.ª parte resultado"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "under",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Esperado ~7.9 (Chicago 4.3/3.1, SMSJ 4.4/4.0, n10) vs liga 8.6 y línea 8.5; modelo u8.5 .59. Árbitro s/d; ventaja leve.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ca811b0bdbc3|córners",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/41.json"
+   ],
+   "unit_id": "m-ca811b0bdbc3|córners"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Chicago 2V1E7D (GF 0.4); SMSJ 4V3E3D, fuera 1V1E2D (n4). Equipos parejos y flojos; ninguna doble oportunidad destaca.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ca811b0bdbc3|doble oportunidad",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/41.json"
+   ],
+   "unit_id": "m-ca811b0bdbc3|doble oportunidad"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Modelo y mercado planos (.48/.52). Chicago casa 1V1E3D (n5); SMSJ rota ~4 cambios. Sin ventaja.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ca811b0bdbc3|empate no válido",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/41.json"
+   ],
+   "unit_id": "m-ca811b0bdbc3|empate no válido"
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni estimador de fueras de juego; el paquete no trae datos propios.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ca811b0bdbc3|fueras de juego",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/41.json"
+   ],
+   "unit_id": "m-ca811b0bdbc3|fueras de juego"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "under",
+   "escenario_perdida": "partido_abierto",
+   "nota": "O2.5: Chicago 1/10, SMSJ 3/10 (n10) vs liga 34% (n586); BTTS 2/10 y 4/10. Under 2.5 y BTTS no bien apoyados; árbitro s/d.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ca811b0bdbc3|goles",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/41.json"
+   ],
+   "unit_id": "m-ca811b0bdbc3|goles"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "under",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Marcó: Chicago 4/10 (GF 0.4), SMSJ 7/10 (fuera 2/4). Under 1.5 por equipo apoyado; over 0.5 de Chicago flojo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ca811b0bdbc3|goles por equipo",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/41.json"
+   ],
+   "unit_id": "m-ca811b0bdbc3|goles por equipo"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "under",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Chicago: 9/10 partidos con <=2 goles, >=4 0/10; SMSJ >=4 1/10. Under 2 y 3 apoyados (push). Over 1 menos claro.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ca811b0bdbc3|goles total entero",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/41.json"
+   ],
+   "unit_id": "m-ca811b0bdbc3|goles total entero"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Margen 2+ raro: Chicago gana 0/10, pierde 1/10; SMSJ gana 1/10, pierde 1/10 (n10). Colchón +1.5/+2.5 apoyado; ±0.5 sin consenso.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.home.+1.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "resultado.ah.away.+1.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "resultado.ah.home.+2.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "resultado.ah.away.+2.5",
+     "solidez": "MEDIA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-ca811b0bdbc3|hándicap",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/41.json"
+   ],
+   "unit_id": "m-ca811b0bdbc3|hándicap"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Margen 2+ en solo 3/20 partidos; +2 de ambos lados respaldado, ±1 y 0 dependen del 1X2 plano.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah_entero.home.+2",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "resultado.ah_entero.away.+2",
+     "solidez": "MEDIA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-ca811b0bdbc3|hándicap asiático entero",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/41.json"
+   ],
+   "unit_id": "m-ca811b0bdbc3|hándicap asiático entero"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "1X2 plano; empate frecuente en el handicap +/-1 por márgenes cortos (3/20 con 2+). Sin ventaja clara.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ca811b0bdbc3|hándicap europeo",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/41.json"
+   ],
+   "unit_id": "m-ca811b0bdbc3|hándicap europeo"
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin remates en la muestra de apifootball (shots n/d en los 10+10 previos): datos insuficientes, sin estimador.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ca811b0bdbc3|remates",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/41.json"
+   ],
+   "unit_id": "m-ca811b0bdbc3|remates"
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin remates en la muestra de apifootball (shots n/d en los 10+10 previos): datos insuficientes, sin estimador.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ca811b0bdbc3|remates a puerta",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/41.json"
+   ],
+   "unit_id": "m-ca811b0bdbc3|remates a puerta"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Modelo .31/.35/.34 y precios planos. Chicago 2V1E7D GF 0.4; SMSJ 4V3E3D. SMSJ rota ~4 cambios (8d de descanso). Sin once.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ca811b0bdbc3|resultado",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/41.json"
+   ],
+   "unit_id": "m-ca811b0bdbc3|resultado"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "arbitro",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "tarjetas_atipicas",
+   "nota": "Pts esperados ~5.4 (Chicago 3.5/2.3, SMSJ 2.6/2.5, n10) vs liga 5.2. Árbitro s/d, sin precio de referencia: sin ventaja.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ca811b0bdbc3|tarjetas",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/41.json"
+   ],
+   "unit_id": "m-ca811b0bdbc3|tarjetas"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Gol al descanso: Belgrano 8/10, San Miguel 4/10; San Miguel nunca marcó al HT (0.0, n10). Modelo o0.5 .64: mixto.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-cb8f57ae0e0e|1.ª parte goles",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/41.json"
+   ],
+   "unit_id": "m-cb8f57ae0e0e|1.ª parte goles"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "partido_abierto",
+   "nota": "San Miguel 0 goles HT en 10; Belgrano casa HT>=1 6/6. Modelo L .41/E .45/V .15; local o empate al HT más sólido, 1 aislado BAJA.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-cb8f57ae0e0e|1.ª parte resultado",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/41.json"
+   ],
+   "unit_id": "m-cb8f57ae0e0e|1.ª parte resultado"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Esperado ~8.6 (Belgrano 5.2/3.9, San Miguel 4.5/3.6, n9-10) vs liga 8.6 y línea 8.5; modelo .50. Sin ventaja.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-cb8f57ae0e0e|córners",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/41.json"
+   ],
+   "unit_id": "m-cb8f57ae0e0e|córners"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "1X: San Miguel sin victorias en 10 (0V3E7D), fuera 0V2E3D, 2 días de descanso; Belgrano casa 2V1E3D. Modelo 1X .84.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.dc.x2",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-cb8f57ae0e0e|doble oportunidad",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/41.json"
+   ],
+   "unit_id": "m-cb8f57ae0e0e|doble oportunidad"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "San Miguel 0V en 10 y 2 días de descanso (rotación media); Belgrano casa 2V1E3D GF 1.0. Modelo DNB local .79.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-cb8f57ae0e0e|empate no válido",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/41.json"
+   ],
+   "unit_id": "m-cb8f57ae0e0e|empate no válido"
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni estimador de fueras de juego; el paquete no trae datos propios.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-cb8f57ae0e0e|fueras de juego",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/41.json"
+   ],
+   "unit_id": "m-cb8f57ae0e0e|fueras de juego"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "O2.5: Belgrano 4/10, San Miguel 6/10 (n10) vs liga 34%; BTTS 3/10 y 8/10. Modelo o2.5 .50 y BTTS .53: señales mixtas.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-cb8f57ae0e0e|goles",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/41.json"
+   ],
+   "unit_id": "m-cb8f57ae0e0e|goles"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Marcó: Belgrano 5/10 (casa 3/6), San Miguel 8/10 pero encaja siempre (10/10). Modelo local o0.5 .83 no cuadra con 5/10.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-cb8f57ae0e0e|goles por equipo",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/41.json"
+   ],
+   "unit_id": "m-cb8f57ae0e0e|goles por equipo"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Totales >=3: Belgrano 4/10, San Miguel 10/10 (todos 2-3). Modelo o2 .64 con push; liga baja (34% o2.5). Sin ventaja.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-cb8f57ae0e0e|goles total entero",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/41.json"
+   ],
+   "unit_id": "m-cb8f57ae0e0e|goles total entero"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Belgrano gana por 2+ 1/10; San Miguel pierde por 2+ 2/10, 0V. -0.5 respaldado, -1.5 no (L por 2+ 1/10).",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.home.-1.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "resultado.ah.away.+1.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "resultado.ah.home.-0.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "resultado.ah.away.+0.5",
+     "solidez": "MEDIA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-cb8f57ae0e0e|hándicap",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/41.json"
+   ],
+   "unit_id": "m-cb8f57ae0e0e|hándicap"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Belgrano gana por 2+ 1/10 (n10); -1 frágil, +1/+2 de Belgrano más apoyado (pierde por 2+ 2/10).",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah_entero.home.+1",
+     "solidez": "MEDIA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-cb8f57ae0e0e|hándicap asiático entero",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/41.json"
+   ],
+   "unit_id": "m-cb8f57ae0e0e|hándicap asiático entero"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Depende del 1X2 local (San Miguel 0V10) pero Belgrano gana por 2+ solo 1/10; draw en margen frecuente. Sin ventaja clara.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-cb8f57ae0e0e|hándicap europeo",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/41.json"
+   ],
+   "unit_id": "m-cb8f57ae0e0e|hándicap europeo"
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin remates en la muestra de apifootball (shots n/d en los 10+10 previos): datos insuficientes, sin estimador.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-cb8f57ae0e0e|remates",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/41.json"
+   ],
+   "unit_id": "m-cb8f57ae0e0e|remates"
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin remates en la muestra de apifootball (shots n/d en los 10+10 previos): datos insuficientes, sin estimador.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-cb8f57ae0e0e|remates a puerta",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/41.json"
+   ],
+   "unit_id": "m-cb8f57ae0e0e|remates a puerta"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "San Miguel 0V3E7D, fuera 0V2E3D y 2 días de descanso; Belgrano casa 2V1E3D con GF 1.0 (n6). Modelo L .61 vs ~.52 mercado. Empate es el riesgo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-cb8f57ae0e0e|resultado",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/41.json"
+   ],
+   "unit_id": "m-cb8f57ae0e0e|resultado"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "arbitro",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "tarjetas_atipicas",
+   "nota": "Pts esperados ~4.4 (Belgrano 1.9/2.0, San Miguel 2.7/2.2, n9-10) vs liga 5.2; modelo o4.5 .46. Árbitro s/d.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-cb8f57ae0e0e|tarjetas",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/41.json"
+   ],
+   "unit_id": "m-cb8f57ae0e0e|tarjetas"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Gol al HT: Capiatá 6/10, Tacuary 8/10 (n10); HT a favor/contra 0.4/0.8 y 0.4/0.7. Esperado ~1.15 HT; modelo o0.5 .69 coherente.",
+   "excepciones": [
+    {
+     "entry_id": "primera_parte.total.over.1.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "primera_parte.total.under.1.5",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-ce4a4deef11e|1.ª parte goles",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/256.json"
+   ],
+   "unit_id": "m-ce4a4deef11e|1.ª parte goles"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "empate",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Modelo L .36/E .42/V .22; HT goles bajos en ambos (0.4). Sin precio de referencia propio, sin ventaja clara.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ce4a4deef11e|1.ª parte resultado",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/256.json"
+   ],
+   "unit_id": "m-ce4a4deef11e|1.ª parte resultado"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Esperado ~9.4 (Capiatá 5.1/4.2, Tacuary 4.7/4.9, n10) vs liga 9.1; modelo o9.5 .48. Sin ventaja; árbitro s/d.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ce4a4deef11e|córners",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/256.json"
+   ],
+   "unit_id": "m-ce4a4deef11e|córners"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "localia",
+   "direccion_favorable": "local",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "1X: Capiatá casa 2V2E1D, Tacuary fuera 0V3E1D (n4-5). Pequeñas muestras; Tacuary encaja 1.8/partido. 12 y X2 sin apoyo.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.dc.12",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "resultado.dc.x2",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-ce4a4deef11e|doble oportunidad",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/256.json"
+   ],
+   "unit_id": "m-ce4a4deef11e|doble oportunidad"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "localia",
+   "direccion_favorable": "local",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Capiatá casa 2V2E1D, Tacuary fuera 0V3E1D (n5/n4); ambos con GA >1.3. DNB local .66, muestra pequeña.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ce4a4deef11e|empate no válido",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/256.json"
+   ],
+   "unit_id": "m-ce4a4deef11e|empate no válido"
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni estimador de fueras de juego; el paquete no trae datos propios.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ce4a4deef11e|fueras de juego",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/256.json"
+   ],
+   "unit_id": "m-ce4a4deef11e|fueras de juego"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "O2.5: Capiatá 5/10, Tacuary 6/10 (n10) vs liga 47%; BTTS 6/10 y 7/10; GA 1.3/1.8. Over 2.5 y BTTS sí respaldados; árbitro s/d.",
+   "excepciones": [
+    {
+     "entry_id": "goles.total.over.3.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.total.under.3.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.total.over.4.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.total.under.4.5",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-ce4a4deef11e|goles",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/256.json"
+   ],
+   "unit_id": "m-ce4a4deef11e|goles"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Marcó: Capiatá 6/10, Tacuary 7/10 (fuera 3/4). Modelo local o0.5 .81 sobre 60% real; over 1.5 ruidoso. Sin sesgo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ce4a4deef11e|goles por equipo",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/256.json"
+   ],
+   "unit_id": "m-ce4a4deef11e|goles por equipo"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Totales >=3: Capiatá 5/10, Tacuary 6/10; exactos 2: 2/10 y 2/10 (push). Modelo o2 .70 sin precio; ventaja leve.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ce4a4deef11e|goles total entero",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/256.json"
+   ],
+   "unit_id": "m-ce4a4deef11e|goles total entero"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "goleada_local",
+   "nota": "Capiatá gana por 2+ 1/10; Tacuary pierde por 2+ 2/10 (solo casa), fuera 0/4. +1.5/+2.5 de Tacuary respaldado; ±0.5 dependen del 1X2.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.away.+1.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "resultado.ah.away.+2.5",
+     "solidez": "MEDIA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-ce4a4deef11e|hándicap",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/256.json"
+   ],
+   "unit_id": "m-ce4a4deef11e|hándicap"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "goleada_local",
+   "nota": "Capiatá gana por 2+ 1/10 (n10): Tacuary +2 respaldado; resto depende del 1X2 sin consenso fuerte.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah_entero.away.+2",
+     "solidez": "MEDIA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-ce4a4deef11e|hándicap asiático entero",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/256.json"
+   ],
+   "unit_id": "m-ce4a4deef11e|hándicap asiático entero"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "goleada_local",
+   "nota": "Depende del 1X2 (modelo .50/.24/.26) y de que Capiatá gane por 2+ (1/10). Sin ventaja clara.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ce4a4deef11e|hándicap europeo",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/256.json"
+   ],
+   "unit_id": "m-ce4a4deef11e|hándicap europeo"
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin remates en la muestra de apifootball (shots n/d en los 10+10 previos): datos insuficientes, sin estimador.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ce4a4deef11e|remates",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/256.json"
+   ],
+   "unit_id": "m-ce4a4deef11e|remates"
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin remates en la muestra de apifootball (shots n/d en los 10+10 previos): datos insuficientes, sin estimador.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ce4a4deef11e|remates a puerta",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/256.json"
+   ],
+   "unit_id": "m-ce4a4deef11e|remates a puerta"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "localia",
+   "direccion_favorable": "local",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Capiatá casa 2V2E1D (n5), GF 1.4; Tacuary fuera 0V3E1D (n4), GA 1.8 global. Modelo L .50 vs ~.59 mercado. Ambos mediocres.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ce4a4deef11e|resultado",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/256.json"
+   ],
+   "unit_id": "m-ce4a4deef11e|resultado"
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Tarjetas de la liga 256 casi sin datos (38 de 238 partidos), sin estimador; árbitro s/d.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-ce4a4deef11e|tarjetas",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/256.json"
+   ],
+   "unit_id": "m-ce4a4deef11e|tarjetas"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Gol al HT: Veraguas 9/10, Coclé 7/10 (n10); Veraguas encaja HT 1.3. Modelo o0.5 .81, o1.5 .50 (1.5 menos fiable).",
+   "excepciones": [
+    {
+     "entry_id": "primera_parte.total.over.1.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "primera_parte.total.under.1.5",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-d6d4b62c8b6c|1.ª parte goles",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/406.json"
+   ],
+   "unit_id": "m-d6d4b62c8b6c|1.ª parte goles"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Modelo L .51/E .32/V .17; Veraguas HT a favor 0.6 y encaja 1.3, Coclé 0.4. Local HT plausible pero sin precio y n pequeña.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-d6d4b62c8b6c|1.ª parte resultado",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/406.json"
+   ],
+   "unit_id": "m-d6d4b62c8b6c|1.ª parte resultado"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "under",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Esperado ~8.3 (Veraguas 4.2/4.2, Coclé 3.4/4.8, n9) vs liga 9.0; modelo o8.5 .45. Ventaja leve, árbitro s/d.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-d6d4b62c8b6c|córners",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/406.json"
+   ],
+   "unit_id": "m-d6d4b62c8b6c|córners"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "localia",
+   "direccion_favorable": "local",
+   "escenario_perdida": "partido_abierto",
+   "nota": "1X: Coclé 0V2E8D (fuera 0V1E4D, 3 derrotas por 2+); Veraguas casa 2V2E0D (n4). Empata mucho (5/10): 12 con riesgo.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.dc.12",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "resultado.dc.x2",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-d6d4b62c8b6c|doble oportunidad",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/406.json"
+   ],
+   "unit_id": "m-d6d4b62c8b6c|doble oportunidad"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "localia",
+   "direccion_favorable": "local",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Coclé 0 victorias en 10 y 4 derrotas por 2+; Veraguas casa 2V2E0D. DNB local .80. Muestra de casa n4.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-d6d4b62c8b6c|empate no válido",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/406.json"
+   ],
+   "unit_id": "m-d6d4b62c8b6c|empate no válido"
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni estimador de fueras de juego; el paquete no trae datos propios.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-d6d4b62c8b6c|fueras de juego",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/406.json"
+   ],
+   "unit_id": "m-d6d4b62c8b6c|fueras de juego"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "O2.5: Veraguas 6/10, Coclé 6/10 (n10) vs liga 46%; BTTS 9/10 y 6/10; Coclé encaja siempre (10/10). H2H previo (ago) 1-0 Veraguas.",
+   "excepciones": [
+    {
+     "entry_id": "goles.total.over.3.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.total.under.3.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.total.over.4.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.total.under.4.5",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-d6d4b62c8b6c|goles",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/406.json"
+   ],
+   "unit_id": "m-d6d4b62c8b6c|goles"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Veraguas marcó 10/10 (casa 4/4, GF 1.5); Coclé 6/10 (fuera 3/5, GF 0.8). Over de Veraguas respaldado; Coclé menos.",
+   "excepciones": [
+    {
+     "entry_id": "goles.equipo.away.over.0.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.equipo.away.under.0.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.equipo.away.over.1.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.equipo.away.under.1.5",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-d6d4b62c8b6c|goles por equipo",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/406.json"
+   ],
+   "unit_id": "m-d6d4b62c8b6c|goles por equipo"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Totales >=3: Veraguas 6/10, Coclé 6/10; solo 2 exacto 3/10 y 2/10 (push); <=1 3/20. Over 2 respaldado, over 3 (>=4: 8/20) no.",
+   "excepciones": [
+    {
+     "entry_id": "goles.total_entero.over.3",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.total_entero.under.3",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-d6d4b62c8b6c|goles total entero",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/406.json"
+   ],
+   "unit_id": "m-d6d4b62c8b6c|goles total entero"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Veraguas nunca ganó por 2+ (0/10, casa 0/4) aunque Coclé pierde por 2+ 4/10. -1.5 frágil; Veraguas +1.5/+2.5 respaldado.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.home.+1.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "resultado.ah.home.+2.5",
+     "solidez": "MEDIA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-d6d4b62c8b6c|hándicap",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/406.json"
+   ],
+   "unit_id": "m-d6d4b62c8b6c|hándicap"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Veraguas gana por 2+ 0/10 pero Coclé pierde por 2+ 4/10: -1 en conflicto; Veraguas +2 respaldado (pierde por 2+ 2/10).",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah_entero.home.+2",
+     "solidez": "MEDIA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-d6d4b62c8b6c|hándicap asiático entero",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/406.json"
+   ],
+   "unit_id": "m-d6d4b62c8b6c|hándicap asiático entero"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Veraguas empata 5/10 y casi no gana por margen amplio; en -1 el empate-margen pesa. Sin ventaja clara.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-d6d4b62c8b6c|hándicap europeo",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/406.json"
+   ],
+   "unit_id": "m-d6d4b62c8b6c|hándicap europeo"
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin remates en la muestra de apifootball (shots n/d en los 10+10 previos): datos insuficientes, sin estimador.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-d6d4b62c8b6c|remates",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/406.json"
+   ],
+   "unit_id": "m-d6d4b62c8b6c|remates"
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin remates en la muestra de apifootball (shots n/d en los 10+10 previos): datos insuficientes, sin estimador.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-d6d4b62c8b6c|remates a puerta",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/406.json"
+   ],
+   "unit_id": "m-d6d4b62c8b6c|remates a puerta"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "localia",
+   "direccion_favorable": "local",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Coclé 0V2E8D (fuera 0V1E4D, GA 2.2); Veraguas 3V5E2D, casa 2V2E0D (n4). Modelo L .65, mercado ~.57. Empate (5/10 de Veraguas) es el riesgo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-d6d4b62c8b6c|resultado",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/406.json"
+   ],
+   "unit_id": "m-d6d4b62c8b6c|resultado"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "arbitro",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "tarjetas_atipicas",
+   "nota": "Pts esperados ~5.9 (Veraguas 3.0/3.4, Coclé 2.8/2.5, n9-10) vs liga 5.4; modelo o5.5 .52. Árbitro s/d: sin ventaja.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-d6d4b62c8b6c|tarjetas",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/406.json"
+   ],
+   "unit_id": "m-d6d4b62c8b6c|tarjetas"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Gol al HT: Coritiba 7/10, Grêmio 7/10 (n10); esperado ~1.15 HT. Modelo o0.5 .68 en línea con 70% de la muestra; o1.5 ruidoso.",
+   "excepciones": [
+    {
+     "entry_id": "primera_parte.total.over.1.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "primera_parte.total.under.1.5",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-de725c56f218|1.ª parte goles",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/99.json"
+   ],
+   "unit_id": "m-de725c56f218|1.ª parte goles"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "empate",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Modelo E .43 vs precio ~.45; HT a favor Coritiba 0.4, Grêmio 0.7 (n10). Sin ventaja.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-de725c56f218|1.ª parte resultado",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/99.json"
+   ],
+   "unit_id": "m-de725c56f218|1.ª parte resultado"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Esperado ~11.6 (Cori 4.2/7.8, Grêmio 4.3/6.9, n9-10) vs liga 10.4; >9.5 en 14/19. Pero Abatti 9.7 de media, >9.5 solo 6/15 (liga 99).",
+   "excepciones": [
+    {
+     "entry_id": "corners.total.over.10.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.total.under.10.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.total.over.11.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.total.under.11.5",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-de725c56f218|córners",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/99.json"
+   ],
+   "unit_id": "m-de725c56f218|córners"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "localia",
+   "direccion_favorable": "local",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "1X: Grêmio 1V3E6D, fuera 0V1E4D; Coritiba casa 2V2E1D. Modelo 1X .75. 12 y X2 sin apoyo (empates 6/20).",
+   "excepciones": [
+    {
+     "entry_id": "resultado.dc.12",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "resultado.dc.x2",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-de725c56f218|doble oportunidad",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/99.json"
+   ],
+   "unit_id": "m-de725c56f218|doble oportunidad"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "localia",
+   "direccion_favorable": "local",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Grêmio 1V en 10 y fuera 0V1E4D; Coritiba casa 2V2E1D pero encaja 2.1. DNB local .67, mercado ~.64.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-de725c56f218|empate no válido",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/99.json"
+   ],
+   "unit_id": "m-de725c56f218|empate no válido"
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni estimador de fueras de juego; el paquete no trae datos propios.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-de725c56f218|fueras de juego",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/99.json"
+   ],
+   "unit_id": "m-de725c56f218|fueras de juego"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "O2.5: Coritiba 7/10, Grêmio 5/10 (n10), liga 50%, Abatti 8/15 (2.7 g); BTTS 7/10 y 6/10; GA 2.1/1.7. Over y BTTS sí respaldados.",
+   "excepciones": [
+    {
+     "entry_id": "goles.total.over.3.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.total.under.3.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.total.over.4.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.total.under.4.5",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-de725c56f218|goles",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/99.json"
+   ],
+   "unit_id": "m-de725c56f218|goles"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Marcó: Coritiba 7/10 (casa 5/5), Grêmio 6/10; ambos encajan (GA 2.1/1.7). Over 0.5 respaldado; 1.5 ruidoso.",
+   "excepciones": [
+    {
+     "entry_id": "goles.equipo.home.over.1.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.equipo.home.under.1.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.equipo.away.over.1.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.equipo.away.under.1.5",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-de725c56f218|goles por equipo",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/99.json"
+   ],
+   "unit_id": "m-de725c56f218|goles por equipo"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Totales >=3: Coritiba 7/10, Grêmio 5/10; <=1 solo 3/20. Over 2 respaldado (push en 2: 5/20); over 3 (>=4: 7/20) no.",
+   "excepciones": [
+    {
+     "entry_id": "goles.total_entero.over.3",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.total_entero.under.3",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-de725c56f218|goles total entero",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/99.json"
+   ],
+   "unit_id": "m-de725c56f218|goles total entero"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Coritiba nunca ganó por 2+ (0/10), Grêmio 1/10; pierden por 2+ 2/10 c/u. Márgenes cortos: +1.5/+2.5 de ambos respaldado; -1.5 no.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.home.+1.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "resultado.ah.away.+1.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "resultado.ah.home.+2.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "resultado.ah.away.+2.5",
+     "solidez": "MEDIA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-de725c56f218|hándicap",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/99.json"
+   ],
+   "unit_id": "m-de725c56f218|hándicap"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Margen 2+ solo en 5/20 partidos (Cori 0 gana/2 pierde; Grêmio 1/2). +2 de ambos respaldado; -1 y 0 dependen del 1X2.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah_entero.home.+2",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "resultado.ah_entero.away.+2",
+     "solidez": "MEDIA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-de725c56f218|hándicap asiático entero",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/99.json"
+   ],
+   "unit_id": "m-de725c56f218|hándicap asiático entero"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Depende del 1X2 local moderado y de márgenes cortos (Coritiba gana por 2+ 0/10). Sin ventaja clara.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-de725c56f218|hándicap europeo",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/99.json"
+   ],
+   "unit_id": "m-de725c56f218|hándicap europeo"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Esperado ~33 (Cori 12.8/21.2 n8, Grêmio 12.1/19.9 n8-9) vs 29.5; ambos conceden ~20. Por equipo: modelo local .43 choca con ~16.4 esperados.",
+   "excepciones": [
+    {
+     "entry_id": "shots.equipo.home.over.15.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.home.under.15.5",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-de725c56f218|remates",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/99.json"
+   ],
+   "unit_id": "m-de725c56f218|remates"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_abierto",
+   "nota": "SoT esperado ~10.1 (Cori 3.6/7.0, Grêmio 3.5/6.1, n8) vs 9.5; modelo .52. Margen mínimo con n8.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-de725c56f218|remates a puerta",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/99.json"
+   ],
+   "unit_id": "m-de725c56f218|remates a puerta"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "localia",
+   "direccion_favorable": "local",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Grêmio 1V3E6D, fuera 0V1E4D; Coritiba 3V3E4D, casa 2V2E1D, encaja 2.1. Modelo L .52 en línea con ~.46 mercado. Rotación baja en ambos.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-de725c56f218|resultado",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/99.json"
+   ],
+   "unit_id": "m-de725c56f218|resultado"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "arbitro",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "tarjetas_atipicas",
+   "nota": "Pts esperados ~4.7 (Cori 1.9/1.8, Grêmio 2.9/2.7); Abatti 4.9 (n15, liga 99), >4.5 en 6/15. Modelo o4.5 .48: sin ventaja.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-de725c56f218|tarjetas",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/99.json"
+   ],
+   "unit_id": "m-de725c56f218|tarjetas"
+  }
+ ],
+ "limitaciones": [
+  "Sin once confirmado ni snapshot de alineaciones en los 6 partidos; bajas/sanciones no verificadas (solo rotación estimada por cambios y descanso).",
+  "Forma: 10+10 partidos de apifootball de la misma competición, mezcla casa/fuera sin ajuste por rival; localía citada con n pequeño (4-6). Fuentes web no abiertas (política/anti-bot).",
+  "Árbitro solo para Coritiba-Grêmio (Abatti, n15 liga 99); Jodis (AMG-Cuiabá) sin partidos en la muestra; resto s/d.",
+  "Remates/SoT sin datos en Nueva Chicago, Belgrano, Capiatá y Veraguas; tarjetas de liga 256 casi sin datos (38/238): NO_EVALUABLE donde aplica.",
+  "Fueras de juego: sin extractor ni estimador en los 6 partidos.",
+  "Regla de copas cortas/continentales: no aplica (ligas domésticas); H2H no traído por el paquete salvo 1-0 Veraguas-Coclé (ago 2026, n1) citado en la forma de Veraguas."
+ ]
+}

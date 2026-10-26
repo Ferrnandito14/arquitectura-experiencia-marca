@@ -1,0 +1,1135 @@
+{
+ "agente": "auditor",
+ "version_contrato": 1,
+ "run": "runs/2026-10-26",
+ "unidades": [
+  {
+   "unit_id": "m-93aadd2a4c16|1.ª parte goles",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Modelo vs agregador <=2 pp en las 6 lineas; n10 liga sin ajuste por rival. Sin objecion especifica.",
+   "evidencia": [
+    "paquete:m-93aadd2a4c16|1.ª parte goles",
+    "archivo:runs/2026-10-26/matrix.json",
+    "apif_query:get_events match_id=862494"
+   ]
+  },
+  {
+   "unit_id": "m-93aadd2a4c16|1.ª parte resultado",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "HT local n6/visit. n4; modelo 1P local .38 vs ~.50 mercado (-13 pp). Rotacion local 5.7 cambios/4d descanso no cuantificada.",
+   "evidencia": [
+    "paquete:m-93aadd2a4c16|1.ª parte resultado",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/matrix.json",
+    "apif_query:get_events match_id=862494"
+   ]
+  },
+  {
+   "unit_id": "m-93aadd2a4c16|córners",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Fuentes en conflicto: equipos ~8.5 (n6/n4), arbitro D. Rodriguez 10.6 (n15), liga 9.69; solo 6/46 lineas con precio (o9.5 gap 2 pp).",
+   "evidencia": [
+    "paquete:m-93aadd2a4c16|córners",
+    "archivo:runs/2026-10-26/league_samples/69.json",
+    "archivo:runs/2026-10-26/matrix.json",
+    "apif_query:get_events match_id=862494"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "nota",
+     "problema": "omision"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-93aadd2a4c16|doble oportunidad",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "1X modelo .70 vs ~.84 mercado; x2 +20 pp. Muestra n6/n4 sin ajuste por rival; Potosi rota 5.7 cambios/4d. Cuota 25-oct.",
+   "evidencia": [
+    "paquete:m-93aadd2a4c16|doble oportunidad",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/matrix.json",
+    "apif_query:get_events match_id=862494"
+   ]
+  },
+  {
+   "unit_id": "m-93aadd2a4c16|empate no válido",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "DNB local modelo .61 vs ~.81 mercado (1.12/4.65): 20 pp en 2/2 lineas. Muestra n6 casa (3V-0E-3D, 0-4 y 0-1 recientes), sin rival ajustado.",
+   "evidencia": [
+    "paquete:m-93aadd2a4c16|empate no válido",
+    "archivo:runs/2026-10-26/matrix.json",
+    "apif_query:get_events match_id=862494"
+   ]
+  },
+  {
+   "unit_id": "m-93aadd2a4c16|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador ni extractor para fueras de juego; sin precio. No evaluable.",
+   "evidencia": [
+    "paquete:m-93aadd2a4c16|fueras de juego",
+    "apif_query:get_events match_id=862494"
+   ]
+  },
+  {
+   "unit_id": "m-93aadd2a4c16|goles",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Gap max 7 pp en 14/14 lineas con precio; n10 sin ajuste por rival. Ref. Rodriguez 3.06 goles (n16) vs liga 3.03 sin sesgo.",
+   "evidencia": [
+    "paquete:m-93aadd2a4c16|goles",
+    "archivo:runs/2026-10-26/league_samples/69.json",
+    "archivo:runs/2026-10-26/matrix.json",
+    "apif_query:get_events match_id=862494"
+   ]
+  },
+  {
+   "unit_id": "m-93aadd2a4c16|goles por equipo",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "4/12 lineas con gap 18-20 pp (local o1.5 .53 vs ~.71). Cuantitativo dice coherente; contradice paquete. Muestras n6/n4.",
+   "evidencia": [
+    "paquete:m-93aadd2a4c16|goles por equipo",
+    "archivo:runs/2026-10-26/matrix.json",
+    "apif_query:get_events match_id=862494"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "cuantitativo",
+     "campo": "consistencia_modelo",
+     "problema": "valor_contradice_paquete"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-93aadd2a4c16|goles total entero",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Derivado de la misma lambda que goles; 10/10 lineas con precio sin gap relevante; n10 sin ajuste por rival.",
+   "evidencia": [
+    "paquete:m-93aadd2a4c16|goles total entero",
+    "archivo:runs/2026-10-26/matrix.json",
+    "apif_query:get_events match_id=862494"
+   ]
+  },
+  {
+   "unit_id": "m-93aadd2a4c16|hándicap",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "6/12 lineas con gap 17-21 pp (ah -0.5 local .47 vs ~.68). Modelo infravalora al local frente a mercado; n6/n4, sin rival ajustado.",
+   "evidencia": [
+    "paquete:m-93aadd2a4c16|hándicap",
+    "archivo:runs/2026-10-26/matrix.json",
+    "apif_query:get_events match_id=862494"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "cuantitativo",
+     "campo": "consistencia_modelo",
+     "problema": "valor_contradice_paquete"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-93aadd2a4c16|hándicap asiático entero",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "AH 0 equivale a DNB (.61 vs ~.81, 20 pp), que cuantitativo marca discrepante; aqui dice coherente. Comparar win-prob con 1/cuota exige tratar el push.",
+   "evidencia": [
+    "paquete:m-93aadd2a4c16|hándicap asiático entero",
+    "apif_query:get_events match_id=862494"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "cuantitativo",
+     "campo": "consistencia_modelo",
+     "problema": "valor_contradice_paquete"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-93aadd2a4c16|hándicap europeo",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "4/12 lineas con gap 16-23 pp (eh away -2 +23, home -1 -21). Cuantitativo dice coherente; contradice paquete.",
+   "evidencia": [
+    "paquete:m-93aadd2a4c16|hándicap europeo",
+    "apif_query:get_events match_id=862494"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "cuantitativo",
+     "campo": "consistencia_modelo",
+     "problema": "valor_contradice_paquete"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-93aadd2a4c16|remates",
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "90 lineas sin estimador (datos insuficientes) ni precio; no evaluable.",
+   "evidencia": [
+    "paquete:m-93aadd2a4c16|remates",
+    "apif_query:get_events match_id=862494"
+   ]
+  },
+  {
+   "unit_id": "m-93aadd2a4c16|remates a puerta",
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "60 lineas sin estimador (datos insuficientes) ni precio; no evaluable.",
+   "evidencia": [
+    "paquete:m-93aadd2a4c16|remates a puerta",
+    "apif_query:get_events match_id=862494"
+   ]
+  },
+  {
+   "unit_id": "m-93aadd2a4c16|resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "1X2 local modelo .47 vs ~.66-.72 mercado (-19 pp). Verificar altitud/localia de Potosi y alineaciones; n6 casa, rota 5.7 cambios. Cuant: coherente.",
+   "evidencia": [
+    "paquete:m-93aadd2a4c16|resultado",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/matrix.json",
+    "apif_query:get_events match_id=862494"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "cuantitativo",
+     "campo": "consistencia_modelo",
+     "problema": "valor_contradice_paquete"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-93aadd2a4c16|tarjetas",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Modelo o4.5 pts .48 vs D. Rodriguez 12/15 >4.5 (.80, n15) y liga .64 (n175); deportivo dice sin sesgo. Ojo escala pts vs conteo. Sin precio.",
+   "evidencia": [
+    "paquete:m-93aadd2a4c16|tarjetas",
+    "archivo:runs/2026-10-26/league_samples/69.json",
+    "apif_query:get_events match_id=862494"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "nota",
+     "problema": "omision"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-9444cea5115c|1.ª parte goles",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "HT>=1: Al Ula local 5/5, Orubah fuera 2/4 (n4-5); modelo o0.5 .56 sin precio. Rivales sin ajustar; 5 porterias a cero en 10 en ambos.",
+   "evidencia": [
+    "paquete:m-9444cea5115c|1.ª parte goles",
+    "archivo:runs/2026-10-26/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-9444cea5115c|1.ª parte resultado",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Empate al HT .52 con splits n5/n4 y Al Ula local HTf 1.6: senal contraria al modelo. Sin precio para contrastar; 1 fuente de calendario.",
+   "evidencia": [
+    "paquete:m-9444cea5115c|1.ª parte resultado",
+    "archivo:runs/2026-10-26/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-9444cea5115c|córners",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Al Ula casa tot 6.2 (n5) vs fuera 10.2 (n5); Orubah fuera 6.25 (n4): split extremo. Modelo o8.5 .46 vs liga 9.02; sin arbitro ni precio.",
+   "evidencia": [
+    "paquete:m-9444cea5115c|córners",
+    "archivo:runs/2026-10-26/league_samples/69.json",
+    "archivo:runs/2026-10-26/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-9444cea5115c|doble oportunidad",
+   "objecion": "muestra_debil",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Al Ula 9-1-0 vs Orubah 1 derrota en 10; sin rival ajustado (Div. 1 saudi). Sin precio para contrastar el modelo.",
+   "evidencia": [
+    "paquete:m-9444cea5115c|doble oportunidad",
+    "archivo:runs/2026-10-26/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-9444cea5115c|empate no válido",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "DNB local .57: Al Ula invicto pero Orubah encaja 0.6 y empata 5/10; empates devueltos. Sin precio, n10 sin ajuste por rival.",
+   "evidencia": [
+    "paquete:m-9444cea5115c|empate no válido",
+    "archivo:runs/2026-10-26/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-9444cea5115c|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador ni extractor para fueras de juego; sin precio. No evaluable.",
+   "evidencia": [
+    "paquete:m-9444cea5115c|fueras de juego"
+   ]
+  },
+  {
+   "unit_id": "m-9444cea5115c|goles",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Sin precio en el paquete; n10 misma competicion, sin objecion especifica distinta a la falta de precio.",
+   "evidencia": [
+    "paquete:m-9444cea5115c|goles",
+    "archivo:runs/2026-10-26/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-9444cea5115c|goles por equipo",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Sin precio; n10 misma competicion sin ajuste por rival. Sin objecion especifica.",
+   "evidencia": [
+    "paquete:m-9444cea5115c|goles por equipo",
+    "archivo:runs/2026-10-26/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-9444cea5115c|goles total entero",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Derivado de goles; sin precio; n10 sin ajuste por rival.",
+   "evidencia": [
+    "paquete:m-9444cea5115c|goles total entero",
+    "archivo:runs/2026-10-26/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-9444cea5115c|hándicap",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "AH -0.5 local .41, -1.5 .18; Al Ula gana por 1 gol en 3/9 y Orubah solo 1 derrota: la linea depende de margen. Sin precio.",
+   "evidencia": [
+    "paquete:m-9444cea5115c|hándicap",
+    "archivo:runs/2026-10-26/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-9444cea5115c|hándicap asiático entero",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "AH 0 .57/-1 .23; Al Ula >=2 goles de margen 6/10 pero Orubah 0/10 perdidas por >=2 (n10). Sin precio.",
+   "evidencia": [
+    "paquete:m-9444cea5115c|hándicap asiático entero",
+    "archivo:runs/2026-10-26/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-9444cea5115c|hándicap europeo",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "EH visitante +1 .59 vs local -1 .18 apoyado en 5 porterias a cero de Orubah (n10); sin precio ni rival ajustado.",
+   "evidencia": [
+    "paquete:m-9444cea5115c|hándicap europeo",
+    "archivo:runs/2026-10-26/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-9444cea5115c|remates",
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "90 lineas sin estimador (datos insuficientes) ni precio; no evaluable.",
+   "evidencia": [
+    "paquete:m-9444cea5115c|remates"
+   ]
+  },
+  {
+   "unit_id": "m-9444cea5115c|remates a puerta",
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "60 lineas sin estimador (datos insuficientes) ni precio; no evaluable.",
+   "evidencia": [
+    "paquete:m-9444cea5115c|remates a puerta"
+   ]
+  },
+  {
+   "unit_id": "m-9444cea5115c|resultado",
+   "objecion": "muestra_debil",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Al Ula 9-1-0 casa 5-0-0 vs Orubah 4-5-1; muestras sin ajuste por rival; sin precio para contrastar el modelo.",
+   "evidencia": [
+    "paquete:m-9444cea5115c|resultado"
+   ]
+  },
+  {
+   "unit_id": "m-9444cea5115c|tarjetas",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Al Ula 3.3, Orubah 3.7 (n9) vs liga 4.11 (n154); arbitro no designado (API sin referee); under sin soporte arbitral. Sin precio.",
+   "evidencia": [
+    "paquete:m-9444cea5115c|tarjetas",
+    "archivo:runs/2026-10-26/league_samples/69.json"
+   ]
+  },
+  {
+   "unit_id": "m-9eacebd31229|1.ª parte goles",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Gol al HT: Anwar 6/10 (casa 4/5), Okhdood 5/8 (n8). Modelo o0.5 .71 sin precio; n por sede 3-5.",
+   "evidencia": [
+    "paquete:m-9eacebd31229|1.ª parte goles",
+    "archivo:runs/2026-10-26/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-9eacebd31229|1.ª parte resultado",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Modelo 1P local .45; Anwar HTf 1.0 casa (n5), Okhdood fuera n5. Sin precio; empate al HT probable.",
+   "evidencia": [
+    "paquete:m-9eacebd31229|1.ª parte resultado",
+    "archivo:runs/2026-10-26/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-9eacebd31229|córners",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Anwar casa tot 9.6 (n5), Okhdood fuera 8.8 (n5) vs liga 9.02; modelo o9.5 .45; sin precio ni arbitro.",
+   "evidencia": [
+    "paquete:m-9eacebd31229|córners",
+    "archivo:runs/2026-10-26/league_samples/69.json",
+    "archivo:runs/2026-10-26/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-9eacebd31229|doble oportunidad",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "3/3 lineas con precio sin gap >=15 pp; Anwar 3-5-2, Okhdood 1-4-3; n sin ajuste por rival.",
+   "evidencia": [
+    "paquete:m-9eacebd31229|doble oportunidad"
+   ]
+  },
+  {
+   "unit_id": "m-9eacebd31229|empate no válido",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "DNB local modelo .79 vs ~.65 (+14 pp); Anwar solo 3V/5E en 10 y Okhdood n8. Modelo sobrevalora local; cuota 25-oct.",
+   "evidencia": [
+    "paquete:m-9eacebd31229|empate no válido",
+    "archivo:runs/2026-10-26/matrix.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "cuantitativo",
+     "campo": "consistencia_modelo",
+     "problema": "omision"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-9eacebd31229|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador ni extractor para fueras de juego; sin precio. No evaluable.",
+   "evidencia": [
+    "paquete:m-9eacebd31229|fueras de juego"
+   ]
+  },
+  {
+   "unit_id": "m-9eacebd31229|goles",
+   "objecion": "muestra_debil",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Anwar o2.5 2/10 y u3.5 8/10, Okhdood o2.5 4/8 y BTTS 6/8: senales contrarias; gap con mercado <=8 pp. Okhdood n8.",
+   "evidencia": [
+    "paquete:m-9eacebd31229|goles",
+    "archivo:runs/2026-10-26/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-9eacebd31229|goles por equipo",
+   "objecion": "muestra_debil",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Local o0.5 .86 (Anwar marco 8/10); Okhdood marca 7/8 y encaja 2.0 (n8). Sin precio en el paquete.",
+   "evidencia": [
+    "paquete:m-9eacebd31229|goles por equipo",
+    "archivo:runs/2026-10-26/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-9eacebd31229|goles total entero",
+   "objecion": "muestra_debil",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Derivado: over 2 .71, over 3 .41 (devuelve en 3); Anwar 8/10 con <=3 goles. Sin precio.",
+   "evidencia": [
+    "paquete:m-9eacebd31229|goles total entero"
+   ]
+  },
+  {
+   "unit_id": "m-9eacebd31229|hándicap",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "AH local -0.5 .62: Anwar gana por >=2 en 2/10; Okhdood pierde por >=2 en 3/8. Modelo por encima del mercado (AH+1.5 -20 pp bruto).",
+   "evidencia": [
+    "paquete:m-9eacebd31229|hándicap"
+   ]
+  },
+  {
+   "unit_id": "m-9eacebd31229|hándicap asiático entero",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "AH 0 local .79 vs ~.65 (DNB, +14 pp), -1 .49 con Anwar >=2 goles solo 2/10. Comparacion con 1/cuota sesgada por push.",
+   "evidencia": [
+    "paquete:m-9eacebd31229|hándicap asiático entero"
+   ]
+  },
+  {
+   "unit_id": "m-9eacebd31229|hándicap europeo",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "EH local -1 ~.37 sin precio; Anwar >=2 de margen 2/10, Okhdood pierde >=2 3/8. Sin ventaja demostrada.",
+   "evidencia": [
+    "paquete:m-9eacebd31229|hándicap europeo"
+   ]
+  },
+  {
+   "unit_id": "m-9eacebd31229|remates",
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "90 lineas sin estimador (datos insuficientes) ni precio; no evaluable.",
+   "evidencia": [
+    "paquete:m-9eacebd31229|remates"
+   ]
+  },
+  {
+   "unit_id": "m-9eacebd31229|remates a puerta",
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "60 lineas sin estimador (datos insuficientes) ni precio; no evaluable.",
+   "evidencia": [
+    "paquete:m-9eacebd31229|remates a puerta"
+   ]
+  },
+  {
+   "unit_id": "m-9eacebd31229|resultado",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "1X2 local modelo .62 vs ~.50-.52 (+12-14 pp): Anwar 3V-5E-2D, Okhdood 1-4-3 (n8). Localia apoya, forma no. Cuota 25-oct.",
+   "evidencia": [
+    "paquete:m-9eacebd31229|resultado",
+    "archivo:runs/2026-10-26/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-9eacebd31229|tarjetas",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Anwar 5.1, Okhdood 4.3 (n9/8) vs liga 4.11 (n154); arbitro no designado; modelo o4.5 .50. Sin precio.",
+   "evidencia": [
+    "paquete:m-9eacebd31229|tarjetas",
+    "archivo:runs/2026-10-26/league_samples/69.json"
+   ]
+  },
+  {
+   "unit_id": "m-b02542f12bb4|1.ª parte goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin p_modelo ni precio. HT>=1: Ahli 9/10 (casa n4), Gharafa 7/10; muestras mezclan Saudi/Qatar/ACL sin ajustar por rival.",
+   "evidencia": [
+    "paquete:m-b02542f12bb4|1.ª parte goles",
+    "archivo:runs/2026-10-26/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-b02542f12bb4|1.ª parte resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin p_modelo ni precio. HT Ahli casa n4, Gharafa fuera n4; mezcla de competiciones; descanso Ahli 3d.",
+   "evidencia": [
+    "paquete:m-b02542f12bb4|1.ª parte resultado",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-b02542f12bb4|córners",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin p_modelo ni precio. Ahli 7.4 vs Gharafa 11.8 (8/10 >9.5), n10 mezclado; muestra ACL liga 8.68 (n31); sin arbitro.",
+   "evidencia": [
+    "paquete:m-b02542f12bb4|córners",
+    "archivo:runs/2026-10-26/league_samples/69.json",
+    "archivo:runs/2026-10-26/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-b02542f12bb4|doble oportunidad",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin p_modelo ni precio. Ahli 6V-1E-3D vs Gharafa 1V-3E-6D, mezcla Saudi/Qatar/ACL sin ajustar; Ahli 3d descanso, 2.7 cambios.",
+   "evidencia": [
+    "paquete:m-b02542f12bb4|doble oportunidad",
+    "archivo:runs/2026-10-26/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-b02542f12bb4|empate no válido",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin p_modelo ni precio. GD Ahli +1.2 vs Gharafa -0.7 con ligas de nivel distinto (Saudi vs Qatar) sin ajuste por rival.",
+   "evidencia": [
+    "paquete:m-b02542f12bb4|empate no válido"
+   ]
+  },
+  {
+   "unit_id": "m-b02542f12bb4|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador ni extractor para fueras de juego; sin precio. No evaluable.",
+   "evidencia": [
+    "paquete:m-b02542f12bb4|fueras de juego"
+   ]
+  },
+  {
+   "unit_id": "m-b02542f12bb4|goles",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin p_modelo ni precio. Ahli o2.5 9/10, Gharafa 8/10, BTTS 8/10; mezcla de ligas; Ahli 3d descanso.",
+   "evidencia": [
+    "paquete:m-b02542f12bb4|goles",
+    "archivo:runs/2026-10-26/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-b02542f12bb4|goles por equipo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin p_modelo ni precio. Ahli GF2.6 (casa 3.25 n4), Gharafa encaja 2.0; muestras mezcladas y cortas por sede.",
+   "evidencia": [
+    "paquete:m-b02542f12bb4|goles por equipo",
+    "archivo:runs/2026-10-26/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-b02542f12bb4|goles total entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin p_modelo ni precio; derivado descriptivo (>=3 goles Ahli 9/10, Gharafa 8/10) de muestras mezcladas.",
+   "evidencia": [
+    "paquete:m-b02542f12bb4|goles total entero"
+   ]
+  },
+  {
+   "unit_id": "m-b02542f12bb4|hándicap",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin p_modelo ni precio. Ahli casa +2.5 GD (n4) pero cayo 0-3 y 2-3 ante top saudi; -1.5 depende de goleada; mezcla de ligas.",
+   "evidencia": [
+    "paquete:m-b02542f12bb4|hándicap",
+    "archivo:runs/2026-10-26/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-b02542f12bb4|hándicap asiático entero",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin p_modelo ni precio. AH 0 local respaldado (Ahli 6V, Gharafa 6D de 10) pero AH -1 expuesto: Ahli 2-3, 1-2 recientes.",
+   "evidencia": [
+    "paquete:m-b02542f12bb4|hándicap asiático entero"
+   ]
+  },
+  {
+   "unit_id": "m-b02542f12bb4|hándicap europeo",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin p_modelo ni precio. EH local -1 plausible (GD +1.2 vs -0.7) con ligas mezcladas y Ahli 3d de descanso.",
+   "evidencia": [
+    "paquete:m-b02542f12bb4|hándicap europeo",
+    "archivo:runs/2026-10-26/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-b02542f12bb4|remates",
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador ni precio; Ahli n7, Gharafa solo n2. No evaluable.",
+   "evidencia": [
+    "paquete:m-b02542f12bb4|remates"
+   ]
+  },
+  {
+   "unit_id": "m-b02542f12bb4|remates a puerta",
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador ni precio; Ahli n7, Gharafa n2 (SOT). No evaluable.",
+   "evidencia": [
+    "paquete:m-b02542f12bb4|remates a puerta"
+   ]
+  },
+  {
+   "unit_id": "m-b02542f12bb4|resultado",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin p_modelo ni precio. Ahli 6-1-3, Gharafa 1-3-6 fuera GA2.75 (n4); mezcla Saudi/Qatar/ACL; Ahli 3d descanso.",
+   "evidencia": [
+    "paquete:m-b02542f12bb4|resultado",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-b02542f12bb4|tarjetas",
+   "objecion": "estimador_sin_validar",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin p_modelo ni precio. Ahli 3.8, Gharafa 5.4 (n9) vs muestra ACL liga 4.53 (n30); arbitro no designado.",
+   "evidencia": [
+    "paquete:m-b02542f12bb4|tarjetas",
+    "archivo:runs/2026-10-26/league_samples/69.json"
+   ]
+  },
+  {
+   "unit_id": "m-c24537e2e6a5|1.ª parte goles",
+   "objecion": "dato_defectuoso",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "API (get_events 784775): Postponed, fecha nueva no confirmada; paquete aun lo da para 27-oct 01:30Z. Cuotas/p. del 25-oct obsoletos.",
+   "evidencia": [
+    "paquete:m-c24537e2e6a5|1.ª parte goles",
+    "apif_query:get_events match_id=784775"
+   ]
+  },
+  {
+   "unit_id": "m-c24537e2e6a5|1.ª parte resultado",
+   "objecion": "dato_defectuoso",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "API (get_events 784775): Postponed, fecha nueva no confirmada; paquete aun lo da para 27-oct 01:30Z. Cuotas/p. del 25-oct obsoletos.",
+   "evidencia": [
+    "paquete:m-c24537e2e6a5|1.ª parte resultado",
+    "apif_query:get_events match_id=784775"
+   ]
+  },
+  {
+   "unit_id": "m-c24537e2e6a5|córners",
+   "objecion": "dato_defectuoso",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "API (get_events 784775): Postponed, fecha nueva no confirmada; paquete aun lo da para 27-oct 01:30Z. Cuotas/p. del 25-oct obsoletos.",
+   "evidencia": [
+    "paquete:m-c24537e2e6a5|córners",
+    "apif_query:get_events match_id=784775"
+   ]
+  },
+  {
+   "unit_id": "m-c24537e2e6a5|doble oportunidad",
+   "objecion": "dato_defectuoso",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "API (get_events 784775): Postponed, fecha nueva no confirmada; paquete aun lo da para 27-oct 01:30Z. Cuotas/p. del 25-oct obsoletos.",
+   "evidencia": [
+    "paquete:m-c24537e2e6a5|doble oportunidad",
+    "apif_query:get_events match_id=784775"
+   ]
+  },
+  {
+   "unit_id": "m-c24537e2e6a5|empate no válido",
+   "objecion": "dato_defectuoso",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "API (get_events 784775): Postponed, fecha nueva no confirmada; paquete aun lo da para 27-oct 01:30Z. Cuotas/p. del 25-oct obsoletos.",
+   "evidencia": [
+    "paquete:m-c24537e2e6a5|empate no válido",
+    "apif_query:get_events match_id=784775"
+   ]
+  },
+  {
+   "unit_id": "m-c24537e2e6a5|fueras de juego",
+   "objecion": "dato_defectuoso",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "API (get_events 784775): Postponed, fecha nueva no confirmada; paquete aun lo da para 27-oct 01:30Z. Cuotas/p. del 25-oct obsoletos.",
+   "evidencia": [
+    "paquete:m-c24537e2e6a5|fueras de juego",
+    "apif_query:get_events match_id=784775"
+   ]
+  },
+  {
+   "unit_id": "m-c24537e2e6a5|goles",
+   "objecion": "dato_defectuoso",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "API (get_events 784775): Postponed, fecha nueva no confirmada; paquete aun lo da para 27-oct 01:30Z. Cuotas/p. del 25-oct obsoletos.",
+   "evidencia": [
+    "paquete:m-c24537e2e6a5|goles",
+    "apif_query:get_events match_id=784775"
+   ]
+  },
+  {
+   "unit_id": "m-c24537e2e6a5|goles por equipo",
+   "objecion": "dato_defectuoso",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "API (get_events 784775): Postponed, fecha nueva no confirmada; paquete aun lo da para 27-oct 01:30Z. Cuotas/p. del 25-oct obsoletos.",
+   "evidencia": [
+    "paquete:m-c24537e2e6a5|goles por equipo",
+    "apif_query:get_events match_id=784775"
+   ]
+  },
+  {
+   "unit_id": "m-c24537e2e6a5|goles total entero",
+   "objecion": "dato_defectuoso",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "API (get_events 784775): Postponed, fecha nueva no confirmada; paquete aun lo da para 27-oct 01:30Z. Cuotas/p. del 25-oct obsoletos.",
+   "evidencia": [
+    "paquete:m-c24537e2e6a5|goles total entero",
+    "apif_query:get_events match_id=784775"
+   ]
+  },
+  {
+   "unit_id": "m-c24537e2e6a5|hándicap",
+   "objecion": "dato_defectuoso",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "API (get_events 784775): Postponed, fecha nueva no confirmada; paquete aun lo da para 27-oct 01:30Z. Cuotas/p. del 25-oct obsoletos.",
+   "evidencia": [
+    "paquete:m-c24537e2e6a5|hándicap",
+    "apif_query:get_events match_id=784775"
+   ]
+  },
+  {
+   "unit_id": "m-c24537e2e6a5|hándicap asiático entero",
+   "objecion": "dato_defectuoso",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "API (get_events 784775): Postponed, fecha nueva no confirmada; paquete aun lo da para 27-oct 01:30Z. Cuotas/p. del 25-oct obsoletos.",
+   "evidencia": [
+    "paquete:m-c24537e2e6a5|hándicap asiático entero",
+    "apif_query:get_events match_id=784775"
+   ]
+  },
+  {
+   "unit_id": "m-c24537e2e6a5|hándicap europeo",
+   "objecion": "dato_defectuoso",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "API (get_events 784775): Postponed, fecha nueva no confirmada; paquete aun lo da para 27-oct 01:30Z. Cuotas/p. del 25-oct obsoletos.",
+   "evidencia": [
+    "paquete:m-c24537e2e6a5|hándicap europeo",
+    "apif_query:get_events match_id=784775"
+   ]
+  },
+  {
+   "unit_id": "m-c24537e2e6a5|remates",
+   "objecion": "dato_defectuoso",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "API (get_events 784775): Postponed, fecha nueva no confirmada; paquete aun lo da para 27-oct 01:30Z. Cuotas/p. del 25-oct obsoletos.",
+   "evidencia": [
+    "paquete:m-c24537e2e6a5|remates",
+    "apif_query:get_events match_id=784775"
+   ]
+  },
+  {
+   "unit_id": "m-c24537e2e6a5|remates a puerta",
+   "objecion": "dato_defectuoso",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "API (get_events 784775): Postponed, fecha nueva no confirmada; paquete aun lo da para 27-oct 01:30Z. Cuotas/p. del 25-oct obsoletos.",
+   "evidencia": [
+    "paquete:m-c24537e2e6a5|remates a puerta",
+    "apif_query:get_events match_id=784775"
+   ]
+  },
+  {
+   "unit_id": "m-c24537e2e6a5|resultado",
+   "objecion": "dato_defectuoso",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "API (get_events 784775): Postponed, fecha nueva no confirmada; paquete aun lo da para 27-oct 01:30Z. Cuotas/p. del 25-oct obsoletos.",
+   "evidencia": [
+    "paquete:m-c24537e2e6a5|resultado",
+    "apif_query:get_events match_id=784775"
+   ]
+  },
+  {
+   "unit_id": "m-c24537e2e6a5|tarjetas",
+   "objecion": "dato_defectuoso",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "API (get_events 784775): Postponed, fecha nueva no confirmada; paquete aun lo da para 27-oct 01:30Z. Cuotas/p. del 25-oct obsoletos.",
+   "evidencia": [
+    "paquete:m-c24537e2e6a5|tarjetas",
+    "apif_query:get_events match_id=784775"
+   ]
+  },
+  {
+   "unit_id": "m-c714b3880b32|1.ª parte goles",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Gap max 14 pp (o1.5), resto menor; n10 misma competicion sin ajuste por rival.",
+   "evidencia": [
+    "paquete:m-c714b3880b32|1.ª parte goles",
+    "archivo:runs/2026-10-26/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-c714b3880b32|1.ª parte resultado",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Modelo 1P local .43 vs ~.31 (+12), empate .34 vs ~.42; splits HT n4-5, rivales sin ajustar. Cuota 25-oct.",
+   "evidencia": [
+    "paquete:m-c714b3880b32|1.ª parte resultado",
+    "archivo:runs/2026-10-26/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-c714b3880b32|córners",
+   "objecion": "muestra_debil",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Solo 2/46 lineas con precio (u9.5 gap 14 pp); CSKA casa 10.0 vs Ludogorets fuera 8.25 (n5/n4), liga n186.",
+   "evidencia": [
+    "paquete:m-c714b3880b32|córners",
+    "archivo:runs/2026-10-26/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-c714b3880b32|doble oportunidad",
+   "objecion": "muestra_debil",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Modelo 1X .76 vs ~.73: sin gap. Ambos 8V-2E-0D con rivales flojos sin ajustar; CSKA 4d descanso.",
+   "evidencia": [
+    "paquete:m-c714b3880b32|doble oportunidad",
+    "archivo:runs/2026-10-26/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-c714b3880b32|empate no válido",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "DNB local modelo .69 vs ~.54 (+15 pp): duelo de invictos (Ludogorets 8-2-0, GA0.7), rivales sin ajustar. Sobrevaloracion del local.",
+   "evidencia": [
+    "paquete:m-c714b3880b32|empate no válido"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "cuantitativo",
+     "campo": "consistencia_modelo",
+     "problema": "valor_contradice_paquete"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-c714b3880b32|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin estimador ni extractor para fueras de juego; sin precio. No evaluable.",
+   "evidencia": [
+    "paquete:m-c714b3880b32|fueras de juego"
+   ]
+  },
+  {
+   "unit_id": "m-c714b3880b32|goles",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "14/14 lineas con precio, gap max 11 pp; n10 sin ajuste por rival.",
+   "evidencia": [
+    "paquete:m-c714b3880b32|goles",
+    "archivo:runs/2026-10-26/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-c714b3880b32|goles por equipo",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "12/12 lineas con precio, gap max 13 pp (local u1.5); n10 sin ajuste por rival.",
+   "evidencia": [
+    "paquete:m-c714b3880b32|goles por equipo",
+    "archivo:runs/2026-10-26/matrix.json"
+   ]
+  },
+  {
+   "unit_id": "m-c714b3880b32|goles total entero",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "10/10 lineas con precio sin gap relevante; derivado de la misma lambda.",
+   "evidencia": [
+    "paquete:m-c714b3880b32|goles total entero"
+   ]
+  },
+  {
+   "unit_id": "m-c714b3880b32|hándicap",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "AH -0.5 local .53 vs ~.43; -1.5 .30 vs ~.21: modelo siempre por encima (12-13 pp). CSKA >=2 goles de margen 5/10 vs rivales flojos.",
+   "evidencia": [
+    "paquete:m-c714b3880b32|hándicap"
+   ]
+  },
+  {
+   "unit_id": "m-c714b3880b32|hándicap asiático entero",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "AH 0 .69 vs ~.58, -1 .39 vs ~.26 (13 pp); mismo sesgo pro-local que DNB/1X2; push distorsiona comparacion bruta.",
+   "evidencia": [
+    "paquete:m-c714b3880b32|hándicap asiático entero"
+   ]
+  },
+  {
+   "unit_id": "m-c714b3880b32|hándicap europeo",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "EH local -1 ~.30 sin gap >=15 pp (max 12); margen >=2: CSKA 5/10, Ludogorets 3/10. Mismo sesgo pro-local, piernas correlacionadas.",
+   "evidencia": [
+    "paquete:m-c714b3880b32|hándicap europeo"
+   ]
+  },
+  {
+   "unit_id": "m-c714b3880b32|remates",
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "90 lineas sin estimador (datos insuficientes) ni precio; no evaluable.",
+   "evidencia": [
+    "paquete:m-c714b3880b32|remates"
+   ]
+  },
+  {
+   "unit_id": "m-c714b3880b32|remates a puerta",
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "60 lineas sin estimador (datos insuficientes) ni precio; no evaluable.",
+   "evidencia": [
+    "paquete:m-c714b3880b32|remates a puerta"
+   ]
+  },
+  {
+   "unit_id": "m-c714b3880b32|resultado",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "1X2 local modelo .53 vs ~.40 (+14 pp): ambos 8-2-0, rivales sin ajustar. Combinar con DNB/AH/EH duplica el mismo sesgo.",
+   "evidencia": [
+    "paquete:m-c714b3880b32|resultado"
+   ]
+  },
+  {
+   "unit_id": "m-c714b3880b32|tarjetas",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "CSKA 4.5 (n8), Ludogorets 4.8 (n10) vs liga 4.58 (n187); arbitro no designado; modelo o4.5 .49; sin precio.",
+   "evidencia": [
+    "paquete:m-c714b3880b32|tarjetas",
+    "archivo:runs/2026-10-26/league_samples/69.json",
+    "archivo:runs/2026-10-26/matrix.json"
+   ]
+  }
+ ],
+ "limitaciones": [
+  "Partido Sporting San Miguelito-UMECIT: apifootball Postponed (verificado), 16 unidades descartadas; resto de partidos con estado programado en API (3 comprobados).",
+  "Brechas modelo-mercado calculadas contra p_mercado del agregador o 1/cuota normalizada; cuotas observadas el 25-oct, sin captura posterior.",
+  "No se verifico altitud/estadio de Nacional Potosi ni alineaciones (sin snapshot); arbitros solo D. Rodriguez designado (API)."
+ ]
+}

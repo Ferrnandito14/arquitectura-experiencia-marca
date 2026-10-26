@@ -1,0 +1,1102 @@
+{
+ "agente": "auditor",
+ "version_contrato": 1,
+ "run": "runs/2026-10-26",
+ "unidades": [
+  {
+   "unit_id": "m-ecdc76cafa70|1.ª parte goles",
+   "objecion": "muestra_debil",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Nea HT>=1 6/6 con n6; O1.5 .38 en linea con precio ~.42 (A2.35). Sin alineaciones.",
+   "evidencia": [
+    "paquete:m-ecdc76cafa70|1.ª parte goles"
+   ]
+  },
+  {
+   "unit_id": "m-ecdc76cafa70|1.ª parte resultado",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Pafos 4d y 2.7 cambios (rotation.json) sin alineacion; X .39/Pafos .42 sin brecha vs precio; Nea HT n6.",
+   "evidencia": [
+    "paquete:m-ecdc76cafa70|1.ª parte resultado",
+    "archivo:runs/2026-10-26/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-ecdc76cafa70|córners",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Nea n6 (3.7/3.2); Fellas 8.3 n7 identificado solo por apellido (K. Fellas, liga 130). Sin precio, modelo O8.5 .45 sin contraste.",
+   "evidencia": [
+    "paquete:m-ecdc76cafa70|córners",
+    "archivo:runs/2026-10-26/league_samples/130.json"
+   ]
+  },
+  {
+   "unit_id": "m-ecdc76cafa70|doble oportunidad",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "X2 a 1.14: Pafos 4d/2.7 cambios, sin alineacion; cualquier rotacion borra el margen. Fuera n4; Nea n6.",
+   "evidencia": [
+    "paquete:m-ecdc76cafa70|doble oportunidad",
+    "archivo:runs/2026-10-26/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-ecdc76cafa70|empate no válido",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "DNB Pafos a 1.22 (~.80 neto) vs modelo .72: sin margen; Pafos 4d/2.7 cambios, alineacion sin_snapshot, fuera n4.",
+   "evidencia": [
+    "paquete:m-ecdc76cafa70|empate no válido",
+    "archivo:runs/2026-10-26/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-ecdc76cafa70|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor ni estimador de fueras de juego; paquete sin p ni precio. No evaluable.",
+   "evidencia": [
+    "paquete:m-ecdc76cafa70|fueras de juego"
+   ]
+  },
+  {
+   "unit_id": "m-ecdc76cafa70|goles",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Perfiles opuestos: Nea O2.5 6/6 (n6) vs Pafos 3/10; modelo O2.5 .60 vs mkt ~.58, sin ventaja; Nea n6 insuficiente.",
+   "evidencia": [
+    "paquete:m-ecdc76cafa70|goles"
+   ]
+  },
+  {
+   "unit_id": "m-ecdc76cafa70|goles por equipo",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio; Nea marco 6/6 con n6, Pafos fuera n4 (GF 2.25) inflan O1.5; muestras <8, sin ajuste por rival.",
+   "evidencia": [
+    "paquete:m-ecdc76cafa70|goles por equipo"
+   ]
+  },
+  {
+   "unit_id": "m-ecdc76cafa70|goles total entero",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Modelo O3 .47/U3 .53 con push .22, sin precio; Nea n6 vs Pafos 3/10 O2.5: sin base para inclinarse.",
+   "evidencia": [
+    "paquete:m-ecdc76cafa70|goles total entero"
+   ]
+  },
+  {
+   "unit_id": "m-ecdc76cafa70|hándicap",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Lineas -1.5/-2.5 dependen de goleada visitante con n4 fuera; +0.5/+1.5 mejor apoyadas. Precios del agregador sin anomalia relevante.",
+   "evidencia": [
+    "paquete:m-ecdc76cafa70|hándicap"
+   ]
+  },
+  {
+   "unit_id": "m-ecdc76cafa70|hándicap asiático entero",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Pafos -1/-2 dependen de goleada (n4 fuera); away +1 a 1.01 es de 1 casa vs home -1 9.4: precio extremo, lado sin valor.",
+   "evidencia": [
+    "paquete:m-ecdc76cafa70|hándicap asiático entero"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "cuantitativo",
+     "campo": "consistencia_modelo",
+     "problema": "omision"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-ecdc76cafa70|hándicap europeo",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "EH derivado del 1X2 (Pafos .56 vs ~.60 mkt); empate con handicap +-1 bajo volumen; Pafos 4d/2.7 cambios, Nea n6.",
+   "evidencia": [
+    "paquete:m-ecdc76cafa70|hándicap europeo",
+    "archivo:runs/2026-10-26/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-ecdc76cafa70|remates",
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Cyprus: datos de remates insuficientes en paquete (todos null en muestra); sin estimador utilizable.",
+   "evidencia": [
+    "paquete:m-ecdc76cafa70|remates"
+   ]
+  },
+  {
+   "unit_id": "m-ecdc76cafa70|remates a puerta",
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Cyprus: datos de remates insuficientes en paquete (todos null en muestra); sin estimador utilizable.",
+   "evidencia": [
+    "paquete:m-ecdc76cafa70|remates a puerta"
+   ]
+  },
+  {
+   "unit_id": "m-ecdc76cafa70|resultado",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Modelo Pafos .56 vs ~.60 neto del precio (1.62): sin brecha; Pafos 4d y 2.7 cambios sin alineacion confirmada.",
+   "evidencia": [
+    "paquete:m-ecdc76cafa70|resultado",
+    "archivo:runs/2026-10-26/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-ecdc76cafa70|tarjetas",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Esperado 5.3 pts con Nea n6/Pafos n9; Fellas n7 por apellido (K. Fellas liga 130, media 5.29). Sin precio ni regla de liquidacion.",
+   "evidencia": [
+    "paquete:m-ecdc76cafa70|tarjetas",
+    "archivo:runs/2026-10-26/league_samples/130.json"
+   ]
+  },
+  {
+   "unit_id": "m-ecf9e9b597e5|1.ª parte goles",
+   "objecion": "muestra_debil",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "HT>=1 13/18 (MP 6/8, MB 7/10); muestra mezcla playoffs de mayo con hueco mayo-sept; sin precio ni arbitro.",
+   "evidencia": [
+    "paquete:m-ecf9e9b597e5|1.ª parte goles"
+   ]
+  },
+  {
+   "unit_id": "m-ecf9e9b597e5|1.ª parte resultado",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Tres desenlaces cercanos (X .43/L .27/V .30) con n8/n10 y sin precio; sin ventaja clara; muestra mezcla temporada.",
+   "evidencia": [
+    "paquete:m-ecf9e9b597e5|1.ª parte resultado"
+   ]
+  },
+  {
+   "unit_id": "m-ecf9e9b597e5|córners",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "MP solo 6 partidos con corners (3.5/4.5), MB n10; esperado 8.7 vs liga 9.5 (n133). Sin precio, sin arbitro.",
+   "evidencia": [
+    "paquete:m-ecf9e9b597e5|córners"
+   ]
+  },
+  {
+   "unit_id": "m-ecf9e9b597e5|doble oportunidad",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Modelo favorece a MB (.39) pero MP gano H2H de mayo 2/2 y GF 1.75 (n8, 3 en casa); hueco mayo-sept. Sin precio: senales en conflicto.",
+   "evidencia": [
+    "paquete:m-ecf9e9b597e5|doble oportunidad"
+   ]
+  },
+  {
+   "unit_id": "m-ecf9e9b597e5|empate no válido",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Modelo favorece a MB (.39) pero MP gano H2H de mayo 2/2 y GF 1.75 (n8, 3 en casa); hueco mayo-sept. Sin precio: senales en conflicto.",
+   "evidencia": [
+    "paquete:m-ecf9e9b597e5|empate no válido"
+   ]
+  },
+  {
+   "unit_id": "m-ecf9e9b597e5|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor ni estimador de fueras de juego; paquete sin p ni precio. No evaluable.",
+   "evidencia": [
+    "paquete:m-ecf9e9b597e5|fueras de juego"
+   ]
+  },
+  {
+   "unit_id": "m-ecf9e9b597e5|goles",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Modelo BTTS .568 > observado 7/18 y liga 69/158 (44%); O2.5 .50 vs MP 4/8, MB 4/10; sin precio. H2H=2 partidos.",
+   "evidencia": [
+    "paquete:m-ecf9e9b597e5|goles"
+   ]
+  },
+  {
+   "unit_id": "m-ecf9e9b597e5|goles por equipo",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "MP marco 6/8, MB 8/10; MP solo 3 en casa y hueco mayo-sept; sin precio.",
+   "evidencia": [
+    "paquete:m-ecf9e9b597e5|goles por equipo"
+   ]
+  },
+  {
+   "unit_id": "m-ecf9e9b597e5|goles total entero",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "O3 .33/U3 .67 con push .17, sin precio; H2H 3 y 5 goles en solo 2 partidos; liga 2.87 (n158).",
+   "evidencia": [
+    "paquete:m-ecf9e9b597e5|goles total entero"
+   ]
+  },
+  {
+   "unit_id": "m-ecf9e9b597e5|hándicap",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Modelo favorece a MB (.39) pero MP gano H2H de mayo 2/2 y GF 1.75 (n8, 3 en casa); hueco mayo-sept. Sin precio: senales en conflicto.",
+   "evidencia": [
+    "paquete:m-ecf9e9b597e5|hándicap"
+   ]
+  },
+  {
+   "unit_id": "m-ecf9e9b597e5|hándicap asiático entero",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Modelo favorece a MB (.39) pero MP gano H2H de mayo 2/2 y GF 1.75 (n8, 3 en casa); hueco mayo-sept. Sin precio: senales en conflicto.",
+   "evidencia": [
+    "paquete:m-ecf9e9b597e5|hándicap asiático entero"
+   ]
+  },
+  {
+   "unit_id": "m-ecf9e9b597e5|hándicap europeo",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Modelo favorece a MB (.39) pero MP gano H2H de mayo 2/2 y GF 1.75 (n8, 3 en casa); hueco mayo-sept. Sin precio: senales en conflicto.",
+   "evidencia": [
+    "paquete:m-ecf9e9b597e5|hándicap europeo"
+   ]
+  },
+  {
+   "unit_id": "m-ecf9e9b597e5|remates",
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Jamaica: datos de remates insuficientes en paquete (todos null en muestra); sin estimador utilizable.",
+   "evidencia": [
+    "paquete:m-ecf9e9b597e5|remates"
+   ]
+  },
+  {
+   "unit_id": "m-ecf9e9b597e5|remates a puerta",
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Jamaica: datos de remates insuficientes en paquete (todos null en muestra); sin estimador utilizable.",
+   "evidencia": [
+    "paquete:m-ecf9e9b597e5|remates a puerta"
+   ]
+  },
+  {
+   "unit_id": "m-ecf9e9b597e5|resultado",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Modelo favorece a MB (.39) pero MP gano H2H de mayo 2/2 y GF 1.75 (n8, 3 en casa); hueco mayo-sept. Sin precio: senales en conflicto.",
+   "evidencia": [
+    "paquete:m-ecf9e9b597e5|resultado"
+   ]
+  },
+  {
+   "unit_id": "m-ecf9e9b597e5|tarjetas",
+   "objecion": "dato_defectuoso",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Amarillas con ceros dudosos (MP 0/4, MB 0/2), liga 208 con 1-3 partidos con tarjetas por equipo (league_samples/208.json); sin arbitro.",
+   "evidencia": [
+    "paquete:m-ecf9e9b597e5|tarjetas",
+    "archivo:runs/2026-10-26/league_samples/208.json"
+   ]
+  },
+  {
+   "unit_id": "m-eeb704dcbaca|1.ª parte goles",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Modelo O1.5 .23 vs ~.40 mkt (-16 pp) y O0.5 .60 vs ~.74 (-14 pp); HT>=1 13/20 observado (65%). U1.5 a 1.55 es artefacto del modelo.",
+   "evidencia": [
+    "paquete:m-eeb704dcbaca|1.ª parte goles"
+   ]
+  },
+  {
+   "unit_id": "m-eeb704dcbaca|1.ª parte resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Modelo X .47 vs ~.36 neto (+11 pp); Persebaya local 4d/3.3 cambios; HT n10 sin ajuste por rival.",
+   "evidencia": [
+    "paquete:m-eeb704dcbaca|1.ª parte resultado",
+    "archivo:runs/2026-10-26/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-eeb704dcbaca|córners",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Esperado ~10.5 vs liga 10.2 (n151); 10/20 >10.5; modelo O10.5 .53 = precio (0 pp). Sin arbitro.",
+   "evidencia": [
+    "paquete:m-eeb704dcbaca|córners"
+   ]
+  },
+  {
+   "unit_id": "m-eeb704dcbaca|doble oportunidad",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Persebaya 4d y 3.3 cambios (rotation.json), sin alineacion; 1X .84 en linea con precio, sin margen para rotacion.",
+   "evidencia": [
+    "paquete:m-eeb704dcbaca|doble oportunidad",
+    "archivo:runs/2026-10-26/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-eeb704dcbaca|empate no válido",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "DNB local .80 vs 1.205: sin margen; Persebaya 4d/3.3 cambios, alineacion sin_snapshot, Madura fuera n4.",
+   "evidencia": [
+    "paquete:m-eeb704dcbaca|empate no válido",
+    "archivo:runs/2026-10-26/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-eeb704dcbaca|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor ni estimador de fueras de juego; paquete sin p ni precio. No evaluable.",
+   "evidencia": [
+    "paquete:m-eeb704dcbaca|fueras de juego"
+   ]
+  },
+  {
+   "unit_id": "m-eeb704dcbaca|goles",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Modelo O2.5 .56 vs ~.62, max 3 pp en lineas; n10, GF Persebaya inflado por 4-0/5-0/7-0 sin ajuste por rival.",
+   "evidencia": [
+    "paquete:m-eeb704dcbaca|goles"
+   ]
+  },
+  {
+   "unit_id": "m-eeb704dcbaca|goles por equipo",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Persebaya GF 2.2 inflado por 3 goleadas (>=2 goles solo 4/10); Madura fuera n4; sin precio ni contraste.",
+   "evidencia": [
+    "paquete:m-eeb704dcbaca|goles por equipo"
+   ]
+  },
+  {
+   "unit_id": "m-eeb704dcbaca|goles total entero",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Modelo O3 .41/U3 .59 con push; mercado 2.07/1.80; >=4 goles 7/20: sin ventaja. Hay 10 precios (cuantitativo dice sin precio).",
+   "evidencia": [
+    "paquete:m-eeb704dcbaca|goles total entero"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "cuantitativo",
+     "campo": "consistencia_modelo",
+     "problema": "omision"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-eeb704dcbaca|hándicap",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Persebaya gana por 2+ solo 3/10 (4-0,5-0,7-0) vs modelo -1.5 .39; lineas de margen apoyadas en 3 goleadas; 4d/3.3 cambios.",
+   "evidencia": [
+    "paquete:m-eeb704dcbaca|hándicap",
+    "archivo:runs/2026-10-26/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-eeb704dcbaca|hándicap asiático entero",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "-1/-2 dependen de goleada (2+ en 3/10); +0 .80 respaldado. 10 precios existen y cuantitativo los ignora. Rotacion media.",
+   "evidencia": [
+    "paquete:m-eeb704dcbaca|hándicap asiático entero"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "cuantitativo",
+     "campo": "consistencia_modelo",
+     "problema": "omision"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-eeb704dcbaca|hándicap europeo",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "EH derivado del 1X2 (local .63); -1 .39 vs 3/10 observado; empate EH sin soporte propio; 4d/3.3 cambios.",
+   "evidencia": [
+    "paquete:m-eeb704dcbaca|hándicap europeo",
+    "archivo:runs/2026-10-26/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-eeb704dcbaca|remates",
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "liga 194: datos de remates insuficientes en paquete (todos null en muestra); sin estimador utilizable.",
+   "evidencia": [
+    "paquete:m-eeb704dcbaca|remates"
+   ]
+  },
+  {
+   "unit_id": "m-eeb704dcbaca|remates a puerta",
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "liga 194: datos de remates insuficientes en paquete (todos null en muestra); sin estimador utilizable.",
+   "evidencia": [
+    "paquete:m-eeb704dcbaca|remates a puerta"
+   ]
+  },
+  {
+   "unit_id": "m-eeb704dcbaca|resultado",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Modelo L .63 = precio 1.44 (0 pp); Persebaya 4d/3.3 cambios sin alineacion; Madura fuera 1V3D n4.",
+   "evidencia": [
+    "paquete:m-eeb704dcbaca|resultado",
+    "archivo:runs/2026-10-26/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-eeb704dcbaca|tarjetas",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Esperado ~4.2 pts = liga 4.2 (n156); 6 rojas en 20 partidos distorsionan; sin arbitro ni precio.",
+   "evidencia": [
+    "paquete:m-eeb704dcbaca|tarjetas"
+   ]
+  },
+  {
+   "unit_id": "m-eedb1c0fbc1d|1.ª parte goles",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Modelo O0.5 .67 vs ~.70 y O1.5 .31 vs ~.35: en linea con precio; HT n10; arbitro Antoniou sin muestra segun deportivo.",
+   "evidencia": [
+    "paquete:m-eedb1c0fbc1d|1.ª parte goles"
+   ]
+  },
+  {
+   "unit_id": "m-eedb1c0fbc1d|1.ª parte resultado",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Modelo X .43 vs 2.20 (~-3 pp); HT AEK .9/.3, Omonia .6/.5 (n10); sin brecha relevante.",
+   "evidencia": [
+    "paquete:m-eedb1c0fbc1d|1.ª parte resultado"
+   ]
+  },
+  {
+   "unit_id": "m-eedb1c0fbc1d|córners",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Par O/U 8.5 a 1.833/1.833 no demuestra error de precio; modelo .47/.53 sin brecha. Esperado 8.7 vs liga 9.4 (n116); 11/20 >8.5.",
+   "evidencia": [
+    "paquete:m-eedb1c0fbc1d|córners"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "verificador",
+     "campo": "discrepancias",
+     "problema": "afirmacion_sin_evidencia"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-eedb1c0fbc1d|doble oportunidad",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Omonia 4d y 3.7 cambios (el mas alto del lote), sin alineacion; X2 .76 vs 1.29 sin margen; 1X modelo -11 pp vs precio.",
+   "evidencia": [
+    "paquete:m-eedb1c0fbc1d|doble oportunidad",
+    "archivo:runs/2026-10-26/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-eedb1c0fbc1d|empate no válido",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "DNB Omonia .69 vs ~.65 neto; Omonia 4d/3.7 cambios, alineacion sin_snapshot; unico H2H de la muestra 1-1.",
+   "evidencia": [
+    "paquete:m-eedb1c0fbc1d|empate no válido",
+    "archivo:runs/2026-10-26/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-eedb1c0fbc1d|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor ni estimador de fueras de juego; paquete sin p ni precio. No evaluable.",
+   "evidencia": [
+    "paquete:m-eedb1c0fbc1d|fueras de juego"
+   ]
+  },
+  {
+   "unit_id": "m-eedb1c0fbc1d|goles",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "O2.5 .58 vs mkt y BTTS .59 vs 1.66: en linea, max 7 pp; n10 sin ajuste por rival.",
+   "evidencia": [
+    "paquete:m-eedb1c0fbc1d|goles"
+   ]
+  },
+  {
+   "unit_id": "m-eedb1c0fbc1d|goles por equipo",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Max 8 pp (Omonia O1.5 .54 vs 2.00; 7/10, fuera 4/4); n10, rivales de nivel mixto.",
+   "evidencia": [
+    "paquete:m-eedb1c0fbc1d|goles por equipo"
+   ]
+  },
+  {
+   "unit_id": "m-eedb1c0fbc1d|goles total entero",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "O3 .44/U3 .56 con push; mercado 2.56/1.54; >=4 goles 8/20. Hay 10 precios (cuantitativo dice sin precio).",
+   "evidencia": [
+    "paquete:m-eedb1c0fbc1d|goles total entero"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "cuantitativo",
+     "campo": "consistencia_modelo",
+     "problema": "omision"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-eedb1c0fbc1d|hándicap",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Omonia -0.5 .53 = 2.04; sus 6 victorias fueron por 2+ pero con rivales debiles; 4d/3.7 cambios. Lineas altas con cautela.",
+   "evidencia": [
+    "paquete:m-eedb1c0fbc1d|hándicap",
+    "archivo:runs/2026-10-26/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-eedb1c0fbc1d|hándicap asiático entero",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Omonia +0/+1 respaldados (invicto n10); -1/-2 piden goleada; 4d/3.7 cambios sin alineacion. Hay 10 precios sin contraste.",
+   "evidencia": [
+    "paquete:m-eedb1c0fbc1d|hándicap asiático entero",
+    "archivo:runs/2026-10-26/rotation.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "cuantitativo",
+     "campo": "consistencia_modelo",
+     "problema": "omision"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-eedb1c0fbc1d|hándicap europeo",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "EH del 1X2 (Omonia .53); Omonia -1 EH .76 vs 1.315 (6 pp); empate EH sin soporte propio; 4d y 3.7 cambios.",
+   "evidencia": [
+    "paquete:m-eedb1c0fbc1d|hándicap europeo",
+    "archivo:runs/2026-10-26/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-eedb1c0fbc1d|remates",
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Cyprus: datos de remates insuficientes en paquete (todos null en muestra); sin estimador utilizable.",
+   "evidencia": [
+    "paquete:m-eedb1c0fbc1d|remates"
+   ]
+  },
+  {
+   "unit_id": "m-eedb1c0fbc1d|remates a puerta",
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Cyprus: datos de remates insuficientes en paquete (todos null en muestra); sin estimador utilizable.",
+   "evidencia": [
+    "paquete:m-eedb1c0fbc1d|remates a puerta"
+   ]
+  },
+  {
+   "unit_id": "m-eedb1c0fbc1d|resultado",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Modelo Omonia .53 vs ~.47 neto (+7.6 pp, <15); Omonia 4d/3.7 cambios sin alineacion.",
+   "evidencia": [
+    "paquete:m-eedb1c0fbc1d|resultado",
+    "archivo:runs/2026-10-26/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-eedb1c0fbc1d|tarjetas",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Esperado 4.8 pts; sample liga 130 trae A. Menelaos n8 (media 4.38), probable Antoniou, que deportivo omitio. Sin precio.",
+   "evidencia": [
+    "paquete:m-eedb1c0fbc1d|tarjetas",
+    "archivo:runs/2026-10-26/league_samples/130.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "deportivo",
+     "campo": "nota",
+     "problema": "omision"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-f45d32013f75|1.ª parte goles",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "HT>=1 12/20 (60%) vs modelo O0.5 .69 y precio ~.65; max 3 pp. Sin arbitro.",
+   "evidencia": [
+    "paquete:m-f45d32013f75|1.ª parte goles"
+   ]
+  },
+  {
+   "unit_id": "m-f45d32013f75|1.ª parte resultado",
+   "objecion": "rotacion_no_cuantificada",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Bucaramanga 4d/3.0 cambios (rotation.json); modelo X .43 = 2.10; gap max 7 pp en Buc/SF HT.",
+   "evidencia": [
+    "paquete:m-f45d32013f75|1.ª parte resultado",
+    "archivo:runs/2026-10-26/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-f45d32013f75|córners",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Corners SF over 5.5: modelo .59 vs 2.20 (.42), +17 pp; SF n6; Buc 10/10 con <=3 propios. Hay 6 precios y 2 lineas >=15 pp.",
+   "evidencia": [
+    "paquete:m-f45d32013f75|córners"
+   ]
+  },
+  {
+   "unit_id": "m-f45d32013f75|doble oportunidad",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Modelo 1X .66 vs ~.77 del 1X2 y 1.21 (-11 a -17 pp); sesgo constante contra SF local; Buc 4d/3.0 cambios.",
+   "evidencia": [
+    "paquete:m-f45d32013f75|doble oportunidad",
+    "archivo:runs/2026-10-26/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-f45d32013f75|empate no válido",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "DNB SF .53 vs ~.68 mkt (1.35/2.87): 2/2 lineas >=15 pp; modelo muy favorable a Buc (fuera n5).",
+   "evidencia": [
+    "paquete:m-f45d32013f75|empate no válido"
+   ]
+  },
+  {
+   "unit_id": "m-f45d32013f75|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor ni estimador de fueras de juego; paquete sin p ni precio. No evaluable.",
+   "evidencia": [
+    "paquete:m-f45d32013f75|fueras de juego"
+   ]
+  },
+  {
+   "unit_id": "m-f45d32013f75|goles",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "BTTS .56 vs 1.90 (+7 pp), O2.5 .48 vs 2.10; BTTS 13/20 y liga 144/271; max 7 pp.",
+   "evidencia": [
+    "paquete:m-f45d32013f75|goles"
+   ]
+  },
+  {
+   "unit_id": "m-f45d32013f75|goles por equipo",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Max 9 pp (Buc U1.5); SF/Buc marcaron 8/10 vs O0.5 .72/.70; O0.5 local a 1.22 sin margen.",
+   "evidencia": [
+    "paquete:m-f45d32013f75|goles por equipo"
+   ]
+  },
+  {
+   "unit_id": "m-f45d32013f75|goles total entero",
+   "objecion": "ninguna",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "O3 .30/U3 .70 con push; liga 2.52; mercado 3.21/1.40. Hay 10 precios (cuantitativo dice sin precio).",
+   "evidencia": [
+    "paquete:m-f45d32013f75|goles total entero"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "cuantitativo",
+     "campo": "consistencia_modelo",
+     "problema": "omision"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-f45d32013f75|hándicap",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Modelo L-0.5 .38 vs 1.9085 (~.52 devig), -14 pp; 12 lineas, 3>=12 pp. ±0.5 a 1.9085 coherente con 1X2 1.90/X2 1.845: no es anomalia.",
+   "evidencia": [
+    "paquete:m-f45d32013f75|hándicap",
+    "paquete:m-f45d32013f75|resultado"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "verificador",
+     "campo": "discrepancias",
+     "problema": "valor_contradice_paquete"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-f45d32013f75|hándicap asiático entero",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "AH0 SF .53 vs .74 y -1 .22 vs .37 (>=15 pp) con 10 precios; cuantitativo lo marca sin precio aunque DNB (mismo precio) si discrepa.",
+   "evidencia": [
+    "paquete:m-f45d32013f75|hándicap asiático entero"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "cuantitativo",
+     "campo": "consistencia_modelo",
+     "problema": "omision"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-f45d32013f75|hándicap europeo",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "EH del 1X2 con SF .38 vs ~.49; home +1 .655 vs ~.82 (-16 pp); empate EH sin soporte propio; Buc 4d.",
+   "evidencia": [
+    "paquete:m-f45d32013f75|hándicap europeo",
+    "archivo:runs/2026-10-26/rotation.json"
+   ]
+  },
+  {
+   "unit_id": "m-f45d32013f75|remates",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "n6/7 (<8) local/visitante; deportivo cita fila SF sospechosa (3 remates/3 a puerta), no verificada por mi. Sin precio.",
+   "evidencia": [
+    "paquete:m-f45d32013f75|remates"
+   ]
+  },
+  {
+   "unit_id": "m-f45d32013f75|remates a puerta",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "n6/7 (<8) local/visitante; deportivo cita fila SF sospechosa (3 remates/3 a puerta), no verificada por mi. Sin precio.",
+   "evidencia": [
+    "paquete:m-f45d32013f75|remates a puerta"
+   ]
+  },
+  {
+   "unit_id": "m-f45d32013f75|resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Modelo L .38 vs ~.49 (-10 pp) y V .34 vs .23 (+11): bajo umbral 15 pp pero sesgo comun a toda la familia 1X2 de este partido.",
+   "evidencia": [
+    "paquete:m-f45d32013f75|resultado"
+   ]
+  },
+  {
+   "unit_id": "m-f45d32013f75|tarjetas",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Esperado ~5.8 pts (SF n8, Buc n9) vs liga 6.1 (n262); 9 rojas en 20 distorsionan; sin arbitro ni precio.",
+   "evidencia": [
+    "paquete:m-f45d32013f75|tarjetas"
+   ]
+  },
+  {
+   "unit_id": "m-fd0946945ccf|1.ª parte goles",
+   "objecion": "muestra_debil",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "HT GF .8/.6 n10; O0.5 .65, sin precio ni arbitro; liga 8047 de baja cobertura (0 partidos con arbitro).",
+   "evidencia": [
+    "paquete:m-fd0946945ccf|1.ª parte goles"
+   ]
+  },
+  {
+   "unit_id": "m-fd0946945ccf|1.ª parte resultado",
+   "objecion": "muestra_debil",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "X .45/L .28/V .27 sin precio ni alineaciones; HT bajo en ambos; liga 8047 baja cobertura.",
+   "evidencia": [
+    "paquete:m-fd0946945ccf|1.ª parte resultado"
+   ]
+  },
+  {
+   "unit_id": "m-fd0946945ccf|córners",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Metallurg n6, Gazalkent n7 (4 de 10 sin datos); esperado 9.5 vs liga 8.8 (n97). Sin precio ni arbitro.",
+   "evidencia": [
+    "paquete:m-fd0946945ccf|córners"
+   ]
+  },
+  {
+   "unit_id": "m-fd0946945ccf|doble oportunidad",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "1X modelo .64 vs ~.78 (-14 pp); Metallurg GF local 1.0 en n4; calidad de rivales desconocida.",
+   "evidencia": [
+    "paquete:m-fd0946945ccf|doble oportunidad"
+   ]
+  },
+  {
+   "unit_id": "m-fd0946945ccf|empate no válido",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "DNB Metallurg .51 vs ~.67 (1.50/2.34): -16 pp; Gazalkent fuera 4V1E n5 vs Metallurg local n4.",
+   "evidencia": [
+    "paquete:m-fd0946945ccf|empate no válido"
+   ]
+  },
+  {
+   "unit_id": "m-fd0946945ccf|fueras de juego",
+   "objecion": "estimador_sin_validar",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Sin extractor ni estimador de fueras de juego; paquete sin p ni precio. No evaluable.",
+   "evidencia": [
+    "paquete:m-fd0946945ccf|fueras de juego"
+   ]
+  },
+  {
+   "unit_id": "m-fd0946945ccf|goles",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Modelo O2.5 .50 vs ~.65 (-15 pp), BTTS .57 vs 1.39: U2.5 a 2.56 es artefacto del modelo con local n4. Gazalkent fuera 4/5 O2.5.",
+   "evidencia": [
+    "paquete:m-fd0946945ccf|goles"
+   ]
+  },
+  {
+   "unit_id": "m-fd0946945ccf|goles por equipo",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Sin precio; Metallurg GF local 1.0 (n4) vs Gazalkent fuera 2.8 (n5): muestras <8, sin ajuste por rival.",
+   "evidencia": [
+    "paquete:m-fd0946945ccf|goles por equipo"
+   ]
+  },
+  {
+   "unit_id": "m-fd0946945ccf|goles total entero",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "O3 .33/U3 .67 con push, sin precio; Metallurg local 4 partidos <=2 goles, Gazalkent fuera 4/5 con 3+.",
+   "evidencia": [
+    "paquete:m-fd0946945ccf|goles total entero"
+   ]
+  },
+  {
+   "unit_id": "m-fd0946945ccf|hándicap",
+   "objecion": "dato_defectuoso",
+   "severidad": "alta",
+   "recomendacion": "degradar",
+   "nota": "AH local -1.5 a 1.06 (n_casas 2, Marathon=1xBet identicos) es del lado +1.5 mal mapeado; away +1.5 1.24 implica ~4-5. p_modelo .17 vs .94 es artefacto.",
+   "evidencia": [
+    "paquete:m-fd0946945ccf|hándicap",
+    "apif_query:get_odds match_id=750547",
+    "archivo:runs/2026-10-26/agentes/paquete.json"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": "resultado.ah.home.-1.5",
+     "agente": "cuantitativo",
+     "campo": "consistencia_modelo",
+     "problema": "valor_contradice_paquete"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-fd0946945ccf|hándicap asiático entero",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "Precios -1 2.70/+0 1.50/+1 1.09 son coherentes entre si y con 1X2; la anomalia esta en AH -1.5. Modelo +0 .51 vs .67 y -1 .21 vs .37 (~-16 pp).",
+   "evidencia": [
+    "paquete:m-fd0946945ccf|hándicap asiático entero",
+    "apif_query:get_odds match_id=750547"
+   ],
+   "objeciones_a_agentes": [
+    {
+     "entry_id": null,
+     "agente": "verificador",
+     "campo": "discrepancias",
+     "problema": "valor_contradice_fuente"
+    },
+    {
+     "entry_id": null,
+     "agente": "cuantitativo",
+     "campo": "consistencia_modelo",
+     "problema": "omision"
+    }
+   ]
+  },
+  {
+   "unit_id": "m-fd0946945ccf|hándicap europeo",
+   "objecion": "muestra_debil",
+   "severidad": "media",
+   "recomendacion": "degradar",
+   "nota": "EH del 1X2 parejo (L .38/X .27/V .36), sin precio; empates +-1 ~.20 sin soporte propio; liga 8047 baja cobertura.",
+   "evidencia": [
+    "paquete:m-fd0946945ccf|hándicap europeo"
+   ]
+  },
+  {
+   "unit_id": "m-fd0946945ccf|remates",
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "liga 8047: datos de remates insuficientes en paquete (todos null en muestra); sin estimador utilizable.",
+   "evidencia": [
+    "paquete:m-fd0946945ccf|remates"
+   ]
+  },
+  {
+   "unit_id": "m-fd0946945ccf|remates a puerta",
+   "objecion": "muestra_debil",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "liga 8047: datos de remates insuficientes en paquete (todos null en muestra); sin estimador utilizable.",
+   "evidencia": [
+    "paquete:m-fd0946945ccf|remates a puerta"
+   ]
+  },
+  {
+   "unit_id": "m-fd0946945ccf|resultado",
+   "objecion": "brecha_muestra_mercado",
+   "severidad": "baja",
+   "recomendacion": "mantener",
+   "nota": "Modelo L .38 vs ~.46 (-9 pp), V .36 vs .30; sin alineaciones; Metallurg local n4 vs Gazalkent fuera n5.",
+   "evidencia": [
+    "paquete:m-fd0946945ccf|resultado"
+   ]
+  },
+  {
+   "unit_id": "m-fd0946945ccf|tarjetas",
+   "objecion": "dato_defectuoso",
+   "severidad": "alta",
+   "recomendacion": "descartar_de_rankings",
+   "nota": "Metallurg n1, Gazalkent n3 con amarillas 0 dudosas; liga 8047 solo 21 filas con tarjetas; sin arbitro.",
+   "evidencia": [
+    "paquete:m-fd0946945ccf|tarjetas"
+   ]
+  }
+ ],
+ "limitaciones": [
+  "Verificado en API solo get_odds 750547 (Metallurg): Marathon y 1xBet con AH identicos (espejo, no independientes); bet365 sin AH. Resto contrastado con paquete, rotation.json y league_samples.",
+  "Fila sospechosa de remates de Santa Fe citada por deportivo no verificada. A. Menelaos (liga 130) como Antoniou es identificacion probable por nombre, no confirmada.",
+  "Arbitros emparejados por apellido/inicial en league_samples; no se abrieron fuentes web independientes."
+ ]
+}

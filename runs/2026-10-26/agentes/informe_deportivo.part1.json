@@ -1,0 +1,2867 @@
+{
+ "agente": "deportivo",
+ "version_contrato": 1,
+ "run": "runs/2026-10-26",
+ "unidades": [
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "HT>=1 gol: Nassr 9/10, Wasl 6/10 (n10, liga+ACL). Over 0.5 respaldado (15/20); 1.5+ no. Paquete sin precio ni p.",
+   "excepciones": [
+    {
+     "entry_id": "primera_parte.total.over.0.5",
+     "solidez": "MEDIA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-05d5f273fc2d|1.ª parte goles",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/10.json"
+   ],
+   "unit_id": "m-05d5f273fc2d|1.ª parte goles"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "HT: Nassr gana 4/10 (casa HT 1.2-0.2, n5); Wasl empata HT 6/10 (fuera 3/4). Sin precio ni p; sin ventaja clara.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-05d5f273fc2d|1.ª parte resultado",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/10.json"
+   ],
+   "unit_id": "m-05d5f273fc2d|1.ª parte resultado"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Esperado ~9.6: Nassr casa 6.4 f/3.8 c (n5), Wasl fuera 5.75/3.25 (n4); ACL 8.68 (n31); árbitro s/d. Sin p ni precio: línea 9.5 sin sesgo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-05d5f273fc2d|córners",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/10.json"
+   ],
+   "unit_id": "m-05d5f273fc2d|córners"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "localia",
+   "direccion_favorable": "local",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "1X: Nassr 5V/5 en casa (GF 2.2, GA 0.6; n5), 7V en 10; Wasl fuera 2V1E1D (n4), 10d de descanso y rota 4.3. Sin H2H ni once. 1X 1.06 ya lo recoge.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.dc.x2",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-05d5f273fc2d|doble oportunidad",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/10.json"
+   ],
+   "unit_id": "m-05d5f273fc2d|doble oportunidad"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "localia",
+   "direccion_favorable": "local",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "DNB local: Nassr invicto en casa (5V, n5); Wasl fuera 2V1E1D (n4). DNB 1.07 sin verificar; visitante 6.255 sin respaldo. Sin H2H.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.dnb.away",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-05d5f273fc2d|empate no válido",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/10.json"
+   ],
+   "unit_id": "m-05d5f273fc2d|empate no válido"
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni estimador de fueras de juego; el paquete no trae datos propios.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-05d5f273fc2d|fueras de juego",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/10.json"
+   ],
+   "unit_id": "m-05d5f273fc2d|fueras de juego"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "O2.5 8/10 Nassr y 8/10 Wasl; BTTS 7/10 y 7/10 (n10, liga+ACL). ACL fase liga 2.84 g/p, O2.5 55% (n31). O2.5 1.385 ya lo recoge.",
+   "excepciones": [
+    {
+     "entry_id": "goles.total.under.0.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.total.under.1.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.total.under.2.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.total.over.3.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.total.under.3.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.total.over.4.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.total.under.4.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.total.over.5.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.total.under.5.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.btts.no",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-05d5f273fc2d|goles",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/10.json"
+   ],
+   "unit_id": "m-05d5f273fc2d|goles"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Marcó: Nassr 9/10 (casa 5/5, ≥2 en 4/5), Wasl 9/10 (fuera 4/4). Over 0.5 y Nassr 1.5 respaldados; Wasl 1.5 y over 2.5 no.",
+   "excepciones": [
+    {
+     "entry_id": "goles.equipo.home.under.0.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.equipo.home.under.1.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.equipo.home.over.2.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.equipo.home.under.2.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.equipo.away.under.0.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.equipo.away.over.1.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.equipo.away.under.1.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.equipo.away.over.2.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.equipo.away.under.2.5",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-05d5f273fc2d|goles por equipo",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/10.json"
+   ],
+   "unit_id": "m-05d5f273fc2d|goles por equipo"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Total ≥3 en 8/10 y 8/10 (n10); ≤1 solo 1/10 c/u. Over 1 y 2 respaldados (push en 2: 2/20); over 3 incierto (≥4: 10/20, =3: 6/20).",
+   "excepciones": [
+    {
+     "entry_id": "goles.total_entero.over.1",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "goles.total_entero.over.2",
+     "solidez": "MEDIA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-05d5f273fc2d|goles total entero",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/10.json"
+   ],
+   "unit_id": "m-05d5f273fc2d|goles total entero"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Nassr gana por 2+ en 3/10 (casa 2/5): -1.5/-2.5 sin apoyo. Nassr -0.5/+0.5/+1.5/+2.5 y Wasl +2.5 apoyados (pierde por 2+ 1/10). Sin once ni H2H.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.away.+2.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "resultado.ah.home.-0.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "resultado.ah.home.+0.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "resultado.ah.home.+1.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "resultado.ah.home.+2.5",
+     "solidez": "MEDIA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-05d5f273fc2d|hándicap",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/10.json"
+   ],
+   "unit_id": "m-05d5f273fc2d|hándicap"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Nassr gana por 2+ en 3/10 (casa 2/5). Respaldados: Nassr +0/+1/+2 y Wasl +2; sin apoyo: Nassr -1/-2 y Wasl +0/+1. Sin once ni H2H.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah_entero.away.+2",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "resultado.ah_entero.home.+0",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "resultado.ah_entero.home.+1",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "resultado.ah_entero.home.+2",
+     "solidez": "MEDIA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-05d5f273fc2d|hándicap asiático entero",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/10.json"
+   ],
+   "unit_id": "m-05d5f273fc2d|hándicap asiático entero"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Hándicap sobre el local. Nassr no pierde 8/10 (home +1) y no pierde por 2+ 9/10 (home +2); resto de tramos y empates sin apoyo.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.eh.home.+1",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "resultado.eh.home.+2",
+     "solidez": "MEDIA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-05d5f273fc2d|hándicap europeo",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/10.json"
+   ],
+   "unit_id": "m-05d5f273fc2d|hándicap europeo"
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Remates: Wasl fuera n=1 con dato; paquete: datos insuficientes y sin estimador. No evaluable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-05d5f273fc2d|remates",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/10.json"
+   ],
+   "unit_id": "m-05d5f273fc2d|remates"
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Remates a puerta: Wasl fuera n=1 con dato; paquete: datos insuficientes y sin estimador. No evaluable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-05d5f273fc2d|remates a puerta",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/10.json"
+   ],
+   "unit_id": "m-05d5f273fc2d|remates a puerta"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "localia",
+   "direccion_favorable": "local",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Nassr 5V/5 en casa (GF 2.2/GA 0.6, n5), Wasl fuera 2V1E1D (n4). Nassr 3d de descanso vs Wasl 10d (rota 4.3). Sin H2H en paquete. 1.33 recoge la ventaja.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.1x2.draw",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "resultado.1x2.away",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-05d5f273fc2d|resultado",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/10.json"
+   ],
+   "unit_id": "m-05d5f273fc2d|resultado"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "arbitro",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "tarjetas_atipicas",
+   "nota": "Pts: Nassr 1.8 f/2.4 c (n10), Wasl 2.25/1.75 (n8); esperado ~4.0 vs ACL 4.53 (n30). Árbitro sin designar. Sin p ni precio; sin sesgo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-05d5f273fc2d|tarjetas",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/10.json"
+   ],
+   "unit_id": "m-05d5f273fc2d|tarjetas"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "under",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Under HT: Instituto casa HT 0.4 g/p, Riestra fuera 0.0 (n5); HT>=1 en 4/10 y 4/10. Modelo u0.5 .52 vs mercado ~.43. Gol temprano de Instituto lo rompe.",
+   "excepciones": [
+    {
+     "entry_id": "primera_parte.total.under.0.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "primera_parte.total.under.1.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "primera_parte.total.under.2.5",
+     "solidez": "MEDIA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-06dae39e4956|1.ª parte goles",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/44.json"
+   ],
+   "unit_id": "m-06dae39e4956|1.ª parte goles"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "empate",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Empate al descanso: Instituto 9/10, Riestra 7/10 (n10, misma liga); modelo .57 vs mercado ~.50. Local/visitante HT sin apoyo.",
+   "excepciones": [
+    {
+     "entry_id": "primera_parte.1x2.home",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "primera_parte.1x2.away",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-06dae39e4956|1.ª parte resultado",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/44.json"
+   ],
+   "unit_id": "m-06dae39e4956|1.ª parte resultado"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "under",
+   "escenario_perdida": "goleada_local",
+   "nota": "Esperado ~7: Instituto casa 5.0 f/2.0 c, Riestra fuera 2.6/3.8 (n5); Gariano 7.9 (n18) vs liga 9.1. Modelo u9.5 .74. Under ≥8.5 apoyado; over no.",
+   "excepciones": [
+    {
+     "entry_id": "corners.total.over.6.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.total.under.6.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.total.over.7.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.total.under.7.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.total.over.8.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.total.over.9.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.total.over.10.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.total.over.11.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.total.over.12.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.total.over.13.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.total.over.14.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.2.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.3.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.4.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.4.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.5.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.5.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.6.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.7.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.8.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.2.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.2.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.3.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.4.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.5.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.6.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.7.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.8.5",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-06dae39e4956|córners",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/44.json"
+   ],
+   "unit_id": "m-06dae39e4956|córners"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "1X: Instituto casa 4V1E (GA 0.8), Riestra fuera 0V3E2D con GF 0.2 (n5). Riestra empata 6/10: 12 y X2 sin apoyo. Modelo 1X .87 vs mercado ~.81.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.dc.12",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "resultado.dc.x2",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-06dae39e4956|doble oportunidad",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/44.json"
+   ],
+   "unit_id": "m-06dae39e4956|doble oportunidad"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "DNB local: Instituto no pierde en casa (4V1E), Riestra fuera sin ganar (n5) y empata 6/10: reembolso probable. Modelo .83 vs 1.27. Visitante sin apoyo.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.dnb.away",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-06dae39e4956|empate no válido",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/44.json"
+   ],
+   "unit_id": "m-06dae39e4956|empate no válido"
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni estimador de fueras de juego; el paquete no trae datos propios.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-06dae39e4956|fueras de juego",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/44.json"
+   ],
+   "unit_id": "m-06dae39e4956|fueras de juego"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "under",
+   "escenario_perdida": "partido_abierto",
+   "nota": "O2.5: Instituto 5/10, Riestra 1/10 (n10, misma liga); Gariano 2.22 g/p (n18), liga 2.21. Modelo u2.5 .58 vs mercado ~.67. Under ≥2.5 respaldado; BTTS 9/20.",
+   "excepciones": [
+    {
+     "entry_id": "goles.total.under.0.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.total.over.1.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.total.under.1.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.total.over.2.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.total.over.3.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.total.over.4.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.total.over.5.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.btts.yes",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.btts.no",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-06dae39e4956|goles",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/44.json"
+   ],
+   "unit_id": "m-06dae39e4956|goles"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "under",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Riestra sin marcar 5/10 (fuera 4/5), ≥2 solo 1/10: under 1.5/2.5 visitante respaldado. Instituto marcó 9/10 (casa 5/5); over 1.5 local solo 5/10.",
+   "excepciones": [
+    {
+     "entry_id": "goles.equipo.home.over.0.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "goles.equipo.home.under.2.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "goles.equipo.away.under.1.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "goles.equipo.away.under.2.5",
+     "solidez": "MEDIA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-06dae39e4956|goles por equipo",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/44.json"
+   ],
+   "unit_id": "m-06dae39e4956|goles por equipo"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "under",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Total ≤2 en 14/20 (Riestra =2 en 6/10: mucho push). Under 3/4/5 y over 1 respaldados; over/under 2 y over 3+ sin apoyo (≥4: 4/20).",
+   "excepciones": [
+    {
+     "entry_id": "goles.total_entero.over.1",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "goles.total_entero.under.3",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "goles.total_entero.under.4",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "goles.total_entero.under.5",
+     "solidez": "MEDIA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-06dae39e4956|goles total entero",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/44.json"
+   ],
+   "unit_id": "m-06dae39e4956|goles total entero"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Instituto no pierde en casa (4V1E, n5), Riestra fuera 0V3E2D: -0.5/+0.5 y colchones local +1.5/+2.5 y Riestra +1.5/+2.5 apoyados. -1.5: margen ≥2 solo 2/10.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.away.+2.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "resultado.ah.away.+1.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "resultado.ah.home.-0.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "resultado.ah.home.+0.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "resultado.ah.home.+1.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "resultado.ah.home.+2.5",
+     "solidez": "MEDIA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-06dae39e4956|hándicap",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/44.json"
+   ],
+   "unit_id": "m-06dae39e4956|hándicap"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Instituto casa 4V1E, margen ≥2 en 1/5: +0/+1/+2 local y Riestra +2 respaldados; -1/-2 sin apoyo. Riestra +0/+1 dependen del empate (6/10 de Riestra).",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah_entero.away.+2",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "resultado.ah_entero.home.+0",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "resultado.ah_entero.home.+1",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "resultado.ah_entero.home.+2",
+     "solidez": "MEDIA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-06dae39e4956|hándicap asiático entero",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/44.json"
+   ],
+   "unit_id": "m-06dae39e4956|hándicap asiático entero"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Hándicap sobre el local. Instituto no pierde en casa (4V1E): home +1/+2 y away -2 (margen ≤1: 4/5) respaldados; -1/-2 local, empates y away +1/+2 sin apoyo.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.eh.away.-2",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "resultado.eh.home.+1",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "resultado.eh.home.+2",
+     "solidez": "MEDIA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-06dae39e4956|hándicap europeo",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/44.json"
+   ],
+   "unit_id": "m-06dae39e4956|hándicap europeo"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "under",
+   "escenario_perdida": "goleada_local",
+   "nota": "Esperado ~19-20 (Instituto casa 15.8 f/6.5 c n4; Riestra fuera 6.8/9.8 n4) vs línea 22.5. Modelo u22.5 .68. Under ≥23.5 apoyado; muestra n8 débil.",
+   "excepciones": [
+    {
+     "entry_id": "shots.total.under.23.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "shots.total.under.24.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "shots.total.under.25.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "shots.total.under.26.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "shots.total.under.27.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "shots.total.under.28.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "shots.total.under.29.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "shots.total.under.30.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "shots.total.under.31.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "shots.total.under.32.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.6.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.7.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.8.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.9.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.8.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.9.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.10.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.11.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.12.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.13.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.14.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.15.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.16.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.17.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.18.5",
+     "solidez": "MEDIA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-06dae39e4956|remates",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/44.json"
+   ],
+   "unit_id": "m-06dae39e4956|remates"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "under",
+   "escenario_perdida": "goleada_local",
+   "nota": "Esperado ~5.8 (Instituto casa 5.0 f/1.5 c n4; Riestra fuera 2.5/2.5 n4) vs 8.5+. Modelo u7.5 .68. Under ≥8.5 apoyado; 5.5-6.5 sin ventaja; n8 débil.",
+   "excepciones": [
+    {
+     "entry_id": "sot.total.under.8.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "sot.total.under.9.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "sot.total.under.10.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "sot.total.under.11.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "sot.total.under.12.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "sot.total.under.13.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "sot.total.under.14.5",
+     "solidez": "MEDIA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-06dae39e4956|remates a puerta",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/44.json"
+   ],
+   "unit_id": "m-06dae39e4956|remates a puerta"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "localia",
+   "direccion_favorable": "local",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Instituto casa 4V1E (GF 1.8, GA 0.8), Riestra fuera 0V3E2D GF 0.2 (n5, Clausura). Modelo L .63 vs mercado ~.52; descanso 11d vs 7d. Sin once ni H2H.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.1x2.draw",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "resultado.1x2.away",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-06dae39e4956|resultado",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/44.json"
+   ],
+   "unit_id": "m-06dae39e4956|resultado"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "arbitro",
+   "direccion_favorable": "over",
+   "escenario_perdida": "tarjetas_atipicas",
+   "nota": "Pts: Instituto 2.6 f/3.4 c (n8), Riestra 2.5/2.2 (n10); Gariano 4.8 (n18, >4.5 50%) vs liga 5.0. Over ≤3.5 apoyado; 4.5-5.5 sin sesgo. Árbitro por apellido.",
+   "excepciones": [
+    {
+     "entry_id": "cards_pts.total.over.1.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "cards_pts.total.over.2.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "cards_pts.total.over.3.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.over.0.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.over.1.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.over.0.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.over.1.5",
+     "solidez": "MEDIA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-06dae39e4956|tarjetas",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/44.json"
+   ],
+   "unit_id": "m-06dae39e4956|tarjetas"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "HT>=1: Juventude 5/10, Náutico 8/10 (n10, Serie B). Modelo o0.5 .72 vs mercado ~.69; Juve casa HT 1.25 f (n4). Sin sesgo claro.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-1295288917b0|1.ª parte goles",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/75.json"
+   ],
+   "unit_id": "m-1295288917b0|1.ª parte goles"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Juve casa HT 1.25-0.5 (n4); Náutico pierde HT 5/10 y concede 1.0. Empate HT: Juve 7/10, Náutico 4/10. Modelo L .46, E .39: sin ventaja.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-1295288917b0|1.ª parte resultado",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/75.json"
+   ],
+   "unit_id": "m-1295288917b0|1.ª parte resultado"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Esperado ~10.6: Juve casa 3.3 f/3.5 c (n4), Náutico fuera 6.5/8.0 (n4); totales 8.2 y 12.4; liga 10.7 (n345). Árbitro sin muestra. Modelo o9.5 .54.",
+   "excepciones": [
+    {
+     "entry_id": "corners.total.over.6.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.5.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.6.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.7.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.8.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.2.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.3.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.4.5",
+     "solidez": "MEDIA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-1295288917b0|córners",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/75.json"
+   ],
+   "unit_id": "m-1295288917b0|córners"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "partido_abierto",
+   "nota": "1X: Juve no pierde 3/4 en casa (8/10 global); Náutico fuera 0V2E2D (n4). Ambos empatan mucho (4/10 y 3/10): 12 flojo. Modelo 1X .84.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.dc.12",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "resultado.dc.x2",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-1295288917b0|doble oportunidad",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/75.json"
+   ],
+   "unit_id": "m-1295288917b0|doble oportunidad"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "partido_abierto",
+   "nota": "DNB local: Juve 1V2E1D en casa (n4), Náutico fuera 0V2E2D GF 0.5. Empate reembolsa (muy frecuente). Modelo .80 vs 1.15; visitante sin apoyo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-1295288917b0|empate no válido",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/75.json"
+   ],
+   "unit_id": "m-1295288917b0|empate no válido"
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni estimador de fueras de juego; el paquete no trae datos propios.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-1295288917b0|fueras de juego",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/75.json"
+   ],
+   "unit_id": "m-1295288917b0|fueras de juego"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_abierto",
+   "nota": "O2.5: 5/10 y 5/10 (n10, Serie B); liga 2.33 g/p, O2.5 43% (n347). Modelo .55 vs mercado ~.50: sin sesgo. Over 1.5 (16/20) y under 3.5 (15/20) respaldados.",
+   "excepciones": [
+    {
+     "entry_id": "goles.total.over.0.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "goles.total.over.1.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "goles.total.under.3.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "goles.total.under.4.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "goles.total.under.5.5",
+     "solidez": "MEDIA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-1295288917b0|goles",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/75.json"
+   ],
+   "unit_id": "m-1295288917b0|goles"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Juve marcó 8/10 (casa 3/4), Náutico 6/10 (fuera 2/4, ≥2 solo 3/10). Over 0.5 local y under 1.5/2.5 visitante apoyados; resto sin sesgo.",
+   "excepciones": [
+    {
+     "entry_id": "goles.equipo.home.over.0.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "goles.equipo.away.under.1.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "goles.equipo.away.under.2.5",
+     "solidez": "MEDIA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-1295288917b0|goles por equipo",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/75.json"
+   ],
+   "unit_id": "m-1295288917b0|goles por equipo"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Over 1 gana 16/20 (push 2); under 4 gana 15/20 (push 4/20); over/under 2 y 3 sin apoyo (=2: 6/20; =3: 5/20).",
+   "excepciones": [
+    {
+     "entry_id": "goles.total_entero.over.1",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "goles.total_entero.under.4",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "goles.total_entero.under.5",
+     "solidez": "MEDIA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-1295288917b0|goles total entero",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/75.json"
+   ],
+   "unit_id": "m-1295288917b0|goles total entero"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Juve pierde por 2+ 1/10 y Náutico fuera 0V (n4): +0.5/+1.5/+2.5 local y Náutico +2.5 apoyados. Juve -0.5/-1.5 sin apoyo: 1V2E1D en casa.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.away.+2.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "resultado.ah.home.+0.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "resultado.ah.home.+1.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "resultado.ah.home.+2.5",
+     "solidez": "MEDIA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-1295288917b0|hándicap",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/75.json"
+   ],
+   "unit_id": "m-1295288917b0|hándicap"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Juve 1V2E1D en casa; pierde por 2+ 1/10: +0/+1/+2 local y Náutico +2 apoyados; Juve -1/-2 y Náutico +0/+1 sin apoyo (empates 4/10 y 3/10).",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah_entero.away.+2",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "resultado.ah_entero.home.+0",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "resultado.ah_entero.home.+1",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "resultado.ah_entero.home.+2",
+     "solidez": "MEDIA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-1295288917b0|hándicap asiático entero",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/75.json"
+   ],
+   "unit_id": "m-1295288917b0|hándicap asiático entero"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Hándicap sobre el local. Juve no pierde 8/10 (home +1) y no pierde por 2+ 9/10 (home +2) apoyados; -1/-2, away -1/-2, empates y away +1/+2 sin apoyo.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.eh.home.+1",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "resultado.eh.home.+2",
+     "solidez": "MEDIA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-1295288917b0|hándicap europeo",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/75.json"
+   ],
+   "unit_id": "m-1295288917b0|hándicap europeo"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Esperado ~35 por sede (Juve casa 20.0 f/14.3 c; Náutico fuera 15.3/21.0, n4) vs 26-32 global (n9). Modelo o24.5 .68. Over ≤24.5 apoyado; muestra débil.",
+   "excepciones": [
+    {
+     "entry_id": "shots.total.over.14.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "shots.total.over.15.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "shots.total.over.16.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "shots.total.over.17.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "shots.total.over.18.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "shots.total.over.19.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "shots.total.over.20.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "shots.total.over.21.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "shots.total.over.22.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "shots.total.over.23.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "shots.total.over.24.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.6.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.7.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.8.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.9.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.10.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.11.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.12.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.6.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.7.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.8.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.9.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.10.5",
+     "solidez": "MEDIA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-1295288917b0|remates",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/75.json"
+   ],
+   "unit_id": "m-1295288917b0|remates"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "SoT esperado ~9.0 por sede (Juve casa 5.8/4.0; Náutico fuera 3.0/5.25, n4); global 7.2 y 8.1 (n9). Modelo o7.5 .50, o9.5 .26: sin sesgo; under ≥10.5 apoyado.",
+   "excepciones": [
+    {
+     "entry_id": "sot.total.under.10.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "sot.total.under.11.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "sot.total.under.12.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "sot.total.under.13.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "sot.total.under.14.5",
+     "solidez": "MEDIA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-1295288917b0|remates a puerta",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/75.json"
+   ],
+   "unit_id": "m-1295288917b0|remates a puerta"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Juve casa 1V2E1D (n4), 4V4E2D en 10; Náutico fuera 0V2E2D GF 0.5. Modelo L .63 vs mercado ~.62, pero empates 4/10 y 3/10 vs E .21. Sin H2H ni once.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-1295288917b0|resultado",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/75.json"
+   ],
+   "unit_id": "m-1295288917b0|resultado"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "arbitro",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "tarjetas_atipicas",
+   "nota": "Pts: Juve 2.9 f/2.5 c (n8), Náutico 2.0/1.9 (n10); esperado ~4.5; liga 4.93 (n342). Árbitro Mota Correia sin muestra en liga. Modelo o4.5 .48: sin sesgo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-1295288917b0|tarjetas",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/75.json"
+   ],
+   "unit_id": "m-1295288917b0|tarjetas"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "HT>=1: Persija 8/10, Persik 9/10 (n10, Liga 1); modelo o0.5 .79 vs mercado ~.79. Respaldado, el precio lo recoge. o1.5 (.47) sin ventaja.",
+   "excepciones": [
+    {
+     "entry_id": "primera_parte.total.under.0.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "primera_parte.total.over.1.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "primera_parte.total.under.1.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "primera_parte.total.over.2.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "primera_parte.total.under.2.5",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-1df54f8dc9a8|1.ª parte goles",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/194.json"
+   ],
+   "unit_id": "m-1df54f8dc9a8|1.ª parte goles"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Persija casa HT 1.2-0.4 (n5, sin empates HT), Persik fuera HT 0.6-0.6. Modelo L .52 vs mercado ~.56. Local favorito pero sin ventaja.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-1df54f8dc9a8|1.ª parte resultado",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/194.json"
+   ],
+   "unit_id": "m-1df54f8dc9a8|1.ª parte resultado"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Esperado ~9.6: Persija casa 4.8 f/3.4 c (n5), Persik fuera 5.8/5.2 (n5); totales 8.6 y 11.4; liga 10.2 (n151). Sin árbitro. Modelo o9.5 .52: sin sesgo.",
+   "excepciones": [
+    {
+     "entry_id": "corners.equipo.home.over.2.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.3.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.2.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.3.5",
+     "solidez": "MEDIA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-1df54f8dc9a8|córners",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/194.json"
+   ],
+   "unit_id": "m-1df54f8dc9a8|córners"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "1X: Persija 8V2D en 10 (casa 4V1D), 3-1 a Persik el 16-may (muestra); Persik fuera 2V1E2D. 12 respaldado: empates 0/10 y 1/10. Mezcla may/oct (n10).",
+   "excepciones": [
+    {
+     "entry_id": "resultado.dc.x2",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-1df54f8dc9a8|doble oportunidad",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/194.json"
+   ],
+   "unit_id": "m-1df54f8dc9a8|doble oportunidad"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "DNB local: Persija 8V2D, 0E en 10; Persik fuera 2V1E2D (n5). 1.095 lo recoge; visitante 7.15 sin respaldo.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.dnb.away",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-1df54f8dc9a8|empate no válido",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/194.json"
+   ],
+   "unit_id": "m-1df54f8dc9a8|empate no válido"
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni estimador de fueras de juego; el paquete no trae datos propios.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-1df54f8dc9a8|fueras de juego",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/194.json"
+   ],
+   "unit_id": "m-1df54f8dc9a8|fueras de juego"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "O2.5: Persija 7/10, Persik 5/10 (n10); liga 3.04 g/p, O2.5 58% (n159). Modelo .62 vs mercado ~.68: sin ventaja. Over 1.5 y under 4.5+ apoyados; BTTS 9/20.",
+   "excepciones": [
+    {
+     "entry_id": "goles.total.over.0.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "goles.total.over.1.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "goles.total.under.4.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "goles.total.under.5.5",
+     "solidez": "MEDIA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-1df54f8dc9a8|goles",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/194.json"
+   ],
+   "unit_id": "m-1df54f8dc9a8|goles"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Persija marcó 10/10 (casa 5/5; ≥2 en 7/10), Persik 7/10 (fuera 3/5). Over 0.5/1.5 local respaldados; Persik sin sesgo (GF 1.4).",
+   "excepciones": [
+    {
+     "entry_id": "goles.equipo.home.over.0.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "goles.equipo.home.over.1.5",
+     "solidez": "MEDIA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-1df54f8dc9a8|goles por equipo",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/194.json"
+   ],
+   "unit_id": "m-1df54f8dc9a8|goles por equipo"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Over 1 nunca pierde (tot≥1 20/20; =1: 4/20); over 2 gana 12/20 (=2: 4/20); under 4 gana 13/20 y under 5 respaldados. Over/under 3 sin apoyo.",
+   "excepciones": [
+    {
+     "entry_id": "goles.total_entero.over.1",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "goles.total_entero.over.2",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "goles.total_entero.under.4",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "goles.total_entero.under.5",
+     "solidez": "MEDIA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-1df54f8dc9a8|goles total entero",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/194.json"
+   ],
+   "unit_id": "m-1df54f8dc9a8|goles total entero"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Persija gana por 2+ en 5/10 (casa 2/5) y no pierde por 2+. -0.5 y colchones +0.5/+1.5 apoyados; -1.5 en la mitad de casos (modelo .44): sin ventaja.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.home.-0.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "resultado.ah.home.+0.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "resultado.ah.home.+1.5",
+     "solidez": "MEDIA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-1df54f8dc9a8|hándicap",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/194.json"
+   ],
+   "unit_id": "m-1df54f8dc9a8|hándicap"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Persija gana por 2+ en 5/10 y por 3+ en 3/10: +0/+1/+2 local apoyados; -1/-2 y Persik +0/+1/+2 sin apoyo.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah_entero.home.+0",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "resultado.ah_entero.home.+1",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "resultado.ah_entero.home.+2",
+     "solidez": "MEDIA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-1df54f8dc9a8|hándicap asiático entero",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/194.json"
+   ],
+   "unit_id": "m-1df54f8dc9a8|hándicap asiático entero"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Hándicap sobre el local. Persija no pierde 8/10 (home +1) y no pierde por 2+ 10/10 (home +2); -1/-2, empates y away sin apoyo.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.eh.home.+1",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "resultado.eh.home.+2",
+     "solidez": "MEDIA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-1df54f8dc9a8|hándicap europeo",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/194.json"
+   ],
+   "unit_id": "m-1df54f8dc9a8|hándicap europeo"
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin datos de remates en la muestra del paquete (estimador datos_insuficientes). No evaluable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-1df54f8dc9a8|remates",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/194.json"
+   ],
+   "unit_id": "m-1df54f8dc9a8|remates"
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin datos de remates a puerta en la muestra del paquete (estimador datos_insuficientes). No evaluable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-1df54f8dc9a8|remates a puerta",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/194.json"
+   ],
+   "unit_id": "m-1df54f8dc9a8|remates a puerta"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Persija 8V2D en 10 (casa 4V1D, GF 2.4/GA 0.8), Persik 5V1E4D (fuera 2V1E2D); 3-1 a Persik el 16-may (n1, muestra). Mezcla may/oct. 5d vs 4d de descanso.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.1x2.draw",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "resultado.1x2.away",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-1df54f8dc9a8|resultado",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/194.json"
+   ],
+   "unit_id": "m-1df54f8dc9a8|resultado"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "arbitro",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "tarjetas_atipicas",
+   "nota": "Pts: Persija 2.1 f/1.8 c, Persik 2.4/2.3 (n10); esperado ~4.4 vs liga 4.19 (n156). Sin árbitro. Modelo o3.5 .59, o4.5 .44: sin sesgo; over ≤2.5 apoyado.",
+   "excepciones": [
+    {
+     "entry_id": "cards_pts.total.over.1.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "cards_pts.total.over.2.5",
+     "solidez": "MEDIA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-1df54f8dc9a8|tarjetas",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/194.json"
+   ],
+   "unit_id": "m-1df54f8dc9a8|tarjetas"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "under",
+   "escenario_perdida": "partido_abierto",
+   "nota": "HT>=1: QAJ 5/10, Pakhtakor 6/10 (n10, liga+ACL): 11/20 frente a over 0.5 de mercado ~.65. Sin p en paquete; leve lean under, sin soporte firme.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-225db146db49|1.ª parte goles",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/10.json"
+   ],
+   "unit_id": "m-225db146db49|1.ª parte goles"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "empate",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Empate HT: QAJ 5/10, Pakhtakor 4/10 (n10); QAJ casa HT 0.0-1.0 (n5). Mercado E 2.10. Sin p; local sin apoyo, visitante leve.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-225db146db49|1.ª parte resultado",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/10.json"
+   ],
+   "unit_id": "m-225db146db49|1.ª parte resultado"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Esperado ~8.8: QAJ casa 4.0 f/4.8 c (n5), Pakhtakor fuera 3.2/5.7 (n6); totales 8.8 y 9.0; ACL 8.68 (n31). Sin p. Línea 9.5 sin sesgo; over 6.5/under 11.5+ apoyados.",
+   "excepciones": [
+    {
+     "entry_id": "corners.total.over.6.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "corners.total.under.11.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "corners.total.under.12.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "corners.total.under.13.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "corners.total.under.14.5",
+     "solidez": "MEDIA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-225db146db49|córners",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/10.json"
+   ],
+   "unit_id": "m-225db146db49|córners"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "goleada_local",
+   "nota": "X2 sin perder: QAJ casa 0V3E2D con GF 0.6 (n5); Pakhtakor fuera 2V3E1D, GA 1.0 (n6). 1X y 12 sin apoyo (empates 3/10 y 4/10). Pakhtakor 3d y 3.7 cambios.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.dc.1x",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "resultado.dc.12",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-225db146db49|doble oportunidad",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/10.json"
+   ],
+   "unit_id": "m-225db146db49|doble oportunidad"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "goleada_local",
+   "nota": "DNB: QAJ casa perdió sus 2 decididos (0V3E2D); Pakhtakor fuera 2V1D decididos (n6): lean visitante pero muestra mínima y 3d de descanso del visitante.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-225db146db49|empate no válido",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/10.json"
+   ],
+   "unit_id": "m-225db146db49|empate no válido"
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni estimador de fueras de juego; el paquete no trae datos propios.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-225db146db49|fueras de juego",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/10.json"
+   ],
+   "unit_id": "m-225db146db49|fueras de juego"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "under",
+   "escenario_perdida": "partido_abierto",
+   "nota": "O2.5: QAJ 4/10, Pakhtakor 5/10 (n10, liga+ACL); ACL 2.84 g/p, O2.5 55% (n31). Under 3.5+ respaldado (≥4: 5/20); O2.5 y BTTS (13/20) sin sesgo.",
+   "excepciones": [
+    {
+     "entry_id": "goles.total.under.3.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "goles.total.under.4.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "goles.total.under.5.5",
+     "solidez": "MEDIA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-225db146db49|goles",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/10.json"
+   ],
+   "unit_id": "m-225db146db49|goles"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_abierto",
+   "nota": "QAJ casa marcó 3/5, nunca ≥2 (GF 0.6); Pakhtakor marcó 9/10 (fuera 5/6). QAJ under 1.5/2.5 y Pakhtakor over 0.5 apoyados; resto sin sesgo.",
+   "excepciones": [
+    {
+     "entry_id": "goles.equipo.home.under.1.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "goles.equipo.home.under.2.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "goles.equipo.away.over.0.5",
+     "solidez": "MEDIA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-225db146db49|goles por equipo",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/10.json"
+   ],
+   "unit_id": "m-225db146db49|goles por equipo"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "under",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Over 1 gana 15/20 (push 4); under 4/5 respaldado (≥5: 2/20). Over/under 2 y 3 sin apoyo (=2: 6/20; ≥3: 9/20).",
+   "excepciones": [
+    {
+     "entry_id": "goles.total_entero.over.1",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "goles.total_entero.under.4",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "goles.total_entero.under.5",
+     "solidez": "MEDIA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-225db146db49|goles total entero",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/10.json"
+   ],
+   "unit_id": "m-225db146db49|goles total entero"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "goleada_local",
+   "nota": "QAJ no pierde por 2+ en 9/10; Pakhtakor fuera gana por 2+ 1/6: QAJ +1.5/+2.5 apoyados. Ganador (QAJ o Pakhtakor ±0.5/-1.5) sin apoyo: QAJ casa sin ganar, visitante 2V.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.home.+1.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "resultado.ah.home.+2.5",
+     "solidez": "MEDIA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-225db146db49|hándicap",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/10.json"
+   ],
+   "unit_id": "m-225db146db49|hándicap"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "goleada_local",
+   "nota": "QAJ +1/+2 y Pakhtakor +1/+2 apoyados (QAJ pierde por 2+ 1/10, gana por 2+ 1/10); +0 y -1/-2 sin apoyo: empates 3/10 y 4/10, QAJ casa 0V.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah_entero.away.+2",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "resultado.ah_entero.away.+1",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "resultado.ah_entero.home.+1",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "resultado.ah_entero.home.+2",
+     "solidez": "MEDIA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-225db146db49|hándicap asiático entero",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/10.json"
+   ],
+   "unit_id": "m-225db146db49|hándicap asiático entero"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "goleada_local",
+   "nota": "Hándicap sobre el local. QAJ casa: no pierde por 2+ (4/5; home +2) y no gana 5/5 (away -1); away -2 (margen ≤1) también. Resto sin apoyo.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.eh.away.-2",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "resultado.eh.away.-1",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "resultado.eh.home.+2",
+     "solidez": "MEDIA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-225db146db49|hándicap europeo",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/10.json"
+   ],
+   "unit_id": "m-225db146db49|hándicap europeo"
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Remates: QAJ casa n=1 con dato y Pakhtakor sin dato; paquete: datos insuficientes y sin estimador. No evaluable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-225db146db49|remates",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/10.json"
+   ],
+   "unit_id": "m-225db146db49|remates"
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Remates a puerta: QAJ casa n=1 con dato y Pakhtakor sin dato; paquete: datos insuficientes. No evaluable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-225db146db49|remates a puerta",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/10.json"
+   ],
+   "unit_id": "m-225db146db49|remates a puerta"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "goleada_local",
+   "nota": "Pakhtakor favorito (1.88): QAJ casa sin ganar (0V3E2D, GF 0.6, n5) pero Pakhtakor fuera solo 2V3E1D. Sin p en paquete; visitante 3d de descanso y 3.7 cambios.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-225db146db49|resultado",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/10.json"
+   ],
+   "unit_id": "m-225db146db49|resultado"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "tarjetas_atipicas",
+   "nota": "Pts: QAJ con solo n=4 (2.0 f/1.0 c), Pakhtakor 2.2/2.0 (n10); ACL 4.53 (n30). Datos parciales, sin árbitro ni p: sin sesgo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-225db146db49|tarjetas",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/10.json"
+   ],
+   "unit_id": "m-225db146db49|tarjetas"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "HT>=1: Jaguares 9/10, Llaneros 8/10 (n10, Primera A); modelo o0.5 .81 vs mercado ~.67. Over 0.5 respaldado; o1.5 (.49) sin ventaja.",
+   "excepciones": [
+    {
+     "entry_id": "primera_parte.total.under.0.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "primera_parte.total.over.1.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "primera_parte.total.under.1.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "primera_parte.total.over.2.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "primera_parte.total.under.2.5",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-28530c3a587a|1.ª parte goles",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/120.json"
+   ],
+   "unit_id": "m-28530c3a587a|1.ª parte goles"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Empate HT: Jaguares 4/10, Llaneros 4/10; Jaguares casa HT 1.0-0.6, Llaneros fuera 0.75-1.5 (n4-5). Modelo L .38/E .35/V .27: sin ventaja.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-28530c3a587a|1.ª parte resultado",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/120.json"
+   ],
+   "unit_id": "m-28530c3a587a|1.ª parte resultado"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Esperado ~10.5: Jaguares casa 4.0 f/9.0 c (n5), Llaneros fuera 4.5/3.5 (n4); liga 9.1, Londono 9.7 (n13). Modelo o9.5 .56. Over ≤8.5 apoyado; 9.5+ sin sesgo.",
+   "excepciones": [
+    {
+     "entry_id": "corners.total.over.6.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "corners.total.over.7.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "corners.total.over.8.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.2.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.3.5",
+     "solidez": "MEDIA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-28530c3a587a|córners",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/120.json"
+   ],
+   "unit_id": "m-28530c3a587a|córners"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "1X: Jaguares casa 2V2E1D, Llaneros fuera 0V4D (n4; 2V en 10). 12 respaldado: Llaneros 0 empates en 10. X2 sin apoyo. Jaguares concede ≥2 en 9/10.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.dc.x2",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-28530c3a587a|doble oportunidad",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/120.json"
+   ],
+   "unit_id": "m-28530c3a587a|doble oportunidad"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "DNB local: Llaneros fuera 0V4D, 2V8D en 10; Jaguares casa 2V2E1D (n5) pero GA 2.1. Modelo .61 vs 1.85. Visitante sin apoyo.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.dnb.away",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-28530c3a587a|empate no válido",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/120.json"
+   ],
+   "unit_id": "m-28530c3a587a|empate no válido"
+  },
+  {
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni estimador de fueras de juego; el paquete no trae datos propios.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-28530c3a587a|fueras de juego",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/120.json"
+   ],
+   "unit_id": "m-28530c3a587a|fueras de juego"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "O2.5: Jaguares 8/10, Llaneros 6/10; BTTS 8/10 y 5/10 (n10, Primera A); liga 2.52 g/p, Londono 2.79 (n14). Modelo .61 vs mercado ~.48. Over 1.5/2.5 y BTTS sí respaldados.",
+   "excepciones": [
+    {
+     "entry_id": "goles.total.under.0.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.total.under.1.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.total.under.2.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.total.over.3.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.total.under.3.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.total.over.4.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.total.under.4.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.total.over.5.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.total.under.5.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.btts.no",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-28530c3a587a|goles",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/120.json"
+   ],
+   "unit_id": "m-28530c3a587a|goles"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Jaguares marcó 9/10 (casa 5/5), Llaneros 7/10 (fuera 3/4) con GF 0.9; Llaneros ≥2 solo 2/10. Over 0.5 local y under 1.5/2.5 visitante respaldados.",
+   "excepciones": [
+    {
+     "entry_id": "goles.equipo.home.over.0.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "goles.equipo.away.under.1.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "goles.equipo.away.under.2.5",
+     "solidez": "MEDIA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-28530c3a587a|goles por equipo",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/120.json"
+   ],
+   "unit_id": "m-28530c3a587a|goles por equipo"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Over 1/2 respaldados (tot≥3: 14/20; =2: 3/20); under 4 (≥5: 4/20) y under 5 (≥6: 1/20) también; over/under 3 sin apoyo (=3: 8/20).",
+   "excepciones": [
+    {
+     "entry_id": "goles.total_entero.over.1",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "goles.total_entero.over.2",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "goles.total_entero.under.4",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "goles.total_entero.under.5",
+     "solidez": "MEDIA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-28530c3a587a|goles total entero",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/120.json"
+   ],
+   "unit_id": "m-28530c3a587a|goles total entero"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Jaguares nunca ganó por 2+ (0/10): -1.5 sin apoyo; Llaneros +1.5 y Jaguares +0.5/+1.5 apoyados. -0.5 local depende de Llaneros 0V4D fuera.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.away.+1.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "resultado.ah.home.-0.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "resultado.ah.home.+0.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "resultado.ah.home.+1.5",
+     "solidez": "MEDIA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-28530c3a587a|hándicap",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/120.json"
+   ],
+   "unit_id": "m-28530c3a587a|hándicap"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Jaguares nunca ganó por 2+ (0/10): Llaneros +1/+2 y Jaguares +0/+1/+2 apoyados; Jaguares -1/-2 y Llaneros +0/-1/-2 sin apoyo.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah_entero.away.+2",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "resultado.ah_entero.away.+1",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "resultado.ah_entero.home.+0",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "resultado.ah_entero.home.+1",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "resultado.ah_entero.home.+2",
+     "solidez": "MEDIA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-28530c3a587a|hándicap asiático entero",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/120.json"
+   ],
+   "unit_id": "m-28530c3a587a|hándicap asiático entero"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Hándicap sobre el local. Jaguares no gana por 2+ (0/10): away -2 respaldado; home +1/+2 (4/5 y 5/5 en casa). -1/-2 local, empates y away +1/+2 sin apoyo.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.eh.away.-2",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "resultado.eh.home.+1",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "resultado.eh.home.+2",
+     "solidez": "MEDIA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-28530c3a587a|hándicap europeo",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/120.json"
+   ],
+   "unit_id": "m-28530c3a587a|hándicap europeo"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "n=6 por equipo (Jaguares 10.7 f/15.8 c; Llaneros 10.8/13.0; sede n3-4): esperado ~25 vs 24.5, modelo .54. Muestra débil, sin sesgo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-28530c3a587a|remates",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/120.json"
+   ],
+   "unit_id": "m-28530c3a587a|remates"
+  },
+  {
+   "solidez": "BAJA",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "n=6 por equipo; esperado ~10 (Jaguares casa 5.3/5.5, Llaneros fuera 5.0/4.7, n3-4) vs 7.5-8.5; modelo o8.5 .65. Muestra débil: BAJA.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-28530c3a587a|remates a puerta",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/120.json"
+   ],
+   "unit_id": "m-28530c3a587a|remates a puerta"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "local",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Llaneros fuera 0V4D (2V8D en 10, GF 0.9); Jaguares casa 2V2E1D, 2V3E5D global y GA 2.1. Modelo L .46 vs mercado ~.36, V .30. Sin H2H ni once.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.1x2.draw",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "resultado.1x2.away",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-28530c3a587a|resultado",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/120.json"
+   ],
+   "unit_id": "m-28530c3a587a|resultado"
+  },
+  {
+   "solidez": "MEDIA",
+   "factor_principal": "arbitro",
+   "direccion_favorable": "over",
+   "escenario_perdida": "tarjetas_atipicas",
+   "nota": "Pts: Jaguares 3.4 f/3.3 c (n8), Llaneros 3.9/2.3 (n9); Londono 7.1 (n13, >4.5 85%) vs liga 6.05. Over ≤4.5 apoyado; 5.5+ menos. Árbitro por apellido.",
+   "excepciones": [
+    {
+     "entry_id": "cards_pts.total.under.1.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "cards_pts.total.under.2.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "cards_pts.total.under.3.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "cards_pts.total.under.4.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "cards_pts.total.over.5.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "cards_pts.total.under.5.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "cards_pts.total.over.6.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "cards_pts.total.under.6.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "cards_pts.total.over.7.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "cards_pts.total.under.7.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "cards_pts.total.over.8.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "cards_pts.total.under.8.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "cards_pts.total.over.9.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "cards_pts.total.under.9.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.under.0.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.under.1.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.under.2.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.over.3.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.under.3.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.over.4.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.under.4.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.over.5.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.under.5.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.under.0.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.under.1.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.under.2.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.over.3.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.under.3.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.over.4.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.under.4.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.over.5.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "cards_pts.equipo.away.under.5.5",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-28530c3a587a|tarjetas",
+    "archivo:runs/2026-10-26/matrix.json",
+    "archivo:runs/2026-10-26/rotation.json",
+    "archivo:runs/2026-10-26/league_samples/120.json"
+   ],
+   "unit_id": "m-28530c3a587a|tarjetas"
+  }
+ ],
+ "limitaciones": [
+  "Ningún paquete/matrix trae H2H. Regla de la persona usuaria (ACL: Nassr–Wasl, QAJ–Pakhtakor): la evidencia usa el historial propio mixto (ACL + ligas domésticas, n≤10), sin cruces directos; solo consta Persija 3-1 Persik (16-may) dentro de la muestra.",
+  "Alineaciones sin snapshot en los 6 partidos: bajas, sanciones y onces no verificados; no se abrió ninguna fuente web. La rotación sale solo de rotation.json (descanso y cambios medios, 4 partidos previos).",
+  "Muestra: historial propio de apifootball (≤10 partidos), casa/fuera n4-6, sin ajustar por rival ni categoría; Persija/Persik mezcla may-oct 2026; remates/SoT n6-9 y por sede n3-4; QAJ remates n=1 y tarjetas n=4; Wasl remates n=1.",
+  "Árbitros: Gariano (Instituto–Riestra) y Londono (Jaguares–Llaneros) se cruzaron por apellido con league_samples (identidad no confirmada); Mota Correia (Juventude–Náutico) sin muestra; Nassr–Wasl, Persija–Persik y QAJ–Pakhtakor sin árbitro designado.",
+  "Nassr–Wasl y QAJ–Pakhtakor no tienen estimador (sin_probabilidad_calculada): solo datos propios y precios de agregador como referencia. Fueras de juego sin extractor ni estimador en los 6 partidos: NO_EVALUABLE.",
+  "Totales enteros, hándicaps asiáticos enteros y europeos se derivan de frecuencias de totales y márgenes de gol (n10, n5 por sede), no de un modelo. Convención EH deducida de p_modelo: el tramo se aplica al local (eh.away.-2 = margen local ≤1).",
+  "Tarjetas: se evalúan como puntos (cards_pts); las medias de árbitro en league_samples cuentan tarjetas y no equivalen exactamente a puntos. Ningún pick marcado ALTA: la evidencia es de muestra pequeña y mixta."
+ ]
+}
