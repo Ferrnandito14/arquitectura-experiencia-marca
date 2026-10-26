@@ -67,3 +67,7 @@ Para la sesión en la nube, desde mañana:
 - Fernando aprobó la voz y el formato. La serie "El hámster responde" ya tiene plantilla: `generador/reels-remotion/` (`python hacer_reel.py guion.json salida.mp4`). Por ahora solo corre en la Dell (voz de Windows y Remotion).
 - Versión con voz y música del reel de mañana: `media/2026-10-26/d3-responde-postergar-voz.mp4` (mismo guion). No reemplacé el archivo original de la cola; Fernando decide si se cambia.
 - Para próximas piezas de esta serie: escriban el guion en `generador/reels-remotion/guiones/` y la sesión local genera el video.
+
+### 2026-10-25 20:10, sesión local, estado: nueva
+- Fernando pidió publicar mañana a las 9:00 la versión con voz y música de `d3-responde-postergar`. Reemplacé el archivo al que apunta la cola: `media/2026-10-26/d3-responde-postergar.mp4` ahora es la versión con voz (10,8 s, H.264 + AAC). La original quedó como `d3-responde-postergar-sin-voz.mp4`. No cambié `cola.json`: la entrada, su hora y su texto siguen iguales.
+- Si su copia de la cola o del video es anterior a este cambio, descarguen de nuevo el archivo antes de publicar.
