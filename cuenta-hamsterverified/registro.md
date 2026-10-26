@@ -23,3 +23,9 @@
 | 2026-10-27 16:00 | d4-foto-decidir | foto | Esencia de decidir | media/2026-10-27/d4-foto-decidir-1.jpg |
 | 2026-10-27 20:00 | d4-foto-escuchar | foto | Esencia en N palabras: escuchar | media/2026-10-27/d4-foto-escuchar-1.jpg |
 | 2026-10-27 21:00 | d4-mito-horas | reel | Mito verificado: más horas | media/2026-10-27/d4-mito-horas.mp4 |
+| 2026-10-28 12:00 | d5-responde-habito | reel | El hámster responde: hábito nuevo | media/2026-10-28/d5-responde-habito.mp4 |
+| 2026-10-28 14:00 | d5-palabras-tiempo | reel | Esencia en N palabras: ahorrar tiempo | media/2026-10-28/d5-palabras-tiempo.mp4 |
+| 2026-10-28 16:00 | d5-foto-empezar | foto | Esencia de empezar | media/2026-10-28/d5-foto-empezar-1.jpg |
+| 2026-10-28 19:00 | d5-mito-lider | reel | Mito verificado: liderar | media/2026-10-28/d5-mito-lider.mp4 |
+| 2026-10-28 20:00 | d5-foto-preguntar | foto | Esencia en N palabras: comunicar | media/2026-10-28/d5-foto-preguntar-1.jpg |
+| 2026-10-28 21:00 | d5-esencia-mensaje | reel | Esencia de un buen mensaje | media/2026-10-28/d5-esencia-mensaje.mp4 |
