@@ -36,7 +36,7 @@ Mismo estilo que el mensaje aprobado para Hermanos Mora, adaptado a cada negocio
 >
 > Preparé una propuesta de diseño pensada para su clínica, con la información que ya es pública: tratamientos, cómo es la primera visita, preguntas frecuentes, ubicación en Centro Perú y un botón para que sus pacientes agenden su cita por WhatsApp. Puede verla y recorrerla desde su teléfono, sin ningún compromiso:
 >
-> https://propuesta-odontologia-gran-caracas.netlify.app
+> https://ferrnandito14.github.io/propuesta/odontologia-gran-caracas/
 >
 > Trabajo con herramientas de inteligencia artificial y reviso personalmente cada detalle. Si le interesa, puedo adaptarla con sus tratamientos, precios y fotos, y dejarla publicada en pocos días. Quedo atento a sus comentarios.
 
@@ -48,7 +48,7 @@ Mismo estilo que el mensaje aprobado para Hermanos Mora, adaptado a cada negocio
 >
 > Preparé una propuesta de diseño pensada para su panadería, con la información que ya es pública: los productos que más mencionan sus clientes, la vitrina, ubicación, horario y un botón para hacer pedidos por WhatsApp. Puede verla y recorrerla desde su teléfono, sin ningún compromiso:
 >
-> https://propuesta-la-flor-de-altamira.netlify.app
+> https://ferrnandito14.github.io/propuesta/la-flor-de-altamira/
 >
 > Trabajo con herramientas de inteligencia artificial y reviso personalmente cada detalle. Si le interesa, puedo adaptarla con sus productos, precios y fotos, y dejarla publicada en pocos días. Quedo atento a sus comentarios.
 
@@ -98,6 +98,6 @@ Basada en `por-que-una-pagina-web.md`. Mismo mensaje de antes, más un párrafo 
 >
 > Preparé una propuesta de diseño pensada para su clínica, con la información que ya es pública: tratamientos, cómo es la primera visita, preguntas frecuentes, ubicación en Centro Perú y un botón para que sus pacientes agenden su cita por WhatsApp. Puede verla y recorrerla desde su teléfono, sin ningún compromiso:
 >
-> https://propuesta-odontologia-gran-caracas.netlify.app
+> https://ferrnandito14.github.io/propuesta/odontologia-gran-caracas/
 >
 > Trabajo con herramientas de inteligencia artificial y reviso personalmente cada detalle. Si le interesa, puedo adaptarla con sus tratamientos, precios y fotos, y dejarla publicada en pocos días. Quedo atento a sus comentarios.
