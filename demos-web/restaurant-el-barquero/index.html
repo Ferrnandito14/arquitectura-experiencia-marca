@@ -72,7 +72,7 @@ footer{padding:28px 0 40px;color:var(--suave);font-size:.9rem}
   <div class="wrap">
     <nav class="nav" aria-label="Principal">
       <a class="logo" href="#inicio"><small>RESTAURANT</small><b>El Barquero</b></a>
-      <a class="btn mini" href="#reservar">Reservar</a>
+      <a class="btn mini" href="#reserva-web">Reservar</a>
     </nav>
     <div class="hero" id="inicio">
       <div class="letrero">
@@ -82,6 +82,7 @@ footer{padding:28px 0 40px;color:var(--suave);font-size:.9rem}
       </div>
       <p class="sub">Cocina de mar, vinos, música y baile en Altamira. 4,5 en Google con 2.281 opiniones.</p>
       <div class="acciones">
+        <a class="btn" href="#reserva-web" data-reserva>Reservar mesa en línea</a>
         <a class="btn" id="reservar" href="https://wa.me/PON_AQUI_EL_NUMERO?text=Hola%2C%20quiero%20reservar%20una%20mesa">Reservar mesa</a>
         <span class="dato"><b>Abierto</b> hasta las 11:30 p. m.</span>
       </div>
@@ -130,6 +131,181 @@ footer{padding:28px 0 40px;color:var(--suave);font-size:.9rem}
   </div>
 </section>
 
+<!-- reserva-web:inicio -->
+<section aria-labelledby="reserva-t" style="padding:64px 0"><div class="wrap"><h2 id="reserva-t">Reserva tu mesa en línea</h2><p class="lead">Cuántos son, qué día y a qué hora. Te esperamos con música.</p><div id="reserva-web"></div></div></section>
+<script>window.RESERVA = {"palabra": "reserva", "textoConfirmar": "Confirmar reserva", "textoListo": "Reserva lista", "tema": {"fondo": "#FFFFFF", "texto": "#1B1A17", "suave": "#5A5145", "acento": "#13294B", "sobreAcento": "#FFFFFF", "borde": "#CDBB98", "radio": "10px"}, "pasos": [{"id": "personas", "tipo": "opciones", "titulo": "¿Cuántas personas?", "corto": "Personas", "columnas": "tres", "opciones": [{"txt": "1"}, {"txt": "2"}, {"txt": "3"}, {"txt": "4"}, {"txt": "5"}, {"txt": "6"}, {"txt": "7"}, {"txt": "8"}, {"txt": "9 o más"}]}, {"id": "dia", "tipo": "fecha", "titulo": "¿Qué día?", "corto": "Día", "dias": 6}, {"id": "hora", "tipo": "hora", "titulo": "¿A qué hora?", "corto": "Hora", "desde": 12, "hasta": 23, "cada": 30, "nota": "Días y horas de ejemplo: el negocio define su agenda real."}, {"id": "ocasion", "tipo": "opciones", "titulo": "¿Alguna ocasión especial?", "corto": "Ocasión", "columnas": "dos", "opcional": true, "opciones": [{"txt": "Sin ocasión especial"}, {"txt": "Cumpleaños"}, {"txt": "Reunión de trabajo"}, {"txt": "Celebración familiar"}]}, {"id": "datos", "tipo": "datos", "titulo": "¿A nombre de quién?", "corto": "Nombre"}], "demo": true};</script>
+<script>/* Reserva o pedido por pasos, sin backend.
+   Uso: <div id="reserva-web"></div> y window.RESERVA = {...}; luego cargar este archivo.
+   En modo demo (demo: true) no envía ningún dato: solo muestra el resumen final.
+   En la versión vendida, `enviar` se conecta a un formulario real (por ejemplo, Netlify Forms) y le llega al negocio. */
+(function () {
+  var C = window.RESERVA;
+  var raiz = document.getElementById('reserva-web');
+  if (!C || !raiz) return;
+  var t = C.tema || {};
+  var estado = {};
+  var paso = 0;
+
+  var css = '' +
+    '#reserva-web{--r-fondo:' + (t.fondo || '#fff') + ';--r-texto:' + (t.texto || '#1d1d1b') + ';--r-suave:' + (t.suave || '#5b5b55') + ';--r-acento:' + (t.acento || '#1c48a0') + ';--r-sobre:' + (t.sobreAcento || '#fff') + ';--r-borde:' + (t.borde || '#ddd') + ';--r-radio:' + (t.radio || '14px') + '}' +
+    '#reserva-web .r-caja{background:var(--r-fondo);color:var(--r-texto);border:1px solid var(--r-borde);border-radius:var(--r-radio);padding:24px 22px;max-width:640px}' +
+    '#reserva-web .r-barra{display:flex;gap:6px;margin-bottom:18px}#reserva-web .r-barra i{flex:1;height:5px;border-radius:3px;background:var(--r-borde)}#reserva-web .r-barra i.on{background:var(--r-acento)}' +
+    '#reserva-web .r-paso{font-size:.85rem;color:var(--r-suave);margin-bottom:4px}#reserva-web h3{font-size:1.3rem;margin:0 0 14px}' +
+    '#reserva-web .r-ops{display:grid;gap:10px}#reserva-web .r-ops.dos{grid-template-columns:repeat(2,1fr)}#reserva-web .r-ops.tres{grid-template-columns:repeat(3,1fr)}' +
+    '#reserva-web button.r-op{all:unset;box-sizing:border-box;cursor:pointer;border:1.5px solid var(--r-borde);border-radius:12px;padding:13px 14px;min-height:48px;display:flex;flex-direction:column;justify-content:center;gap:2px;font-weight:600;color:var(--r-texto);background:transparent}' +
+    '#reserva-web button.r-op small{font-weight:400;color:var(--r-suave);font-size:.82rem}' +
+    '#reserva-web button.r-op[aria-pressed="true"]{border-color:var(--r-acento);background:var(--r-acento);color:var(--r-sobre)}#reserva-web button.r-op[aria-pressed="true"] small{color:var(--r-sobre);opacity:.85}' +
+    '#reserva-web button.r-op:focus-visible,#reserva-web .r-btn:focus-visible,#reserva-web input:focus-visible{outline:3px solid var(--r-acento);outline-offset:2px}' +
+    '#reserva-web .r-cant{display:flex;align-items:center;justify-content:space-between;gap:10px;border:1.5px solid var(--r-borde);border-radius:12px;padding:10px 12px}' +
+    '#reserva-web .r-cant b{font-weight:600}#reserva-web .r-cant small{display:block;color:var(--r-suave);font-size:.82rem}' +
+    '#reserva-web .r-cant .r-num{display:flex;align-items:center;gap:10px}#reserva-web .r-cant button{all:unset;cursor:pointer;width:36px;height:36px;border-radius:50%;border:1.5px solid var(--r-borde);display:grid;place-items:center;font-weight:700}' +
+    '#reserva-web label{display:block;font-weight:600;margin:12px 0 6px}#reserva-web input{box-sizing:border-box;width:100%;min-height:48px;border:1.5px solid var(--r-borde);border-radius:12px;padding:10px 14px;font:inherit;background:transparent;color:var(--r-texto)}' +
+    '#reserva-web .r-nav{display:flex;justify-content:space-between;gap:10px;margin-top:20px}#reserva-web .r-btn{all:unset;box-sizing:border-box;cursor:pointer;min-height:48px;padding:0 22px;border-radius:999px;display:inline-flex;align-items:center;font-weight:700}' +
+    '#reserva-web .r-btn.pri{background:var(--r-acento);color:var(--r-sobre)}#reserva-web .r-btn.pri[disabled]{opacity:.4;cursor:not-allowed}#reserva-web .r-btn.sec{border:1.5px solid var(--r-borde);color:var(--r-texto)}' +
+    '#reserva-web .r-res{border-top:1px solid var(--r-borde);margin-top:6px}#reserva-web .r-res div{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--r-borde)}#reserva-web .r-res span{color:var(--r-suave)}' +
+    '#reserva-web .r-nota{font-size:.85rem;color:var(--r-suave);margin-top:14px}#reserva-web .r-ok{font-size:2.4rem;line-height:1}#reserva-web .r-error{color:#b3261e;font-size:.9rem;margin-top:8px}';
+  var st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
+
+  var DIAS = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
+  function local(d) { return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2); }
+  var MESES = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];
+  function proximosDias(n, cerrados) {
+    var out = [], d = new Date();
+    while (out.length < n) {
+      if ((cerrados || []).indexOf(d.getDay()) < 0) out.push({v: local(d), txt: (out.length === 0 && d.toDateString() === new Date().toDateString() ? 'Hoy' : DIAS[d.getDay()].charAt(0).toUpperCase() + DIAS[d.getDay()].slice(1)), sub: d.getDate() + ' ' + MESES[d.getMonth()]});
+      d.setDate(d.getDate() + 1);
+    }
+    return out;
+  }
+  function horas(desde, hasta, cada) {
+    var out = [];
+    for (var m = desde * 60; m <= hasta * 60 - cada; m += cada) {
+      var h = Math.floor(m / 60), mm = m % 60, h12 = ((h + 11) % 12) + 1;
+      out.push({v: (h < 10 ? '0' : '') + h + ':' + (mm < 10 ? '0' : '') + mm, txt: h12 + ':' + (mm < 10 ? '0' : '') + mm + (h < 12 ? ' a. m.' : ' p. m.')});
+    }
+    return out;
+  }
+  function el(tag, attrs, hijos) {
+    var e = document.createElement(tag);
+    for (var k in attrs || {}) { if (k === 'text') e.textContent = attrs[k]; else if (k.slice(0, 2) === 'on') e.addEventListener(k.slice(2), attrs[k]); else e.setAttribute(k, attrs[k]); }
+    (hijos || []).forEach(function (h) { if (h) e.appendChild(h); });
+    return e;
+  }
+  function completo(p) {
+    var v = estado[p.id];
+    if (p.tipo === 'cantidades') return v && Object.keys(v).some(function (k) { return v[k] > 0; });
+    if (p.tipo === 'datos') return v && v.nombre && v.nombre.trim().length > 1 && /^[0-9+ ()-]{7,}$/.test((v.telefono || '').trim());
+    if (p.opcional) return true;
+    return !!v;
+  }
+  function textoDe(p) {
+    var v = estado[p.id];
+    if (p.tipo === 'cantidades') return Object.keys(v || {}).filter(function (k) { return v[k] > 0; }).map(function (k) { return v[k] + ' × ' + k; }).join(', ');
+    if (p.tipo === 'datos') return v ? v.nombre : '';
+    if (!v) return 'Sin indicar';
+    return v.txt + (v.sub ? ' (' + v.sub + ')' : '');
+  }
+  function opcionesDe(p) {
+    if (p.tipo === 'fecha') return proximosDias(p.dias || 7, p.cerrados);
+    if (p.tipo === 'hora') {
+      var lista = horas(p.desde, p.hasta, p.cada || 30);
+      // Si eligieron hoy, solo quedan las horas que faltan (con media hora de margen)
+      var dia = C.pasos.filter(function (x) { return x.tipo === 'fecha'; })[0];
+      var hoy = local(new Date());
+      if (dia && estado[dia.id] && estado[dia.id].v === hoy) {
+        var ahora = new Date(), limite = ahora.getHours() * 60 + ahora.getMinutes() + 30;
+        lista = lista.filter(function (o) { var hm = o.v.split(':'); return +hm[0] * 60 + +hm[1] >= limite; });
+      }
+      return lista;
+    }
+    return p.opciones;
+  }
+
+  function pintar() {
+    raiz.innerHTML = '';
+    var pasos = C.pasos, total = pasos.length + 1;
+    var caja = el('div', {class: 'r-caja'});
+    var barra = el('div', {class: 'r-barra', 'aria-hidden': 'true'});
+    for (var i = 0; i < total; i++) barra.appendChild(el('i', {class: i <= paso ? 'on' : ''}));
+    caja.appendChild(barra);
+
+    if (paso === 'listo') {
+      caja.appendChild(el('div', {class: 'r-ok', 'aria-hidden': 'true', text: '✓'}));
+      caja.appendChild(el('h3', {text: C.textoListo || 'Solicitud lista'}));
+      caja.appendChild(el('p', {text: C.demo ? 'Esto es una demostración: no se envió ningún dato. En la página final, esta solicitud le llega al negocio y te confirman por WhatsApp.' : 'Te confirmaremos por WhatsApp.'}));
+      caja.appendChild(el('div', {class: 'r-nav'}, [el('button', {class: 'r-btn sec', type: 'button', text: 'Hacer otra', onclick: function () { estado = {}; paso = 0; pintar(); }})]));
+      raiz.appendChild(caja); return;
+    }
+
+    if (paso === pasos.length) {
+      caja.appendChild(el('div', {class: 'r-paso', text: 'Paso ' + total + ' de ' + total}));
+      caja.appendChild(el('h3', {text: 'Revisa tu ' + (C.palabra || 'reserva')}));
+      var res = el('div', {class: 'r-res'});
+      pasos.forEach(function (p) { res.appendChild(el('div', {}, [el('span', {text: p.corto || p.titulo}), el('b', {text: textoDe(p)})])); });
+      caja.appendChild(res);
+      if (C.demo) caja.appendChild(el('p', {class: 'r-nota', text: 'Demostración: al confirmar no se envía ningún dato.'}));
+      caja.appendChild(el('div', {class: 'r-nav'}, [
+        el('button', {class: 'r-btn sec', type: 'button', text: 'Atrás', onclick: function () { paso--; pintar(); }}),
+        el('button', {class: 'r-btn pri', type: 'button', text: C.textoConfirmar || 'Confirmar', onclick: function () { paso = 'listo'; pintar(); raiz.scrollIntoView({behavior: 'smooth', block: 'start'}); }})
+      ]));
+      raiz.appendChild(caja); return;
+    }
+
+    var p = pasos[paso];
+    caja.appendChild(el('div', {class: 'r-paso', text: 'Paso ' + (paso + 1) + ' de ' + total}));
+    caja.appendChild(el('h3', {text: p.titulo}));
+
+    if (p.tipo === 'cantidades') {
+      estado[p.id] = estado[p.id] || {};
+      var lista = el('div', {class: 'r-ops'});
+      p.opciones.forEach(function (o) {
+        var n = estado[p.id][o.txt] || 0;
+        var num = el('b', {text: String(n), 'aria-live': 'polite'});
+        lista.appendChild(el('div', {class: 'r-cant'}, [
+          el('div', {}, [el('b', {text: o.txt}), o.sub ? el('small', {text: o.sub}) : null]),
+          el('div', {class: 'r-num'}, [
+            el('button', {type: 'button', 'aria-label': 'Quitar ' + o.txt, text: '−', onclick: function () { estado[p.id][o.txt] = Math.max(0, (estado[p.id][o.txt] || 0) - 1); pintar(); }}),
+            num,
+            el('button', {type: 'button', 'aria-label': 'Agregar ' + o.txt, text: '+', onclick: function () { estado[p.id][o.txt] = (estado[p.id][o.txt] || 0) + 1; pintar(); }})
+          ])
+        ]));
+      });
+      caja.appendChild(lista);
+    } else if (p.tipo === 'datos') {
+      estado[p.id] = estado[p.id] || {nombre: '', telefono: ''};
+      var nombre = el('input', {type: 'text', id: 'r-nombre', autocomplete: 'name', value: estado[p.id].nombre});
+      var tel = el('input', {type: 'tel', id: 'r-tel', autocomplete: 'tel', inputmode: 'tel', value: estado[p.id].telefono});
+      var error = el('div', {class: 'r-error', role: 'alert'});
+      nombre.addEventListener('input', function () { estado[p.id].nombre = nombre.value; sig.disabled = !completo(p); });
+      tel.addEventListener('input', function () { estado[p.id].telefono = tel.value; sig.disabled = !completo(p); });
+      caja.appendChild(el('label', {for: 'r-nombre', text: 'Tu nombre'})); caja.appendChild(nombre);
+      caja.appendChild(el('label', {for: 'r-tel', text: 'Tu WhatsApp (para confirmarte)'})); caja.appendChild(tel);
+      caja.appendChild(error);
+      if (C.demo) caja.appendChild(el('p', {class: 'r-nota', text: 'Demostración: estos datos no se guardan ni se envían.'}));
+    } else {
+      var ops = opcionesDe(p);
+      var grid = el('div', {class: 'r-ops ' + (p.columnas || (p.tipo === 'hora' ? 'tres' : p.tipo === 'fecha' ? 'tres' : ''))});
+      ops.forEach(function (o) {
+        var sel = estado[p.id] && estado[p.id].v === (o.v || o.txt);
+        grid.appendChild(el('button', {class: 'r-op', type: 'button', 'aria-pressed': sel ? 'true' : 'false', onclick: function () { estado[p.id] = {v: o.v || o.txt, txt: o.txt, sub: o.sub}; pintar(); }}, [document.createTextNode(o.txt), o.sub ? el('small', {text: o.sub}) : null]));
+      });
+      caja.appendChild(grid);
+      if (!ops.length) caja.appendChild(el('p', {class: 'r-nota', text: 'Hoy ya no quedan horas disponibles. Vuelve atrás y elige otro día.'}));
+      if (p.nota) caja.appendChild(el('p', {class: 'r-nota', text: p.nota}));
+    }
+
+    var sig = el('button', {class: 'r-btn pri', type: 'button', text: 'Siguiente', onclick: function () { paso++; pintar(); }});
+    sig.disabled = !completo(p);
+    caja.appendChild(el('div', {class: 'r-nav'}, [
+      paso > 0 ? el('button', {class: 'r-btn sec', type: 'button', text: 'Atrás', onclick: function () { paso--; pintar(); }}) : el('span'),
+      sig
+    ]));
+    raiz.appendChild(caja);
+  }
+  pintar();
+})();
+</script>
+<!-- reserva-web:fin -->
 <section style="padding-top:0" aria-labelledby="donde">
   <div class="wrap cols">
     <div>

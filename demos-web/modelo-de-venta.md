@@ -61,8 +61,9 @@ Sale de las preguntas que más se repiten cuando alguien vende webs con IA (come
 5. `sitemap.xml` y verificación en Google Search Console; confirmar que la página queda indexada.
 6. Enlace desde la ficha de Google Maps del negocio a la página (lo hace el dueño o con su acceso).
 7. Textos, precios y fotos aprobados por escrito por el cliente.
-8. Cómo pide cambios el cliente (WhatsApp) y en cuánto tiempo se hacen, según el plan.
-9. Copia de seguridad del sitio.
+8. Reserva o pedido en línea conectado de verdad: en las demos el formulario no envía nada. En la página vendida se conecta a un servicio que guarde las solicitudes y avise al negocio (por ejemplo, el formulario de Netlify con aviso por correo, o una agenda en línea). Se le dice al cliente qué datos se piden (nombre y WhatsApp), para qué se usan y quién los ve.
+9. Cómo pide cambios el cliente (WhatsApp) y en cuánto tiempo se hacen, según el plan.
+10. Copia de seguridad del sitio.
 
 Fuera del precio de lanzamiento: blog, tienda, formularios con base de datos y automatizaciones. Se cotizan aparte.
 
