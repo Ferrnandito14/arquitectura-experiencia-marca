@@ -16,20 +16,20 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- cabecera:fin -->
-<!-- Referencias (proceso-diseno.md): estructura de vitrina con tarjetas de producto de Mah Ze Dahr Bakery y titular grande y alegre de Sugarfire Pie (One Page Love). Colores y letras: los del logo y el enlace de pedidos de Cakevana's. -->
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- Referencias (proceso-diseno.md y skill refero-design): principal Lamanna (Refero Styles: titulares negros y estrechos con interlineado mínimo, secciones separadas por bloques de color). Prestado: un solo color de marca para lo interactivo (Redbrick Coffee) y botones píldora (GRAZA). Vitrina de productos de Mah Ze Dahr Bakery (One Page Love). Letra: Bricolage Grotesque estrecha, la más cercana al logo condensado de Cakevana's. Descartado: Fredoka (pensada para apps infantiles) y la palabra suelta en otro color. -->
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&display=swap" rel="stylesheet">
 <style>
 :root{--morado:#8E5BB3;--uva:#632C89;--lila:#F3EAF9;--crema:#FFF9F2;--miel:#F5B335;--tinta:#2A1E33;--suave:#5E5266;--borde:#E6DAEE}
 *{box-sizing:border-box;margin:0}
 html,body{overflow-x:hidden}
-body{font-family:Inter,system-ui,sans-serif;background:var(--crema);color:var(--tinta);line-height:1.6;font-size:17px}
+body{font-family:'Bricolage Grotesque',system-ui,sans-serif;background:var(--crema);color:var(--tinta);line-height:1.6;font-size:17px}
 a{color:inherit}
 a:focus-visible{outline:3px solid var(--miel);outline-offset:3px}
 .wrap{max-width:1040px;margin:0 auto;padding:0 22px}
-header{background:var(--morado);color:#fff;position:relative;overflow:hidden}
-header:after{content:"";position:absolute;right:-90px;top:-90px;width:300px;height:300px;border-radius:50%;background:var(--uva);opacity:.55}
+header{background:var(--uva);color:#fff;position:relative;overflow:hidden}
+header:after{content:"";position:absolute;right:-90px;top:-90px;width:300px;height:300px;border-radius:50%;background:var(--morado);opacity:.6}
 .nav{display:flex;justify-content:space-between;align-items:center;padding:18px 0;position:relative;z-index:1}
-.logo{font-family:Fredoka,sans-serif;font-weight:600;font-size:1.6rem;line-height:.9;text-decoration:none;letter-spacing:-.01em}
+.logo{font-weight:800;font-stretch:75%;font-size:1.7rem;line-height:.9;text-decoration:none;letter-spacing:-.01em}
 .logo i{display:inline-block;width:.32em;height:.32em;border-radius:50%;background:var(--miel);margin-left:2px;vertical-align:.55em}
 .btn{display:inline-flex;align-items:center;min-height:52px;padding:0 28px;border-radius:999px;background:var(--miel);color:var(--tinta);font-weight:700;text-decoration:none}
 .btn.mini{min-height:44px;padding:0 18px;font-size:.95rem;background:#fff;color:var(--uva)}
@@ -37,28 +37,28 @@ header:after{content:"";position:absolute;right:-90px;top:-90px;width:300px;heig
 .btn.morado{background:var(--morado);color:#fff}
 .hero{padding:44px 0 80px;display:grid;gap:34px;position:relative;z-index:1}
 @media(min-width:860px){.hero{grid-template-columns:1.25fr .75fr;align-items:center}}
-.hero h1{font-family:Fredoka,sans-serif;font-weight:700;font-size:clamp(2.7rem,9.5vw,5.4rem);line-height:.98;letter-spacing:-.02em}
-.hero h1 em{font-style:normal;color:var(--miel)}
+.hero h1{font-weight:800;font-stretch:75%;font-size:clamp(3.2rem,12vw,6.6rem);line-height:.9;letter-spacing:-.025em;color:var(--miel);text-wrap:balance}
+
 .hero p{margin-top:18px;max-width:40ch;font-size:1.13rem;color:#F1E6F8}
 .acciones{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:28px}
 .dato{color:#F1E6F8;font-size:.98rem}
 .dato b{color:#fff}
 .porcion{justify-self:center;width:min(300px,78vw);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 50% 40%,#FBE7B5 0 38%,#E9B867 39% 46%,#7A3E14 47% 52%,transparent 53%),var(--uva);display:grid;place-items:end center;padding-bottom:30px;box-shadow:0 0 0 10px rgba(255,255,255,.12)}
 .porcion span{background:#fff;color:var(--uva);font-weight:700;font-size:.9rem;padding:6px 14px;border-radius:999px}
-.cinta{background:var(--uva);color:#fff;font-family:Fredoka,sans-serif;font-weight:600;font-size:1.05rem;white-space:nowrap;overflow:hidden}
+.cinta{background:var(--morado);color:#fff;font-weight:700;font-stretch:75%;letter-spacing:.01em;font-size:1.05rem;white-space:nowrap;overflow:hidden}
 .cinta div{display:inline-block;padding:12px 0;animation:cinta 28s linear infinite}
 .cinta b{color:var(--miel);margin:0 14px}
 @keyframes cinta{to{transform:translateX(-50%)}}
 @media(prefers-reduced-motion:reduce){.cinta div{animation:none}}
 section{padding:66px 0}
-h2{font-family:Fredoka,sans-serif;font-weight:700;font-size:clamp(2rem,6.5vw,3rem);line-height:1.04;margin-bottom:12px;color:var(--uva);letter-spacing:-.015em}
+h2{font-weight:800;font-stretch:75%;font-size:clamp(2.4rem,8vw,3.8rem);line-height:.95;margin-bottom:14px;color:var(--uva);letter-spacing:-.02em;text-wrap:balance}
 .lead{color:var(--suave);max-width:54ch;margin-bottom:30px}
 .sabores{display:grid;gap:14px}
 @media(min-width:620px){.sabores{grid-template-columns:repeat(2,1fr)}}
 @media(min-width:940px){.sabores{grid-template-columns:repeat(3,1fr)}}
 .sabor{background:#fff;border:1px solid var(--borde);border-radius:22px;padding:14px 14px 20px}
 .foto{aspect-ratio:4/3;border-radius:16px;background:var(--lila);border:1.5px dashed #CDB5DE;display:grid;place-items:center;color:var(--suave);font-size:.85rem;text-align:center;margin-bottom:14px}
-.sabor h3{font-family:Fredoka,sans-serif;font-weight:600;font-size:1.35rem;color:var(--tinta)}
+.sabor h3{font-weight:700;font-stretch:85%;font-size:1.5rem;line-height:1.1;color:var(--tinta)}
 .sabor p{color:var(--suave);font-size:.95rem}
 .etq{display:inline-block;margin-top:10px;background:#FFF1D2;color:#7A5200;font-weight:700;font-size:.8rem;padding:4px 12px;border-radius:999px}
 .cafe{background:var(--uva);color:#fff}
@@ -99,7 +99,7 @@ footer{padding:28px 0 40px;color:var(--suave);font-size:.9rem}
     </nav>
     <div class="hero" id="inicio">
       <div>
-        <h1>La tarta vasca <em>más cremosa</em> de Caracas.</h1>
+        <h1>La tarta vasca más cremosa de Caracas.</h1>
         <p>Tartas vascas de pistacho, guayaba, matcha y frutos rojos, con café de especialidad. Ven a nuestra casita en Chacao o pídela a domicilio.</p>
         <div class="acciones">
           <a class="btn" href="#reserva-web" data-reserva>Pedir en línea</a>
@@ -147,7 +147,7 @@ footer{padding:28px 0 40px;color:var(--suave);font-size:.9rem}
     <div>
       <h2 id="cajas">Mini tartas para probarlas todas</h2>
       <p class="lead">La caja de mini tartas es la forma más fácil de decidir: un sabor distinto en cada una. También para regalar.</p>
-      <h3 style="font-family:Fredoka,sans-serif;color:var(--uva);font-size:1.3rem;margin-top:8px">Para eventos</h3>
+      <h3 style="font-weight:700;font-stretch:85%;color:var(--uva);font-size:1.4rem;margin-top:8px">Para eventos</h3>
       <ul class="lista">
         <li>Corporativos y reuniones</li>
         <li>Bodas y cumpleaños</li>

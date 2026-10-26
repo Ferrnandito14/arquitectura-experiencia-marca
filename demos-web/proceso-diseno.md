@@ -26,6 +26,16 @@ Cómo se usan:
 
 La skill `refero-design` (`.claude/skills/refero-design`) trae la metodología completa: investigar, fijar referencias, decidir y luego construir. Su conector en vivo (Refero MCP) es de pago y no está conectado; las galerías de arriba se consultan con el navegador.
 
+## 2b. Pasada obligatoria por las skills de diseño (antes de escribir CSS)
+
+Fernando lo pidió el 2026-10-26, después de que Cakevana's saliera con una letra infantil elegida a ojo. Ninguna página se muestra sin esto:
+
+1. `refero-design`: armar el "candado de referencia" (una referencia principal, 1 o 2 detalles prestados, qué se descarta) con estilos reales de [Refero Styles](https://styles.refero.design) buscados por sector.
+2. `ui-ux-pro-max`: `search.py "<sector>" --design-system` y `--domain typography` para ver qué pareja de letras propone y para qué tipo de producto está pensada cada una. Si una letra aparece "para apps infantiles", no va en un negocio adulto.
+3. Comparar la letra con el logo real del negocio (ampliado). La letra del titular tiene que parecerse en ancho, contraste y forma.
+4. Revisar con `refero-design/references/anti-ai-slop.md`: nada de palabra suelta en otro color o cursiva dentro del titular, como mucho dos familias de letra, y sin crema y dorado por defecto si la marca no los usa.
+5. Anotar en el comentario `Referencias` del `<head>` qué se tomó de cada referencia y qué se descartó.
+
 ## 3. Movimiento con carácter
 
 Cada demo carga `reserva/vida.js` (lo aplica `reserva/aplicar_vida.py`):
