@@ -92,7 +92,7 @@ Basada en `por-que-una-pagina-web.md`. Mismo mensaje de antes, más un párrafo 
 
 > Buenos días. Mi nombre es Fernando Romero, diseño páginas web para comercios de Caracas.
 >
-> Vi que Odontología Gran Caracas aún no tiene página web propia. Hoy la mayoría de los pacientes busca al odontólogo en internet antes de pedir cita, y una página clara les da confianza para escribir.
+> Hoy la mayoría de los pacientes busca al odontólogo en internet antes de pedir cita, y una página clara les da confianza para escribir.
 >
 > Preparé una propuesta para su clínica con sus tratamientos, la primera visita, preguntas frecuentes, ubicación y un formulario para pedir cita en línea:
 >
