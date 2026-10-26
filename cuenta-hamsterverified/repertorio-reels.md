@@ -92,3 +92,11 @@ Vistos desde la cuenta hamster.2511058. Los tres cierran otra vez con "comenta P
 | aress.pw (2,2 mil me gusta) | Página de arquitectura de aspecto caro hecha con Claude ("EXCEPTIONAL places") | Confirma la apuesta por tipografía grande y foto de fondo. Nada nuevo que aplicar | Ya cubierto |
 | joacoquiroogaa | Un repositorio para que "tus páginas dejen de ser horribles y las vendas por más de $1000". Por los comentarios es shadcn/ui | Son componentes de React. Las demos son un solo HTML sin dependencias, que es lo que permite mandarlas y alojarlas gratis; meter React no compensa. La cifra de $1000 no se usa | Descartado para las demos |
 
+
+## Vuelta a la primera tanda: diseño y animación web (2026-10-25)
+
+Pedido de Fernando: sacar de los reels las webs de referencia y las herramientas para que las páginas se sientan distintivas y vivas.
+
+- soyenriquerocha (19,9 mil me gusta), "Diseña páginas web BIEN con Claude": muestra Refero Styles, una biblioteca de sistemas de diseño de webs reales con un DESIGN.md para darle a Claude. Aplicado como paso 2 de `demos-web/proceso-diseno.md`, con otras galerías de referencia. Instalada la skill gratuita `refero-design` (MIT). Su conector es de pago y no se conectó.
+- juanbertorello.ia: Claude Code + Framer Motion + UI UX Pro Max + 21st.dev. Las dos skills ya estaban instaladas. Las animaciones se hicieron sin React en `demos-web/reserva/vida.js`, para que cada demo siga siendo un solo archivo. 21st.dev sigue fuera: pide clave y es para React.
+- danielbrown.ia (Remotion): instaladas en la Dell las skills oficiales de Remotion (`remotion-best-practices`) para mejorar los reels del hámster.

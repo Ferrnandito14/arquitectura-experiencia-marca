@@ -21,10 +21,15 @@ Estas reglas reemplazan, en cualquier sesión, lo que harían los plugins `ruleb
 - Antes de `rm -r`, borrar carpetas, migraciones o cualquier cosa difícil de revertir, muestra qué se va a eliminar y espera confirmación.
 - Si no recibes respuesta, no ejecutes la acción.
 
+## Páginas web para negocios (`demos-web/`)
+
+- Antes de diseñar o rediseñar una página, sigue `demos-web/proceso-diseno.md`: identidad del negocio, referencias de diseño (Refero Styles y galerías), movimiento con carácter y revisión antes de publicar.
+
 ## Skills disponibles (`.claude/skills/`)
 
 - `i-have-adhd`: respuestas con la acción primero y pasos numerados.
 - `no-ai-slop`: edita o audita textos sin perder la voz del autor.
 - `book-to-skill`: convierte un libro o documento en un skill consultable (necesita Python).
+- `refero-design`: método de diseño a partir de referencias reales (tipografía, color, movimiento, anti-slop).
 
 Origen de cada skill y plugin: `.claude/skills/THIRD_PARTY.md`.
