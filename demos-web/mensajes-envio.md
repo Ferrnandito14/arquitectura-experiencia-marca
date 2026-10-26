@@ -100,7 +100,7 @@ Basada en `por-que-una-pagina-web.md`. Mismo mensaje de antes, más un párrafo 
 >
 > Si le interesa, la adapto con sus precios y fotos y la dejo publicada en pocos días. Quedo atento.
 
-## Borradores nuevos (2026-10-26, sin enviar: esperan aprobación de Fernando)
+## Mensajes a Cakevana's y Voilà (aprobados y enviados el 2026-10-26 a la 1:55 y 1:58 p. m., con "Buenas tardes")
 
 Misma estructura que el mensaje corto aprobado para la clínica. No afirman que el negocio no tenga página web. El saludo se elige con la hora que muestra WhatsApp al enviar.
 
