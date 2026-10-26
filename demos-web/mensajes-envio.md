@@ -88,7 +88,7 @@ Basada en `por-que-una-pagina-web.md`. Mismo mensaje de antes, más un párrafo 
 - **Clínica dental:** ¿Por qué importa? Antes de pedir cita, la mayoría de los pacientes busca al odontólogo en internet y compara opiniones (cerca de 7 de cada 10 en encuestas del sector en EE. UU.). Una página que explique los tratamientos y cómo es la primera visita le da al paciente la confianza para escribir, a cualquier hora.
 - **Panadería:** usar el párrafo general.
 
-### Odontología Gran Caracas (versión corta, pendiente de aprobación)
+### Odontología Gran Caracas (versión corta, enviada el lunes 26 a las 11:36 a. m. con "Buenas tardes")
 
 > Buenos días. Mi nombre es Fernando Romero, diseño páginas web para comercios de Caracas.
 >
