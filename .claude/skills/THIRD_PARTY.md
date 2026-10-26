@@ -34,3 +34,6 @@ Se instalan al abrir el repo y aceptar la confianza de la carpeta (requiere Clau
 - `remotion-best-practices` en `~/.claude/skills/`: copiada de https://github.com/remotion-dev/skills (commit 6c67adc, sin archivo de licencia, por eso no se sube al repo). Guías de Remotion (animación, audio, subtítulos, render, mapas) y dos scripts opcionales de mapas que solo leen y escriben archivos locales. Revisada el 2026-10-25. La documentación cita una clave pública de búsqueda de Algolia de la web de Remotion, que no es secreta.
 - Conector oficial de Netlify (`@netlify/mcp`, versión fija 1.18.0 del 2026-10-07) en `.mcp.json`. Revisado el 2026-10-25: lee el token de la variable `NETLIFY_AUTH_TOKEN` (pasada como `NETLIFY_PERSONAL_ACCESS_TOKEN`), habla con `api.netlify.com`, descarga guías de `netlify.com/context-files` y, solo para extensiones, `api.netlifysdk.com`. Si no hay token intenta `netlify login`, que abre el navegador. Sin scripts al instalar. Su herramienta de despliegue sugiere `npx @netlify/mcp@latest`; se usa con la versión fija.
 
+
+## Voz del hámster
+- Piper TTS (https://github.com/rhasspy/piper, paquete `piper-tts`, MIT) con la voz `es_MX-claude-high` de https://huggingface.co/rhasspy/piper-voices (según su ficha, licencia Apache-2.0). Se ejecuta en local, no envía texto a ningún servicio. Script: `cuenta-hamsterverified/generador/voz/hacer_voz.py`.
