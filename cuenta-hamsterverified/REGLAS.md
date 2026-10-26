@@ -38,9 +38,10 @@ Autorizada por la persona dueña el 2026-10-26. Mismo personaje y misma voz: el 
 - Mensajes directos: no se contestan de forma automática. Se anotan en `PENDIENTES.md` si llegan.
 
 ## Ritmo
-- Semana 1: 3 piezas al día. Semana 2: 5 al día. Desde la semana 3: hasta 10 al día, solo si el alcance por pieza no baja y la cuenta no tiene restricciones.
-- Máximo absoluto: 10 al día. Mezcla de carruseles y reels. No repetir ideas ni plantillas dos veces seguidas.
-- Horarios en zona America/Caracas, repartidos entre las 8:00 y las 22:00.
+- Desde el 2026-10-26 (decisión de la persona dueña): **5 reels y 2 fotos al día** (7 piezas), repartidas entre las 8:00 y las 22:00 de Caracas. Una foto es una imagen sola o un carrusel corto.
+- Antes se había propuesto 3 al día y subir poco a poco; la persona dueña eligió el ritmo alto. Riesgo conocido: una cuenta nueva con muchas piezas parecidas puede perder alcance. Se mitiga con variedad de series y formatos y sin repetir ideas.
+- Máximo absoluto: 7 al día mientras no se diga otra cosa. Una pieza de "Fútbol en esencia" al día como máximo.
+- Horarios en zona America/Caracas.
 
 ## Frenos
 - Si Instagram restringe la cuenta, marca contenido como infractor o el alcance cae de forma sostenida, se baja el ritmo a 3 al día o se pausa, y se anota en `PENDIENTES.md`.
