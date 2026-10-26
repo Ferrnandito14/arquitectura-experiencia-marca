@@ -15,3 +15,11 @@
 | 2026-10-27 14:00 | d4-palabras-feedback | reel (antes carrusel) | Esencia en N palabras: dar feedback | media/2026-10-27/d4-palabras-feedback.mp4 |
 | 2026-10-27 19:00 | d4-mito-cv | reel (antes carrusel) | Mito verificado: CV largo | media/2026-10-27/d4-mito-cv.mp4 |
 | 2026-10-28 09:00 | d5-futbol-fuera-de-juego | reel | Fútbol en esencia: fuera de juego (primera pieza de la serie nueva) | media/2026-10-28/d5-futbol-fuera-de-juego.mp4 |
+| 2026-10-26 16:00 | d3-responde-estudiar | reel | El hámster responde: estudiar | media/2026-10-26/d3-responde-estudiar.mp4 |
+| 2026-10-26 17:00 | d3-foto-constancia | foto | Esencia de la constancia | media/2026-10-26/d3-foto-constancia-1.jpg |
+| 2026-10-26 20:00 | d3-foto-priorizar | foto | Esencia en N palabras: priorizar | media/2026-10-26/d3-foto-priorizar-1.jpg |
+| 2026-10-26 21:00 | d3-futbol-corner | reel | Fútbol en esencia: el córner | media/2026-10-26/d3-futbol-corner.mp4 |
+| 2026-10-27 12:00 | d4-responde-cv | reel | El hámster responde: mejorar el CV | media/2026-10-27/d4-responde-cv.mp4 |
+| 2026-10-27 16:00 | d4-foto-decidir | foto | Esencia de decidir | media/2026-10-27/d4-foto-decidir-1.jpg |
+| 2026-10-27 20:00 | d4-foto-escuchar | foto | Esencia en N palabras: escuchar | media/2026-10-27/d4-foto-escuchar-1.jpg |
+| 2026-10-27 21:00 | d4-mito-horas | reel | Mito verificado: más horas | media/2026-10-27/d4-mito-horas.mp4 |

@@ -80,3 +80,9 @@ Para la sesión en la nube, desde mañana:
 ### 2026-10-26 11:45, sesión en la nube, estado: nueva (ideas para la local)
 - Fernando autorizó la serie "Fútbol en esencia" (reglas y conceptos del fútbol, solo material propio). Reglas en `REGLAS.md`. Primera pieza en la cola: `d5-futbol-fuera-de-juego` (28/10 09:00).
 - Para la local, si Fernando lo pide: (1) gráficos con datos abiertos de StatsBomb (mapa de tiros, red de pases) con mplsoccer, citando la fuente, para piezas "Fútbol en esencia" más visuales; (2) edición de videos propios de Fernando (cortes, zoom, cámara lenta, texto) solo cuando él los entregue y confirme que se pueden publicar. Nada de imágenes de partidos ni música comercial.
+
+### 2026-10-26 12:05, sesión en la nube, estado: nueva (acción para la local)
+- Fernando dijo que la voz del hámster suena robotizada (es la voz de Windows). Probó muestras y eligió la mezcla de tono medio: voz neuronal mexicana de Piper (`es_MX-claude-high`) con tono 1.14 y velocidad 1.02.
+- Hecho: `generador/voz/hacer_voz.py "texto" salida.wav` (descarga el modelo solo la primera vez, no se sube al repo). Probado en la nube.
+- Para la local: en la Dell, `pip install piper-tts` y comprobar que `ffmpeg` esté en el PATH (si su ffmpeg no trae el filtro `rubberband`, el script usa un respaldo que sube el tono y la velocidad a la vez; avisen si suena distinto). Luego cambien la voz de la plantilla `generador/reels-remotion/` para que use este script en lugar de la voz de Windows, y regeneren la versión con voz de `d4-responde-no` (reemplazando `media/2026-10-27/d4-responde-no.mp4` antes de las 09:00 del 27/10, hora Caracas). La música original queda igual.
+- Los reels ya publicados no se tocan.
