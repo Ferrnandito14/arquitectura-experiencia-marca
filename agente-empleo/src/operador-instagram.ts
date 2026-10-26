@@ -1,10 +1,12 @@
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { crearSesionInstagram } from './sesion-instagram.js';
+import { subirArchivos } from './sesion-github.js';
 
 // Operador de la cuenta de Instagram a través de Composio (API oficial).
 //   publicar-pendientes   publica las piezas de la cola cuya hora ya llegó
 //   contenedor-prueba     crea un contenedor de imagen sin publicarlo (prueba)
 //   comentarios-nuevos    lista comentarios sin atender en las últimas publicaciones
+//   subir <mensaje> <ruta>...  sube archivos al repo por Composio (rutas relativas a la raíz del repo)
 //   responder <id> <txt>  responde a un comentario de una publicación propia
 // Variables de entorno: COMPOSIO_API_KEY, COMPOSIO_USER_ID.
 
@@ -90,6 +92,12 @@ if (orden === 'publicar-pendientes') {
     writeFileSync(COLA, JSON.stringify(cola, null, 2) + '\n');
   }
   console.log('pendientes restantes:', cola.filter((x) => x.estado === 'pendiente').length);
+  try {
+    await subirArchivos('Actualizar estado de la cola (publicador automático)', ['cuenta-hamsterverified/cola.json']);
+    console.log('cola.json guardada en el repo por Composio');
+  } catch (e) {
+    console.log('No se pudo guardar cola.json por Composio:', String(e).slice(0, 200));
+  }
 } else if (orden === 'contenedor-prueba') {
   const ig = await idCuenta();
   const d = await ejecutar('INSTAGRAM_POST_IG_USER_MEDIA', { ig_user_id: ig, image_url: resto[0], caption: resto[1] ?? 'prueba #esencia' });
@@ -113,6 +121,15 @@ if (orden === 'publicar-pendientes') {
   const vistos: string[] = existsSync(ATENDIDOS) ? JSON.parse(readFileSync(ATENDIDOS, 'utf8')) : [];
   writeFileSync(ATENDIDOS, JSON.stringify([...vistos, idComentario], null, 2) + '\n');
   console.log('respondido', idComentario);
+  try {
+    await subirArchivos('Registrar comentario atendido', ['cuenta-hamsterverified/comentarios-atendidos.json']);
+  } catch (e) {
+    console.log('No se pudo guardar comentarios-atendidos.json por Composio:', String(e).slice(0, 200));
+  }
+} else if (orden === 'subir') {
+  const [mensaje, ...rutas] = resto;
+  const r = await subirArchivos(mensaje, rutas);
+  console.log('subido:', rutas.join(', '), '|', JSON.stringify(r).slice(0, 200));
 } else {
-  console.log('Órdenes: publicar-pendientes | contenedor-prueba <url_jpg> [texto] | comentarios-nuevos | responder <id> <texto>');
+  console.log('Órdenes: publicar-pendientes | contenedor-prueba <url_jpg> [texto] | comentarios-nuevos | responder <id> <texto> | subir <mensaje> <ruta>...');
 }
