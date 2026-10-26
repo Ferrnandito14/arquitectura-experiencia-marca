@@ -68,6 +68,12 @@ Sale de las preguntas que más se repiten cuando alguien vende webs con IA (come
     - Ya en las demos: HTTPS (lo da Netlify), descripción para Google, vista previa del enlace al compartirlo por WhatsApp (`og:title` y `og:description`), ícono de pestaña, color de barra en el teléfono, versión móvil, enlaces internos sin romper, validación del formulario y botón principal claro. Lo aplica `reserva/cabecera.py`.
     - Al vender: aviso de privacidad corto junto al formulario (qué datos, para qué, quién los ve); campo trampa contra spam en el formulario; imagen de vista previa (`og:image`) con una foto del local aprobada; página 404 con el botón de reservar; fotos comprimidas (WebP) con texto alternativo; medición de visitas solo si el cliente la quiere, y entonces con aviso de cookies.
     - No aplica: términos y condiciones, claves de API (la página no usa ninguna).
+12. Después de publicar (reels de tomy_espinosa y barclayleach, 2026-10-26):
+    - Google Search Console: verificar el dominio, enviar el `sitemap.xml` y pedir la indexación. Es lo primero, porque sin esto la página tarda en aparecer en Google.
+    - `robots.txt` que permita indexar (las demos lo bloquean a propósito) y que apunte al sitemap.
+    - Microsoft Clarity (gratis): grabaciones y mapas de calor para ver dónde se traba la gente en la reserva. Solo con aviso de cookies y si el cliente lo quiere.
+    - Revisar a los 30 días en Search Console qué búsquedas traen visitas y ajustar los textos. Se le cuenta al cliente en el plan mensual.
+    - Para que los asistentes de IA (ChatGPT, Gemini) recomienden el negocio: datos estructurados `LocalBusiness` (punto 4), dirección y horario en texto, y preguntas frecuentes reales.
 
 Fuera del precio de lanzamiento: blog, tienda, formularios con base de datos y automatizaciones. Se cotizan aparte.
 
