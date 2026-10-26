@@ -34,7 +34,7 @@ Mismo estilo que el mensaje aprobado para Hermanos Mora, adaptado a cada negocio
 >
 > Revisando la presencia en Google de Odontología Gran Caracas, vi que aún no cuentan con una página web propia.
 >
-> Preparé una propuesta de diseño pensada para su clínica, con la información que ya es pública: tratamientos, cómo es la primera visita, preguntas frecuentes, ubicación en Centro Perú y un formulario para que sus pacientes pidan su cita en línea a cualquier hora, sin tener que escribir por WhatsApp. Puede verla y recorrerla desde su teléfono, sin ningún compromiso:
+> Preparé una propuesta de diseño pensada para su clínica, con la información que ya es pública: tratamientos, cómo es la primera visita, preguntas frecuentes, ubicación en Centro Perú y un formulario para que sus pacientes pidan su cita en línea, sin tener que escribir por WhatsApp. Puede verla y recorrerla desde su teléfono, sin ningún compromiso:
 >
 > https://ferrnandito14.github.io/propuesta/odontologia-gran-caracas/
 >
@@ -96,7 +96,7 @@ Basada en `por-que-una-pagina-web.md`. Mismo mensaje de antes, más un párrafo 
 >
 > ¿Por qué importa? Antes de pedir cita, la mayoría de los pacientes busca al odontólogo en internet y compara opiniones (cerca de 7 de cada 10 en encuestas del sector en EE. UU.). Una página que explique los tratamientos y cómo es la primera visita le da al paciente la confianza para escribir, a cualquier hora.
 >
-> Preparé una propuesta de diseño pensada para su clínica, con la información que ya es pública: tratamientos, cómo es la primera visita, preguntas frecuentes, ubicación en Centro Perú y un formulario para que sus pacientes pidan su cita en línea a cualquier hora, sin tener que escribir por WhatsApp. Puede verla y recorrerla desde su teléfono, sin ningún compromiso:
+> Preparé una propuesta de diseño pensada para su clínica, con la información que ya es pública: tratamientos, cómo es la primera visita, preguntas frecuentes, ubicación en Centro Perú y un formulario para que sus pacientes pidan su cita en línea, sin tener que escribir por WhatsApp. Puede verla y recorrerla desde su teléfono, sin ningún compromiso:
 >
 > https://ferrnandito14.github.io/propuesta/odontologia-gran-caracas/
 >
