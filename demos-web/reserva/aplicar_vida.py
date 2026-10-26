@@ -18,6 +18,8 @@ CARACTER = {
     'odontologia-gran-caracas': 'suave',
     'la-flor-de-altamira': 'calido',
     'restaurant-el-barquero': 'suave',
+    'cakevanas': 'calido',
+    'voila-beauty-room': 'suave',
 }
 
 

@@ -99,3 +99,32 @@ Basada en `por-que-una-pagina-web.md`. Mismo mensaje de antes, más un párrafo 
 > https://ferrnandito14.github.io/propuesta/odontologia-gran-caracas/
 >
 > Si le interesa, la adapto con sus precios y fotos y la dejo publicada en pocos días. Quedo atento.
+
+## Borradores nuevos (2026-10-26, sin enviar: esperan aprobación de Fernando)
+
+Misma estructura que el mensaje corto aprobado para la clínica. No afirman que el negocio no tenga página web. El saludo se elige con la hora que muestra WhatsApp al enviar.
+
+### Cakevana's
+
+> Buenos días. Mi nombre es Fernando Romero, diseño páginas web para comercios de Caracas.
+>
+> Muchos clientes buscan en internet antes de pedir, y una página propia con la carta y los pedidos en línea les ahorra escribir y esperar respuesta.
+>
+> Preparé una propuesta para Cakevana's con sus sabores, las mini tartas, eventos, ubicación y un formulario para pedir en línea, para retirar o con delivery:
+>
+> https://ferrnandito14.github.io/propuesta/cakevanas/
+>
+> Si les interesa, la adapto con sus fotos y precios y la dejo publicada en pocos días. Quedo atento.
+
+### Voilà Beauty Room
+
+> Buenos días. Mi nombre es Fernando Romero, diseño páginas web para comercios de Caracas.
+>
+> Hoy muchas clientas buscan el salón en internet antes de reservar, y una página propia les permite ver los servicios y pedir su cita a cualquier hora.
+>
+> Preparé una propuesta para Voilà con sus servicios, el Salon de Thé, opiniones de sus clientas, ubicación y un formulario para reservar en línea:
+>
+> https://ferrnandito14.github.io/propuesta/voila-beauty-room/
+>
+> Si les interesa, la adapto con sus fotos y precios y la dejo publicada en pocos días. Quedo atento.
+

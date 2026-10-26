@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Voilà Beauty Room | Belleza y estética en Los Palos Grandes</title>
+<meta name="description" content="Spa de belleza y estética en Los Palos Grandes, Caracas: cejas, pestañas, uñas, estilismo, faciales y corporales. Reserva tu cita en línea.">
+<!-- cabecera:inicio -->
+<meta property="og:title" content="Voilà Beauty Room | Belleza y estética en Los Palos Grandes">
+<meta property="og:description" content="Spa de belleza y estética en Los Palos Grandes, Caracas: cejas, pestañas, uñas, estilismo, faciales y corporales. Reserva tu cita en línea.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_VE">
+<meta name="theme-color" content="#F8F3EC">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%23F8F3EC%22/%3E%3Ctext%20x%3D%2232%22%20y%3D%2244%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2234%22%20font-weight%3D%22700%22%20fill%3D%22%23A98550%22%20text-anchor%3D%22middle%22%3EV%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- cabecera:fin -->
+<!-- Referencias (proceso-diseno.md): salón boutique de The Foundry (serifa fina, toque manuscrito, mucho aire) y marco ovalado de TAB Kitchen & Bakery (One Page Love). Colores y letras: el monograma crema y dorado de Voilà y su pared de flores. -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Pinyon+Script&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--marfil:#F8F3EC;--arena:#EFE5D8;--oro:#A98550;--oro2:#8C6B3C;--taupe:#7D6A5C;--tinta:#2B2420;--rosa:#EBCFC6;--borde:#E2D5C4}
+*{box-sizing:border-box;margin:0}
+html,body{overflow-x:hidden}
+body{font-family:Jost,system-ui,sans-serif;background:var(--marfil);color:var(--tinta);line-height:1.65;font-size:17px}
+a{color:inherit}
+a:focus-visible{outline:2px solid var(--oro);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0;border-bottom:1px solid var(--borde)}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo .v{width:46px;height:46px;border-radius:50%;border:1px solid var(--oro);display:grid;place-items:center;font-family:'Pinyon Script',cursive;font-size:1.9rem;color:var(--oro);line-height:1}
+.logo b{font-family:'Cormorant Garamond',serif;font-weight:600;letter-spacing:.32em;font-size:1.15rem}
+.btn{display:inline-flex;align-items:center;min-height:52px;padding:0 30px;border-radius:999px;background:var(--tinta);color:var(--marfil);font-weight:500;letter-spacing:.04em;text-decoration:none}
+.btn.mini{min-height:44px;padding:0 18px;font-size:.92rem}
+.btn.linea{background:transparent;color:var(--tinta);border:1px solid var(--tinta)}
+.btn.oro{background:var(--oro);color:#fff}
+.hero{padding:46px 0 70px;display:grid;gap:40px;align-items:center}
+@media(min-width:860px){.hero{grid-template-columns:1.1fr .9fr}}
+.firma{font-family:'Pinyon Script',cursive;color:var(--oro);font-size:2rem;line-height:1}
+.hero h1{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(2.8rem,9vw,5.2rem);line-height:1;margin-top:10px;letter-spacing:-.01em}
+.hero h1 em{color:var(--oro2)}
+.hero p{margin-top:20px;max-width:40ch;color:var(--taupe);font-size:1.1rem}
+.acciones{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:28px}
+.dato{color:var(--taupe);font-size:.95rem}
+.dato b{color:var(--tinta)}
+.ovalo{justify-self:center;width:min(360px,80vw);aspect-ratio:3/4;border-radius:999px 999px 24px 24px;background:linear-gradient(160deg,var(--rosa),var(--arena));border:1px solid var(--borde);display:grid;place-items:end center;padding:26px;position:relative}
+.ovalo:before{content:"";position:absolute;inset:12px;border-radius:999px 999px 16px 16px;border:1px solid rgba(169,133,80,.45)}
+.ovalo span{position:relative;background:var(--marfil);color:var(--taupe);font-size:.85rem;padding:6px 14px;border-radius:999px}
+.dice{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.15rem;color:var(--taupe);margin-top:22px}
+section{padding:70px 0}
+h2{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(2.2rem,6.5vw,3.3rem);line-height:1.05;margin-bottom:12px}
+.lead{color:var(--taupe);max-width:54ch;margin-bottom:34px}
+.servicios{display:grid;border-top:1px solid var(--borde)}
+@media(min-width:760px){.servicios{grid-template-columns:repeat(2,1fr);column-gap:40px}}
+.serv{display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:baseline;padding:22px 0;border-bottom:1px solid var(--borde)}
+.serv .n{font-family:'Cormorant Garamond',serif;color:var(--oro);font-size:1.1rem}
+.serv h3{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.6rem;line-height:1.1}
+.serv p{color:var(--taupe);font-size:.95rem}
+.serv small{color:var(--oro2);font-size:.8rem;white-space:nowrap}
+.te{background:var(--arena)}
+.te-grid{display:grid;gap:30px;align-items:center}
+@media(min-width:820px){.te-grid{grid-template-columns:.9fr 1.1fr}}
+.taza{aspect-ratio:1;max-width:340px;border-radius:50%;background:var(--marfil);border:1px solid var(--borde);display:grid;place-items:center;text-align:center;color:var(--taupe);font-size:.9rem;padding:30px}
+.opiniones{display:grid;gap:16px}
+@media(min-width:800px){.opiniones{grid-template-columns:repeat(3,1fr)}}
+.op{background:#fff;border:1px solid var(--borde);border-radius:20px;padding:24px}
+.op .est{color:var(--oro);letter-spacing:.2em;font-size:.9rem}
+.op p{font-family:'Cormorant Garamond',serif;font-size:1.3rem;line-height:1.3;margin-top:8px}
+.cols{display:grid;gap:30px}
+@media(min-width:780px){.cols{grid-template-columns:1fr 1fr}}
+dt{font-weight:600;margin-top:14px}
+dd{color:var(--taupe)}
+footer{padding:28px 0 40px;color:var(--taupe);font-size:.9rem;border-top:1px solid var(--borde)}
+.demo{margin-top:10px;border-left:3px solid var(--oro);padding-left:12px}
+.nodo-franja{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:50;background:rgba(17,17,17,.88);color:#fff;font:600 13px/1.2 system-ui,sans-serif;letter-spacing:.02em;padding:9px 16px;border-radius:999px;box-shadow:0 2px 10px rgba(0,0,0,.25);pointer-events:none;white-space:nowrap}
+.nodo-franja b{color:#8FD3FF}
+.nodo-aviso{position:fixed;left:50%;bottom:64px;transform:translateX(-50%) translateY(20px);z-index:60;max-width:min(92vw,420px);background:#fff;color:#111;font:500 15px/1.4 system-ui,sans-serif;padding:14px 18px;border-radius:14px;box-shadow:0 6px 24px rgba(0,0,0,.28);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;text-align:center}
+.nodo-aviso.ver{opacity:1;transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <nav class="nav" aria-label="Principal">
+      <a class="logo" href="#inicio"><span class="v" aria-hidden="true">V</span><b>VOILÀ</b></a>
+      <a class="btn mini" href="#reserva-web">Reservar</a>
+    </nav>
+    <div class="hero" id="inicio">
+      <div>
+        <p class="firma" aria-hidden="true">Beauty Room</p>
+        <h1>Tu mejor versión <em>comienza aquí.</em></h1>
+        <p>Belleza y estética en Los Palos Grandes: cejas, pestañas, uñas, estilismo, faciales y corporales, con un equipo que te recibe como en casa.</p>
+        <div class="acciones">
+          <a class="btn" href="#reserva-web" data-reserva>Reservar en línea</a>
+        <a class="btn linea" id="reservar" href="https://wa.me/PON_AQUI_EL_NUMERO?text=Hola%2C%20quiero%20reservar%20una%20cita">Reservar por WhatsApp</a>
+          <span class="dato"><b>5,0</b> en Google · 57 opiniones</span>
+        </div>
+        <p class="dice">Se escribe Voilà, se pronuncia «vualá».</p>
+      </div>
+      <div class="ovalo" aria-hidden="true"><span>Foto de la pared de flores</span></div>
+    </div>
+  </div>
+</header>
+
+<main>
+<section aria-labelledby="serv">
+  <div class="wrap">
+    <h2 id="serv">Servicios</h2>
+    <p class="lead">Las categorías que Voilà muestra en su Instagram. El salón confirma cada tratamiento, su duración y su precio.</p>
+    <div class="servicios">
+      <div class="serv"><span class="n">01</span><div><h3>Cejas</h3><p>Diseño y perfilado.</p></div><small>por confirmar</small></div>
+      <div class="serv"><span class="n">02</span><div><h3>Pestañas</h3><p>Para una mirada definida.</p></div><small>por confirmar</small></div>
+      <div class="serv"><span class="n">03</span><div><h3>Uñas</h3><p>Manicura y pedicura.</p></div><small>por confirmar</small></div>
+      <div class="serv"><span class="n">04</span><div><h3>Estilismo</h3><p>Corte, color y peinado.</p></div><small>por confirmar</small></div>
+      <div class="serv"><span class="n">05</span><div><h3>Faciales</h3><p>Limpieza y cuidado de la piel.</p></div><small>por confirmar</small></div>
+      <div class="serv"><span class="n">06</span><div><h3>Corporales</h3><p>Tratamientos con equipos de última generación.</p></div><small>por confirmar</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="te" aria-labelledby="the">
+  <div class="wrap te-grid">
+    <div class="taza" aria-hidden="true">Foto del Salon de Thé</div>
+    <div>
+      <p class="firma" aria-hidden="true">Salon de Thé</p>
+      <h2 id="the">Una pausa, no solo una cita.</h2>
+      <p class="lead">Quienes visitan Voilà cuentan que los reciben con una sonrisa y una bebida. Aquí va lo que ofrece el Salon de Thé y cómo disfrutarlo antes o después de tu tratamiento.</p>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="dicen">
+  <div class="wrap">
+    <h2 id="dicen">Lo que dicen</h2>
+    <p class="lead">Resumen de las opiniones en Google, todas de cinco estrellas.</p>
+    <div class="opiniones">
+      <div class="op"><span class="est">★★★★★</span><p>Un lugar precioso donde te reciben con una sonrisa y el equipo trabaja con puntualidad.</p></div>
+      <div class="op"><span class="est">★★★★★</span><p>Productos y equipos de las mejores marcas, siempre a la vanguardia.</p></div>
+      <div class="op"><span class="est">★★★★★</span><p>Un escape para dedicarte tiempo, sola o en compañía.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- reserva-web:inicio -->
+<section aria-labelledby="reserva-t" style="padding:64px 0"><div class="wrap"><h2 id="reserva-t">Reserva tu cita en línea</h2><p class="lead">Elige el servicio, el día y la hora. Voilà te confirma por WhatsApp.</p><div id="reserva-web"></div></div></section>
+<script>window.RESERVA = {"palabra": "reserva", "textoConfirmar": "Confirmar reserva", "textoListo": "Reserva lista", "tema": {"fondo": "#FFFFFF", "texto": "#2B2420", "suave": "#7D6A5C", "acento": "#2B2420", "sobreAcento": "#F8F3EC", "borde": "#E2D5C4", "radio": "20px"}, "pasos": [{"id": "servicio", "tipo": "opciones", "titulo": "¿Qué servicio quieres?", "corto": "Servicio", "columnas": "dos", "opciones": [{"txt": "Cejas"}, {"txt": "Pestañas"}, {"txt": "Uñas"}, {"txt": "Estilismo"}, {"txt": "Faciales"}, {"txt": "Corporales"}]}, {"id": "dia", "tipo": "fecha", "titulo": "¿Qué día?", "corto": "Día", "dias": 6, "cerrados": [0]}, {"id": "hora", "tipo": "hora", "titulo": "¿A qué hora?", "corto": "Hora", "desde": 10, "hasta": 18, "cada": 30, "nota": "Días y horas de ejemplo: el negocio define su agenda real."}, {"id": "datos", "tipo": "datos", "titulo": "¿A nombre de quién?", "corto": "Nombre"}], "demo": true};</script>
+<script>/* Reserva o pedido por pasos, sin backend.
+   Uso: <div id="reserva-web"></div> y window.RESERVA = {...}; luego cargar este archivo.
+   En modo demo (demo: true) no envía ningún dato: solo muestra el resumen final.
+   En la versión vendida, `enviar` se conecta a un formulario real (por ejemplo, Netlify Forms) y le llega al negocio. */
+(function () {
+  var C = window.RESERVA;
+  var raiz = document.getElementById('reserva-web');
+  if (!C || !raiz) return;
+  var t = C.tema || {};
+  var estado = {};
+  var paso = 0;
+
+  var css = '' +
+    '#reserva-web{--r-fondo:' + (t.fondo || '#fff') + ';--r-texto:' + (t.texto || '#1d1d1b') + ';--r-suave:' + (t.suave || '#5b5b55') + ';--r-acento:' + (t.acento || '#1c48a0') + ';--r-sobre:' + (t.sobreAcento || '#fff') + ';--r-borde:' + (t.borde || '#ddd') + ';--r-radio:' + (t.radio || '14px') + '}' +
+    '#reserva-web .r-caja{background:var(--r-fondo);color:var(--r-texto);border:1px solid var(--r-borde);border-radius:var(--r-radio);padding:24px 22px;max-width:640px}' +
+    '#reserva-web .r-barra{display:flex;gap:6px;margin-bottom:18px}#reserva-web .r-barra i{flex:1;height:5px;border-radius:3px;background:var(--r-borde)}#reserva-web .r-barra i.on{background:var(--r-acento)}' +
+    '#reserva-web .r-paso{font-size:.85rem;color:var(--r-suave);margin-bottom:4px}#reserva-web h3{font-size:1.3rem;margin:0 0 14px}' +
+    '#reserva-web .r-ops{display:grid;gap:10px}#reserva-web .r-ops.dos{grid-template-columns:repeat(2,1fr)}#reserva-web .r-ops.tres{grid-template-columns:repeat(3,1fr)}' +
+    '#reserva-web button.r-op{all:unset;box-sizing:border-box;cursor:pointer;border:1.5px solid var(--r-borde);border-radius:12px;padding:13px 14px;min-height:48px;display:flex;flex-direction:column;justify-content:center;gap:2px;font-weight:600;color:var(--r-texto);background:transparent}' +
+    '#reserva-web button.r-op small{font-weight:400;color:var(--r-suave);font-size:.82rem}' +
+    '#reserva-web button.r-op[aria-pressed="true"]{border-color:var(--r-acento);background:var(--r-acento);color:var(--r-sobre)}#reserva-web button.r-op[aria-pressed="true"] small{color:var(--r-sobre);opacity:.85}' +
+    '#reserva-web button.r-op:focus-visible,#reserva-web .r-btn:focus-visible,#reserva-web input:focus-visible{outline:3px solid var(--r-acento);outline-offset:2px}' +
+    '#reserva-web .r-cant{display:flex;align-items:center;justify-content:space-between;gap:10px;border:1.5px solid var(--r-borde);border-radius:12px;padding:10px 12px}' +
+    '#reserva-web .r-cant b{font-weight:600}#reserva-web .r-cant small{display:block;color:var(--r-suave);font-size:.82rem}' +
+    '#reserva-web .r-cant .r-num{display:flex;align-items:center;gap:10px}#reserva-web .r-cant button{all:unset;cursor:pointer;width:36px;height:36px;border-radius:50%;border:1.5px solid var(--r-borde);display:grid;place-items:center;font-weight:700}' +
+    '#reserva-web label{display:block;font-weight:600;margin:12px 0 6px}#reserva-web input{box-sizing:border-box;width:100%;min-height:48px;border:1.5px solid var(--r-borde);border-radius:12px;padding:10px 14px;font:inherit;background:transparent;color:var(--r-texto)}' +
+    '#reserva-web .r-nav{display:flex;justify-content:space-between;gap:10px;margin-top:20px}#reserva-web .r-btn{all:unset;box-sizing:border-box;cursor:pointer;min-height:48px;padding:0 22px;border-radius:999px;display:inline-flex;align-items:center;font-weight:700}' +
+    '#reserva-web .r-btn.pri{background:var(--r-acento);color:var(--r-sobre)}#reserva-web .r-btn.pri[disabled]{opacity:.4;cursor:not-allowed}#reserva-web .r-btn.sec{border:1.5px solid var(--r-borde);color:var(--r-texto)}' +
+    '#reserva-web .r-res{border-top:1px solid var(--r-borde);margin-top:6px}#reserva-web .r-res div{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--r-borde)}#reserva-web .r-res span{color:var(--r-suave)}' +
+    '#reserva-web .r-nota{font-size:.85rem;color:var(--r-suave);margin-top:14px}#reserva-web .r-ok{font-size:2.4rem;line-height:1}#reserva-web .r-error{color:#b3261e;font-size:.9rem;margin-top:8px}';
+  var st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
+
+  var DIAS = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
+  function local(d) { return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2); }
+  var MESES = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];
+  function proximosDias(n, cerrados) {
+    var out = [], d = new Date();
+    while (out.length < n) {
+      if ((cerrados || []).indexOf(d.getDay()) < 0) out.push({v: local(d), txt: (out.length === 0 && d.toDateString() === new Date().toDateString() ? 'Hoy' : DIAS[d.getDay()].charAt(0).toUpperCase() + DIAS[d.getDay()].slice(1)), sub: d.getDate() + ' ' + MESES[d.getMonth()]});
+      d.setDate(d.getDate() + 1);
+    }
+    return out;
+  }
+  function horas(desde, hasta, cada) {
+    var out = [];
+    for (var m = desde * 60; m <= hasta * 60 - cada; m += cada) {
+      var h = Math.floor(m / 60), mm = m % 60, h12 = ((h + 11) % 12) + 1;
+      out.push({v: (h < 10 ? '0' : '') + h + ':' + (mm < 10 ? '0' : '') + mm, txt: h12 + ':' + (mm < 10 ? '0' : '') + mm + (h < 12 ? ' a. m.' : ' p. m.')});
+    }
+    return out;
+  }
+  function el(tag, attrs, hijos) {
+    var e = document.createElement(tag);
+    for (var k in attrs || {}) { if (k === 'text') e.textContent = attrs[k]; else if (k.slice(0, 2) === 'on') e.addEventListener(k.slice(2), attrs[k]); else e.setAttribute(k, attrs[k]); }
+    (hijos || []).forEach(function (h) { if (h) e.appendChild(h); });
+    return e;
+  }
+  function completo(p) {
+    var v = estado[p.id];
+    if (p.tipo === 'cantidades') return v && Object.keys(v).some(function (k) { return v[k] > 0; });
+    if (p.tipo === 'datos') return v && v.nombre && v.nombre.trim().length > 1 && /^[0-9+ ()-]{7,}$/.test((v.telefono || '').trim());
+    if (p.opcional) return true;
+    return !!v;
+  }
+  function textoDe(p) {
+    var v = estado[p.id];
+    if (p.tipo === 'cantidades') return Object.keys(v || {}).filter(function (k) { return v[k] > 0; }).map(function (k) { return v[k] + ' × ' + k; }).join(', ');
+    if (p.tipo === 'datos') return v ? v.nombre : '';
+    if (!v) return 'Sin indicar';
+    return v.txt + (v.sub ? ' (' + v.sub + ')' : '');
+  }
+  function opcionesDe(p) {
+    if (p.tipo === 'fecha') return proximosDias(p.dias || 7, p.cerrados);
+    if (p.tipo === 'hora') {
+      var lista = horas(p.desde, p.hasta, p.cada || 30);
+      // Si eligieron hoy, solo quedan las horas que faltan (con media hora de margen)
+      var dia = C.pasos.filter(function (x) { return x.tipo === 'fecha'; })[0];
+      var hoy = local(new Date());
+      if (dia && estado[dia.id] && estado[dia.id].v === hoy) {
+        var ahora = new Date(), limite = ahora.getHours() * 60 + ahora.getMinutes() + 30;
+        lista = lista.filter(function (o) { var hm = o.v.split(':'); return +hm[0] * 60 + +hm[1] >= limite; });
+      }
+      return lista;
+    }
+    return p.opciones;
+  }
+
+  function pintar() {
+    raiz.innerHTML = '';
+    var pasos = C.pasos, total = pasos.length + 1;
+    var caja = el('div', {class: 'r-caja'});
+    var barra = el('div', {class: 'r-barra', 'aria-hidden': 'true'});
+    for (var i = 0; i < total; i++) barra.appendChild(el('i', {class: i <= paso ? 'on' : ''}));
+    caja.appendChild(barra);
+
+    if (paso === 'listo') {
+      caja.appendChild(el('div', {class: 'r-ok', 'aria-hidden': 'true', text: '✓'}));
+      caja.appendChild(el('h3', {text: C.textoListo || 'Solicitud lista'}));
+      caja.appendChild(el('p', {text: C.demo ? 'Esto es una demostración: no se envió ningún dato. En la página final, esta solicitud le llega al negocio y te confirman por WhatsApp.' : 'Te confirmaremos por WhatsApp.'}));
+      caja.appendChild(el('div', {class: 'r-nav'}, [el('button', {class: 'r-btn sec', type: 'button', text: 'Hacer otra', onclick: function () { estado = {}; paso = 0; pintar(); }})]));
+      raiz.appendChild(caja); return;
+    }
+
+    if (paso === pasos.length) {
+      caja.appendChild(el('div', {class: 'r-paso', text: 'Paso ' + total + ' de ' + total}));
+      caja.appendChild(el('h3', {text: 'Revisa tu ' + (C.palabra || 'reserva')}));
+      var res = el('div', {class: 'r-res'});
+      pasos.forEach(function (p) { res.appendChild(el('div', {}, [el('span', {text: p.corto || p.titulo}), el('b', {text: textoDe(p)})])); });
+      caja.appendChild(res);
+      if (C.demo) caja.appendChild(el('p', {class: 'r-nota', text: 'Demostración: al confirmar no se envía ningún dato.'}));
+      caja.appendChild(el('div', {class: 'r-nav'}, [
+        el('button', {class: 'r-btn sec', type: 'button', text: 'Atrás', onclick: function () { paso--; pintar(); }}),
+        el('button', {class: 'r-btn pri', type: 'button', text: C.textoConfirmar || 'Confirmar', onclick: function () { paso = 'listo'; pintar(); raiz.scrollIntoView({behavior: 'smooth', block: 'start'}); }})
+      ]));
+      raiz.appendChild(caja); return;
+    }
+
+    var p = pasos[paso];
+    caja.appendChild(el('div', {class: 'r-paso', text: 'Paso ' + (paso + 1) + ' de ' + total}));
+    caja.appendChild(el('h3', {text: p.titulo}));
+
+    if (p.tipo === 'cantidades') {
+      estado[p.id] = estado[p.id] || {};
+      var lista = el('div', {class: 'r-ops'});
+      p.opciones.forEach(function (o) {
+        var n = estado[p.id][o.txt] || 0;
+        var num = el('b', {text: String(n), 'aria-live': 'polite'});
+        lista.appendChild(el('div', {class: 'r-cant'}, [
+          el('div', {}, [el('b', {text: o.txt}), o.sub ? el('small', {text: o.sub}) : null]),
+          el('div', {class: 'r-num'}, [
+            el('button', {type: 'button', 'aria-label': 'Quitar ' + o.txt, text: '−', onclick: function () { estado[p.id][o.txt] = Math.max(0, (estado[p.id][o.txt] || 0) - 1); pintar(); }}),
+            num,
+            el('button', {type: 'button', 'aria-label': 'Agregar ' + o.txt, text: '+', onclick: function () { estado[p.id][o.txt] = (estado[p.id][o.txt] || 0) + 1; pintar(); }})
+          ])
+        ]));
+      });
+      caja.appendChild(lista);
+    } else if (p.tipo === 'datos') {
+      estado[p.id] = estado[p.id] || {nombre: '', telefono: ''};
+      var nombre = el('input', {type: 'text', id: 'r-nombre', autocomplete: 'name', value: estado[p.id].nombre});
+      var tel = el('input', {type: 'tel', id: 'r-tel', autocomplete: 'tel', inputmode: 'tel', value: estado[p.id].telefono});
+      var error = el('div', {class: 'r-error', role: 'alert'});
+      nombre.addEventListener('input', function () { estado[p.id].nombre = nombre.value; sig.disabled = !completo(p); });
+      tel.addEventListener('input', function () { estado[p.id].telefono = tel.value; sig.disabled = !completo(p); });
+      caja.appendChild(el('label', {for: 'r-nombre', text: 'Tu nombre'})); caja.appendChild(nombre);
+      caja.appendChild(el('label', {for: 'r-tel', text: 'Tu WhatsApp (para confirmarte)'})); caja.appendChild(tel);
+      caja.appendChild(error);
+      if (C.demo) caja.appendChild(el('p', {class: 'r-nota', text: 'Demostración: estos datos no se guardan ni se envían.'}));
+    } else {
+      var ops = opcionesDe(p);
+      var grid = el('div', {class: 'r-ops ' + (p.columnas || (p.tipo === 'hora' ? 'tres' : p.tipo === 'fecha' ? 'tres' : ''))});
+      ops.forEach(function (o) {
+        var sel = estado[p.id] && estado[p.id].v === (o.v || o.txt);
+        grid.appendChild(el('button', {class: 'r-op', type: 'button', 'aria-pressed': sel ? 'true' : 'false', onclick: function () { estado[p.id] = {v: o.v || o.txt, txt: o.txt, sub: o.sub}; pintar(); }}, [document.createTextNode(o.txt), o.sub ? el('small', {text: o.sub}) : null]));
+      });
+      caja.appendChild(grid);
+      if (!ops.length) caja.appendChild(el('p', {class: 'r-nota', text: 'Hoy ya no quedan horas disponibles. Vuelve atrás y elige otro día.'}));
+      if (p.nota) caja.appendChild(el('p', {class: 'r-nota', text: p.nota}));
+    }
+
+    var sig = el('button', {class: 'r-btn pri', type: 'button', text: 'Siguiente', onclick: function () { paso++; pintar(); }});
+    sig.disabled = !completo(p);
+    caja.appendChild(el('div', {class: 'r-nav'}, [
+      paso > 0 ? el('button', {class: 'r-btn sec', type: 'button', text: 'Atrás', onclick: function () { paso--; pintar(); }}) : el('span'),
+      sig
+    ]));
+    raiz.appendChild(caja);
+  }
+  pintar();
+})();
+</script>
+<!-- reserva-web:fin -->
+<section aria-labelledby="donde">
+  <div class="wrap cols">
+    <div>
+      <h2 id="donde">Dónde estamos</h2>
+      <dl>
+        <dt>Dirección</dt><dd>Los Palos Grandes, Caracas. Dirección exacta por confirmar.</dd>
+        <dt>Horario</dt><dd>Lunes a sábado, de 10 a. m. a 6 p. m.</dd>
+        <dt>Citas</dt><dd><a href="#reserva-web">En línea</a> o por WhatsApp</dd>
+      </dl>
+      <div class="acciones"><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Voil%C3%A0+Beauty+Room+Caracas">Cómo llegar</a></div>
+    </div>
+    <div>
+      <h2 style="font-size:2rem">Tu momento, cuando quieras</h2>
+      <p class="lead">Resérvalo <a href="#reserva-web">en línea</a> en un minuto o escríbenos por WhatsApp.</p>
+      <a class="btn linea" href="https://wa.me/PON_AQUI_EL_NUMERO?text=Hola%2C%20quiero%20reservar%20una%20cita">Reservar por WhatsApp</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer style="padding-bottom:70px">
+  <div class="wrap">Voilà Beauty Room · Los Palos Grandes, Caracas
+    <p class="demo">Propuesta de diseño de Fernando Romero, preparada con información pública. No es el sitio oficial del negocio.</p>
+  </div>
+</footer>
+<div class="nodo-franja" aria-hidden="true">Propuesta de diseño · <b>Fernando Romero</b></div>
+<div class="nodo-aviso" id="nodoAviso" role="status" aria-live="polite"></div>
+<script>
+(function(){var a=document.getElementById('nodoAviso'),t;
+document.addEventListener('click',function(e){var l=e.target.closest('a[href*="wa.me/"]');if(!l)return;e.preventDefault();
+a.textContent='En la versión final, este botón abre el WhatsApp de su negocio con el mensaje listo para el cliente.';
+a.classList.add('ver');clearTimeout(t);t=setTimeout(function(){a.classList.remove('ver')},3800);});})();
+</script>
+<!-- vida:inicio -->
+<script>window.VIDA = {"caracter": "suave"};</script>
+<script>
+/* Animaciones de las demos: entrada del titular palabra por palabra, secciones que aparecen al bajar,
+   barra de progreso con el color de la marca, botones con respuesta al toque y pasos de la reserva con transición.
+   Sin dependencias. Si la persona pide menos movimiento en su sistema, no anima nada.
+   Opcional antes de cargar: window.VIDA = {caracter: 'firme' | 'suave' | 'calido'}. */
+(function () {
+  if (!window.matchMedia || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (!('IntersectionObserver' in window)) return;
+
+  // Cada marca se mueve distinto: barberías con decisión, la clínica con calma, comida con algo de rebote.
+  var CARACTER = {
+    firme: { dur: 620, dist: 28, curva: 'cubic-bezier(.2,.8,.2,1)', paso: 70 },
+    suave: { dur: 820, dist: 16, curva: 'cubic-bezier(.25,.6,.3,1)', paso: 90 },
+    calido: { dur: 700, dist: 22, curva: 'cubic-bezier(.34,1.4,.64,1)', paso: 80 }
+  };
+  var c = CARACTER[(window.VIDA || {}).caracter] || CARACTER.firme;
+  var raiz = document.documentElement;
+  raiz.classList.add('vida');
+
+  var css = '' +
+    '.vida [data-v]{opacity:0;translate:0 ' + c.dist + 'px;transition:opacity ' + c.dur + 'ms ' + c.curva + ',translate ' + c.dur + 'ms ' + c.curva + ';transition-delay:var(--v-d,0ms)}' +
+    '.vida [data-v].v-on{opacity:1;translate:0 0}' +
+    '.vida h1 .v-pal{color:inherit;display:inline-block;opacity:0;translate:0 .45em;animation:v-sube ' + c.dur + 'ms ' + c.curva + ' forwards;animation-delay:var(--v-d,0ms)}' +
+    '@keyframes v-sube{to{opacity:1;translate:0 0}}' +
+    '.vida .btn{transition:transform 120ms ease-out,box-shadow 200ms ease-out,filter 200ms ease-out}' +
+    '.vida .btn:hover{transform:translateY(-2px);filter:brightness(1.06)}' +
+    '.vida .btn:active{transform:scale(.97)}' +
+    '#v-barra{position:fixed;top:0;left:0;height:3px;width:100%;transform-origin:0 50%;scale:0 1;z-index:60;pointer-events:none}' +
+    '#reserva-web .r-caja>*{animation:v-paso 360ms ' + c.curva + ' both}' +
+    '#reserva-web .r-caja>*:nth-child(2){animation-delay:40ms}#reserva-web .r-caja>*:nth-child(3){animation-delay:80ms}#reserva-web .r-caja>*:nth-child(n+4){animation-delay:120ms}' +
+    '@keyframes v-paso{from{opacity:0;translate:14px 0}to{opacity:1;translate:0 0}}';
+  var st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
+
+  // 1. Titular: cada palabra entra por separado (el texto sigue siendo el mismo para lectores de pantalla)
+  var h1 = document.querySelector('h1');
+  var t = 0;
+  if (h1) {
+    h1.setAttribute('aria-label', h1.textContent.replace(/\s+/g, ' ').trim());
+    (function partir(nodo) {
+      Array.prototype.slice.call(nodo.childNodes).forEach(function (n) {
+        if (n.nodeType === 3) {
+          var frag = document.createDocumentFragment();
+          n.textContent.split(/(\s+)/).forEach(function (trozo) {
+            if (!trozo) return;
+            if (/^\s+$/.test(trozo)) { frag.appendChild(document.createTextNode(trozo)); return; }
+            var s = document.createElement('span');
+            s.className = 'v-pal'; s.setAttribute('aria-hidden', 'true'); s.textContent = trozo;
+            s.style.setProperty('--v-d', (t++ * c.paso) + 'ms');
+            frag.appendChild(s);
+          });
+          n.parentNode.replaceChild(frag, n);
+        } else if (n.nodeType === 1) { partir(n); }
+      });
+    })(h1);
+    // Lo que sigue al titular en la portada entra después de la última palabra
+    var sig = h1.nextElementSibling, k = 0;
+    while (sig) { sig.setAttribute('data-v', ''); sig.style.setProperty('--v-d', (t * c.paso + 120 + k++ * 110) + 'ms'); sig = sig.nextElementSibling; }
+  }
+
+  // 2. Secciones: título, entradilla y cada tarjeta o fila, en cascada
+  var vistos = [];
+  document.querySelectorAll('main section .wrap > *, footer .wrap > *').forEach(function (el) {
+    if (el.id === 'reserva-web') return;
+    var hijos = el.children;
+    var esGrupo = hijos.length >= 2 && /grid|flex/.test(getComputedStyle(el).display) && !/^H\d$/.test(el.tagName);
+    if (esGrupo) {
+      Array.prototype.forEach.call(hijos, function (h, i) { h.setAttribute('data-v', ''); h.style.setProperty('--v-d', Math.min(i, 6) * c.paso + 'ms'); vistos.push(h); });
+    } else { el.setAttribute('data-v', ''); vistos.push(el); }
+  });
+  var obs = new IntersectionObserver(function (entradas) {
+    entradas.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('v-on'); obs.unobserve(e.target); } });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+  vistos.forEach(function (el) { obs.observe(el); });
+  // Respaldo: si el navegador no avisa (pestaña en segundo plano, saltos con enlaces), se revisa a mano
+  // para que ningún contenido quede escondido.
+  var espera = null;
+  function revisar() {
+    espera = null;
+    vistos.forEach(function (el) {
+      if (!el.classList.contains('v-on') && el.getBoundingClientRect().top < innerHeight * 0.95) { el.classList.add('v-on'); obs.unobserve(el); }
+    });
+  }
+  addEventListener('scroll', function () { if (!espera) espera = setTimeout(revisar, 150); }, { passive: true });
+  addEventListener('hashchange', function () { setTimeout(revisar, 300); });
+  setTimeout(revisar, 400);
+  // Portada: visible desde el inicio
+  setTimeout(function () {
+    document.querySelectorAll('header [data-v]').forEach(function (el) { el.classList.add('v-on'); });
+  }, 30);
+
+  // 3. Barra de progreso con el color del botón principal
+  var btn = document.querySelector('.btn');
+  var barra = document.createElement('div');
+  barra.id = 'v-barra';
+  barra.style.background = btn ? getComputedStyle(btn).backgroundColor : 'currentColor';
+  document.body.appendChild(barra);
+  var pendiente = false;
+  addEventListener('scroll', function () {
+    if (pendiente) return; pendiente = true;
+    requestAnimationFrame(function () {
+      var max = raiz.scrollHeight - innerHeight;
+      barra.style.scale = (max > 0 ? Math.min(1, scrollY / max) : 0) + ' 1';
+      pendiente = false;
+    });
+  }, { passive: true });
+})();
+</script>
+<!-- vida:fin -->
+</body>
+</html>

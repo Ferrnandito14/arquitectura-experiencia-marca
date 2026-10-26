@@ -17,6 +17,8 @@ NEGOCIOS = {
     'odontologia-gran-caracas': ('OG', '#1F55B8', '#FFFFFF', 'Clínica odontológica en Centro Perú, Torre A, piso 7, Caracas. Solicita tu cita en línea.'),
     'la-flor-de-altamira': ('LF', '#1C48A0', '#D9A92B', 'Cachitos, tortas, pizzas, charcutería y jugos en Altamira, Caracas. Haz tu pedido en línea y pásalo a buscar.'),
     'restaurant-el-barquero': ('EB', '#13294B', '#E3B23C', 'Restaurant El Barquero, la embajada de los mares en Caracas. Cocina de mar, vinos, música y baile en Altamira. Reserva tu mesa en línea.'),
+    'cakevanas': ('C', '#8E5BB3', '#FFFFFF', 'Tartas vascas cremosas y café de especialidad en Chacao, Caracas. Haz tu pedido en línea para retirar o con delivery.'),
+    'voila-beauty-room': ('V', '#F8F3EC', '#A98550', 'Spa de belleza y estética en Los Palos Grandes, Caracas: cejas, pestañas, uñas, estilismo, faciales y corporales. Reserva tu cita en línea.'),
 }
 
 

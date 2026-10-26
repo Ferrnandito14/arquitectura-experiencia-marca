@@ -61,6 +61,23 @@ NEGOCIOS = {
                              {'id': 'hora', 'tipo': 'hora', 'titulo': '¿A qué hora?', 'corto': 'Hora', 'desde': 12, 'hasta': 23, 'cada': 30, 'nota': EJEMPLO},
                              {'id': 'ocasion', 'tipo': 'opciones', 'titulo': '¿Alguna ocasión especial?', 'corto': 'Ocasión', 'columnas': 'dos', 'opcional': True, 'opciones': [{'txt': 'Sin ocasión especial'}, {'txt': 'Cumpleaños'}, {'txt': 'Reunión de trabajo'}, {'txt': 'Celebración familiar'}]},
                              {'id': 'datos', 'tipo': 'datos', 'titulo': '¿A nombre de quién?', 'corto': 'Nombre'}]}},
+    'cakevanas': {
+        'titulo': 'Pide tu tarta en línea', 'lead': 'Elige tus tartas, si la retiras o te la llevamos, y para cuándo. Sin esperar respuesta por WhatsApp.', 'boton': 'Pedir en línea',
+        'config': {'palabra': 'pedido', 'textoConfirmar': 'Confirmar pedido', 'textoListo': 'Pedido listo',
+                   'tema': {'fondo': '#FFFFFF', 'texto': '#2A1E33', 'suave': '#5E5266', 'acento': '#8E5BB3', 'sobreAcento': '#FFFFFF', 'borde': '#E6DAEE', 'radio': '22px'},
+                   'pasos': [{'id': 'tartas', 'tipo': 'cantidades', 'titulo': '¿Qué tartas quieres?', 'corto': 'Pedido', 'opciones': [{'txt': 'Pistacho', 'sub': PRECIO}, {'txt': 'Guayaba', 'sub': PRECIO}, {'txt': 'Matcha', 'sub': PRECIO}, {'txt': 'Frutos rojos', 'sub': PRECIO}, {'txt': 'Arequipe', 'sub': PRECIO}, {'txt': 'Caja de mini tartas', 'sub': PRECIO}]},
+                             {'id': 'entrega', 'tipo': 'opciones', 'titulo': '¿Cómo la recibes?', 'corto': 'Entrega', 'columnas': 'dos', 'opciones': [{'txt': 'Retiro en la tienda', 'sub': 'Chacao'}, {'txt': 'Delivery', 'sub': 'costo por confirmar'}]},
+                             {'id': 'dia', 'tipo': 'fecha', 'titulo': '¿Para qué día?', 'corto': 'Día', 'dias': 4},
+                             {'id': 'hora', 'tipo': 'hora', 'titulo': '¿A qué hora?', 'corto': 'Hora', 'desde': 10, 'hasta': 19, 'cada': 60, 'nota': EJEMPLO},
+                             {'id': 'datos', 'tipo': 'datos', 'titulo': '¿A nombre de quién?', 'corto': 'Nombre'}]}},
+    'voila-beauty-room': {
+        'titulo': 'Reserva tu cita en línea', 'lead': 'Elige el servicio, el día y la hora. Voilà te confirma por WhatsApp.', 'boton': 'Reservar en línea',
+        'config': {'palabra': 'reserva', 'textoConfirmar': 'Confirmar reserva', 'textoListo': 'Reserva lista',
+                   'tema': {'fondo': '#FFFFFF', 'texto': '#2B2420', 'suave': '#7D6A5C', 'acento': '#2B2420', 'sobreAcento': '#F8F3EC', 'borde': '#E2D5C4', 'radio': '20px'},
+                   'pasos': [{'id': 'servicio', 'tipo': 'opciones', 'titulo': '¿Qué servicio quieres?', 'corto': 'Servicio', 'columnas': 'dos', 'opciones': [{'txt': 'Cejas'}, {'txt': 'Pestañas'}, {'txt': 'Uñas'}, {'txt': 'Estilismo'}, {'txt': 'Faciales'}, {'txt': 'Corporales'}]},
+                             {'id': 'dia', 'tipo': 'fecha', 'titulo': '¿Qué día?', 'corto': 'Día', 'dias': 6, 'cerrados': [0]},
+                             {'id': 'hora', 'tipo': 'hora', 'titulo': '¿A qué hora?', 'corto': 'Hora', 'desde': 10, 'hasta': 18, 'cada': 30, 'nota': EJEMPLO},
+                             {'id': 'datos', 'tipo': 'datos', 'titulo': '¿A nombre de quién?', 'corto': 'Nombre'}]}},
 }
 
 INICIO, FIN = '<!-- reserva-web:inicio -->', '<!-- reserva-web:fin -->'
