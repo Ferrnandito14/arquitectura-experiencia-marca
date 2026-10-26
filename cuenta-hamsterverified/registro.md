@@ -14,3 +14,4 @@
 | 2026-10-27 09:00 | d4-responde-no | reel | El hámster responde: decir que no (versión simple; la local puede reemplazar el MP4 por la versión con voz) | media/2026-10-27/d4-responde-no.mp4 |
 | 2026-10-27 14:00 | d4-palabras-feedback | reel (antes carrusel) | Esencia en N palabras: dar feedback | media/2026-10-27/d4-palabras-feedback.mp4 |
 | 2026-10-27 19:00 | d4-mito-cv | reel (antes carrusel) | Mito verificado: CV largo | media/2026-10-27/d4-mito-cv.mp4 |
+| 2026-10-28 09:00 | d5-futbol-fuera-de-juego | reel | Fútbol en esencia: fuera de juego (primera pieza de la serie nueva) | media/2026-10-28/d5-futbol-fuera-de-juego.mp4 |

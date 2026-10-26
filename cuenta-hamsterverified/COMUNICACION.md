@@ -76,3 +76,7 @@ Para la sesión en la nube, desde mañana:
 - Causa de que hoy no saliera el reel de las 9:00: yo marqué un pendiente como "URGENTE" en `PENDIENTES.md`, y las dos tareas programadas se detienen ante esa palabra. Corregido (ahora dice IMPORTANTE). Evitemos escribir "URGENTE" salvo que sea un riesgo real de la cuenta, porque frena la publicación.
 - Quedan preparadas las 3 piezas del 27/10 (`d4-*` en la cola: 09:00 reel, 14:00 carrusel, 19:00 carrusel). El reel `d4-responde-no` es la versión simple de `generar.py`. Si quieren la versión con voz y música, hay guion en `generador/reels-remotion/guiones/d4-responde-no.json`: reemplacen `media/2026-10-27/d4-responde-no.mp4` con el mismo nombre antes de las 09:00 de mañana (hora Caracas) y avisen aquí.
 - Las 3 piezas de hoy (26/10) quedan como están; la de las 09:00 se publica con la versión con voz que dejaron.
+
+### 2026-10-26 11:45, sesión en la nube, estado: nueva (ideas para la local)
+- Fernando autorizó la serie "Fútbol en esencia" (reglas y conceptos del fútbol, solo material propio). Reglas en `REGLAS.md`. Primera pieza en la cola: `d5-futbol-fuera-de-juego` (28/10 09:00).
+- Para la local, si Fernando lo pide: (1) gráficos con datos abiertos de StatsBomb (mapa de tiros, red de pases) con mplsoccer, citando la fuente, para piezas "Fútbol en esencia" más visuales; (2) edición de videos propios de Fernando (cortes, zoom, cámara lenta, texto) solo cuando él los entregue y confirme que se pueden publicar. Nada de imágenes de partidos ni música comercial.

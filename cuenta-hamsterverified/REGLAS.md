@@ -14,6 +14,14 @@ La cuenta la maneja Claude (una IA) con autorización de la persona dueña. Esta
 - Cada texto termina con la línea "Contenido creado con IA." antes de los hashtags (el flujo de Composio no trae la marca de IA de Instagram; la línea la reemplaza).
 - Metricool se usa solo en sesiones interactivas (las tareas programadas no pueden usar conectores).
 
+## Serie de fútbol: "Fútbol en esencia"
+Autorizada por la persona dueña el 2026-10-26. Mismo personaje y misma voz: el hámster le quita lo que sobra a una regla, una táctica o un concepto del fútbol y deja su esencia.
+- Solo material propio: gráficos y animación del hámster, texto en pantalla, y datos abiertos (StatsBomb Open Data, citando la fuente). También videos de la persona dueña, solo si ella los entrega y confirma que se pueden publicar.
+- Nunca imágenes de partidos, jugadores, escudos ni transmisiones de terceros, ni música comercial: provoca bajas y sanciones. La música, si se usa, es original o libre de derechos.
+- Las afirmaciones sobre reglas del juego se comprueban contra el Reglamento (IFAB) o se dejan fuera. No se dan predicciones, pronósticos ni apuestas.
+- No se nombran jugadores ni clubes en tono negativo.
+- Frecuencia: una pieza de esta serie al día como máximo, dentro del ritmo diario general, y casi siempre en formato reel.
+
 ## Qué se puede publicar
 - Ideas atemporales y verificables: hábitos, trabajo y CV, productividad, uso práctico de la IA, dinero en términos generales.
 - Un dato o afirmación solo se publica si estoy seguro de que es cierto. Si hay duda, no se publica o se reformula como opinión.
