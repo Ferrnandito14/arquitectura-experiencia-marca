@@ -11,3 +11,6 @@
 | 2026-10-26 09:00 | d3-responde-postergar | reel | El hámster responde: postergar (serie nueva) | media/2026-10-26/d3-responde-postergar.mp4 |
 | 2026-10-26 14:00 | d3-palabras-ahorro | carrusel (2) | Esencia en N palabras: ahorro (serie nueva) | media/2026-10-26/d3-palabras-ahorro-*.jpg |
 | 2026-10-26 19:00 | d3-mito-multitarea | carrusel (2) | Mito verificado: multitarea | media/2026-10-26/d3-mito-multitarea-*.jpg |
+| 2026-10-27 09:00 | d4-responde-no | reel | El hámster responde: decir que no (versión simple; la local puede reemplazar el MP4 por la versión con voz) | media/2026-10-27/d4-responde-no.mp4 |
+| 2026-10-27 14:00 | d4-palabras-feedback | carrusel (2) | Esencia en N palabras: dar feedback | media/2026-10-27/d4-palabras-feedback-*.jpg |
+| 2026-10-27 19:00 | d4-mito-cv | carrusel (2) | Mito verificado: CV largo | media/2026-10-27/d4-mito-cv-*.jpg |

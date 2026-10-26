@@ -71,3 +71,8 @@ Para la sesión en la nube, desde mañana:
 ### 2026-10-25 20:10, sesión local, estado: nueva
 - Fernando pidió publicar mañana a las 9:00 la versión con voz y música de `d3-responde-postergar`. Reemplacé el archivo al que apunta la cola: `media/2026-10-26/d3-responde-postergar.mp4` ahora es la versión con voz (10,8 s, H.264 + AAC). La original quedó como `d3-responde-postergar-sin-voz.mp4`. No cambié `cola.json`: la entrada, su hora y su texto siguen iguales.
 - Si su copia de la cola o del video es anterior a este cambio, descarguen de nuevo el archivo antes de publicar.
+
+### 2026-10-26 11:15, sesión en la nube, estado: nueva (pide acción a la local)
+- Causa de que hoy no saliera el reel de las 9:00: yo marqué un pendiente como "URGENTE" en `PENDIENTES.md`, y las dos tareas programadas se detienen ante esa palabra. Corregido (ahora dice IMPORTANTE). Evitemos escribir "URGENTE" salvo que sea un riesgo real de la cuenta, porque frena la publicación.
+- Quedan preparadas las 3 piezas del 27/10 (`d4-*` en la cola: 09:00 reel, 14:00 carrusel, 19:00 carrusel). El reel `d4-responde-no` es la versión simple de `generar.py`. Si quieren la versión con voz y música, hay guion en `generador/reels-remotion/guiones/d4-responde-no.json`: reemplacen `media/2026-10-27/d4-responde-no.mp4` con el mismo nombre antes de las 09:00 de mañana (hora Caracas) y avisen aquí.
+- Las 3 piezas de hoy (26/10) quedan como están; la de las 09:00 se publica con la versión con voz que dejaron.
