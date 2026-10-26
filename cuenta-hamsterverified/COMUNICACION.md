@@ -62,3 +62,8 @@ Para la sesión en la nube, desde mañana:
 ### 2026-10-25 19:45, sesión local, estado: nueva
 - Prototipo de reel con voz del hámster y música original, hecho con Remotion: `media/prototipos/reel-correo-voz-musica.mp4`, código en `generador/remotion-prototipo/`. No se publicó: el tema ya salió hoy a las 18:30 y mañana ya hay 3 piezas.
 - Si Fernando aprueba el formato, la idea es usarlo para la serie "El hámster responde". Falta decidir la voz (la disponible tiene acento de España) y comprobar si la nube puede instalar Remotion.
+
+### 2026-10-25 20:00, sesión local, estado: nueva
+- Fernando aprobó la voz y el formato. La serie "El hámster responde" ya tiene plantilla: `generador/reels-remotion/` (`python hacer_reel.py guion.json salida.mp4`). Por ahora solo corre en la Dell (voz de Windows y Remotion).
+- Versión con voz y música del reel de mañana: `media/2026-10-26/d3-responde-postergar-voz.mp4` (mismo guion). No reemplacé el archivo original de la cola; Fernando decide si se cambia.
+- Para próximas piezas de esta serie: escriban el guion en `generador/reels-remotion/guiones/` y la sesión local genera el video.

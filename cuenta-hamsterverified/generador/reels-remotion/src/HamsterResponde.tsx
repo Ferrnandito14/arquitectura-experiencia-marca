@@ -2,9 +2,8 @@ import React from 'react';
 import {AbsoluteFill, Audio, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig, Easing} from 'remotion';
 import {useAudioData, visualizeAudio} from '@remotion/media-utils';
 import {loadFont} from '@remotion/google-fonts/Inter';
-import tiempos from './tiempos.json';
 
-const {fontFamily} = loadFont('normal', {weights: ['500', '700', '800', '900'], subsets: ['latin', 'latin-ext']});
+const {fontFamily} = loadFont('normal', {weights: ['500', '600', '700', '800', '900'], subsets: ['latin', 'latin-ext']});
 
 // Colores de la cuenta (los mismos de generar.py)
 const PAPEL = '#FFF4E0';
@@ -17,7 +16,21 @@ const PIE = '#6B5444';
 const TOP = 250;
 const BOTTOM = 500;
 
-const f = (s: number, fps: number) => Math.round(s * fps);
+export type Frase = {inicio: number; fin: number};
+export type PropsResponde = {
+  serie: string;
+  pregunta: string;
+  puente: string;
+  titular: string;
+  destacar: string[];
+  consejo: string;
+  cierre: string;
+  sello: string | null;
+  // Orden fijo de frases habladas: pregunta, puente, titular, consejo, cierre
+  tiempos: {duracion: number; frases: Frase[]};
+  voz: string; // archivo dentro de public/
+  musica: string; // archivo dentro de public/
+};
 
 const Palabras: React.FC<{texto: string; desde: number; hasta: number; destacar?: string[]; estilo: React.CSSProperties}> = ({texto, desde, hasta, destacar = [], estilo}) => {
   const frame = useCurrentFrame();
@@ -29,9 +42,9 @@ const Palabras: React.FC<{texto: string; desde: number; hasta: number; destacar?
         const g = frame - desde - i * paso;
         const o = interpolate(g, [0, 6], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
         const y = interpolate(g, [0, 9], [26, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: Easing.out(Easing.cubic)});
-        const limpia = p.replace(/[.,¿?]/g, '');
+        const limpia = p.replace(/[.,;:¿?¡!"]/g, '').toLowerCase();
         return (
-          <span key={i} style={{display: 'inline-block', opacity: o, transform: `translateY(${y}px)`, marginRight: '0.24em', color: destacar.includes(limpia) ? KICKER : undefined}}>
+          <span key={i} style={{display: 'inline-block', opacity: o, transform: `translateY(${y}px)`, marginRight: '0.24em', color: destacar.map((d) => d.toLowerCase()).includes(limpia) ? KICKER : undefined}}>
             {p}
           </span>
         );
@@ -70,13 +83,13 @@ const Globo: React.FC<{texto: string; visible: number}> = ({texto, visible}) => 
   </div>
 );
 
-export const HamsterReel: React.FC = () => {
+export const HamsterResponde: React.FC<PropsResponde> = (p) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
-  const fr = tiempos.frases.map((x) => ({desde: f(x.inicio, fps), hasta: f(x.fin, fps)}));
+  const fr = p.tiempos.frases.map((x) => ({desde: Math.round(x.inicio * fps), hasta: Math.round(x.fin * fps)}));
 
   // Volumen de la voz en este fotograma, para mover la boca
-  const audio = useAudioData(staticFile('voz.wav'));
+  const audio = useAudioData(staticFile(p.voz));
   let boca = 0;
   if (audio) {
     const v = visualizeAudio({fps, frame, audioData: audio, numberOfSamples: 16});
@@ -84,6 +97,7 @@ export const HamsterReel: React.FC = () => {
   }
 
   const entra = spring({frame, fps, config: {damping: 12, stiffness: 110}});
+  const tarjeta = spring({frame: frame - 2, fps, config: {damping: 14, stiffness: 120}});
   const salida1 = interpolate(frame, [fr[1].hasta, fr[1].hasta + 10], [1, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
   const escena2 = frame >= fr[2].desde - 4;
   const sello = spring({frame: frame - fr[2].hasta, fps, config: {damping: 11, stiffness: 160, mass: 0.7}});
@@ -94,33 +108,34 @@ export const HamsterReel: React.FC = () => {
 
   return (
     <AbsoluteFill style={{backgroundColor: PAPEL, fontFamily, color: TINTA}}>
-      <Audio src={staticFile('musica.wav')} volume={0.16} />
-      <Audio src={staticFile('voz.wav')} volume={1} />
+      <Audio src={staticFile(p.musica)} volume={0.16} />
+      <Audio src={staticFile(p.voz)} volume={1} />
 
       <AbsoluteFill style={{padding: `${TOP}px 90px ${BOTTOM + 220}px 90px`, justifyContent: 'center'}}>
         {!escena2 && (
           <div style={{opacity: salida1}}>
-            <Palabras texto="Esencia de un buen correo" desde={0} hasta={12} estilo={{fontSize: 46, fontWeight: 700, color: KICKER, marginBottom: 34}} />
-            <Palabras texto="¿Por qué nadie responde tus correos?" desde={fr[0].desde} hasta={fr[0].hasta - 6} destacar={['responde']} estilo={{fontSize: 128, fontWeight: 800, lineHeight: 1.04, letterSpacing: '-0.025em'}} />
+            <div style={{fontSize: 46, fontWeight: 700, color: KICKER, marginBottom: 26}}>{p.serie}</div>
+            <div style={{fontSize: 34, fontWeight: 700, color: PIE, marginBottom: 14}}>Pregunta común</div>
+            <div style={{background: '#fff', border: '4px solid #E8D5B5', borderRadius: '44px 44px 44px 12px', padding: '34px 44px', transform: `scale(${0.9 + tarjeta * 0.1})`, opacity: tarjeta, transformOrigin: 'left center'}}>
+              <Palabras texto={p.pregunta} desde={fr[0].desde} hasta={fr[0].hasta - 4} estilo={{fontSize: 92, fontWeight: 800, lineHeight: 1.08, letterSpacing: '-0.02em'}} />
+            </div>
           </div>
         )}
         {escena2 && (
           <div>
-            {frame >= fr[2].hasta && (
+            {p.sello && frame >= fr[2].hasta && (
               <div style={{display: 'inline-block', border: '10px solid #1E7B45', color: '#1E7B45', fontSize: 88, fontWeight: 900, letterSpacing: '0.06em', padding: '6px 34px', borderRadius: 14, marginBottom: 56, transform: `rotate(-6deg) scale(${interpolate(sello, [0, 1], [2.4, 1])})`, opacity: Math.min(1, sello * 2)}}>
-                ESENCIA
+                {p.sello}
               </div>
             )}
-            <Palabras texto="Un correo, una pregunta. Y para cuándo la necesitas." desde={fr[2].desde} hasta={fr[2].hasta - 8} destacar={['una']} estilo={{fontSize: 112, fontWeight: 800, lineHeight: 1.05, letterSpacing: '-0.025em'}} />
-            <div style={{fontSize: 52, fontWeight: 500, lineHeight: 1.3, color: TEXTO, marginTop: 40, maxWidth: 600, opacity: consejo}}>
-              Si mandas tres preguntas, te van a contestar una.
-            </div>
+            <Palabras texto={p.titular} desde={fr[2].desde} hasta={fr[2].hasta - 6} destacar={p.destacar} estilo={{fontSize: p.titular.length > 40 ? 104 : 124, fontWeight: 800, lineHeight: 1.05, letterSpacing: '-0.025em'}} />
+            <div style={{fontSize: 52, fontWeight: 500, lineHeight: 1.3, color: TEXTO, marginTop: 40, maxWidth: 640, opacity: consejo}}>{p.consejo}</div>
           </div>
         )}
       </AbsoluteFill>
 
-      <Globo texto="Te lo explico en una línea." visible={globo1} />
-      <Globo texto="Palabra de hámster." visible={globo4} />
+      <Globo texto={p.puente} visible={globo1} />
+      <Globo texto={p.cierre} visible={globo4} />
 
       <div style={{position: 'absolute', right: 50, bottom: 520 + salto, transform: `scale(${entra})`, transformOrigin: 'bottom center'}}>
         <Hamster size={300} boca={boca} />
