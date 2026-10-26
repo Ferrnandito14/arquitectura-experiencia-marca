@@ -15,9 +15,11 @@ Formato del guion (los campos con valor por defecto son opcionales):
    "serie": "El hámster responde"}
 
 La pregunta tiene que ser una duda frecuente y genérica (REGLAS.md): nunca se atribuye a una persona.
-Necesita Windows (voz "Microsoft Pablo"), Node y Python con numpy.
+Necesita Node y Python con numpy. La voz por defecto es "Microsoft Pablo" (solo Windows).
+Para usar Piper (Windows o Linux): HAMSTER_VOZ=piper:ruta/a/voz.onnx y, si piper-tts está en otra
+Python, HAMSTER_PIPER_PYTHON=ruta/a/python.
 """
-import hashlib, json, pathlib, shutil, subprocess, sys, wave
+import hashlib, json, os, pathlib, shutil, subprocess, sys, wave
 import numpy as np
 
 AQUI = pathlib.Path(__file__).resolve().parent
@@ -46,6 +48,21 @@ def guardar_wav(ruta, x):
     y = (np.clip(x, -1, 1) * 32767).astype(np.int16)
     with wave.open(str(ruta), 'wb') as w:
         w.setnchannels(1); w.setsampwidth(2); w.setframerate(SR); w.writeframes(y.tobytes())
+
+
+def narrar(frases, carpeta):
+    """Graba cada frase en carpeta/l0.wav, l1.wav, ... con la voz elegida en HAMSTER_VOZ."""
+    voz = os.environ.get('HAMSTER_VOZ', 'pablo')
+    if voz.startswith('piper:'):
+        modelo = voz[len('piper:'):]
+        python = os.environ.get('HAMSTER_PIPER_PYTHON', sys.executable)
+        ritmo = os.environ.get('HAMSTER_PIPER_RITMO', '0.85')  # menos de 1 = más rápido, para acercarse a Pablo
+        for i, frase in enumerate(frases):
+            subprocess.run([python, '-m', 'piper', '-m', modelo, '-f', str(carpeta / f'l{i}.wav'), '--length-scale', ritmo, '--sentence-silence', '0'],
+                           input=frase, text=True, encoding='utf-8', check=True, capture_output=True)
+        return
+    (carpeta / 'lineas.txt').write_text('\n'.join(frases) + '\n', encoding='utf-8')
+    subprocess.run(['powershell', '-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', str(AQUI / 'voz' / 'narrar.ps1'), '-Lineas', str(carpeta / 'lineas.txt'), '-Salida', str(carpeta)], check=True, capture_output=True)
 
 
 def musica(duracion, semilla):
@@ -93,8 +110,7 @@ def main():
 
     # 1. Voz: una grabación por frase
     frases = [g['pregunta'], g['puente'], g['titular'], g['consejo'], g['cierre']]
-    (trabajo / 'lineas.txt').write_text('\n'.join(frases) + '\n', encoding='utf-8')
-    subprocess.run(['powershell', '-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', str(AQUI / 'voz' / 'narrar.ps1'), '-Lineas', str(trabajo / 'lineas.txt'), '-Salida', str(trabajo)], check=True, capture_output=True)
+    narrar(frases, trabajo)
 
     # 2. Unir frases con pausas y calcular cuándo empieza y termina cada una
     partes, tiempos, pos = [np.zeros(int(PAUSAS[0] * SR))], [], PAUSAS[0]

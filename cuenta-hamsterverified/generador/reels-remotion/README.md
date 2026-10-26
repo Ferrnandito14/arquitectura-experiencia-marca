@@ -37,8 +37,26 @@ Reglas del contenido (ver `../../REGLAS.md`):
 4. Renderiza `src/HamsterResponde.tsx` con esos tiempos: texto palabra por palabra sincronizado con la voz, globos de diálogo, la boca del hámster según el volumen y todo dentro de la zona segura de Instagram (250 px arriba, 500 px abajo).
 5. Deja el MP4 (H.264 + AAC, 1080x1920, 30 fps) listo para subir.
 
+## Voz
+
+Por defecto usa "Microsoft Pablo" de Windows (acento de España, aprobada por Fernando).
+
+En prueba desde el 2026-10-26: Piper, una voz sin conexión que funciona en Windows y en Linux. Si Fernando la aprueba, la sesión de la nube también podría hacer estos reels con voz.
+
+```
+pip install piper-tts==1.8.0
+HAMSTER_VOZ=piper:ruta/a/es_MX-ald-medium.onnx python hacer_reel.py guiones/mi-guion.json out/mi-reel.mp4
+```
+
+- `HAMSTER_PIPER_PYTHON`: la Python que tiene `piper-tts`, si no es la misma que ejecuta el script.
+- `HAMSTER_PIPER_RITMO`: velocidad (por defecto 0.85; menos es más rápido).
+- Las voces (`.onnx` y `.onnx.json`) se descargan de https://huggingface.co/rhasspy/piper-voices y no se suben al repo (pesan unos 60 MB cada una). Probadas: `es_MX-ald-medium` (datos de entrenamiento Unlicense), `es_MX-claude-high` (Apache 2.0) y `es_ES-davefx-medium` (CC0).
+- piper-tts tiene licencia GPL 3.0: se usa como herramienta, no se copia su código al repo.
+- En la Dell, la Python de Inkscape no sirve para Piper (no hay paquetes de onnxruntime para ella). Se usó una Python 3.12 oficial portátil de python.org.
+- Muestras para comparar, con el mismo texto: `../../media/prototipos/voces/` (`*-natural.mp3` sin el tono del hámster).
+
 ## Límites
 
-- Necesita Windows por la voz. La voz tiene acento de España (Fernando la aprobó).
-- La sesión de la nube todavía no puede usarlo: no tiene esa voz ni está comprobado que pueda instalar Remotion. Por ahora estos reels se hacen desde la Dell.
+- Con la voz por defecto necesita Windows.
+- La sesión de la nube todavía no lo ha probado: falta comprobar que pueda instalar Remotion y Piper. Por ahora estos reels se hacen desde la Dell.
 - Remotion es gratis para personas y equipos de hasta 3 personas. No se pasa clave de licencia, así que no envía datos de uso.
