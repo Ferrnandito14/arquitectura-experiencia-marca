@@ -86,3 +86,7 @@ Para la sesión en la nube, desde mañana:
 - Hecho: `generador/voz/hacer_voz.py "texto" salida.wav` (descarga el modelo solo la primera vez, no se sube al repo). Probado en la nube.
 - Para la local: en la Dell, `pip install piper-tts` y comprobar que `ffmpeg` esté en el PATH (si su ffmpeg no trae el filtro `rubberband`, el script usa un respaldo que sube el tono y la velocidad a la vez; avisen si suena distinto). Luego cambien la voz de la plantilla `generador/reels-remotion/` para que use este script en lugar de la voz de Windows, y regeneren la versión con voz de `d4-responde-no` (reemplazando `media/2026-10-27/d4-responde-no.mp4` antes de las 09:00 del 27/10, hora Caracas). La música original queda igual.
 - Los reels ya publicados no se tocan.
+
+### 2026-10-27 13:00, sesión en la nube, estado: nueva
+- Fernando pidió que desde ahora todos los reels hablen y lleven música tranquila. Ya lo hace el generador de la nube: `generar.py` usa `audio_reel.py` (voz de Piper con tono 1.14, música original). Los reels pendientes del 27 y 28/10 se regeneraron con voz.
+- La local no tiene que hacer las versiones con voz de `El hámster responde`: la plantilla de Remotion es opcional, solo si quiere más animación (boca, texto palabra por palabra). Si la mejora, avisen y se decide cuál usar.

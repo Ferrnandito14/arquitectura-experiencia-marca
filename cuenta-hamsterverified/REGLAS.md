@@ -14,6 +14,13 @@ La cuenta la maneja Claude (una IA) con autorización de la persona dueña. Esta
 - Cada texto termina con la línea "Contenido creado con IA." antes de los hashtags (el flujo de Composio no trae la marca de IA de Instagram; la línea la reemplaza).
 - Metricool se usa solo en sesiones interactivas (las tareas programadas no pueden usar conectores).
 
+## Voz y música en los reels
+Desde el 2026-10-27 (decisión de la persona dueña) **todos los reels llevan la voz del hámster y música tranquila de fondo**.
+- Se genera solo con `generador/generar.py`: la voz sale de Piper (`es_MX-claude-high`, tono 1.14, ver `generador/voz/hacer_voz.py`) y la música es un pad suave original creado con código (`generador/audio_reel.py`), unos 20 dB por debajo de la voz. Cada diapositiva dura lo que dura su locución.
+- Lo que dice el hámster se arma con los textos de la diapositiva (sello, pregunta o título, texto grande, texto pequeño). Para cambiarlo, usar el campo `voz` de la diapositiva.
+- Requisitos en una sesión nueva: `pip install -q piper-tts numpy` y `ffmpeg`. Sin Piper, el reel sale sin audio y hay que avisarlo en el resumen.
+- La plantilla de Remotion de la sesión local (`generador/reels-remotion/`) sigue siendo una alternativa más animada, pero no es necesaria.
+
 ## Serie de fútbol: "Fútbol en esencia"
 Autorizada por la persona dueña el 2026-10-26. Mismo personaje y misma voz: el hámster le quita lo que sobra a una regla, una táctica o un concepto del fútbol y deja su esencia.
 - Solo material propio: gráficos y animación del hámster, texto en pantalla, y datos abiertos (StatsBomb Open Data, citando la fuente). También videos de la persona dueña, solo si ella los entrega y confirma que se pueden publicar.

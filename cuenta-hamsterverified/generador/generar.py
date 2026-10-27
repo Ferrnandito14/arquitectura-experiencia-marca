@@ -9,6 +9,8 @@ Las diapositivas de un reel salen en 1080x1920 y se unen en un MP4 con fundidos.
 """
 import html, json, os, pathlib, re, shutil, subprocess, sys
 from PIL import Image
+sys.path.insert(0, str(pathlib.Path(__file__).parent))
+import audio_reel
 
 def buscar_chrome():
     # HAMSTER_CHROME manda; luego los lugares habituales (nube, Windows, Linux).
@@ -109,7 +111,10 @@ def main():
             diapositiva(ruta, d, 1920 if es_reel else 1350)
             pngs.append(ruta)
         if es_reel:
-            reel(pngs, salida / f'{pieza["id"]}.mp4')
+            if os.environ.get('HAMSTER_SIN_VOZ') != '1' and audio_reel.disponible():
+                audio_reel.reel_con_audio(pngs, pieza['diapositivas'], pieza['id'], salida / f'{pieza["id"]}.mp4')
+            else:
+                reel(pngs, salida / f'{pieza["id"]}.mp4')
             for p in pngs: p.unlink()
         print(pieza['id'], 'ok')
 
