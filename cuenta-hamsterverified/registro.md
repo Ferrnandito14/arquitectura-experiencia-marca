@@ -29,3 +29,10 @@
 | 2026-10-28 19:00 | d5-mito-lider | reel | Mito verificado: liderar | media/2026-10-28/d5-mito-lider.mp4 |
 | 2026-10-28 20:00 | d5-foto-preguntar | foto | Esencia en N palabras: comunicar | media/2026-10-28/d5-foto-preguntar-1.jpg |
 | 2026-10-28 21:00 | d5-esencia-mensaje | reel | Esencia de un buen mensaje | media/2026-10-28/d5-esencia-mensaje.mp4 |
+| 2026-10-29 09:00 | d6-futbol-tarjetas | reel | Fútbol en esencia: las tarjetas | media/2026-10-29/d6-futbol-tarjetas.mp4 |
+| 2026-10-29 12:00 | d6-responde-concentrar | reel | El hámster responde: concentrarse | media/2026-10-29/d6-responde-concentrar.mp4 |
+| 2026-10-29 14:00 | d6-palabras-negociar | reel | Esencia en N palabras: negociar | media/2026-10-29/d6-palabras-negociar.mp4 |
+| 2026-10-29 16:00 | d6-foto-organizarse | foto | Esencia de organizarse | media/2026-10-29/d6-foto-organizarse-1.jpg |
+| 2026-10-29 19:00 | d6-mito-cerebro | reel | Mito verificado: 10 % del cerebro | media/2026-10-29/d6-mito-cerebro.mp4 |
+| 2026-10-29 20:00 | d6-foto-planificar | foto | Esencia en N palabras: planificar | media/2026-10-29/d6-foto-planificar-1.jpg |
+| 2026-10-29 21:00 | d6-esencia-ayuda | reel | Esencia de pedir ayuda | media/2026-10-29/d6-esencia-ayuda.mp4 |
