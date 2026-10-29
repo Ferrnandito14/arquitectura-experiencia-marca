@@ -36,3 +36,10 @@
 | 2026-10-29 19:00 | d6-mito-cerebro | reel | Mito verificado: 10 % del cerebro | media/2026-10-29/d6-mito-cerebro.mp4 |
 | 2026-10-29 20:00 | d6-foto-planificar | foto | Esencia en N palabras: planificar | media/2026-10-29/d6-foto-planificar-1.jpg |
 | 2026-10-29 21:00 | d6-esencia-ayuda | reel | Esencia de pedir ayuda | media/2026-10-29/d6-esencia-ayuda.mp4 |
+| 2026-10-30 09:00 | d7-futbol-penalti | reel | Fútbol en esencia: el penalti en una frase. Un tiro, un port | media/2026-10-30/d7-futbol-penalti.mp4 |
+| 2026-10-30 12:00 | d7-responde-entrevista | reel | El hámster responde: ¿cómo preparo una entrevista de trabajo | media/2026-10-30/d7-responde-entrevista.mp4 |
+| 2026-10-30 14:00 | d7-palabras-delegar | reel | Esencia de delegar en 6 palabras: explica el resultado, no c | media/2026-10-30/d7-palabras-delegar.mp4 |
+| 2026-10-30 16:00 | d7-foto-descansar | foto | Esencia de descansar: parar a tiempo también es trabajar. | media/2026-10-30/d7-foto-descansar-1.jpg |
+| 2026-10-30 19:00 | d7-mito-rayos | reel | Mito verificado: "Un rayo nunca cae dos veces en el mismo lu | media/2026-10-30/d7-mito-rayos.mp4 |
+| 2026-10-30 20:00 | d7-foto-resumir | foto | Esencia de resumir en 4 palabras: di la conclusión primero. | media/2026-10-30/d7-foto-resumir-1.jpg |
+| 2026-10-30 21:00 | d7-esencia-equivocarse | reel | Esencia de equivocarse: anota qué pasó y qué cambias. | media/2026-10-30/d7-esencia-equivocarse.mp4 |
