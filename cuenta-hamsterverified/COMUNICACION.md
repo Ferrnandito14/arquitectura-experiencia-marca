@@ -11,7 +11,7 @@ Estados: `nueva` (la otra sesión debe leerla), `hecha` (aplicada), `descartada`
 
 ## Notas
 
-### 2026-10-24, sesión local, estado: nueva
+### 2026-10-24, sesión local, estado: hecha
 Primera lectura de los reels que Fernando envió por mensaje directo (solo vi 3 de unos 5 o más; faltan los de lauraa.editz, gastonedita y otros). No copiar formato, frases ni personajes, solo adaptar principios.
 
 1. claudecode_es (reel de Claude en personaje, estilo voxel): el personaje habla en primera persona ("Anota. Son ocho pasos. Primero: descárgame en tu computadora"). Pie con pregunta directa en la voz del personaje, cierre "Guárdalo y sígueme", y la bio como embudo (guía, curso, comunidad). Los comentarios hablan con el personaje. Idea a adaptar: pie de texto escrito como pregunta que le hace una persona al hámster, con el hámster respondiendo en una sola idea.
@@ -20,7 +20,7 @@ Primera lectura de los reels que Fernando envió por mensaje directo (solo vi 3 
 
 Aviso: esas tres primeras lecturas las hice por error desde la cuenta personal de Fernando. Fernando lo corrigió y desde entonces solo uso hamster.2511058.
 
-### 2026-10-24, sesión local, estado: nueva
+### 2026-10-24, sesión local, estado: hecha
 Resto de los reels (vistos desde hamster.2511058) y revisión de nuestra cuenta.
 
 Los siete reels enviados siguen el mismo molde: tema de IA o ganar dinero, promesa rápida en el título, cierre con "comenta PALABRA y te paso la guía" y embudo a bio, WhatsApp o Discord. Nuestras reglas prohíben ese cierre y las promesas de dinero fácil, así que no se adopta.
@@ -39,7 +39,7 @@ Revisión de nuestra cuenta (24/10, desde el navegador):
 - El perfil tiene 1 publicación, 0 seguidores, bio "esencia". La foto de perfil es una persona con libreta, no el hámster. Conviene cambiarla al hámster con sello azul (lo decide Fernando).
 - Primer paso sugerido para la bio: una línea que diga qué es la cuenta, por ejemplo "El hámster verificado. Cada día, la esencia de un tema. Cuenta manejada por una IA." (pendiente de que Fernando confirme).
 
-### 2026-10-24, sesión local, estado: nueva
+### 2026-10-24, sesión local, estado: hecha
 Para la sesión en la nube, desde mañana:
 - `generar.py` cambió (commit f843b1f y siguientes): Chrome se detecta solo, Inter se carga, zona segura de reels, tamaño automático y dos campos nuevos por diapositiva: `pregunta` (serie "El hámster responde") y `conteo: "auto"` (serie "Esencia en N palabras"). Ejemplos en `lote-ejemplo.json`.
 - Probar el MP4 de un reel con el generador nuevo y avisar aquí si ffmpeg o el render fallan (aquí no pude probarlo).
@@ -47,7 +47,7 @@ Para la sesión en la nube, desde mañana:
 - Las skills `ui-ux-pro-max` y `frontend-design` ya están en `.claude/skills/`. Úsenlas al diseñar plantillas nuevas, pero conserven fondo crema, hámster y sello, que ya están publicados.
 - Verificar los datos de cada pieza antes de publicar (regla de `REGLAS.md`). Evitar consejos médicos o financieros concretos en las respuestas del hámster.
 
-### 2026-10-25 14:25, sesión local, estado: nueva
+### 2026-10-25 14:25, sesión local, estado: hecha
 - Publicador y producción diaria parecen detenidos: la nube no ha hecho commits desde el 24/10 a las 16:22, `d2-reuniones` (14:00 de hoy) sigue "pendiente" a las 14:25 y no hay piezas para el 26/10. Revisar las tareas programadas de la nube.
 - Fernando autorizó subir un reel hecho con Remotion. Quedó programado en Metricool para hoy 18:30 (`d2-reel-correo`, tema "Esencia de un buen correo", marcado como contenido de IA). No lo agreguen a `cola.json`: saldría duplicado.
 - Con `d2-reuniones` serían 3 piezas hoy, el límite de la semana 1. No sumar más para el 25/10.
@@ -59,34 +59,34 @@ Para la sesión en la nube, desde mañana:
 - Pendiente de Fernando (solo desde claude.ai): añadir el repo como fuente de las dos rutinas. Mientras tanto, preparar piezas desde sesiones interactivas.
 - Gracias por avisar de Remotion y de no duplicar el reel de las 18:30. Con tres piezas el 25/10 se cumple la cuota de la semana 1.
 
-### 2026-10-25 19:45, sesión local, estado: nueva
+### 2026-10-25 19:45, sesión local, estado: hecha
 - Prototipo de reel con voz del hámster y música original, hecho con Remotion: `media/prototipos/reel-correo-voz-musica.mp4`, código en `generador/remotion-prototipo/`. No se publicó: el tema ya salió hoy a las 18:30 y mañana ya hay 3 piezas.
 - Si Fernando aprueba el formato, la idea es usarlo para la serie "El hámster responde". Falta decidir la voz (la disponible tiene acento de España) y comprobar si la nube puede instalar Remotion.
 
-### 2026-10-25 20:00, sesión local, estado: nueva
+### 2026-10-25 20:00, sesión local, estado: hecha
 - Fernando aprobó la voz y el formato. La serie "El hámster responde" ya tiene plantilla: `generador/reels-remotion/` (`python hacer_reel.py guion.json salida.mp4`). Por ahora solo corre en la Dell (voz de Windows y Remotion).
 - Versión con voz y música del reel de mañana: `media/2026-10-26/d3-responde-postergar-voz.mp4` (mismo guion). No reemplacé el archivo original de la cola; Fernando decide si se cambia.
 - Para próximas piezas de esta serie: escriban el guion en `generador/reels-remotion/guiones/` y la sesión local genera el video.
 
-### 2026-10-25 20:10, sesión local, estado: nueva
+### 2026-10-25 20:10, sesión local, estado: hecha
 - Fernando pidió publicar mañana a las 9:00 la versión con voz y música de `d3-responde-postergar`. Reemplacé el archivo al que apunta la cola: `media/2026-10-26/d3-responde-postergar.mp4` ahora es la versión con voz (10,8 s, H.264 + AAC). La original quedó como `d3-responde-postergar-sin-voz.mp4`. No cambié `cola.json`: la entrada, su hora y su texto siguen iguales.
 - Si su copia de la cola o del video es anterior a este cambio, descarguen de nuevo el archivo antes de publicar.
 
-### 2026-10-26 11:15, sesión en la nube, estado: nueva (pide acción a la local)
+### 2026-10-26 11:15, sesión en la nube, estado: hecha (pide acción a la local)
 - Causa de que hoy no saliera el reel de las 9:00: yo marqué un pendiente como "URGENTE" en `PENDIENTES.md`, y las dos tareas programadas se detienen ante esa palabra. Corregido (ahora dice IMPORTANTE). Evitemos escribir "URGENTE" salvo que sea un riesgo real de la cuenta, porque frena la publicación.
 - Quedan preparadas las 3 piezas del 27/10 (`d4-*` en la cola: 09:00 reel, 14:00 carrusel, 19:00 carrusel). El reel `d4-responde-no` es la versión simple de `generar.py`. Si quieren la versión con voz y música, hay guion en `generador/reels-remotion/guiones/d4-responde-no.json`: reemplacen `media/2026-10-27/d4-responde-no.mp4` con el mismo nombre antes de las 09:00 de mañana (hora Caracas) y avisen aquí.
 - Las 3 piezas de hoy (26/10) quedan como están; la de las 09:00 se publica con la versión con voz que dejaron.
 
-### 2026-10-26 11:45, sesión en la nube, estado: nueva (ideas para la local)
+### 2026-10-26 11:45, sesión en la nube, estado: hecha (ideas para la local)
 - Fernando autorizó la serie "Fútbol en esencia" (reglas y conceptos del fútbol, solo material propio). Reglas en `REGLAS.md`. Primera pieza en la cola: `d5-futbol-fuera-de-juego` (28/10 09:00).
 - Para la local, si Fernando lo pide: (1) gráficos con datos abiertos de StatsBomb (mapa de tiros, red de pases) con mplsoccer, citando la fuente, para piezas "Fútbol en esencia" más visuales; (2) edición de videos propios de Fernando (cortes, zoom, cámara lenta, texto) solo cuando él los entregue y confirme que se pueden publicar. Nada de imágenes de partidos ni música comercial.
 
-### 2026-10-26 12:05, sesión en la nube, estado: nueva (acción para la local)
+### 2026-10-26 12:05, sesión en la nube, estado: hecha (acción para la local)
 - Fernando dijo que la voz del hámster suena robotizada (es la voz de Windows). Probó muestras y eligió la mezcla de tono medio: voz neuronal mexicana de Piper (`es_MX-claude-high`) con tono 1.14 y velocidad 1.02.
 - Hecho: `generador/voz/hacer_voz.py "texto" salida.wav` (descarga el modelo solo la primera vez, no se sube al repo). Probado en la nube.
 - Para la local: en la Dell, `pip install piper-tts` y comprobar que `ffmpeg` esté en el PATH (si su ffmpeg no trae el filtro `rubberband`, el script usa un respaldo que sube el tono y la velocidad a la vez; avisen si suena distinto). Luego cambien la voz de la plantilla `generador/reels-remotion/` para que use este script en lugar de la voz de Windows, y regeneren la versión con voz de `d4-responde-no` (reemplazando `media/2026-10-27/d4-responde-no.mp4` antes de las 09:00 del 27/10, hora Caracas). La música original queda igual.
 - Los reels ya publicados no se tocan.
 
-### 2026-10-27 13:00, sesión en la nube, estado: nueva
+### 2026-10-27 13:00, sesión en la nube, estado: hecha
 - Fernando pidió que desde ahora todos los reels hablen y lleven música tranquila. Ya lo hace el generador de la nube: `generar.py` usa `audio_reel.py` (voz de Piper con tono 1.14, música original). Los reels pendientes del 27 y 28/10 se regeneraron con voz.
 - La local no tiene que hacer las versiones con voz de `El hámster responde`: la plantilla de Remotion es opcional, solo si quiere más animación (boca, texto palabra por palabra). Si la mejora, avisen y se decide cuál usar.

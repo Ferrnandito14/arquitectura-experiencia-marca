@@ -43,3 +43,10 @@
 | 2026-10-30 19:00 | d7-mito-rayos | reel | Mito verificado: "Un rayo nunca cae dos veces en el mismo lu | media/2026-10-30/d7-mito-rayos.mp4 |
 | 2026-10-30 20:00 | d7-foto-resumir | foto | Esencia de resumir en 4 palabras: di la conclusión primero. | media/2026-10-30/d7-foto-resumir-1.jpg |
 | 2026-10-30 21:00 | d7-esencia-equivocarse | reel | Esencia de equivocarse: anota qué pasó y qué cambias. | media/2026-10-30/d7-esencia-equivocarse.mp4 |
+| 2026-10-31 09:00 | d8-futbol-saque-banda | reel | Fútbol en esencia: el saque de banda | media/2026-10-31/d8-futbol-saque-banda.mp4 |
+| 2026-10-31 12:00 | d8-responde-hablar | reel | El hámster responde: hablar en público | media/2026-10-31/d8-responde-hablar.mp4 |
+| 2026-10-31 14:00 | d8-palabras-ensenar | reel | Esencia de enseñar en 7 palabras | media/2026-10-31/d8-palabras-ensenar.mp4 |
+| 2026-10-31 16:00 | d8-foto-curiosidad | foto | Esencia de la curiosidad | media/2026-10-31/d8-foto-curiosidad-1.jpg |
+| 2026-10-31 19:00 | d8-mito-murcielagos | reel | Mito verificado: murciélagos ciegos (FALSO) | media/2026-10-31/d8-mito-murcielagos.mp4 |
+| 2026-10-31 20:00 | d8-foto-agradecer | foto | Esencia de agradecer en 5 palabras | media/2026-10-31/d8-foto-agradecer-1.jpg |
+| 2026-10-31 21:00 | d8-esencia-rutinas | reel | Esencia de las rutinas | media/2026-10-31/d8-esencia-rutinas.mp4 |
