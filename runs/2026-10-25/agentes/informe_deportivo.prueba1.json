@@ -1,0 +1,2921 @@
+{
+ "agente": "deportivo",
+ "version_contrato": 1,
+ "run": "runs/2026-10-25",
+ "unidades": [
+  {
+   "unit_id": "m-029eceabaeb6|1.ª parte goles",
+   "solidez": "MEDIA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "under",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Goles al descanso en sus partidos: Monaco 1.0 y Lille 1.0 por partido (n=10 c/u). Under 1.5 favorecido (p .75); over 0.5 es moneda al aire.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-029eceabaeb6|1.ª parte goles",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-029eceabaeb6|1.ª parte resultado",
+   "solidez": "MEDIA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "empate",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Modelo da empate al descanso .47 (n=10 goles al descanso por equipo, ~1 gol/partido). Resultado al descanso por equipo no calculado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-029eceabaeb6|1.ª parte resultado",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-029eceabaeb6|córners",
+   "solidez": "MEDIA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "under",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Corners totales en sus partidos: Monaco 9.4, Lille 8.9 (n=10). Under 10.5 p .68. Letexier 11.7 corners/partido (n=10) contradice; pesa mas la forma.",
+   "excepciones": [
+    {
+     "entry_id": "corners.total.over.8.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.total.under.8.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.total.over.9.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.total.under.9.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.4.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.4.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.3.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.3.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.4.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.4.5",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-029eceabaeb6|córners",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-029eceabaeb6|doble oportunidad",
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "goleada_local",
+   "nota": "Lille lleva 5V3E2D (n=10), fuera 3V0E1D con 0.5 GC (n=4). X2 p .67. Monaco rota 6 cambios/partido con 3 dias de descanso. Alineaciones sin snapshot.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.dc.1x",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-029eceabaeb6|doble oportunidad",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-029eceabaeb6|empate no válido",
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Modelo reparte .455/.545 pero el agregador favorece al local (1.47). Choque modelo-mercado, sin extractor propio; Monaco rota mucho.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-029eceabaeb6|empate no válido",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-029eceabaeb6|goles",
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Goles totales: Monaco 2.9, Lille 2.0 (n=10). Over 2.5 modelo .46 vs Letexier 3.2 goles/partido (n=10, 7 de 10 over 2.5). Fuentes se contradicen.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-029eceabaeb6|goles",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-029eceabaeb6|goles por equipo",
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "under",
+   "escenario_perdida": "goleada_local",
+   "nota": "Monaco 1.6 GF (4 en casa: 1.5), Lille 1.2 GF (n=10). Under 1.5 por equipo p .69/.64. Un equipo con 2+ goles rompe el under.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-029eceabaeb6|goles por equipo",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-029eceabaeb6|goles total entero",
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "under",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Under 3 p .72 coherente con 2.9/2.0 goles por partido (n=10), pero mercado sin extractor propio; push en la linea entera.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-029eceabaeb6|goles total entero",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-029eceabaeb6|hándicap",
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "goleada_local",
+   "nota": "Margenes cortos: Lille concede 0.8 (n=10). Lille +1.5 p .87 y +2.5 p .96. Lineas +-0.5 son resultado seco y no aportan sesgo.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.home.+0.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "resultado.ah.away.-0.5",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-029eceabaeb6|hándicap",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-029eceabaeb6|hándicap asiático entero",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "goleada_local",
+   "nota": "Lille +1 p .84 por margenes cortos; +0 equivale a DNB con choque modelo-mercado. Sin extractor propio.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-029eceabaeb6|hándicap asiático entero",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-029eceabaeb6|hándicap europeo",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "goleada_local",
+   "nota": "Lille +-2 con handicap europeo: p .87 para -2 de Lille. Sin extractor propio; depende de que Monaco no gane por 3+.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-029eceabaeb6|hándicap europeo",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-029eceabaeb6|remates",
+   "solidez": "MEDIA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Remates totales: Monaco 25.3, Lille 24.6 por partido (n=10). Modelo centrado en ~24.5. Sin sesgo claro; solo lineas lejanas del centro son utiles.",
+   "excepciones": [
+    {
+     "entry_id": "shots.total.over.22.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.total.under.22.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.total.over.23.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.total.under.23.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.total.over.24.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.total.under.24.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.total.over.25.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.total.under.25.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.10.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.home.under.10.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.11.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.home.under.11.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.11.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.11.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.12.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.12.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.13.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.13.5",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-029eceabaeb6|remates",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-029eceabaeb6|remates a puerta",
+   "solidez": "MEDIA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Remates a puerta: Monaco 8.5, Lille 8.8 por partido (n=10). Mediana del modelo ~8.4. Sin sesgo claro en lineas centrales.",
+   "excepciones": [
+    {
+     "entry_id": "sot.total.over.7.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.total.under.7.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.total.over.8.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.total.under.8.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.equipo.home.over.3.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.equipo.home.under.3.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.equipo.away.over.4.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.equipo.away.under.4.5",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-029eceabaeb6|remates a puerta",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-029eceabaeb6|resultado",
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Modelo 33/28/39 vs agregador local 46%. Monaco rota 6 cambios con 3 dias de descanso; Lille 4. Sin ajuste por calidad de rival ni alineaciones.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-029eceabaeb6|resultado",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-029eceabaeb6|tarjetas",
+   "solidez": "BAJA",
+   "factor_principal": "arbitro",
+   "direccion_favorable": "over",
+   "escenario_perdida": "tarjetas_atipicas",
+   "nota": "Letexier 4.0 tarjetas/partido (7 de 10 over 3.5, n=10, mas de 3.5 en liga). Equipos 2.0 y 1.7 pts propios. Modelo over 3.5 .46; fuentes discrepan.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-029eceabaeb6|tarjetas",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-029eceabaeb6|fueras de juego",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni estimador de fueras de juego y sin estadística de offsides en la muestra; no evaluable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-029eceabaeb6|fueras de juego",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-09653a7daeb6|1.ª parte goles",
+   "solidez": "MEDIA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Goles al descanso en sus partidos: Rennes 2.0, Strasbourg 1.6 (n=10). Over 0.5 p .85; la 1.5 (.57) es mas incierta.",
+   "excepciones": [
+    {
+     "entry_id": "primera_parte.total.over.1.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "primera_parte.total.under.1.5",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-09653a7daeb6|1.ª parte goles",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-09653a7daeb6|1.ª parte resultado",
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Modelo 32/32/36 al descanso, sin sesgo. Rennes rota 5 cambios con 3 dias de descanso; descanso Strasbourg 8 dias. Sin alineaciones.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-09653a7daeb6|1.ª parte resultado",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-09653a7daeb6|córners",
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Rennes 12.2 corners totales por partido, Strasbourg 7.4 (n=10); Strasbourg solo 2.5 a favor. Totales se contradicen; mejor la linea de corners de Rennes.",
+   "excepciones": [
+    {
+     "entry_id": "corners.equipo.home.over.2.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.3.5",
+     "solidez": "MEDIA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-09653a7daeb6|córners",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-09653a7daeb6|doble oportunidad",
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "12 p .80: empate poco probable en dos equipos que reciben ~2.1-2.2 goles (n=10). Draw frecuencia 1/10 Rennes y 2/10 Strasbourg. Pierde con 0-0 o 1-1.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.dc.1x",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "resultado.dc.x2",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-09653a7daeb6|doble oportunidad",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-09653a7daeb6|empate no válido",
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Modelo 46/54 vs agregador local 1.36. Choque modelo-mercado, mercado sin extractor propio.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-09653a7daeb6|empate no válido",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-09653a7daeb6|goles",
+   "solidez": "ALTA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Over 2.5 en 9/10 de Rennes y 8/10 de Strasbourg; BTTS 8/10 y 9/10; Buquet 9/11 over 2.5. Modelo .80 vs mercado .66. Rennes rota 5 cambios, sin alineaciones.",
+   "excepciones": [
+    {
+     "entry_id": "goles.total.over.4.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.total.under.4.5",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-09653a7daeb6|goles",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-09653a7daeb6|goles por equipo",
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Rennes 2.0 GF (casa 2.4, n=5), Strasbourg 2.0 GF (n=10); ambos reciben ~2.1. Over 1.5 por equipo p .63/.67. Pierde si uno se queda en 0-1 goles.",
+   "excepciones": [
+    {
+     "entry_id": "goles.equipo.away.over.2.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.equipo.away.under.2.5",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-09653a7daeb6|goles por equipo",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-09653a7daeb6|goles total entero",
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Over 3 p .78, coherente con 4.2 goles/partido medios (n=10). Mercado sin extractor propio; linea entera con push.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-09653a7daeb6|goles total entero",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-09653a7daeb6|hándicap",
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "goleada_local",
+   "nota": "Partido de goles: handicap +1.5 de Strasbourg p .79 pero con varianza alta. Rennes local 4V1E0D (n=5) pero fuera 1V0E4D. Lineas +-0.5 sin sesgo.",
+   "excepciones": [
+    {
+     "entry_id": "resultado.ah.home.+0.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "resultado.ah.away.-0.5",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-09653a7daeb6|hándicap",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-09653a7daeb6|hándicap asiático entero",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "goleada_local",
+   "nota": "Strasbourg +1 p .75, +2 p .89; +0 como DNB sin sesgo. Sin extractor propio y alta varianza de goles.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-09653a7daeb6|hándicap asiático entero",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-09653a7daeb6|hándicap europeo",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "goleada_local",
+   "nota": "Eh -2 de Strasbourg p .79; empate +1 p .18. Sin extractor propio; sin cuota ni validacion.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-09653a7daeb6|hándicap europeo",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-09653a7daeb6|remates",
+   "solidez": "MEDIA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Remates totales: Rennes 32.7, Strasbourg 29.4 por partido (n=10). Modelo over 28.5 p .63. Rennes recibe 16.4; solo lineas centrales son dudosas.",
+   "excepciones": [
+    {
+     "entry_id": "shots.total.over.29.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.total.under.29.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.total.over.30.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.total.under.30.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.total.over.31.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.total.under.31.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.total.over.32.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.total.under.32.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.14.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.home.under.14.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.15.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.home.under.15.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.16.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.home.under.16.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.13.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.13.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.14.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.14.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.15.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.15.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.16.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.16.5",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-09653a7daeb6|remates",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-09653a7daeb6|remates a puerta",
+   "solidez": "MEDIA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Remates a puerta: Rennes 12.3, Strasbourg 11.5 por partido (n=10). Over 9.5 p .73. Equipos con defensas que conceden ~6 a puerta.",
+   "excepciones": [
+    {
+     "entry_id": "sot.total.over.11.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.total.under.11.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.total.over.12.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.total.under.12.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.equipo.home.over.5.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.equipo.home.under.5.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.equipo.home.over.6.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.equipo.home.under.6.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.equipo.away.over.5.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.equipo.away.under.5.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.equipo.away.over.6.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.equipo.away.under.6.5",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-09653a7daeb6|remates a puerta",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-09653a7daeb6|resultado",
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Modelo da visitante .43 vs agregador local 53%. Rennes rota 5 cambios con 3 dias; Strasbourg descansa 8. Sin calidad de rival ni alineaciones.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-09653a7daeb6|resultado",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-09653a7daeb6|tarjetas",
+   "solidez": "BAJA",
+   "factor_principal": "arbitro",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "tarjetas_atipicas",
+   "nota": "Buquet 3.3 tarjetas/partido (6 de 11 over 3.5, 1 de 11 over 4.5). Equipos 2.1 y 1.7 pts. Modelo mediana ~3.5; sin sesgo claro.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-09653a7daeb6|tarjetas",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-09653a7daeb6|fueras de juego",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni estimador de fueras de juego y sin estadística de offsides en la muestra; no evaluable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-09653a7daeb6|fueras de juego",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-0b0c6974a0ae|1.ª parte goles",
+   "solidez": "MEDIA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Goles al descanso: Liverpool 0.8, Brighton 1.9 por partido (n=10). Over 0.5 p .74. Ambos con copa/europa en <=4 dias y rotacion alta.",
+   "excepciones": [
+    {
+     "entry_id": "primera_parte.total.over.1.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "primera_parte.total.under.1.5",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-0b0c6974a0ae|1.ª parte goles",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-0b0c6974a0ae|1.ª parte resultado",
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Modelo 22/39/40 sin sesgo; Liverpool 5 empates en 10 y 4 en 5 en casa. Rotacion fuerte de Brighton (7.7 cambios/partido).",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-0b0c6974a0ae|1.ª parte resultado",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-0b0c6974a0ae|córners",
+   "solidez": "MEDIA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Corners totales: Liverpool 10.2, Brighton 10.1 por partido (n=10); Liverpool 6.4 en casa (n=5). Barrott 9.9 (n=9). Centro del modelo ~10.",
+   "excepciones": [
+    {
+     "entry_id": "corners.total.over.9.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.total.under.9.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.total.over.10.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.total.under.10.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.5.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.5.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.3.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.3.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.4.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.4.5",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-0b0c6974a0ae|córners",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-0b0c6974a0ae|doble oportunidad",
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Modelo prefiere X2 (.76) y agregador al local; Brighton con 7.7 cambios y 3 dias. Liverpool local 0V4E1D. Fuentes se contradicen.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-0b0c6974a0ae|doble oportunidad",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-0b0c6974a0ae|empate no válido",
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Modelo .53 visitante vs mercado local. Choque modelo-mercado en DNB, sin extractor propio; rotacion alta.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-0b0c6974a0ae|empate no válido",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-0b0c6974a0ae|goles",
+   "solidez": "MEDIA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Goles por partido: Liverpool 2.7, Brighton 3.5 (n=10); Barrott 3.8 (8 de 10 over 2.5). BTTS dispar: Brighton solo 2/10 con BTTS, Liverpool 6/10.",
+   "excepciones": [
+    {
+     "entry_id": "goles.total.over.2.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.total.under.2.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.total.over.3.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.total.under.3.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.btts.yes",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.btts.no",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-0b0c6974a0ae|goles",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-0b0c6974a0ae|goles por equipo",
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Brighton 2.6 GF (n=10) y 0.9 GC; Liverpool en casa 0.8 GF (n=5). Over 0.5 Brighton p .85. Liverpool under 1.5 p .67 con poca punta.",
+   "excepciones": [
+    {
+     "entry_id": "goles.equipo.away.over.1.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.equipo.away.under.1.5",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-0b0c6974a0ae|goles por equipo",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-0b0c6974a0ae|goles total entero",
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Over 2 p .75 segun modelo; goles totales 2.7 y 3.5 (n=10). Mercado sin extractor propio, push en lineas enteras.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-0b0c6974a0ae|goles total entero",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-0b0c6974a0ae|hándicap",
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Modelo favorece al visitante y agregador al local. Margenes: Brighton +1.5 p .90 pero con solo 2.6 GF vs 1.4 GC de Liverpool. Sin sesgo claro.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-0b0c6974a0ae|hándicap",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-0b0c6974a0ae|hándicap asiático entero",
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Handicap entero ligado al 1X2 contradictorio entre modelo y agregador; sin extractor propio ni alineaciones.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-0b0c6974a0ae|hándicap asiático entero",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-0b0c6974a0ae|hándicap europeo",
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Handicap europeo ligado a un 1X2 sin consenso; draw +-1 muy dependiente de empates (Liverpool 5/10). Sin extractor propio.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-0b0c6974a0ae|hándicap europeo",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-0b0c6974a0ae|remates",
+   "solidez": "MEDIA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Remates totales: Liverpool 27.1, Brighton 26.6 por partido (n=10); modelo centrado ~26.5. Brighton 17.0 a favor.",
+   "excepciones": [
+    {
+     "entry_id": "shots.total.over.25.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.total.under.25.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.total.over.26.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.total.under.26.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.total.over.27.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.total.under.27.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.10.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.home.under.10.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.11.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.home.under.11.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.12.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.home.under.12.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.13.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.13.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.14.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.14.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.15.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.15.5",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-0b0c6974a0ae|remates",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-0b0c6974a0ae|remates a puerta",
+   "solidez": "MEDIA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Remates a puerta: Liverpool 8.9, Brighton 9.0 por partido (n=10). Mediana del modelo ~8.6. Centrado; sin sesgo.",
+   "excepciones": [
+    {
+     "entry_id": "sot.total.over.8.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.total.under.8.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.total.over.9.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.total.under.9.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.equipo.home.over.3.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.equipo.home.under.3.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.equipo.away.over.4.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.equipo.away.under.4.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.equipo.away.over.5.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.equipo.away.under.5.5",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-0b0c6974a0ae|remates a puerta",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-0b0c6974a0ae|resultado",
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Modelo da visitante .53 y agregador local 46%. Liverpool local 0V4E1D (n=5), Brighton 2.6 GF pero con 7.7 cambios y 3 dias. Sin calidad de rival.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-0b0c6974a0ae|resultado",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-0b0c6974a0ae|tarjetas",
+   "solidez": "BAJA",
+   "factor_principal": "arbitro",
+   "direccion_favorable": "over",
+   "escenario_perdida": "tarjetas_atipicas",
+   "nota": "Barrott 4.3 tarjetas/partido (7 de 9 over 3.5, n=9). Equipos 2.1 y 1.8 pts (n=8/10). Modelo over 3.5 .56; muestra pequena.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-0b0c6974a0ae|tarjetas",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-0b0c6974a0ae|fueras de juego",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni estimador de fueras de juego y sin estadística de offsides en la muestra; no evaluable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-0b0c6974a0ae|fueras de juego",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-0b1f785db75d|1.ª parte goles",
+   "solidez": "MEDIA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Goles al descanso: Lecce 1.7, Juventus 0.7 por partido (n=10). Over 0.5 p .70; la 1.5 es menos clara (.33).",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-0b1f785db75d|1.ª parte goles",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-0b1f785db75d|1.ª parte resultado",
+   "solidez": "MEDIA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "empate",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Empate al descanso .42 en modelo; Juventus solo 0.7 goles al descanso por partido (n=10). Resultado al descanso por equipo no calculado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-0b1f785db75d|1.ª parte resultado",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-0b1f785db75d|córners",
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Juventus 7.6 corners propios (fuera 8.8, n=5) vs Lecce 3.6 en casa; totales ~8.1 y 10.7 (n=10). Solo equipo concreto ofrece apoyo claro.",
+   "excepciones": [
+    {
+     "entry_id": "corners.equipo.away.over.3.5",
+     "solidez": "MEDIA"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.4.5",
+     "solidez": "MEDIA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-0b1f785db75d|córners",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-0b1f785db75d|doble oportunidad",
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "goleada_local",
+   "nota": "X2 p .68. Juventus 4V3E3D, fuera 2V2E1D (n=5); Lecce 5V0E5D. Agregador mucho mas pro-Juventus (65%); Juventus rota 5.7 cambios, 3 dias.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-0b1f785db75d|doble oportunidad",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-0b1f785db75d|empate no válido",
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Modelo cerca del 50/50 y agregador fuerte al visitante. Rotacion alta de Juventus; mercado sin extractor propio.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-0b1f785db75d|empate no válido",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-0b1f785db75d|goles",
+   "solidez": "MEDIA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "under",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Maresca 2.0 goles/partido (2 de 9 over 2.5). Lecce 2.8, Juventus 2.4 goles/partido (n=10). Modelo over 2.5 .50 centrado; BTTS discrepa del mercado.",
+   "excepciones": [
+    {
+     "entry_id": "goles.total.over.2.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.total.under.2.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.btts.yes",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.btts.no",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-0b1f785db75d|goles",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-0b1f785db75d|goles por equipo",
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "under",
+   "escenario_perdida": "goleada_visitante",
+   "nota": "Lecce 1.3 GF (casa 1.0), Juventus 1.2 GF (n=10). Under 1.5 por equipo p .66/.60. Pierde si Juventus marca 2+.",
+   "excepciones": [
+    {
+     "entry_id": "goles.equipo.away.over.1.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.equipo.away.under.1.5",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-0b1f785db75d|goles por equipo",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-0b1f785db75d|goles total entero",
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "under",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Under 3 p .70 coherente con ~2.4-2.8 goles/partido (n=10). Mercado sin extractor propio y push en lineas enteras.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-0b1f785db75d|goles total entero",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-0b1f785db75d|hándicap",
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Modelo reparte 32/26/41 mientras agregador 13/22/65. Choque modelo-mercado; +1.5 de ambos seria seguro por pocos goles pero sin sesgo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-0b1f785db75d|hándicap",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-0b1f785db75d|hándicap asiático entero",
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Handicap entero depende de un 1X2 con fuerte choque modelo-mercado. Sin extractor propio.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-0b1f785db75d|hándicap asiático entero",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-0b1f785db75d|hándicap europeo",
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Handicap europeo con 1X2 contradictorio y sin extractor propio.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-0b1f785db75d|hándicap europeo",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-0b1f785db75d|remates",
+   "solidez": "MEDIA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Juventus 17.6 remates vs Lecce concede 14.5 (n=10); Lecce 10.6. Over 10.5 Juventus p .79. Juventus rota 5.7 cambios con 3 dias de descanso.",
+   "excepciones": [
+    {
+     "entry_id": "shots.total.over.23.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.total.under.23.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.total.over.24.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.total.under.24.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.total.over.25.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.total.under.25.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.total.over.26.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.total.under.26.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.8.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.home.under.8.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.9.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.home.under.9.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.13.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.13.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.14.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.14.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.15.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.15.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.16.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.16.5",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-0b1f785db75d|remates",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-0b1f785db75d|remates a puerta",
+   "solidez": "MEDIA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Juventus 6.0 a puerta, Lecce concede 5.9; Lecce 4.6 vs Juventus concede 3.1 (n=10). Over 3.5 Juventus p .82; rotacion alta.",
+   "excepciones": [
+    {
+     "entry_id": "sot.total.over.9.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.total.under.9.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.total.over.10.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.total.under.10.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.equipo.home.over.3.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.equipo.home.under.3.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.equipo.away.over.5.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.equipo.away.under.5.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.equipo.away.over.6.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.equipo.away.under.6.5",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-0b1f785db75d|remates a puerta",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-0b1f785db75d|resultado",
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Modelo 32/26/41 vs agregador visitante 65%. Choque grande modelo-mercado, forma sin calidad de rival; Juventus rota 5.7 cambios en 3 dias.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-0b1f785db75d|resultado",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-0b1f785db75d|tarjetas",
+   "solidez": "MEDIA",
+   "factor_principal": "arbitro",
+   "direccion_favorable": "over",
+   "escenario_perdida": "tarjetas_atipicas",
+   "nota": "Maresca 6.0 tarjetas/partido (8 de 9 over 3.5, n=9) vs modelo de puntos mediana ~3.2. Lecce 2.0 pts propios (n=10). Dato arbitro pesa mas.",
+   "excepciones": [
+    {
+     "entry_id": "cards_pts.total.over.2.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "cards_pts.total.under.2.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "cards_pts.total.over.3.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "cards_pts.total.under.3.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.over.1.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.under.1.5",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-0b1f785db75d|tarjetas",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-0b1f785db75d|fueras de juego",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni estimador de fueras de juego y sin estadística de offsides en la muestra; no evaluable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-0b1f785db75d|fueras de juego",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-0dabe736f9d3|1.ª parte goles",
+   "solidez": "MEDIA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "under",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Goles al descanso: Sunderland 1.0, Leeds 0.6 por partido (n=10). Under 1.5 p .81. Over 0.5 es moneda al aire (.54).",
+   "excepciones": [
+    {
+     "entry_id": "primera_parte.total.over.0.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "primera_parte.total.under.0.5",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-0dabe736f9d3|1.ª parte goles",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-0dabe736f9d3|1.ª parte resultado",
+   "solidez": "MEDIA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "empate",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Empate al descanso p .53, el valor mas alto del lote; equipos con pocos goles al descanso (Leeds 0.6, Sunderland 1.0, n=10).",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-0dabe736f9d3|1.ª parte resultado",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-0dabe736f9d3|córners",
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Corners totales: Sunderland 8.5, Leeds 9.8 por partido (n=10); Attwell 10.0 (n=12). Centro del modelo ~8.9; sin sesgo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-0dabe736f9d3|córners",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-0dabe736f9d3|doble oportunidad",
+   "solidez": "MEDIA",
+   "factor_principal": "calendario_descanso",
+   "direccion_favorable": "visitante",
+   "escenario_perdida": "goleada_local",
+   "nota": "X2 p .66. Sunderland local 2V1E2D con 0.6 GF; Leeds 3V5E2D. Sunderland 3 dias de descanso y copa en <=4 dias, 6.0 cambios; Leeds 7 dias.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-0dabe736f9d3|doble oportunidad",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-0dabe736f9d3|empate no válido",
+   "solidez": "BAJA",
+   "factor_principal": "rotacion",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Modelo y mercado coinciden en igualdad (≈.46/.54). Sin ventaja detectable; mercado sin extractor propio.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-0dabe736f9d3|empate no válido",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-0dabe736f9d3|goles",
+   "solidez": "MEDIA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "under",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Goles: Sunderland 2.7, Leeds 2.1 por partido (n=10, over 2.5 en 4/10 y 3/10). Attwell 2.58 (7 de 12 over 2.5). Under 2.5 modelo p .55; BTTS centrado.",
+   "excepciones": [
+    {
+     "entry_id": "goles.total.over.2.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.total.under.2.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.btts.yes",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "goles.btts.no",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-0dabe736f9d3|goles",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-0dabe736f9d3|goles por equipo",
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "under",
+   "escenario_perdida": "goleada_local",
+   "nota": "Sunderland en casa 0.6 GF (n=5), Leeds fuera 0.8 GF (n=5). Under 1.5 por equipo p .68/.66. Pierde si un equipo marca 2+.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-0dabe736f9d3|goles por equipo",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-0dabe736f9d3|goles total entero",
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "under",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Under 3 p .74 con ~2.1-2.7 goles/partido (n=10). Mercado sin extractor propio y push en lineas enteras.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-0dabe736f9d3|goles total entero",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-0dabe736f9d3|hándicap",
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "goleada_local",
+   "nota": "Partido igualado con pocos goles: +1.5 de Sunderland p .84 y de Leeds p .86. Lineas +-0.5 sin sesgo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-0dabe736f9d3|hándicap",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-0dabe736f9d3|hándicap asiático entero",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Handicap entero sin sesgo en un partido igualado; +1 p .70 pero sin extractor propio.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-0dabe736f9d3|hándicap asiático entero",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-0dabe736f9d3|hándicap europeo",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Handicap europeo con 1X2 igualado y modelo-mercado coincidentes; sin extractor propio.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-0dabe736f9d3|hándicap europeo",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-0dabe736f9d3|remates",
+   "solidez": "MEDIA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Remates totales: Sunderland 25.3, Leeds 25.8 por partido (n=10). Mediana del modelo ~24.5; sin sesgo claro.",
+   "excepciones": [
+    {
+     "entry_id": "shots.total.over.24.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.total.under.24.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.total.over.25.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.total.under.25.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.total.over.26.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.total.under.26.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.11.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.home.under.11.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.12.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.home.under.12.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.13.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.home.under.13.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.11.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.11.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.12.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.12.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.13.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.13.5",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-0dabe736f9d3|remates",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-0dabe736f9d3|remates a puerta",
+   "solidez": "MEDIA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "under",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Remates a puerta: Sunderland 7.5, Leeds 8.3 por partido (n=10); ninguno supera 5.0. Under 9.5 p .74. Equipos con pocos tiros a puerta.",
+   "excepciones": [
+    {
+     "entry_id": "sot.total.over.7.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.total.under.7.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.total.over.8.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.total.under.8.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.equipo.home.over.3.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.equipo.home.under.3.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.equipo.home.over.4.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.equipo.home.under.4.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.equipo.away.over.3.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.equipo.away.under.3.5",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-0dabe736f9d3|remates a puerta",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-0dabe736f9d3|resultado",
+   "solidez": "BAJA",
+   "factor_principal": "calendario_descanso",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Modelo 34/28/38 y agregador 33/30/37 coinciden en igualdad. Sunderland rota 6 cambios con 3 dias; Leeds descansa 7. Sin sesgo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-0dabe736f9d3|resultado",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-0dabe736f9d3|tarjetas",
+   "solidez": "MEDIA",
+   "factor_principal": "arbitro",
+   "direccion_favorable": "over",
+   "escenario_perdida": "tarjetas_atipicas",
+   "nota": "Attwell 5.6 tarjetas/partido (10 de 12 over 3.5, n=12). Equipos 1.3/2.1 y 1.9/2.0 pts. Modelo mediana ~3.5; arbitro n mayor.",
+   "excepciones": [
+    {
+     "entry_id": "cards_pts.total.over.3.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "cards_pts.total.under.3.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.over.1.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "cards_pts.equipo.home.under.1.5",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-0dabe736f9d3|tarjetas",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-0dabe736f9d3|fueras de juego",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni estimador de fueras de juego y sin estadística de offsides en la muestra; no evaluable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-0dabe736f9d3|fueras de juego",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-11a7800b9cb9|1.ª parte goles",
+   "solidez": "BAJA",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Goles al descanso: Hull 1.14 (n=7), Brentford 1.0 (n=10). Over 0.5 p .65 pero Hull solo 7 partidos de la categoria.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-11a7800b9cb9|1.ª parte goles",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-11a7800b9cb9|1.ª parte resultado",
+   "solidez": "BAJA",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "empate",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Empate al descanso p .45 con Hull n=7. Muestra pequena y sin partido a partido de resultados al descanso.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-11a7800b9cb9|1.ª parte resultado",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-11a7800b9cb9|córners",
+   "solidez": "MEDIA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Corners: Hull 10.3 (n=7), Brentford 10.5 (n=10) por partido; ambos conceden ~6.5. Over 8.5 p .69. Jones 8.7 (n=6) discrepa pero muestra pequena.",
+   "excepciones": [
+    {
+     "entry_id": "corners.total.over.9.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.total.under.9.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.total.over.10.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.total.under.10.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.4.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.4.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.5.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.5.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.4.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.4.5",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-11a7800b9cb9|córners",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-11a7800b9cb9|doble oportunidad",
+   "solidez": "BAJA",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Brentford 6 empates en 10, Hull 3 en 7. Modelo local .42 vs agregador visitante 56%. Choque modelo-mercado, Hull n=7.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-11a7800b9cb9|doble oportunidad",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-11a7800b9cb9|empate no válido",
+   "solidez": "BAJA",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Modelo local .42, agregador visitante 56%. Choque modelo-mercado; Hull n=7 y mercado sin extractor propio.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-11a7800b9cb9|empate no válido",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-11a7800b9cb9|goles",
+   "solidez": "BAJA",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Goles: Hull 2.1 (n=7), Brentford 3.0 (n=10, over 2.5 en 7/10). Jones 3.7 (n=6). Modelo over 2.5 .51; fuentes dispares.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-11a7800b9cb9|goles",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-11a7800b9cb9|goles por equipo",
+   "solidez": "BAJA",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Hull 1.14 GF (n=7), Brentford 1.6 GF (fuera 1.2, n=5). Over/under 0.5 y 1.5 dentro de lo esperable; sin ventaja clara.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-11a7800b9cb9|goles por equipo",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-11a7800b9cb9|goles total entero",
+   "solidez": "BAJA",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin sesgo claro de goles totales (modelo over 2.5 .51); Hull n=7 y mercado sin extractor propio.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-11a7800b9cb9|goles total entero",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-11a7800b9cb9|hándicap",
+   "solidez": "BAJA",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Modelo local ligero favorito y agregador visitante favorito. Hull n=7 y Brentford fuera 0V4E1D; sin sesgo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-11a7800b9cb9|hándicap",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-11a7800b9cb9|hándicap asiático entero",
+   "solidez": "BAJA",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Handicap entero ligado a un 1X2 contradictorio; Hull n=7, sin extractor propio.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-11a7800b9cb9|hándicap asiático entero",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-11a7800b9cb9|hándicap europeo",
+   "solidez": "BAJA",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Handicap europeo ligado a un 1X2 contradictorio; Hull n=7, sin extractor propio.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-11a7800b9cb9|hándicap europeo",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-11a7800b9cb9|remates",
+   "solidez": "MEDIA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "over",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Remates: Hull 24.0 (n=7), Brentford 30.8 por partido (n=10); Brentford fuera concede 20.4 de visita. Over 24.5 p .69; Hull n=7.",
+   "excepciones": [
+    {
+     "entry_id": "shots.total.over.26.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.total.under.26.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.total.over.27.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.total.under.27.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.total.over.28.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.total.under.28.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.11.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.home.under.11.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.12.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.home.under.12.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.13.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.home.under.13.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.12.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.12.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.13.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.13.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.14.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.14.5",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-11a7800b9cb9|remates",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-11a7800b9cb9|remates a puerta",
+   "solidez": "MEDIA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Remates a puerta: Hull 8.1 (n=7), Brentford 9.4 (n=10). Mediana del modelo ~8.6; centrado, sin sesgo claro.",
+   "excepciones": [
+    {
+     "entry_id": "sot.total.over.8.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.total.under.8.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.equipo.home.over.4.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.equipo.home.under.4.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.equipo.away.over.3.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.equipo.away.under.3.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.equipo.away.over.4.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.equipo.away.under.4.5",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-11a7800b9cb9|remates a puerta",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-11a7800b9cb9|resultado",
+   "solidez": "BAJA",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Modelo local .42 vs agregador visitante 56%. Hull n=7 sin calidad de rival; Brentford 2V6E2D. Choque modelo-mercado.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-11a7800b9cb9|resultado",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-11a7800b9cb9|tarjetas",
+   "solidez": "BAJA",
+   "factor_principal": "arbitro",
+   "direccion_favorable": "over",
+   "escenario_perdida": "tarjetas_atipicas",
+   "nota": "Hull 3.0 pts (n=7), Brentford 2.6 (n=9). Jones 3.5 tarjetas/partido (n=6, contexto indica 7). Modelo over 3.5 .60; muestra pequena.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-11a7800b9cb9|tarjetas",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-11a7800b9cb9|fueras de juego",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni estimador de fueras de juego y sin estadística de offsides en la muestra; no evaluable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-11a7800b9cb9|fueras de juego",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-20aefcf2067a|1.ª parte goles",
+   "solidez": "BAJA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Goles al descanso: Genoa 1.0 (n=10), Venezia 1.29 (n=7). Over 0.5 p .66; ambos marcan poco (0.3/0.29) y reciben mas.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-20aefcf2067a|1.ª parte goles",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-20aefcf2067a|1.ª parte resultado",
+   "solidez": "BAJA",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "empate",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Empate al descanso p .45 con Venezia n=7. Ambos pierden mucho (1V2E7D y 1V0E6D), pero sin dato de resultado al descanso.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-20aefcf2067a|1.ª parte resultado",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-20aefcf2067a|córners",
+   "solidez": "MEDIA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "under",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Corners: Genoa 8.6 (n=10), Venezia 8.9 (n=7) por partido. Sozza 8.6 (n=7, 5 de 7 under 9.5). Under 10.5 p .71; Genoa local 5.0.",
+   "excepciones": [
+    {
+     "entry_id": "corners.total.over.8.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.total.under.8.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.total.over.9.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.total.under.9.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.4.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.4.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.equipo.home.over.5.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.equipo.home.under.5.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.equipo.away.over.3.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "corners.equipo.away.under.3.5",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-20aefcf2067a|córners",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-20aefcf2067a|doble oportunidad",
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "12 p .73: Genoa 2 empates en 10, Venezia 0 en 7; ambos con 1 victoria. Genoa rota 6 cambios; empate sigue posible.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-20aefcf2067a|doble oportunidad",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-20aefcf2067a|empate no válido",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "rotacion_inesperada",
+   "nota": "Modelo ligera ventaja visitante vs agregador local 45%. Ambos con 1 victoria (n=10 y 7). Choque modelo-mercado, sin extractor propio.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-20aefcf2067a|empate no válido",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-20aefcf2067a|goles",
+   "solidez": "BAJA",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_abierto",
+   "nota": "Genoa 2.2 goles/partido (n=10), Venezia 3.1 (n=7). Sozza 3.7 (5 de 7 over 2.5, n=7). Modelo over 2.5 .48; ataques pobres vs defensas flojas.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-20aefcf2067a|goles",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-20aefcf2067a|goles por equipo",
+   "solidez": "MEDIA",
+   "factor_principal": "forma",
+   "direccion_favorable": "under",
+   "escenario_perdida": "goleada_local",
+   "nota": "Genoa 0.6 GF (n=10), Venezia 0.86 GF (n=7). Under 1.5 por equipo p .66/.63. Ataques pobres; pierde si el partido se abre.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-20aefcf2067a|goles por equipo",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-20aefcf2067a|goles total entero",
+   "solidez": "BAJA",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Goles totales sin sesgo claro (Genoa 2.2, Venezia 3.1); Venezia n=7 y mercado sin extractor propio.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-20aefcf2067a|goles total entero",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-20aefcf2067a|hándicap",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Modelo ligera ventaja visitante (.39) y agregador local (45%). Genoa pierde 7 de 10; Venezia 6 de 7. Sin sesgo.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-20aefcf2067a|hándicap",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-20aefcf2067a|hándicap asiático entero",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Handicap entero con 1X2 contradictorio y sin extractor propio; Venezia n=7.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-20aefcf2067a|hándicap asiático entero",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-20aefcf2067a|hándicap europeo",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Handicap europeo con 1X2 contradictorio y sin extractor propio; Venezia n=7.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-20aefcf2067a|hándicap europeo",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-20aefcf2067a|remates",
+   "solidez": "MEDIA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Remates: Genoa 23.3 (n=10), Venezia 31.4 (n=7) por partido. Venezia concede 17.3. Modelo mediana ~26; sin sesgo claro.",
+   "excepciones": [
+    {
+     "entry_id": "shots.total.over.24.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.total.under.24.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.total.over.25.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.total.under.25.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.total.over.26.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.total.under.26.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.total.over.27.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.total.under.27.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.total.over.28.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.total.under.28.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.11.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.home.under.11.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.12.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.home.under.12.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.13.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.home.under.13.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.home.over.14.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.home.under.14.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.11.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.11.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.12.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.12.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.away.over.13.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "shots.equipo.away.under.13.5",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-20aefcf2067a|remates",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-20aefcf2067a|remates a puerta",
+   "solidez": "MEDIA",
+   "factor_principal": "estilo_ritmo",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "partido_cerrado",
+   "nota": "Remates a puerta: Genoa 6.5 (n=10), Venezia 11.5 (n=7) por partido; Venezia concede 7.1. Modelo mediana ~8.6, sin sesgo.",
+   "excepciones": [
+    {
+     "entry_id": "sot.total.over.7.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.total.under.7.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.total.over.8.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.total.under.8.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.equipo.home.over.3.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.equipo.home.under.3.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.equipo.home.over.4.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.equipo.home.under.4.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.equipo.away.over.3.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.equipo.away.under.3.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.equipo.away.over.4.5",
+     "solidez": "BAJA"
+    },
+    {
+     "entry_id": "sot.equipo.away.under.4.5",
+     "solidez": "BAJA"
+    }
+   ],
+   "evidencia": [
+    "paquete:m-20aefcf2067a|remates a puerta",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-20aefcf2067a|resultado",
+   "solidez": "BAJA",
+   "factor_principal": "forma",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Modelo 34/27/39 vs agregador local 45%. Genoa 1V2E7D (n=10), Venezia 1V0E6D (n=7). Sin calidad de rival.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-20aefcf2067a|resultado",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-20aefcf2067a|tarjetas",
+   "solidez": "BAJA",
+   "factor_principal": "arbitro",
+   "direccion_favorable": "over",
+   "escenario_perdida": "tarjetas_atipicas",
+   "nota": "Sozza 4.0 tarjetas/partido (n=7). Genoa 2.3 pts (n=8), Venezia 2.9 (n=7). Modelo over 3.5 .58; muestra pequena.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-20aefcf2067a|tarjetas",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  },
+  {
+   "unit_id": "m-20aefcf2067a|fueras de juego",
+   "solidez": "NO_EVALUABLE",
+   "factor_principal": "muestra_insuficiente",
+   "direccion_favorable": "sin_sesgo",
+   "escenario_perdida": "sin_escenario_definido",
+   "nota": "Sin extractor ni estimador de fueras de juego y sin estadística de offsides en la muestra; no evaluable.",
+   "excepciones": [],
+   "evidencia": [
+    "paquete:m-20aefcf2067a|fueras de juego",
+    "archivo:runs/2026-10-25/matrix.json",
+    "archivo:runs/2026-10-25/rotation.json",
+    "archivo:runs/2026-10-25/league_samples/"
+   ]
+  }
+ ],
+ "limitaciones": [
+  "Solo archivos del run (paquete, matrix, rotation, league_samples); sin web ni API. Fuentes del protocolo multifuente no consultadas por restriccion de la prueba.",
+  "Forma: ultimos <=10 partidos (180 dias) de su liga, mezcla mayo 2026 y oct 2026 y casa/fuera; sin ajuste por calidad de rival. Hull y Venezia solo n=7.",
+  "Alineaciones sin snapshot en todos los partidos; bajas y dudas sin verificar. Rotacion solo por proxy de rotation.json (cambios medios, descanso).",
+  "Precios del paquete son de agregador (referencia, no ejecutable); validacion del estimador insuficiente o no evaluada en la mayoria de mercados.",
+  "Mercados sin extractor propio (entero, hándicap asiático entero, europeo, DNB) evaluados solo por derivacion de goles y 1X2; solidez conservadora.",
+  "Fueras de juego: sin estimador ni datos. Arbitros: n de 6 a 12 en muestra de liga (tarjetas en conteo de la muestra, no necesariamente puntos); Jones contexto 7 vs muestra 6.",
+  "Champions/copas en <=4 dias segun rotation.json afectan rotacion pero sin competicion cruzada verificada; H2H no usado (no hay datos en el run).",
+  "Cotas de BTTS, tarjetas y corners no validadas contra liquidacion de casa; reglas de puntos (rojas) sin confirmar."
+ ]
+}
