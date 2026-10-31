@@ -1,0 +1,211 @@
+<title>Retos del Día</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Sans+3:wght@400;500;600&display=swap">
+<style>
+/* Concepto: hoja de partido. Tinta verde de cancha sobre papel frío; cifras en condensada tipo marcador; cuotas en monoespaciada. */
+:root {
+  --bg: #eef2ef; --surface: #ffffff; --surface-2: #f5f8f6; --ink: #14211b; --muted: #55675d; --line: #d3dcd6;
+  --pitch: #0e4d36; --pitch-ink: #ffffff; --accent: #c9741d; --good: #1c7a49; --good-bg: #dff1e6; --warn: #8f5d0a; --warn-bg: #f8ead0; --bad: #a8322b; --bad-bg: #f7dedb; --none-bg: #e6ece8;
+  --f-display: "Barlow Condensed", "Arial Narrow", sans-serif; --f-body: "Source Sans 3", system-ui, sans-serif; --f-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0c1511; --surface: #14201a; --surface-2: #19281f; --ink: #e5efe9; --muted: #9db0a5; --line: #263830; --pitch: #3bb283; --pitch-ink: #07130e; --accent: #e59a4b; --good: #5fcf94; --good-bg: #17382a; --warn: #e6b45a; --warn-bg: #3a2e12; --bad: #f08a80; --bad-bg: #40201d; --none-bg: #1f2e26; color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #0c1511; --surface: #14201a; --surface-2: #19281f; --ink: #e5efe9; --muted: #9db0a5; --line: #263830; --pitch: #3bb283; --pitch-ink: #07130e; --accent: #e59a4b; --good: #5fcf94; --good-bg: #17382a; --warn: #e6b45a; --warn-bg: #3a2e12; --bad: #f08a80; --bad-bg: #40201d; --none-bg: #1f2e26; color-scheme: dark; }
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 15px; line-height: 1.45; padding-block: 20px 56px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.wrap { max-width: 980px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
+h1, h2, h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: .01em; margin: 0; text-wrap: balance; }
+h1 { font-size: clamp(34px, 7vw, 52px); line-height: 1; text-transform: uppercase; }
+h2 { font-size: 26px; text-transform: uppercase; }
+h3 { font-size: 19px; }
+.eyebrow { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+.mono { font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
+.num { font-variant-numeric: tabular-nums; }
+header .sub { color: var(--muted); margin-top: 6px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.chip { font-size: 12.5px; padding: 3px 10px; border-radius: 999px; background: var(--none-bg); color: var(--ink); border: 1px solid var(--line); }
+.status { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 16px; min-width: 0; }
+.card.pitch { background: var(--pitch); color: var(--pitch-ink); border-color: transparent; }
+.card.pitch .eyebrow, .card.pitch label { color: inherit; opacity: .8; }
+.big { font-family: var(--f-display); font-size: 40px; font-weight: 700; line-height: 1; }
+.row { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: baseline; }
+label { font-size: 13px; color: var(--muted); display: block; margin-bottom: 4px; }
+input[type=number] { font-family: var(--f-mono); font-size: 16px; width: 170px; max-width: 100%; padding: 7px 9px; border: 1px solid var(--line); border-radius: 4px; background: var(--surface); color: var(--ink); }
+.card.pitch input[type=number] { background: transparent; color: inherit; border-color: color-mix(in srgb, currentColor 45%, transparent); }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+nav.tabs { display: flex; flex-wrap: nowrap; gap: 4px; border-bottom: 2px solid var(--line); overflow-x: auto; }
+nav.tabs button { white-space: nowrap; font-family: var(--f-display); font-size: 19px; font-weight: 600; text-transform: uppercase; letter-spacing: .03em; padding: 8px 14px; border: 0; background: none; color: var(--muted); cursor: pointer; border-bottom: 3px solid transparent; margin-bottom: -2px; }
+nav.tabs button[aria-pressed=true] { color: var(--ink); border-bottom-color: var(--pitch); }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 5px; overflow: hidden; }
+.seg button { font: inherit; font-size: 13.5px; padding: 6px 12px; border: 0; background: var(--surface); color: var(--muted); cursor: pointer; }
+.seg button[aria-pressed=true] { background: var(--pitch); color: var(--pitch-ink); }
+.group-h { margin-top: 6px; display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: baseline; }
+.ticket { display: grid; grid-template-columns: 250px 1fr; gap: 0; padding: 0; overflow: hidden; }
+.t-side { background: var(--surface-2); border-right: 1px solid var(--line); padding: 14px 16px; display: flex; flex-direction: column; gap: 10px; }
+.t-side .pwin { font-family: var(--f-display); font-size: 46px; font-weight: 700; line-height: .95; }
+.t-side .pwin small { font-size: 22px; }
+.pay { display: grid; grid-template-columns: 1fr auto; gap: 2px 10px; font-size: 13.5px; }
+.pay dt { color: var(--muted); white-space: nowrap; } .pay dd { margin: 0; text-align: right; font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
+.pay .win { color: var(--good); } .pay .loss { color: var(--bad); }
+.legs { list-style: none; margin: 0; padding: 0; }
+.leg { display: grid; grid-template-columns: 52px 1fr auto; gap: 4px 12px; padding: 11px 16px; border-bottom: 1px solid var(--line); align-items: start; }
+.leg:last-child { border-bottom: 0; }
+.leg .hr { font-family: var(--f-mono); font-size: 13px; color: var(--muted); padding-top: 2px; }
+.leg .sel { font-weight: 600; }
+.leg .match { color: var(--muted); font-size: 13.5px; overflow-wrap: anywhere; }
+.leg .odds { font-family: var(--f-mono); font-size: 17px; font-weight: 500; text-align: right; }
+.leg .meta { grid-column: 2 / 4; display: flex; flex-wrap: wrap; gap: 6px 8px; align-items: center; font-size: 12.5px; color: var(--muted); }
+.tag { padding: 1px 8px; border-radius: 3px; font-size: 12px; font-weight: 600; }
+.tag.mantener { background: var(--good-bg); color: var(--good); }
+.tag.degradar { background: var(--warn-bg); color: var(--warn); }
+.tag.descartar { background: var(--bad-bg); color: var(--bad); }
+.tag.none { background: var(--none-bg); color: var(--muted); }
+.note { font-size: 13px; color: var(--muted); overflow-wrap: anywhere; }
+.tablewrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; min-width: 760px; font-size: 13.5px; }
+th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); background: var(--surface-2); position: sticky; top: 0; }
+td.n, th.n { text-align: right; font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
+ul.plain { margin: 8px 0 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; max-width: 70ch; }
+.warn-box { border: 1px solid var(--warn); background: var(--warn-bg); color: var(--ink); border-radius: 6px; padding: 12px 14px; max-width: 80ch; }
+.empty { padding: 24px; text-align: center; color: var(--muted); }
+@media (max-width: 640px) {
+  .ticket { grid-template-columns: 1fr; }
+  .t-side { border-right: 0; border-bottom: 1px solid var(--line); flex-direction: row; flex-wrap: wrap; align-items: flex-end; gap: 10px 20px; }
+  .leg { grid-template-columns: 46px 1fr auto; padding: 11px 12px; }
+  nav.tabs button { font-size: 16px; padding: 8px 10px; }
+}
+@media (prefers-reduced-motion: no-preference) { .card { transition: border-color .15s; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Hoja de retos · hora de Caracas</div>
+    <h1>Retos del día</h1>
+    <div class="sub" id="fecha"></div>
+    <div class="chips" id="chips"></div>
+  </header>
+
+  <section class="status" aria-label="Estado de los retos">
+    <div class="card pitch">
+      <div class="eyebrow">Reto ×1,20</div>
+      <div class="big mono" id="s12" style="font-family:var(--f-display)"></div>
+      <div style="margin-top:10px"><label for="m12">Monto a jugar (Bs)</label><input id="m12" type="number" min="0" step="0.01" inputmode="decimal"></div>
+    </div>
+    <div class="card">
+      <div class="eyebrow" id="l4">Plan ×4</div>
+      <div class="big" id="s4"></div>
+      <div style="margin-top:10px"><label for="m4">Monto a jugar (Bs)</label><input id="m4" type="number" min="0" step="0.01" inputmode="decimal"></div>
+      <p class="note" style="margin:10px 0 0" id="n4"></p>
+    </div>
+  </section>
+
+  <nav class="tabs" id="tabs" aria-label="Secciones"></nav>
+  <main id="main"></main>
+</div>
+
+<script>
+const D = /*DATOS*/null;
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const bs = (n) => { const [i, d] = Math.abs(Number.isFinite(n) ? n : 0).toFixed(2).split("."); return (n < 0 ? "−" : "") + i.replace(/\B(?=(\d{3})+(?!\d))/g, ".") + "," + d + " Bs"; };
+const TABS = [["x12", "Reto ×1,20"], ["x4", "Plan ×4"], ["revision", "Revisión de agentes"], ["como", "Cómo se armó"]];
+const state = { tab: "x12", solo: false, m12: D.x12.saldo, m4: D.x4.saldo };
+const hashTab = () => { const h = (location.hash || "").slice(1); return TABS.some((t) => t[0] === h) ? h : null; };
+
+function capturaTxt() {
+  const [a, b] = D.captura || [];
+  if (!a) return "";
+  const f = (u) => { const d = new Date(u); return d.toLocaleString("es-ES", { timeZone: "America/Caracas", day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit", hour12: false }); };
+  return `Cuotas capturadas ${f(a)} a ${f(b)} (Caracas)`;
+}
+
+function head() {
+  $("fecha").textContent = D.fecha + " · partidos del día en hora de Caracas";
+  $("chips").innerHTML = [`Fuente única: TheStatsAPI`, `${D.n_pool} patas en el pool`, capturaTxt(), "Probabilidad = mercado sin margen"].filter(Boolean).map((t) => `<span class="chip">${esc(t)}</span>`).join("");
+  $("s12").textContent = bs(D.x12.saldo);
+  $("l4").textContent = `Plan ×4 · ${D.dia_plan}`;
+  $("s4").textContent = bs(D.x4.saldo);
+  $("n4").textContent = "Monto del día: el premio del día anterior. Cuota con bono del 9 % sobre el premio.";
+  $("m12").value = state.m12; $("m4").value = state.m4;
+}
+
+function legHtml(p) {
+  const aud = p.aud ? `<span class="tag ${esc(p.aud)}">${esc(p.aud)}${p.sev ? " · " + esc(p.sev) : ""}</span>` : `<span class="tag none">sin revisión</span>`;
+  const dep = p.dep ? `<span>deportivo ${p.dep[0]}-${p.dep[1]} %</span>` : "";
+  return `<li class="leg"><span class="hr">${esc(p.hora)}</span>
+    <div><div class="sel">${esc(p.seleccion)}</div><div class="match">${esc(p.partido)}${p.competicion ? " · " + esc(p.competicion) : ""}</div></div>
+    <div class="odds">${p.cuota.toFixed(2)}</div>
+    <div class="meta">${aud}<span class="mono">P mercado ${p.p.toFixed(1)} %</span><span>${p.casas} casas</span>${dep}</div>
+    ${p.riesgo ? `<div class="meta"><span class="note">${esc(p.riesgo)}</span></div>` : ""}</li>`;
+}
+
+function ticketHtml(t, monto, bono) {
+  const total = t.cuota * bono, cobra = monto * total;
+  return `<article class="card ticket"><div class="t-side">
+    <div><div class="eyebrow">Probabilidad de ganar</div><div class="pwin">${t.p.toFixed(1)}<small>%</small></div><div class="note">de perder: ${(100 - t.p).toFixed(1)} %</div></div>
+    <dl class="pay"><dt>Cuota base</dt><dd>${t.cuota.toFixed(2)}</dd>${bono !== 1 ? `<dt>Con bono 9 %</dt><dd>${total.toFixed(2)}</dd>` : ""}
+      <dt>Si gana, cobras</dt><dd class="win">${bs(cobra)}</dd><dt>Ganancia</dt><dd class="win">+${bs(cobra - monto)}</dd><dt>Si pierde</dt><dd class="loss">${bs(-monto)}</dd></dl>
+  </div><ul class="legs">${t.patas.map(legHtml).join("")}</ul></article>`;
+}
+
+function ticketsView(clave) {
+  const R = D[clave], monto = clave === "x12" ? state.m12 : state.m4, bono = clave === "x4" ? R.bono : 1;
+  const todos = R.tickets.filter((t) => !state.solo || t.patas.every((p) => p.aud === "mantener"));
+  const grupos = [...new Set(todos.map((t) => t.grupo))];
+  const intro = clave === "x12"
+    ? "Dos o tres patas de cuota baja, de partidos distintos, ordenadas por probabilidad conjunta de ganar."
+    : "Entre 3 y 5 patas, cada una entre 1,20 y 2,10, producto de cuotas cerca de ×4. Se juega solo si el día 0 pagó; el monto es el premio del día anterior.";
+  let h = `<div class="row" style="justify-content:space-between;align-items:center"><p class="note" style="margin:0;max-width:62ch">${intro}</p>
+    <div class="seg" role="group" aria-label="Filtro de patas"><button type="button" data-solo="0" aria-pressed="${!state.solo}">Todos</button><button type="button" data-solo="1" aria-pressed="${state.solo}">Solo «mantener»</button></div></div>`;
+  if (!todos.length) h += `<div class="card empty">Ningún ticket tiene todas sus patas en «mantener» con este monto. Prueba con «Todos».</div>`;
+  for (const g of grupos) {
+    h += `<div class="group-h"><h2>${esc(g.split(",")[0])}</h2><span class="note">${esc(g.split(",").slice(1).join(",").trim())}</span></div>`;
+    h += todos.filter((t) => t.grupo === g).map((t) => ticketHtml(t, monto, bono)).join("");
+  }
+  h += `<div class="warn-box"><strong>Antes de jugar:</strong> ninguna pata es segura; todos estos tickets tienen valor esperado negativo contra el mercado. Confirma en tu casa que cada partido aparece y que paga cerca de estas cuotas (mediana de varias casas, no tu casa).</div>`;
+  return h;
+}
+
+function revisionView() {
+  const rows = D.revision.map((p) => `<tr><td class="n">${esc(p.hora)}</td><td>${esc(p.partido)}<div class="note">${esc(p.competicion)}</div></td><td>${esc(p.seleccion)}</td>
+    <td class="n">${p.cuota.toFixed(2)}</td><td class="n">${p.p.toFixed(1)}</td><td class="n">${p.casas}</td><td class="n">${p.dep ? p.dep[0] + "-" + p.dep[1] : ""}</td>
+    <td>${p.aud ? `<span class="tag ${esc(p.aud)}">${esc(p.aud)}</span><div class="note">${esc(p.sev)}</div>` : ""}</td><td>${esc(p.riesgo)}${p.ver ? `<div class="note">verificador: ${esc(p.ver)}</div>` : ""}</td></tr>`).join("");
+  return `<p class="note" style="max-width:70ch;margin:0">Cada pata finalista pasó por verificador (hora, estado, competición, precio), deportivo (referencia) y auditor (argumento en contra). El rango del deportivo es solo referencia.</p>
+    <div class="tablewrap"><table><thead><tr><th class="n">Hora</th><th>Partido</th><th>Selección</th><th class="n">Cuota</th><th class="n">P %</th><th class="n">Casas</th><th class="n">Dep. %</th><th>Auditor</th><th>Riesgo principal</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+}
+
+function comoView() {
+  return `<div class="card"><h3>Cómo se armaron los tickets</h3><ul class="plain">
+    <li>Fuente única de datos: TheStatsAPI. Probabilidad de cada pata = promedio de la probabilidad sin margen de 3 a 5 casas; cuota = mediana entre casas. No se usa el modelo propio.</li>
+    <li>De todos los partidos del día se arman las combinaciones con partidos distintos que dan el producto de cuotas buscado y se ordenan por probabilidad conjunta de ganar (se supone independencia).</li>
+    <li>Cada equipo se validó con su ficha como masculino. El listado de partidos no trae el género: 18 partidos femeninos con nombre de club masculino, como «Arsenal – Aston Villa», quedaron fuera.</li>
+    <li>Cada partido es el próximo programado de ambos equipos en la fuente. Los marcadores recientes se orientan por equipo en código para que ninguna lectura invierta una victoria de visita.</li>
+    <li>Tres agentes revisan solo las patas finalistas: verificador, deportivo y auditor. Las patas que el auditor descartó no entran en los tickets.</li>
+  </ul></div>
+  <div class="card"><h3>Límites</h3><ul class="plain">
+    <li>Todos los tickets tienen valor esperado negativo según el propio mercado, entre −5 % y −13 %. La probabilidad es un estimado, no una garantía.</li>
+    <li>24 patas tienen solo 3 casas; las líneas extremas (menos de 6,5 o 7,5 goles, más de 0,5) pueden estar mal estimadas.</li>
+    <li>No se verificaron bajas ni alineaciones con nombres: la fuente no los trae y las noticias del día no aparecieron.</li>
+    <li>No puedo ver el calendario ni las cuotas de tu casa. Las reglas de liquidación de tu casa mandan (por ejemplo, línea 1.25 con devolución a 1 gol, o pago anticipado con 2 goles de diferencia).</li>
+  </ul></div>`;
+}
+
+function render() {
+  $("tabs").innerHTML = TABS.map(([k, t]) => `<button type="button" data-tab="${k}" aria-pressed="${state.tab === k}">${esc(t)}</button>`).join("");
+  $("main").innerHTML = `<div style="display:flex;flex-direction:column;gap:14px">${state.tab === "revision" ? revisionView() : state.tab === "como" ? comoView() : ticketsView(state.tab)}</div>`;
+}
+
+document.addEventListener("click", (e) => {
+  const t = e.target.closest("[data-tab]"), s = e.target.closest("[data-solo]");
+  if (t) { state.tab = t.dataset.tab; try { history.replaceState(null, "", "#" + state.tab); } catch (_) {} render(); }
+  if (s) { state.solo = s.dataset.solo === "1"; render(); }
+});
+$("m12").addEventListener("input", (e) => { state.m12 = parseFloat(e.target.value) || 0; if (state.tab === "x12") render(); });
+$("m4").addEventListener("input", (e) => { state.m4 = parseFloat(e.target.value) || 0; if (state.tab === "x4") render(); });
+window.addEventListener("hashchange", () => { const h = hashTab(); if (h) { state.tab = h; render(); } });
+if (hashTab()) state.tab = hashTab();
+head(); render();
+</script>
