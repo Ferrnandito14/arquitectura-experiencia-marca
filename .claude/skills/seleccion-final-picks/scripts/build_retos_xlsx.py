@@ -111,7 +111,7 @@ def libro(nombre, dia, saldo, objetivo, grupos, patas_pool, rev, bono, out):
         "",
         "Cómo se armó: probabilidad de cada pata = promedio de la probabilidad SIN margen de 3 a 5 casas (TheStatsAPI); cuota = mediana entre casas. No se usa el modelo propio (no le gana al mercado) ni cuotas de tu casa: tu casa puede pagar distinto, compara antes de jugar.",
         "Los tickets se ordenan por probabilidad conjunta de ganar entre las combinaciones que dan el producto de cuotas buscado, con partidos distintos (se supone independencia).",
-        "Revisión: verificador (hora, estado, precio) y auditor (argumento en contra) sobre las patas finalistas. El análisis del deportivo NO se usa: el auditor halló marcadores invertidos en partidos de visita. 'Todas mantener' = el auditor no puso alertas; 'incluye patas degradadas' = al menos una pata con observación; las patas descartadas no se usan.",
+        "Revisión: verificador (hora, estado, precio) y auditor (argumento en contra) sobre las patas finalistas. El análisis del deportivo NO se usa: el auditor halló marcadores invertidos en partidos de visita. 'Calendario independiente' = el partido y su hora constan en football-data.co.uk o fixturedownload.com; los demás partidos solo constan en TheStatsAPI (un partido «Arsenal–Aston Villa» del 1-nov resultó no existir): confirma en tu casa que aparecen antes de jugar. 'Todas mantener' = el auditor no puso alertas; 'incluye patas degradadas' = al menos una pata con observación; las patas descartadas no se usan.",
         AVISO_COBERTURA + ".",
         "Una probabilidad no es una garantía: ninguna pata es segura. P perder = 100 − P ganar.",
         "Liquidación: las reglas de TU casa mandan (línea 1.25 con devolución a 1 gol, PA con 2 goles de diferencia, etc.). Las patas de este archivo son líneas .5 y doble oportunidad (90 minutos), sin devolución.",
@@ -139,7 +139,7 @@ def libro(nombre, dia, saldo, objetivo, grupos, patas_pool, rev, bono, out):
 def grupos(run, obj):
     """Tickets con patas todas «mantener» y, aparte, los que incluyen patas degradadas por el auditor (sin duplicados)."""
     salida, vistos = {}, set()
-    for suf, rotulo in (("_revisado", "todas mantener"), ("_conalertas", "incluye patas degradadas")):
+    for suf, rotulo in (("_calendario", "TODOS los partidos confirmados en calendario independiente"), ("_revisado", "todas mantener; algún partido sin calendario independiente"), ("_conalertas", "incluye patas degradadas; algún partido sin calendario independiente")):
         d = leer(os.path.join(run, "pool", f"tickets_{obj}{suf}.json"), {})
         for k, lista in d.items():
             nuevos = []
