@@ -16,6 +16,7 @@ from openpyxl.utils import get_column_letter
 
 MESES = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"]
 BONO = 1.09
+AVISO_COBERTURA = "NO CERTIFICADO COMO EXHAUSTIVO: pool de mercado (3-5 casas); no evalúa la cobertura del catálogo ni la preparación para apostar"
 NEG = Font(bold=True, color="FFFFFF")
 FONDO = PatternFill("solid", fgColor="1F4E78")
 
@@ -64,16 +65,16 @@ def etiqueta(rev):
 def fila_pata(p, rev):
     k = p["match_id"] + "|" + p["seleccion"]
     r = rev.get(k, {})
-    d = r.get("deportivo") or {}
     a = r.get("auditor") or {}
     v = r.get("verificador") or {}
-    rango = f"{d['p_min'] * 100:.0f}-{d['p_max'] * 100:.0f} %" if d.get("p_min") is not None else ""
-    return [p["hora_caracas"], p["partido"], p["seleccion"], p["cuota"], round(p["p"] * 100, 1), p["n_casas"], rango, d.get("solidez", ""),
-            v.get("hora_confirmada_caracas") or "", a.get("recomendacion", ""), etiqueta(r), (a.get("nota") or d.get("escenario_perdida") or v.get("nota") or "")]
+    fuentes = len(v.get("fuentes") or [])
+    return [p["hora_caracas"], p["partido"], p["seleccion"], p["cuota"], round(p["p"] * 100, 1), p["n_casas"],
+            v.get("hora_confirmada_caracas") or "", ("1 fuente" if fuentes < 2 and v else ("2+ fuentes" if v else "")),
+            (a.get("recomendacion", "") + (f" ({a['severidad']})" if a.get("severidad") else "")), etiqueta(r), (a.get("riesgo_principal") or a.get("nota") or v.get("nota") or "")]
 
 
-CAB_PATA = ["Hora Caracas", "Partido", "Selección", "Cuota (mediana de casas)", "P mercado sin margen %", "Casas", "P deportivo (rango)", "Solidez", "Hora confirmada", "Auditor", "Revisión", "Escenario de pérdida / nota"]
-ANCH_PATA = {1: 12, 2: 34, 3: 34, 4: 12, 5: 12, 6: 8, 7: 14, 8: 10, 9: 14, 10: 12, 11: 14, 12: 60}
+CAB_PATA = ["Hora Caracas", "Partido", "Selección", "Cuota (mediana de casas)", "P mercado sin margen %", "Casas", "Hora confirmada", "Fuentes de la hora", "Auditor", "Revisión", "Riesgo principal (auditor)"]
+ANCH_PATA = {1: 12, 2: 34, 3: 34, 4: 12, 5: 12, 6: 8, 7: 14, 8: 12, 9: 18, 10: 14, 11: 70}
 
 
 def tickets_filas(grupos, saldo, rev, bono):
@@ -110,7 +111,8 @@ def libro(nombre, dia, saldo, objetivo, grupos, patas_pool, rev, bono, out):
         "",
         "Cómo se armó: probabilidad de cada pata = promedio de la probabilidad SIN margen de 3 a 5 casas (TheStatsAPI); cuota = mediana entre casas. No se usa el modelo propio (no le gana al mercado) ni cuotas de tu casa: tu casa puede pagar distinto, compara antes de jugar.",
         "Los tickets se ordenan por probabilidad conjunta de ganar entre las combinaciones que dan el producto de cuotas buscado, con partidos distintos (se supone independencia).",
-        "Revisión: verificador (hora, estado, precio), deportivo (bajas, rotación, forma) y auditor (argumento en contra) sobre las patas finalistas. 'sin revisión' = pata no revisada; 'con alertas' = hay una observación a leer.",
+        "Revisión: verificador (hora, estado, precio) y auditor (argumento en contra) sobre las patas finalistas. El análisis del deportivo NO se usa: el auditor halló marcadores invertidos en partidos de visita. 'Todas mantener' = el auditor no puso alertas; 'incluye patas degradadas' = al menos una pata con observación; las patas descartadas no se usan.",
+        AVISO_COBERTURA + ".",
         "Una probabilidad no es una garantía: ninguna pata es segura. P perder = 100 − P ganar.",
         "Liquidación: las reglas de TU casa mandan (línea 1.25 con devolución a 1 gol, PA con 2 goles de diferencia, etc.). Las patas de este archivo son líneas .5 y doble oportunidad (90 minutos), sin devolución.",
     ]
@@ -134,6 +136,22 @@ def libro(nombre, dia, saldo, objetivo, grupos, patas_pool, rev, bono, out):
     wb.save(out)
 
 
+def grupos(run, obj):
+    """Tickets con patas todas «mantener» y, aparte, los que incluyen patas degradadas por el auditor (sin duplicados)."""
+    salida, vistos = {}, set()
+    for suf, rotulo in (("_revisado", "todas mantener"), ("_conalertas", "incluye patas degradadas")):
+        d = leer(os.path.join(run, "pool", f"tickets_{obj}{suf}.json"), {})
+        for k, lista in d.items():
+            nuevos = []
+            for t in lista:
+                clave = frozenset((p["match_id"], p["seleccion"]) for p in t["patas"])
+                if clave not in vistos:
+                    vistos.add(clave); nuevos.append(t)
+            if nuevos:
+                salida[f"{k}, {rotulo}"] = nuevos
+    return salida
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--run", required=True); ap.add_argument("--dia", required=True)
@@ -146,8 +164,8 @@ def main(argv=None):
     os.makedirs(a.out_dir, exist_ok=True)
     o12 = os.path.join(a.out_dir, f"reto-x12-{dd}-{mm}.xlsx")
     o4 = os.path.join(a.out_dir, f"plan-x4-dia1-{dd}-{mm}.xlsx")
-    libro("x12", a.dia, a.saldo_x12, "x12", leer(os.path.join(a.run, "pool", "tickets_x12.json")), patas, rev, False, o12)
-    libro("x4", a.dia, a.saldo_x4, "x4", leer(os.path.join(a.run, "pool", "tickets_x4.json")), patas, rev, True, o4)
+    libro("x12", a.dia, a.saldo_x12, "x12", grupos(a.run, "x12"), patas, rev, False, o12)
+    libro("x4", a.dia, a.saldo_x4, "x4", grupos(a.run, "x4"), patas, rev, True, o4)
     print(o12); print(o4)
     return 0
 

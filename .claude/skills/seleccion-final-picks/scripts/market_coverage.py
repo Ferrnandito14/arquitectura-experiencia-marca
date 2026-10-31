@@ -530,6 +530,7 @@ GENERATION_ROUTES = {
     "runs/2026-10-14/ligas/build_xlsx.py": {"produce": "ligas-14-oct[-PROVISIONAL].xlsx", "marker": "_certification()", "control": "nombre definitivo solo con certificación vigente del mismo conjunto"},
     ".claude/skills/seleccion-final-picks/scripts/catalog_rankings.py": {"produce": "ranking_catalogo.json/.md", "marker": "agent_review.build_units", "control": "construye el catálogo con la cobertura (build_units ejecuta run_coverage), exige precio y cuota ≤ 2.10 por pata, topes de riesgo/exposición y estado de agentes; cada combinada lleva su preparación para apostar"},
     ".claude/skills/seleccion-final-picks/scripts/build_xlsx_catalog.py": {"produce": "ligas-14-oct-v2[-PROVISIONAL].xlsx", "marker": "def workbook_name", "control": "nombre definitivo solo con investigación certificada, revisión COMPLETA del mismo conjunto y alcance de catálogo; nunca sobrescribe ligas-14-oct.xlsx"},
+    ".claude/skills/seleccion-final-picks/scripts/build_retos_xlsx.py": {"produce": "reto-x12-<día>.xlsx, plan-x4-dia1-<día>.xlsx", "marker": "NO CERTIFICADO COMO EXHAUSTIVO", "control": "declara que NO evalúa cobertura ni preparación (pool de mercado de varias casas, patas finalistas revisadas por agentes)"},
     ".claude/skills/seleccion-final-picks/scripts/custom_check.py": {"produce": "user_tickets_eval.json/.md", "marker": "NO CERTIFICADO COMO EXHAUSTIVO", "control": "declara que NO evalúa cobertura ni preparación"},
 }
 # Menciona palabras como «ranking»/«combinada» pero no genera candidatos ni libros: motivo explícito.

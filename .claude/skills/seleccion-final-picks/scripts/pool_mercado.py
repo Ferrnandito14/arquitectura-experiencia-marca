@@ -195,7 +195,11 @@ def cmd_pool(a):
     base = os.path.join(a.run, "thestatsapi")
     matches = json.load(open(os.path.join(base, "matches.json")))
     todas, bands, usados = [], {}, 0
+    ruta_ex = os.path.join(a.run, "pool", "excluidos.json")
+    excluidos = {x["match_id"] for x in json.load(open(ruta_ex))} if os.path.exists(ruta_ex) else set()
     for m in matches:
+        if m["id"] in excluidos:
+            continue
         ruta = os.path.join(base, "odds", m["id"] + ".json")
         if not os.path.exists(ruta) or m["status"] != "scheduled":
             continue
@@ -249,13 +253,30 @@ def buscar(patas, lo, hi, prod_lo, prod_hi, nmin, nmax, top):
     return salida
 
 
+def diversificar(lista, max_comun, top):
+    """Elige tickets en orden de probabilidad sin repetir más de `max_comun` patas entre dos tickets ya elegidos."""
+    elegidos = []
+    for t in lista:
+        claves = {(p["match_id"], p["seleccion"]) for p in t["patas"]}
+        if all(len(claves & {(p["match_id"], p["seleccion"]) for p in e["patas"]}) <= max_comun for e in elegidos):
+            elegidos.append(t)
+        if len(elegidos) == top:
+            break
+    return elegidos
+
+
 def cmd_tickets(a):
     patas = json.load(open(os.path.join(a.run, "pool", "patas.json")))["patas"]
+    if a.permitidas:
+        perm = set(json.load(open(a.permitidas)))
+        patas = [p for p in patas if p["match_id"] + "|" + p["seleccion"] in perm]
     if a.objetivo == "x12":
-        res = {"2 patas": buscar(patas, 1.04, 1.30, 1.18, 1.30, 2, 2, a.top), "3 patas": buscar(patas, 1.04, 1.30, 1.18, 1.30, 3, 3, a.top)}
+        res = {"2 patas": buscar(patas, 1.04, 1.30, 1.18, 1.30, 2, 2, 200), "3 patas": buscar(patas, 1.04, 1.30, 1.18, 1.30, 3, 3, 200)}
     else:
-        res = {f"{n} patas": buscar(patas, 1.20, 2.10, 3.9, 4.5, n, n, a.top) for n in (3, 4, 5)}
-    json.dump(res, open(os.path.join(a.run, "pool", f"tickets_{a.objetivo}.json"), "w"), ensure_ascii=False, indent=1)
+        res = {f"{n} patas": buscar(patas, 1.20, 2.10, 3.9, 4.5, n, n, 200) for n in (3, 4, 5)}
+    if a.max_comun is not None:
+        res = {k: diversificar(v, a.max_comun, a.top) for k, v in res.items()}
+    json.dump(res, open(os.path.join(a.run, "pool", f"tickets_{a.objetivo}{a.sufijo}.json"), "w"), ensure_ascii=False, indent=1)
     for k, v in res.items():
         print(k, len(v), (f"mejor P={v[0]['p_ganar']:.3f} cuota {v[0]['cuota_base']}" if v else ""))
 
@@ -265,7 +286,7 @@ def main(argv=None):
     sub = ap.add_subparsers(dest="cmd", required=True)
     f = sub.add_parser("fetch"); f.add_argument("--run", required=True); f.add_argument("--day", required=True); f.add_argument("--shard", help="k/N: reparte los partidos entre N procesos")
     p = sub.add_parser("pool"); p.add_argument("--run", required=True)
-    t = sub.add_parser("tickets"); t.add_argument("--run", required=True); t.add_argument("--objetivo", choices=("x12", "x4"), required=True); t.add_argument("--top", type=int, default=10)
+    t = sub.add_parser("tickets"); t.add_argument("--run", required=True); t.add_argument("--objetivo", choices=("x12", "x4"), required=True); t.add_argument("--top", type=int, default=10); t.add_argument("--permitidas", help="JSON con lista de claves match_id|seleccion permitidas"); t.add_argument("--max-comun", type=int, help="máximo de patas en común entre tickets elegidos"); t.add_argument("--sufijo", default="")
     a = ap.parse_args(argv)
     return {"fetch": cmd_fetch, "pool": cmd_pool, "tickets": cmd_tickets}[a.cmd](a) or 0
 
