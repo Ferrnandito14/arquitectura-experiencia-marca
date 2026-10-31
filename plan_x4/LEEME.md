@@ -25,3 +25,4 @@ Un ×4 gana ~22-25 % de las veces; ganar 6 seguidos (días 0-5) ≈ 0,01-0,02 %.
 - Rutina diaria: inventario y filtro (scripts) → sentido común de datos → pool de patas → agentes sobre finalistas → alineaciones ~1 h antes del primer partido → ticket → registro y monto del día siguiente.
 - Fuentes: TheStatsAPI (plan de 7 días renovado el 31-oct; aviso el jueves 5-nov), football-data para ligas grandes. apifootball recortada a 2 ligas.
 - Recordatorio del 5-nov programado (trig_01JaSsMJvQQukU5FiV9Mz5aa).
+- **Las cuotas de las patas NO tienen que ser parecidas** (decisión de Fernando): se pueden mezclar patas cercanas a 1,20 con otras de ~1,60 o más; la única condición es cada pata entre 1,20 y 2,10 y el producto ≈ ×4,00 (base). Criterio de selección: entre las combinaciones de 3 a 5 patas que den el producto objetivo, priorizar la mayor probabilidad conjunta de mercado sin margen, patas de partidos distintos y sin avisos de los chequeos/agentes.
