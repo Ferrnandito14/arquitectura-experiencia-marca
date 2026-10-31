@@ -53,7 +53,7 @@ def revision(agentes):
 def etiqueta(rev):
     v, d, a = rev.get("verificador"), rev.get("deportivo"), rev.get("auditor")
     alertas = []
-    if v and (not v.get("mercado_ok", True) or not v.get("precio_ok", True) or v.get("estado") not in (None, "programado")):
+    if v and (not v.get("mercado_ok", True) or not v.get("precio_ok", True) or not v.get("equipos_masculinos", True) or not v.get("proximo_partido_ok", True) or v.get("estado") not in (None, "programado")):
         alertas.append("verificador: " + (v.get("nota") or "problema"))
     if a and a.get("recomendacion") in ("degradar", "descartar"):
         alertas.append("auditor: " + a["recomendacion"])
@@ -67,14 +67,14 @@ def fila_pata(p, rev):
     r = rev.get(k, {})
     a = r.get("auditor") or {}
     v = r.get("verificador") or {}
-    fuentes = len(v.get("fuentes") or [])
-    return [p["hora_caracas"], p["partido"], p["seleccion"], p["cuota"], round(p["p"] * 100, 1), p["n_casas"],
-            v.get("hora_confirmada_caracas") or "", ("1 fuente" if fuentes < 2 and v else ("2+ fuentes" if v else "")),
+    d = r.get("deportivo") or {}
+    rango = f"{d['p_min'] * 100:.0f}-{d['p_max'] * 100:.0f} %" if d.get("p_min") is not None else ""
+    return [p["hora_caracas"], p["partido"], v.get("competicion", ""), p["seleccion"], p["cuota"], round(p["p"] * 100, 1), p["n_casas"], rango, d.get("solidez", ""),
             (a.get("recomendacion", "") + (f" ({a['severidad']})" if a.get("severidad") else "")), etiqueta(r), (a.get("riesgo_principal") or a.get("nota") or v.get("nota") or "")]
 
 
-CAB_PATA = ["Hora Caracas", "Partido", "Selección", "Cuota (mediana de casas)", "P mercado sin margen %", "Casas", "Hora confirmada", "Fuentes de la hora", "Auditor", "Revisión", "Riesgo principal (auditor)"]
-ANCH_PATA = {1: 12, 2: 34, 3: 34, 4: 12, 5: 12, 6: 8, 7: 14, 8: 12, 9: 18, 10: 14, 11: 70}
+CAB_PATA = ["Hora Caracas", "Partido", "Competición", "Selección", "Cuota (mediana de casas)", "P mercado sin margen %", "Casas", "P deportivo (rango, referencia)", "Solidez deportivo", "Auditor", "Revisión", "Riesgo principal (auditor)"]
+ANCH_PATA = {1: 12, 2: 34, 3: 26, 4: 34, 5: 12, 6: 12, 7: 8, 8: 16, 9: 12, 10: 18, 11: 14, 12: 70}
 
 
 def tickets_filas(grupos, saldo, rev, bono):
@@ -139,7 +139,7 @@ def libro(nombre, dia, saldo, objetivo, grupos, patas_pool, rev, bono, out):
 def grupos(run, obj):
     """Tickets con patas todas «mantener» y, aparte, los que incluyen patas degradadas por el auditor (sin duplicados)."""
     salida, vistos = {}, set()
-    for suf, rotulo in (("_calendario", "TODOS los partidos confirmados en calendario independiente"), ("_revisado", "todas mantener; algún partido sin calendario independiente"), ("_conalertas", "incluye patas degradadas; algún partido sin calendario independiente")):
+    for suf, rotulo in (("_revisado", "todas las patas «mantener» del auditor"), ("_conalertas", "incluye patas degradadas por el auditor (severidad no alta)")):
         d = leer(os.path.join(run, "pool", f"tickets_{obj}{suf}.json"), {})
         for k, lista in d.items():
             nuevos = []

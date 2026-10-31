@@ -3,325 +3,505 @@
   {
    "key": "mt_155788346|Kawasaki Frontale o empate",
    "recomendacion": "mantener",
-   "severidad": "baja",
-   "riesgo_principal": "Yokohama empata mucho (6 empates en 10, 1 derrota) y el DC solo lo pierde una victoria local (3/10, dos vs rivales flojos); Pinnacle da p=0.683 (EV -3%). 3 casas, una es exchange bruto.",
+   "severidad": "media",
+   "riesgo_principal": "Yokohama sin perder 8/8 (5 empates) pero 3 victorias en 8; forma de Kawasaki (6G) incluye 2 partidos de Copa vs rivales amateur/universitarios (comp_5155). p·c=0.962 (el mas bajo).",
    "objeciones_a_agentes": [
-    "Deportivo: 'Kawasaki encajo 2-4' es en realidad victoria 4-2 en Cerezo; 'Yokohama 1 victoria en 8' ignora 2-0 Mito y 2-0 Kashiwa.",
-    "Verificador: hora confirmada con football-data; OK."
+    "Deportivo cita 'Kawasaki sin perder 7/8' sin separar Copa; verificador no revisa noticias.",
+    "Noticias/onces no consultadas por el deportivo; mi WebSearch no halló previas del 1-nov-2026 (sin bajas confirmadas)."
    ],
-   "nota": "Mercado y forma coherentes (Pinnacle .683 vs pool .677). Riesgo = victoria local. Exchange 1.44 es bruto de comision."
+   "nota": "Cuota 1.42 con 3 casas (1.364-1.44). Su p_max 0.76 apenas supera break-even 0.704. Riesgo: victoria local 1-0/2-1. Sin edge claro."
   },
   {
    "key": "mt_514358983|Menos de 2.5 goles",
    "recomendacion": "degradar",
    "severidad": "media",
-   "riesgo_principal": "Moneda al aire: Ulsan 7/10 con 3+ goles totales en sus ultimos 10 (liga), Gangwon 2/10; sin ventaja. Hora de una sola fuente (TheStatsAPI) y ronda 34 con posible split/motivacion distinta.",
+   "riesgo_principal": "Muestras contradictorias: Ulsan +2.5 en 6/8, Gangwon 1/8; el mercado 48% es moneda al aire y p·c=0.960. Ultima jornada del split K League 1 (md34): motivacion no verificada.",
    "objeciones_a_agentes": [
-    "Verificador: horario solo TheStatsAPI.",
-    "Deportivo: Ulsan '6/8 con 3+' contradice su propio factor a favor; solidez MEDIA sin base cuantitativa."
+    "Deportivo da rango 0.42-0.56 centrado en break-even (0.50): no aporta ventaja.",
+    "Gangwon juega ACL2 el 5-nov (rotacion posible), no consultado."
    ],
-   "nota": "p mercado .48 a 2.00 (EV -4%). Ulsan 7/10 over 2.5 vs Gangwon 2/10: mezcla sin senal. Hora no contrastada."
+   "nota": "Sin edge: rango del deportivo contiene el break-even. Usar solo como relleno bajo si hay noticias de onces; no apilar."
+  },
+  {
+   "key": "mt_514358983|Ulsan HD o Gangwon FC (sin empate)",
+   "recomendacion": "degradar",
+   "severidad": "media",
+   "riesgo_principal": "El empate: Gangwon empata 4/8 y marca 0.75; mercado draw ~27%. Break-even 0.752 > punto medio del deportivo 0.69.",
+   "objeciones_a_agentes": [
+    "Deportivo p_max 0.76 apenas = break-even 0.752.",
+    "Ronda final K League 1 (md34) sin motivacion revisada."
+   ],
+   "nota": "12 a 1.33 exige ~75% sin empate; Gangwon es equipo de empates (4/8). 3 casas."
   },
   {
    "key": "mt_200811938|Más de 2.5 goles",
    "recomendacion": "degradar",
-   "severidad": "baja",
-   "riesgo_principal": "Machida jugo en Shanghai el jue 29-oct (ACL2) y Gamba el 28-oct: 3 dias de descanso/rotacion; sobre 10 partidos Machida 4/10 y Gamba 6/10 over 2.5 (mezcla copa/liga). Precio 1.90 ~ coin flip.",
+   "severidad": "media",
+   "riesgo_principal": "Machida concede 0.62 y BTTS 2/8; mercado 50.9%, p·c=0.967. Machida viaja a ACLE el 5-nov; Gamba a Pohang el 4-nov (rotacion no revisada).",
    "objeciones_a_agentes": [
-    "Deportivo cita bien la fatiga pero la solidez MEDIA no refleja que no hay ventaja.",
-    "Cuotas 5 casas coherentes (1.80-1.94)."
+    "Deportivo ya marca BAJA pero sigue en pool; sin noticias."
    ],
-   "nota": "p .509 a 1.90, EV -3%. Fatiga ACL2 de ambos y viaje de Machida a China; sin edge frente al mercado."
+   "nota": "Señales mixtas (Machida +2.5 4/8, Gamba 5/8). Precio justo, sin ventaja identificable."
+  },
+  {
+   "key": "mt_023901520|FC Anyang o Bucheon FC 1995 (sin empate)",
+   "recomendacion": "degradar",
+   "severidad": "media",
+   "riesgo_principal": "Anyang empata 4/8 (1.0 gf) y es md34 del split; un 1-1 liquida. Break-even 0.752 > mid-point deportivo 0.73.",
+   "objeciones_a_agentes": [
+    "Rival Bucheon 0-2-6 puede estar luchando descenso (motivacion no consultada)."
+   ],
+   "nota": "Bucheon flojo (gc 2.38) apoya, pero el riesgo es el empate. 3 casas (1.25-1.35)."
   },
   {
    "key": "mt_988316190|Más de 0.5 goles",
    "recomendacion": "mantener",
    "severidad": "baja",
-   "riesgo_principal": "Hora (10:15 CET) solo de TheStatsAPI; la web (FotMob via buscador) confirma 1-nov Zizkov local vs Dukla pero no la hora. Precio 1.04 en 3 casas, EV -3%: pagan 4% por ~7% de riesgo de 0-0.",
+   "riesgo_principal": "0-0 (≈6-8% en liga checa FNL); margen en cola no proporcional: p=0.931 (3 casas, 1.02-1.05) y break-even 0.962 > p_max deportivo 0.96. Retorno ~4% por riesgo de 0-0.",
    "objeciones_a_agentes": [
-    "Sin informe de verificador/deportivo: verificado por mi: partido real FNL (2a division checa) senior, no juvenil; 0 empates 0-0 en 22 partidos recientes de ambos (n=22, TheStatsAPI).",
-    "Pinnacle/BetMGM no ofrecen la linea 0.5; solo 3 casas."
+    "Deportivo 'ALTA' sin cuantificar 0-0; ningun 0-0 en 16 partidos dossier es muestra pequeña.",
+    "Alertas del verificador 'pais Czechia vs Czech Republic' son ruido."
    ],
-   "nota": "Partido real (FNL R13). 0/22 partidos 0-0 de ambos; p .931 coherente. Falta confirmar hora con segunda fuente."
+   "nota": "Riesgo bajo, pero pago 1.04 casi nulo; util solo si el ticket lo necesita. 0-0 rompe todo el ticket."
   },
   {
    "key": "mt_890293693|Sukhothai o Ayutthaya United (sin empate)",
    "recomendacion": "degradar",
    "severidad": "media",
-   "riesgo_principal": "Pinnacle 1X2 (2.48/2.96/2.99) da p(sin empate)=.686 -> EV -7.4% a 1.35; Bet365 .729. El precio mediano 1.35 esta en el tope (Paddy 1.25). Draw ~33% en Pinnacle. Hora de una sola fuente.",
+   "riesgo_principal": "Dossier: 1 empate en 16 es artefacto; mercado da draw 27-31% (Pinnacle 31%). Break-even 0.741; defensas abiertas en ambos (gc 1.75 y 1.88).",
    "objeciones_a_agentes": [
-    "Deportivo: '6-0 Ratchaburi' fue derrota 0-6 de Sukhothai en Ratchaburi; 'Ayutthaya 1-4 en su ultimo' fue victoria 4-1. Forma local mal leida.",
-    "Verificador: hora solo TheStatsAPI."
+    "Deportivo admite 'tasa base mayor' pero mantiene MEDIA.",
+    "Liga tailandesa (md7) con pocos datos."
    ],
-   "nota": "Discrepancia de precio entre casas (-7% vs Pinnacle) y datos de forma invertidos. Liga con muchos empates; hora no contrastada."
+   "nota": "El mercado ve ~28% empate; la muestra 1/16 no es predictiva. 3 casas."
   },
   {
    "key": "mt_988970213|Hannover 96 o SG Dynamo Dresden (sin empate)",
-   "recomendacion": "mantener",
-   "severidad": "baja",
-   "riesgo_principal": "Draw ~25% (Pinnacle p_sel .744, EV -3%). Hannover 1V en 6 de liga y Dresden perdio 0-3 en Kiel el 25-oct. Ambos jugaron Pokal el 27/28-oct (rotacion).",
+   "recomendacion": "descartar",
+   "severidad": "alta",
+   "riesgo_principal": "Break-even 0.769 > p_max deportivo 0.74; Hannover gf 0.88, ambos 2-2-4; 4/16 empates (25%). Dresden con lesion de cruzado.",
    "objeciones_a_agentes": [
-    "Deportivo: 'Dresden 3 V seguidas' es falso (0-3 en Kiel 25-oct, luego 2-0 a Schalke en copa).",
-    "Precios: Paddy 1.222, BetMGM 1.30, Betfair 1.32 (bruto)."
+    "Deportivo marca BAJA pero lo deja pasar; no cita nombres de bajas."
    ],
-   "nota": "Riesgo = empate (2 de 8 cada uno en liga). Pinnacle y pool coinciden. Forma de Dresden mal descrita por el deportivo."
+   "nota": "Segunda Bundesliga equilibrada, el propio deportivo lo ve por debajo del precio. Aparece en x4 4p#4 y 5p#1."
+  },
+  {
+   "key": "mt_022591484|Cercle Brugge o Royal Antwerp FC (sin empate)",
+   "recomendacion": "degradar",
+   "severidad": "media",
+   "riesgo_principal": "Cercle 0-0-3 en casa, Antwerp 1-0-3 fuera: 12 es apuesta a resultado abierto; empates 2/16 (no 1/16 como dice el deportivo). Sanciones en ambos.",
+   "objeciones_a_agentes": [
+    "Deportivo: 'empates 1/16' incorrecto: Cercle 1 + Antwerp 1 = 2/16.",
+    "Sanciones 'FA conducta'/'roja' no verificadas en dossier."
+   ],
+   "nota": "Dos defensas colapsadas; empate 1-1/2-2 liquida. p_max 0.78 casi = break-even 0.769."
   },
   {
    "key": "mt_643814396|Trabzonspor o empate",
    "recomendacion": "mantener",
-   "severidad": "baja",
-   "riesgo_principal": "Gaziantep perdio 3 de 5 de liga; Trabzon concede (4-3 en Rizespor, ganado) y viene de Conference (jue 22-oct). Pinnacle p=.896 (EV -1.5%). Solo 3 casas.",
+   "severidad": "media",
+   "riesgo_principal": "8 lesionados (nombres desconocidos) y Freiburg el 5-nov (rotacion). Pago 1.10 (3 casas) deja ~9% margen de error: break-even 0.909.",
    "objeciones_a_agentes": [
-    "Deportivo: 'Gaziantep 0-4' fue victoria 4-0 en copa en Etimesgut; 'Trabzon encajo 4' fue victoria 4-3 a domicilio.",
-    "Pool: p coherente."
+    "Deportivo admite no haber identificado a los lesionados; riesgo no cuantificado.",
+    "Gf 3.0 de Trabzonspor inflado por rivales de Europa/liga baja."
    ],
-   "nota": "Coherente con Pinnacle (.896). Rotacion europea es el riesgo; no hay datos de bajas (webs de noticias sin cobertura)."
+   "nota": "Mercado ve ~87% (draw 15%, derrota ~12%). Fuerte, pero sin noticias de bajas titulares no es 'seguro'."
   },
   {
    "key": "mt_378507825|Başakşehir FK o Samsunspor (sin empate)",
-   "recomendacion": "degradar",
+   "recomendacion": "mantener",
    "severidad": "media",
-   "riesgo_principal": "Basaksehir tiene 3V-2E-4D en sus ultimos 9; Samsunspor 1V en 9. El 'no empate' se apoya en la debilidad de Samsun, no en fuerza local; Pinnacle p .764 (EV -2%).",
+   "riesgo_principal": "Empate (~24%) y Basaksehir 2-2-4 con gf 1.25; Samsun peor (1-0-7). 6 de 12 tickets x4 dependen de esta pata (concentracion).",
    "objeciones_a_agentes": [
-    "Deportivo: 'Basaksehir 5V en 7 (2-0 Besiktas, 5-0)' es falso: perdio 0-2 en Besiktas y 0-5 en Amed.",
-    "Verificador: hora OK (football-data)."
+    "Deportivo califica 'cuota sorprende' pero lo mantiene sin motivo.",
+    "Lesiones/sancion de Samsun sin nombres."
    ],
-   "nota": "Evidencia del deportivo falsa; el mercado (.76) la sostiene pero Basaksehir viene de 0-2 y 0-5 a domicilio. Empate ~24%."
+   "nota": "Samsun perdio 7/8 pero Basak no es solido. Mantener como pata individual; limitar apariciones en tickets."
+  },
+  {
+   "key": "mt_981929788|AC Oulu o KuPS (sin empate)",
+   "recomendacion": "degradar",
+   "severidad": "alta",
+   "riesgo_principal": "Break-even 0.769 > p_max deportivo 0.76; Oulu local 0-1-3; KuPS 2-2-4 con Gent el 5-nov. Dossier sin matchday: fase de campeonato/descenso no verificada.",
+   "objeciones_a_agentes": [
+    "Deportivo BAJA y 'sin matchday' pero lo mantiene.",
+    "Mezcla de competicion europea (KuPS) en la muestra."
+   ],
+   "nota": "Forma desigual de ambos; empate ~25%. Verificar si la jornada es de grupo de campeonato (motivacion)."
   },
   {
    "key": "mt_022532582|Red Bull Salzburg o empate",
    "recomendacion": "mantener",
-   "severidad": "baja",
-   "riesgo_principal": "Riesgo de concentracion: esta pata esta en 5 de los 6 tickets x12 revisados; una derrota (p~8%, Pinnacle .929) los tumba todos. Forma real buena (3-1 LASK, 3-0 Sturm, 3-0 Altach), Lustenau 1-5 Rapid.",
+   "severidad": "media",
+   "riesgo_principal": "Pago 1.06: break-even 0.943 > p_max deportivo 0.94; 4 lesiones y Anderlecht el 5-nov; derrota local 0-4 reciente. Aparece en 6 de 8 tickets x12.",
    "objeciones_a_agentes": [
-    "Deportivo: 'Salzburg 1V en 6 / 2-3, 1-3 LASK' son victorias a domicilio 3-2 y 3-1; 'Lustenau gano 5-1 en Rapid' fue derrota 1-5. Conclusion de 'crisis' invalida.",
-    "Salzburg juega Europa (jue 22-oct): rotacion posible."
+    "Deportivo 'ALTA' contradice su propio rango 0.86-0.94 (< break-even).",
+    "Concentracion: una derrota tumba 6 de 8 tickets x12."
    ],
-   "nota": "Datos reales favorecen a Salzburg (contrario al deportivo). Riesgo principal: sobreexposicion en tickets, no la pata."
+   "nota": "Cuota minima de 3 casas (1.025-1.06). Riesgo de cola real; ver concentracion en tickets."
   },
   {
    "key": "mt_209807820|SK Brann o Molde FK (sin empate)",
-   "recomendacion": "mantener",
-   "severidad": "baja",
-   "riesgo_principal": "Brann 0 empates en 10 y Molde 1 en 10; Pinnacle draw 4.23 (~22%), p_sel .772 (EV -2%). Brann irregular en liga (3D en 4) y Molde 5-1/6-1 recientes; motivacion ronda 25/30 no comprobada.",
+   "recomendacion": "degradar",
+   "severidad": "media",
+   "riesgo_principal": "Break-even 0.787 > p_max 0.78; aparece en 8 de 12 tickets x4. Brann 3 y Molde 4 lesiones sin nombres; Molde gf 3.75 inflado por 5 partidos en casa/Copa.",
    "objeciones_a_agentes": [
-    "Deportivo: 'Brann 7V-0 solo ligas' no cuadra con los datos (Brann tiene 1V en sus ultimos 5 de liga).",
-    "Cuotas 3 casas coherentes."
+    "Deportivo ignora que Brann juega en Europa el 5-nov.",
+    "Molde 'gf 3.75' mezcla Copa (comp_7348)."
    ],
-   "nota": "Pata mas solida de las 'sin empate': pocos empates y precio alineado con Pinnacle y Bet365."
+   "nota": "Pata mas repetida del pool x4: concentracion alta. Mercado ve 12 a ~77%."
   },
   {
    "key": "mt_511496584|Lazio o empate",
    "recomendacion": "mantener",
    "severidad": "baja",
-   "riesgo_principal": "Lazio ganó 6-2 en Sassuolo, 3-0 en Juventus, 2-1 Parma, 3-1 Monza (8 sin perder en liga, 1 empate); Cagliari perdio 0-4, 2-4, 0-2. Pinnacle .869. Riesgo: rotacion; no hay noticias de bajas.",
+   "riesgo_principal": "Lazio 7-1-0 con 2 lesiones (nombres no verificados); Napoli la semana siguiente. Break-even 0.893 dentro del rango 0.82-0.92.",
    "objeciones_a_agentes": [
-    "Deportivo: 'Lazio 0-3 Juventus, 2-6 Sassuolo' esta invertido (Lazio ganó 3-0 y 6-2); 'Cagliari ganaba 4-2 Roma, 4-0 Monza' tambien (perdio 2-4 y 0-4). Conclusion de mala racha FALSA."
+    "Deportivo no identifica las lesiones; gf 2.62 incluye 6-2."
    ],
-   "nota": "Datos reales mejores que el informe: mantener. El deportivo leyo los marcadores al reves."
+   "nota": "Pata mas respaldada por dossier y mercado (66% victoria). Riesgo residual de derrota local ~13%."
   },
   {
    "key": "mt_150999565|Juve Stabia o empate",
    "recomendacion": "mantener",
    "severidad": "media",
-   "riesgo_principal": "Empoli local 1V en 5 (perdio 0-2 Vicenza, 2-4 Palermo, 0-1 Arezzo); Stabia 3 partidos sin perder. Pinnacle: Stabia favorita visitante (2.59 vs 3.08), p_sel .688. Serie B jugada entre semana 27/28-oct.",
+   "riesgo_principal": "Empoli 1-1-6 con 2 sanciones, Stabia 3-3-2; Serie B igualada. p·c=0.962, break-even 0.704 dentro del rango.",
    "objeciones_a_agentes": [
-    "Deportivo: 'Empoli 2-1 Cesena' fue derrota 1-2 en Cesena; no verificó liga (Serie B) ni descanso.",
-    "3 casas; Paddy 1.364 < mediana 1.42."
+    "Deportivo no consulta alineaciones de Empoli."
    ],
-   "nota": "Mercado y forma alineados; riesgo = victoria local de Empoli (~32%). Precio mediano 1.42 no es el que da Paddy (1.364)."
+   "nota": "Pago 1.42 (3 casas) justifica el riesgo; Empoli local 0-0-3."
   },
   {
    "key": "mt_022015102|Más de 2.5 goles",
-   "recomendacion": "mantener",
+   "recomendacion": "degradar",
    "severidad": "media",
-   "riesgo_principal": "Union y Koln 7/10 over 2.5 cada uno, pero muchos de esos partidos vs grandes (Bayern 7-0, Leverkusen). Union 0-0 y 1-0 en dos de sus ultimos 4 de liga; Koln 0-0 Schalke. Ambos jugaron Pokal 27-oct (Koln 5-0 Union).",
+   "riesgo_principal": "Union gf 0.75 pero concede 2.88; 3 lesiones/sancion + Köln 4 lesiones sin nombres. Aparece en 4 tickets x4. Break-even 0.579 ≈ p_max 0.60.",
    "objeciones_a_agentes": [
-    "Deportivo: 'Union 5-0 a Koln' es al reves: Koln gano 5-0 a Union (Pokal). Union viene de goleada en contra, con efecto sobre intensidad/rotacion.",
-    "Pata en los 3 primeros tickets x4 de 3 patas: concentracion."
+    "Deportivo BAJA + lectura contradictoria; sin noticias."
    ],
-   "nota": "p .56 a 1.73 (EV -3.4%, 5 casas: buen precio). Riesgo: partido cerrado tras Pokal; concentracion en tickets."
+   "nota": "Over soportado por goles recibidos de Union (0-7, 0-5 fuera), pero en casa 2/4 over. Precio justo; limitar concentracion."
   },
   {
    "key": "mt_899827505|Menos de 7.5 goles",
+   "recomendacion": "degradar",
+   "severidad": "media",
+   "riesgo_principal": "Cola: con linea 3.5 al 1.50 la media de goles es ~4 (Poisson P(>=8)≈4-6%). Racing 2-7 y Madrid 4-3 en muestra. Deportivo 0.97-0.995 es sobreconfiado frente al mercado 0.91.",
+   "objeciones_a_agentes": [
+    "Deportivo: 'mercado 0.91 bajo, mi rango mas alto' sin calculo; Over 7.5 se paga 10 en Bet365/PaddyPower (≈10%).",
+    "Verificar linea exacta: solo 3 casas (1.02-1.07)."
+   ],
+   "nota": "Break-even 0.941; mi estimacion 0.93-0.95: ventaja ≈0. Pago 1.063 no compensa un partido a 8+ goles."
+  },
+  {
+   "key": "mt_899827505|Real Madrid o empate",
+   "recomendacion": "mantener",
+   "severidad": "media",
+   "riesgo_principal": "Racing local 2-1-0 pero concede 2.62; Madrid con 2 lesiones + 1 suspension y AEK el 4-nov (rotacion). Break-even 0.935 > p_max 0.92. Fuente agregadora no fiable da hora 20:00 (la API 15:15 UTC).",
+   "objeciones_a_agentes": [
+    "Deportivo 'ALTA' vs su rango 0.82-0.92 por debajo del break-even.",
+    "Discrepancia horaria de comuniate.com no confirmada."
+   ],
+   "nota": "Mercado ve Madrid 78% victoria. Cuota 1.07 (3 casas): poco margen para un empate/derrota."
+  },
+  {
+   "key": "mt_511561975|Más de 2.5 goles",
+   "recomendacion": "mantener",
+   "severidad": "media",
+   "riesgo_principal": "Gijon 3 lesiones; 1-0/1-1 Under. Break-even 0.541 con rango 0.48-0.62.",
+   "objeciones_a_agentes": [
+    "Deportivo MEDIA correcto; Ceuta BTTS 8/8 es dato fuerte pero n=8."
+   ],
+   "nota": "Over mejor respaldado del lote (Ceuta +2.5 6/8, BTTS 8/8). p·c=0.960."
+  },
+  {
+   "key": "mt_899774806|Universitatea Craiova o empate",
    "recomendacion": "mantener",
    "severidad": "baja",
-   "riesgo_principal": "Hora confirmada (16:15 CET en realmadrid.com). El 'p=.912' del pool infravalora: en linea extrema el margen no es proporcional; riesgo real de 8+ goles ~1-2% (maximo reciente: Barcelona 7-2 Racing, 9 goles; Madrid 4-3 Roma).",
+   "riesgo_principal": "Craiova 7-1-0 pero en gran parte contra rivales debiles/Europa; Egnatia el 5-nov. Break-even 0.909 ≈ mid 0.90.",
    "objeciones_a_agentes": [
-    "Deportivo: 'nunca han superado 7 totales' contradice su propio ejemplo (7-2 = 9); argumento confuso.",
-    "Solo 3 casas (Pinnacle/BetMGM no ofrecen 7.5); Bet365 1.063, Paddy 1.02."
+    "Deportivo 'ALTA' sin ajustar por rival."
    ],
-   "nota": "Fecha/hora/ligas confirmadas por web. Riesgo bajo pero pago minimo (1.06); p del pool sesgado a la baja."
+   "nota": "Mercado ve ~70% victoria + 18% empate. Defensa 0.25 gc exagerada por calidad rival."
   },
   {
    "key": "mt_467002042|Unión Deportiva Ourense o empate",
-   "recomendacion": "descartar",
+   "recomendacion": "degradar",
    "severidad": "alta",
-   "riesgo_principal": "Ourense marco 4 goles en 10 partidos y no gana desde 10-oct (1-0 Barakaldo; en casa 1V-1E-2D). Deportivo lo describe como '6 sin perder' leyendo al reves 0-3 Aviles y 0-2 Arenas. Hora de una sola fuente.",
+   "riesgo_principal": "DC del local debil (gf 0.5, pierde 4/8): es apuesta al 50% (break-even 0.524; mercado 50.5%). Visitante favorito al 50%.",
    "objeciones_a_agentes": [
-    "Deportivo: 'Ourense 3-0 Aviles, 2-0 Arenas' son derrotas 0-3 y 0-2; 'Leonesa 3 derrotas en 8' cuestionable. Admite no verificar liga.",
-    "Homonimia posible (UD Ourense vs Ourense CF): no resuelta; la web solo da 'Fecha por confirmar' para otro cruce.",
-    "Cuota 1.91 ~ coin flip con 3 casas."
+    "Deportivo BAJA pero lo mantiene; muestra en casa n=3."
    ],
-   "nota": "Evidencia falsa + ataque inexistente + hora/identidad sin segunda fuente. Descartar."
+   "nota": "Sin edge: p·c=0.965 y rango contiene break-even. Aparece en x4 3p#3."
   },
   {
    "key": "mt_022942930|FK Partizan o empate",
    "recomendacion": "degradar",
    "severidad": "media",
-   "riesgo_principal": "Partizan perdio 5 de sus ultimos 10 (0-2 Cukaricki en casa, 0-1 Pancevo, 2-3 Vojvodina, 1-2 Zvezda, 1-3 Mladost) vs mercado que asigna ~8% de derrota (1.05). Hora de una sola fuente.",
+   "riesgo_principal": "Partizan perdio 4/8 y 2-0-2 en casa; break-even 0.952 > p_max 0.93. Cuota 1.05 asimetrica.",
    "objeciones_a_agentes": [
-    "Deportivo: '2-3 en Radnicki' fue victoria 3-2; 'Zemun gano 3-0 en Cukaricki' fue derrota 0-3. Aun asi el deportivo ve contradiccion y recomienda mercado.",
-    "Verificador: hora solo TheStatsAPI."
+    "Deportivo MEDIA; tasa de derrota 50% de Partizan no se refleja en cuota."
    ],
-   "nota": "Zemun 1V en 10, pero Partizan pierde mucho. Pago 5% por ~8-15% de riesgo; hora no contrastada."
+   "nota": "Mercado ve 79% victoria; empate 13%. Un tropiezo local rompe 2 tickets x12."
   },
   {
    "key": "mt_644528326|Olympique Lyonnais o empate",
    "recomendacion": "mantener",
-   "severidad": "baja",
-   "riesgo_principal": "Lyon perdio 3 de sus ultimos 5 (0-2 PSG, 0-3 Hoffenheim EL, 1-2 Lens, todos fuera); en casa 4V-1E. Angers 1V en 8. Pinnacle .871. Europa League jueves siguiente: rotacion posible.",
+   "severidad": "media",
+   "riesgo_principal": "Lyon 5 lesiones y Real Sociedad el 5-nov; visita 1-1-3 pero local 3-0-0. Break-even 0.893 dentro de 0.80-0.90.",
    "objeciones_a_agentes": [
-    "Deportivo (solidez ALTA): 'Lyon 8 de 8 sin perder' es FALSO. 'Angers 5-1 Brest' y '5 con Marsella' fueron derrotas de Angers (1-5 y 2-5).",
-    "Web: sin alineaciones ni bajas publicadas."
+    "Deportivo no identifica bajas; forma general mixta (4-1-3)."
    ],
-   "nota": "Pata sostenida por mercado y localia, no por la racha que cita el deportivo. Riesgo medio-bajo."
+   "nota": "Mercado 67% victoria + 19% empate. Local solido pero con rotacion posible."
+  },
+  {
+   "key": "mt_988973796|Menos de 6.5 goles",
+   "recomendacion": "degradar",
+   "severidad": "media",
+   "riesgo_principal": "Cola: 6.5 se paga 11-16 (Over) vs 1.05 Under; Poisson con mean ~3.5 da P(>=7)≈5-6%. Frankfurt 6/8 partidos con 4+ goles, 0-6 y 3-3 en muestra. Deportivo 0.97-0.995 sobreconfiado.",
+   "objeciones_a_agentes": [
+    "Deportivo 'mercado 0.92 bajo' sin calculo; break-even 0.952 ≈ mi estimacion 0.94-0.95.",
+    "Solo 3 casas."
+   ],
+   "nota": "Pago 1.05 por riesgo de cola; ventaja ≈0. No tratar como seguro."
   },
   {
    "key": "mt_988973796|Menos de 3.5 goles",
    "recomendacion": "degradar",
-   "severidad": "media",
-   "riesgo_principal": "Frankfurt 6/8 y HSV 4/8 con 4+ goles en liga; el cruce de Pokal 27-oct acabo 1-3 (4 goles). Under 3.5 a 1.80 es ~53% con 6-0, 0-6 recientes. Sin ventaja (EV -3.6%).",
+   "severidad": "alta",
+   "riesgo_principal": "Dossier contradice: Frankfurt 6/8 partidos con 4+ goles, HSV 4/8; 10/16 combinados. Deportivo cita solo 'HSV marca poco'.",
    "objeciones_a_agentes": [
-    "Deportivo: '6-0 Leipzig' y '5-0 Leipzig' son derrotas 0-6 y 0-5 (equipos defensivamente abiertos); 'Frankfurt 1-3 en Hamburgo' es victoria visitante. Su argumento a favor del under no se sostiene.",
-    "5 casas, precio consistente (1.73-1.82)."
+    "Deportivo omite que Frankfurt supera 3.5 en 6/8 (dossier).",
+    "HSV 5 lesiones sin nombres."
    ],
-   "nota": "Alta varianza goleadora en ambos y revancha reciente; la pata under 3.5 es coin flip con datos mal leidos."
+   "nota": "Mercado 53.5% pero muestra contraria; p_max deportivo 0.66 irreal. Evitar en tickets x4 3p#2 y #4."
   },
   {
    "key": "mt_981689993|PAOK o empate",
    "recomendacion": "mantener",
-   "severidad": "baja",
-   "riesgo_principal": "PAOK perdio 1-2 en OFI y 1-3 en casa con Kalamata, pero Asteras Aktor lleva 0V en 5 de liga (0-0, 1-5, 2-1 ult. W, 2-2, 1-1). Pinnacle .908. 3 casas, Paddy 1.04 vs mediana 1.08.",
+   "severidad": "media",
+   "riesgo_principal": "PAOK 4 lesiones, perdio 3/8 (1-2, 1-3 x2). Break-even 0.926 ≈ p_max 0.93.",
    "objeciones_a_agentes": [
-    "Deportivo: 'Asteras 5-1 a Panathinaikos' fue derrota 1-5; 'Panetolikos 1-3' fue victoria PAOK a domicilio.",
-    "Verificador: hora OK (football-data)."
+    "Deportivo ignora que PAOK juega con rotacion europea en la muestra (comp_4781)."
    ],
-   "nota": "Equipo identificado correctamente (Asteras Aktor = ex Asteras Tripolis). Pago minimo 1.08; riesgo = sorpresa local."
+   "nota": "Asteras empata 4/8 favorece DC. Pago 1.08 (3 casas). Aparece en 3 tickets x12."
+  },
+  {
+   "key": "mt_988908363|Más de 2.5 goles",
+   "recomendacion": "degradar",
+   "severidad": "media",
+   "riesgo_principal": "Castellon gc 0.38 y BTTS 2/8; Burgos 5/8 over; 3 lesiones en Burgos y 2+1 en Castellon. Break-even 0.541; deportivo 0.44-0.58 centrado en 0.51.",
+   "objeciones_a_agentes": [
+    "Deportivo BAJA; over depende de Burgos."
+   ],
+   "nota": "Sin edge: p·c=0.959 (el mas bajo del lote de Over)."
+  },
+  {
+   "key": "mt_988908363|CD Castellón o empate",
+   "recomendacion": "mantener",
+   "severidad": "media",
+   "riesgo_principal": "Burgos local 3-0-1 y gf 1.88; Castellon con suspension por roja. Break-even 0.752 ≈ p_max 0.76.",
+   "objeciones_a_agentes": [
+    "Deportivo: 'rival en forma, no se valoraron once'; sin noticias."
+   ],
+   "nota": "Castellon sin perder 7/8 y gc 0.38; pero mercado ve empate+victoria ~74%."
   },
   {
    "key": "mt_517314354|Vålerenga IF o Tromsø IL (sin empate)",
-   "recomendacion": "mantener",
-   "severidad": "baja",
-   "riesgo_principal": "Empates: Valerenga 2/10, Tromso 3/10; Pinnacle p_sel .747 (EV -2.9%). Ambos con defensas abiertas (3-4 Molde, 3-5 Rosenborg). Fin de temporada: motivacion no comprobada.",
+   "recomendacion": "degradar",
+   "severidad": "media",
+   "riesgo_principal": "Dato local n=2 casi inutil; ambos ataques abiertos (empate 25%). Break-even 0.769 > p_max 0.76. En 4 tickets x4.",
    "objeciones_a_agentes": [
-    "Deportivo: 'Tromso gana 3 seguidos' falso (1-3 Viking, 1-1, 1-1 en liga); Valerenga solo 2V en 5 de liga (no 3).",
-    "3 casas, Paddy 1.222 < mediana 1.30."
+    "Deportivo BAJA; sancion de Vålerenga por amarillas no nombrada."
    ],
-   "nota": "Pata coherente con Pinnacle y Bet365. Riesgo = empate (~25%); sin datos de bajas."
+   "nota": "Eliteserien md25: motivacion de fin de temporada no revisada."
   },
   {
    "key": "mt_155165561|Sporting Braga o empate",
    "recomendacion": "degradar",
    "severidad": "alta",
-   "riesgo_principal": "Braga perdio 3 de sus ultimos 4 (0-1 Nacional, 1-2 Gil Vicente, 1-3 Sporting; 0-3 Copenhague EL) y 0V en 4 de liga; Famalicao ganó 4-0 a Rio Ave y 4-0 a Nacional fuera. Deportivo (ALTA) lo ve al reves.",
+   "riesgo_principal": "Braga 2-1-5, gf 0.75; mercado 81% parece optimista segun forma. Nov 5 AGF en Europa. Aparece en 4 tickets x4.",
    "objeciones_a_agentes": [
-    "Deportivo: 'Braga venciendo a Kobenhavn 3-0 y Nacional 1-0' son derrotas; 'Famalicao encaja 4 (0-4, 1-4, 0-4)' son victorias 4-0 fuera. Solidez ALTA sin base.",
-    "Pata en 6 de 9 tickets x4 revisados (concentracion)."
+    "Deportivo BAJA con 'mercado optimista' pero lo deja pasar; sin noticias de bajas (mi busqueda sin resultado)."
    ],
-   "nota": "Mercado .81 (Pinnacle .819) la sostiene, pero la 'solidez ALTA' del deportivo es falsa; forma real de Braga mala. Reducir peso en tickets."
+   "nota": "Famalicao 2-3-3 tampoco es solido, por eso el mercado lo cree; muestra de 8 es debil. Sin edge."
+  },
+  {
+   "key": "mt_512116795|Newell's Old Boys o Club Atlético Unión de Santa Fe (sin empate)",
+   "recomendacion": "descartar",
+   "severidad": "alta",
+   "riesgo_principal": "Break-even 0.741 > p_max deportivo 0.70. Newell's empata 5/8 (0-0 x3) y +2.5 solo 1/8; mercado draw 28%, p_nodraw=0.713.",
+   "objeciones_a_agentes": [
+    "Deportivo: 'mercado 0.71 parece alto' y lo mantiene en pool."
+   ],
+   "nota": "Argentina baja en goles; Newell's 2-5-1. Pago 1.35 requiere 74%: la propia estimacion no lo alcanza."
+  },
+  {
+   "key": "mt_370837214|New England Revolution o Inter Miami CF (sin empate)",
+   "recomendacion": "degradar",
+   "severidad": "alta",
+   "riesgo_principal": "Break-even 0.794 > p_max 0.78. Playoff: descartado, Decision Day es 7-nov-2026 (MLS oficial) y ambos juegan 7-nov, asi que es regular season (90' sin prorroga). Miami empata 3/8, 2 lesiones sin nombres (Messi?).",
+   "objeciones_a_agentes": [
+    "Deportivo: 'playoff posible, no verificado' resuelto por MLS; NE +2.5 7/8 pero gc 1.75 y 2P.",
+    "Dossier matchday None."
+   ],
+   "nota": "12 a 1.26 (3 casas) exige 79%; mercado 77%. Verificar once de Miami (Messi) antes del partido."
   }
  ],
  "tickets": [
   {
-   "grupo": "x12 2 patas",
+   "archivo": "x12",
+   "grupo": "2 patas",
    "opcion": 1,
-   "riesgo_conjunto": "PAOK+Trabzonspor: dos favoritos con DC en solo 3 casas (cuotas 1.08/1.10), p=.7985 y EV -5.1%; Trabzon viene de Conference, PAOK perdio 1-3 con Kalamata. Riesgo: sorpresa en cualquiera; hora unica verificada.",
-   "recomendacion": "mantener"
+   "riesgo_conjunto": "PAOK (perdio 3/8, 4 lesiones)+Trabzon (8 lesiones): 2 patas con bajas sin nombres; p 0.80, EV -5.1% según el propio pool.",
+   "recomendacion": "degradar"
   },
   {
-   "grupo": "x12 2 patas",
+   "archivo": "x12",
+   "grupo": "2 patas",
    "opcion": 2,
-   "riesgo_conjunto": "Salzburg+Lyon: p .7985, EV -5.2%. Lyon perdio 3 de sus ultimos 5 (fuera); Salzburg es la pata mas repetida del pool (concentracion).",
+   "riesgo_conjunto": "Salzburg (0-4 en casa reciente, Anderlecht 5-nov)+Lyon (5 lesiones, Real Sociedad 5-nov): ambos con rotacion europea; p 0.80, EV -5.2%.",
    "recomendacion": "mantener"
   },
   {
-   "grupo": "x12 2 patas",
+   "archivo": "x12",
+   "grupo": "2 patas",
    "opcion": 3,
-   "riesgo_conjunto": "Salzburg+Lazio: p .798, EV -5.3%. Lazio en gran forma (datos reales) contra el informe del deportivo; riesgo comun = rotacion/jornada europea y concentracion en Salzburg.",
+   "riesgo_conjunto": "Salzburg+Lazio: pata mas solida (Lazio) con Salzburg de cuota 1.06; p 0.798, EV -5.3%. Salzburg en 6/8 tickets x12.",
    "recomendacion": "mantener"
   },
   {
-   "grupo": "x12 3 patas",
+   "archivo": "x12",
+   "grupo": "2 patas",
+   "opcion": 4,
+   "riesgo_conjunto": "PAOK+Craiova (rivales debiles en muestra; Egnatia 5-nov); p 0.798, EV -5.2%; PAOK repetido en 3 tickets.",
+   "recomendacion": "mantener"
+  },
+  {
+   "archivo": "x12",
+   "grupo": "3 patas",
    "opcion": 1,
-   "riesgo_conjunto": "Partizan+Salzburg+Racing U7.5: Partizan (5 derrotas en 10, hora de una sola fuente) es el eslabon debil; U7.5 p subestimada. p .773, EV -8.6%.",
+   "riesgo_conjunto": "Partizan (perdio 4/8)+Salzburg+Madrid U7.5 (cola sobreconfiada): suma de 3 patas con pago bajo; EV -8.6%.",
    "recomendacion": "degradar"
   },
   {
-   "grupo": "x12 3 patas",
+   "archivo": "x12",
+   "grupo": "3 patas",
    "opcion": 2,
-   "riesgo_conjunto": "Zizkov O0.5+Salzburg+PAOK: tres precios minimos (1.04/1.06/1.08) en 3 casas; Zizkov sin segunda fuente de hora. p .772, EV -8.1%; Salzburg concentra riesgo.",
-   "recomendacion": "mantener"
+   "riesgo_conjunto": "Zizkov O0.5 (0-0 riesgo)+Salzburg+PAOK: tres patas de 3 casas, p 0.772, EV -8.1%; Salzburg y PAOK repetidos.",
+   "recomendacion": "degradar"
   },
   {
-   "grupo": "x12 3 patas",
+   "archivo": "x12",
+   "grupo": "3 patas",
    "opcion": 3,
-   "riesgo_conjunto": "Frankfurt-HSV U6.5 (pata fuera de las 21 finalistas, sin informes de verificador/deportivo)+Salzburg+Racing U7.5: dos lineas extremas con p infravalorada; la de 6.5 solo 3 casas y 1.05. EV -8.7% segun pool.",
-   "recomendacion": "degradar"
-  },
-  {
-   "grupo": "x4 3 patas",
-   "opcion": 1,
-   "riesgo_conjunto": "Braga+Union O2.5+Machida O2.5: Braga (alta) en mala forma, dos overs ~coin flip y fatiga ACL2 de Machida. p .231, EV -8.9%.",
-   "recomendacion": "degradar"
-  },
-  {
-   "grupo": "x4 3 patas",
-   "opcion": 2,
-   "riesgo_conjunto": "Brann/Molde+Union O2.5+Frankfurt U3.5: dos patas coin flip con datos mal leidos (Union/Frankfurt Pokal 27-oct); sin ventaja. p .231, EV -8.9%.",
-   "recomendacion": "degradar"
-  },
-  {
-   "grupo": "x4 3 patas",
-   "opcion": 3,
-   "riesgo_conjunto": "Braga+Union+Ourense: contiene Ourense (evidencia invertida, 4 goles en 10 partidos) y Braga con falsa solidez ALTA. p .230.",
+   "riesgo_conjunto": "Frankfurt U6.5+Salzburg+Madrid U7.5: dos colas de goles (cola sobreconfiada por deportivo) + Salzburg; EV -8.7%.",
    "recomendacion": "descartar"
   },
   {
-   "grupo": "x4 4 patas",
+   "archivo": "x12",
+   "grupo": "3 patas",
+   "opcion": 4,
+   "riesgo_conjunto": "Partizan+Salzburg+Madrid DC: misma dependencia de Salzburg y Partizan (perdio 4/8); Madrid con AEK el 4-nov; EV -8.1%.",
+   "recomendacion": "degradar"
+  },
+  {
+   "archivo": "x4",
+   "grupo": "3 patas",
    "opcion": 1,
-   "riesgo_conjunto": "Braga+Brann/Molde+Sukhothai+Machida O2.5: Sukhothai con p -7% vs Pinnacle, Braga y Machida degradados. p .229, EV -10.4%.",
-   "recomendacion": "degradar"
-  },
-  {
-   "grupo": "x4 4 patas",
-   "opcion": 2,
-   "riesgo_conjunto": "Braga+Brann+Basaksehir+Ulsan U2.5: Basaksehir (datos falsos) y Ulsan U2.5 (7/10 over) debilitan el ticket. p .229, EV -10.8%.",
-   "recomendacion": "degradar"
-  },
-  {
-   "grupo": "x4 4 patas",
-   "opcion": 3,
-   "riesgo_conjunto": "Incluye Cittadella-Treviso BTTS si (Serie C), pata fuera de las 21 finalistas sin verificador/deportivo; BTTS ~4.5/10 combinado vs cuota 2.0. EV -10.8%.",
+   "riesgo_conjunto": "Braga DC (alta objecion)+Union O2.5+Machida O2.5: 2 Over BAJA de ~50% + Braga; EV -8.9%. Union en 4 tickets x4.",
    "recomendacion": "descartar"
   },
   {
-   "grupo": "x4 5 patas",
-   "opcion": 1,
-   "riesgo_conjunto": "Cinco patas de 'no empate/DC' (Brann, Basaksehir, Valerenga, Hannover, Empoli), todas en 3 casas, cada una con ~22-30% de riesgo de fallo; p .2235 y EV -12.8% (el peor del conjunto).",
-   "recomendacion": "degradar"
-  },
-  {
-   "grupo": "x4 5 patas",
+   "archivo": "x4",
+   "grupo": "3 patas",
    "opcion": 2,
-   "riesgo_conjunto": "Igual que #1 sustituyendo Empoli por Kawasaki (00:00 Caracas, la primera pata); mismos cuatro 'sin empate' con Basaksehir dudoso. EV -12.8%.",
+   "riesgo_conjunto": "Brann 12+Union O2.5+Frankfurt U3.5: U3.5 contradice dossier (Frankfurt 4+ goles 6/8); EV -8.8%.",
+   "recomendacion": "descartar"
+  },
+  {
+   "archivo": "x4",
+   "grupo": "3 patas",
+   "opcion": 3,
+   "riesgo_conjunto": "Braga+Union O2.5+Ourense DC: 3 patas de ~50%-80% sin edge; Ourense y Braga con objecion alta; EV -9.1%.",
+   "recomendacion": "descartar"
+  },
+  {
+   "archivo": "x4",
+   "grupo": "3 patas",
+   "opcion": 4,
+   "riesgo_conjunto": "NE 12 (alta)+Union O2.5+Frankfurt U3.5 (alta): dos patas con objecion alta; EV -10.0%.",
+   "recomendacion": "descartar"
+  },
+  {
+   "archivo": "x4",
+   "grupo": "4 patas",
+   "opcion": 1,
+   "riesgo_conjunto": "Braga+Brann+Sukhothai+Machida O2.5: tres patas de empate (12/DC) y Over BAJA; Braga alta; EV -10.4%.",
+   "recomendacion": "descartar"
+  },
+  {
+   "archivo": "x4",
+   "grupo": "4 patas",
+   "opcion": 2,
+   "riesgo_conjunto": "Braga+Brann+Başakşehir+Ulsan U2.5: Braga (alta), Ulsan U2.5 coin-flip; Brann y Basak repetidos; EV -10.8%.",
    "recomendacion": "degradar"
   },
   {
-   "grupo": "x4 5 patas",
+   "archivo": "x4",
+   "grupo": "4 patas",
    "opcion": 3,
-   "riesgo_conjunto": "Incluye Cercle Brugge-Antwerp (fuera de las 21 finalistas, sin informes; ambos con 7/10 derrotas) y 4 patas DC; sin verificacion de la pata nueva.",
+   "riesgo_conjunto": "Brann+Başakşehir+Vålerenga+Ceuta O2.5: tres 12 con empate ~25% cada uno; Ceuta bien respaldada; EV -10.7%.",
+   "recomendacion": "degradar"
+  },
+  {
+   "archivo": "x4",
+   "grupo": "4 patas",
+   "opcion": 4,
+   "riesgo_conjunto": "Brann+Başakşehir+Hannover (descartar)+Burgos O2.5: Hannover rompe el ticket; EV -10.9%.",
+   "recomendacion": "descartar"
+  },
+  {
+   "archivo": "x4",
+   "grupo": "5 patas",
+   "opcion": 1,
+   "riesgo_conjunto": "Brann+Başakşehir+Vålerenga+Hannover (descartar)+Juve Stabia: 4 patas que dependen de empate no ocurrir; p 0.22, EV -12.8%.",
+   "recomendacion": "descartar"
+  },
+  {
+   "archivo": "x4",
+   "grupo": "5 patas",
+   "opcion": 2,
+   "riesgo_conjunto": "Brann+Vålerenga+Cercle+Sukhothai+Newell's (descartar): 5 patas '12' sin empate; empate multiplicado en cada pata; EV -13.0%.",
+   "recomendacion": "descartar"
+  },
+  {
+   "archivo": "x4",
+   "grupo": "5 patas",
+   "opcion": 3,
+   "riesgo_conjunto": "Başakşehir+Vålerenga+Anyang+Castellón+Ulsan 12: 4 de 5 patas '12' con empates 4/8 (Anyang, Gangwon); EV -13.0%.",
+   "recomendacion": "degradar"
+  },
+  {
+   "archivo": "x4",
+   "grupo": "5 patas",
+   "opcion": 4,
+   "riesgo_conjunto": "Brann+Başakşehir+Cercle+Oulu (alta)+Kawasaki: 4 patas '12' + Oulu con break-even sobre p_max; EV -13.4%.",
    "recomendacion": "descartar"
   }
- ]
+ ],
+ "meta": {
+  "fecha": "2026-10-31",
+  "verificado": [
+   "p*cuota en 0.959-0.979 en las 33 patas (rango 0.9-1.02 OK); precios DC/Over mapeados contra odds crudas",
+   "deportivo: cifras de dossier correctas salvo 'empates 1/16' (Cercle-Antwerp 2/16) y '2/16 Oulu-KuPS' (3/16)",
+   "en 29 de 33 patas el punto medio del rango del deportivo queda por debajo del break-even 1/cuota; solo supera las colas de goles (Under 6.5/7.5, U3.5) y Ceuta O2.5",
+   "NE-Inter Miami: Decision Day MLS 2026 = 7-nov; el 1-nov es temporada regular",
+   "todos los 20 tickets tienen EV negativo segun el propio pool (-5% a -13%)"
+  ],
+  "limitaciones": [
+   "WebSearch no devolvio previas/onces/bajas para el 1-nov-2026; ninguna baja nombrada verificada",
+   "sin odds historicas: no se verifico movimiento de cuotas",
+   "dossier de lesiones sin nombres de jugadores"
+  ]
+ }
 }
