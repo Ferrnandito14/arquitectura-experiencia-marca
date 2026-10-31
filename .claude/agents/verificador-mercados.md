@@ -1,6 +1,7 @@
 ---
 name: verificador-mercados
 description: Verifica partidos, horarios, estado, mercados, estadísticas publicadas, cuotas actuales y reglas de liquidación contra múltiples fuentes, y ejecuta el protocolo multifuente con registro de fuentes. Úsalo para confirmar candidatos de picks de fútbol y descubrir/contrastar el calendario.
+model: haiku
 tools: Read, Grep, Glob, Bash, WebFetch, WebSearch, SendMessage
 skills:
   - protocolo-multifuente

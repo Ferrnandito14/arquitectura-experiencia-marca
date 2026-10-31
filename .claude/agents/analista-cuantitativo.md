@@ -1,6 +1,7 @@
 ---
 name: analista-cuantitativo
 description: Evalúa estadísticas específicas del mercado, probabilidad estimada (solo si es defendible), cuota, probabilidad implícita con y sin margen y EV teórico; distingue probable de rentable. Úsalo para valorar precio vs probabilidad y comparar picks/combinadas.
+model: haiku
 tools: Read, Grep, Glob, Bash, WebFetch, WebSearch, SendMessage
 skills:
   - evaluacion-probabilidad-valor

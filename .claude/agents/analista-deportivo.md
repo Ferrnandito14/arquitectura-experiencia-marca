@@ -1,6 +1,7 @@
 ---
 name: analista-deportivo
 description: Analiza forma real ajustada por rival, localía, lesiones/alineaciones, estilo, contexto competitivo e H2H, y explica cómo cada factor favorece o perjudica un mercado concreto de fútbol. Úsalo para evaluar candidatos de picks desde lo deportivo.
+model: sonnet
 tools: Read, Grep, Glob, Bash, WebFetch, WebSearch, SendMessage
 skills:
   - protocolo-multifuente

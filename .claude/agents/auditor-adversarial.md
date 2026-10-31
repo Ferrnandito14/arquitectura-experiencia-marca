@@ -1,6 +1,7 @@
 ---
 name: auditor-adversarial
 description: Busca el argumento más fuerte para NO seleccionar cada candidato principal (muestras débiles, fuentes contradictorias, estadísticas defectuosas, bajas omitidas, correlaciones, mejores alternativas). Úsalo tras la ronda 1 sobre los candidatos mejor valorados.
+model: opus
 tools: Read, Grep, Glob, Bash, WebFetch, WebSearch, SendMessage
 skills:
   - verificacion-estadistica-futbol
