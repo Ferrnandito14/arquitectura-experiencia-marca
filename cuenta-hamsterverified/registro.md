@@ -50,3 +50,10 @@
 | 2026-10-31 19:00 | d8-mito-murcielagos | reel | Mito verificado: murciélagos ciegos (FALSO) | media/2026-10-31/d8-mito-murcielagos.mp4 |
 | 2026-10-31 20:00 | d8-foto-agradecer | foto | Esencia de agradecer en 5 palabras | media/2026-10-31/d8-foto-agradecer-1.jpg |
 | 2026-10-31 21:00 | d8-esencia-rutinas | reel | Esencia de las rutinas | media/2026-10-31/d8-esencia-rutinas.mp4 |
+| 2026-11-01 09:00 | d9-futbol-saque-meta | reel | Fútbol en esencia: el saque de meta | media/2026-11-01/d9-futbol-saque-meta.mp4 |
+| 2026-11-01 12:00 | d9-mito-pelo | reel | Mito verificado: pelo y uñas crecen tras la muerte (FALSO) | media/2026-11-01/d9-mito-pelo.mp4 |
+| 2026-11-01 14:00 | d9-responde-retomar | reel | El hámster responde: retomar un hábito | media/2026-11-01/d9-responde-retomar.mp4 |
+| 2026-11-01 16:00 | d9-foto-paciencia | foto | Esencia de la paciencia | media/2026-11-01/d9-foto-paciencia-1.jpg |
+| 2026-11-01 19:00 | d9-mito-toros | reel | Mito verificado: toros y el color rojo (FALSO) | media/2026-11-01/d9-mito-toros.mp4 |
+| 2026-11-01 20:00 | d9-foto-disculpar | foto | Esencia de disculparse en 5 palabras | media/2026-11-01/d9-foto-disculpar-1.jpg |
+| 2026-11-01 21:00 | d9-esencia-metas | reel | Esencia de las metas | media/2026-11-01/d9-esencia-metas.mp4 |
