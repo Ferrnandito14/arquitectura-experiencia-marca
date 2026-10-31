@@ -7,8 +7,8 @@ Si de aquí sale algo útil para el ×1,20, se le dice a Fernando y se decide ju
 ## Reglas del plan
 - Un ticket ×4 por día; se reinvierte todo el premio. Bono 9 % sobre la ganancia (cuota con bono = base × 1,09 aprox.).
 - Casa exige: mínimo 2 patas y cuota ≥ 1,20 por pata. Nuestra regla: cada pata ≤ 2,10.
-- Día 0: 183,58 Bs el 1-nov (cuota base ~4,16-4,17) → premio esperado ~834 Bs. Día 1 el mismo 1-nov con ese premio.
-- Días 2-5: 2 (lun), 3 (mar), 4 (mié), 5-nov (jue). Hoja de referencia: Google Sheets compartida por Fernando
+- Día 0: sáb 31-oct, 183,58 Bs, cuota 4,16, 5 patas (ticket completo) → premio 834,35 Bs si gana. Día 1 = dom 1-nov con ese premio (confirmado por Fernando).
+- Días 2-5: lun 2, mar 3, mié 4, jue 5-nov. Hoja de referencia: Google Sheets compartida por Fernando
   (Día 0 a Día 5; premio final día 5 = 1.314.560,92 Bs si se gana todo).
 - Horas siempre en Caracas.
 
