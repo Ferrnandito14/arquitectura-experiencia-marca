@@ -57,6 +57,17 @@ nav.tabs button[aria-pressed=true] { color: var(--ink); border-bottom-color: var
 .leg .match { color: var(--muted); font-size: 13.5px; overflow-wrap: anywhere; }
 .leg .odds { font-family: var(--f-mono); font-size: 17px; font-weight: 500; text-align: right; }
 .leg .meta { grid-column: 2 / 4; display: flex; flex-wrap: wrap; gap: 6px 8px; align-items: center; font-size: 12.5px; color: var(--muted); }
+.whywrap { grid-column: 1 / 4; }
+details.why { border: 1px solid var(--line); border-radius: 5px; background: var(--surface-2); padding: 0 12px; }
+details.why summary { cursor: pointer; padding: 8px 0; font-size: 13.5px; font-weight: 600; }
+details.why[open] summary { border-bottom: 1px solid var(--line); margin-bottom: 8px; }
+ul.facts { list-style: none; margin: 0 0 8px; padding: 0; display: flex; flex-direction: column; gap: 5px; }
+ul.facts li { display: grid; grid-template-columns: 22px 1fr; gap: 6px; font-size: 13.5px; }
+ul.facts .mk { font-family: var(--f-mono); font-weight: 600; text-align: center; border-radius: 3px; }
+ul.facts .mas .mk { background: var(--good-bg); color: var(--good); }
+ul.facts .menos .mk { background: var(--bad-bg); color: var(--bad); }
+ul.facts .neu .mk { background: var(--none-bg); color: var(--muted); }
+p.reg { margin: 4px 0; font-size: 13.5px; }
 .tag { padding: 1px 8px; border-radius: 3px; font-size: 12px; font-weight: 600; }
 .tag.mantener { background: var(--good-bg); color: var(--good); }
 .tag.degradar { background: var(--warn-bg); color: var(--warn); }
@@ -132,6 +143,18 @@ function head() {
   $("m12").value = state.m12; $("m4").value = state.m4;
 }
 
+function whyHtml(j) {
+  if (!j) return "";
+  const m = { "+": "mas", "−": "menos", "·": "neu" };
+  const reg = j.registro && j.registro.n
+    ? `<p class="reg"><strong>En nuestro registro:</strong> ${j.registro.n} patas ${j.registro.familia_amplia ? "de la misma familia" : "del mismo tipo"} con cuota ${j.registro.banda[0]}–${j.registro.banda[1]} (${j.registro.dias} días): acertaron <strong>${j.registro.acierto} %</strong>; la cuota implicaba ${j.registro.implicita} %.${j.registro.n < 30 ? " Muestra pequeña." : ""}</p>`
+    : `<p class="reg"><strong>En nuestro registro:</strong> sin patas comparables de ese tipo y cuota.</p>`;
+  const h2 = j.h2h && j.h2h.n ? `<p class="note">Enfrentamientos directos: ${j.h2h.partidos.map(esc).join(" · ")}</p>` : `<p class="note">Sin enfrentamientos directos en los últimos 100 partidos del local.</p>`;
+  return `<details class="why"><summary>Por qué esta pata · ${esc(j.lectura)}</summary>
+    <ul class="facts">${j.lineas.map((l) => `<li class="${m[l.m]}"><span class="mk">${esc(l.m)}</span><span>${esc(l.t)}</span></li>`).join("")}</ul>${reg}${h2}
+    <p class="note">Marcas: + a favor, − en contra, · neutro, según umbrales fijos (sin perder ≥75 %, empates ≤15 %, goles sobre la línea ≥55 %). Es una lectura de datos, no una probabilidad.</p></details>`;
+}
+
 function legHtml(p) {
   const aud = p.aud ? `<span class="tag ${esc(p.aud)}">${esc(p.aud)}${p.sev ? " · " + esc(p.sev) : ""}</span>` : `<span class="tag none">sin revisión</span>`;
   const dep = p.dep ? `<span>deportivo ${p.dep[0]}-${p.dep[1]} %</span>` : "";
@@ -139,7 +162,8 @@ function legHtml(p) {
     <div><div class="sel">${esc(p.seleccion)}</div><div class="match">${esc(p.partido)}${p.competicion ? " · " + esc(p.competicion) : ""}</div></div>
     <div class="odds">${p.cuota.toFixed(2)}</div>
     <div class="meta">${aud}<span class="mono">P mercado ${p.p.toFixed(1)} %</span><span>${p.casas} casas</span>${dep}</div>
-    ${p.riesgo ? `<div class="meta"><span class="note">${esc(p.riesgo)}</span></div>` : ""}</li>`;
+    ${p.riesgo ? `<div class="meta"><span class="note">${esc(p.riesgo)}</span></div>` : ""}
+    ${p.just ? `<div class="whywrap">${whyHtml(p.just)}</div>` : ""}</li>`;
 }
 
 function ticketHtml(t, monto, bono) {

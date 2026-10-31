@@ -17,7 +17,7 @@ DIAS = ["lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "doming
 MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
 
 
-def pata_json(p, rev):
+def pata_json(p, rev, just=None):
     k = p["match_id"] + "|" + p["seleccion"]
     r = rev.get(k, {})
     a, v, d = r.get("auditor") or {}, r.get("verificador") or {}, r.get("deportivo") or {}
@@ -25,14 +25,14 @@ def pata_json(p, rev):
             "cuota": p["cuota"], "p": round(p["p"] * 100, 1), "casas": p["n_casas"],
             "aud": a.get("recomendacion", ""), "sev": a.get("severidad", ""), "riesgo": a.get("riesgo_principal") or a.get("nota") or "",
             "dep": ([round(d["p_min"] * 100), round(d["p_max"] * 100)] if d.get("p_min") is not None else None), "sol": d.get("solidez", ""),
-            "ver": "; ".join(v.get("alertas") or [])}
+            "ver": "; ".join(v.get("alertas") or []), "just": (just or {}).get(k)}
 
 
-def tickets_json(grupos, rev):
+def tickets_json(grupos, rev, just=None):
     out = []
     for etiqueta, lista in grupos.items():
         for i, t in enumerate(lista[:3], 1):
-            out.append({"grupo": etiqueta, "opcion": i, "n": len(t["patas"]), "p": round(t["p_ganar"] * 100, 1), "cuota": t["cuota_base"], "patas": [pata_json(p, rev) for p in t["patas"]]})
+            out.append({"grupo": etiqueta, "opcion": i, "n": len(t["patas"]), "p": round(t["p_ganar"] * 100, 1), "cuota": t["cuota_base"], "patas": [pata_json(p, rev, just) for p in t["patas"]]})
     return out
 
 
@@ -56,17 +56,18 @@ def main(argv=None):
     from datetime import date
     d = date.fromisoformat(a.dia)
     rev = bx.revision(os.path.join(a.run, "agentes"))
+    just = bx.leer(os.path.join(a.run, "pool", "justificaciones.json"), {})
     patas = bx.leer(os.path.join(a.run, "pool", "patas.json"))["patas"]
     aud = {k: v.get("auditor") for k, v in rev.items() if v.get("auditor")}
     revision = []
     for k, v in sorted(rev.items(), key=lambda kv: (kv[1].get("auditor") or {}).get("recomendacion", "z")):
         pata = next((p for p in patas if p["match_id"] + "|" + p["seleccion"] == k), None)
         if pata:
-            revision.append(pata_json(pata, rev))
+            revision.append(pata_json(pata, rev, just))
     c0, c1 = horas_captura(a.run)
     datos = {"fecha": f"{DIAS[d.weekday()]} {d.day} de {MESES[d.month - 1]}", "dia_plan": a.dia_plan, "captura": [c0, c1],
-             "x12": {"saldo": a.saldo_x12, "tickets": tickets_json(bx.grupos(a.run, "x12"), rev)},
-             "x4": {"saldo": a.saldo_x4, "bono": bx.BONO, "tickets": tickets_json(bx.grupos(a.run, "x4"), rev)},
+             "x12": {"saldo": a.saldo_x12, "tickets": tickets_json(bx.grupos(a.run, "x12"), rev, just)},
+             "x4": {"saldo": a.saldo_x4, "bono": bx.BONO, "tickets": tickets_json(bx.grupos(a.run, "x4"), rev, just)},
              "revision": revision, "n_pool": len(patas)}
     html = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "retos_web_plantilla.html"), encoding="utf-8").read()
     html = html.replace("/*DATOS*/null", json.dumps(datos, ensure_ascii=False))
