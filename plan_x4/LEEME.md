@@ -21,7 +21,7 @@ Un ×4 gana ~22-25 % de las veces; ganar 6 seguidos (días 0-5) ≈ 0,01-0,02 %.
 
 ## Decisiones de Fernando (31-oct-2026)
 - **Modo completo** de agentes para el plan ×4 (verificador Haiku, deportivo Sonnet, auditor Opus sobre los finalistas); no recortar precisión por ahorrar tokens.
-- Cada día se proponen 2 tickets: principal de 2 patas y alternativo de 3 patas (cuota base ≈ ×4,00; cada pata entre 1,20 y 2,10; partidos distintos). Fernando elige.
+- **Mínimo 3 patas, máximo 5 por ticket** (decisión de Fernando; el día 0 tuvo 5). Cada día se proponen 2 tickets: principal de 3 patas y alternativo de 4 o 5 (cuota base ≈ ×4,00; cada pata entre 1,20 y 2,10; partidos distintos). Fernando elige.
 - Rutina diaria: inventario y filtro (scripts) → sentido común de datos → pool de patas → agentes sobre finalistas → alineaciones ~1 h antes del primer partido → ticket → registro y monto del día siguiente.
 - Fuentes: TheStatsAPI (plan de 7 días renovado el 31-oct; aviso el jueves 5-nov), football-data para ligas grandes. apifootball recortada a 2 ligas.
 - Recordatorio del 5-nov programado (trig_01JaSsMJvQQukU5FiV9Mz5aa).
