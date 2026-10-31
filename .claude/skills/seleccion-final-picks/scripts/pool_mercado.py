@@ -8,6 +8,7 @@ historial por equipo (apifootball recortada) y porque el modelo propio no le gan
 Subcomandos:
   fetch  --run RUN --day YYYY-MM-DD            descarga partidos del día (Caracas) y sus cuotas (caché, ritmo cortés)
   pool   --run RUN                             construye runs/<d>/pool/patas.json (+ banderas de sentido común)
+  validar --run RUN                            ficha de cada equipo (is_mens_team); el pool excluye los no masculinos
   tickets --run RUN --objetivo x12|x4 [--top N]  busca combinaciones y escribe pool/tickets_<obj>.json
 La clave sale de THESTATSAPI_KEY_FILE y nunca se imprime."""
 import argparse
@@ -94,6 +95,51 @@ def cmd_fetch(a):
         n += 1
         time.sleep(2.3)
     print(f"cuotas descargadas: {n}", flush=True)
+
+
+def cmd_validar(a):
+    """Ficha de cada equipo de los partidos del pool (is_mens_team, país, competición principal). Excluye femeninos: el listado de partidos NO trae el género."""
+    key = _key()
+    base = os.path.join(a.run, "thestatsapi")
+    os.makedirs(os.path.join(base, "equipos"), exist_ok=True)
+    matches = json.load(open(os.path.join(base, "matches.json")))
+    k, tot = (int(x) for x in a.shard.split("/")) if a.shard else (0, 1)
+    n = 0
+    equipos = []
+    for r in matches:
+        if not os.path.exists(os.path.join(base, "odds", r["id"] + ".json")):
+            continue
+        for lado in ("home_team", "away_team"):
+            if r[lado]["id"] not in equipos:
+                equipos.append(r[lado]["id"])
+    for i, tid in enumerate(equipos):
+        if i % tot != k:
+            continue
+        ruta = os.path.join(base, "equipos", tid + ".json")
+        if os.path.exists(ruta):
+            continue
+        st, body = _get(f"/football/teams/{tid}", key)
+        if body:
+            json.dump(body["data"], open(ruta, "w"), ensure_ascii=False)
+        n += 1
+        time.sleep(2.3)
+    print(f"fichas descargadas: {n}", flush=True)
+
+
+def equipos_no_masculinos(run):
+    """match_id de partidos con algún equipo que NO es masculino (según la ficha del equipo) o sin ficha."""
+    base = os.path.join(run, "thestatsapi")
+    malos, sin_ficha = {}, set()
+    for r in json.load(open(os.path.join(base, "matches.json"))):
+        for lado in ("home_team", "away_team"):
+            ruta = os.path.join(base, "equipos", r[lado]["id"] + ".json")
+            if not os.path.exists(ruta):
+                sin_ficha.add(r["id"])
+                continue
+            f = json.load(open(ruta))
+            if f.get("is_mens_team") is not True:
+                malos[r["id"]] = f"{f.get('name')} no es equipo masculino (is_mens_team={f.get('is_mens_team')})"
+    return malos, sin_ficha
 
 
 def _f(x):
@@ -197,8 +243,11 @@ def cmd_pool(a):
     todas, bands, usados = [], {}, 0
     ruta_ex = os.path.join(a.run, "pool", "excluidos.json")
     excluidos = {x["match_id"] for x in json.load(open(ruta_ex))} if os.path.exists(ruta_ex) else set()
+    malos, sin_ficha = equipos_no_masculinos(a.run) if os.path.isdir(os.path.join(base, "equipos")) else ({}, set())
     for m in matches:
-        if m["id"] in excluidos:
+        if m["id"] in excluidos or m["id"] in malos:
+            continue
+        if os.path.isdir(os.path.join(base, "equipos")) and m["id"] in sin_ficha and not a.permitir_sin_ficha:
             continue
         ruta = os.path.join(base, "odds", m["id"] + ".json")
         if not os.path.exists(ruta) or m["status"] != "scheduled":
@@ -285,10 +334,11 @@ def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     sub = ap.add_subparsers(dest="cmd", required=True)
     f = sub.add_parser("fetch"); f.add_argument("--run", required=True); f.add_argument("--day", required=True); f.add_argument("--shard", help="k/N: reparte los partidos entre N procesos")
-    p = sub.add_parser("pool"); p.add_argument("--run", required=True)
+    p = sub.add_parser("pool"); p.add_argument("--run", required=True); p.add_argument("--permitir-sin-ficha", action="store_true")
+    v = sub.add_parser("validar"); v.add_argument("--run", required=True); v.add_argument("--shard")
     t = sub.add_parser("tickets"); t.add_argument("--run", required=True); t.add_argument("--objetivo", choices=("x12", "x4"), required=True); t.add_argument("--top", type=int, default=10); t.add_argument("--permitidas", help="JSON con lista de claves match_id|seleccion permitidas"); t.add_argument("--max-comun", type=int, help="máximo de patas en común entre tickets elegidos"); t.add_argument("--sufijo", default="")
     a = ap.parse_args(argv)
-    return {"fetch": cmd_fetch, "pool": cmd_pool, "tickets": cmd_tickets}[a.cmd](a) or 0
+    return {"fetch": cmd_fetch, "pool": cmd_pool, "tickets": cmd_tickets, "validar": cmd_validar}[a.cmd](a) or 0
 
 
 if __name__ == "__main__":
