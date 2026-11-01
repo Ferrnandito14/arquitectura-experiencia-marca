@@ -57,3 +57,16 @@
 | 2026-11-01 19:00 | d9-mito-toros | reel | Mito verificado: toros y el color rojo (FALSO) | media/2026-11-01/d9-mito-toros.mp4 |
 | 2026-11-01 20:00 | d9-foto-disculpar | foto | Esencia de disculparse en 5 palabras | media/2026-11-01/d9-foto-disculpar-1.jpg |
 | 2026-11-01 21:00 | d9-esencia-metas | reel | Esencia de las metas | media/2026-11-01/d9-esencia-metas.mp4 |
+| 2026-11-02 09:00 | d10-futbol-tiro-libre | reel | Fútbol en esencia: el tiro libre | media/2026-11-02/d10-futbol-tiro-libre.mp4 |
+| 2026-11-02 12:00 | d10-mito-pez | reel | Mito verificado: peces dorados (FALSO) | media/2026-11-02/d10-mito-pez.mp4 |
+| 2026-11-02 14:00 | d10-esencia-semana | reel | Esencia de una buena semana | media/2026-11-02/d10-esencia-semana.mp4 |
+| 2026-11-02 16:00 | d10-foto-calma | foto | Esencia de la calma | media/2026-11-02/d10-foto-calma-1.jpg |
+| 2026-11-02 19:00 | d10-mito-muralla | reel | Mito verificado: Gran Muralla (FALSO) | media/2026-11-02/d10-mito-muralla.mp4 |
+| 2026-11-02 20:00 | d10-foto-amable | foto | Esencia de ser amable | media/2026-11-02/d10-foto-amable-1.jpg |
+| 2026-11-02 21:00 | d10-esencia-leer | reel | Esencia de leer | media/2026-11-02/d10-esencia-leer.mp4 |
+
+## Resumen semanal (domingo 2026-11-01)
+Métricas al 01/11 (30 publicaciones recientes, 0 seguidores, sin señales de restricción):
+- Alcance por pieza: Fútbol en esencia 50 a 125 (penalti 125); Mito verificado 7 a 114 (cerebro 114, rayos 102, murciélagos 58); Esencia de... reels 32 a 59; El hámster responde 7 a 19; Esencia en N palabras 8 a 59 (irregular).
+- Fotos: alcance 0 en todas (sin seguidores no las ve nadie). Guardados 1 en total por 4 reels; compartidos casi nulos.
+- Qué funcionó: mitos de curiosidad científica y reglas de fútbol. Qué cambiar: menos "El hámster responde" y "N palabras" (bajo alcance), más mitos y fútbol; fotos se mantienen en 2 por el ritmo fijado, pero sin valor de alcance hasta tener seguidores.
