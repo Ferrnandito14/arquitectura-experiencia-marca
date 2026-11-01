@@ -39,10 +39,20 @@ def filtrar(patas, casa, aud, modelo):
         q["cuota"] = float(c["cuota"])
         q["valor"] = q["p"] * q["cuota"]
         q["mercado_casa"] = c.get("mercado", "")
+        q["cuenta_bono"] = c.get("cuenta_bono")
         q["auditor"] = a.get("recomendacion", "")
         q["p_modelo"] = mo.get("p_modelo")
         ok.append(q)
     return ok, fuera
+
+
+ESCALA_BONO = {0: 0.0, 1: 0.0, 2: 0.0, 3: 0.04, 4: 0.05, 5: 0.07, 6: 0.09, 7: 0.10}   # medida el 1-nov en el cupón de la casa del usuario (patas «válidas»)
+
+
+def bono_ticket(patas):
+    """Bono esperado: solo cuentan las patas probadas como válidas (cuenta_bono True); sin probar = no cuenta (criterio prudente)."""
+    n = sum(1 for p in patas if p.get("cuenta_bono") is True)
+    return n, ESCALA_BONO.get(min(n, 7), 0.10)
 
 
 def main(argv=None):
@@ -50,6 +60,8 @@ def main(argv=None):
     ap.add_argument("--run", required=True)
     ap.add_argument("--bono", type=float, default=1.09)
     ap.add_argument("--top", type=int, default=5)
+    ap.add_argument("--prod-min", type=float, default=3.7)
+    ap.add_argument("--prod-max", type=float, default=4.6)
     a = ap.parse_args(argv)
     R = os.path.join(a.run, "pool")
     patas = json.load(open(os.path.join(R, "patas_casa.json")))
@@ -59,10 +71,14 @@ def main(argv=None):
     ok, fuera = filtrar(patas, casa, aud, modelo)
     res = {}
     for n in (3, 4, 5):
-        lista = pm.buscar(ok, 1.20, 2.10, 3.9, 4.6, n, n, 400)
+        lista = pm.buscar(ok, 1.20, 2.10, a.prod_min, a.prod_max, n, n, 400)
         lista = pm.diversificar(lista, 2, a.top)
         for t in lista:
-            t["cuota_con_bono"] = round(t["cuota_base"] * a.bono, 3)
+            nval, bono = bono_ticket(t["patas"])
+            t["patas_validas_bono"] = nval
+            t["bono"] = bono
+            t["cuota_con_bono"] = round(t["cuota_base"] * (1 + bono), 3)
+            t["ev_sin_bono"] = round(t["p_ganar"] * t["cuota_base"] - 1, 4)
             t["ev_casa"] = round(t["p_ganar"] * t["cuota_con_bono"] - 1, 4)
         res[f"{n} patas"] = lista
     json.dump({"candidatas": len(ok), "excluidas": fuera, "tickets": res}, open(os.path.join(R, "tickets_x4_casa.json"), "w"), ensure_ascii=False, indent=1)

@@ -123,7 +123,7 @@ const D = /*DATOS*/null;
 const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 const bs = (n) => { const [i, d] = Math.abs(Number.isFinite(n) ? n : 0).toFixed(2).split("."); return (n < 0 ? "−" : "") + i.replace(/\B(?=(\d{3})+(?!\d))/g, ".") + "," + d + " Bs"; };
-const TABS = [["x12", "Reto ×1,20"], ["x4", "Plan ×4"], ["revision", "Revisión de agentes"], ["como", "Cómo se armó"]];
+const TABS = [["x12", "Reto ×1,20"], ["x4", "Plan ×4"], ["historial", "Tu historial"], ["revision", "Revisión de agentes"], ["como", "Cómo se armó"]];
 const state = { tab: "x12", solo: false, m12: D.x12.saldo, m4: D.x4.saldo };
 const hashTab = () => { const h = (location.hash || "").slice(1); return TABS.some((t) => t[0] === h) ? h : null; };
 
@@ -162,19 +162,34 @@ function legHtml(p) {
   const dep = p.dep ? `<span>deportivo ${p.dep[0]}-${p.dep[1]} %</span>` : "";
   return `<li class="leg"><span class="hr">${esc(p.hora)}</span>
     <div><div class="sel">${esc(p.seleccion)}</div><div class="match">${esc(p.partido)}${p.competicion ? " · " + esc(p.competicion) : ""}</div></div>
-    <div class="odds">${p.cuota.toFixed(2)}</div>
-    <div class="meta">${aud}<span class="mono">P mercado ${p.p.toFixed(1)} %</span><span>${p.casas} casas</span>${dep}</div>
+    <div class="odds">${p.cuota.toFixed(2)}${p.cuota_ref ? `<div class="note mono" style="font-size:11px">ref ${p.cuota_ref.toFixed(2)}</div>` : ""}</div>
+    <div class="meta">${aud}<span class="mono">P mercado ${p.p.toFixed(1)} %</span><span>${p.casas} casas</span>${dep}${p.cuota_ref ? `<span class="tag ${p.cuenta_bono === true ? "mantener" : p.cuenta_bono === false ? "descartar" : "none"}">bono: ${p.cuenta_bono === true ? "cuenta" : p.cuenta_bono === false ? "no cuenta" : "sin probar"}</span>` : ""}</div>
     ${p.riesgo ? `<div class="meta"><span class="note">${esc(p.riesgo)}</span></div>` : ""}
     ${p.just ? `<div class="whywrap">${whyHtml(p.just)}</div>` : ""}</li>`;
 }
 
 function ticketHtml(t, monto, bono) {
-  const total = t.cuota * bono, cobra = monto * total;
+  const b = t.bono !== undefined ? 1 + t.bono : bono, total = t.cuota * b, cobra = monto * total, sin = monto * t.cuota;
+  const ev = t.ev !== undefined ? `<dt>Valor esperado</dt><dd class="loss">${(t.ev * 100).toFixed(1)} %</dd>` : "";
+  const bonoTxt = t.bono !== undefined ? `<dt>Bono (${t.validas} patas válidas)</dt><dd>${(t.bono * 100).toFixed(0)} %</dd>` : (bono !== 1 ? `<dt>Con bono 9 %</dt><dd>${total.toFixed(2)}</dd>` : "");
   return `<article class="card ticket"><div class="t-side">
     <div><div class="eyebrow">Probabilidad de ganar</div><div class="pwin">${t.p.toFixed(1)}<small>%</small></div><div class="note">de perder: ${(100 - t.p).toFixed(1)} %</div></div>
-    <dl class="pay"><dt>Cuota base</dt><dd>${t.cuota.toFixed(2)}</dd>${bono !== 1 ? `<dt>Con bono 9 %</dt><dd>${total.toFixed(2)}</dd>` : ""}
-      <dt>Si gana, cobras</dt><dd class="win">${bs(cobra)}</dd><dt>Ganancia</dt><dd class="win">+${bs(cobra - monto)}</dd><dt>Si pierde</dt><dd class="loss">${bs(-monto)}</dd></dl>
+    <dl class="pay"><dt>Cuota ${t.bono !== undefined ? "de tu casa" : "base"}</dt><dd>${t.cuota.toFixed(2)}</dd>${bonoTxt}
+      <dt>Si gana, cobras</dt><dd class="win">${bs(cobra)}</dd><dt>Ganancia</dt><dd class="win">+${bs(cobra - monto)}</dd><dt>Si pierde</dt><dd class="loss">${bs(-monto)}</dd>${ev}</dl>
+    ${t.auditor ? `<div><span class="tag ${esc(t.auditor)}">auditor: ${esc(t.auditor)}</span><div class="note" style="margin-top:4px">${esc(t.auditor_nota)}</div></div>` : ""}
   </div><ul class="legs">${t.patas.map(legHtml).join("")}</ul></article>`;
+}
+
+function historialView() {
+  const H = D.historial || [];
+  const tot = H.reduce((s, x) => s + x.monto, 0);
+  const filas = H.map((x) => `<tr><td class="n">${esc(x.id)}</td><td>${esc(x.fecha)}</td><td class="n">${x.patas}</td><td class="n">${x.cuota.toFixed(2)}</td><td class="n">${bs(x.monto)}</td><td>${esc(x.cayo)}</td></tr>`).join("");
+  return `<p class="note" style="max-width:72ch;margin:0">Tickets perdidos del 23 al 31 de octubre, leídos de tu historial en Triunfobet: ${H.length} tickets, ${bs(tot)} apostados. Falta leer algunos del 22 y 23/10 y un ticket del 24/10. Dos IDs pueden tener un dígito mal (5571998750, 5566479884).</p>
+    <div class="card"><h3>Qué muestran</h3><ul class="plain">
+      <li>Casi todos son combinadas largas (5 a 8 patas) con cuota total entre 4 y 15. En 9 de 14 cayó <strong>una sola pata</strong>.</li>
+      <li>Las patas que más tumbaron tickets: «más de 1.5 goles» (4 veces), «X o empate» (4), apuestas combinadas dentro de un partido (4) y «ambos marcan sí» (2).</li>
+      <li>Es lo que la matemática predice: con 5 a 7 patas de ~80 % cada una, acertar todas ronda el 20-30 %.</li></ul></div>
+    <div class="tablewrap"><table><thead><tr><th class="n">ID</th><th>Fecha</th><th class="n">Patas</th><th class="n">Cuota</th><th class="n">Monto</th><th>Pata(s) que cayó</th></tr></thead><tbody>${filas}</tbody></table></div>`;
 }
 
 function ticketsView(clave) {
@@ -221,7 +236,7 @@ function comoView() {
 
 function render() {
   $("tabs").innerHTML = TABS.map(([k, t]) => `<button type="button" data-tab="${k}" aria-pressed="${state.tab === k}">${esc(t)}</button>`).join("");
-  $("main").innerHTML = `<div style="display:flex;flex-direction:column;gap:14px">${state.tab === "revision" ? revisionView() : state.tab === "como" ? comoView() : ticketsView(state.tab)}</div>`;
+  $("main").innerHTML = `<div style="display:flex;flex-direction:column;gap:14px">${state.tab === "revision" ? revisionView() : state.tab === "como" ? comoView() : state.tab === "historial" ? historialView() : ticketsView(state.tab)}</div>`;
 }
 
 document.addEventListener("click", (e) => {

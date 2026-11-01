@@ -36,6 +36,29 @@ def tickets_json(grupos, rev, just=None):
     return out
 
 
+def tickets_casa_json(run, rev, just):
+    """Tickets ×4 con precios reales de la casa (tickets_casa.py) en el formato de la página; None si no existe."""
+    ruta = os.path.join(run, "pool", "tickets_x4_casa.json")
+    if not os.path.exists(ruta):
+        return None
+    d = json.load(open(ruta, encoding="utf-8"))
+    aud = os.path.join(run, "agentes", "auditor_casa.json")
+    notas = {(t["grupo"], t["opcion"]): t for t in json.load(open(aud, encoding="utf-8")).get("tickets", [])} if os.path.exists(aud) else {}
+    out = []
+    for g, lista in d["tickets"].items():
+        for i, t in enumerate(lista[:3], 1):
+            patas = []
+            for p in t["patas"]:
+                j = pata_json(p, rev, just)
+                j["cuota"] = p["cuota"]; j["cuota_ref"] = p.get("cuota_ref"); j["cuenta_bono"] = p.get("cuenta_bono"); j["mercado_casa"] = p.get("mercado_casa", "")
+                patas.append(j)
+            n = notas.get((g, i), {})
+            out.append({"grupo": f"{g}, precios reales de tu casa", "opcion": i, "n": len(patas), "p": round(t["p_ganar"] * 100, 1), "cuota": t["cuota_base"],
+                        "bono": t["bono"], "validas": t["patas_validas_bono"], "ev_sin_bono": t["ev_sin_bono"], "ev": t["ev_casa"],
+                        "auditor": n.get("recomendacion", ""), "auditor_nota": n.get("nota", ""), "patas": patas})
+    return out
+
+
 def horas_captura(run):
     ts = []
     for f in glob.glob(os.path.join(run, "thestatsapi", "odds", "*.json")):
@@ -65,10 +88,15 @@ def main(argv=None):
         if pata:
             revision.append(pata_json(pata, rev, just))
     c0, c1 = horas_captura(a.run)
+    hist = bx.leer(os.path.join(a.run, "pool", "historial_perdidas.json"), [])
+    casa = tickets_casa_json(a.run, rev, just)
     datos = {"fecha": f"{DIAS[d.weekday()]} {d.day} de {MESES[d.month - 1]}", "dia_plan": a.dia_plan, "captura": [c0, c1],
              "x12": {"nota": a.nota_x12, "saldo": a.saldo_x12, "tickets": tickets_json(bx.grupos(a.run, "x12"), rev, just)},
              "x4": {"nota": a.nota_x4, "saldo": a.saldo_x4, "bono": bx.BONO, "tickets": tickets_json(bx.grupos(a.run, "x4"), rev, just)},
-             "revision": revision, "n_pool": len(patas)}
+             "revision": revision, "n_pool": len(patas), "historial": hist}
+    if casa:
+        datos["x4"]["tickets"] = casa
+        datos["x4"]["casa"] = True
     html = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "retos_web_plantilla.html"), encoding="utf-8").read()
     html = html.replace("/*DATOS*/null", json.dumps(datos, ensure_ascii=False))
     os.makedirs(os.path.dirname(a.out) or ".", exist_ok=True)
