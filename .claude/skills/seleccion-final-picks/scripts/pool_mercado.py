@@ -320,7 +320,8 @@ def cmd_tickets(a):
         perm = set(json.load(open(a.permitidas)))
         patas = [p for p in patas if p["match_id"] + "|" + p["seleccion"] in perm]
     if a.objetivo == "x12":
-        res = {"2 patas": buscar(patas, 1.04, 1.30, 1.18, 1.30, 2, 2, 200), "3 patas": buscar(patas, 1.04, 1.30, 1.18, 1.30, 3, 3, 200)}
+        lo, hi = (a.prod_min or 1.18), (a.prod_max or 1.30)
+        res = {"2 patas": buscar(patas, 1.04, 1.30, lo, hi, 2, 2, 200), "3 patas": buscar(patas, 1.04, 1.30, lo, hi, 3, 3, 200)}
     else:
         res = {f"{n} patas": buscar(patas, 1.20, 2.10, 3.9, 4.5, n, n, 200) for n in (3, 4, 5)}
     if a.max_comun is not None:
@@ -336,7 +337,7 @@ def main(argv=None):
     f = sub.add_parser("fetch"); f.add_argument("--run", required=True); f.add_argument("--day", required=True); f.add_argument("--shard", help="k/N: reparte los partidos entre N procesos")
     p = sub.add_parser("pool"); p.add_argument("--run", required=True); p.add_argument("--permitir-sin-ficha", action="store_true")
     v = sub.add_parser("validar"); v.add_argument("--run", required=True); v.add_argument("--shard")
-    t = sub.add_parser("tickets"); t.add_argument("--run", required=True); t.add_argument("--objetivo", choices=("x12", "x4"), required=True); t.add_argument("--top", type=int, default=10); t.add_argument("--permitidas", help="JSON con lista de claves match_id|seleccion permitidas"); t.add_argument("--max-comun", type=int, help="máximo de patas en común entre tickets elegidos"); t.add_argument("--sufijo", default="")
+    t = sub.add_parser("tickets"); t.add_argument("--run", required=True); t.add_argument("--objetivo", choices=("x12", "x4"), required=True); t.add_argument("--top", type=int, default=10); t.add_argument("--permitidas", help="JSON con lista de claves match_id|seleccion permitidas"); t.add_argument("--max-comun", type=int, help="máximo de patas en común entre tickets elegidos"); t.add_argument("--sufijo", default=""); t.add_argument("--prod-min", type=float, help="producto mínimo de cuotas (solo x12)"); t.add_argument("--prod-max", type=float, help="producto máximo de cuotas (solo x12)")
     a = ap.parse_args(argv)
     return {"fetch": cmd_fetch, "pool": cmd_pool, "tickets": cmd_tickets, "validar": cmd_validar}[a.cmd](a) or 0
 

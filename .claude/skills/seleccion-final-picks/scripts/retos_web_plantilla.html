@@ -180,7 +180,7 @@ function ticketsView(clave) {
   const todos = R.tickets.filter((t) => !state.solo || t.patas.every((p) => p.aud === "mantener"));
   const grupos = [...new Set(todos.map((t) => t.grupo))];
   const intro = clave === "x12"
-    ? "Dos o tres patas de cuota baja, de partidos distintos, ordenadas por probabilidad conjunta de ganar."
+    ? "Dos o tres patas de cuota baja, de partidos distintos, con multiplicador de 1,22 o más (producto de las cuotas), ordenadas por probabilidad conjunta de ganar."
     : "Entre 3 y 5 patas, cada una entre 1,20 y 2,10, producto de cuotas cerca de ×4. Se juega solo si el día 0 pagó; el monto es el premio del día anterior.";
   let h = `<div class="row" style="justify-content:space-between;align-items:center"><p class="note" style="margin:0;max-width:62ch">${intro}</p>
     <div class="seg" role="group" aria-label="Filtro de patas"><button type="button" data-solo="0" aria-pressed="${!state.solo}">Todos</button><button type="button" data-solo="1" aria-pressed="${state.solo}">Solo «mantener»</button></div></div>`;
