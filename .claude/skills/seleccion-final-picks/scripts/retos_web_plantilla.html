@@ -104,6 +104,7 @@ ul.plain { margin: 8px 0 0; padding-left: 18px; display: flex; flex-direction: c
       <div class="eyebrow">Reto ×1,20</div>
       <div class="big mono" id="s12" style="font-family:var(--f-display)"></div>
       <div style="margin-top:10px"><label for="m12">Monto a jugar (Bs)</label><input id="m12" type="number" min="0" step="0.01" inputmode="decimal"></div>
+      <p class="note" style="margin:10px 0 0;color:inherit;opacity:.9" id="n12"></p>
     </div>
     <div class="card">
       <div class="eyebrow" id="l4">Plan ×4</div>
@@ -139,7 +140,8 @@ function head() {
   $("s12").textContent = bs(D.x12.saldo);
   $("l4").textContent = `Plan ×4 · ${D.dia_plan}`;
   $("s4").textContent = bs(D.x4.saldo);
-  $("n4").textContent = "Monto del día: el premio del día anterior. Cuota con bono del 9 % sobre el premio.";
+  $("n4").textContent = D.x4.nota || "Monto del día: el premio del día anterior. Cuota con bono del 9 % sobre el premio.";
+  $("n12").textContent = D.x12.nota || "";
   $("m12").value = state.m12; $("m4").value = state.m4;
 }
 

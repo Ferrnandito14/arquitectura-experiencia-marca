@@ -51,7 +51,7 @@ def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--run", required=True); ap.add_argument("--dia", required=True)
     ap.add_argument("--saldo-x12", type=float, required=True); ap.add_argument("--saldo-x4", type=float, required=True)
-    ap.add_argument("--dia-plan", default="Día 1"); ap.add_argument("--out", default="dist/retos-del-dia.html")
+    ap.add_argument("--dia-plan", default="Día 1"); ap.add_argument("--nota-x12", default=""); ap.add_argument("--nota-x4", default=""); ap.add_argument("--out", default="dist/retos-del-dia.html")
     a = ap.parse_args(argv)
     from datetime import date
     d = date.fromisoformat(a.dia)
@@ -66,8 +66,8 @@ def main(argv=None):
             revision.append(pata_json(pata, rev, just))
     c0, c1 = horas_captura(a.run)
     datos = {"fecha": f"{DIAS[d.weekday()]} {d.day} de {MESES[d.month - 1]}", "dia_plan": a.dia_plan, "captura": [c0, c1],
-             "x12": {"saldo": a.saldo_x12, "tickets": tickets_json(bx.grupos(a.run, "x12"), rev, just)},
-             "x4": {"saldo": a.saldo_x4, "bono": bx.BONO, "tickets": tickets_json(bx.grupos(a.run, "x4"), rev, just)},
+             "x12": {"nota": a.nota_x12, "saldo": a.saldo_x12, "tickets": tickets_json(bx.grupos(a.run, "x12"), rev, just)},
+             "x4": {"nota": a.nota_x4, "saldo": a.saldo_x4, "bono": bx.BONO, "tickets": tickets_json(bx.grupos(a.run, "x4"), rev, just)},
              "revision": revision, "n_pool": len(patas)}
     html = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "retos_web_plantilla.html"), encoding="utf-8").read()
     html = html.replace("/*DATOS*/null", json.dumps(datos, ensure_ascii=False))
