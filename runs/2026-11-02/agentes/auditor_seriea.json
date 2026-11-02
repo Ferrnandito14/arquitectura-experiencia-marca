@@ -1,0 +1,96 @@
+{
+ "meta": {
+  "fecha": "2026-11-02",
+  "hora_auditoria_utc": "2026-11-02T03:40Z",
+  "alcance": "Auditoria adversarial de las patas Serie A (Atalanta-Parma, Sassuolo-Fiorentina) y comparacion de los tickets A (x4.26), B (x3.94) y el cargado (x4.03). Solo datos locales.",
+  "fuentes": ["dossier/dossier_finalistas.json (TheStatsAPI, proveedor unico)", "pool/patas.json (consenso 00:50 UTC)", "pool/modelo_ligero.json (poisson_ultimos8_v0_no_validado)", "pool/justificaciones.json (registro historico por familia)", "agentes/auditor.json", "agentes/auditor_extra.json", "agentes/deportivo.json", "agentes/deportivo_seriea.json (leido a las 03:38 UTC)", "docs/REGLAS-CASA.md", "plan_x4/LEEME.md", "plan_x4/registro_plan_x4.jsonl"],
+  "limitaciones": "Sin fuentes externas, onces ni nombres de lesionados. Cuotas de la casa comunicadas por el usuario, sin hora de lectura. El consenso de patas.json tiene unas 3 horas. Una sola fuente estadistica (TheStatsAPI). El modelo v0 no esta validado. El ticket 5604395055 (x1.20) no aparece en los archivos locales: solo se conoce lo que dijo el usuario.",
+  "metodo_p": "p_mercado = consenso sin margen (patas.json); p_calibrado = (acierto/implicita del registro de la familia) x 1/cuota_consenso, solo donde hay registro; p_modelo = modelo_ligero, o Poisson recalculado cuando la lambda es incoherente (se indica)."
+ },
+ "patas": [
+  {
+   "key": "mt_200713250|Ambos anotan: si",
+   "partido": "Atalanta - Parma (Serie A md10, 15:45 Caracas)",
+   "cuota_casa": 1.74, "break_even": 0.575, "consenso": "1.714 (1.68-1.77, 4 casas): precio de la casa dentro del rango",
+   "p_mercado": 0.547, "p_modelo_v0": 0.624, "p_poisson_lambda_geometrica": 0.571, "p_deportivo": [0.50, 0.60],
+   "ev": {"mercado": -0.048, "modelo_v0": 0.086, "poisson_geo": -0.006},
+   "recomendacion": "degradar", "severidad": "media",
+   "riesgo_principal": "La pata depende de que marque Parma, que lo hizo en 4/8 (gf 0.62, 5 goles en 8) y en 0 de sus 2 ultimos locales. El 0.62 del modelo v0 sale de una lambda visitante de 1.37, que promedia el gc de Atalanta (2.12, inflado por el 4-4 con Frosinone) con el gf de Parma, y sobreestima a Parma. Con la lambda geometrica (1.15) baja a 0.57, por debajo del break-even de 0.575. El mercado (0.547) tambien queda por debajo. No hay registro historico de la familia btts para calibrar.",
+   "objeciones_secundarias": [
+    "A favor, y verificado: Atalanta encajo en 8/8 (2,4,2,3,1,1,2,2) y marco 4/4 en casa (incluye Pafos, UCL). Es el mejor argumento de la pata.",
+    "Las 2/3 visitas de Parma con gol (Lazio 1, Como 1) son n=3. Las 0/3 victorias son ante Inter, Lazio y Como.",
+    "Muestra de Atalanta mezclada: 2 de 8 son de UCL (Ajax, Pafos). La sola Serie A da BTTS 5/6.",
+    "8 lesionados de Atalanta, 7 de ellos con el mismo regreso (2026-11-20) y sin nombres: puede ser un relleno del proveedor. Si son defensas, ayuda al BTTS; si son atacantes, lo perjudica. Impacto no medible.",
+    "Rotacion ante Kairat (05-11): un Atalanta suplente favorece el gol de Parma pero reduce el de Atalanta. Efecto neto ambiguo."
+   ],
+   "dato_que_resuelve": "Once de Atalanta (unos 60-75 min antes, 14:45 Caracas) e identidad de los lesionados; si juega el delantero titular de Parma (sin nombre en el dossier).",
+   "nota": "Es la pata mas debil de A en p absoluta (0.55) pero tiene la mejor cuota. Su EV (-5% de mercado) es parecido al de las patas 12 de 1.20-1.27 (-6% a -7%), que ademas el registro historico castiga."
+  },
+  {
+   "key": "mt_200713250|Gana Atalanta",
+   "partido": "Atalanta - Parma",
+   "cuota_casa": 1.52, "break_even": 0.658, "consenso": "1.50 (1.50-1.56, 5 casas)",
+   "p_mercado": 0.630, "p_modelo_poisson_v0": 0.479, "p_poisson_lambda_geometrica": 0.530, "p_deportivo": [0.50, 0.62],
+   "ev": {"mercado": -0.042, "modelo_v0": -0.272, "poisson_geo": -0.194},
+   "recomendacion": "descartar", "severidad": "alta",
+   "riesgo_principal": "Es la pata en la que el modelo y el mercado mas discrepan: entre 10 y 15 pp, y todas las estimaciones no de mercado (0.48 a 0.53, deportivo 0.50-0.62) quedan por debajo del break-even de 0.658. Atalanta tiene 2 victorias en 8, ninguna desde el 15-10, 4-4 en casa con Frosinone, 3 partidos en 8 dias y Champions en 3 dias. El auditor_extra ya habia degradado incluso Atalanta o empate (modelo 0.709 frente a 0.836).",
+   "objeciones_secundarias": [
+    "El empate (23% Poisson) mata la pata. Atalanta empato 2 de sus 3 ultimas ligas.",
+    "Rotacion pre-UCL y 8 bajas sin nombre: riesgo asimetrico en contra de esta pata (no en contra del BTTS).",
+    "A favor: Parma 18.o, 1 victoria en 8 y 0/3 de visita. Mercado 0.63 con 5 casas.",
+    "Liquidacion 'PA' de la casa (gana si llega a +2): solo aplica si la casa ofrece 1X2 con PA. Sube algo la p real (unos 2-4 pp, sin calcular con datos); verificar si la cuota de 1.52 es la del mercado PA."
+   ],
+   "dato_que_resuelve": "Once de Atalanta (si rota 4 o mas titulares, descartar sin dudas) y si la cuota 1.52 es 1X2 normal o con PA.",
+   "nota": "Si la 1.52 es 'PA', la objecion baja a media. Sin esa confirmacion, descartar."
+  },
+  {
+   "key": "mt_155684199|Mas de 2.5 goles",
+   "partido": "Sassuolo - Fiorentina (Serie A md10, 13:30 Caracas)",
+   "cuota_casa": 1.62, "break_even": 0.617, "consenso": "1.55 (1.50-1.61, 4 casas, 00:50 UTC): la casa paga por encima del maximo del consenso",
+   "p_mercado": 0.610, "p_calibrado_registro": 0.583, "p_modelo_v0": 0.721, "p_deportivo": [0.58, 0.70],
+   "ev": {"mercado": -0.012, "calibrado": -0.056, "modelo_v0": 0.168},
+   "recomendacion": "mantener (con reserva)", "severidad": "media",
+   "riesgo_principal": "El registro propio de la familia over 2.5 en la banda 1.40-1.71 acierta 58.6% frente a 64.9% implicito (n=145): el sistema ha sobreestimado este tipo de pata. Calibrada, p de unos 0.58, menor que el break-even de 0.617. El +17% del modelo sale de una lambda de Fiorentina de 2.12, inflada por el 2-6 de Lazio en Sassuolo y el 4-2 de Venezia. Mediana de goles: Sassuolo 3.5 y Fiorentina 3.",
+   "objeciones_secundarias": [
+    "Verificado k/n: Sassuolo 5/8 over (local 2/4; liga local 2/3) y Fiorentina 7/8 (visita 3/3). 4 de los 7 overs de Fiorentina fueron justo 3 goles: el colchon es fino.",
+    "Error en deportivo_seriea: etiqueta las muestras de Sassuolo, Fiorentina y Parma como 'n=8 Serie A', pero cada una incluye 1 partido de Coppa (comp_8525: Sassuolo-Frosinone 1-1, Fiorentina-Pisa 3-0, Parma-Cremonese 0-2). Tambien dice que Fiorentina se quedo sin gol una vez, cuando marco en 8/8. Impacto bajo.",
+    "H2H mas reciente: 0-0 (2026-04-26). Partido entre el 15.o y el 17.o (5 y 8 pts): la necesidad puede cerrar el juego. No se puede medir.",
+    "Cuota 1.62 por encima del rango (maximo 1.61): o el mercado se movio hacia el under tras las 00:50 (posible noticia: sancion de Sassuolo con fin 02-11 o duda de Fiorentina con regreso 02-11), o la casa va desalineada. Comparar con OddsPortal o BetExplorer antes de apostar.",
+    "Correlacion con BTTS del mismo partido: alta, no combinar."
+   ],
+   "dato_que_resuelve": "Cuota actual de consenso (si cayo por debajo de 1.50, hay noticia en contra) y once de los dos equipos hacia las 12:30 Caracas.",
+   "nota": "Es la pata mas solida del bloque Serie A por EV de mercado (-1%). Se mantiene con la reserva del registro (-6% calibrado)."
+  },
+  {
+   "key": "mt_155684199|Ambos anotan: si",
+   "partido": "Sassuolo - Fiorentina",
+   "cuota_casa": 1.50, "break_even": 0.667, "consenso": "1.447 (1.40-1.54)",
+   "p_mercado": 0.647, "p_modelo_poisson": 0.705, "p_deportivo": [0.64, 0.74],
+   "ev": {"mercado": -0.029, "modelo": 0.057},
+   "recomendacion": "mantener como alternativa (no sumar al Over 2.5)", "severidad": "baja-media",
+   "riesgo_principal": "Sin registro historico de la familia btts para calibrar. A 1.50, A-con-BTTS queda en x3.95 (P 0.206, EV de mercado -18.8%): mas P pero menos EV que A con el Over (-17.4%).",
+   "objeciones_secundarias": ["Verificado: Sassuolo marco 7/8 (sin gol solo ante Como) y Fiorentina 8/8. Ambos BTTS 7/8. Es la frecuencia mas robusta del lote.", "Cuota 1.50 comunicada por el usuario sin verificar."],
+   "dato_que_resuelve": "Mismos onces. Si cae algun delantero titular, el Over es mas sensible que el BTTS.",
+   "nota": "Si el usuario prioriza P de ganar sobre EV, cambiar el Over por el BTTS en A es razonable (diferencia de EV de 1.4 pp, dentro del error)."
+  }
+ ],
+ "patas_reutilizadas_estado_previo": {
+  "Kongsvinger o Stabaek 1.20": "degradar media (auditor.json): break-even 0.833 frente a mercado 0.781; registro dc.12 75.3% frente a 80.3% (n=336); ultima jornada con 3.o contra 4.o",
+  "Voluntari o Farul 1.27": "degradar alta (auditor.json): break-even 0.787 por encima de mercado 0.732 y modelo 0.767; Farul 0G-2E-2P de visita",
+  "Bragantino o Santos 1.26": "degradar alta (auditor.json): 3E/8 cada uno, Santos con 2 sancionados; registro dc.12 73.6% frente a 79.2% (n=307)",
+  "Lorient-Brest Mas 2.5 2.08": "descartar alta (auditor.json): mercado 0.454 y calibrado 0.405, break-even 0.481"
+ },
+ "tickets": {
+  "A": {"patas": ["Kongsvinger o Stabaek 1.20 (14:00)", "Bragantino o Santos 1.26 (19:00)", "Atalanta-Parma BTTS si 1.74 (15:45)", "Sassuolo-Fiorentina Mas 2.5 1.62 (13:30)"], "cuota": 4.262, "p_ganar": {"mercado": 0.194, "calibrado": 0.172, "modelo": 0.242}, "ev": {"mercado": -0.174, "calibrado": -0.265, "modelo": 0.030, "mercado_con_bono_9pct": -0.117}, "correlacion_interna": "nula entre partidos; un solo 'mas de' (regla cumplida)", "orden": "la primera pata en jugarse (Sassuolo, 13:30) es la de mas riesgo: se sabe pronto"},
+  "B": {"patas": ["Voluntari o Farul 1.27 (11:30)", "Bragantino o Santos 1.26", "Gana Atalanta 1.52", "Sassuolo-Fiorentina Mas 2.5 1.62"], "cuota": 3.940, "p_ganar": {"mercado": 0.209, "calibrado": 0.184, "modelo": 0.198}, "ev": {"mercado": -0.175, "calibrado": -0.276, "modelo": -0.219, "mercado_con_bono_9pct": -0.120}, "correlacion_interna": "nula entre partidos", "objecion": "contiene la pata descartada (Gana Atalanta) y la Voluntari degradada (alta); su mayor P solo existe si se cree al mercado en Atalanta"},
+  "cargado": {"patas": ["Voluntari 1.27", "Kongsvinger 1.20", "Lorient Mas 2.5 2.08", "Bragantino o Santos 1.26"], "cuota": 3.994, "p_ganar": {"mercado": 0.193, "calibrado": 0.153, "modelo": 0.199}, "ev": {"mercado": -0.229, "calibrado": -0.388, "modelo": -0.207}, "veredicto": "el peor de los tres segun las tres fuentes: sustituir"},
+  "correlacion_con_x120_5604395055": {
+   "pata_compartida": "Bragantino-Santos: 12 en x4 frente a 'Mas de 1.25' en x1.20 (regla de la casa: 1 gol devuelve, 0 pierde, 2+ gana)",
+   "escenarios": {"0-0 (unos 0.07)": "pierden las dos", "1-1 (unos 0.12)": "pierde el x4 y gana el x1.20", "1-0/0-1 (unos 0.13)": "gana el x4 y el x1.20 queda en push", "2+ goles sin empate": "ganan las dos", "2-2 y similares": "pierde el x4 y gana el x1.20"},
+   "lectura": "Condicionada a que pierda el 12, la P de que pierda tambien el Over 1.25 es de unos 0.27, frente a 0.07 sin condicionar (unas 4 veces mas). La correlacion de perdida existe pero esta acotada al 0-0. Es la misma pata en A y en B, asi que elegir entre A y B no cambia esta exposicion. Para eliminarla habria que quitar Bragantino del x4, y no hay sustituto de cuota similar sin otra pata degradada.",
+   "regla_LEEME": "El plan x4 es memoria aparte del x1.20 y 'ninguna pata en mas de 2 tickets propuestos'. Bragantino figura en A, B y el cargado, pero solo se jugara uno: se cumple si se juega un unico x4."
+  },
+  "recomendacion": "A, en lugar del cargado. B, no. A y B empatan en EV de mercado (-17.4% y -17.5%), pero A es mejor calibrado (-26.5% frente a -27.6%) y segun el modelo (+3% frente a -22%), y no lleva la pata descartada (Gana Atalanta). A mejora al cargado en unos 5.5 pp de EV de mercado con una P parecida (0.194 frente a 0.193). Variante aceptable: A con Sassuolo BTTS 1.50 en lugar del Over (x3.95, P 0.206, EV -18.8%). Recordatorio: todos los tickets tienen EV negativo a precio de casa; jugar es decision de riesgo de Fernando, no una ventaja.",
+  "condiciones_antes_de_apostar": ["Releer la cuota de Sassuolo O2.5 y comparar con el consenso: si es menor de 1.55 o el consenso cayo por debajo de 1.50, pasar a BTTS 1.50 o reconsiderar", "Once de Atalanta a las 14:45 Caracas: el BTTS sigue con o sin rotacion, pero si Parma no tiene a su 9 titular, degradar a descartar", "El ticket se cierra antes de las 13:30 (Sassuolo): los onces de Atalanta y Bragantino no se conoceran al apostar, riesgo aceptado"]
+ }
+}

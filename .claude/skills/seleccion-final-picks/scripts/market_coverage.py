@@ -536,6 +536,7 @@ GENERATION_ROUTES = {
 }
 # Menciona palabras como «ranking»/«combinada» pero no genera candidatos ni libros: motivo explícito.
 NON_GENERATING = {
+    ".claude/skills/seleccion-final-picks/scripts/mercados_extra.py": "extrae patas de mercados adicionales y audita qué mercados de los datos están extraídos o excluidos; no arma rankings ni combinadas",
     ".claude/skills/seleccion-final-picks/scripts/coverage_report.py": "puerta de Nivel 1 (evaluación de partidos); su veredicto aclara que no certifica la investigación de mercados",
     ".claude/skills/seleccion-final-picks/scripts/market_coverage.py": "define los controles",
     ".claude/skills/seleccion-final-picks/scripts/live_prob.py": "imprime la probabilidad en vivo de tickets ya apostados; no genera candidatos",

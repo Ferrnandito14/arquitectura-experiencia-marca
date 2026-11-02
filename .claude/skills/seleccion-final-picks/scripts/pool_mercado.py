@@ -21,6 +21,9 @@ import statistics
 import sys
 import time
 import urllib.request
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import mercados_extra  # noqa: E402
 from datetime import datetime, timedelta, timezone
 
 BASE = "https://api.thestatsapi.com/api"
@@ -255,7 +258,9 @@ def cmd_pool(a):
         nombres = m["home_team"]["name"] + " " + m["away_team"]["name"]
         if EXCLUIR_EQUIPO.search(nombres):
             continue
-        patas, banderas = patas_de_partido(m, json.load(open(ruta)))
+        odds_m = json.load(open(ruta))
+        patas, banderas = patas_de_partido(m, odds_m)
+        patas += mercados_extra.patas_extra(m, odds_m)
         if patas:
             usados += 1
         todas += patas
@@ -263,6 +268,11 @@ def cmd_pool(a):
             bands[m["id"]] = banderas
     os.makedirs(os.path.join(a.run, "pool"), exist_ok=True)
     json.dump({"patas": todas, "banderas": bands}, open(os.path.join(a.run, "pool", "patas.json"), "w"), ensure_ascii=False, indent=0)
+    conteo, desconocidos = mercados_extra.auditar(os.path.join(base, "odds"))
+    cob = {k: {"casas_con_el_mercado": n, "estado": mercados_extra.clasificar(k), "motivo": mercados_extra.EXCLUIDOS.get(k, "")} for k, n in sorted(conteo.items())}
+    json.dump({"mercados": cob, "desconocidos": desconocidos}, open(os.path.join(a.run, "pool", "mercados_cobertura.json"), "w"), ensure_ascii=False, indent=1)
+    if desconocidos:
+        print("ATENCIÓN: mercados en los datos SIN clasificar (extraer o excluir con motivo):", desconocidos)
     print(f"{len(todas)} patas en {usados} partidos; partidos con banderas de precio: {len(bands)}")
 
 

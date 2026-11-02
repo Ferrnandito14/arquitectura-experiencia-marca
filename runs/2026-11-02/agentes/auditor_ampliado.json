@@ -1,0 +1,438 @@
+{
+ "meta": {
+  "fecha": "2026-11-02",
+  "rol": "auditor adversarial (ampliado + tarjetas)",
+  "hora_auditoria": "2026-11-02 ~04:35 (hora de archivos locales)",
+  "alcance": "12 tickets de pool/tickets_x4_ampliado.json, 8 de pool/tickets_x4_con_tarjetas.json, 15 patas de finalistas_ampliado.json + 5 patas de tarjetas; comparacion con ticket A (x4.26).",
+  "fuentes_locales": [
+   "pool/candidatas_extra.json (ref TheStatsAPI: n_casas, min/max)",
+   "pool/casa_precios_extra.json (precio casa leido por la sesion local)",
+   "dossier/dossier_finalistas.json (TheStatsAPI, proveedor unico; sin corners ni tarjetas por partido)",
+   "pool/justificaciones.json",
+   "pool/modelo_ligero.json",
+   "agentes/auditor.json",
+   "agentes/auditor_seriea.json",
+   "agentes/deportivo_seriea.json",
+   "agentes/deportivo_ampliado.json (leido 04:30)",
+   "data/ledger_patas.jsonl (24154 patas liquidadas 14-25 oct)",
+   "data/registro_tickets_usuario.jsonl",
+   "docs/REGLAS-CASA.md (regla de tarjetas actualizada 2-nov)",
+   "plan_x4/LEEME.md"
+  ],
+  "limitaciones": "Sin fuentes externas: no hay datos de corners ni tarjetas por equipo/arbitro para ningun partido del dia (No verificable). Precios de la casa sin hora de lectura ni lado contrario; ref de 2 casas (Bet365, BetMGM) en las patas de corners. Liquidacion de corners por equipo de la casa no documentada. Una sola fuente estadistica.",
+  "metodo_p_corregida": "Corners/tarjetas con casa > ref: mezcla 50/50 de p_ref y p implicita por la casa con su margen medio (EV medio casa -7.4%, sd 3.7%, n=38 patas del lote) = correccion por sesgo de seleccion. dc.12: p_mercado x (acierto/implicita del registro, ~0.94-0.95). Goles equipo >0.5: registro banda 0.68-0.76 (86/122=70.5% vs 72.5%) => -2 pp. Kalmar: contradiccion del dossier. Serie A: valores de auditor_seriea."
+ },
+ "hallazgos_clave": [
+  "El EV de -1.4% a -2.5% descansa en UNA pata: Sonderjyske Menos de 3.5 corners @2.00 (EV de mercado +5.3%). Sin ella ninguna pata del lote tiene EV >= 0 (Benfica -0.5%, Coruna tarjetas -1.3%, resto -4% a -14%).",
+  "Sesgo de seleccion verificado: de 38 patas con precio de casa, solo 4 pagan por encima del maximo de la ref (3 de corners por equipo + Coruna tarjetas). La EV de la casa tiene media -7.4% y sd 3.7%; el maximo esperado de 38 extracciones de puro ruido es ~ +0.7%. Sonderjyske (+5.3%) esta 3.4 sd por encima: o linea vieja/real, o lectura erronea. Benfica (-0.5%) es compatible con ruido.",
+  "Las 2 casas de referencia de Sonderjyske discrepan 10% (Bet365 1.667, BetMGM 1.83): p entre ~0.50 y ~0.57. La p no es la debilidad (registro propio corners.equipo: 1220/2440 = 50.0% vs p 0.500; under, n_casas=2, banda 0.45-0.62: 68/137 = 49.6% vs 51.6%, diff -1.9 pp +-4.3): el riesgo es la seleccion y la identificacion del precio.",
+  "Hipotesis de lectura cruzada: si 2.00 fuera el precio del Over 3.5 (p 0.473), la EV seria -5.3%, justo el margen tipico de la casa. Con 1.83 de Benfica como Over la EV seria -16.5% (menos plausible). Hay que leer AMBOS lados en la casa.",
+  "Aun con p corregida, los tickets nuevos (EV -13% a -17%) superan al ticket A (EV corregida -29%, mercado -17.3%): la ventaja frente a A no depende solo de Sonderjyske, sino de que las patas de A se pagan por debajo del consenso (Kongsvinger 1.20 vs 1.24, Bragantino 1.26 vs 1.29, Sassuolo y Atalanta ~ -1% a -5%).",
+  "Kalmar FF Mas de 0.5 @1.30 (p mercado 0.72): el dossier dice que Kalmar marco en 1/8 (gf 0.25; 1/4 de visitante, que es su rol hoy, y 0/4 en casa; su unico gol fue el 2-1 en Degerfors). Con p real 0.72, ver 1/8 tiene prob <0.1%: dato discrepante o crisis ignorada. Descartar.",
+  "Tarjetas: regla de la casa ya confirmada (A=1, R=2, doble A=2, solo en cancha, 90'+). El registro propio da Menos de 4.5 tarjetas 71/102 (69.6%) vs p mercado 0.56, y overs de tarjetas por debajo del mercado (-7 a -14 pp): apoya Coruna Menos y castiga los Mas, pero son 7 dias, ligas grandes y una sola fuente de tarjetas (posibles tarjetas omitidas por el feed): se usa como direccion, no como cifra.",
+  "Fecha limite: todos los tickets llevan Sonderjyske (14:00 Caracas); los de Voluntari cierran a las 11:30, Radomiak 13:00, Sassuolo 13:30. Precios leidos ~04:25: 9-10 h de antiguedad al cierre; las lineas de corners por equipo en ligas medianas se mueven o se retiran."
+ ],
+ "patas": [
+  {
+   "id": "N:Sonderjyske Menos de 3.5 corners",
+   "c": 2.0,
+   "p_mercado": 0.5267,
+   "p_corregida": 0.495,
+   "rango_p": [
+    0.46,
+    0.53
+   ],
+   "ev_mercado": 0.053,
+   "ev_corregida": -0.01,
+   "veredicto": "mantener con condicion (degradar si no se verifica)",
+   "severidad": "alta",
+   "riesgo": "Precio de casa 2.00 vs ref 1.667/1.83 (+9% a +20%): outlier de 3.4 sd; 2 casas que discrepan; sin datos de corners propios (No verificable); posible lectura del lado equivocado; liquidacion corners por equipo de la casa sin documentar.",
+   "dato_que_resuelve": "Captura de la casa con Over y Under 3.5 de Sonderjyske (margen ~105-108% = coherente) y etiqueta 'partido completo'; re-lectura <1 h antes de las 14:00. Si cae a <=1.85, la ventaja desaparece.",
+   "estado_objecion": "abierta (bloqueante para cualquier ticket que la lleve)"
+  },
+  {
+   "id": "N:Benfica Menos de 6.5 corners",
+   "c": 1.83,
+   "p_mercado": 0.5438,
+   "p_corregida": 0.525,
+   "rango_p": [
+    0.5,
+    0.55
+   ],
+   "ev_mercado": -0.005,
+   "ev_corregida": -0.039,
+   "veredicto": "mantener (con reserva)",
+   "severidad": "media",
+   "riesgo": "Ref 2 casas (Bet365 1.727, BetMGM 1.67), casa +6%. Favorito muy fuerte en casa (1X2 ~1.14) suele producir volumen de corners; a favor: si marca pronto y gestiona, y posible rotacion por Lech Poznan en 3 dias reduce el asedio. Sin datos de corners (No verificable).",
+   "dato_que_resuelve": "Lado contrario en la casa; once de Benfica (~15:15).",
+   "estado_objecion": "riesgo aceptado si se verifica el precio"
+  },
+  {
+   "id": "N:Lorient Mas de 0.5 goles",
+   "c": 1.3,
+   "p_mercado": 0.7236,
+   "p_corregida": 0.705,
+   "rango_p": [
+    0.68,
+    0.73
+   ],
+   "ev_mercado": -0.059,
+   "ev_corregida": -0.084,
+   "veredicto": "mantener",
+   "severidad": "baja",
+   "riesgo": "Lorient gf 0.88 (6/8 marcando, 4/4 en casa); Brest marco y encajo en 4/4 fuera. Pata de bajo riesgo, EV negativo puro de margen.",
+   "dato_que_resuelve": "Once de Lorient (delantero titular).",
+   "estado_objecion": "riesgo aceptado"
+  },
+  {
+   "id": "N:FC Voluntari Mas de 0.5 goles",
+   "c": 1.3,
+   "p_mercado": 0.7212,
+   "p_corregida": 0.7,
+   "rango_p": [
+    0.67,
+    0.73
+   ],
+   "ev_mercado": -0.062,
+   "ev_corregida": -0.09,
+   "veredicto": "mantener",
+   "severidad": "baja-media",
+   "riesgo": "Marco 7/8 (local 3/4), toda la muestra es Superliga (corrige al deportivo: no hay copa mezclada). Farul fuera encajo 2,4,0,1. Adelanta el cierre del ticket a las 11:30.",
+   "dato_que_resuelve": "Once de Voluntari ~10:30.",
+   "estado_objecion": "riesgo aceptado"
+  },
+  {
+   "id": "N:Kalmar FF Mas de 0.5 goles",
+   "c": 1.3,
+   "p_mercado": 0.7204,
+   "p_corregida": 0.62,
+   "rango_p": [
+    0.55,
+    0.7
+   ],
+   "ev_mercado": -0.063,
+   "ev_corregida": -0.19,
+   "veredicto": "descartar",
+   "severidad": "alta",
+   "riesgo": "Dossier: Kalmar marco 1/8 (gf 0.25, 0/4 en casa; 0-5, 0-3, 0-1 x5). Contradiccion frontal con el mercado; una sola fuente.",
+   "dato_que_resuelve": "Resultados de Kalmar en Flashscore/Soccerway; si el dossier esta mal atribuido, reconsiderar.",
+   "estado_objecion": "motivo de descarte"
+  },
+  {
+   "id": "N:Mjallby Mas de 0.5 goles",
+   "c": 1.27,
+   "p_mercado": 0.736,
+   "p_corregida": 0.7,
+   "rango_p": [
+    0.66,
+    0.74
+   ],
+   "ev_mercado": -0.065,
+   "ev_corregida": -0.11,
+   "veredicto": "degradar",
+   "severidad": "media",
+   "riesgo": "Marco 4/8 (2/4 en casa), Conference en 3 dias (rotacion), 1 sancionado sin nombre con fin 02-11. A favor: Kalmar encajo en 8/8. Nunca junto a Kalmar (mismo partido).",
+   "dato_que_resuelve": "Once de Mjallby.",
+   "estado_objecion": "riesgo aceptado solo si no hay alternativa"
+  },
+  {
+   "id": "A25 Bragantino o Santos (12)",
+   "c": 1.26,
+   "p_mercado": 0.7441,
+   "p_corregida": 0.707,
+   "ev_mercado": -0.062,
+   "ev_corregida": -0.11,
+   "veredicto": "degradar (sin cambio vs auditor.json)",
+   "severidad": "alta",
+   "riesgo": "3E/8 cada uno; registro dc.12 73.6% vs 79.2% (n=307). Correlacion con el x1.20 abierto (Mas de 1.25 en el mismo partido): el 0-0 y el 1-1 tumban ambos o uno.",
+   "estado_objecion": "resuelto previamente, sin evidencia nueva"
+  },
+  {
+   "id": "A9 Kongsvinger o Stabaek (12)",
+   "c": 1.2,
+   "p_mercado": 0.7812,
+   "p_corregida": 0.733,
+   "ev_mercado": -0.063,
+   "ev_corregida": -0.12,
+   "veredicto": "degradar media (sin cambio)",
+   "severidad": "media",
+   "estado_objecion": "resuelto previamente"
+  },
+  {
+   "id": "A14 Rakow o Pogon (12)",
+   "c": 1.25,
+   "p_mercado": 0.747,
+   "p_corregida": 0.71,
+   "ev_mercado": -0.066,
+   "ev_corregida": -0.11,
+   "veredicto": "degradar (sin cambio)",
+   "severidad": "alta",
+   "estado_objecion": "resuelto previamente"
+  },
+  {
+   "id": "A8 Radomiak o Slask (12)",
+   "c": 1.25,
+   "p_mercado": 0.7454,
+   "p_corregida": 0.708,
+   "ev_mercado": -0.068,
+   "ev_corregida": -0.115,
+   "veredicto": "degradar (sin cambio); cierra 13:00",
+   "severidad": "alta",
+   "estado_objecion": "resuelto previamente"
+  },
+  {
+   "id": "A3 Voluntari o Farul (12)",
+   "c": 1.27,
+   "p_mercado": 0.7322,
+   "p_corregida": 0.682,
+   "ev_mercado": -0.07,
+   "ev_corregida": -0.134,
+   "veredicto": "degradar alta (sin cambio); cierra 11:30",
+   "severidad": "alta",
+   "estado_objecion": "resuelto previamente"
+  },
+  {
+   "id": "S Sassuolo-Fiorentina Mas de 2.5",
+   "c": 1.62,
+   "p_mercado": 0.6104,
+   "p_corregida": 0.583,
+   "ev_mercado": -0.011,
+   "ev_corregida": -0.056,
+   "veredicto": "mantener con reserva (sin cambio vs auditor_seriea)",
+   "severidad": "media",
+   "estado_objecion": "resuelto previamente"
+  },
+  {
+   "id": "S Sassuolo-Fiorentina Ambos anotan",
+   "c": 1.5,
+   "p_mercado": 0.6472,
+   "p_corregida": 0.63,
+   "ev_mercado": -0.029,
+   "ev_corregida": -0.055,
+   "veredicto": "mantener como alternativa; nunca con el Over 2.5",
+   "severidad": "baja-media",
+   "estado_objecion": "resuelto previamente"
+  },
+  {
+   "id": "N:Central Cordoba +1.5",
+   "c": 1.47,
+   "p_mercado": 0.6376,
+   "p_corregida": 0.62,
+   "ev_mercado": -0.063,
+   "ev_corregida": -0.09,
+   "veredicto": "degradar",
+   "severidad": "media",
+   "riesgo": "Perdio por 2+ en 2/8 (0-5 Velez en casa, 1-3); 0 victorias en 8; segun deportivo_ampliado, Bet365 movio a Platense hacia mas goles. Mercado sin registro de calibracion.",
+   "estado_objecion": "riesgo aceptado"
+  },
+  {
+   "id": "N:Goias-CRB 1.a parte Menos de 1.5",
+   "c": 1.5,
+   "p_mercado": 0.6359,
+   "p_corregida": 0.62,
+   "ev_mercado": -0.046,
+   "ev_corregida": -0.07,
+   "veredicto": "degradar",
+   "severidad": "media",
+   "riesgo": "Sin datos de goles por mitad (No verificable); linea movida de 1.40 a 1.50 segun deportivo.",
+   "estado_objecion": "riesgo aceptado"
+  },
+  {
+   "id": "T Dep. La Coruna-Osasuna Menos de 4.5 tarjetas",
+   "c": 1.95,
+   "p_mercado": 0.5063,
+   "p_corregida": 0.5,
+   "rango_p": [
+    0.45,
+    0.57
+   ],
+   "ev_mercado": -0.013,
+   "ev_corregida": -0.025,
+   "veredicto": "mantener con reserva",
+   "severidad": "media",
+   "riesgo": "Casa 1.95 > ref max 1.909 (3 casas, rango 1.667-1.909: dispersion grande). Definicion de la ref desconocida frente a la regla de la casa (A=1,R=2). Sin arbitro ni datos de tarjetas. A favor: registro propio Menos 4.5 tarjetas 71/102 vs 0.56 (direccion, no cifra). En contra: perfil de liga espanola con muchas amarillas.",
+   "dato_que_resuelve": "Arbitro designado y su media en LaLiga; lado contrario en la casa.",
+   "estado_objecion": "regla de liquidacion RESUELTA (REGLAS-CASA 2-nov); precio/ref abiertos"
+  },
+  {
+   "id": "T Lorient-Brest Menos de 4.5 tarjetas",
+   "c": 1.45,
+   "p_mercado": 0.591,
+   "ev_mercado": -0.143,
+   "veredicto": "descartar",
+   "severidad": "alta",
+   "riesgo": "Casa por debajo de ambas refs (1.50/1.615)."
+  },
+  {
+   "id": "T Rivadavia-Banfield Mas de 4.5 tarjetas",
+   "c": 1.6,
+   "p_mercado": 0.5512,
+   "ev_mercado": -0.118,
+   "veredicto": "descartar",
+   "severidad": "alta",
+   "riesgo": "Casa < ref; registro propio: Mas de 4.5 tarjetas 31/102 vs 0.44."
+  },
+  {
+   "id": "T Athletic-Ceara Mas de 3.5 tarjetas",
+   "c": 1.6,
+   "p_mercado": 0.5773,
+   "ev_mercado": -0.076,
+   "veredicto": "descartar",
+   "severidad": "media",
+   "riesgo": "Registro propio Mas 3.5: 46/90 (51%) vs 0.557."
+  },
+  {
+   "id": "T DyJ-Independiente Mas de 4.5 tarjetas",
+   "c": 1.6,
+   "p_mercado": 0.5408,
+   "ev_mercado": -0.135,
+   "veredicto": "descartar",
+   "severidad": "alta",
+   "riesgo": "Casa < ref."
+  }
+ ],
+ "tickets_top5": [
+  {
+   "id": "T1 ampliado #1",
+   "patas": "Benfica Menos 6.5 corners 1.83 + Sonderjyske Menos 3.5 corners 2.00 + Lorient Mas 0.5 1.30",
+   "cuota": 4.758,
+   "cierre": "14:00 Caracas",
+   "p_ganar": {
+    "mercado": 0.207,
+    "corregida": 0.183,
+    "rango": [
+     0.156,
+     0.213
+    ]
+   },
+   "ev": {
+    "mercado": -0.014,
+    "corregida": -0.128
+   },
+   "pago_si_gana_bs": 16954.6,
+   "objecion_principal": "Dos de tres patas sin dato propio y con precio outlier (corners por equipo, 2 casas): todo el EV viene de Sonderjyske.",
+   "veredicto": "RECOMENDADO si se verifica Sonderjyske (ambos lados) y Benfica"
+  },
+  {
+   "id": "T4 ampliado #4",
+   "patas": "Kongsvinger o Stabaek 1.20 + Benfica 1.83 + Sonderjyske 2.00",
+   "cuota": 4.392,
+   "cierre": "14:00",
+   "p_ganar": {
+    "mercado": 0.224,
+    "corregida": 0.19,
+    "rango": [
+     0.163,
+     0.23
+    ]
+   },
+   "ev": {
+    "mercado": -0.017,
+    "corregida": -0.163
+   },
+   "objecion_principal": "Mayor P, pero Kongsvinger (dc.12) rinde 5 pp bajo su precio en el registro y cotiza por debajo del consenso.",
+   "veredicto": "alternativa si se prefiere P a EV"
+  },
+  {
+   "id": "T9 ampliado #9",
+   "patas": "Bragantino o Santos 1.26 + Sonderjyske 2.00 + Sassuolo Mas 2.5 1.62",
+   "cuota": 4.082,
+   "cierre": "13:30",
+   "p_ganar": {
+    "mercado": 0.239,
+    "corregida": 0.204,
+    "rango": [
+     0.172,
+     0.25
+    ]
+   },
+   "ev": {
+    "mercado": -0.023,
+    "corregida": -0.167
+   },
+   "objecion_principal": "Solo una pata de corners, pero repite Bragantino (correlacionada con el x1.20 abierto) y Sassuolo de A.",
+   "veredicto": "aceptable; no preferido"
+  },
+  {
+   "id": "C1 tarjetas #1",
+   "patas": "Kongsvinger 1.20 + Sonderjyske 2.00 + Coruna-Osasuna Menos 4.5 tarjetas 1.95",
+   "cuota": 4.68,
+   "cierre": "14:00",
+   "p_ganar": {
+    "mercado": 0.208,
+    "corregida": 0.181,
+    "rango": [
+     0.147,
+     0.239
+    ]
+   },
+   "ev": {
+    "mercado": -0.025,
+    "corregida": -0.151
+   },
+   "objecion_principal": "Dos patas de precio outlier con ref ruidosa (corners y tarjetas) + Kongsvinger degradada; rango de P el mas ancho.",
+   "veredicto": "no preferido"
+  },
+  {
+   "id": "T11 ampliado #11",
+   "patas": "Sonderjyske 2.00 + Goias-CRB 1.a parte Menos 1.5 1.50 + Sassuolo BTTS 1.50",
+   "cuota": 4.5,
+   "cierre": "13:30",
+   "p_ganar": {
+    "mercado": 0.217,
+    "corregida": 0.193,
+    "rango": [
+     0.163,
+     0.231
+    ]
+   },
+   "ev": {
+    "mercado": -0.025,
+    "corregida": -0.13
+   },
+   "objecion_principal": "1.a parte de Goias sin datos por mitad.",
+   "veredicto": "aceptable"
+  },
+  {
+   "id": "A (cargado, referencia)",
+   "patas": "Kongsvinger 1.20 + Bragantino 1.26 + Atalanta BTTS 1.74 + Sassuolo Mas 2.5 1.62",
+   "cuota": 4.262,
+   "cierre": "13:30",
+   "p_ganar": {
+    "mercado": 0.194,
+    "corregida": 0.166,
+    "rango": [
+     0.133,
+     0.215
+    ]
+   },
+   "ev": {
+    "mercado": -0.173,
+    "corregida": -0.292
+   },
+   "veredicto": "inferior en EV con cualquier p, P parecida o menor"
+  }
+ ],
+ "descartados": [
+  "T5 (Kalmar)",
+  "T6 (Mjallby degradada; solo si no hay otra)",
+  "T12 y T3 (cierran 11:30 con Voluntari; T12 con A3 degradada alta)",
+  "tickets con tarjetas Mas (EV -7% a -14%)",
+  "C2 (EV mercado -5%)"
+ ],
+ "alternativa_sin_sonderjyske": {
+  "patas": "Benfica Menos 6.5 corners 1.83 + Coruna-Osasuna Menos 4.5 tarjetas 1.95 + Lorient Mas 0.5 1.30",
+  "cuota": 4.639,
+  "p_ganar": {
+   "mercado": 0.199,
+   "corregida": 0.185
+  },
+  "ev": {
+   "mercado": -0.076,
+   "corregida": -0.142
+  },
+  "uso": "si Sonderjyske no se puede verificar o baja de 1.85; tambien sigue siendo mejor que A."
+ },
+ "correlacion": "Sin dos patas del mismo partido en ningun ticket del top 5. Mjallby y Kalmar nunca juntas (y Kalmar descartada); Sassuolo Over y BTTS nunca juntas; Voluntari Mas 0.5 y A3 nunca juntas. Exposicion cruzada: Bragantino (T2, T9, A) con el x1.20 abierto. Sonderjyske esta en los 12 tickets ampliados: si se proponen 2 tickets, el alternativo debe ir sin ella (regla 'ninguna pata en mas de 2 tickets').",
+ "recomendacion": "Cambiar A por T1, condicionado a: (1) captura de Over y Under 3.5 corners de Sonderjyske y Over y Under 6.5 de Benfica en la casa, con margen coherente y mercado de partido completo; (2) re-lectura de precios antes de las 13:30-14:00 (Sonderjyske >=1.90 y Benfica >=1.78); (3) apostar antes de las 14:00 Caracas. Si (1) o (2) fallan para Sonderjyske, usar Benfica + Coruna Menos 4.5 tarjetas + Lorient (x4.64, EV -7.6%/-14%), que sigue siendo mejor que A. Dejar A solo si ninguna de las patas de corners o tarjetas se puede verificar en la casa. Todos tienen EV negativo: la mejora frente a A es real (unos 13-16 pp de EV con p corregida), pero el -1.4% es en buena parte un artefacto de seleccion; lo esperable esta mas cerca de -10% a -13%."
+}

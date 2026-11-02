@@ -131,3 +131,9 @@ Un libro por día, mismo proceso. Pasos y scripts nuevos: `resolve_ids.py --run 
 
 ### Referencia ampliada en torneos continentales/internacionales (indicación del usuario, 15-oct)
 En copas cortas la muestra de la misma competición es pequeña, así que `contexto_continental.py --run runs/<fecha>` (tras `rotation_prior.py`) guarda por partido continental el historial de liga, copa nacional y continental de cada equipo (por ámbito, con n) y los últimos H2H (`get_H2H`). Es **referencia descriptiva** para los agentes y para la hoja «Resumen por partido»; NO cambia `p_modelo` ni introduce pesos. Guardia de identidad: se excluyen amistosos y filas de otro país (la API reutiliza team_id entre clubes homónimos; p. ej. «Estudiantes» 989 devuelve la liga de Aruba). Semifinal/final continental: riesgo de rotación por historial = «bajo» (`rotation_risk.decisive_phase`).
+
+
+## Estadística primero (regla de Fernando, 2-nov-2026; aplica a ×1,20 y ×4)
+1. **Orden obligatorio:** (a) `estadistica_primero.py fetch/analisis` calcula `p_dep` por pata desde el historial deportivo de ambos equipos (goles, córners, tarjetas con puntos de la casa; local/visita; lo que concede el rival), muestra mínima 8 por equipo; (b) se eligen patas por `p_dep`; (c) SOLO DESPUÉS se leen los precios de la casa (sesión local) y se calcula el EV; (d) los agentes evalúan en absoluto con la estadística. El mercado (cuotas de referencia o de la casa) **no selecciona patas**: solo mide si el precio es justo.
+2. **Puerta dura:** pata sin muestra suficiente, o con solidez BAJA del deportivo, no entra en ningún ticket. Un EV favorable por desvío de precio entre casas se trata como sesgo de selección.
+3. El deportivo no cita probabilidades del mercado como evidencia.
