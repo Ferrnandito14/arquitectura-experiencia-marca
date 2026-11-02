@@ -71,8 +71,8 @@ def main(argv=None):
     ok, fuera = filtrar(patas, casa, aud, modelo)
     res = {}
     for n in (3, 4, 5):
-        lista = pm.buscar(ok, 1.20, 2.10, a.prod_min, a.prod_max, n, n, 400)
-        lista = pm.diversificar(lista, 2, a.top)
+        lista = pm.buscar(ok, 1.20, 2.10, a.prod_min, a.prod_max, n, n, 400, max_overs=1)
+        lista = pm.diversificar(lista, 2, a.top, max_rep=2)
         for t in lista:
             nval, bono = bono_ticket(t["patas"])
             t["patas_validas_bono"] = nval

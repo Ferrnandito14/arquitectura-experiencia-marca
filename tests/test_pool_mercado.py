@@ -76,3 +76,30 @@ class PoolMercado(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class ReglasDeConcentracion(unittest.TestCase):
+    def _patas(self):
+        out = []
+        for i, (sel, c, p) in enumerate([("Más de 2.5 goles", 1.8, 0.52), ("Más de 2.5 goles", 1.75, 0.55), ("A o empate", 1.3, 0.75), ("B o empate", 1.3, 0.75), ("C o D (sin empate)", 1.3, 0.75), ("E o F (sin empate)", 1.3, 0.75)]):
+            out.append({"match_id": f"m{i}", "partido": f"P{i}", "seleccion": sel, "cuota": c, "p": p, "valor": c * p})
+        return out
+
+    def test_un_solo_over_por_ticket(self):
+        res = pm.buscar(self._patas(), 1.2, 2.1, 3.0, 5.0, 3, 4, 50, max_overs=1)
+        self.assertTrue(res)
+        for r in res:
+            self.assertLessEqual(sum(1 for p in r["patas"] if p["seleccion"].startswith("Más de")), 1)
+
+    def test_sin_limite_aparecen_dos_overs(self):
+        res = pm.buscar(self._patas(), 1.2, 2.1, 3.0, 5.0, 3, 4, 50)
+        self.assertTrue(any(sum(1 for p in r["patas"] if p["seleccion"].startswith("Más de")) == 2 for r in res))
+
+    def test_ninguna_pata_en_mas_de_max_rep_tickets(self):
+        res = pm.buscar(self._patas(), 1.2, 2.1, 3.0, 5.0, 3, 4, 200, max_overs=1)
+        elegidos = pm.diversificar(res, 3, 6, max_rep=2)
+        cuenta = {}
+        for t in elegidos:
+            for p in t["patas"]:
+                cuenta[p["match_id"]] = cuenta.get(p["match_id"], 0) + 1
+        self.assertTrue(cuenta and max(cuenta.values()) <= 2)

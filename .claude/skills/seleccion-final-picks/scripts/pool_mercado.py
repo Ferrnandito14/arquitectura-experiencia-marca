@@ -266,7 +266,11 @@ def cmd_pool(a):
     print(f"{len(todas)} patas en {usados} partidos; partidos con banderas de precio: {len(bands)}")
 
 
-def buscar(patas, lo, hi, prod_lo, prod_hi, nmin, nmax, top):
+def es_over(p):
+    return str(p.get("seleccion", "")).startswith("Más de")
+
+
+def buscar(patas, lo, hi, prod_lo, prod_hi, nmin, nmax, top, max_overs=None):
     cand = [p for p in patas if lo <= p["cuota"] <= hi]
     cand.sort(key=lambda p: -p["valor"])
     cand = cand[:90]
@@ -281,6 +285,8 @@ def buscar(patas, lo, hi, prod_lo, prod_hi, nmin, nmax, top):
         for i in range(inicio, len(cand)):
             p = cand[i]
             if p["match_id"] in usados:
+                continue
+            if max_overs is not None and es_over(p) and sum(1 for x in elegidas if es_over(x)) >= max_overs:
                 continue
             np_ = prod * p["cuota"]
             if np_ > prod_hi:
@@ -302,13 +308,19 @@ def buscar(patas, lo, hi, prod_lo, prod_hi, nmin, nmax, top):
     return salida
 
 
-def diversificar(lista, max_comun, top):
-    """Elige tickets en orden de probabilidad sin repetir más de `max_comun` patas entre dos tickets ya elegidos."""
+def diversificar(lista, max_comun, top, max_rep=None):
+    """Elige tickets en orden de probabilidad sin repetir más de `max_comun` patas entre dos tickets ya elegidos,
+    y (si max_rep) sin que una misma pata aparezca en más de `max_rep` tickets: evita que una sola pata hunda toda la cartera."""
     elegidos = []
+    cuenta = {}
     for t in lista:
         claves = {(p["match_id"], p["seleccion"]) for p in t["patas"]}
+        if max_rep is not None and any(cuenta.get(c, 0) >= max_rep for c in claves):
+            continue
         if all(len(claves & {(p["match_id"], p["seleccion"]) for p in e["patas"]}) <= max_comun for e in elegidos):
             elegidos.append(t)
+            for c in claves:
+                cuenta[c] = cuenta.get(c, 0) + 1
         if len(elegidos) == top:
             break
     return elegidos
@@ -323,9 +335,9 @@ def cmd_tickets(a):
         lo, hi = (a.prod_min or 1.18), (a.prod_max or 1.30)
         res = {"2 patas": buscar(patas, 1.04, 1.30, lo, hi, 2, 2, 200), "3 patas": buscar(patas, 1.04, 1.30, lo, hi, 3, 3, 200)}
     else:
-        res = {f"{n} patas": buscar(patas, 1.20, 2.10, 3.9, 4.5, n, n, 200) for n in (3, 4, 5)}
+        res = {f"{n} patas": buscar(patas, 1.20, 2.10, 3.9, 4.5, n, n, 200, max_overs=1) for n in (3, 4, 5)}
     if a.max_comun is not None:
-        res = {k: diversificar(v, a.max_comun, a.top) for k, v in res.items()}
+        res = {k: diversificar(v, a.max_comun, a.top, max_rep=2) for k, v in res.items()}
     json.dump(res, open(os.path.join(a.run, "pool", f"tickets_{a.objetivo}{a.sufijo}.json"), "w"), ensure_ascii=False, indent=1)
     for k, v in res.items():
         print(k, len(v), (f"mejor P={v[0]['p_ganar']:.3f} cuota {v[0]['cuota_base']}" if v else ""))
