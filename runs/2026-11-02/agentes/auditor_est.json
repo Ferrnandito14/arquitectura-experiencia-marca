@@ -1,0 +1,1946 @@
+{
+ "agente": "auditor_est (adversarial, Opus)",
+ "fecha_utc": "2026-11-02T15:00Z",
+ "alcance": "70 patas de pool/est_shortlist.json; evidencia SOLO estadística deportiva (est/lista_*, est/stats_*, thestatsapi/matches.json). Cuotas del mercado NO usadas como evidencia; 'pago_120_probable' es juicio genérico por tipo de línea, a confirmar con las manos.",
+ "metodo_p_propia": "Rango propio por pata = juicio sobre (a) k/16 bruto, (b) beta-binomial encogida a la tasa base de la liga (o global, 760 partidos únicos) con m=8, (c) Poisson con ataque/defensa encogidos (c=6) solo partidos de liga, (d) ajustes por copa/continental, localía n<5, desfase, contexto.",
+ "objeciones_globales": [
+  {
+   "obj": "p_dep sobreestimada por construcción: _mix promedia la frecuencia general con la del lado (n=2-5) que es un SUBCONJUNTO de los mismos 8 partidos → doble conteo y saturación (p.ej. Lorient 14/16=0.875 bruto → 0.9375). Con 8/8 la probabilidad real no es ~1; encogimiento a la base resta 5-12 pts.",
+   "impacto": "alto",
+   "resuelve": "usar p_propia (rango) en el ensamblado, no p_dep"
+  },
+  {
+   "obj": "Fuente única (TheStatsAPI) para marcadores y córners; no se pudo contrastar partido a partido con Flashscore/Soccerway: dominios externos bloqueados en esta sesión (ontourfootball.com, starting11.com fallaron por red).",
+   "impacto": "medio",
+   "resuelve": "que las manos contrasten 2-3 marcadores por pata final en la casa/Flashscore"
+  },
+  {
+   "obj": "FECHA DISCREPANTE Mjällby–Kalmar: búsqueda web (365Scores, ontourfootball) lo sitúa el domingo 1-nov 17:00; TheStatsAPI lo da lunes 2-nov 18:00 UTC y status 'scheduled'. Si ya se jugó, la pata no existe. Aplica también a GAIS–AIK (misma jornada).",
+   "impacto": "alto",
+   "resuelve": "confirmar en la casa que el partido está abierto el 2-nov 14:00 Caracas"
+  },
+  {
+   "obj": "Partidos de copa/continental en muestras (Copa del Rey, KNVB, Taça, Copa Argentina en sede neutral etiquetada L/V, Champions/Europa/Conference, ACL, FA Cup previa) distorsionan goles y córners y la variable localía.",
+   "impacto": "medio",
+   "resuelve": "ver detalle por pata"
+  },
+  {
+   "obj": "Los dos partidos de ACL Elite (Al-Ittihad–Al-Ain, Al-Gharafa–Al-Qadsiah) se evalúan con muestras de ligas domésticas distintas: no representativo.",
+   "impacto": "alto",
+   "resuelve": "descartar/degradar"
+  },
+  {
+   "obj": "Bajas, alineaciones, motivación (fin de temporada en Suecia/Noruega, posible reducido en Primera Nacional) NO verificadas.",
+   "impacto": "medio",
+   "resuelve": "revisión de bajas por las manos o fuente oficial antes de cargar"
+  },
+  {
+   "obj": "Regla ≤1 «Más de»: también cuentan 'Equipo: Más de 0.5' y Over 1.5; BTTS sí se trata como «Más» (conservador). Las patas de p más alta del shortlist son casi todas «Más de» o U4.5 (relleno <1.20).",
+   "impacto": "alto",
+   "resuelve": "conjuntos propuestos respetan la regla"
+  },
+  {
+   "obj": "Correlación: pares del mismo partido (1/24, 16/17, 19/38, 4/13, 5/37, 8/53, 7/46) no se combinan; mismo horario/liga (Argentina 18:00-20:15, Suecia 14:00, Eerste 15:00) correlación débil por ser líneas de partidos distintos.",
+   "impacto": "bajo",
+   "resuelve": "ya aplicado"
+  },
+  {
+   "obj": "Producto 4.0-4.8 con precios típicos 1.22-1.40 obliga a 5 patas; ∏P propia de 5 patas ~0.33-0.37 → cuota mínima de equilibrio ~2.7-3.0, por debajo de 4.0: EV deportivo positivo solo si los rangos propios son correctos.",
+   "impacto": "medio",
+   "resuelve": "precios reales de las manos"
+  }
+ ],
+ "patas": [
+  {
+   "idx": 0,
+   "match_id": "mt_465188699",
+   "partido": "Östers IF – Helsingborgs IF",
+   "hora_caracas": "02-11 14:00",
+   "mercado": "goles",
+   "seleccion": "Menos de 4.5 goles",
+   "p_dep": 0.9375,
+   "k_de_16": 15,
+   "detalle_kn": "H 7/8 (casa 3/3, liga 7/8) | A 8/8 (fuera 4/4, liga 8/8)",
+   "p_poisson_auditor": 0.893,
+   "p_beta_auditor": 0.903,
+   "p_propia": [
+    0.86,
+    0.92
+   ],
+   "p_propia_media": 0.89,
+   "veredicto": "mantener",
+   "severidad": "media",
+   "riesgo_principal": "Línea U4.5 casi segura pero precio probable <1.20 (relleno). Östers 7/8 (5-4 en Brage); Helsingborg 8/8, ataque 0.5 g/p.",
+   "es_mas_de": false,
+   "pago_120_probable": "no/dudoso"
+  },
+  {
+   "idx": 1,
+   "match_id": "mt_517344389",
+   "partido": "Mjällby AIF – Kalmar FF",
+   "hora_caracas": "02-11 14:00",
+   "mercado": "goles",
+   "seleccion": "Menos de 3.5 goles",
+   "p_dep": 0.9375,
+   "k_de_16": 15,
+   "detalle_kn": "H 8/8 (casa 4/4, liga 5/5) | A 7/8 (fuera 4/4, liga 7/8)",
+   "p_poisson_auditor": 0.872,
+   "p_beta_auditor": 0.872,
+   "p_propia": [
+    0.83,
+    0.89
+   ],
+   "p_propia_media": 0.86,
+   "veredicto": "mantener",
+   "severidad": "media",
+   "riesgo_principal": "FECHA DISCREPANTE: 365Scores/otros listan Mjällby–Kalmar el dom 1-nov 17:00; TheStatsAPI dice lun 2-nov 18:00 UTC. Muestra Mjällby incluye 2 de Conference + 1 copa (liga 5/5). Kalmar en descenso puede abrirse al final de temporada. Kalmar marcó 2 goles en 8.",
+   "es_mas_de": false,
+   "pago_120_probable": "probable sí"
+  },
+  {
+   "idx": 2,
+   "match_id": "mt_022558031",
+   "partido": "FC Universitatea Cluj – FCSB",
+   "hora_caracas": "02-11 14:30",
+   "mercado": "goles_equipo",
+   "seleccion": "FC Universitatea Cluj: Más de 0.5 goles",
+   "p_dep": 0.9375,
+   "k_de_16": 14,
+   "detalle_kn": "equipo 7/8 (lado 4/4) | rival concede 7/8 (lado 4/4)",
+   "p_poisson_auditor": 0.902,
+   "p_beta_auditor": 0.842,
+   "p_propia": [
+    0.84,
+    0.89
+   ],
+   "p_propia_media": 0.865,
+   "veredicto": "degradar",
+   "severidad": "media",
+   "riesgo_principal": "«Más de» (consume el cupo). Cluj marcó 7/8 y FCSB encajó 7/8, pero p_dep 0.9375 inflado por submuestras de lado n=4. Precio probable ~1.20 (borde).",
+   "es_mas_de": true,
+   "pago_120_probable": "dudoso"
+  },
+  {
+   "idx": 3,
+   "match_id": "mt_466109702",
+   "partido": "Lorient – Stade Brestois",
+   "hora_caracas": "02-11 15:45",
+   "mercado": "goles_equipo",
+   "seleccion": "Lorient: Más de 0.5 goles",
+   "p_dep": 0.9375,
+   "k_de_16": 14,
+   "detalle_kn": "equipo 6/8 (lado 4/4) | rival concede 8/8 (lado 4/4)",
+   "p_poisson_auditor": 0.712,
+   "p_beta_auditor": 0.842,
+   "p_propia": [
+    0.75,
+    0.82
+   ],
+   "p_propia_media": 0.785,
+   "veredicto": "degradar",
+   "severidad": "media",
+   "riesgo_principal": "Lorient 6/8 marcando; sus 2 ceros fueron 0-0; en casa marcó 1,1,2,1 (n=4). 14/16 bruto → p_dep 0.9375 inflado por _mix.",
+   "es_mas_de": true,
+   "pago_120_probable": "probable sí"
+  },
+  {
+   "idx": 4,
+   "match_id": "mt_735610910",
+   "partido": "Stade de Reims – Sochaux",
+   "hora_caracas": "02-11 15:45",
+   "mercado": "dc",
+   "seleccion": "Stade de Reims o empate",
+   "p_dep": 0.9375,
+   "k_de_16": 14,
+   "detalle_kn": "no pierde 8/8 (lado 4/4) | rival no gana 6/8 (lado 4/4)",
+   "p_poisson_auditor": 0.758,
+   "p_beta_auditor": 0.806,
+   "p_propia": [
+    0.8,
+    0.86
+   ],
+   "p_propia_media": 0.83,
+   "veredicto": "mantener",
+   "severidad": "media",
+   "riesgo_principal": "Reims invicto 8/8 pero 2V-2E en casa (n=4); Sochaux solo ganó 2/8 (ambas en casa 1-0). Favorito claro: precio probable 1.15-1.22 (relleno/borde).",
+   "es_mas_de": false,
+   "pago_120_probable": "dudoso"
+  },
+  {
+   "idx": 5,
+   "match_id": "mt_150554317",
+   "partido": "Independiente Rivadavia – Banfield",
+   "hora_caracas": "02-11 20:15",
+   "mercado": "goles_equipo",
+   "seleccion": "Banfield: Más de 0.5 goles",
+   "p_dep": 0.9375,
+   "k_de_16": 14,
+   "detalle_kn": "equipo 7/8 (lado 4/4) | rival concede 7/8 (lado 4/4)",
+   "p_poisson_auditor": 0.815,
+   "p_beta_auditor": 0.846,
+   "p_propia": [
+    0.76,
+    0.83
+   ],
+   "p_propia_media": 0.795,
+   "veredicto": "mantener",
+   "severidad": "media",
+   "riesgo_principal": "«Más de». Banfield marcó 7/8 (cero en Argentinos); Ind. Rivadavia encajó 7/8 (0-5 Rosario, 1-3 River). Liga argentina de pocos goles; 1 partido de Copa Argentina (sede neutral) en cada muestra.",
+   "es_mas_de": true,
+   "pago_120_probable": "sí"
+  },
+  {
+   "idx": 6,
+   "match_id": "mt_644526012",
+   "partido": "Raków Częstochowa – Pogoń Szczecin",
+   "hora_caracas": "02-11 15:30",
+   "mercado": "goles_equipo",
+   "seleccion": "Pogoń Szczecin: Más de 0.5 goles",
+   "p_dep": 0.9062,
+   "k_de_16": 15,
+   "detalle_kn": "equipo 7/8 (lado 3/4) | rival concede 8/8 (lado 3/3)",
+   "p_poisson_auditor": 0.843,
+   "p_beta_auditor": 0.863,
+   "p_propia": [
+    0.8,
+    0.86
+   ],
+   "p_propia_media": 0.83,
+   "veredicto": "mantener",
+   "severidad": "baja",
+   "riesgo_principal": "«Más de». Pogoń marcó 7/8 (0-0 en Zagłębie); Raków encajó 8/8 (1 de copa) y 3/3 en casa en liga. Mejor candidato para el único «Más de».",
+   "es_mas_de": true,
+   "pago_120_probable": "probable sí"
+  },
+  {
+   "idx": 7,
+   "match_id": "mt_517344859",
+   "partido": "Landskrona BoIS – Örebro SK",
+   "hora_caracas": "02-11 14:05",
+   "mercado": "goles_equipo",
+   "seleccion": "Örebro SK: Más de 0.5 goles",
+   "p_dep": 0.8875,
+   "k_de_16": 14,
+   "detalle_kn": "equipo 7/8 (lado 4/4) | rival concede 7/8 (lado 4/5)",
+   "p_poisson_auditor": 0.764,
+   "p_beta_auditor": 0.839,
+   "p_propia": [
+    0.77,
+    0.83
+   ],
+   "p_propia_media": 0.8,
+   "veredicto": "degradar",
+   "severidad": "media",
+   "riesgo_principal": "«Más de». Örebro marcó 7/8, Landskrona encajó 7/8; Superettan abierta. Correlacionada con Landskrona DC (misma pata no combinable).",
+   "es_mas_de": true,
+   "pago_120_probable": "sí"
+  },
+  {
+   "idx": 8,
+   "match_id": "mt_511977464",
+   "partido": "Hapoel Tel Aviv – Maccabi Haifa",
+   "hora_caracas": "02-11 14:30",
+   "mercado": "goles",
+   "seleccion": "Más de 2.5 goles",
+   "p_dep": 0.875,
+   "k_de_16": 14,
+   "detalle_kn": "H 6/8 (casa 3/4, liga 6/8) | A 8/8 (fuera 4/4, liga 8/8)",
+   "p_poisson_auditor": 0.666,
+   "p_beta_auditor": 0.83,
+   "p_propia": [
+    0.64,
+    0.74
+   ],
+   "p_propia_media": 0.69,
+   "veredicto": "degradar",
+   "severidad": "alta",
+   "riesgo_principal": "«Más de» y la de mayor varianza: Haifa 8/8 Over 2.5 satura; Hapoel TA 6/8; Poisson 0.67. Partido grande (Hapoel TA vs Haifa) suele cerrarse. 1 sola fuente.",
+   "es_mas_de": true,
+   "pago_120_probable": "sí"
+  },
+  {
+   "idx": 9,
+   "match_id": "mt_644548410",
+   "partido": "Jong Ajax – Vitesse",
+   "hora_caracas": "02-11 15:00",
+   "mercado": "goles",
+   "seleccion": "Menos de 4.5 goles",
+   "p_dep": 0.875,
+   "k_de_16": 14,
+   "detalle_kn": "H 6/8 (casa 4/4, liga 6/8) | A 8/8 (fuera 5/5, liga 7/7)",
+   "p_poisson_auditor": 0.888,
+   "p_beta_auditor": 0.855,
+   "p_propia": [
+    0.84,
+    0.9
+   ],
+   "p_propia_media": 0.87,
+   "veredicto": "degradar",
+   "severidad": "media",
+   "riesgo_principal": "U4.5 casi seguro pero relleno (<1.20). Jong Ajax volátil (1-6, 3-3).",
+   "es_mas_de": false,
+   "pago_120_probable": "no"
+  },
+  {
+   "idx": 10,
+   "match_id": "mt_733031342",
+   "partido": "Jong PSV Eindhoven – NAC Breda",
+   "hora_caracas": "02-11 15:00",
+   "mercado": "goles",
+   "seleccion": "Menos de 4.5 goles",
+   "p_dep": 0.875,
+   "k_de_16": 14,
+   "detalle_kn": "H 8/8 (casa 4/4, liga 8/8) | A 6/8 (fuera 4/4, liga 5/7)",
+   "p_poisson_auditor": 0.825,
+   "p_beta_auditor": 0.855,
+   "p_propia": [
+    0.81,
+    0.87
+   ],
+   "p_propia_media": 0.84,
+   "veredicto": "degradar",
+   "severidad": "media",
+   "riesgo_principal": "U4.5 relleno (<1.20). NAC: 1 partido de copa vs amateur JOS en muestra (liga 5/7).",
+   "es_mas_de": false,
+   "pago_120_probable": "no"
+  },
+  {
+   "idx": 11,
+   "match_id": "mt_378605376",
+   "partido": "Huesca – Gimnàstic de Tarragona",
+   "hora_caracas": "02-11 15:30",
+   "mercado": "goles",
+   "seleccion": "Más de 1.5 goles",
+   "p_dep": 0.875,
+   "k_de_16": 14,
+   "detalle_kn": "H 7/8 (casa 3/4, liga 6/7) | A 7/8 (fuera 3/4, liga 7/8)",
+   "p_poisson_auditor": 0.783,
+   "p_beta_auditor": 0.83,
+   "p_propia": [
+    0.75,
+    0.82
+   ],
+   "p_propia_media": 0.785,
+   "veredicto": "degradar",
+   "severidad": "media",
+   "riesgo_principal": "«Más de». Huesca 7/8 incluye Copa del Rey 5-1 vs Peña Sport (rival inferior); liga 6/7.",
+   "es_mas_de": true,
+   "pago_120_probable": "probable sí"
+  },
+  {
+   "idx": 12,
+   "match_id": "mt_200713250",
+   "partido": "Atalanta – Parma",
+   "hora_caracas": "02-11 15:45",
+   "mercado": "goles",
+   "seleccion": "Menos de 4.5 goles",
+   "p_dep": 0.875,
+   "k_de_16": 14,
+   "detalle_kn": "H 6/8 (casa 3/4, liga 4/6) | A 8/8 (fuera 3/3, liga 7/7)",
+   "p_poisson_auditor": 0.757,
+   "p_beta_auditor": 0.864,
+   "p_propia": [
+    0.78,
+    0.85
+   ],
+   "p_propia_media": 0.815,
+   "veredicto": "degradar",
+   "severidad": "media",
+   "riesgo_principal": "U4.5 relleno. Atalanta en muestra 4-4, 2-3, 3-1 y 2 de Champions; 6/8 en su lado bajo.",
+   "es_mas_de": false,
+   "pago_120_probable": "no"
+  },
+  {
+   "idx": 13,
+   "match_id": "mt_735610910",
+   "partido": "Stade de Reims – Sochaux",
+   "hora_caracas": "02-11 15:45",
+   "mercado": "goles_equipo",
+   "seleccion": "Sochaux: Más de 0.5 goles",
+   "p_dep": 0.875,
+   "k_de_16": 14,
+   "detalle_kn": "equipo 7/8 (lado 3/4) | rival concede 7/8 (lado 4/4)",
+   "p_poisson_auditor": 0.647,
+   "p_beta_auditor": 0.817,
+   "p_propia": [
+    0.66,
+    0.76
+   ],
+   "p_propia_media": 0.71,
+   "veredicto": "degradar",
+   "severidad": "alta",
+   "riesgo_principal": "«Más de». Sochaux marcó 7/8 y Reims encajó en casa 4/4, pero Sochaux fuera solo marca 1 por partido y Poisson da 0.65. Contradice parcialmente Reims DC.",
+   "es_mas_de": true,
+   "pago_120_probable": "sí"
+  },
+  {
+   "idx": 14,
+   "match_id": "mt_466492785",
+   "partido": "Deportivo La Coruña – Osasuna",
+   "hora_caracas": "02-11 16:00",
+   "mercado": "goles",
+   "seleccion": "Más de 1.5 goles",
+   "p_dep": 0.875,
+   "k_de_16": 14,
+   "detalle_kn": "H 6/8 (casa 2/3, liga 5/7) | A 8/8 (fuera 5/5, liga 7/7)",
+   "p_poisson_auditor": 0.823,
+   "p_beta_auditor": 0.83,
+   "p_propia": [
+    0.76,
+    0.82
+   ],
+   "p_propia_media": 0.79,
+   "veredicto": "degradar",
+   "severidad": "media",
+   "riesgo_principal": "«Más de». Muestras con Copa del Rey vs rivales de 3ª/4ª (Depor 3-0 Auriense, Osasuna 6-0 Calatayud). Solo liga: Depor 5/7, Osasuna 7/7.",
+   "es_mas_de": true,
+   "pago_120_probable": "probable sí"
+  },
+  {
+   "idx": 15,
+   "match_id": "mt_468740500",
+   "partido": "CD Real Tomayapo – Blooming",
+   "hora_caracas": "02-11 17:15",
+   "mercado": "goles",
+   "seleccion": "Menos de 3.5 goles",
+   "p_dep": 0.875,
+   "k_de_16": 14,
+   "detalle_kn": "H 7/8 (casa 4/4, liga 7/8) | A 7/8 (fuera 4/4, liga 7/8)",
+   "p_poisson_auditor": 0.854,
+   "p_beta_auditor": 0.811,
+   "p_propia": [
+    0.77,
+    0.84
+   ],
+   "p_propia_media": 0.805,
+   "veredicto": "mantener",
+   "severidad": "media",
+   "riesgo_principal": "Bolivia (altura Tarija ~1.850 m; liga de goles altos, base U3.5 global 0.68). Totales de ambos casi todos 2-3 (en el borde). Fuente única; calidad de datos Bolivia baja.",
+   "es_mas_de": false,
+   "pago_120_probable": "sí"
+  },
+  {
+   "idx": 16,
+   "match_id": "mt_895992479",
+   "partido": "Defensa y Justicia – CA Independiente",
+   "hora_caracas": "02-11 18:00",
+   "mercado": "goles",
+   "seleccion": "Menos de 3.5 goles",
+   "p_dep": 0.875,
+   "k_de_16": 14,
+   "detalle_kn": "H 7/8 (casa 4/4, liga 7/8) | A 7/8 (fuera 4/4, liga 7/8)",
+   "p_poisson_auditor": 0.831,
+   "p_beta_auditor": 0.827,
+   "p_propia": [
+    0.8,
+    0.86
+   ],
+   "p_propia_media": 0.83,
+   "veredicto": "mantener",
+   "severidad": "baja",
+   "riesgo_principal": "Liga argentina de pocos goles; ambos 7/8. Riesgo: Independiente encajó 4 en Instituto. Misma pata-partido que 17 (elegir una).",
+   "es_mas_de": false,
+   "pago_120_probable": "probable sí"
+  },
+  {
+   "idx": 17,
+   "match_id": "mt_895992479",
+   "partido": "Defensa y Justicia – CA Independiente",
+   "hora_caracas": "02-11 18:00",
+   "mercado": "goles_equipo",
+   "seleccion": "CA Independiente: Menos de 1.5 goles",
+   "p_dep": 0.875,
+   "k_de_16": 14,
+   "detalle_kn": "equipo 7/8 (lado 3/4) | rival concede 7/8 (lado 4/4)",
+   "p_poisson_auditor": 0.842,
+   "p_beta_auditor": 0.808,
+   "p_propia": [
+    0.79,
+    0.85
+   ],
+   "p_propia_media": 0.82,
+   "veredicto": "mantener",
+   "severidad": "baja",
+   "riesgo_principal": "Independiente marcó ≥2 solo 1/8; DyJ concedió ≥2 1/8. Alternativa a 16 (mismo partido, no combinar).",
+   "es_mas_de": false,
+   "pago_120_probable": "probable sí/borde"
+  },
+  {
+   "idx": 18,
+   "match_id": "mt_028974028",
+   "partido": "Red Bull Bragantino – Santos",
+   "hora_caracas": "02-11 19:00",
+   "mercado": "goles",
+   "seleccion": "Menos de 4.5 goles",
+   "p_dep": 0.875,
+   "k_de_16": 14,
+   "detalle_kn": "H 7/8 (casa 2/3, liga 7/8) | A 7/8 (fuera 4/5, liga 7/7)",
+   "p_poisson_auditor": 0.88,
+   "p_beta_auditor": 0.864,
+   "p_propia": [
+    0.84,
+    0.9
+   ],
+   "p_propia_media": 0.87,
+   "veredicto": "degradar",
+   "severidad": "media",
+   "riesgo_principal": "U4.5 relleno (<1.20). Santos con 2-4 en Copa do Brasil en muestra.",
+   "es_mas_de": false,
+   "pago_120_probable": "no"
+  },
+  {
+   "idx": 19,
+   "match_id": "mt_981880699",
+   "partido": "Atlético Tucumán – Argentinos Juniors",
+   "hora_caracas": "02-11 20:15",
+   "mercado": "dc",
+   "seleccion": "Argentinos Juniors o empate",
+   "p_dep": 0.875,
+   "k_de_16": 14,
+   "detalle_kn": "no pierde 7/8 (lado 3/4) | rival no gana 7/8 (lado 4/4)",
+   "p_poisson_auditor": 0.761,
+   "p_beta_auditor": 0.821,
+   "p_propia": [
+    0.75,
+    0.82
+   ],
+   "p_propia_media": 0.785,
+   "veredicto": "mantener",
+   "severidad": "media",
+   "riesgo_principal": "Tucumán perdió 3/3 en casa en liga (2-3, 2-3, 1-2); el 1-1 vs Platense e Ind. Rivadavia son de Copa Argentina (sede neutral, mal etiquetado L/V). Tucumán jugó copa el 29-oct (fatiga/rotación). Argentinos invicto 7/8.",
+   "es_mas_de": false,
+   "pago_120_probable": "sí"
+  },
+  {
+   "idx": 20,
+   "match_id": "mt_028974028",
+   "partido": "Red Bull Bragantino – Santos",
+   "hora_caracas": "02-11 19:00",
+   "mercado": "goles_equipo",
+   "seleccion": "Santos: Más de 0.5 goles",
+   "p_dep": 0.8542,
+   "k_de_16": 14,
+   "detalle_kn": "equipo 7/8 (lado 5/5) | rival concede 7/8 (lado 2/3)",
+   "p_poisson_auditor": 0.667,
+   "p_beta_auditor": 0.821,
+   "p_propia": [
+    0.68,
+    0.77
+   ],
+   "p_propia_media": 0.725,
+   "veredicto": "degradar",
+   "severidad": "alta",
+   "riesgo_principal": "«Más de». Bragantino en casa encajó 2/3 (n=3); Poisson 0.67.",
+   "es_mas_de": true,
+   "pago_120_probable": "sí"
+  },
+  {
+   "idx": 21,
+   "match_id": "mt_150765018",
+   "partido": "Al-Ittihad – Al-Ain",
+   "hora_caracas": "02-11 14:15",
+   "mercado": "goles_equipo",
+   "seleccion": "Al-Ain: Más de 0.5 goles",
+   "p_dep": 0.8438,
+   "k_de_16": 14,
+   "detalle_kn": "equipo 7/8 (lado 3/4) | rival concede 7/8 (lado 1/2)",
+   "p_poisson_auditor": 0.841,
+   "p_beta_auditor": 0.821,
+   "p_propia": [
+    0.7,
+    0.8
+   ],
+   "p_propia_media": 0.75,
+   "veredicto": "degradar",
+   "severidad": "alta",
+   "riesgo_principal": "Partido de ACL Elite; muestras mezclan liga EAU/Arabia, copas EAU y ACL (≥4 competiciones). Rival de nivel distinto. «Más de».",
+   "es_mas_de": true,
+   "pago_120_probable": "sí"
+  },
+  {
+   "idx": 22,
+   "match_id": "mt_733031342",
+   "partido": "Jong PSV Eindhoven – NAC Breda",
+   "hora_caracas": "02-11 15:00",
+   "mercado": "dc",
+   "seleccion": "NAC Breda o empate",
+   "p_dep": 0.8438,
+   "k_de_16": 13,
+   "detalle_kn": "no pierde 7/8 (lado 4/4) | rival no gana 6/8 (lado 3/4)",
+   "p_poisson_auditor": 0.632,
+   "p_beta_auditor": 0.708,
+   "p_propia": [
+    0.64,
+    0.74
+   ],
+   "p_propia_media": 0.69,
+   "veredicto": "degradar",
+   "severidad": "alta",
+   "riesgo_principal": "NAC: el 3-1 de copa vs amateur JOS cuenta; Jong PSV sorprendentemente no-gana en casa 3/4 (n=4). Poisson 0.63; base visitante DC 0.50.",
+   "es_mas_de": false,
+   "pago_120_probable": "sí"
+  },
+  {
+   "idx": 23,
+   "match_id": "mt_641599528",
+   "partido": "GAIS – AIK",
+   "hora_caracas": "02-11 14:00",
+   "mercado": "goles",
+   "seleccion": "Menos de 4.5 goles",
+   "p_dep": 0.8125,
+   "k_de_16": 13,
+   "detalle_kn": "H 7/8 (casa 4/4, liga 7/8) | A 6/8 (fuera 3/3, liga 6/8)",
+   "p_poisson_auditor": 0.79,
+   "p_beta_auditor": 0.826,
+   "p_propia": [
+    0.77,
+    0.84
+   ],
+   "p_propia_media": 0.805,
+   "veredicto": "degradar",
+   "severidad": "media",
+   "riesgo_principal": "U4.5 relleno; AIK partidos locos (5-6, 1-4, 2-2 ×2). Fecha Allsvenskan a confirmar (ver Mjällby).",
+   "es_mas_de": false,
+   "pago_120_probable": "no"
+  },
+  {
+   "idx": 24,
+   "match_id": "mt_517344389",
+   "partido": "Mjällby AIF – Kalmar FF",
+   "hora_caracas": "02-11 14:00",
+   "mercado": "goles_equipo",
+   "seleccion": "Mjällby AIF: Menos de 1.5 goles",
+   "p_dep": 0.8125,
+   "k_de_16": 12,
+   "detalle_kn": "equipo 6/8 (lado 3/4) | rival concede 6/8 (lado 4/4)",
+   "p_poisson_auditor": 0.728,
+   "p_beta_auditor": 0.747,
+   "p_propia": [
+    0.7,
+    0.78
+   ],
+   "p_propia_media": 0.74,
+   "veredicto": "degradar",
+   "severidad": "media",
+   "riesgo_principal": "Mjällby ≤1 gol 6/8; Kalmar encaja ≤1 6/8. Mismo partido que 1 (no combinar). Fecha discrepante.",
+   "es_mas_de": false,
+   "pago_120_probable": "sí"
+  },
+  {
+   "idx": 25,
+   "match_id": "mt_511437878",
+   "partido": "Sønderjyske Fodbold – FC København",
+   "hora_caracas": "02-11 14:00",
+   "mercado": "goles",
+   "seleccion": "Menos de 4.5 goles",
+   "p_dep": 0.8125,
+   "k_de_16": 13,
+   "detalle_kn": "H 5/8 (casa 1/3, liga 3/6) | A 8/8 (fuera 5/5, liga 4/4)",
+   "p_poisson_auditor": 0.766,
+   "p_beta_auditor": 0.822,
+   "p_propia": [
+    0.74,
+    0.82
+   ],
+   "p_propia_media": 0.78,
+   "veredicto": "degradar",
+   "severidad": "alta",
+   "riesgo_principal": "Sønderjyske 5/8 (1-5, 2-5, 4-0); FCK con 3 de copa/Europa en muestra. Relleno.",
+   "es_mas_de": false,
+   "pago_120_probable": "no/dudoso"
+  },
+  {
+   "idx": 26,
+   "match_id": "mt_899744033",
+   "partido": "Hapoel Ramat Gan Givataim – Maccabi Tel Aviv",
+   "hora_caracas": "02-11 14:00",
+   "mercado": "goles",
+   "seleccion": "Menos de 4.5 goles",
+   "p_dep": 0.8125,
+   "k_de_16": 13,
+   "detalle_kn": "H 8/8 (casa 4/4, liga 8/8) | A 5/8 (fuera 2/3, liga 4/7)",
+   "p_poisson_auditor": 0.757,
+   "p_beta_auditor": 0.801,
+   "p_propia": [
+    0.74,
+    0.8
+   ],
+   "p_propia_media": 0.77,
+   "veredicto": "degradar",
+   "severidad": "alta",
+   "riesgo_principal": "Maccabi TA 5/8 (6-2); Poisson 0.76. Relleno.",
+   "es_mas_de": false,
+   "pago_120_probable": "dudoso"
+  },
+  {
+   "idx": 27,
+   "match_id": "mt_511553179",
+   "partido": "Penafiel – Feirense",
+   "hora_caracas": "02-11 14:00",
+   "mercado": "goles",
+   "seleccion": "Menos de 3.5 goles",
+   "p_dep": 0.8125,
+   "k_de_16": 13,
+   "detalle_kn": "H 6/8 (casa 3/4, liga 4/6) | A 7/8 (fuera 5/5, liga 6/7)",
+   "p_poisson_auditor": 0.688,
+   "p_beta_auditor": 0.769,
+   "p_propia": [
+    0.7,
+    0.78
+   ],
+   "p_propia_media": 0.74,
+   "veredicto": "degradar",
+   "severidad": "media",
+   "riesgo_principal": "Penafiel con 4-1 ×2; 2 partidos de Taça de Portugal en su muestra. Sin córners.",
+   "es_mas_de": false,
+   "pago_120_probable": "sí"
+  },
+  {
+   "idx": 28,
+   "match_id": "mt_511553179",
+   "partido": "Penafiel – Feirense",
+   "hora_caracas": "02-11 14:00",
+   "mercado": "dc",
+   "seleccion": "Penafiel o empate",
+   "p_dep": 0.8125,
+   "k_de_16": 14,
+   "detalle_kn": "no pierde 6/8 (lado 2/4) | rival no gana 8/8 (lado 5/5)",
+   "p_poisson_auditor": 0.919,
+   "p_beta_auditor": 0.811,
+   "p_propia": [
+    0.77,
+    0.85
+   ],
+   "p_propia_media": 0.81,
+   "veredicto": "mantener",
+   "severidad": "media",
+   "riesgo_principal": "Feirense: 0 victorias en 8, 2 goles a favor en 8, perdió 5/5 fuera. Penafiel en casa 2/4 (incluye derrota de copa 0-1 Leça). El rechazo del deportivo se basa en n=3-4 de lado.",
+   "es_mas_de": false,
+   "pago_120_probable": "probable sí"
+  },
+  {
+   "idx": 29,
+   "match_id": "mt_150765018",
+   "partido": "Al-Ittihad – Al-Ain",
+   "hora_caracas": "02-11 14:15",
+   "mercado": "btts",
+   "seleccion": "Ambos anotan: sí",
+   "p_dep": 0.8125,
+   "k_de_16": 13,
+   "detalle_kn": "H 7/8 A 6/8",
+   "p_poisson_auditor": 0.595,
+   "p_beta_auditor": 0.727,
+   "p_propia": [
+    0.58,
+    0.68
+   ],
+   "p_propia_media": 0.63,
+   "veredicto": "descartar",
+   "severidad": "alta",
+   "riesgo_principal": "ACL Elite con muestras de otras competiciones; BTTS es de facto un «Más»; Poisson 0.60.",
+   "es_mas_de": true,
+   "pago_120_probable": "sí"
+  },
+  {
+   "idx": 30,
+   "match_id": "mt_022558031",
+   "partido": "FC Universitatea Cluj – FCSB",
+   "hora_caracas": "02-11 14:30",
+   "mercado": "goles",
+   "seleccion": "Más de 2.5 goles",
+   "p_dep": 0.8125,
+   "k_de_16": 13,
+   "detalle_kn": "H 7/8 (casa 4/4, liga 7/8) | A 6/8 (fuera 3/4, liga 6/8)",
+   "p_poisson_auditor": 0.714,
+   "p_beta_auditor": 0.715,
+   "p_propia": [
+    0.67,
+    0.75
+   ],
+   "p_propia_media": 0.71,
+   "veredicto": "degradar",
+   "severidad": "media",
+   "riesgo_principal": "«Más de». Over 2.5 base 0.52; FCSB 6/8; Poisson 0.71.",
+   "es_mas_de": true,
+   "pago_120_probable": "sí"
+  },
+  {
+   "idx": 31,
+   "match_id": "mt_644694459",
+   "partido": "Benfica – FC Alverca",
+   "hora_caracas": "02-11 16:15",
+   "mercado": "goles",
+   "seleccion": "Menos de 4.5 goles",
+   "p_dep": 0.8125,
+   "k_de_16": 13,
+   "detalle_kn": "H 6/8 (casa 2/3, liga 5/5) | A 7/8 (fuera 3/4, liga 6/7)",
+   "p_poisson_auditor": 0.795,
+   "p_beta_auditor": 0.822,
+   "p_propia": [
+    0.78,
+    0.84
+   ],
+   "p_propia_media": 0.81,
+   "veredicto": "degradar",
+   "severidad": "media",
+   "riesgo_principal": "U4.5 relleno. Benfica con Europa League; en casa 4-1, 3-1 (n=3).",
+   "es_mas_de": false,
+   "pago_120_probable": "no"
+  },
+  {
+   "idx": 32,
+   "match_id": "mt_021804843",
+   "partido": "Athletic Club – Ceará",
+   "hora_caracas": "02-11 17:00",
+   "mercado": "goles_equipo",
+   "seleccion": "Athletic Club: Más de 0.5 goles",
+   "p_dep": 0.8125,
+   "k_de_16": 12,
+   "detalle_kn": "equipo 6/8 (lado 3/3) | rival concede 6/8 (lado 3/4)",
+   "p_poisson_auditor": 0.705,
+   "p_beta_auditor": 0.744,
+   "p_propia": [
+    0.68,
+    0.76
+   ],
+   "p_propia_media": 0.72,
+   "veredicto": "degradar",
+   "severidad": "alta",
+   "riesgo_principal": "Athletic marcó 6/8; Ceará encajó 6/8. «Más de».",
+   "es_mas_de": true,
+   "pago_120_probable": "probable sí"
+  },
+  {
+   "idx": 33,
+   "match_id": "mt_021804843",
+   "partido": "Athletic Club – Ceará",
+   "hora_caracas": "02-11 17:00",
+   "mercado": "goles_equipo",
+   "seleccion": "Ceará: Más de 0.5 goles",
+   "p_dep": 0.8125,
+   "k_de_16": 12,
+   "detalle_kn": "equipo 6/8 (lado 3/4) | rival concede 6/8 (lado 3/3)",
+   "p_poisson_auditor": 0.659,
+   "p_beta_auditor": 0.744,
+   "p_propia": [
+    0.64,
+    0.73
+   ],
+   "p_propia_media": 0.685,
+   "veredicto": "descartar",
+   "severidad": "alta",
+   "riesgo_principal": "Ceará marcó 6/8, fuera 3/4; Poisson 0.66. «Más de».",
+   "es_mas_de": true,
+   "pago_120_probable": "sí"
+  },
+  {
+   "idx": 34,
+   "match_id": "mt_649491444",
+   "partido": "Rionegro Águilas Doradas – Fortaleza CEIF",
+   "hora_caracas": "02-11 17:05",
+   "mercado": "goles",
+   "seleccion": "Más de 1.5 goles",
+   "p_dep": 0.8125,
+   "k_de_16": 13,
+   "detalle_kn": "H 6/8 (casa 2/2, liga 6/8) | A 7/8 (fuera 3/4, liga 7/8)",
+   "p_poisson_auditor": 0.725,
+   "p_beta_auditor": 0.81,
+   "p_propia": [
+    0.72,
+    0.79
+   ],
+   "p_propia_media": 0.755,
+   "veredicto": "degradar",
+   "severidad": "media",
+   "riesgo_principal": "«Más de». Rionegro solo 2 partidos en casa en la muestra.",
+   "es_mas_de": true,
+   "pago_120_probable": "probable sí"
+  },
+  {
+   "idx": 35,
+   "match_id": "mt_649491444",
+   "partido": "Rionegro Águilas Doradas – Fortaleza CEIF",
+   "hora_caracas": "02-11 17:05",
+   "mercado": "dc",
+   "seleccion": "Rionegro Águilas Doradas o empate",
+   "p_dep": 0.8125,
+   "k_de_16": 13,
+   "detalle_kn": "no pierde 5/8 (lado 2/2) | rival no gana 8/8 (lado 4/4)",
+   "p_poisson_auditor": 0.817,
+   "p_beta_auditor": 0.832,
+   "p_propia": [
+    0.77,
+    0.84
+   ],
+   "p_propia_media": 0.805,
+   "veredicto": "mantener",
+   "severidad": "media",
+   "riesgo_principal": "Fortaleza CEIF 0 victorias en 8 (6E). Rionegro 2/2 en casa (n=2, débil); local colombiano fuerte (base DC local 0.87). Congestión (jugó 24 y 27-oct).",
+   "es_mas_de": false,
+   "pago_120_probable": "probable sí"
+  },
+  {
+   "idx": 36,
+   "match_id": "mt_982484924",
+   "partido": "Albion FC – Deportivo Maldonado",
+   "hora_caracas": "02-11 19:00",
+   "mercado": "goles",
+   "seleccion": "Más de 1.5 goles",
+   "p_dep": 0.8125,
+   "k_de_16": 13,
+   "detalle_kn": "H 6/8 (casa 3/4, liga 6/8) | A 7/8 (fuera 2/3, liga 7/8)",
+   "p_poisson_auditor": 0.753,
+   "p_beta_auditor": 0.789,
+   "p_propia": [
+    0.72,
+    0.79
+   ],
+   "p_propia_media": 0.755,
+   "veredicto": "degradar",
+   "severidad": "media",
+   "riesgo_principal": "«Más de». Maldonado fuera 2/3.",
+   "es_mas_de": true,
+   "pago_120_probable": "probable sí"
+  },
+  {
+   "idx": 37,
+   "match_id": "mt_150554317",
+   "partido": "Independiente Rivadavia – Banfield",
+   "hora_caracas": "02-11 20:15",
+   "mercado": "goles",
+   "seleccion": "Más de 1.5 goles",
+   "p_dep": 0.8125,
+   "k_de_16": 13,
+   "detalle_kn": "H 6/8 (casa 4/4, liga 5/7) | A 7/8 (fuera 4/4, liga 6/7)",
+   "p_poisson_auditor": 0.804,
+   "p_beta_auditor": 0.772,
+   "p_propia": [
+    0.75,
+    0.81
+   ],
+   "p_propia_media": 0.78,
+   "veredicto": "degradar",
+   "severidad": "media",
+   "riesgo_principal": "«Más de». Mismo partido que 5.",
+   "es_mas_de": true,
+   "pago_120_probable": "probable sí"
+  },
+  {
+   "idx": 38,
+   "match_id": "mt_981880699",
+   "partido": "Atlético Tucumán – Argentinos Juniors",
+   "hora_caracas": "02-11 20:15",
+   "mercado": "goles_equipo",
+   "seleccion": "Atlético Tucumán: Menos de 1.5 goles",
+   "p_dep": 0.8125,
+   "k_de_16": 14,
+   "detalle_kn": "equipo 6/8 (lado 2/4) | rival concede 8/8 (lado 4/4)",
+   "p_poisson_auditor": 0.793,
+   "p_beta_auditor": 0.808,
+   "p_propia": [
+    0.77,
+    0.83
+   ],
+   "p_propia_media": 0.8,
+   "veredicto": "mantener",
+   "severidad": "media",
+   "riesgo_principal": "Alternativa a 19 (mismo partido). Argentinos concedió ≤1 en 8/8; Tucumán ≥2 solo 2/8.",
+   "es_mas_de": false,
+   "pago_120_probable": "probable sí"
+  },
+  {
+   "idx": 39,
+   "match_id": "mt_733652762",
+   "partido": "Atlético Bucaramanga – Atlético Nacional",
+   "hora_caracas": "02-11 21:15",
+   "mercado": "goles",
+   "seleccion": "Más de 1.5 goles",
+   "p_dep": 0.8125,
+   "k_de_16": 13,
+   "detalle_kn": "H 7/8 (casa 5/5, liga 7/8) | A 6/8 (fuera 1/2, liga 6/8)",
+   "p_poisson_auditor": 0.69,
+   "p_beta_auditor": 0.81,
+   "p_propia": [
+    0.7,
+    0.78
+   ],
+   "p_propia_media": 0.74,
+   "veredicto": "degradar",
+   "severidad": "media",
+   "riesgo_principal": "«Más de». Nacional fuera n=2. Poisson 0.69.",
+   "es_mas_de": true,
+   "pago_120_probable": "probable sí"
+  },
+  {
+   "idx": 40,
+   "match_id": "mt_466492785",
+   "partido": "Deportivo La Coruña – Osasuna",
+   "hora_caracas": "02-11 16:00",
+   "mercado": "corners_equipo",
+   "seleccion": "Osasuna: Más de 2.5 córners",
+   "p_dep": 0.8063,
+   "k_de_16": null,
+   "detalle_kn": "corners",
+   "p_poisson_auditor": null,
+   "p_beta_auditor": null,
+   "p_propia": [
+    0.62,
+    0.72
+   ],
+   "p_propia_media": 0.67,
+   "veredicto": "degradar",
+   "severidad": "alta",
+   "riesgo_principal": "Córners de una sola fuente; Osasuna fuera 3/5 (0 en Atleti, 1 en Alavés) y la muestra incluye 7 córners vs Calatayud (copa). «Más de».",
+   "es_mas_de": true,
+   "pago_120_probable": "sí"
+  },
+  {
+   "idx": 41,
+   "match_id": "mt_200713250",
+   "partido": "Atalanta – Parma",
+   "hora_caracas": "02-11 15:45",
+   "mercado": "goles_equipo",
+   "seleccion": "Parma: Más de 0.5 goles",
+   "p_dep": 0.7917,
+   "k_de_16": 12,
+   "detalle_kn": "equipo 4/8 (lado 2/3) | rival concede 8/8 (lado 4/4)",
+   "p_poisson_auditor": 0.716,
+   "p_beta_auditor": 0.738,
+   "p_propia": [
+    0.66,
+    0.74
+   ],
+   "p_propia_media": 0.7,
+   "veredicto": "descartar",
+   "severidad": "alta",
+   "riesgo_principal": "Parma marcó solo 4/8; p_dep 0.79 lo sostiene Atalanta encajando 8/8 (2 de Champions).",
+   "es_mas_de": true,
+   "pago_120_probable": "sí"
+  },
+  {
+   "idx": 42,
+   "match_id": "mt_466277709",
+   "partido": "Red Star FC – Nancy",
+   "hora_caracas": "02-11 15:45",
+   "mercado": "goles_equipo",
+   "seleccion": "Nancy: Más de 0.5 goles",
+   "p_dep": 0.7917,
+   "k_de_16": 14,
+   "detalle_kn": "equipo 7/8 (lado 3/4) | rival concede 7/8 (lado 2/3)",
+   "p_poisson_auditor": 0.785,
+   "p_beta_auditor": 0.817,
+   "p_propia": [
+    0.72,
+    0.79
+   ],
+   "p_propia_media": 0.755,
+   "veredicto": "degradar",
+   "severidad": "media",
+   "riesgo_principal": "«Más de». Red Star en casa encajó 2/3 (n=3).",
+   "es_mas_de": true,
+   "pago_120_probable": "sí"
+  },
+  {
+   "idx": 43,
+   "match_id": "mt_466277709",
+   "partido": "Red Star FC – Nancy",
+   "hora_caracas": "02-11 15:45",
+   "mercado": "goles_equipo",
+   "seleccion": "Red Star FC: Menos de 1.5 goles",
+   "p_dep": 0.7812,
+   "k_de_16": 11,
+   "detalle_kn": "equipo 5/8 (lado 3/3) | rival concede 6/8 (lado 3/4)",
+   "p_poisson_auditor": 0.681,
+   "p_beta_auditor": 0.703,
+   "p_propia": [
+    0.64,
+    0.72
+   ],
+   "p_propia_media": 0.68,
+   "veredicto": "descartar",
+   "severidad": "alta",
+   "riesgo_principal": "Red Star marcó ≤1 solo 5/8; Poisson 0.68.",
+   "es_mas_de": false,
+   "pago_120_probable": "sí"
+  },
+  {
+   "idx": 44,
+   "match_id": "mt_465499855",
+   "partido": "Deportes Concepción – Palestino",
+   "hora_caracas": "02-11 19:30",
+   "mercado": "goles_equipo",
+   "seleccion": "Palestino: Menos de 1.5 goles",
+   "p_dep": 0.7812,
+   "k_de_16": 11,
+   "detalle_kn": "equipo 4/8 (lado 3/4) | rival concede 7/8 (lado 4/4)",
+   "p_poisson_auditor": 0.686,
+   "p_beta_auditor": 0.714,
+   "p_propia": [
+    0.62,
+    0.71
+   ],
+   "p_propia_media": 0.665,
+   "veredicto": "descartar",
+   "severidad": "alta",
+   "riesgo_principal": "Palestino marcó ≤1 solo 4/8 (5-1 Huachipato); muestras desde agosto (desfasadas).",
+   "es_mas_de": false,
+   "pago_120_probable": "sí"
+  },
+  {
+   "idx": 45,
+   "match_id": "mt_206870622",
+   "partido": "Al-Gharafa – Al-Qadsiah",
+   "hora_caracas": "02-11 14:15",
+   "mercado": "goles_equipo",
+   "seleccion": "Al-Gharafa: Menos de 1.5 goles",
+   "p_dep": 0.775,
+   "k_de_16": 12,
+   "detalle_kn": "equipo 5/8 (lado 3/5) | rival concede 7/8 (lado 4/4)",
+   "p_poisson_auditor": 0.648,
+   "p_beta_auditor": 0.694,
+   "p_propia": [
+    0.6,
+    0.7
+   ],
+   "p_propia_media": 0.65,
+   "veredicto": "descartar",
+   "severidad": "alta",
+   "riesgo_principal": "ACL Elite; Al-Gharafa ≤1 gol 5/8; competiciones mezcladas.",
+   "es_mas_de": false,
+   "pago_120_probable": "sí"
+  },
+  {
+   "idx": 46,
+   "match_id": "mt_517344859",
+   "partido": "Landskrona BoIS – Örebro SK",
+   "hora_caracas": "02-11 14:05",
+   "mercado": "dc",
+   "seleccion": "Landskrona BoIS o empate",
+   "p_dep": 0.7625,
+   "k_de_16": 12,
+   "detalle_kn": "no pierde 6/8 (lado 4/5) | rival no gana 6/8 (lado 3/4)",
+   "p_poisson_auditor": 0.698,
+   "p_beta_auditor": 0.722,
+   "p_propia": [
+    0.65,
+    0.74
+   ],
+   "p_propia_media": 0.695,
+   "veredicto": "descartar",
+   "severidad": "alta",
+   "riesgo_principal": "Landskrona no pierde 6/8; Örebro marca y anota fuera; Poisson 0.70.",
+   "es_mas_de": false,
+   "pago_120_probable": "sí"
+  },
+  {
+   "idx": 47,
+   "match_id": "mt_981880633",
+   "partido": "Platense – Central Córdoba",
+   "hora_caracas": "02-11 18:00",
+   "mercado": "goles_equipo",
+   "seleccion": "Central Córdoba: Más de 0.5 goles",
+   "p_dep": 0.7625,
+   "k_de_16": 12,
+   "detalle_kn": "equipo 5/8 (lado 3/4) | rival concede 7/8 (lado 4/5)",
+   "p_poisson_auditor": 0.647,
+   "p_beta_auditor": 0.763,
+   "p_propia": [
+    0.62,
+    0.72
+   ],
+   "p_propia_media": 0.67,
+   "veredicto": "descartar",
+   "severidad": "alta",
+   "riesgo_principal": "Central Córdoba marcó 5/8; Platense con 3 partidos de copa/continental en muestra.",
+   "es_mas_de": true,
+   "pago_120_probable": "sí"
+  },
+  {
+   "idx": 48,
+   "match_id": "mt_644526012",
+   "partido": "Raków Częstochowa – Pogoń Szczecin",
+   "hora_caracas": "02-11 15:30",
+   "mercado": "dc",
+   "seleccion": "Pogoń Szczecin o empate",
+   "p_dep": 0.7604,
+   "k_de_16": 13,
+   "detalle_kn": "no pierde 7/8 (lado 3/4) | rival no gana 6/8 (lado 2/3)",
+   "p_poisson_auditor": 0.769,
+   "p_beta_auditor": 0.732,
+   "p_propia": [
+    0.69,
+    0.77
+   ],
+   "p_propia_media": 0.73,
+   "veredicto": "degradar",
+   "severidad": "media",
+   "riesgo_principal": "Pogoń no pierde 7/8 pero fuera 3/4; Raków con partido de copa reciente.",
+   "es_mas_de": false,
+   "pago_120_probable": "sí"
+  },
+  {
+   "idx": 49,
+   "match_id": "mt_156658519",
+   "partido": "Chelmsford City – Farnham Town",
+   "hora_caracas": "02-11 15:45",
+   "mercado": "dc",
+   "seleccion": "Chelmsford City o empate",
+   "p_dep": 0.7604,
+   "k_de_16": 12,
+   "detalle_kn": "no pierde 7/8 (lado 2/2) | rival no gana 5/8 (lado 2/3)",
+   "p_poisson_auditor": 0.724,
+   "p_beta_auditor": 0.727,
+   "p_propia": [
+    0.66,
+    0.75
+   ],
+   "p_propia_media": 0.705,
+   "veredicto": "degradar",
+   "severidad": "alta",
+   "riesgo_principal": "National League South; 3 partidos de FA Cup previa en muestra, sin córners; partido 48 h después de jugar el 31-oct (ambos).",
+   "es_mas_de": false,
+   "pago_120_probable": "probable sí"
+  },
+  {
+   "idx": 50,
+   "match_id": "mt_153707107",
+   "partido": "Kongsvinger – Stabæk Fotball",
+   "hora_caracas": "02-11 14:00",
+   "mercado": "dc",
+   "seleccion": "Kongsvinger o empate",
+   "p_dep": 0.75,
+   "k_de_16": 10,
+   "detalle_kn": "no pierde 6/8 (lado 3/3) | rival no gana 4/8 (lado 3/4)",
+   "p_poisson_auditor": 0.729,
+   "p_beta_auditor": 0.644,
+   "p_propia": [
+    0.6,
+    0.7
+   ],
+   "p_propia_media": 0.65,
+   "veredicto": "descartar",
+   "severidad": "alta",
+   "riesgo_principal": "Kongsvinger perdió 1-5 y 1-3 en últimas; Stabæk no gana 4/8; base DC 0.68.",
+   "es_mas_de": false,
+   "pago_120_probable": "sí"
+  },
+  {
+   "idx": 51,
+   "match_id": "mt_465188699",
+   "partido": "Östers IF – Helsingborgs IF",
+   "hora_caracas": "02-11 14:00",
+   "mercado": "goles",
+   "seleccion": "Menos de 3.5 goles",
+   "p_dep": 0.75,
+   "k_de_16": 12,
+   "detalle_kn": "H 4/8 (casa 1/3, liga 4/8) | A 8/8 (fuera 4/4, liga 8/8)",
+   "p_poisson_auditor": 0.76,
+   "p_beta_auditor": 0.711,
+   "p_propia": [
+    0.68,
+    0.76
+   ],
+   "p_propia_media": 0.72,
+   "veredicto": "descartar",
+   "severidad": "media",
+   "riesgo_principal": "Östers U3.5 solo 4/8 y 1/3 en casa.",
+   "es_mas_de": false,
+   "pago_120_probable": "sí"
+  },
+  {
+   "idx": 52,
+   "match_id": "mt_370226237",
+   "partido": "Club Atlético Chacarita Juniors – Nueva Chicago",
+   "hora_caracas": "02-11 14:00",
+   "mercado": "goles",
+   "seleccion": "Menos de 2.5 goles",
+   "p_dep": 0.75,
+   "k_de_16": 12,
+   "detalle_kn": "H 5/8 (casa 3/4, liga 5/8) | A 7/8 (fuera 2/3, liga 7/8)",
+   "p_poisson_auditor": 0.759,
+   "p_beta_auditor": 0.733,
+   "p_propia": [
+    0.7,
+    0.77
+   ],
+   "p_propia_media": 0.735,
+   "veredicto": "degradar",
+   "severidad": "media",
+   "riesgo_principal": "Primera Nacional muy cerrada, pero Chacarita U2.5 5/8; posible fase final (reducido) sin verificar.",
+   "es_mas_de": false,
+   "pago_120_probable": "sí"
+  },
+  {
+   "idx": 53,
+   "match_id": "mt_511977464",
+   "partido": "Hapoel Tel Aviv – Maccabi Haifa",
+   "hora_caracas": "02-11 14:30",
+   "mercado": "goles",
+   "seleccion": "Menos de 4.5 goles",
+   "p_dep": 0.75,
+   "k_de_16": 12,
+   "detalle_kn": "H 7/8 (casa 4/4, liga 7/8) | A 5/8 (fuera 3/4, liga 5/8)",
+   "p_poisson_auditor": 0.739,
+   "p_beta_auditor": 0.759,
+   "p_propia": [
+    0.72,
+    0.78
+   ],
+   "p_propia_media": 0.75,
+   "veredicto": "degradar",
+   "severidad": "media",
+   "riesgo_principal": "Mismo partido que 8 (opuesta direccional).",
+   "es_mas_de": false,
+   "pago_120_probable": "dudoso"
+  },
+  {
+   "idx": 54,
+   "match_id": "mt_642163130",
+   "partido": "Fortaleza – Atlético Goianiense",
+   "hora_caracas": "02-11 15:00",
+   "mercado": "goles",
+   "seleccion": "Más de 1.5 goles",
+   "p_dep": 0.75,
+   "k_de_16": 12,
+   "detalle_kn": "H 7/8 (casa 4/4, liga 7/8) | A 5/8 (fuera 2/4, liga 5/8)",
+   "p_poisson_auditor": 0.694,
+   "p_beta_auditor": 0.736,
+   "p_propia": [
+    0.68,
+    0.75
+   ],
+   "p_propia_media": 0.715,
+   "veredicto": "degradar",
+   "severidad": "media",
+   "riesgo_principal": "«Más de». Goianiense fuera 2/4.",
+   "es_mas_de": true,
+   "pago_120_probable": "probable sí"
+  },
+  {
+   "idx": 55,
+   "match_id": "mt_644548410",
+   "partido": "Jong Ajax – Vitesse",
+   "hora_caracas": "02-11 15:00",
+   "mercado": "goles",
+   "seleccion": "Menos de 3.5 goles",
+   "p_dep": 0.75,
+   "k_de_16": 12,
+   "detalle_kn": "H 6/8 (casa 4/4, liga 6/8) | A 6/8 (fuera 5/5, liga 5/7)",
+   "p_poisson_auditor": 0.752,
+   "p_beta_auditor": 0.711,
+   "p_propia": [
+    0.7,
+    0.76
+   ],
+   "p_propia_media": 0.73,
+   "veredicto": "degradar",
+   "severidad": "media",
+   "riesgo_principal": "Jong Ajax volátil.",
+   "es_mas_de": false,
+   "pago_120_probable": "sí"
+  },
+  {
+   "idx": 56,
+   "match_id": "mt_200183093",
+   "partido": "Heracles Almelo – TOP Oss",
+   "hora_caracas": "02-11 15:00",
+   "mercado": "goles",
+   "seleccion": "Menos de 4.5 goles",
+   "p_dep": 0.75,
+   "k_de_16": 12,
+   "detalle_kn": "H 6/8 (casa 2/3, liga 5/7) | A 6/8 (fuera 4/4, liga 5/7)",
+   "p_poisson_auditor": 0.714,
+   "p_beta_auditor": 0.772,
+   "p_propia": [
+    0.71,
+    0.78
+   ],
+   "p_propia_media": 0.745,
+   "veredicto": "degradar",
+   "severidad": "media",
+   "riesgo_principal": "Heracles 5-1, 3-2, 3-0; relleno.",
+   "es_mas_de": false,
+   "pago_120_probable": "dudoso"
+  },
+  {
+   "idx": 57,
+   "match_id": "mt_981881178",
+   "partido": "Novara – Desenzano",
+   "hora_caracas": "02-11 15:30",
+   "mercado": "goles",
+   "seleccion": "Más de 1.5 goles",
+   "p_dep": 0.75,
+   "k_de_16": 12,
+   "detalle_kn": "H 6/8 (casa 3/4, liga 6/8) | A 6/8 (fuera 3/4, liga 6/8)",
+   "p_poisson_auditor": 0.687,
+   "p_beta_auditor": 0.747,
+   "p_propia": [
+    0.66,
+    0.74
+   ],
+   "p_propia_media": 0.7,
+   "veredicto": "degradar",
+   "severidad": "media",
+   "riesgo_principal": "«Más de». Novara marca poco (0.9 g/p).",
+   "es_mas_de": true,
+   "pago_120_probable": "probable sí"
+  },
+  {
+   "idx": 58,
+   "match_id": "mt_981881178",
+   "partido": "Novara – Desenzano",
+   "hora_caracas": "02-11 15:30",
+   "mercado": "goles",
+   "seleccion": "Menos de 3.5 goles",
+   "p_dep": 0.75,
+   "k_de_16": 12,
+   "detalle_kn": "H 6/8 (casa 3/4, liga 6/8) | A 6/8 (fuera 3/4, liga 6/8)",
+   "p_poisson_auditor": 0.783,
+   "p_beta_auditor": 0.727,
+   "p_propia": [
+    0.73,
+    0.79
+   ],
+   "p_propia_media": 0.76,
+   "veredicto": "mantener",
+   "severidad": "media",
+   "riesgo_principal": "Serie C A cerrada; ambos 6/8 (n bajo).",
+   "es_mas_de": false,
+   "pago_120_probable": "sí"
+  },
+  {
+   "idx": 59,
+   "match_id": "mt_466109702",
+   "partido": "Lorient – Stade Brestois",
+   "hora_caracas": "02-11 15:45",
+   "mercado": "goles",
+   "seleccion": "Menos de 3.5 goles",
+   "p_dep": 0.75,
+   "k_de_16": 12,
+   "detalle_kn": "H 7/8 (casa 3/4, liga 7/8) | A 5/8 (fuera 3/4, liga 5/8)",
+   "p_poisson_auditor": 0.791,
+   "p_beta_auditor": 0.727,
+   "p_propia": [
+    0.72,
+    0.79
+   ],
+   "p_propia_media": 0.755,
+   "veredicto": "degradar",
+   "severidad": "media",
+   "riesgo_principal": "Brest U3.5 5/8 (5-1, 2-2 ×2 fuera).",
+   "es_mas_de": false,
+   "pago_120_probable": "sí"
+  },
+  {
+   "idx": 60,
+   "match_id": "mt_377357467",
+   "partido": "Mallorca – Cádiz",
+   "hora_caracas": "02-11 16:00",
+   "mercado": "goles",
+   "seleccion": "Menos de 3.5 goles",
+   "p_dep": 0.75,
+   "k_de_16": 12,
+   "detalle_kn": "H 7/8 (casa 2/3, liga 7/8) | A 5/8 (fuera 2/3, liga 5/7)",
+   "p_poisson_auditor": 0.863,
+   "p_beta_auditor": 0.727,
+   "p_propia": [
+    0.76,
+    0.83
+   ],
+   "p_propia_media": 0.795,
+   "veredicto": "mantener",
+   "severidad": "media",
+   "riesgo_principal": "Segunda cerrada; Mallorca 7/8 (en casa totales 4,1,2); Cádiz 5/7 en liga (el 3-1 de copa vs Xerez distorsiona su «últimos 3»).",
+   "es_mas_de": false,
+   "pago_120_probable": "probable sí"
+  },
+  {
+   "idx": 61,
+   "match_id": "mt_733509239",
+   "partido": "Club Sporting Cristal – FC Cajamarca",
+   "hora_caracas": "02-11 16:30",
+   "mercado": "goles",
+   "seleccion": "Más de 2.5 goles",
+   "p_dep": 0.75,
+   "k_de_16": 12,
+   "detalle_kn": "H 6/8 (casa 4/4, liga 6/8) | A 6/8 (fuera 3/4, liga 6/8)",
+   "p_poisson_auditor": 0.739,
+   "p_beta_auditor": 0.744,
+   "p_propia": [
+    0.68,
+    0.76
+   ],
+   "p_propia_media": 0.72,
+   "veredicto": "degradar",
+   "severidad": "media",
+   "riesgo_principal": "«Más de». Over 2.5 6/8 ambos.",
+   "es_mas_de": true,
+   "pago_120_probable": "sí"
+  },
+  {
+   "idx": 62,
+   "match_id": "mt_733509239",
+   "partido": "Club Sporting Cristal – FC Cajamarca",
+   "hora_caracas": "02-11 16:30",
+   "mercado": "goles_equipo",
+   "seleccion": "FC Cajamarca: Más de 0.5 goles",
+   "p_dep": 0.75,
+   "k_de_16": 12,
+   "detalle_kn": "equipo 6/8 (lado 3/4) | rival concede 6/8 (lado 3/4)",
+   "p_poisson_auditor": 0.674,
+   "p_beta_auditor": 0.767,
+   "p_propia": [
+    0.66,
+    0.75
+   ],
+   "p_propia_media": 0.705,
+   "veredicto": "degradar",
+   "severidad": "media",
+   "riesgo_principal": "«Más de». Cajamarca marcó 6/8.",
+   "es_mas_de": true,
+   "pago_120_probable": "sí"
+  },
+  {
+   "idx": 63,
+   "match_id": "mt_468581501",
+   "partido": "Orense SC – Técnico Universitario",
+   "hora_caracas": "02-11 16:30",
+   "mercado": "goles",
+   "seleccion": "Menos de 3.5 goles",
+   "p_dep": 0.75,
+   "k_de_16": 12,
+   "detalle_kn": "H 6/8 (casa 2/4, liga 6/8) | A 6/8 (fuera 4/4, liga 6/8)",
+   "p_poisson_auditor": 0.733,
+   "p_beta_auditor": 0.727,
+   "p_propia": [
+    0.7,
+    0.77
+   ],
+   "p_propia_media": 0.735,
+   "veredicto": "degradar",
+   "severidad": "media",
+   "riesgo_principal": "Ambos 6/8; Orense en casa 2/4.",
+   "es_mas_de": false,
+   "pago_120_probable": "sí"
+  },
+  {
+   "idx": 64,
+   "match_id": "mt_465499855",
+   "partido": "Deportes Concepción – Palestino",
+   "hora_caracas": "02-11 19:30",
+   "mercado": "goles",
+   "seleccion": "Más de 1.5 goles",
+   "p_dep": 0.75,
+   "k_de_16": 12,
+   "detalle_kn": "H 5/8 (casa 2/4, liga 5/8) | A 7/8 (fuera 3/4, liga 7/8)",
+   "p_poisson_auditor": 0.712,
+   "p_beta_auditor": 0.744,
+   "p_propia": [
+    0.66,
+    0.74
+   ],
+   "p_propia_media": 0.7,
+   "veredicto": "descartar",
+   "severidad": "alta",
+   "riesgo_principal": "«Más de». Concepción 5/8; muestra desde 9-ago (desfasada, pausas largas).",
+   "es_mas_de": true,
+   "pago_120_probable": "probable sí"
+  },
+  {
+   "idx": 65,
+   "match_id": "mt_376038083",
+   "partido": "Goiás – CRB",
+   "hora_caracas": "02-11 19:30",
+   "mercado": "goles",
+   "seleccion": "Más de 1.5 goles",
+   "p_dep": 0.75,
+   "k_de_16": 12,
+   "detalle_kn": "H 6/8 (casa 2/4, liga 6/8) | A 6/8 (fuera 2/3, liga 6/8)",
+   "p_poisson_auditor": 0.726,
+   "p_beta_auditor": 0.736,
+   "p_propia": [
+    0.69,
+    0.76
+   ],
+   "p_propia_media": 0.725,
+   "veredicto": "degradar",
+   "severidad": "media",
+   "riesgo_principal": "«Más de». 6/8 ambos.",
+   "es_mas_de": true,
+   "pago_120_probable": "probable sí"
+  },
+  {
+   "idx": 66,
+   "match_id": "mt_376038083",
+   "partido": "Goiás – CRB",
+   "hora_caracas": "02-11 19:30",
+   "mercado": "goles",
+   "seleccion": "Menos de 3.5 goles",
+   "p_dep": 0.75,
+   "k_de_16": 12,
+   "detalle_kn": "H 7/8 (casa 4/4, liga 7/8) | A 5/8 (fuera 1/3, liga 5/8)",
+   "p_poisson_auditor": 0.743,
+   "p_beta_auditor": 0.752,
+   "p_propia": [
+    0.71,
+    0.78
+   ],
+   "p_propia_media": 0.745,
+   "veredicto": "degradar",
+   "severidad": "media",
+   "riesgo_principal": "CRB U3.5 5/8, fuera 1/3.",
+   "es_mas_de": false,
+   "pago_120_probable": "sí"
+  },
+  {
+   "idx": 67,
+   "match_id": "mt_733652762",
+   "partido": "Atlético Bucaramanga – Atlético Nacional",
+   "hora_caracas": "02-11 21:15",
+   "mercado": "goles",
+   "seleccion": "Menos de 3.5 goles",
+   "p_dep": 0.75,
+   "k_de_16": 12,
+   "detalle_kn": "H 6/8 (casa 4/5, liga 6/8) | A 6/8 (fuera 1/2, liga 6/8)",
+   "p_poisson_auditor": 0.78,
+   "p_beta_auditor": 0.747,
+   "p_propia": [
+    0.73,
+    0.79
+   ],
+   "p_propia_media": 0.76,
+   "veredicto": "degradar",
+   "severidad": "media",
+   "riesgo_principal": "Ambos 6/8; Nacional fuera n=2.",
+   "es_mas_de": false,
+   "pago_120_probable": "sí"
+  },
+  {
+   "idx": 68,
+   "match_id": "mt_641599528",
+   "partido": "GAIS – AIK",
+   "hora_caracas": "02-11 14:00",
+   "mercado": "goles_equipo",
+   "seleccion": "AIK: Menos de 1.5 goles",
+   "p_dep": 0.7292,
+   "k_de_16": 10,
+   "detalle_kn": "equipo 4/8 (lado 2/3) | rival concede 6/8 (lado 4/4)",
+   "p_poisson_auditor": 0.55,
+   "p_beta_auditor": 0.602,
+   "p_propia": [
+    0.52,
+    0.62
+   ],
+   "p_propia_media": 0.57,
+   "veredicto": "descartar",
+   "severidad": "alta",
+   "riesgo_principal": "AIK marcó ≤1 solo 4/8 (5-6, 2-2, 2-2, 2-1); Poisson 0.55.",
+   "es_mas_de": false,
+   "pago_120_probable": "sí"
+  },
+  {
+   "idx": 69,
+   "match_id": "mt_370226237",
+   "partido": "Club Atlético Chacarita Juniors – Nueva Chicago",
+   "hora_caracas": "02-11 14:00",
+   "mercado": "goles_equipo",
+   "seleccion": "Club Atlético Chacarita Juniors: Más de 0.5 goles",
+   "p_dep": 0.7292,
+   "k_de_16": 12,
+   "detalle_kn": "equipo 6/8 (lado 3/4) | rival concede 6/8 (lado 2/3)",
+   "p_poisson_auditor": 0.715,
+   "p_beta_auditor": 0.744,
+   "p_propia": [
+    0.68,
+    0.76
+   ],
+   "p_propia_media": 0.72,
+   "veredicto": "degradar",
+   "severidad": "media",
+   "riesgo_principal": "«Más de». Chacarita marcó 6/8; Nueva Chicago en casa concede poco.",
+   "es_mas_de": true,
+   "pago_120_probable": "probable sí"
+  }
+ ],
+ "resumen_veredictos": {
+  "mantener": 14,
+  "degradar": 44,
+  "descartar": 12
+ },
+ "conjuntos": [
+  {
+   "nombre": "C2",
+   "patas": [
+    {
+     "idx": 1,
+     "partido": "Mjällby AIF – Kalmar FF",
+     "hora": "02-11 14:00",
+     "seleccion": "Menos de 3.5 goles",
+     "p_propia": 0.86,
+     "pago_120": "probable sí"
+    },
+    {
+     "idx": 16,
+     "partido": "Defensa y Justicia – CA Independiente",
+     "hora": "02-11 18:00",
+     "seleccion": "Menos de 3.5 goles",
+     "p_propia": 0.83,
+     "pago_120": "probable sí"
+    },
+    {
+     "idx": 28,
+     "partido": "Penafiel – Feirense",
+     "hora": "02-11 14:00",
+     "seleccion": "Penafiel o empate",
+     "p_propia": 0.81,
+     "pago_120": "probable sí"
+    },
+    {
+     "idx": 35,
+     "partido": "Rionegro Águilas Doradas – Fortaleza CEIF",
+     "hora": "02-11 17:05",
+     "seleccion": "Rionegro Águilas Doradas o empate",
+     "p_propia": 0.805,
+     "pago_120": "probable sí"
+    },
+    {
+     "idx": 6,
+     "partido": "Raków Częstochowa – Pogoń Szczecin",
+     "hora": "02-11 15:30",
+     "seleccion": "Pogoń Szczecin: Más de 0.5 goles",
+     "p_propia": 0.83,
+     "pago_120": "probable sí"
+    }
+   ],
+   "n_mas_de": 1,
+   "prod_p_propia": 0.386,
+   "rango_prod": [
+    0.315,
+    0.47
+   ],
+   "cuota_minima_equilibrio": 2.59,
+   "porque": "Cambia Bolivia y Argentinos por Penafiel DC y Rionegro DC (rivales sin victorias en 8). Riesgo: lados de n=2-4."
+  },
+  {
+   "nombre": "C1",
+   "patas": [
+    {
+     "idx": 1,
+     "partido": "Mjällby AIF – Kalmar FF",
+     "hora": "02-11 14:00",
+     "seleccion": "Menos de 3.5 goles",
+     "p_propia": 0.86,
+     "pago_120": "probable sí"
+    },
+    {
+     "idx": 16,
+     "partido": "Defensa y Justicia – CA Independiente",
+     "hora": "02-11 18:00",
+     "seleccion": "Menos de 3.5 goles",
+     "p_propia": 0.83,
+     "pago_120": "probable sí"
+    },
+    {
+     "idx": 15,
+     "partido": "CD Real Tomayapo – Blooming",
+     "hora": "02-11 17:15",
+     "seleccion": "Menos de 3.5 goles",
+     "p_propia": 0.805,
+     "pago_120": "sí"
+    },
+    {
+     "idx": 19,
+     "partido": "Atlético Tucumán – Argentinos Juniors",
+     "hora": "02-11 20:15",
+     "seleccion": "Argentinos Juniors o empate",
+     "p_propia": 0.785,
+     "pago_120": "sí"
+    },
+    {
+     "idx": 6,
+     "partido": "Raków Częstochowa – Pogoń Szczecin",
+     "hora": "02-11 15:30",
+     "seleccion": "Pogoń Szczecin: Más de 0.5 goles",
+     "p_propia": 0.83,
+     "pago_120": "probable sí"
+    }
+   ],
+   "n_mas_de": 1,
+   "prod_p_propia": 0.374,
+   "rango_prod": [
+    0.307,
+    0.453
+   ],
+   "cuota_minima_equilibrio": 2.67,
+   "porque": "Base de «Menos»/DC de 4 ligas distintas + Pogoń marca como único «Más de». Todas probablemente ≥1.20."
+  },
+  {
+   "nombre": "C3",
+   "patas": [
+    {
+     "idx": 1,
+     "partido": "Mjällby AIF – Kalmar FF",
+     "hora": "02-11 14:00",
+     "seleccion": "Menos de 3.5 goles",
+     "p_propia": 0.86,
+     "pago_120": "probable sí"
+    },
+    {
+     "idx": 17,
+     "partido": "Defensa y Justicia – CA Independiente",
+     "hora": "02-11 18:00",
+     "seleccion": "CA Independiente: Menos de 1.5 goles",
+     "p_propia": 0.82,
+     "pago_120": "probable sí/borde"
+    },
+    {
+     "idx": 38,
+     "partido": "Atlético Tucumán – Argentinos Juniors",
+     "hora": "02-11 20:15",
+     "seleccion": "Atlético Tucumán: Menos de 1.5 goles",
+     "p_propia": 0.8,
+     "pago_120": "probable sí"
+    },
+    {
+     "idx": 60,
+     "partido": "Mallorca – Cádiz",
+     "hora": "02-11 16:00",
+     "seleccion": "Menos de 3.5 goles",
+     "p_propia": 0.795,
+     "pago_120": "probable sí"
+    },
+    {
+     "idx": 6,
+     "partido": "Raków Częstochowa – Pogoń Szczecin",
+     "hora": "02-11 15:30",
+     "seleccion": "Pogoń Szczecin: Más de 0.5 goles",
+     "p_propia": 0.83,
+     "pago_120": "probable sí"
+    }
+   ],
+   "n_mas_de": 1,
+   "prod_p_propia": 0.372,
+   "rango_prod": [
+    0.307,
+    0.448
+   ],
+   "cuota_minima_equilibrio": 2.69,
+   "porque": "Variante goles-equipo: Independiente ≤1 y Tucumán ≤1 (Argentinos concedió ≤1 en 8/8) + Mallorca–Cádiz U3.5."
+  },
+  {
+   "nombre": "C5",
+   "patas": [
+    {
+     "idx": 1,
+     "partido": "Mjällby AIF – Kalmar FF",
+     "hora": "02-11 14:00",
+     "seleccion": "Menos de 3.5 goles",
+     "p_propia": 0.86,
+     "pago_120": "probable sí"
+    },
+    {
+     "idx": 16,
+     "partido": "Defensa y Justicia – CA Independiente",
+     "hora": "02-11 18:00",
+     "seleccion": "Menos de 3.5 goles",
+     "p_propia": 0.83,
+     "pago_120": "probable sí"
+    },
+    {
+     "idx": 19,
+     "partido": "Atlético Tucumán – Argentinos Juniors",
+     "hora": "02-11 20:15",
+     "seleccion": "Argentinos Juniors o empate",
+     "p_propia": 0.785,
+     "pago_120": "sí"
+    },
+    {
+     "idx": 4,
+     "partido": "Stade de Reims – Sochaux",
+     "hora": "02-11 15:45",
+     "seleccion": "Stade de Reims o empate",
+     "p_propia": 0.83,
+     "pago_120": "dudoso"
+    },
+    {
+     "idx": 5,
+     "partido": "Independiente Rivadavia – Banfield",
+     "hora": "02-11 20:15",
+     "seleccion": "Banfield: Más de 0.5 goles",
+     "p_propia": 0.795,
+     "pago_120": "sí"
+    }
+   ],
+   "n_mas_de": 1,
+   "prod_p_propia": 0.37,
+   "rango_prod": [
+    0.303,
+    0.448
+   ],
+   "cuota_minima_equilibrio": 2.7,
+   "porque": "Usa Reims DC (P alta pero precio en el borde) y Banfield marca (precio alto) para alcanzar producto 4.0-4.8 con 5 patas."
+  },
+  {
+   "nombre": "C4",
+   "patas": [
+    {
+     "idx": 16,
+     "partido": "Defensa y Justicia – CA Independiente",
+     "hora": "02-11 18:00",
+     "seleccion": "Menos de 3.5 goles",
+     "p_propia": 0.83,
+     "pago_120": "probable sí"
+    },
+    {
+     "idx": 19,
+     "partido": "Atlético Tucumán – Argentinos Juniors",
+     "hora": "02-11 20:15",
+     "seleccion": "Argentinos Juniors o empate",
+     "p_propia": 0.785,
+     "pago_120": "sí"
+    },
+    {
+     "idx": 15,
+     "partido": "CD Real Tomayapo – Blooming",
+     "hora": "02-11 17:15",
+     "seleccion": "Menos de 3.5 goles",
+     "p_propia": 0.805,
+     "pago_120": "sí"
+    },
+    {
+     "idx": 28,
+     "partido": "Penafiel – Feirense",
+     "hora": "02-11 14:00",
+     "seleccion": "Penafiel o empate",
+     "p_propia": 0.81,
+     "pago_120": "probable sí"
+    },
+    {
+     "idx": 2,
+     "partido": "FC Universitatea Cluj – FCSB",
+     "hora": "02-11 14:30",
+     "seleccion": "FC Universitatea Cluj: Más de 0.5 goles",
+     "p_propia": 0.865,
+     "pago_120": "dudoso"
+    }
+   ],
+   "n_mas_de": 1,
+   "prod_p_propia": 0.367,
+   "rango_prod": [
+    0.299,
+    0.448
+   ],
+   "cuota_minima_equilibrio": 2.72,
+   "porque": "Sin Allsvenskan (protege del conflicto de fecha Mjällby–Kalmar). Cluj marca como «Más de» (precio en el borde: si paga <1.20, cambiar por Pogoń)."
+  }
+ ],
+ "alternativas_no_consideradas": "Ninguna fuera del shortlist evaluada (regla: solo est/). Dentro del pool, Tucumán ≤1 gol (38) e Independiente ≤1 gol (17) son alternativas 'Menos' con precio probable ≥1.20 a las DC/U3.5 de su partido.",
+ "fuentes_externas": [
+  {
+   "fuente": "WebSearch (365Scores/ESPN/ontourfootball/starting11 snippets)",
+   "dato": "fecha Mjällby–Kalmar",
+   "resultado": "discrepante: mayoría 1-nov; starting11 2-nov 18:00 GMT",
+   "estado": "Acceso parcial (fetch bloqueado por red)"
+  }
+ ]
+}

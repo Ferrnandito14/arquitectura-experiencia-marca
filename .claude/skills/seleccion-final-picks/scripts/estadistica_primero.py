@@ -85,7 +85,13 @@ def cmd_fetch(a):
         for l in ("home_team", "away_team"):
             equipos[m[l]["id"]] = m[l]["name"]
     print(f"{len(U)} partidos, {len(equipos)} equipos", flush=True)
-    for i, (tid, nom) in enumerate(equipos.items(), 1):
+    items = list(equipos.items())
+    if a.orden == "atras":
+        items.reverse()
+    elif a.orden == "azar":
+        import random
+        random.Random(7).shuffle(items)
+    for i, (tid, nom) in enumerate(items, 1):
         ruta = os.path.join(est, f"lista_{tid}.json")
         if os.path.exists(ruta):
             filas = json.load(open(ruta))
@@ -278,6 +284,7 @@ def main(argv=None):
         if n == "fetch":
             s.add_argument("--n", type=int, default=8)
             s.add_argument("--sin-stats", action="store_true")
+            s.add_argument("--orden", choices=["adelante", "atras", "azar"], default="adelante", help="para correr varios procesos en paralelo sin repetir")
     a = ap.parse_args(argv)
     return {"fetch": cmd_fetch, "analisis": cmd_analisis}[a.cmd](a) or 0
 
