@@ -1,0 +1,59 @@
+{
+ "meta": {
+  "fecha": "2026-11-02",
+  "alcance": "Auditoria adversarial de 2 patas nuevas (finalistas.json #30 y #31) con cuota de casa comunicada por el usuario; solo datos locales",
+  "fuentes": ["pool/finalistas.json", "pool/patas.json", "pool/modelo_ligero.json", "pool/justificaciones.json", "dossier/dossier_finalistas.json (TheStatsAPI, proveedor unico)", "pool/casa_precios.json", "pool/tickets_x12_revisado.json", "agentes/auditor.json", "agentes/deportivo_extra.json"],
+  "limitaciones": "Sin fuentes externas, noticias ni alineaciones; bajas sin nombres; cuotas 1.15 y 1.11 comunicadas por el usuario, sin hora de lectura ni verificacion independiente; reglas de liquidacion de la casa no leidas"
+ },
+ "patas": [
+  {
+   "key": "mt_200713250|Atalanta o empate",
+   "cuota_casa": 1.15,
+   "break_even": 0.8696,
+   "p_mercado": 0.8361,
+   "p_modelo": 0.709,
+   "ev_mercado": -0.0385,
+   "ev_modelo": -0.1847,
+   "recomendacion": "degradar",
+   "severidad": "media",
+   "riesgo_principal": "La cuota se apoya en el nombre de Atalanta y no en su forma: 13.o con 11 pts en 9 PJ, 2G-2E-4P en las ultimas 8 (gc 2.12, encajo 4-4 en casa vs Frosinone), 8 lesionados sin nombre y Champions vs Kairat en 3 dias. El modelo v0 da 0.709 frente a 0.836 de mercado (-12.7 pp, la mayor brecha entre las patas que siguen vivas). El break-even de 0.870 esta por encima incluso del mercado.",
+   "objeciones_secundarias": [
+    "Parma 0/3 de visita, pero esas visitas fueron Inter, Lazio y Como (rivales fuertes): la muestra n=3 exagera su debilidad ante una Atalanta de media tabla",
+    "H2H n=3 incluye Parma 3-2 en Bergamo (2025-05); plantillas y entrenadores no verificados",
+    "Registro dc.1x: 86.9% frente a 86.4% implicito (n=122): neutral, no da ventaja como en Reims (+4.1)",
+    "Mismo inicio que Reims (19:45 UTC): no se puede decidir en secuencia"
+   ],
+   "dato_que_resuelve": "Once probable o confirmado de Atalanta (rotacion antes de Kairat) e identidad de los 8 lesionados",
+   "nota": "No sustituir a Reims o empate en la opcion A: la sustitucion mejora el EV de mercado (-12.1% frente a -14.3%) pero lo empeora segun el modelo (-21.3% frente a -14.2%), y Reims tiene mejor calibracion historica y mejor dossier. Solo es aceptable como pierna de un ticket de 2 patas (ver tickets)."
+  },
+  {
+   "key": "mt_028974028|Mas de 1.25 goles (linea casa; pool solo tiene 1.5)",
+   "cuota_casa": 1.11,
+   "p_mercado": {"p0": 0.0679, "p1": 0.1266, "p2mas": 0.8055},
+   "p_modelo": {"p0": 0.0596, "p1": 0.168, "p2mas": 0.7715},
+   "ev_regla_usuario_1gol_devuelve": {"mercado": 0.0207, "modelo": 0.0244},
+   "ev_regla_asiatica_1gol_medio_perdido": {"mercado": -0.0426, "modelo": -0.0596, "ajustado_registro": -0.0592},
+   "cuota_justa": {"asiatica_1.25_mercado": 1.163, "over_1.0_mercado": 1.084},
+   "recomendacion": "mantener",
+   "severidad": "media",
+   "riesgo_principal": "La liquidacion indicada esta probablemente mal: en la linea asiatica 1.25 la apuesta se reparte entre 1.0 y 1.5, asi que con 1 gol se devuelve la mitad del importe y la otra mitad se pierde; no se devuelve todo. La regla de '1 gol devuelve' corresponde a la linea 1.0. El precio lo confirma: 1.11 queda por debajo de la cuota justa de 1.25 asiatica (1.163, margen de casa razonable) y por encima de la de 1.0 (1.084), cosa que una casa no ofreceria. Con la regla real el EV es -4% a -6% y no +2%, como asumio deportivo_extra.",
+   "objeciones_secundarias": [
+    "Registro over 1.5 en la banda 1.06-1.29: acierto 79.0% frente a 85.4% implicito (n=272): el mercado sobreestima P(2+), asi que conviene usar unos 0.77-0.79",
+    "Bajas de Santos: 2 sancionados (uno por roja, 3 partidos) y 2 lesionados sin nombre; si son atacantes, el partido baja de goles",
+    "Santos con 0-0 vs Palmeiras (28-10) y Bragantino sin marcar en 2 de 5 visitas: el riesgo de 0-0/1-0 no es despreciable (P de 0 o 1 gol de 0.19 a 0.23)",
+    "Las muestras (8+8, mismo proveedor) son coherentes (14/16 con 2+ goles), pero n es pequeno y no hay segunda fuente"
+   ],
+   "dato_que_resuelve": "Leer en la casa la regla de 'Mas de 1.25' (con 1 gol: ¿devolucion total o media perdida?) y la regla de patas asiaticas en combinadas",
+   "nota": "Aun con la regla asiatica, su valor (0.957) es igual o mejor que el de las patas de la opcion A, por eso se mantiene. Si la casa confirma que con 1 gol devuelve todo, pasa a ser la mejor pata del lote (EV +2%)."
+  }
+ ],
+ "tickets": {
+  "opcion_A": {"patas": ["Menos de 5.5 Concepcion-Palestino 1.0304", "Menos de 5.5 Bucaramanga-Nacional 1.0304", "Reims o empate 1.1819"], "cuota": 1.2549, "p_ganar_mercado": 0.6826, "ev_mercado": -0.1434, "ev_modelo": -0.1422},
+  "A_con_Atalanta_por_Reims": {"cuota": 1.221, "p_ganar_mercado": 0.7202, "ev_mercado": -0.1207, "ev_modelo": -0.2126, "veredicto": "no recomendado: el beneficio depende solo del mercado y la pata es mas fragil"},
+  "A_con_Over1.25_por_Reims": {"cuota": 1.1785, "veredicto": "invalido: queda por debajo de x1.2"},
+  "Atalanta_1X_mas_Over1.25": {"cuota": 1.2765, "p_cobro_completo_mercado": 0.6735, "ev_mercado_asiatica": -0.0794, "ev_mercado_regla_usuario": -0.0186, "ev_modelo_asiatica": -0.2333, "riesgo": "con 1 gol en Bragantino, la pierna asiatica liquida a x0.5 y el ticket queda en x0.575 (perdida neta) si Atalanta cumple; con la regla del usuario quedaria en x1.15 y no alcanzaria el objetivo", "veredicto": "alternativa defendible segun el mercado (la mitad de perdida esperada que A con un acierto similar), pero depende de Atalanta, que esta degradada; el modelo la rechaza"},
+  "Reims_mas_Over1.25": {"cuota": 1.3119, "p_cobro_completo_mercado": 0.6384, "ev_mercado_asiatica": -0.1032, "ev_modelo_asiatica": -0.1647, "veredicto": "mejor que A en EV segun ambas fuentes; supera el objetivo x1.2 con menos patas; menor probabilidad de cobro completo"},
+  "correlacion_pata25": {"P_2mas_y_sin_empate": 0.6156, "P_independiente": 0.5994, "cuota_combinada": 1.406, "ev_mercado_asiatica": -0.0543, "veredicto": "no combinar: es el mismo partido (la casa suele bloquearlo fuera de un creador de apuestas); la correlacion positiva es leve; con 1 gol la 25 gana y la Over 1.25 pierde la mitad, y el 0-0 tumba las dos; la 25 ya estaba degradada con severidad alta. Usar como mucho una de las dos, la Over 1.25"}
+ },
+ "recomendacion_global": "Mantener A como base conservadora o, si se acepta menos patas, Reims o empate + Over 1.25 (x1.31). No meter Atalanta en lugar de Reims. No juntar Over 1.25 con la pata 25. Confirmar antes la regla de liquidacion de la linea 1.25."
+}

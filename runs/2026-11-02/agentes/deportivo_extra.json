@@ -1,0 +1,40 @@
+{
+ "patas": [
+  {
+   "key": "mt_200713250|Atalanta o empate",
+   "p_min": 0.72,
+   "p_max": 0.84,
+   "solidez": "MEDIA",
+   "factor_a_favor": "Parma 1G-2E-5P en 8, visita 0G-0E-3P (gf .62 en total); Atalanta local 2G-1E-1P en n=4 y 13.o vs 18.o; P mercado 0.836 (3 casas), registro historico dc.1x 106/122 = 86.9% vs implicita 86.4% (sin sesgo evidente)",
+   "escenario_perdida": "Victoria de Parma: mercado 1X2 ~0.16 (cuota 6.0, 5 casas); modelo Poisson v0 sin validar da 1-0.709 = 0.29. Atalanta 2G-2E-4P en 8 con 2.12 goles en contra, derrotas en casa vs Cagliari 1-2 en n=4; Parma ganó 3-2 en Bérgamo (2025-05-25, H2H n=3, 1 derrota de Atalanta). Gap modelo-mercado -0.127 (el modelo es rudimentario)",
+   "bajas_rotacion": "Atalanta 8 lesionados (regresos 13-20 nov), 0 sancionados, sin nombres: impacto no medible; juega Kairat (comp_408698) en 3 dias tras 2-2 Fiorentina (29-10): riesgo de rotacion. Parma 1 lesionado (apendicitis), 0 sanciones; no se cuenta con once",
+   "datos_dossier": "Atalanta 2G-2E-4P (gf 1.88 gc 2.12, +2.5 6/8, BTTS 6/8); Parma 1G-2E-5P (gf .62 gc 1.75), visita 0/3; H2H n=3: 4-0, 1-1, 2-3 (Atalanta sin perder 2/3); cuota casa 1.15 vs pool 1.16 (rango 1.10-1.17)",
+   "fuentes": [
+    "dossier/dossier_finalistas.json (TheStatsAPI)",
+    "pool/justificaciones.json",
+    "pool/modelo_ligero.json",
+    "pool/patas.json (P de mercado)",
+    "Fuentes externas/noticias/alineaciones: No consultadas (solo datos locales por instruccion)"
+   ],
+   "nota": "Cuota 1.15 implica 0.87: por encima de todo el rango razonable salvo el techo; EV casi nulo con P central ~0.80 (0.80*1.15=0.92). Dossier dividido 3+/3-. Invalidan: once alterno con muchos suplentes o baja confirmada de titulares clave."
+  },
+  {
+   "key": "mt_028974028|Más de 1.5 goles",
+   "p_min": 0.76,
+   "p_max": 0.82,
+   "solidez": "ALTA",
+   "factor_a_favor": "7/8 partidos con 2+ goles en cada equipo (14/16 combinados; total medio 2.81); Santos ambos anotan 7/8, +2.5 6/8; H2H n=4 media 2.75 (2+ goles en 4/4); Poisson v0 lambdas 1.44+1.38: P(2+)=0.7715; mercado 0.8055 (4 casas, 1.143-1.21)",
+   "escenario_perdida": "Partido cerrado de 0-0 o 1-0/0-1. P(0 goles)=0.05-0.08 (mercado 0.068, Poisson 0.06, observado 1/16); P(1 gol)=0.12-0.17 (mercado 0.126 por resta, Poisson ~0.17, observado 1/16); P(2+)=0.76-0.82. Casos recientes: Santos 0-0 Palmeiras (28-10), Bragantino 0-1 Atl. Mineiro (03-10). Bragantino de visita sin goles en 2 de 5",
+   "bajas_rotacion": "Bragantino 2 lesionados (regreso 2026-11-02, sin nombre), 0 sanciones; Santos 2 lesionados (largo plazo) y 2 sancionados (acumulacion, fin 03-11, y roja 3 partidos hasta 18-11); no se sabe si son titulares ni de que linea: impacto no medible. Ambos con 5 dias de descanso y 16 hasta el siguiente: sin rotacion visible",
+   "datos_dossier": "Bragantino 2G-3E-3P gf 1.38 gc 1.25, +2.5 3/8, BTTS 5/8; Santos 3G-3E-2P gf 1.5 gc 1.5; goles totales Brag 3,2,2,6,2,1,3,2; Santos 0,2,3,3,4,3,3,6; registro historico over1.5 215/272 = 79.0% vs implicita 85.4% (sobreestimacion de mercado en banda 1.06-1.29, n=272)",
+   "fuentes": [
+    "dossier/dossier_finalistas.json (TheStatsAPI)",
+    "pool/justificaciones.json",
+    "pool/modelo_ligero.json",
+    "pool/patas.json (P de mercado)",
+    "Fuentes externas/noticias/alineaciones: No consultadas (solo datos locales por instruccion)"
+   ],
+   "nota": "Pata real casa Mas de 1.25 @1.11 (2+ gana, 1 devolucion, 0 pierde). Con P0=0.065, P1=0.15, P2+=0.785: EV por unidad = 0.785*0.11-0.065 = +0.021, es decir ~+2%; margen fino. Prob. de ganar dado que no hay devolucion = P2+/(P2+P0) ~0.92 vs implicita 1/1.11=0.90. Sensibilidad: con P0=0.08 y P2+=0.76 EV = -0.004 (nulo); con P0=0.05 y P2+=0.82 EV=+0.04. Aviso del registro historico: el mercado sobreestima over 1.5 en esta banda (79.0 vs 85.4), por lo que se debe usar el rango bajo. Invalidan: 0-0 o 1-0 al descanso con lluvia/campo, baja de delantero titular confirmada."
+  }
+ ]
+}
