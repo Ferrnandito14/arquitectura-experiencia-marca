@@ -21,6 +21,7 @@ from datetime import datetime, timedelta, timezone
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import pool_mercado as pm  # noqa: E402
+import memoria_equipos as mem  # noqa: E402
 
 CARACAS = timezone(timedelta(hours=-4))
 MIN_N = 8
@@ -91,33 +92,46 @@ def cmd_fetch(a):
     elif a.orden == "azar":
         import random
         random.Random(7).shuffle(items)
+    memoria = mem.cargar()
+    stats_mem = mem.cargar_stats()
+    print(f"memoria: {len(memoria)} partidos, {len(stats_mem)} con stats", flush=True)
     for i, (tid, nom) in enumerate(items, 1):
         ruta = os.path.join(est, f"lista_{tid}.json")
         if os.path.exists(ruta):
             filas = json.load(open(ruta))
         else:
-            st, b = pm._get(f"/football/matches?team_id={tid}&status=finished&per_page={a.n}&sort=-utc_date", key)
-            time.sleep(2.2)
-            filas = []
-            for x in (b or {}).get("data", [])[: a.n]:
-                sc = x.get("score") or {}
-                if sc.get("home") is None or sc.get("away") is None:
-                    continue
-                filas.append({"id": x["id"], "fecha": x["utc_date"][:10], "h": x["home_team"]["id"], "a": x["away_team"]["id"],
-                              "hn": x["home_team"]["name"], "an": x["away_team"]["name"], "gh": sc["home"], "ga": sc["away"], "comp": x.get("competition_id")})
+            # 1) memoria persistente (marcador a 90'); 2) API solo si la memoria no alcanza (p. ej. equipo con pocos partidos desde el 31-jul)
+            filas = [{"id": r["id"], "fecha": r["utc"][:10], "h": r["h_id"], "a": r["a_id"], "hn": r["h"], "an": r["a"], "gh": r["gh"], "ga": r["ga"]}
+                     for r in mem.partidos_por_id(memoria, tid, a.n)]
+            if len(filas) < a.n:
+                st, b = pm._get(f"/football/matches?team_id={tid}&status=finished&per_page={a.n}&sort=-utc_date", key)
+                time.sleep(2.2)
+                filas = []
+                for x in (b or {}).get("data", [])[: a.n]:
+                    sc = x.get("score") or {}
+                    if sc.get("home") is None or sc.get("away") is None:
+                        continue
+                    filas.append({"id": x["id"], "fecha": x["utc_date"][:10], "h": x["home_team"]["id"], "a": x["away_team"]["id"],
+                                  "hn": x["home_team"]["name"], "an": x["away_team"]["name"], "gh": sc["home"], "ga": sc["away"]})
             json.dump(filas, open(ruta, "w"), ensure_ascii=False)
         if not a.sin_stats:
             for f in filas:
                 rs = os.path.join(est, f"stats_{f['id']}.json")
                 if os.path.exists(rs):
                     continue
+                if f["id"] in stats_mem:  # ya en la memoria persistente: sin consulta a la API
+                    json.dump(stats_mem[f["id"]], open(rs, "w"))
+                    continue
                 st, s = pm._get(f"/football/matches/{f['id']}/stats", key)
                 time.sleep(2.2)
                 if st != 200 or not s:
-                    json.dump({"ok": False}, open(rs, "w"))
-                    continue
-                co, ye, re_ = _par(s, "corner_kicks"), _par(s, "yellow_cards"), _par(s, "red_cards")
-                json.dump({"ok": True, "corners": co, "amarillas": ye, "rojas": re_}, open(rs, "w"))
+                    reg = {"ok": False}
+                else:
+                    co, ye, re_ = _par(s, "corner_kicks"), _par(s, "yellow_cards"), _par(s, "red_cards")
+                    reg = {"ok": True, "corners": co, "amarillas": ye, "rojas": re_}
+                json.dump(reg, open(rs, "w"))
+                mem.anotar_stats(f["id"], reg)
+                stats_mem[f["id"]] = reg
         if i % 10 == 0:
             print(f"  {i}/{len(equipos)} equipos", flush=True)
     print("LISTO fetch", flush=True)

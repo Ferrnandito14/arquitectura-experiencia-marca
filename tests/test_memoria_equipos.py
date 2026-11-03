@@ -39,3 +39,23 @@ class T(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TStats(unittest.TestCase):
+    def test_stats_append_y_ultimo_gana(self):
+        with tempfile.TemporaryDirectory() as t:
+            p = os.path.join(t, "s.jsonl")
+            me.anotar_stats("m1", {"ok": False}, p)
+            me.anotar_stats("m1", {"ok": True, "corners": [5, 3], "amarillas": [1, 2], "rojas": [0, 0]}, p)
+            me.anotar_stats("m2", {"ok": False}, p)
+            d = me.cargar_stats(p)
+            self.assertTrue(d["m1"]["ok"])
+            self.assertEqual(d["m1"]["corners"], [5, 3])
+            self.assertFalse(d["m2"]["ok"])
+
+    def test_partidos_por_id(self):
+        d = {}
+        me.fusionar(d, [mk("1", "2026-10-01T10:00", "A", "B", 2, 1), mk("2", "2026-10-08T10:00", "C", "A", 0, 0)])
+        xs = me.partidos_por_id(d, "tA", 8)
+        self.assertEqual([r["id"] for r in xs], ["2", "1"])
+        self.assertEqual(len(me.partidos_por_id(d, "tA", 1)), 1)
