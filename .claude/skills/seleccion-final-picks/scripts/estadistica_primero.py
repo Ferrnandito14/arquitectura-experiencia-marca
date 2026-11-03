@@ -155,16 +155,9 @@ def _freq(filas, f, clave=None):
 
 
 def _mix(filas, f, clave=None, local=None):
-    """Frecuencia general; si hay >= 3 partidos del mismo lado se promedia con la del lado."""
-    g, n = _freq(filas, f, clave)
-    if g is None:
-        return None, 0
-    if local is not None:
-        lado = [x for x in filas if x["local"] == local]
-        v, nv = _freq(lado, f, clave)
-        if v is not None and nv >= 3:
-            return (g + v) / 2, n
-    return g, n
+    """Frecuencia general de los N partidos. NO se mezcla con la del lado (local/visita): esos partidos son un SUBCONJUNTO de los
+    mismos N y contarlos otra vez inflaba la probabilidad (hallazgo del auditor 2-nov-2026). El lado se informa aparte en `lado_info`."""
+    return _freq(filas, f, clave)
 
 
 def _p2(fa, na, fb, nb):
@@ -184,8 +177,9 @@ def patas_deportivas(m, est):
     def add(mercado, sel, p, nh, na, nota=""):
         if p is None:
             return
+        n_ = min(nh, na)
         patas.append({"match_id": m["id"], "partido": f"{h['name']} – {a['name']}", "hora_caracas": hora_caracas(m["utc_date"]).strftime("%d-%m %H:%M"),
-                      "mercado": mercado, "seleccion": sel, "p_dep": round(p, 4), "n_local": nh, "n_visita": na, "nota": nota})
+                      "mercado": mercado, "seleccion": sel, "p_dep": round(p, 4), "p_suav": round((n_ * p + 1) / (n_ + 2), 4), "n_local": nh, "n_visita": na, "nota": nota})
 
     # Totales de goles del partido
     for L in LINEAS_GOLES:
