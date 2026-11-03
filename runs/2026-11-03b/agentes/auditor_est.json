@@ -1,0 +1,126 @@
+{
+ "fecha": "2026-11-03",
+ "patas": [
+  {
+   "key": "A Chapecoense-Mirassol|Más de 1.5 goles",
+   "veredicto": "DEGRADADA",
+   "riesgo": "medio",
+   "p_propia": 0.76,
+   "motivos": [
+    "Verificado en est/: Chapecoense totales 3,3,1,5,4,2,3,3 (7/8 >=2); Mirassol 2,2,2,1,2,2,4,3 (7/8). Pero Mirassol tiene 5 de 8 partidos en exactamente 2 goles: poco margen sobre la línea; un 1-0/0-1 la rompe.",
+    "Chapecoense marcó 0 en 3/8 (todos fuera); ambos pelean descenso (alerta contexto riesgo medio, -3 pts).",
+    "Cuota 1.221: EV = 0.76*1.221 = 0.93 (<1); misma partida B ofrece mejor valor y solo cabe una.",
+    "Muestra n=8+8 de un solo proveedor (stats API), sin bajas/alineaciones verificadas (contexto.json no halló nada del 3-nov).",
+    "Saturación -1 pt."
+   ],
+   "escenario_perdida": "1-0 o 0-1 trabado entre dos equipos con miedo al descenso, o 0-0."
+  },
+  {
+   "key": "B Chapecoense-Mirassol|Menos de 3.5",
+   "veredicto": "APROBADA",
+   "riesgo": "medio",
+   "p_propia": 0.77,
+   "motivos": [
+    "Verificado: Chapecoense <=3 goles totales 6/8 (rompen 5 y 4 en casa vs Athletico/Vitória), Mirassol 7/8. Tasa base Brasileirão ~80%, encogida: 0.78.",
+    "Contexto: necesidad de ganar podría abrir; sin bajas verificadas (alerta baja).",
+    "Mejor pata del partido por valor (1.442 con p~0.77 EV 1.11) que A.",
+    "Muestra n=8+8 de un solo proveedor (stats API), sin bajas/alineaciones verificadas (contexto.json no halló nada del 3-nov).",
+    "Saturación -1 pt."
+   ],
+   "escenario_perdida": "Partido abierto tipo 1-4 / 2-2 con 4+ goles (Chapecoense en casa ya vio 1-4 vs Athletico)."
+  },
+  {
+   "key": "C Pasto-Jaguares|Menos de 3.5",
+   "veredicto": "APROBADA",
+   "riesgo": "medio",
+   "p_propia": 0.83,
+   "motivos": [
+    "Verificado: Pasto 8/8 con <=3 goles totales (3,1,3,1,0,3,1,1; muy pocos goles); Jaguares 6/8 (rompe con 5 y 5 vs Millonarios y Tolima).",
+    "Mejor muestra del lote, pero Pasto 8/8 inflado por su baja producción, no por rivales débiles (jugó vs Nacional). Competiciones no verificadas por mí (comp_720692).",
+    "H2H previo 2-3 en abril (5 goles); contexto baja alerta, tabla/objetivos no verificados.",
+    "Muestra n=8+8 de un solo proveedor (stats API), sin bajas/alineaciones verificadas (contexto.json no halló nada del 3-nov).",
+    "Saturación -1 pt."
+   ],
+   "escenario_perdida": "Jaguares abierto (sus 2 partidos de 5 goles) + H2H 2-3 repetido: 3-1, 2-2, 3-2."
+  },
+  {
+   "key": "D Alianza-Cienciano|Más de 1.5",
+   "veredicto": "DESCARTADA",
+   "riesgo": "medio",
+   "p_propia": 0.76,
+   "motivos": [
+    "Verificado: Alianza 6/8 (partidos de 1 gol: 1-0 y 0-1), Cienciano 7/8. Tasa base Liga 1 ~75%.",
+    "Cuota 1.20: EV = 0.76*1.20 = 0.91; el mismo partido ofrece E (Under 3.5, 1.432) con p igual y mejor valor.",
+    "Sin datos 2026 de bajas/objetivos (contexto)."
+   ],
+   "escenario_perdida": "1-0 de Alianza cómodo y Cienciano cerrado, o 0-0/1-0 por rotación."
+  },
+  {
+   "key": "E Alianza-Cienciano|Menos de 3.5",
+   "veredicto": "APROBADA",
+   "riesgo": "medio",
+   "p_propia": 0.77,
+   "motivos": [
+    "Verificado: Alianza 6/8 <=3 (rompen 5 vs Sport Boys y 4 vs Atlético Grau), Cienciano 7/8 (rompe solo 4 vs Comerciantes).",
+    "Alianza flojo en últimos 3 (1/3 según deportivo): partidos más abiertos recientes.",
+    "Sin información 2026, no se descarta rotación o goleada local (3-0, 4-1).",
+    "Muestra n=8+8 de un solo proveedor (stats API), sin bajas/alineaciones verificadas (contexto.json no halló nada del 3-nov).",
+    "Saturación -1 pt."
+   ],
+   "escenario_perdida": "Goleada local 4-1/4-0 o intercambio 3-2 (Alianza ya jugó 2-3 y 3-1 con 4 goles recientemente)."
+  },
+  {
+   "key": "F Cienciano|Más de 0.5 goles",
+   "veredicto": "DESCARTADA",
+   "riesgo": "alto",
+   "p_propia": 0.64,
+   "motivos": [
+    "Verificado: Cienciano marcó 7/8, pero de visitante 3/4 y contra rivales flojos (Moquegua, Comerciantes, Grau); no marcó en 0-3 vs Montevideo (Sudamericana) y H2H 0-3 en Lima 2024.",
+    "Visita a Alianza (el equipo local más fuerte de Liga 1); la frecuencia total sobrestima. Base visitante vs top ~68-70% encogida.",
+    "Alerta contexto riesgo medio (-3 pts); cuota 1.683 refleja ~55% de mercado (no usado como evidencia, pero discrepa con el 0.81 del deportivo: p_dep sin ajuste por rival).",
+    "P(fallo) >25% => alto."
+   ],
+   "escenario_perdida": "Alianza 2-0/1-0 o 3-0 en Matute con Cienciano sin remates."
+  },
+  {
+   "key": "G Internacional-Coritiba|Más de 1.5",
+   "veredicto": "DEGRADADA",
+   "riesgo": "medio",
+   "p_propia": 0.76,
+   "motivos": [
+    "Verificado: Inter 7/8 (1-0 vs São Paulo en 1), Coritiba 6/8 (1-0, 1-0, 1-1 en 4 de 8 con <=2 goles).",
+    "Coritiba fuera de casa histórica menos de 2 goles totales 1/3 según deportivo; Inter en zona de descenso, cautela (alerta riesgo medio -3 pts).",
+    "Cuota 1.245: EV = 0.76*1.245 = 0.95; ineficiente por log-cuota/riesgo. Partido no confirmado en calendario por contexto.",
+    "Muestra n=8+8 de un solo proveedor (stats API), sin bajas/alineaciones verificadas (contexto.json no halló nada del 3-nov)."
+   ],
+   "escenario_perdida": "0-0 o 1-0 de Inter por cautela (urgido pero conservador)."
+  },
+  {
+   "key": "H Táchira-Puerto Cabello|Menos de 3.5",
+   "veredicto": "DEGRADADA",
+   "riesgo": "alto",
+   "p_propia": 0.73,
+   "motivos": [
+    "Verificado: Táchira <=3 goles totales solo 5/8 (rompe 4,5,6 en últimos 8), Puerto Cabello 7/8 pero con un 3-3 (6 goles) vs Monagas. Lado débil 5/8 según deportivo.",
+    "Cuota 1.25: EV = 0.73*1.25 = 0.91; peor relación cuota/riesgo del lote.",
+    "Sin ninguna noticia 2026 (contexto), liga con muestra de calidad desigual.",
+    "Muestra n=8+8 de un solo proveedor (stats API), sin bajas/alineaciones verificadas (contexto.json no halló nada del 3-nov).",
+    "P(fallo) ~27% => alto."
+   ],
+   "escenario_perdida": "Táchira local anota 3+ y PC replica (4-2, 4-1 ya ocurridos en sus 8)."
+  }
+ ],
+ "combinacion": {
+  "patas": [
+   "B Chapecoense-Mirassol|Menos de 3.5",
+   "C Pasto-Jaguares|Menos de 3.5",
+   "E Alianza-Cienciano|Menos de 3.5",
+   "G Internacional-Coritiba|Más de 1.5",
+   "H Táchira-Puerto Cabello|Menos de 3.5"
+  ],
+  "cuota_producto": 4.13,
+  "p_ganar": 0.27,
+  "p_perder": 0.73,
+  "notas": "Producto 4.13 con p conjunta 0.77*0.83*0.77*0.76*0.73=0.27 (supuesto de independencia con descuentos). Correlaciones: 4 de 5 patas son Under 3.5, comparten factor 'goles bajos' en la jornada (positiva leve; una goleada no afecta a otro partido, pero un día de arbitrajes/clima que abren partidos sí) y B-G son Brasileirão misma fecha. Una de las 3 patas Under y G (Over) casi independientes. Cada partido aporta una sola pata. ALTERNATIVA MÁS SEGURA 4 patas B+C+E+G: cuota 3.30, p ganar ~0.37 (0.77*0.83*0.77*0.76), p perder 0.63 -- mejor relación; añadir H cuesta ~10 pts de probabilidad por +25% de pago (EV 4.13*0.27=1.12 vs 3.30*0.37=1.22 con mis p). Alternativa 3.88: B+C+F+G, p~0.31 con F, rechazada por F alto riesgo. Verificado por mí: solo datos est/ y shortlist; no se verificaron cuotas ni alineaciones."
+ }
+}
