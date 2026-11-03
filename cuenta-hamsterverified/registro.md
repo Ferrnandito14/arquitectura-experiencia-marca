@@ -71,6 +71,13 @@
 | 2026-11-03 19:00 | d11-mito-avestruz | reel | Mito verificado: "Las avestruces entierran la cabeza en la a | media/2026-11-03/d11-mito-avestruz.mp4 |
 | 2026-11-03 20:00 | d11-foto-motivacion | foto | Esencia de motivarse en 5 palabras: empieza pequeño, la moti | media/2026-11-03/d11-foto-motivacion-1.jpg |
 | 2026-11-03 21:00 | d11-mito-afeitar | reel | Mito verificado: "Afeitarse hace que el vello crezca más gru | media/2026-11-03/d11-mito-afeitar.mp4 |
+| 2026-11-04 09:00 | d12-futbol-retropase | reel | Fútbol en esencia: el retropase al portero (Regla 12) | media/2026-11-04/d12-futbol-retropase.mp4 |
+| 2026-11-04 12:00 | d12-mito-napoleon | reel | Mito verificado: Napoleón bajito (FALSO) | media/2026-11-04/d12-mito-napoleon.mp4 |
+| 2026-11-04 14:00 | d12-esencia-manana | reel | Esencia de una buena mañana | media/2026-11-04/d12-esencia-manana.mp4 |
+| 2026-11-04 16:00 | d12-foto-disciplina | foto | Esencia de la disciplina | media/2026-11-04/d12-foto-disciplina-1.jpg |
+| 2026-11-04 19:00 | d12-mito-vikingos | reel | Mito verificado: cascos vikingos con cuernos (FALSO) | media/2026-11-04/d12-mito-vikingos.mp4 |
+| 2026-11-04 20:00 | d12-foto-simplificar | foto | Esencia de simplificar en 6 palabras | media/2026-11-04/d12-foto-simplificar-1.jpg |
+| 2026-11-04 21:00 | d12-mito-einstein | reel | Mito verificado: Einstein suspendió matemáticas (FALSO) | media/2026-11-04/d12-mito-einstein.mp4 |
 
 ## Resumen semanal (domingo 2026-11-01)
 Métricas al 01/11 (30 publicaciones recientes, 0 seguidores, sin señales de restricción):
