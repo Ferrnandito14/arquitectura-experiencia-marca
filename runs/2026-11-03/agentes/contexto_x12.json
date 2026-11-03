@@ -1,0 +1,565 @@
+{
+ "fecha": "2026-11-03",
+ "agente": "analista-contexto",
+ "lote": "reto x1.20 (13 partidos)",
+ "nota_metodo": "WebSearch devolvió resúmenes con URL; WebFetch no se usó para páginas bloqueadas (fallos previos: fuera de dominios permitidos, transfermarkt) y no se abrió ninguna página completa: todos los hechos provienen de extractos del buscador y se marcan 'sin_fecha' cuando no hay fecha. No se usaron cuotas ni probabilidades de casas (las que aparecen en los previews se ignoraron). Solo alerta/rebaja; nunca sube probabilidad. Competición real: los tres partidos europeos (Man United–Roma, Barcelona–Villa, LASK–Slovan) son Champions League 2026-27, fase liga, jornada 4 (no Europa ni Conference).",
+ "patas": [
+  {
+   "key": "mt_649528556|Más de 1.5 goles",
+   "partido": "Comerciantes Unidos – Asociación Deportiva Tarma",
+   "competicion_confirmada": "Liga 1 Perú (Torneo Clausura 2026, fecha 15; comp_6981). Fixture Clausura confirmado parcialmente por infobae (fecha 15 Alianza vs Cienciano) y por futbolperuano (tablas del Clausura).",
+   "alerta": "baja_riesgo",
+   "motivos": [
+    {
+     "texto": "No se encontró ninguna noticia de plantel, tabla del Clausura ni estado anímico de ambos equipos para el 03-11-2026; la búsqueda solo devolvió el partido de la fecha 15 del Apertura (ADT 2-0 Comerciantes, 17-may-2026), irrelevante para hoy.",
+     "url": "https://www.futbolperuano.com/liga-1/noticias/adt-vs-comerciantes-unidos-en-vivo-online-por-la-fecha-15-del-torneo-apertura-de-la-liga-1-2026-583807",
+     "fecha": "2026-05-17",
+     "tipo": "hecho"
+    },
+    {
+     "texto": "Dato local: Tarma 8/8 con total ≤4 pero media de goles totales 2.4 (partidos cerrados); Comerciantes tuvo 0 y 1 goles totales en su muestra (6/8 ≤4, totales 2,4,6,2,3,1,4,5).",
+     "url": "Datos locales runs/2026-11-03/agentes/deportivo_est_x12.json y thestatsapi/matches.json (sin URL externa)",
+     "fecha": "2026-11-03",
+     "tipo": "dato_local"
+    }
+   ],
+   "lo_que_no_pude_verificar": [
+    "Tabla y objetivos de ambos en el Clausura",
+    "Bajas/sanciones",
+    "Cambio de técnico (matches.json: Biaggio / Rivera)",
+    "Fuentes abiertas: WebFetch bloqueado (fuera de dominios permitidos); solo extractos del buscador"
+   ],
+   "efecto_en_la_pata": "Sin contexto verificable; el único indicio es que Tarma suele jugar partidos de pocos goles (media 2.4). Si el partido se cierra por necesidad de no perder, 2+ goles dependería de un solo gol de cada lado."
+  },
+  {
+   "key": "mt_894625890|Más de 1.5 goles",
+   "partido": "Chapecoense – Mirassol",
+   "competicion_confirmada": "Brasileirão Serie A 2026, jornada 34 (comp_4795). Confirmada por valorfinal.com.br y 365scores (rodada 34 en Arena Condá).",
+   "alerta": "baja_riesgo",
+   "motivos": [
+    {
+     "texto": "Tabla (Valor Final): Chapecoense 20ª y Mirassol 15ª; las páginas del mismo sitio dan puntos inconsistentes (18/33 vs 21/37). Chapecoense en zona de descenso: motivo para jugar con riesgo en casa, pero también para no abrir el partido.",
+     "url": "https://valorfinal.com.br/brasileirao/2026/jogos/chapecoense-x-mirassol",
+     "fecha": "2026-11-03",
+     "tipo": "hecho"
+    },
+    {
+     "texto": "Fecha/hora discrepante: 365scores indica miércoles 04-nov 17h; Valor Final indica 03-nov 19h30 Brasilia (= 18:30 Caracas, coincide con matches.json 22:30 UTC). Verificar que el partido se juega hoy.",
+     "url": "https://www.365scores.com/pt-br/football/match/brasileirao-serie-a-113/chapecoense-mirassol-1269-7387-113",
+     "fecha": "2026-11-03",
+     "tipo": "discrepancia"
+    },
+    {
+     "texto": "Dato local: Mirassol promedia 2.2 goles totales en sus últimos 8 (el menor del pool para esta pata) y Chapecoense 3.0.",
+     "url": "Datos locales runs/2026-11-03/agentes/deportivo_est_x12.json y thestatsapi/matches.json (sin URL externa)",
+     "fecha": "2026-11-03",
+     "tipo": "dato_local"
+    }
+   ],
+   "lo_que_no_pude_verificar": [
+    "Desfalques/suspendidos de la jornada 34 (365scores no los lista; la nota de Flashscore de la jornada 33 no aplica)",
+    "Puntos exactos y distancia al descenso",
+    "Racha reciente más allá de datos locales (Chape 1-4 Athletico 12-oct)",
+    "Fecha real del partido (hoy vs 04-nov)"
+   ],
+   "efecto_en_la_pata": "Dos equipos de mitad baja con perfil de partidos cerrados (Mirassol 2.2 goles totales); un 1-0 o 0-0 es el escenario que rompe la pata."
+  },
+  {
+   "key": "mt_894625890|Mirassol Más de 0.5 goles",
+   "partido": "Chapecoense – Mirassol",
+   "competicion_confirmada": "Brasileirão Serie A 2026, jornada 34 (comp_4795). Confirmada por valorfinal.com.br y 365scores (rodada 34 en Arena Condá).",
+   "alerta": "baja_riesgo",
+   "motivos": [
+    {
+     "texto": "Tabla (Valor Final): Chapecoense 20ª y Mirassol 15ª; las páginas del mismo sitio dan puntos inconsistentes (18/33 vs 21/37). Chapecoense en zona de descenso: motivo para jugar con riesgo en casa, pero también para no abrir el partido.",
+     "url": "https://valorfinal.com.br/brasileirao/2026/jogos/chapecoense-x-mirassol",
+     "fecha": "2026-11-03",
+     "tipo": "hecho"
+    },
+    {
+     "texto": "Fecha/hora discrepante: 365scores indica miércoles 04-nov 17h; Valor Final indica 03-nov 19h30 Brasilia (= 18:30 Caracas, coincide con matches.json 22:30 UTC). Verificar que el partido se juega hoy.",
+     "url": "https://www.365scores.com/pt-br/football/match/brasileirao-serie-a-113/chapecoense-mirassol-1269-7387-113",
+     "fecha": "2026-11-03",
+     "tipo": "discrepancia"
+    },
+    {
+     "texto": "Mirassol visitante con media de 2.2 goles totales por partido: ataque no prolífico; si Chapecoense, local y obligado a puntuar, se cierra atrás, Mirassol puede quedarse en blanco.",
+     "url": "Datos locales runs/2026-11-03/agentes/deportivo_est_x12.json y thestatsapi/matches.json (sin URL externa)",
+     "fecha": "2026-11-03",
+     "tipo": "dato_local"
+    }
+   ],
+   "lo_que_no_pude_verificar": [
+    "Desfalques/suspendidos de la jornada 34 (365scores no los lista; la nota de Flashscore de la jornada 33 no aplica)",
+    "Puntos exactos y distancia al descenso",
+    "Racha reciente más allá de datos locales (Chape 1-4 Athletico 12-oct)",
+    "Fecha real del partido (hoy vs 04-nov)"
+   ],
+   "efecto_en_la_pata": "Riesgo de que Mirassol no marque en un partido cerrado y de visitante."
+  },
+  {
+   "key": "mt_894625890|Menos de 4.5 goles",
+   "partido": "Chapecoense – Mirassol",
+   "competicion_confirmada": "Brasileirão Serie A 2026, jornada 34 (comp_4795). Confirmada por valorfinal.com.br y 365scores (rodada 34 en Arena Condá).",
+   "alerta": "sin_alertas",
+   "motivos": [
+    {
+     "texto": "Tabla (Valor Final): Chapecoense 20ª y Mirassol 15ª; las páginas del mismo sitio dan puntos inconsistentes (18/33 vs 21/37). Chapecoense en zona de descenso: motivo para jugar con riesgo en casa, pero también para no abrir el partido.",
+     "url": "https://valorfinal.com.br/brasileirao/2026/jogos/chapecoense-x-mirassol",
+     "fecha": "2026-11-03",
+     "tipo": "hecho"
+    },
+    {
+     "texto": "Fecha/hora discrepante: 365scores indica miércoles 04-nov 17h; Valor Final indica 03-nov 19h30 Brasilia (= 18:30 Caracas, coincide con matches.json 22:30 UTC). Verificar que el partido se juega hoy.",
+     "url": "https://www.365scores.com/pt-br/football/match/brasileirao-serie-a-113/chapecoense-mirassol-1269-7387-113",
+     "fecha": "2026-11-03",
+     "tipo": "discrepancia"
+    },
+    {
+     "texto": "Ningún indicio contextual de partido muy abierto (ambos de mitad baja, Mirassol con media de 2.2 goles totales).",
+     "url": "Datos locales runs/2026-11-03/agentes/deportivo_est_x12.json y thestatsapi/matches.json (sin URL externa)",
+     "fecha": "2026-11-03",
+     "tipo": "dato_local"
+    }
+   ],
+   "lo_que_no_pude_verificar": [
+    "Desfalques/suspendidos de la jornada 34 (365scores no los lista; la nota de Flashscore de la jornada 33 no aplica)",
+    "Puntos exactos y distancia al descenso",
+    "Racha reciente más allá de datos locales (Chape 1-4 Athletico 12-oct)",
+    "Fecha real del partido (hoy vs 04-nov)"
+   ],
+   "efecto_en_la_pata": "El contexto no empuja a un partido de 5+ goles; el único antecedente reciente de goleada es Chape 1-4 Athletico (12-oct)."
+  },
+  {
+   "key": "mt_895776680|Más de 1.5 goles",
+   "partido": "Manchester United – Roma",
+   "competicion_confirmada": "Champions League 2026-27 fase liga J4 (comp_3498)",
+   "alerta": "sin_alertas",
+   "motivos": [
+    {
+     "texto": "Champions League 2026-27, fase liga, jornada 4 (comp_3498 en matches.json; confirmado por fcbayern.com y ahram.org.eg que listan la jornada 4 de la Champions el 03-11-2026). NO es Europa/Conference.",
+     "url": "https://fcbayern.com/en/matches/profis/champions-league/2026-2027/atl-tico-madrid-fc-bayern-muenchen-03-11-2026/matchday",
+     "fecha": "2026-11-03",
+     "tipo": "hecho"
+    },
+    {
+     "texto": "Manchester United último de la tabla de la fase liga y con Carrick en entredicho tras nueve partidos sin ganar; perder complica la clasificación (Dave.sport / Goal / Yahoo vía buscador).",
+     "url": "https://dave.sport/news/man-utd-vs-roma-preview-november-2026/",
+     "fecha": "2026-11-03",
+     "tipo": "hecho"
+    },
+    {
+     "texto": "Roma llega invicta en cinco partidos, ganó 4-2 al Cagliari el fin de semana y 4-0 al Slovan en la jornada 3; Malen es la amenaza (8 goles en Serie A, 3 en Champions).",
+     "url": "https://www.goal.com/en/news/manchester-united-roma-uefa-champions-league-preview/blt073459ac3ec4eba1",
+     "fecha": "2026-11-03",
+     "tipo": "hecho"
+    },
+    {
+     "texto": "Resultados jornada 3: Como 4-1 Man United (21-oct) y Roma 4-0 Slovan (20-oct).",
+     "url": "https://thesportscast.net/2026/10/22/uefa-champions-league-standings-2026-27-updated-league-phase-table-rankings-and-qualification-picture-after-matchday-3/",
+     "fecha": "2026-10-22",
+     "tipo": "hecho"
+    }
+   ],
+   "lo_que_no_pude_verificar": [
+    "Lista oficial de bajas de United y Roma (los previews citados no se pudieron abrir; WebFetch bloqueado)",
+    "Alineaciones confirmadas",
+    "Hora de inicio (Goal da 15:00 GMT, el resto 20:00 GMT)",
+    "Detalle de la derrota de United ante Como (solo resumen de buscador) y de la que la fuente llama derrota con Atlético"
+   ],
+   "efecto_en_la_pata": "Ambos necesitan puntos (United en crisis, Roma en forma); contexto de partido abierto, sin motivo de rotación (United no está clasificado y juega jornada 4 de 8)."
+  },
+  {
+   "key": "mt_895776680|Roma Más de 0.5 goles",
+   "partido": "Manchester United – Roma",
+   "competicion_confirmada": "Champions League 2026-27 fase liga J4 (comp_3498)",
+   "alerta": "baja_riesgo",
+   "motivos": [
+    {
+     "texto": "Champions League 2026-27, fase liga, jornada 4 (comp_3498 en matches.json; confirmado por fcbayern.com y ahram.org.eg que listan la jornada 4 de la Champions el 03-11-2026). NO es Europa/Conference.",
+     "url": "https://fcbayern.com/en/matches/profis/champions-league/2026-2027/atl-tico-madrid-fc-bayern-muenchen-03-11-2026/matchday",
+     "fecha": "2026-11-03",
+     "tipo": "hecho"
+    },
+    {
+     "texto": "Manchester United último de la tabla de la fase liga y con Carrick en entredicho tras nueve partidos sin ganar; perder complica la clasificación (Dave.sport / Goal / Yahoo vía buscador).",
+     "url": "https://dave.sport/news/man-utd-vs-roma-preview-november-2026/",
+     "fecha": "2026-11-03",
+     "tipo": "hecho"
+    },
+    {
+     "texto": "Roma llega invicta en cinco partidos, ganó 4-2 al Cagliari el fin de semana y 4-0 al Slovan en la jornada 3; Malen es la amenaza (8 goles en Serie A, 3 en Champions).",
+     "url": "https://www.goal.com/en/news/manchester-united-roma-uefa-champions-league-preview/blt073459ac3ec4eba1",
+     "fecha": "2026-11-03",
+     "tipo": "hecho"
+    },
+    {
+     "texto": "Resultados jornada 3: Como 4-1 Man United (21-oct) y Roma 4-0 Slovan (20-oct).",
+     "url": "https://thesportscast.net/2026/10/22/uefa-champions-league-standings-2026-27-updated-league-phase-table-rankings-and-qualification-picture-after-matchday-3/",
+     "fecha": "2026-10-22",
+     "tipo": "hecho"
+    },
+    {
+     "texto": "Roma visita un estadio hostil, aunque United viene de encajar 4 en Como; el riesgo de que Roma se quede en blanco existe si United se cierra (Sports Mole prefiere cautela: 2-3 pronosticado, como especulación).",
+     "url": "https://www.sportsmole.co.uk/football/man-utd/champions-league/preview/man-utd-vs-roma-prediction-team-news-lineups_608218.html",
+     "fecha": "2026-11-03",
+     "tipo": "especulacion"
+    }
+   ],
+   "lo_que_no_pude_verificar": [
+    "Lista oficial de bajas de United y Roma (los previews citados no se pudieron abrir; WebFetch bloqueado)",
+    "Alineaciones confirmadas",
+    "Hora de inicio (Goal da 15:00 GMT, el resto 20:00 GMT)",
+    "Detalle de la derrota de United ante Como (solo resumen de buscador) y de la que la fuente llama derrota con Atlético"
+   ],
+   "efecto_en_la_pata": "Roma tiene fuerte racha ofensiva; el riesgo principal es un United conservador por necesidad de no perder."
+  },
+  {
+   "key": "mt_512993496|Más de 1.5 goles",
+   "partido": "Barcelona – Aston Villa",
+   "competicion_confirmada": "Champions League 2026-27 fase liga J4 (comp_3498)",
+   "alerta": "sin_alertas",
+   "motivos": [
+    {
+     "texto": "Champions League 2026-27, fase liga, jornada 4 (comp_3498 en matches.json; confirmado por fcbayern.com y ahram.org.eg que listan la jornada 4 de la Champions el 03-11-2026). NO es Europa/Conference.",
+     "url": "https://fcbayern.com/en/matches/profis/champions-league/2026-2027/atl-tico-madrid-fc-bayern-muenchen-03-11-2026/matchday",
+     "fecha": "2026-11-03",
+     "tipo": "hecho"
+    },
+    {
+     "texto": "Barcelona sin Koundé (esguince de tobillo, no entrenó), Olmo, Christensen, Eric García, Espart y Bardghji; De Jong usado de central y canteranos convocados. Defensa muy mermada.",
+     "url": "https://www.espn.com/soccer/story/_/id/50346655/barcelona-vs-aston-villa-2026-27-uefa-champions-league-tv-channel-how-watch-kickoff-live-stream-referee-injury-predicted-lineups",
+     "fecha": "2026-11-02",
+     "tipo": "hecho"
+    },
+    {
+     "texto": "Villa líder perfecto con 9 puntos tras 3 jornadas (3-1 a Viking); Barcelona perdió 4-2 en el campo del PSG en la jornada 3.",
+     "url": "https://thesportscast.net/2026/10/22/uefa-champions-league-standings-2026-27-updated-league-phase-table-rankings-and-qualification-picture-after-matchday-3/",
+     "fecha": "2026-10-22",
+     "tipo": "hecho"
+    },
+    {
+     "texto": "ESPN lista a Wan-Bissaka, Ruggeri y Onana como bajas de Villa; las fuentes difieren sobre las del Barcelona.",
+     "url": "https://www.espn.com/soccer/story/_/id/50346655/barcelona-vs-aston-villa-2026-27-uefa-champions-league-tv-channel-how-watch-kickoff-live-stream-referee-injury-predicted-lineups",
+     "fecha": "2026-11-02",
+     "tipo": "hecho"
+    }
+   ],
+   "lo_que_no_pude_verificar": [
+    "Alineaciones titulares y si Emery rotará (Villa jugó 3 días antes: según local Aston Villa 1-1 Fulham 31-oct)",
+    "Estado de Yamal/Raphinha (no aparecen en bajas, pero no confirmado)",
+    "Fecha de cada noticia exacta (khelnow/yahoo/ESPN sin fecha en el extracto)"
+   ],
+   "efecto_en_la_pata": "La defensa mermada del Barça y el ataque del Villa apuntan a partido abierto; sin factores de partido cerrado."
+  },
+  {
+   "key": "mt_512993496|Aston Villa Más de 0.5 goles",
+   "partido": "Barcelona – Aston Villa",
+   "competicion_confirmada": "Champions League 2026-27 fase liga J4 (comp_3498)",
+   "alerta": "baja_riesgo",
+   "motivos": [
+    {
+     "texto": "Champions League 2026-27, fase liga, jornada 4 (comp_3498 en matches.json; confirmado por fcbayern.com y ahram.org.eg que listan la jornada 4 de la Champions el 03-11-2026). NO es Europa/Conference.",
+     "url": "https://fcbayern.com/en/matches/profis/champions-league/2026-2027/atl-tico-madrid-fc-bayern-muenchen-03-11-2026/matchday",
+     "fecha": "2026-11-03",
+     "tipo": "hecho"
+    },
+    {
+     "texto": "Barcelona sin Koundé (esguince de tobillo, no entrenó), Olmo, Christensen, Eric García, Espart y Bardghji; De Jong usado de central y canteranos convocados. Defensa muy mermada.",
+     "url": "https://www.espn.com/soccer/story/_/id/50346655/barcelona-vs-aston-villa-2026-27-uefa-champions-league-tv-channel-how-watch-kickoff-live-stream-referee-injury-predicted-lineups",
+     "fecha": "2026-11-02",
+     "tipo": "hecho"
+    },
+    {
+     "texto": "Villa líder perfecto con 9 puntos tras 3 jornadas (3-1 a Viking); Barcelona perdió 4-2 en el campo del PSG en la jornada 3.",
+     "url": "https://thesportscast.net/2026/10/22/uefa-champions-league-standings-2026-27-updated-league-phase-table-rankings-and-qualification-picture-after-matchday-3/",
+     "fecha": "2026-10-22",
+     "tipo": "hecho"
+    },
+    {
+     "texto": "ESPN lista a Wan-Bissaka, Ruggeri y Onana como bajas de Villa; las fuentes difieren sobre las del Barcelona.",
+     "url": "https://www.espn.com/soccer/story/_/id/50346655/barcelona-vs-aston-villa-2026-27-uefa-champions-league-tv-channel-how-watch-kickoff-live-stream-referee-injury-predicted-lineups",
+     "fecha": "2026-11-02",
+     "tipo": "hecho"
+    },
+    {
+     "texto": "Rotación posible: Villa ya con 9/9 y con partido de Premier 3 días antes (Squawka); Emery podría reservar piezas. Es especulación hasta ver la alineación.",
+     "url": "https://www.squawka.com/us/?p=82253",
+     "fecha": "2026-11-03",
+     "tipo": "especulacion"
+    }
+   ],
+   "lo_que_no_pude_verificar": [
+    "Alineaciones titulares y si Emery rotará (Villa jugó 3 días antes: según local Aston Villa 1-1 Fulham 31-oct)",
+    "Estado de Yamal/Raphinha (no aparecen en bajas, pero no confirmado)",
+    "Fecha de cada noticia exacta (khelnow/yahoo/ESPN sin fecha en el extracto)"
+   ],
+   "efecto_en_la_pata": "Riesgo de que Villa, visitante frente a un Barça local con ataque potente, se quede sin marcar si rota o juega bajo. Atenuado por la defensa local mermada."
+  },
+  {
+   "key": "mt_644094843|Derby County Más de 0.5 goles",
+   "partido": "Derby County – Norwich City",
+   "competicion_confirmada": "EFL Championship 2026-27 jornada 14 (comp_8321)",
+   "alerta": "baja_riesgo",
+   "motivos": [
+    {
+     "texto": "Datos locales: Derby perdió 4-1 en Millwall el 31-oct (hace 3 días); entrenadores según matches.json: Eustace (Derby) y Philippe Clement (Norwich).",
+     "url": "Datos locales runs/2026-11-03/agentes/deportivo_est_x12.json y thestatsapi/matches.json (sin URL externa)",
+     "fecha": "2026-11-03",
+     "tipo": "dato_local"
+    },
+    {
+     "texto": "Sin noticias de plantel de Derby/Norwich para hoy; las búsquedas solo devolvieron partidos de oct-2025 y abr-2026 (Derby 1-0 en oct-25, Norwich 2-1 en abr-26 como referencia histórica).",
+     "url": "https://www.dcfc.co.uk/news/2026/04/team-news-norwich-city-vs-derby-county-202526",
+     "fecha": "2026-04-21",
+     "tipo": "hecho"
+    }
+   ],
+   "lo_que_no_pude_verificar": [
+    "Posición en tabla de Derby y Norwich (no aparecen en los extractos de The Analyst/Goal)",
+    "Bajas y rotación",
+    "Estado anímico tras el 4-1",
+    "Confirmar que Clement entrena a Norwich (solo matches.json)"
+   ],
+   "efecto_en_la_pata": "Equipo local tras goleada recibida; riesgo de bloqueo ofensivo en un partido de mitad de tabla, sin evidencia concreta."
+  },
+  {
+   "key": "mt_200170363|Southampton Más de 0.5 goles",
+   "partido": "West Bromwich Albion – Southampton",
+   "competicion_confirmada": "EFL Championship 2026-27 jornada 14 (comp_8321)",
+   "alerta": "baja_riesgo",
+   "motivos": [
+    {
+     "texto": "Tabla del 02-nov: West Brom 4º (24 pts) y Southampton 5º (23 pts) tras 13 partidos; choque directo por puestos de ascenso/playoff, partido tenso.",
+     "url": "https://theanalyst.com/competition/english-championship/table",
+     "fecha": "2026-11-02",
+     "tipo": "hecho"
+    },
+    {
+     "texto": "Entrenadores (matches.json): Morrison (WBA) y Tonda Eckert (Southampton). Última visita al Hawthorns (mar-2026) terminó en empate con gol de Larin en el descuento: referencia histórica, no concluyente.",
+     "url": "https://www.southamptonfc.com/en/news/article/eckert-we-kept-pushing-for-deserved-equaliser",
+     "fecha": "2026-03-10",
+     "tipo": "hecho"
+    }
+   ],
+   "lo_que_no_pude_verificar": [
+    "Bajas y sanciones actuales de ambos",
+    "Alineaciones",
+    "Racha reciente más allá de datos locales",
+    "The Analyst muestra una etiqueta '81 days ago' contradictoria con la fecha de actualización"
+   ],
+   "efecto_en_la_pata": "Choque entre rivales directos: pueden cerrarse; la pata solo se rompe si Southampton no marca en un partido muy trabado."
+  },
+  {
+   "key": "mt_733653136|Más de 1.5 goles",
+   "partido": "Queens Park Rangers – Burnley",
+   "competicion_confirmada": "EFL Championship 2026-27 jornada 14 (comp_8321)",
+   "alerta": "riesgo_medio",
+   "motivos": [
+    {
+     "texto": "Tabla Goal: QPR 9º (20 pts, 13 partidos). Otra fuente (futboltotal) describe a QPR 6º con 13 pts tras 8 jornadas y Burnley 24º con 4 pts tras 8: datos desfasados/inconsistentes, no usar como actuales.",
+     "url": "https://www.goal.com/en-us/competition/championship/table/7ntvbsyq31jnzoqoa8850b9b8",
+     "fecha": "2026-11-03",
+     "tipo": "discrepancia"
+    },
+    {
+     "texto": "Burnley bajo Nicky Hayen (nombrado en julio, contrato de 3 años) con solo 2 puntos en sus cinco primeros partidos según una nota sin fecha: equipo en problemas y bajo presión; riesgo de partido cerrado y cauto.",
+     "url": "https://www.irishnews.com/sport/soccer/nicky-hayen-confident-he-can-drag-burnley-out-of-really-difficult-situation-AKZH7JN7SFLUXBXTISLOW4QPQU/",
+     "fecha": "sin_fecha",
+     "tipo": "hecho"
+    },
+    {
+     "texto": "KickOff: Burnley mantuvo 3 porterías a cero consecutivas en sus visitas ligueras a QPR (histórico, solo informativo).",
+     "url": "https://www.kickoff.co.uk/english-championship-predictions-stats-odds/qpr-vs-burnley/",
+     "fecha": "2026-11-03",
+     "tipo": "hecho"
+    }
+   ],
+   "lo_que_no_pude_verificar": [
+    "Tabla actual de Burnley",
+    "Bajas y rotación de ambos",
+    "Racha de goles reciente de cada uno (no en fuentes abiertas)",
+    "Fecha de la nota de presión sobre Hayen"
+   ],
+   "efecto_en_la_pata": "Burnley en crisis y QPR local de mitad de tabla; un 1-0 o 0-0 cerrado por prudencia es el escenario que rompe la pata. No es evidencia dura."
+  },
+  {
+   "key": "mt_468098747|Más de 1.5 goles",
+   "partido": "Huddersfield Town – Luton Town",
+   "competicion_confirmada": "League One 2026-27 jornada 8 (comp_0196)",
+   "alerta": "baja_riesgo",
+   "motivos": [
+    {
+     "texto": "League One 2026-27 jornada 8: Huddersfield 6º (12 pts/7), Luton 16º (8 pts/7); Huddersfield invicto en 6 partidos ligueros en casa y Luton ganó los últimos 3 (Soccerway vía futboltotal).",
+     "url": "https://futboltotal.futbol/partido/huddersfield-vs-luton-league-one-2026-09-26",
+     "fecha": "2026-11-03",
+     "tipo": "hecho"
+    },
+    {
+     "texto": "Luton cambió de entrenador a mediados de octubre (Jack Wilshere sustituye a Matt Bloomfield) según una fuente sin fecha; efecto de cambio de técnico incierto (las fuentes discrepan en la posición de Luton: 16º vs 11º).",
+     "url": "https://www.bwfc.co.uk/news/match-preview-luton-town-v-wanderers-0",
+     "fecha": "sin_fecha",
+     "tipo": "discrepancia"
+    }
+   ],
+   "lo_que_no_pude_verificar": [
+    "Bajas y sanciones",
+    "Alineaciones",
+    "Cargas de copa (EFL Trophy inferido en datos locales)",
+    "Confirmar el cambio de técnico de Luton"
+   ],
+   "efecto_en_la_pata": "Sin señal de partido cerrado; únicamente el cambio de técnico en Luton introduce incertidumbre táctica."
+  },
+  {
+   "key": "mt_643000882|Más de 1.5 goles",
+   "partido": "LASK – ŠK Slovan Bratislava",
+   "competicion_confirmada": "Champions League 2026-27 fase liga J4 (comp_3498)",
+   "alerta": "sin_alertas",
+   "motivos": [
+    {
+     "texto": "Champions League 2026-27, fase liga, jornada 4 (comp_3498 en matches.json; confirmado por fcbayern.com y ahram.org.eg que listan la jornada 4 de la Champions el 03-11-2026). NO es Europa/Conference. LASK figura como Linzer ASK en la web del Bayern.",
+     "url": "https://fcbayern.com/en/matches/profis/champions-league/2026-2027/atl-tico-madrid-fc-bayern-muenchen-03-11-2026/matchday",
+     "fecha": "2026-11-03",
+     "tipo": "hecho"
+    },
+    {
+     "texto": "LASK ganó 3-2 en Sporting CP en la jornada 3 (21-oct), su primera victoria de la fase liga; Slovan perdió 4-0 en Roma el 20-oct, sin puntos y con dos o más derrotas.",
+     "url": "https://thesportscast.net/2026/10/22/uefa-champions-league-standings-2026-27-updated-league-phase-table-rankings-and-qualification-picture-after-matchday-3/",
+     "fecha": "2026-10-22",
+     "tipo": "hecho"
+    },
+    {
+     "texto": "Slovan con Yaya Touré en caída también en la liga eslovaca, sin ideas ofensivas ni defensivas claras (nota sin fecha exacta).",
+     "url": "https://foot-africa.com/en/news/slovakia-yaya-toure-at-a-loss-for-ideas-as-slovan-plummets-in-the-league-1385429/",
+     "fecha": "sin_fecha",
+     "tipo": "hecho"
+    }
+   ],
+   "lo_que_no_pude_verificar": [
+    "Alineaciones y bajas de LASK (Kuhbauer según matches.json; sin nada publicado en extractos)",
+    "Posible rotación o equipo ya eliminado (con 3 jornadas por jugarse todavía hay algo en juego)",
+    "Fecha de la nota de Slovan"
+   ],
+   "efecto_en_la_pata": "Sin riesgo contextual apreciable: ambos con defensas frágiles y necesitados de puntos."
+  },
+  {
+   "key": "mt_468042410|Más de 1.5 goles",
+   "partido": "Farnborough – Ebbsfleet United",
+   "competicion_confirmada": "National League (a confirmar)",
+   "alerta": "baja_riesgo",
+   "motivos": [
+    {
+     "texto": "Entrenadores (matches.json): Spencer Day (Farnborough) y Josh Wright (Ebbsfleet). Último cruce encontrado: 2-2 el 28-feb-2026 en Ebbsfleet y 1-1 el 29-nov-2025 (ambas temporadas pasadas).",
+     "url": "https://www.fotmob.com/nl/matches/farnborough-vs-ebbsfleet-united/2ls2wk",
+     "fecha": "2025-11-29",
+     "tipo": "hecho"
+    },
+    {
+     "texto": "Competición según matches.json: comp_0182 (la misma que Dorking–Hampton); el usuario las clasifica como National League vs National League South. No se pudo confirmar la categoría 2026-27 de Farnborough/Dorking.",
+     "url": "Datos locales runs/2026-11-03/agentes/deportivo_est_x12.json y thestatsapi/matches.json (sin URL externa)",
+     "fecha": "2026-11-03",
+     "tipo": "discrepancia"
+    }
+   ],
+   "lo_que_no_pude_verificar": [
+    "Clasificación y objetivos 2026-27 (nada hallado)",
+    "Bajas, rotación y estado del terreno",
+    "Categoría real (National League o National League South)",
+    "Solo se encontró contexto de la temporada 2025-26"
+   ],
+   "efecto_en_la_pata": "Contexto totalmente sin verificar en una liga con poca cobertura; riesgo estándar de 0-0/1-0 sin evidencia concreta."
+  },
+  {
+   "key": "mt_207628367|Dorking Wanderers o empate",
+   "partido": "Dorking Wanderers – Hampton & Richmond Borough",
+   "competicion_confirmada": "National League South (a confirmar; matches.json la agrupa con comp_0182)",
+   "alerta": "baja_riesgo",
+   "motivos": [
+    {
+     "texto": "Calendario cargado de Dorking: partidos el 27-oct (Hemel Hempstead), 31-oct (Weston-super-Mare) y hoy; siguiente: FA Trophy el 14-nov (fuente sin fecha de actualización).",
+     "url": "https://fanbanter.co.uk/national-league-south/dorking-wanderers/",
+     "fecha": "sin_fecha",
+     "tipo": "hecho"
+    },
+    {
+     "texto": "Dorking ganó 2-0 en casa de Hampton & Richmond el 17-ene-2026 (referencia histórica); local: Dorking perdió 3-2 en Dover el 17-oct.",
+     "url": "https://www.goal.com/en-om/team/dorking-wanderers/fixtures-results/4jnfgi52hgs7onvfae04ucg1p",
+     "fecha": "2026-01-17",
+     "tipo": "hecho"
+    },
+    {
+     "texto": "Competición según matches.json: comp_0182 (la misma que Dorking–Hampton); el usuario las clasifica como National League vs National League South. No se pudo confirmar la categoría 2026-27 de Farnborough/Dorking.",
+     "url": "Datos locales runs/2026-11-03/agentes/deportivo_est_x12.json y thestatsapi/matches.json (sin URL externa)",
+     "fecha": "2026-11-03",
+     "tipo": "discrepancia"
+    }
+   ],
+   "lo_que_no_pude_verificar": [
+    "Posición actual de Dorking y de Hampton & Richmond y qué se juegan",
+    "Bajas y rotación",
+    "Categoría de la competición",
+    "Que ambos estén efectivamente en NL South 2026-27"
+   ],
+   "efecto_en_la_pata": "Tercer partido en una semana para Dorking: leve riesgo de rotación o cansancio; sin datos de plantel."
+  },
+  {
+   "key": "mt_022532721|Menos de 4.5 goles",
+   "partido": "Birmingham City – Millwall",
+   "competicion_confirmada": "EFL Championship 2026-27 jornada 14 (comp_8321)",
+   "alerta": "baja_riesgo",
+   "motivos": [
+    {
+     "texto": "Tabla del 02-nov: Birmingham 6º (23 pts); Millwall 12º (18 pts) tras 13 partidos (Goal) y un 4-1 a Derby el 31-oct (dato local).",
+     "url": "https://theanalyst.com/competition/english-championship/table",
+     "fecha": "2026-11-02",
+     "tipo": "hecho"
+    },
+    {
+     "texto": "Millwall viene de un partido con 5 goles totales (4-1 a Derby, 31-oct) y viaja con Alex Neil; Birmingham con Chris Davies (matches.json).",
+     "url": "Datos locales runs/2026-11-03/agentes/deportivo_est_x12.json y thestatsapi/matches.json (sin URL externa)",
+     "fecha": "2026-10-31",
+     "tipo": "dato_local"
+    }
+   ],
+   "lo_que_no_pude_verificar": [
+    "Bajas y alineaciones",
+    "Cargas de calendario",
+    "Preview actual (los de Sports Mole hallados son de temporadas anteriores)"
+   ],
+   "efecto_en_la_pata": "Millwall viene de goleada de 4 a favor; con Birmingham local en lucha por playoffs, un partido abierto es posible pero 5+ goles sigue siendo poco habitual (media 2.9 y 3.2 goles totales)."
+  },
+  {
+   "key": "mt_371265245|Menos de 4.5 goles",
+   "partido": "Alianza Lima – Cienciano",
+   "competicion_confirmada": "Liga 1 Perú (Torneo Clausura 2026, fecha 15; comp_6981). Fixture Clausura confirmado parcialmente por infobae (fecha 15 Alianza vs Cienciano) y por futbolperuano (tablas del Clausura).",
+   "alerta": "baja_riesgo",
+   "motivos": [
+    {
+     "texto": "Clausura 2026: en la fecha 7 Deportivo Garcilaso y Universitario lideraban con 16 pts, no Alianza Lima; la posición de Alianza en la fecha 15 no se pudo confirmar.",
+     "url": "https://libero.pe/futbol-peruano/2026/08/29/tabla-de-posiciones-del-torneo-clausura-de-liga-1-en-fecha-7-1262898",
+     "fecha": "2026-08-29",
+     "tipo": "hecho"
+    },
+    {
+     "texto": "Alianza Lima perdió 3-2 ante Sporting Cristal el 29-oct (dato local); Cienciano visita Lima.",
+     "url": "Datos locales runs/2026-11-03/agentes/deportivo_est_x12.json y thestatsapi/matches.json (sin URL externa)",
+     "fecha": "2026-10-29",
+     "tipo": "dato_local"
+    },
+    {
+     "texto": "Fixture: infobae confirma Alianza Lima vs Cienciano como fecha 15 del Clausura (local).",
+     "url": "https://www.infobae.com/peru/deportes/2026/07/02/el-fixture-de-alianza-lima-en-el-torneo-clausura-2026-fechas-y-partidos-de-su-camino-hacia-el-titulo-nacional/",
+     "fecha": "2026-07-02",
+     "tipo": "hecho"
+    }
+   ],
+   "lo_que_no_pude_verificar": [
+    "Tabla actual del Clausura y objetivos de ambos",
+    "Bajas, sanciones y rotación",
+    "Si Alianza está disputando título o algo definido",
+    "Forma real de Cienciano tras la fecha 14"
+   ],
+   "efecto_en_la_pata": "Sin señales de goleada; el 3-2 reciente de Alianza muestra capacidad de partidos abiertos, pero Cienciano promedia 2.5 goles totales."
+  }
+ ]
+}

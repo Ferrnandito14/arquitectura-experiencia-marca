@@ -1,0 +1,488 @@
+{
+ "agente": "auditor_x12 (adversarial)",
+ "fecha": "2026-11-03",
+ "hora_caracas_ref": "mañana del 03-11",
+ "alcance": "Reto x1.20: 9 patas lista 1 (est_shortlist/est_precios) + 9 patas lista 2 (est_shortlist_x12/est_precios_x12). Excluidos (x4 de Fernando): Sirius-Halmstad, Preston-Sheffield, Pereira-Tolima.",
+ "metodo": "k/16 propio desde est/lista_tm_*.json (recontado partido a partido); beta-binomial encogida (m=8) a una tasa base de la competición mezclando la del pool de todas las corridas (circular/sesgada) con tasas de liga conocidas (aprox., no verificadas en esta ejecución); Poisson ataque/defensa local-visita como control; -3/-5 pts por saturación (algún lado 8/8 o k/16>=0.93; backtest propio >=0.95 se cumple 72-80%); -4 pts UCL (muestras domésticas); rebajas por contexto (contexto.json, contexto_x12.json). Cuotas solo para el producto >=1.22, nunca como evidencia.",
+ "fuentes_contexto": "contexto.json y contexto_x12.json (apareció durante la auditoría; se usó). Ambos basados en extractos de buscador, WebFetch bloqueado. Verificación propia vía WebSearch: Chapecoense-Mirassol (Máquina do Esporte/Valor Final 03-11 19h30 BRT vs 365Scores 04-11 17h), QPR-Burnley (Soccerway: J14 03-11-2026 Loftus Road), Pasto-Jaguares y Birmingham-Millwall: sin listado encontrado por mí (fecha solo por matches.json + contexto). Alianza-Cienciano: solo hallé el cruce del Apertura (16-05); fecha 15 Clausura vía contexto_x12 (infobae).",
+ "objeciones_globales": [
+  {
+   "obj": "Todas las patas de lista 1 son 14/16 o 15/16 (p_dep 0.875/0.9375) con n=8 por equipo y n=3-5 por lado: la diferencia entre candidatas (0.75-0.80) es menor que el error de estimación (+-0.05-0.07). El orden del top-5 NO es estadísticamente distinguible.",
+   "impacto": "alto",
+   "resuelve": "aceptar como riesgo; elegir por robustez (lado débil, contexto, precio en borde)"
+  },
+  {
+   "obj": "Tasas base del pool circulares y sesgadas (p.ej. Liga 1 Perú U4.5 0.745 en pool vs ~0.88-0.90 histórico; Championship U4.5 0.79 vs ~0.91). Usé mezcla; si las tasas reales son las históricas, las Menos 4.5 suben 1-2 pts y las Más 1.5 bajan 1-2 pts.",
+   "impacto": "medio",
+   "resuelve": "tasa base de liga de FootyStats/SoccerStats temporada 2026"
+  },
+  {
+   "obj": "Discrepancia de datos: Soccerway (vía buscador) dice que Burnley marcó en sus últimos 12 partidos de liga; lista_tm_6573 muestra Burnley 0-0 Portsmouth el 31-oct. O la lista o el extracto está mal: fuente única (TheStatsAPI) sin contraste partido a partido.",
+   "impacto": "medio",
+   "resuelve": "abrir Flashscore/Soccerway Burnley resultados y confirmar el 0-0 del 31-oct"
+  },
+  {
+   "obj": "Precios en el borde: Roma 1.22 y QPR 1.23 (un tick de bajada invalida la pata suelta); Barcelona O1.5 x Huddersfield O1.5 = 1.2285 (cualquier -0.01 lo deja <1.22).",
+   "impacto": "medio",
+   "resuelve": "las manos confirman cuota en la casa justo antes de cargar"
+  }
+ ],
+ "patas": [
+  {
+   "id": "n18",
+   "partido": "Deportivo Pasto – Jaguares de Córdoba",
+   "seleccion": "Menos de 3.5 goles",
+   "cuota_casa": 1.28,
+   "evidencia_kn": "Pasto 8/8 <=3 (casa 3/3, totales 3,1,3,1,0,3,1,1) | Jaguares 6/8 (fuera 4/5; 5 goles vs Millonarios 1-4 y Tolima 3-2) = 14/16; base Colombia U3.5 ~0.80-0.85; Poisson (lH~1.15, lA~1.0) 0.83",
+   "veredicto": "mantener",
+   "severidad": "media",
+   "p_propia": [
+    0.74,
+    0.85
+   ],
+   "p_media": 0.8,
+   "riesgo": "medio",
+   "objecion_principal": "Jaguares último del descenso y obligado a ganar contra un Pasto último del torneo, con tercer técnico y 5 lesionados (previa ~19-oct): escenario de partido roto; Jaguares 6/8 con dos 5 goles en las últimas 4 semanas y el H2H más reciente (abr-2026) terminó 2-3.",
+   "objeciones_secundarias": [
+    "Pasto 8/8 es saturado (-3 pts).",
+    "Fecha/hora solo por matches.json + extractos (Semana/Caracol); mi búsqueda no halló el listado.",
+    "deportivo_est la marca APROBADA pese a que su propia regla degrada con un equipo 6/8 (inconsistencia de etiqueta, no de dato)."
+   ],
+   "dato_que_resolveria": "Once y bajas de Pasto (Wallens, Esparragoza, Fiorelli, Aponza, Chaverra) y si Jaguares llega aún con opciones matemáticas; confirmación Dimayor de la hora 19:20.",
+   "escenario_fallo": "Pierde con 4+ goles: P≈0.20 (Poisson 0.17 + rebaja contexto)."
+  },
+  {
+   "id": "n10",
+   "partido": "Queens Park Rangers – Burnley",
+   "seleccion": "Más de 1.5 goles",
+   "cuota_casa": 1.23,
+   "evidencia_kn": "QPR 7/8 (casa 4/4: 5-0, 4-1, 2-2 + ...) | Burnley 7/8 (fuera 4/4) = 14/16; base Championship O1.5 ~0.73-0.75; Poisson (lH~1.7, lA~1.2) 0.79",
+   "veredicto": "mantener",
+   "severidad": "media",
+   "p_propia": [
+    0.73,
+    0.84
+   ],
+   "p_media": 0.79,
+   "riesgo": "medio",
+   "objecion_principal": "Ambos tienen un 0-0 reciente (Burnley 0-0 Portsmouth el 31-oct, QPR 0-0 Charlton) y el contexto pinta a un Burnley en crisis y cauto; histórico de 3 porterías a cero de Burnley en Loftus Road.",
+   "objeciones_secundarias": [
+    "Dato discrepante: Soccerway dice que Burnley marcó en sus últimos 12 de liga; la lista local tiene un 0-0 el 31-oct (si la lista falla, la muestra entera es dudosa).",
+    "Precio 1.23 a un tick del mínimo."
+   ],
+   "dato_que_resolveria": "Confirmar el 0-0 Burnley-Portsmouth en Flashscore/Soccerway y la cuota >=1.22 en la casa.",
+   "escenario_fallo": "Pierde con 0-0/1-0/0-1: P≈0.21 (0-0 ~0.055, 1-0 ~0.09, 0-1 ~0.065)."
+  },
+  {
+   "id": "n13",
+   "partido": "Barcelona – Aston Villa",
+   "seleccion": "Aston Villa: Más de 0.5 goles",
+   "cuota_casa": 1.41,
+   "evidencia_kn": "Villa marca 7/8 (fuera 2/3; 0-3 en EFL Cup) | Barça encaja 7/8 (casa 3/4) = 14/16; base UCL visitante marca ~0.73-0.75; Poisson lA~1.45 -> 0.77",
+   "veredicto": "degradar",
+   "severidad": "media",
+   "p_propia": [
+    0.71,
+    0.84
+   ],
+   "p_media": 0.78,
+   "riesgo": "medio",
+   "objecion_principal": "UCL con muestra mayormente PL/LaLiga (no representativa) y posible rotación de Emery (Villa 9/9 en la fase liga, jugó el 31-oct); Villa fuera marcó solo 2/3.",
+   "objeciones_secundarias": [
+    "A favor (contexto ESPN 02-nov): Barça sin Koundé, Christensen, Eric García; De Jong de central: atenúa.",
+    "Correlación: no combinar con Barcelona–Villa Más 1.5 (mismo partido)."
+   ],
+   "dato_que_resolveria": "Once de Villa (Watkins/Rogers titulares) a la hora previa.",
+   "escenario_fallo": "Pierde si Villa no marca: P≈0.22 (Poisson e^-1.45=0.235)."
+  },
+  {
+   "id": "n12",
+   "partido": "West Bromwich Albion – Southampton",
+   "seleccion": "Southampton: Más de 0.5 goles",
+   "cuota_casa": 1.25,
+   "evidencia_kn": "Saints marcan 7/8 (fuera 3/3) | WBA encaja 7/8 (casa 3/3) = 14/16; base Championship visitante marca ~0.70; Poisson lA~1.45 -> 0.77",
+   "veredicto": "degradar",
+   "severidad": "media",
+   "p_propia": [
+    0.71,
+    0.83
+   ],
+   "p_media": 0.77,
+   "riesgo": "medio",
+   "objecion_principal": "Choque directo 4º (24 pts) vs 5º (23 pts) según The Analyst 02-nov: partido de riesgo bajo; WBA encaja ~1.0/p y su 0-1 vs Birmingham muestra que puede cerrar.",
+   "objeciones_secundarias": [
+    "Lado visitante n=3.",
+    "«Más de 0.5» de equipo: un 0-0/1-0 local liquida en contra."
+   ],
+   "dato_que_resolveria": "Bajas de delanteros de Southampton; once.",
+   "escenario_fallo": "Pierde si Southampton no marca: P≈0.23."
+  },
+  {
+   "id": "n2",
+   "partido": "Manchester United – Roma",
+   "seleccion": "Roma: Más de 0.5 goles",
+   "cuota_casa": 1.22,
+   "evidencia_kn": "Roma marca 7/8 (fuera 2/3; 0-0 en Como) | United encaja 8/8 (casa 3/3) = 15/16; base UCL visitante ~0.73; saturación -4, UCL -4; Poisson lA~1.45 -> 0.77",
+   "veredicto": "degradar",
+   "severidad": "media",
+   "p_propia": [
+    0.71,
+    0.83
+   ],
+   "p_media": 0.77,
+   "riesgo": "medio",
+   "objecion_principal": "UCL con muestras de ligas distintas (PL vs Serie A) y United 8/8 encajando es saturado; precio exactamente en el umbral 1.22 (cualquier bajada lo invalida como suelta).",
+   "objeciones_secundarias": [
+    "Contexto: United último de la fase liga, 9 sin ganar, Carrick en entredicho -> podría salir conservador.",
+    "Roma fuera n=3."
+   ],
+   "dato_que_resolveria": "Cuota >=1.22 confirmada; bajas de Malen/Dovbyk.",
+   "escenario_fallo": "Pierde si Roma no marca: P≈0.23."
+  },
+  {
+   "id": "n15",
+   "partido": "Comerciantes Unidos – Asociación Deportiva Tarma",
+   "seleccion": "Más de 1.5 goles",
+   "cuota_casa": 1.27,
+   "evidencia_kn": "Comerciantes 7/8 (casa 3/4: 4,2,1,5) | Tarma 7/8 (fuera 4/4 pero 3 de 8 justo en 2 goles) = 14/16; base Liga 1 O1.5 ~0.75-0.80; Poisson (lH~1.6, lA~0.9) 0.71",
+   "veredicto": "degradar",
+   "severidad": "media",
+   "p_propia": [
+    0.7,
+    0.82
+   ],
+   "p_media": 0.76,
+   "riesgo": "medio",
+   "objecion_principal": "Tarma marca 0.5/p fuera (1,1,0,0) y media 2.4 goles totales: el Over depende de que Comerciantes marque 2 o de un gol de cada lado; Poisson 0.71.",
+   "objeciones_secundarias": [
+    "Contexto no verificable (tabla, bajas, técnicos).",
+    "Muestra con huecos de calendario (sin partidos 19-sep a 10-oct)."
+   ],
+   "dato_que_resolveria": "Tabla Clausura y bajas.",
+   "escenario_fallo": "Pierde con 0-0/1-0/0-1: P≈0.24-0.29."
+  },
+  {
+   "id": "n16",
+   "partido": "Chapecoense – Mirassol",
+   "seleccion": "Más de 1.5 goles",
+   "cuota_casa": 1.25,
+   "evidencia_kn": "Chape 7/8 (casa 3/3) | Mirassol 7/8 (fuera 3/4; 5 de 8 con exactamente 2 goles) = 14/16; base Brasileirão O1.5 ~0.72-0.75; Poisson 0.73",
+   "veredicto": "degradar",
+   "severidad": "media",
+   "p_propia": [
+    0.69,
+    0.81
+   ],
+   "p_media": 0.75,
+   "riesgo": "medio",
+   "objecion_principal": "Mirassol es el equipo más 'under' del pool (media 2.2 goles, cinco partidos en 2 exactos): un 1-0 es el resultado modal de sus victorias; y hay discrepancia de fecha (365Scores: 04-11 17h; Máquina do Esporte/Valor Final: 03-11 19h30 BRT).",
+   "objeciones_secundarias": [
+    "Chape colista: puede cerrarse."
+   ],
+   "dato_que_resolveria": "Fecha CBF oficial.",
+   "escenario_fallo": "Pierde con 0-0/1-0/0-1: P≈0.25-0.27."
+  },
+  {
+   "id": "n17",
+   "partido": "Chapecoense – Mirassol",
+   "seleccion": "Mirassol: Más de 0.5 goles",
+   "cuota_casa": 1.19,
+   "evidencia_kn": "Mirassol marca 6/8 (fuera 2/4: 0,0,1,2) | Chape encaja 8/8 = 14/16; base Brasileirão visitante marca ~0.62-0.65; Poisson lA~1.15 -> 0.68",
+   "veredicto": "descartar",
+   "severidad": "alta",
+   "p_propia": [
+    0.65,
+    0.77
+   ],
+   "p_media": 0.71,
+   "riesgo": "alto",
+   "objecion_principal": "Lado débil: Mirassol fuera marcó en 2 de 4; el 14/16 lo sostiene Chape encaja 8/8 (saturado). Cuota 1.19 < 1.22: obliga a combinar con otra pata y nunca supera a una suelta.",
+   "objeciones_secundarias": [
+    "Misma fecha discrepante.",
+    "Correlación con n16/x12 (mismo partido)."
+   ],
+   "dato_que_resolveria": "No hay dato que la rescate en este reto.",
+   "escenario_fallo": "Pierde si Mirassol no marca: P≈0.29-0.32."
+  },
+  {
+   "id": "n9",
+   "partido": "Derby County – Norwich City",
+   "seleccion": "Derby County: Más de 0.5 goles",
+   "cuota_casa": 1.32,
+   "evidencia_kn": "Derby marca 6/8 (casa 2/4; 0.5 goles/p en casa) | Norwich encaja 8/8 (fuera 4/4) = 14/16; Poisson lH~1.25 -> 0.71",
+   "veredicto": "descartar",
+   "severidad": "alta",
+   "p_propia": [
+    0.65,
+    0.78
+   ],
+   "p_media": 0.72,
+   "riesgo": "alto",
+   "objecion_principal": "El peor lado débil del lote: Derby marcó 0,1,1,0 en casa (0-1 Stoke, 0-1 WBA) y 6 goles en 8; todo descansa en que Norwich encaja (saturado 8/8, incluye 0-5 vs Man City en copa).",
+   "objeciones_secundarias": [
+    "Derby viene de 1-4 en Millwall.",
+    "Sin bajas verificadas."
+   ],
+   "dato_que_resolveria": "Nada lo rescata frente a alternativas con p>=0.77.",
+   "escenario_fallo": "Pierde si Derby no marca: P≈0.28."
+  },
+  {
+   "id": "x12",
+   "partido": "Chapecoense – Mirassol",
+   "seleccion": "Menos de 4.5 goles",
+   "cuota_casa": 1.12,
+   "evidencia_kn": "Chape 7/8 (1-4 Athletico) | Mirassol 8/8 (totales 2,2,2,1,2,2,4,3) = 15/16; base ~0.88-0.92; Poisson (total 2.6) 0.88",
+   "veredicto": "mantener",
+   "severidad": "baja",
+   "p_propia": [
+    0.84,
+    0.93
+   ],
+   "p_media": 0.89,
+   "riesgo": "bajo-medio",
+   "objecion_principal": "Fecha discrepante (365Scores 04-11). Si se juega el 04-11 la pata podría anularse o quedar fuera del reto del martes.",
+   "objeciones_secundarias": [
+    "Saturación Mirassol 8/8 (-4).",
+    "Correlación negativa con Chape Más 1.5 (no combinar)."
+   ],
+   "dato_que_resolveria": "Tabla oficial CBF/Premiere.",
+   "escenario_fallo": "Pierde con 5+ goles: P≈0.11."
+  },
+  {
+   "id": "x13",
+   "partido": "Alianza Lima – Cienciano",
+   "seleccion": "Menos de 4.5 goles",
+   "cuota_casa": 1.16,
+   "evidencia_kn": "Alianza 7/8 (2-3 Cristal) | Cienciano 8/8 (2 de Sudamericana) = 15/16; base Liga 1 U4.5 ~0.85-0.89 (pool 0.745 sesgado); Poisson 0.88",
+   "veredicto": "mantener",
+   "severidad": "baja",
+   "p_propia": [
+    0.82,
+    0.91
+   ],
+   "p_media": 0.87,
+   "riesgo": "bajo-medio",
+   "objecion_principal": "Base del pool para Liga 1 U4.5 es solo 0.745 (3 de cada 4): si esa tasa es real, la pata cae a ~0.84. Partido más tardío (21:00 Caracas).",
+   "objeciones_secundarias": [
+    "Fecha solo por extracto (infobae) + matches.json.",
+    "Cienciano incluye 2 partidos de Sudamericana."
+   ],
+   "dato_que_resolveria": "Tasa U4.5 Liga 1 2026 en FootyStats.",
+   "escenario_fallo": "Pierde con 5+ goles: P≈0.13."
+  },
+  {
+   "id": "x7",
+   "partido": "Birmingham City – Millwall",
+   "seleccion": "Menos de 4.5 goles",
+   "cuota_casa": 1.14,
+   "evidencia_kn": "Birmingham 8/8 | Millwall 7/8 (4-1 Derby) = 15/16; pero 7 de 16 totales exactamente 4 (en el borde)",
+   "veredicto": "degradar",
+   "severidad": "media",
+   "p_propia": [
+    0.8,
+    0.9
+   ],
+   "p_media": 0.86,
+   "riesgo": "medio",
+   "objecion_principal": "Siete de los 16 partidos terminaron con exactamente 4 goles: el margen es un gol; Birmingham marca 3.0/p en casa y Millwall viene de 4-1.",
+   "objeciones_secundarias": [
+    "Saturación (-4).",
+    "Fecha no hallada en mi búsqueda (solo matches.json)."
+   ],
+   "dato_que_resolveria": "Bajas ofensivas.",
+   "escenario_fallo": "Pierde con 5+: P≈0.14."
+  },
+  {
+   "id": "x8",
+   "partido": "Barcelona – Aston Villa",
+   "seleccion": "Más de 1.5 goles",
+   "cuota_casa": 1.05,
+   "evidencia_kn": "Barça 8/8 (totales 3-9) | Villa 7/8 = 15/16; Poisson (total ~3.5) 0.86; Barça con defensa mermada",
+   "veredicto": "mantener",
+   "severidad": "baja",
+   "p_propia": [
+    0.82,
+    0.92
+   ],
+   "p_media": 0.88,
+   "riesgo": "bajo",
+   "objecion_principal": "UCL con muestras domésticas y saturación Barça 8/8; cuota 1.05 solo sirve con una pata >=1.17 (producto en el borde 1.2285 con Huddersfield).",
+   "objeciones_secundarias": [
+    "Correlación con Villa Más 0.5 (mismo partido)."
+   ],
+   "dato_que_resolveria": "Cuotas reales al cargar.",
+   "escenario_fallo": "Pierde con 0-0/1-0/0-1: P≈0.12."
+  },
+  {
+   "id": "x1",
+   "partido": "Huddersfield Town – Luton Town",
+   "seleccion": "Más de 1.5 goles",
+   "cuota_casa": 1.17,
+   "evidencia_kn": "16/16 (sin copas 13/13; incluye 6-0 a Ipswich U21 y 5-0 Rochdale); Poisson (total ~3.1) 0.81",
+   "veredicto": "degradar",
+   "severidad": "media",
+   "p_propia": [
+    0.77,
+    0.88
+   ],
+   "p_media": 0.83,
+   "riesgo": "medio",
+   "objecion_principal": "Saturación pura (16/16): el backtest propio dice que >=0.95 se cumple 72-80%; la muestra incluye EFL Trophy con sub-21. Luton cambió de técnico a mediados de octubre (fuente sin fecha) y la tabla citada (J8, 7 PJ) no cuadra con los partidos de liga de la lista.",
+   "objeciones_secundarias": [],
+   "dato_que_resolveria": "Confirmar jornada/tabla League One y técnico de Luton.",
+   "escenario_fallo": "Pierde con 0-0/1-0/0-1: P≈0.17."
+  },
+  {
+   "id": "x2",
+   "partido": "LASK – ŠK Slovan Bratislava",
+   "seleccion": "Más de 1.5 goles",
+   "cuota_casa": 1.11,
+   "evidencia_kn": "16/16, pero solo 4 de 16 son UCL; Slovan 0 goles en 2 de UCL (0-4, 0-3); Poisson 0.77-0.80",
+   "veredicto": "degradar",
+   "severidad": "media",
+   "p_propia": [
+    0.75,
+    0.87
+   ],
+   "p_media": 0.82,
+   "riesgo": "medio",
+   "objecion_principal": "UCL con muestras de ligas austriaca/eslovaca débiles; Slovan no marcó en UCL: el Over depende de que LASK marque 2.",
+   "objeciones_secundarias": [],
+   "dato_que_resolveria": "Once de LASK.",
+   "escenario_fallo": "Pierde con 0-0/1-0/0-1: P≈0.20."
+  },
+  {
+   "id": "x5",
+   "partido": "Farnborough – Ebbsfleet United",
+   "seleccion": "Más de 1.5 goles",
+   "cuota_casa": 1.11,
+   "evidencia_kn": "Farnborough 8/8 | Ebbsfleet 7/8 = 15/16; 6ª categoría, fuente única, categoría 2026-27 sin confirmar",
+   "veredicto": "degradar",
+   "severidad": "media",
+   "p_propia": [
+    0.74,
+    0.87
+   ],
+   "p_media": 0.81,
+   "riesgo": "medio",
+   "objecion_principal": "Cobertura de datos mínima (no-league), dos partidos de Farnborough sin estadísticas, competición no confirmada; Farnborough en casa marcó 0,2,2,0.",
+   "objeciones_secundarias": [],
+   "dato_que_resolveria": "Ficha Flashscore del partido.",
+   "escenario_fallo": "Pierde con 0-0/1-0/0-1: P≈0.20."
+  },
+  {
+   "id": "x6",
+   "partido": "Dorking Wanderers – Hampton & Richmond Borough",
+   "seleccion": "Dorking Wanderers o empate",
+   "cuota_casa": 1.12,
+   "evidencia_kn": "Dorking invicto 7/8 (casa 5/5) | Hampton 0 victorias en 8 = 15/16; Poisson 1X 0.71-0.80",
+   "veredicto": "degradar",
+   "severidad": "media",
+   "p_propia": [
+    0.71,
+    0.84
+   ],
+   "p_media": 0.78,
+   "riesgo": "medio",
+   "objecion_principal": "Tercer partido en 7 días para Dorking (27-oct, 31-oct, 03-nov) y defensa muy porosa (3-3, 3-3, 4-3); Poisson da 0.76.",
+   "objeciones_secundarias": [],
+   "dato_que_resolveria": "Once/rotación de Dorking.",
+   "escenario_fallo": "Pierde si gana Hampton: P≈0.22."
+  },
+  {
+   "id": "x10",
+   "partido": "Manchester United – Roma",
+   "seleccion": "Más de 1.5 goles",
+   "cuota_casa": 1.14,
+   "evidencia_kn": "United 8/8 pero 5 de 8 con exactamente 2 goles; Roma 7/8 (0-0 Como); Poisson (total ~2.5) 0.71",
+   "veredicto": "degradar",
+   "severidad": "media",
+   "p_propia": [
+    0.72,
+    0.85
+   ],
+   "p_media": 0.79,
+   "riesgo": "medio",
+   "objecion_principal": "United marca 0.75/p: un 0-1 o 1-0 de Roma liquida en contra; 5 de 8 de United en el umbral.",
+   "objeciones_secundarias": [],
+   "dato_que_resolveria": "Bajas de United.",
+   "escenario_fallo": "Pierde con 0-0/1-0/0-1: P≈0.21-0.29."
+  }
+ ],
+ "tickets_top5": [
+  {
+   "rango": 1,
+   "patas": [
+    "Deportivo Pasto – Jaguares de Córdoba | Menos de 3.5 goles"
+   ],
+   "cuotas": [
+    1.28
+   ],
+   "producto": 1.28,
+   "prod_p_lo": 0.74,
+   "prod_p_media": 0.8,
+   "cobro_Bs": 51271.72,
+   "nota": "Mejor suelta; riesgo de contexto (Jaguares a ganar)."
+  },
+  {
+   "rango": 2,
+   "patas": [
+    "Queens Park Rangers – Burnley | Más de 1.5 goles"
+   ],
+   "cuotas": [
+    1.23
+   ],
+   "producto": 1.23,
+   "prod_p_lo": 0.73,
+   "prod_p_media": 0.79,
+   "cobro_Bs": 49268.92,
+   "nota": "Precio en el borde; confirmar dato Burnley 0-0."
+  },
+  {
+   "rango": 3,
+   "patas": [
+    "Barcelona – Aston Villa | Aston Villa: Más de 0.5 goles"
+   ],
+   "cuotas": [
+    1.41
+   ],
+   "producto": 1.41,
+   "prod_p_lo": 0.71,
+   "prod_p_media": 0.78,
+   "cobro_Bs": 56479.0,
+   "nota": "UCL, rotación Villa; Barça con defensa mermada; mayor cobro."
+  },
+  {
+   "rango": 4,
+   "patas": [
+    "Chapecoense – Mirassol | Menos de 4.5 goles",
+    "Alianza Lima – Cienciano | Menos de 4.5 goles"
+   ],
+   "cuotas": [
+    1.12,
+    1.16
+   ],
+   "producto": 1.2992,
+   "prod_p_lo": 0.689,
+   "prod_p_media": 0.774,
+   "cobro_Bs": 52040.79,
+   "nota": "Dos Menos 4.5 independientes (Brasil+Perú); ∏p_lo peor que una suelta; riesgo de fecha Chape."
+  },
+  {
+   "rango": 5,
+   "patas": [
+    "West Bromwich Albion – Southampton | Southampton: Más de 0.5 goles"
+   ],
+   "cuotas": [
+    1.25
+   ],
+   "producto": 1.25,
+   "prod_p_lo": 0.71,
+   "prod_p_media": 0.77,
+   "cobro_Bs": 50070.04,
+   "nota": "Choque directo 4º-5º."
+  }
+ ],
+ "descartados_en_tickets": "Combos 2-3 patas de lista 2 quedan por debajo de la mejor suelta: Chape U4.5+Birmingham U4.5 0.765 (∏lo 0.672), Alianza+Birmingham 0.748, Chape U4.5+Huddersfield 0.739, Barcelona O1.5+Huddersfield 0.730 (producto 1.2285 en el borde). Ningún trío supera 0.70.",
+ "conclusion": "Ganadora no vinculante: Pasto–Jaguares Menos 3.5 suelta (1.28; p 0.80 [0.74-0.85]; cobro 51.271,72 Bs). Alternativa casi empatada: QPR–Burnley Más 1.5 (1.23; 0.79). Las diferencias del top-5 (0.77-0.80) están dentro del error; si las manos confirman antes de cargar que el 0-0 Burnley-Portsmouth es real y la cuota sigue >=1.22, QPR es intercambiable; si llegan bajas ofensivas de Jaguares o confirmación de que Jaguares ya está salvado/descendido, Pasto sube."
+}
