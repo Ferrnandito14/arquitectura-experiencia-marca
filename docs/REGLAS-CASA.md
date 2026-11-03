@@ -5,3 +5,13 @@
 - Pendiente: comprobar si `seguimiento.py` y el comparativo liquidan las líneas .25/.75 de la casa con esta regla (hoy usan la estándar) y si el PA se refleja en los resultados registrados.
 
 - **Total de tarjetas** (explicado por Fernando, 2-nov-2026; no volver a preguntar): amarilla = 1 punto, roja directa = 2 puntos, doble amarilla = 1 + 1 = 2 puntos (la roja derivada de la 2.ª amarilla no suma otra vez). Máximo 3 por jugador (amarilla + roja directa); solo jugadores en cancha; 90' + descuento. La referencia de TheStatsAPI (`total_cards`) no declara su definición: su probabilidad es aproximada para esta casa.
+
+## Límites y condiciones de Triunfobet (leídos por la sesión local el 3-nov-2026 de sus páginas legales; solo lectura)
+Fuentes: https://triunfobet.com/pages/terms-and-conditions, /pages/general-conditions, /pages/aml-program (Reglamento Deportivo), /pages/faq (Bonos), /pages/return-policy. Parte del texto es largo, de plantilla o puede estar desactualizado: confirmar con soporte lo crítico, por escrito.
+- **Ganancia máxima por apuesta:** Términos: «El límite de ganancia por apuesta deportiva es basado en solución al monto a apostar a un máximo de 30.000 USD» (redacción confusa). El Reglamento Deportivo trae la plantilla vacía «Las ganancias máximas por tiquete son de ……(...... EUR)». Si «ganancia» = «Ganancia Total» del cupón (cobro con el monto), el tope se alcanza con un monto de ≈21,7 millones de Bs en un ×1,23 (≈ día 29-30 de la cadena desde 51.504 Bs el 3-nov, a ≈890 Bs/USD).
+- **Apuesta máxima/mínima por ticket:** NO encontrada (solo hablan de depósito, a discreción de la compañía).
+- **Topes por día/semana de ganancia:** NO encontrados.
+- **Retiros:** Zelle mín 100 USD, máx 5.000 USD/día, máx 2 retiros diarios. Binance/cripto mín 5 USD, máx 80.000 USD/día. Bolívares mín 100 Bs y SIN límite diario (sujeto a disponibilidad y banca). Hasta 3 días hábiles; atención financiera 24/7. Límites semanal/mensual y comisiones: NO encontrados.
+- **Cancelación:** la casa se reserva el derecho de denegar o cancelar cualquier apuesta ya hecha a su criterio; puede cancelar retiros por sospecha de fraude, colusión o actividad ilegal y pedir verificación de identidad y origen de fondos; puede cerrar cuentas asociadas. No hay cláusula específica sobre cuentas que ganan de forma sostenida.
+- **Bono «Combo»** (banner «agrega eventos con cuota 1.20+»): NO documentado en las páginas; solo observado en el cupón (4 % en el ×4 B del 3-nov, 7 % en el ×4 del 2-nov). Sin garantía escrita ni tope conocido.
+- **Misma selección en dos tickets:** NO se encontró prohibición ni permiso explícito → probar con un monto pequeño antes de depender de ello.
