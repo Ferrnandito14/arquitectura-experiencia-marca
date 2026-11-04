@@ -78,6 +78,13 @@
 | 2026-11-04 19:00 | d12-mito-vikingos | reel | Mito verificado: cascos vikingos con cuernos (FALSO) | media/2026-11-04/d12-mito-vikingos.mp4 |
 | 2026-11-04 20:00 | d12-foto-simplificar | foto | Esencia de simplificar en 6 palabras | media/2026-11-04/d12-foto-simplificar-1.jpg |
 | 2026-11-04 21:00 | d12-mito-einstein | reel | Mito verificado: Einstein suspendió matemáticas (FALSO) | media/2026-11-04/d12-mito-einstein.mp4 |
+| 2026-11-05 09:00 | d13-futbol-saque-inicial | reel | Fútbol en esencia: el saque inicial. | media/2026-11-05/d13-futbol-saque-inicial.mp4 |
+| 2026-11-05 12:00 | d13-mito-sapos | reel | Mito verificado: "Tocar un sapo da verrugas." FALSO. | media/2026-11-05/d13-mito-sapos.mp4 |
+| 2026-11-05 14:00 | d13-esencia-limites | reel | Esencia de un buen límite: di qué sí puedes hacer. | media/2026-11-05/d13-esencia-limites.mp4 |
+| 2026-11-05 16:00 | d13-foto-confianza | foto | Esencia de la confianza: cumple lo pequeño. | media/2026-11-05/d13-foto-confianza-1.jpg |
+| 2026-11-05 19:00 | d13-mito-pulpo | reel | Mito verificado: "Los pulpos tienen tres corazones." VERDADE | media/2026-11-05/d13-mito-pulpo.mp4 |
+| 2026-11-05 20:00 | d13-foto-ordenar | foto | Esencia de ordenar en 5 palabras: cada cosa tiene su lugar. | media/2026-11-05/d13-foto-ordenar-1.jpg |
+| 2026-11-05 21:00 | d13-mito-venas | reel | Mito verificado: "La sangre en las venas es azul." FALSO. | media/2026-11-05/d13-mito-venas.mp4 |
 
 ## Resumen semanal (domingo 2026-11-01)
 Métricas al 01/11 (30 publicaciones recientes, 0 seguidores, sin señales de restricción):
