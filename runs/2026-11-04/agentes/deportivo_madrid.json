@@ -1,0 +1,64 @@
+{
+ "agente": "analista-deportivo",
+ "fecha": "2026-11-04",
+ "match_id": "mt_378444557",
+ "partido": "AEK Athens (tm_10033) - Real Madrid (tm_73673)",
+ "competicion": "Champions League fase de liga, 17:45Z",
+ "pata": "Gana Real Madrid (1X2, 90 min)",
+ "fuentes": "Solo datos locales: data/memoria_equipos/partidos.jsonl (por id) y runs/2026-11-04/est/lista_*.json. Sin consulta web en esta ejecucion (no se verificaron bajas ni once). Madrid solo tiene n=14 partidos en la base (desde 22-ago-2026), AEK n=16 (desde 18-ago-2026); NO hay temporada anterior ni 15 partidos de Madrid. Huecos de calendario posibles (p.ej. 20-sep a 10-oct) no verificados.",
+ "a_frecuencias_simples": {
+  "madrid_ult8": "7/8 victorias (L en Atletico a)",
+  "madrid_toda_muestra_n14": "12/14 V, 0 E, 2 D (derrotas: Betis a 0-1, Atletico a 1-2)",
+  "madrid_ult15": "no disponible (n=14)",
+  "aek_ult8": "4V 0E 4D (4 derrotas seguidas fuera: Shakhtar, City, PAOK, Panathinaikos)",
+  "aek_ult15": "9V 2E 4D (no ganó 6/15; perdió 4/15)",
+  "aek_local": "7/7 victorias en casa (GF 30, GC 1) pero ante Iraklis, Levski, Aris, LASK, Panserraikos, OFI, Panetolikos"
+ },
+ "b_por_nivel_rival": {
+  "criterio": "fuerte = rival con >=1.9 pts/partido o DG/partido>=0.8 en la propia base (n 10-19, proxy ruidoso) o Champions/top griego; debil/medio = resto",
+  "madrid_vs_fuertes": "4/6 V (Inter, Roma, Leipzig, Barcelona G; Betis y Atletico P, ambos fuera)",
+  "madrid_vs_debiles_medios": "8/8 V",
+  "madrid_champions": "3/3 V (Inter 2-1 L, Roma 4-3 V, Leipzig 4-1 L)",
+  "aek_vs_alto_nivel": "1V 0E 4D vs LASK(V 1-0 local), Shakhtar(1-3), City(1-5), PAOK(1-3), Panathinaikos(0-2); en Champions 1V 0E 2D; con Levski (Bulgaria, ronda previa) 1E 1V",
+  "aek_vs_debiles_medios": "9 partidos (excl. Levski): 7V 2E 0D, DG medio +3.0"
+ },
+ "c_goles_ajustados": {
+  "madrid_vs_fuertes": "GF 2.17 / GC 1.50, DG +0.67 (n=6)",
+  "madrid_vs_debiles": "DG +2.38 (n=8)",
+  "aek_vs_alto_nivel": "GF 0.75 / GC 2.50, DG -1.75 (n=4 Shakhtar, City, LASK, Panathinaikos); con PAOK DG -1.8 (n=5)",
+  "aek_vs_debiles": "DG +3.0 (n=9)",
+  "lectura": "Ambos inflan cifras ante rivales flojos; la diferencia relevante es contra nivel alto: Madrid sigue positivo (+0.67), AEK muy negativo (-1.75). Madrid concede goles incluso ante rivales fuertes (1.5/p), lo que deja margen a que AEK anote y haya riesgo de empate/derrota corta."
+ },
+ "d_madrid_visitante": {
+  "liga_y_europa_temporada": "5V 0E 2D en 7 fuera",
+  "europa_fuera": "1/1 (Roma 4-3, n=1, insuficiente)",
+  "rivales_medio_bajos_fuera": "3/3 V (Espanyol 2-1, Elche 3-2, Racing 3-0), dos por 1 gol",
+  "temporada_anterior": "sin datos en la base"
+ },
+ "p_dep": 0.86,
+ "p_dep_nota": "Frecuencia simple de victorias del Madrid: 12/14 (7/8 en ult8), sin ajustar por rival. La resta de 'perdidas del AEK' (4/15 ult15, 4/8 ult8) no se promedia porque mide otra cosa y esta inflada por rivales debiles.",
+ "p_ajustada": 0.78,
+ "metodo_ajuste": "Media 50/50 de tasa de victoria del Madrid ante rivales debiles/medios (8/8, Jeffreys 8.5/9=0.944) y ante fuertes (4/6, Jeffreys 4.5/7=0.643) = 0.79; se resta ~0.01 por localia contraria y por AEK 7/7 en casa. Cruce: AEK pierde/no gana 4 de 5 ante alto nivel (0.80). AEK se situa entre ambos tiers (mejor que los Griegos flojos, peor que Shakhtar/City).",
+ "limite_del_ajuste": "Fuerza del rival medida con la propia base (10-19 partidos, ligas desconectadas): proxy muy ruidoso. Pesos 50/50 son judgemento, no estimados. Muestra por tier 6 y 8. Sin xG ni tiros, sin bajas/once verificados, sin temporada anterior. Contexto (otro agente) menciona posible rotacion del Madrid por 3/3 en la fase, no confirmada.",
+ "p_min": 0.52,
+ "p_min_nota": "Wilson 90% inferior con p=0.78 y n efectivo conservador 10 (con n=14 saldria 0.56). Wilson 90% crudo de 12/14 = 0.647 (sin ajustar).",
+ "veredicto": "DEGRADADA",
+ "solidez": "MEDIA-BAJA",
+ "lados_debiles": [
+  "n=14 del Madrid y un solo tramo de temporada",
+  "2 derrotas fuera ante rivales de nivel alto/medio-alto (Betis, Atletico) y victorias fuera por 1 gol ante rivales medios (Espanyol, Elche, Roma 4-3)",
+  "Madrid encaja ante todos los rivales fuertes (GC 1.5/p)",
+  "AEK 7/7 en casa aunque sin rival de nivel alto salvo LASK 1-0",
+  "bajas, once y rotacion sin verificar"
+ ],
+ "tendencia": "Madrid 7/8 y 3/3 en Champions, mejorando; AEK en mala racha (4 derrotas seguidas fuera, GF 0.75 vs alto nivel) pero llega con 3 dias de descanso desde el derbi, sin efecto cuantificable.",
+ "escenario_perdida": "Partido corto y cerrado en Atenas: Madrid rota o gestiona tras 3/3 en la fase, AEK defiende en bloque con su localia (7/7, solo 1 gol encajado en casa) y marca a balon parado o contra; resultado tipo 1-1 o 1-2 como Betis 0-1 y Atletico 1-2, o ganar por la minima como Villarreal 1-0. De las 12 victorias del Madrid, 6 fueron por 1 gol (Espanyol, Inter, Villarreal, Roma, Barcelona, Elche), asi que casi cualquier gol local la convierte en empate.",
+ "invalidaria": "Bajas confirmadas de varios titulares del Madrid o once alternativo/rotado; ausencias ofensivas relevantes en AEK confirmarían al alza (no baja el pick).",
+ "datos_pendientes": [
+  "Bajas/once Madrid y AEK con fecha (club, Transfermarkt, FotMob)",
+  "Segunda fuente de resultados (Flashscore/Soccerway) para validar la base",
+  "xG/tiros",
+  "Temporada anterior Madrid fuera en Champions",
+  "Calendario faltante de Madrid en la base"
+ ]
+}
