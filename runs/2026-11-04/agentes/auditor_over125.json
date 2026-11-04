@@ -1,0 +1,47 @@
+{
+ "fecha": "2026-11-04",
+ "pata": "São Paulo – Corinthians | Total de goles Más de 1.25 | cuota 1.27 (comunicada por el usuario, sin verificación independiente)",
+ "veredicto": "APROBADA (riesgo medio-bajo; condicionada a confirmar la regla de 1 gol = devolución completa)",
+ "riesgo": "medio-bajo (P pierde ~9%, P devuelve ~22%)",
+ "p_gana": 0.69,
+ "p_devuelve": 0.22,
+ "p_pierde": 0.09,
+ "crecimiento_esperado": {
+  "formula": "p_gana*1.27 + p_devuelve*1 + p_pierde*0 por unidad apostada",
+  "con_regla_de_la_casa_devolucion_total": 1.098,
+  "con_regla_asiatica_estandar_1_gol=media_perdida": 0.992,
+  "nota": "El valor depende de la regla de 1 gol. Si fuese asiática estándar (mitad perdida) el EV es ~0. Confirmar texto de la casa antes de apostar. Para la cadena, la pierna que 'pierde' rompe todo (~48.067 Bs); lo relevante es p_pierde 9% vs 15% (Slavia) y 21% (SP marca)."
+ },
+ "comparacion": {
+  "Slavia-Arsenal Menos de 4.5 @1.23 p~0.85": {
+   "EV": 1.045,
+   "p_pierde": 0.15
+  },
+  "Sao Paulo marca Mas de 0.5 @1.31 p~0.79 (auditor previo: 0.77 DEGRADADA)": {
+   "EV": 1.035,
+   "p_pierde": 0.21
+  },
+  "Over 1.25 @1.27": {
+   "EV": 1.098,
+   "p_pierde": 0.09,
+   "p_avance_condicional": 0.885
+  },
+  "lectura": "Mejor EV y menor probabilidad de romper cadena, pero 22% de devolución cuesta tiempo (no avanza) y está correlacionada con 'São Paulo marca' (si ambas en la cadena, no son independientes: ambas fallan con 0-0 o 0-1)."
+ },
+ "brecha_vs_cuota": "Implícita cruda 1/1.27 = 78.7% (sin margen ~74-75%) vs p_gana 69%: -6 a -10 pp en la lectura de 'gana', pero la devolución del 22% compensa; valor real solo vía la regla de reembolso. Equivalente a Más de 1.5 sin devolución: p~0.69 vs implícita 78.7% sería NEGATIVO, por tanto la cuota solo tiene valor si la devolución es íntegra.",
+ "verificacion_datos": {
+  "SP_ultimos15 (partidos.jsonl tm_25869)": "0 con 0 goles, 4 con 1, 11 con 2+ (confirmado; ventana 16-ago a 29-oct, mezcla Brasileirão, Libertadores, Sudamericana/copas)",
+  "COR_ultimos15 (tm_36208)": "1 con 0 (0-0 Rosario Central), 3 con 1, 11 con 2+ (confirmado; mismo mix de competiciones)",
+  "dependencia": "Muestras de 15 por equipo, sin ponderar rival ni localía; frecuencias no independientes del mismo proveedor. Deportivo previo da 0.8125 para Más de 1.5 con n=8 (menos fiable); no coherente con 73% a 2+ del n=15, indica optimismo por muestra corta.",
+  "no_verificado": "bajas, árbitro, alineaciones, estadio ('a definir' vs Morumbi), ronda 33/34, regla de la casa, cuota independiente"
+ },
+ "motivos": [
+  "Objeción principal: la regla de devolución. Una línea .25 asiática estándar devuelve MEDIA apuesta con 1 gol; la casa dice devolución total. Con regla estándar EV ~0.99. Resolver con texto de reglas de Triunfobet.",
+  "p_gana 69%: 22/30=73% observado, Poisson 69-75%; encogido hacia 70% y -3 pts por clásico tenso/Corinthians 18º (1V 2E 7D en 10) da 0.69.",
+  "0-0: Corinthians 1/15 y SP 0/15, Poisson 7-9%; sube a 9% por partido cerrado (ajuste cualitativo, no hay dato de clásicos ni árbitro). Dato que lo cambiaría: H2H reciente y goles de Corinthians fuera 2.0 encajados (contra bloque bajo).",
+  "1-0/0-1 ~22%: SP ganó 1-0 en 4 de los 15 (en casa 1.56 marcados pero tres 1-0 en casa recientes); Corinthians perdió 0-1 dos veces. Pueden ser más probables en un partido de necesidad, no por encima de 25% sin más datos.",
+  "Correlación con São Paulo marca >0.5 si ambas están en la misma cadena diaria: el 0-0 y el 0-1 las rompen a las dos."
+ ],
+ "escenario_perdida": "0-0 (Corinthians en bloque bajo, SP sin ataque por bajas/rotación tras Bahia 29-oct): 9%. Riesgo adicional no es perder sino la devolución (1-0/0-1, 22%) que consume el día sin avanzar.",
+ "notas": "Alternativa: Más de 1.5 (si cuota >=1.45 y sin devolución, EV 1.0 con p=0.69: no mejora). Slavia-Arsenal Menos de 4.5 es independiente de este partido; combinar es preferible a duplicar sobre SP–Corinthians. Veredicto no vinculante."
+}
