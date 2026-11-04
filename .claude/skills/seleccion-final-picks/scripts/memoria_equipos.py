@@ -127,12 +127,13 @@ def anotar_stats(match_id, reg, path=STATS):
         os.close(fd)
 
 
-def resumen(d, equipo, n=8, antes=None):
-    xs = partidos_equipo(d, equipo, n, antes)
+def resumen(d, equipo, n=8, antes=None, team_id=None):
+    """Con team_id (recomendado) no se mezclan equipos de igual nombre (p. ej. masculino y femenino)."""
+    xs = partidos_por_id(d, team_id, n) if team_id else partidos_equipo(d, equipo, n, antes)
     q = _norm(equipo)
     filas, k = [], {"o15": 0, "o25": 0, "o35": 0, "btts": 0, "gana": 0, "empata": 0}
     for r in xs:
-        local = _norm(r["h"]) == q
+        local = (r["h_id"] == team_id) if team_id else (_norm(r["h"]) == q)
         gf, gc = (r["gh"], r["ga"]) if local else (r["ga"], r["gh"])
         t = r["gh"] + r["ga"]
         k["o15"] += t >= 2; k["o25"] += t >= 3; k["o35"] += t >= 4
@@ -173,6 +174,7 @@ def main(argv=None):
     ap.add_argument("--hasta")
     ap.add_argument("--key-file")
     ap.add_argument("--equipo")
+    ap.add_argument("--team-id")
     ap.add_argument("--n", type=int, default=8)
     ap.add_argument("--store", default=STORE)
     ap.add_argument("--stats", default=STATS)
@@ -229,9 +231,9 @@ def main(argv=None):
             hechos += 1
         print(f"consultados {hechos} partidos; con stats {sum(1 for v in st.values() if v.get('ok'))} de {len(d)}")
     elif a.cmd == "resumen":
-        if not a.equipo:
-            raise SystemExit("falta --equipo")
-        print(json.dumps(resumen(d, a.equipo, a.n), ensure_ascii=False, indent=1))
+        if not (a.equipo or a.team_id):
+            raise SystemExit("falta --equipo o --team-id")
+        print(json.dumps(resumen(d, a.equipo or a.team_id, a.n, team_id=a.team_id), ensure_ascii=False, indent=1))
     else:
         eq = {r["h_id"] for r in d.values()} | {r["a_id"] for r in d.values()}
         print(json.dumps({"partidos": len(d), "equipos": len(eq), "desde": min((r["utc"] for r in d.values()), default=None), "hasta": ultimo(d)}))
