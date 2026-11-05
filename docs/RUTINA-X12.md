@@ -34,3 +34,7 @@ La rutina arranca **justo después de que termina el partido del ticket apostado
 - La máquina de la nube solo avanza mientras la sesión está activa; durante la **descarga del historial** (pipeline en segundo plano, 15–30 min) se usa un **vigilante Haiku** (agente barato) o un Monitor que mantenga activa la sesión, respalde con git y detecte reinicios (`uptime`). Si hay reinicio, relanzar el script (reanuda sin repetir).
 - **NO se usa vigilante durante la etapa de agentes** (deportivo/contexto/auditor): Fernando ve a los agentes trabajar en segundo plano y no hace falta.
 
+## Modo ahorro de uso (6-nov, Fernando)
+- Estamos casi al máximo del **uso semanal**. Fernando avisa del resultado a mano (sábado 7-nov, 5:00 Caracas) y ese mismo momento se arma el ×1,20 del sábado. **No hay chequeos ni arranques automáticos** hasta nueva orden; solo queda el recordatorio de renovar TheStatsAPI (vie 6-nov 09:00).
+- Para ahorrar: lista ancha con 4–5 lotes de deportivos, contexto solo de ~8 finalistas, un único auditor.
+
