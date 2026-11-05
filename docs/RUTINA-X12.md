@@ -18,8 +18,10 @@ La rutina arranca **justo después de que termina el partido del ticket apostado
 6. Registrar el ticket (ID, monto, cuota, patas) en `data/tickets_x12_balance.jsonl`, commit con trailers de atribución y `git push respaldo HEAD:refs/heads/respaldo-football-picks-system`.
 7. Volver al paso «Disparador».
 
-## Notificaciones
-Fernando SOLO quiere aviso si **el proceso se para** (sin clave/contenedor, ticket no apostado, errores) o si **un día cae**. En días normales no avisar. Si él pregunta el estado: verificar con las manos.
+## Notificaciones (actualizado 5-nov por Fernando)
+- Fernando mantiene la computadora encendida hasta el **31-dic-2026 (nueva fecha de cierre del reto)**.
+- **Aviso por CORREO** (barcaferr14@gmail.com, `mcp__Gmail__send_message`) cuando: un ticket se GANA, se PIERDE, o hay un PROBLEMA en la escalera de trabajo/proceso parado (clave, contenedor, pipeline, ticket sin apostar al inicio del partido, error de datos). Mensaje corto: ticket ID, pata, resultado/pago (sin saldos de cuenta), y qué sigue. Además PushNotification si es un problema.
+- En el chat no avisar por iniciativa. Si Fernando pregunta el estado: verificar con las manos.
 
 ## Límites conocidos
 - La clave de TheStatsAPI vive solo en el scratchpad de esta sesión (`.../probe/thestatsapi_key.txt`); si el contenedor se recicla, hay que volver a pedírsela (proceso parado).
