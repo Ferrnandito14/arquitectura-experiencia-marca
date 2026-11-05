@@ -1,0 +1,318 @@
+{
+ "fecha": "2026-11-06",
+ "auditor": "adversarial",
+ "patas": [
+  {
+   "n": 3,
+   "key": "mt_512681392|Más de 1.5 goles",
+   "veredicto": "APROBADA",
+   "riesgo": "MEDIO (P fallo 15%)",
+   "p_propia": 0.854,
+   "p_implicita": 0.818,
+   "brecha_pp": 3.6,
+   "cuota": 1.222,
+   "cuota_equilibrio_p_propia": 1.17,
+   "crecimiento": 0.044,
+   "motivos": [
+    "Cuatro lecturas coinciden: totales>=2 12/14 (Antalyaspor) y 12/13 (Bursaspor) en memoria (todo 1. Lig, sin copas); 12/13 de Bursaspor en la misma competición 26-27; Poisson 0.8785 (lambda total 3.64); aprobadas p15 0.89.",
+    "Solo 3/27 partidos de equipo con total<=1 (Antalyaspor 1-0 dos veces, Bursaspor 1-0 una vez).",
+    "Muestras 14 y 13 (<15 pero >=10); mezcla de rivales no ponderada; la lambda 3.64 viene de Bursaspor 2.3 gf/partido, muy por encima de lo sostenible (regresión).",
+    "p_central 0.90 de aprobadas_6nov es (k+3)/(n+4) sin tasa base: sobreestima ~5 pp."
+   ],
+   "objecion_principal": "Edge fino: 3.5 pp sobre la implícita y p_propia depende de la racha ofensiva de Bursaspor (13 partidos, 5 con 3+ goles propios).",
+   "dato_que_resolveria": "Alineaciones 6-nov (ausencias de delanteros de Bursaspor/Antalyaspor); fecha oficial TFF (contexto: Sporx dice 8-nov, el sitio dice 6-nov: resuelto).",
+   "escenario_perdida": "0-0 o 1-0 (Antalyaspor 1-0 se repitió 2 veces; Bursaspor gana 1-0 y se encierra). Con 1 gol la pata pierde entera (línea .5 limpia, sin medio perdido).",
+   "p_sin_descuentos": 0.854
+  },
+  {
+   "n": 4,
+   "key": "mt_200170159|Wolfsberger AC: Menos de 1.5 goles",
+   "veredicto": "APROBADA",
+   "riesgo": "MEDIO (P fallo 19%)",
+   "p_propia": 0.815,
+   "p_implicita": 0.8,
+   "brecha_pp": 1.5,
+   "cuota": 1.25,
+   "cuota_equilibrio_p_propia": 1.23,
+   "crecimiento": 0.019,
+   "motivos": [
+    "Wolfsberger marcó <=1 en 12/13 (memoria 15; 1 sola vez 3 goles); 13/14 como visitante en la misma liga (27 partidos, 22/27 total); Rapid encajó <=1 en 12/15.",
+    "Poisson 0.91 (lambda WAC 0.5) y p15 0.862: coinciden en dirección pero son más optimistas.",
+    "Wolfsberger solo marcó 2+ una vez en 13 (3-0 en agosto); Rapid marcó 2+ en 13/15."
+   ],
+   "objecion_principal": "Mercado de equipo visitante sin muestra grande de WAC como visitante contra rivales del nivel de Rapid; la temporada 25-26 mostró 5/27 con 2+ goles (22/27=0.81 en toda la muestra de liga, no 0.92).",
+   "dato_que_resolveria": "Parte de bajas de Rapid y once de WAC; esto cambiaría la lambda de Rapid y la tendencia a goleada tardía.",
+   "escenario_perdida": "WAC marca 2: Rapid gana 3-0/4-0 y WAC mete un gol de honor y otro (marcador tipo 1-4 del 20-sep vs rival de nivel; Rapid ha encajado 2+ en 3/15, todas fuera). Cualquier 2-x o más del WAC pierde.",
+   "p_sin_descuentos": 0.815
+  },
+  {
+   "n": 5,
+   "key": "mt_200166636|Red Star FC: Más de 0.5 goles",
+   "veredicto": "DESCARTADA",
+   "riesgo": "MEDIO (P fallo 24%)",
+   "p_propia": 0.756,
+   "p_implicita": 0.82,
+   "brecha_pp": -6.4,
+   "cuota": 1.22,
+   "cuota_equilibrio_p_propia": 1.32,
+   "crecimiento": -0.078,
+   "motivos": [
+    "Red Star marca >=1 en 9/11 (memoria); 21/29 en liga (0.72), con 12/18 en 25-26: el 9/11 de 26-27 se apoya en una racha de visitante (6/6 fuera, 12/14 en total fuera).",
+    "Dijon concede en 11/11 (0 porterías a cero) y Poisson 0.853, pero la muestra de 11 es corta y tiene el 'saturado' >=0.95 (descuento 4 pp).",
+    "p_central 0.90 de aprobadas (k/n con pseudo-n 16) vs 0.72-0.80 al encogerlo a 0.70 de visitante.",
+    "Riesgo medio-alto de varianza: Red Star en casa 3/5 y 9/15 de local en toda la liga."
+   ],
+   "objecion_principal": "p_propia 0.756 < implícita 0.820: crecimiento negativo (-7.8%).",
+   "dato_que_resolveria": "Alineación de Red Star y bajas de delanteros; ninguna cuota cambia el veredicto.",
+   "escenario_perdida": "Dijon gana 1-0 o 2-0 y Red Star se queda en 0; Red Star ha hecho 0-0/0-1/0-2 en 8 de 29 partidos de Ligue 2.",
+   "p_sin_descuentos": 0.796
+  },
+  {
+   "n": 6,
+   "key": "mt_022544241|Stade de Reims o empate",
+   "veredicto": "DEGRADADA",
+   "riesgo": "MEDIO (P fallo 22%)",
+   "p_propia": 0.775,
+   "p_implicita": 0.813,
+   "brecha_pp": -3.8,
+   "cuota": 1.23,
+   "cuota_equilibrio_p_propia": 1.29,
+   "crecimiento": -0.047,
+   "motivos": [
+    "Reims no pierde 11/11 en 26-27 (memoria n=11) y 25/27 en Ligue 2; Grenoble solo gana 2/11 (0/5 en casa) y perdió 3 de 5 en casa.",
+    "Poisson 0.852 (mismas lambdas 0.6 vs 1.5). p15 0.909, p_c 0.88.",
+    "Frecuencia 11/11 >=0.95 (saturación): descuento 4 pp; muestra 11 (<15); Reims ha tenido 14/16 en 25-26 (2 derrotas): la racha 26-27 no es la tasa de largo plazo.",
+    "Sin p15 de n=15 (11 partidos por equipo): la 'ventana de 15' no existe."
+   ],
+   "objecion_principal": "Pata de DC visitante: la señal depende de una racha (11 sin perder) y p_propia queda ligeramente bajo la implícita (0.775 vs 0.813). Sin el descuento queda en 0.815, es decir, cero valor.",
+   "dato_que_resolveria": "Bajas en Reims y cambio de entrenador (contexto sin verificar).",
+   "escenario_perdida": "Derrota 0-1 o 1-2 del Reims en campo de Grenoble (el visitante gana 0-0 u 1-1 la mayoría, pero una victoria local basta). Es un 1X2 de dos resultados; con p_win_Grenoble ~0.2.",
+   "p_sin_descuentos": 0.815
+  },
+  {
+   "n": 7,
+   "key": "mt_466225417|FC Argeș Pitești: Menos de 1.5 goles",
+   "veredicto": "APROBADA",
+   "riesgo": "MEDIO (P fallo 18%)",
+   "p_propia": 0.819,
+   "p_implicita": 0.8,
+   "brecha_pp": 1.9,
+   "cuota": 1.25,
+   "cuota_equilibrio_p_propia": 1.22,
+   "crecimiento": 0.024,
+   "motivos": [
+    "Argeș marcó <=1 en 11/12 (memoria) y 27/30 en liga rumana (26-27: 13/14); solo marcó 2 en una ocasión (2-2). Dinamo concede <=1 en 11/12.",
+    "Poisson 0.855; p15 0.917. Lambda de Argeș 0.667: ataque pobre; 6/12 sin marcar.",
+    "Fecha: contexto_final decía 7-nov (LPF); el sitio lo sitúa el 6-nov (resuelto por el usuario)."
+   ],
+   "objecion_principal": "p_propia 0.819 vs implícita 0.800: ventaja de solo 1.9 pp; el mercado de goles de equipo casero 'menos de 1.5' tiene tasa base 0.59, y la muestra viene de un equipo con ataque muy pobre.",
+   "dato_que_resolveria": "Plantilla de Argeș y Dinamo, y rotación de Dinamo (no verificada).",
+   "escenario_perdida": "Argeș marca 2 en casa ante un Dinamo que abre el marcador temprano y le obliga a salir (Dinamo visitante 3/6 con 2+ gf; si el Dinamo se adelanta Argeș arriesga). Pierde con 2+ goles de Argeș.",
+   "p_sin_descuentos": 0.819
+  },
+  {
+   "n": 9,
+   "key": "mt_733716900|Sevilla: Más de 0.5 goles",
+   "veredicto": "DEGRADADA",
+   "riesgo": "MEDIO (P fallo 24%)",
+   "p_propia": 0.761,
+   "p_implicita": 0.813,
+   "brecha_pp": -5.2,
+   "cuota": 1.23,
+   "cuota_equilibrio_p_propia": 1.31,
+   "crecimiento": -0.064,
+   "motivos": [
+    "Sevilla marcó en 12/12 (26-27) pero en 24/29 de liga (25-26 13/18, con 5 partidos sin marcar entre abril y mayo): la racha 12/12 es saturación.",
+    "Poisson 0.835 (lambda 1.8), p15 0.864, Alavés concede 8/11 (3 porterías a cero).",
+    "contexto_final: riesgo MEDIO (dudas Fofana, Sierra, Isaac en Sevilla; sin parte oficial) y conflicto de fecha 8-nov vs 6-nov (resuelto por el sitio): descuento de 3 pp.",
+    "Descuento de 4 pp por frecuencia 12/12 >=0.95; Sevilla concede mucho (1-4, 1-3 fuera) pero eso es del partido de Alavés, no de este mercado."
+   ],
+   "objecion_principal": "Lo que el mercado sabe: Sevilla local en un partido de viernes con duda de delanteros; el 'sin descuentos' 0.831 es solo +1.8 pp sobre la implícita.",
+   "dato_que_resolveria": "Parte médico oficial de Sevilla y once probable el 6-nov.",
+   "escenario_perdida": "Alavés cierra el partido y Sevilla se queda sin marcar (0-0 o 0-1): el equipo tiene 5 partidos sin marcar en los últimos 29; con delanteros en duda sube.",
+   "p_sin_descuentos": 0.831
+  },
+  {
+   "n": 10,
+   "key": "mt_511453311|Más de 1.5 goles",
+   "veredicto": "DEGRADADA",
+   "riesgo": "MEDIO (P fallo 20%)",
+   "p_propia": 0.802,
+   "p_implicita": 0.794,
+   "brecha_pp": 0.8,
+   "cuota": 1.26,
+   "cuota_equilibrio_p_propia": 1.25,
+   "crecimiento": 0.011,
+   "motivos": [
+    "Totales>=2: 9/11 (Septemvri) y 10/11 (Lokomotiv) en memoria; liga completa 23/30 (26-27 11/13, 25-26 12/17, 0.70): la temporada pasada fue bajista.",
+    "Poisson 0.829; p15 0.864. Memoria <15 en ambos (11/11).",
+    "Ningún agregador de contexto lista el partido el 6-nov (el sitio sí); hora 11:00 Caracas, la más temprana, sin once ni parte; liga con poca cobertura.",
+    "Ventaja sobre la implícita solo 0.8 pp."
+   ],
+   "objecion_principal": "Sin ventaja de precio: p_propia 0.802 contra 0.794 implícita; el crecimiento (+1%) no compensa el riesgo de un partido sin verificar.",
+   "dato_que_resolveria": "Confirmar en una segunda fuente que el partido existe el 6-nov a las 15:00 UTC y bajas.",
+   "escenario_perdida": "1-0 o 0-0 (en la liga Septemvri tuvo 7/30 partidos con total<=1, 5 de ellos en 25-26). Con 1 gol pierde.",
+   "p_sin_descuentos": 0.802
+  },
+  {
+   "n": 11,
+   "key": "mt_733032214|Club Tijuana: Más de 0.5 goles",
+   "veredicto": "DESCARTADA",
+   "riesgo": "ALTO (P fallo 27%)",
+   "p_propia": 0.727,
+   "p_implicita": 0.8,
+   "brecha_pp": -7.3,
+   "cuota": 1.25,
+   "cuota_equilibrio_p_propia": 1.38,
+   "crecimiento": -0.091,
+   "motivos": [
+    "Tijuana marca >=1 en 11/15 (memoria n=15) y 12/15 en liga; Necaxa concede en 15/15 (saturado >=0.95, descuento 4 pp).",
+    "Poisson 0.826; p15 0.867; sin embargo 4 sin marcar de 15 (0-0, 0-2, 0-1, 0-1).",
+    "contexto_final: riesgo MEDIO (una sola fuente de fecha: FBref; motivación de jornada 16/17; Necaxa ganó 3-0 en marzo): descuento 3 pp.",
+    "P(fallo) 27% => riesgo ALTO por la regla de la casa."
+   ],
+   "objecion_principal": "Peor del lote: p_propia 0.727 vs 0.800 implícita (-7.3 pp), crecimiento -9.1%.",
+   "dato_que_resolveria": "Alineaciones y situación de liguilla de ambos.",
+   "escenario_perdida": "Necaxa gana 1-0 / 2-0 sin que Tijuana marque (Tijuana ha hecho 0 en 4/15 partidos y perdió 3-0 en Necaxa en marzo).",
+   "p_sin_descuentos": 0.797
+  },
+  {
+   "n": 12,
+   "key": "mt_895992320|Más de 1.5 goles",
+   "veredicto": "APROBADA",
+   "riesgo": "MEDIO (P fallo 19%)",
+   "p_propia": 0.815,
+   "p_implicita": 0.752,
+   "brecha_pp": 6.3,
+   "cuota": 1.33,
+   "cuota_equilibrio_p_propia": 1.23,
+   "crecimiento": 0.084,
+   "motivos": [
+    "Totales>=2: 13/14 (Unión; 7/7 en casa) y 10/14 (Vélez; 6/6 como visitante) en memoria; 26/29 de Unión en liga (14/15 en 26-27).",
+    "Poisson 0.829; p15 0.821; p_min 0.65 (aprobadas): coinciden.",
+    "Mayor crecimiento del lote porque la cuota 1.33 deja 6.3 pp de brecha.",
+    "Aprobada con matiz: el fútbol argentino tiene tasa base de over 1.5 más baja (~0.70) y Vélez ganó 1-0 en 3 partidos."
+   ],
+   "objecion_principal": "Contexto: sin fuente que sitúe el partido en 6-nov salvo el sitio (resuelto); Vélez con objetivos propios puede gestionar el ritmo.",
+   "dato_que_resolveria": "Alineaciones y rotación de Vélez; fecha 8-nov en agregadores resuelta por el sitio.",
+   "escenario_perdida": "1-0 o 0-0 (Vélez ganó 1-0 tres veces y empató 0-0 una vez (4/14 con total<=1) y Unión perdió 0-2 en casa el 10-oct; si Vélez gestiona, 1-0 es el guion). Con 1 gol pierde.",
+   "p_sin_descuentos": 0.815
+  },
+  {
+   "n": 13,
+   "key": "mt_200170379|Bolton Wanderers: Más de 0.5 goles",
+   "veredicto": "DESCARTADA",
+   "riesgo": "MEDIO (P fallo 24%)",
+   "p_propia": 0.755,
+   "p_implicita": 0.8,
+   "brecha_pp": -4.5,
+   "cuota": 1.25,
+   "cuota_equilibrio_p_propia": 1.32,
+   "crecimiento": -0.056,
+   "motivos": [
+    "Bolton marca >=1 en 10/15 (4/8 fuera, 4/7 en Championship fuera): lado débil según la regla de la casa (visitante <=1/3 no; pero 50%).",
+    "Poisson 0.803 (lambda 1.6) apoyado en que Derby concede en 14/15; pero Bolton no marcó en 4 de sus 8 salidas.",
+    "Muestra de liga solo 14 partidos (todos de 26-27), sin temporada previa en la misma competición para contrastar.",
+    "p_propia 0.755 < implícita 0.800."
+   ],
+   "objecion_principal": "Edge negativo y lado visitante débil; ninguna fuente independiente de rendimiento por rival.",
+   "dato_que_resolveria": "Estado de Derby (entrenador y bajas) y once de Bolton.",
+   "escenario_perdida": "Bolton no marca en Pride Park (0-0 o 0-1): ya hizo 0-0 fuera dos veces y 0-1/0-4 en otras dos de 8 salidas. Basta un partido sin gol.",
+   "p_sin_descuentos": 0.755
+  },
+  {
+   "n": 14,
+   "key": "mt_024712953|Menos de 3.5 goles",
+   "veredicto": "APROBADA",
+   "riesgo": "MEDIO (P fallo 18%)",
+   "p_propia": 0.822,
+   "p_implicita": 0.8,
+   "brecha_pp": 2.2,
+   "cuota": 1.25,
+   "cuota_equilibrio_p_propia": 1.22,
+   "crecimiento": 0.027,
+   "motivos": [
+    "Totales<=3: 13/14 (Sarıyer) y 12/14 (Iğdır) en memoria; Iğdır 22/28 en liga (11/13 en 26-27, 11/15 en 25-26).",
+    "Poisson 0.8235; p15 0.893. 1. Lig turca: ambos equipos con ataques medios (1.05 y 1.12 gf).",
+    "Mayor amplitud de resultado: pierde solo con 4+ goles.",
+    "Brecha +2.2 pp: ventaja pequeña."
+   ],
+   "objecion_principal": "Dirección 'under' de 3.5 en un partido sin bajas verificadas; mismo torneo que el partido de Antalyaspor (13:00): no correlación grave si se juega una sola pata.",
+   "dato_que_resolveria": "Once y bajas; sede (Iğdır jugó en Ankara el 1-nov).",
+   "escenario_perdida": "4 o más goles: Sarıyer perdió 1-4 de local al caer en ritmo abierto y Iğdır ha encajado 4 en 28 partidos; un partido abierto tras gol temprano.",
+   "p_sin_descuentos": 0.822
+  }
+ ],
+ "ranking": [
+  {
+   "key": "mt_512681392|Más de 1.5 goles",
+   "p_propia": 0.854,
+   "razon": "Cuatro lecturas (frecuencias 14/13, liga 12/13, Poisson 0.88, p15 0.89) y crecimiento +4.3%; P(fallo) 15%."
+  },
+  {
+   "key": "mt_024712953|Menos de 3.5 goles",
+   "p_propia": 0.822,
+   "razon": "Under 3.5 con 13/14 y 12/14, Poisson 0.82; ventaja pequeña (+2.2 pp), pero estable."
+  },
+  {
+   "key": "mt_466225417|FC Argeș Pitești: Menos de 1.5 goles",
+   "p_propia": 0.819,
+   "razon": "Argeș marca <=1 en 27/30 de liga (13/14 en 26-27); Poisson 0.855; ventaja +1.9 pp."
+  },
+  {
+   "key": "mt_200170159|Wolfsberger AC: Menos de 1.5 goles",
+   "p_propia": 0.815,
+   "razon": "WAC <=1 en 12/13 (13/14 fuera); lectura Poisson alta pero 22/27 en toda la liga."
+  },
+  {
+   "key": "mt_895992320|Más de 1.5 goles",
+   "p_propia": 0.815,
+   "razon": "Mayor crecimiento (+8.4%) por cuota 1.33; 7/7 en casa de Unión y 6/6 fuera de Vélez con 2+ goles."
+  },
+  {
+   "key": "mt_511453311|Más de 1.5 goles",
+   "p_propia": 0.802,
+   "razon": "Brecha +0.8 pp; fecha no corroborada por agregadores."
+  },
+  {
+   "key": "mt_022544241|Stade de Reims o empate",
+   "p_propia": 0.775,
+   "razon": "DC con racha 11/11; sin descuento sería cero valor."
+  },
+  {
+   "key": "mt_733716900|Sevilla: Más de 0.5 goles",
+   "p_propia": 0.761,
+   "razon": "Racha 12/12 saturada, dudas de delanteros."
+  },
+  {
+   "key": "mt_200166636|Red Star FC: Más de 0.5 goles",
+   "p_propia": 0.756,
+   "razon": "Descartada por crecimiento negativo."
+  },
+  {
+   "key": "mt_200170379|Bolton Wanderers: Más de 0.5 goles",
+   "p_propia": 0.755,
+   "razon": "Descartada: lado visitante débil."
+  },
+  {
+   "key": "mt_733032214|Club Tijuana: Más de 0.5 goles",
+   "p_propia": 0.727,
+   "razon": "Descartada: riesgo ALTO y crecimiento -9%."
+  }
+ ],
+ "recomendacion_top3": [
+  "mt_512681392|Más de 1.5 goles",
+  "mt_895992320|Más de 1.5 goles",
+  "mt_024712953|Menos de 3.5 goles"
+ ],
+ "notas": [
+  "Metodología de p_propia: promedio de (a) frecuencia agrupada n<=15 por ID, (b) Poisson de contraste_poisson.py y (c) frecuencia de la misma competición (TheStatsAPI, 11 consultas de 12 permitidas), cada una encogida con peso 8 hacia la tasa base (over1.5 0.75, under3.5 0.78, marca>=1 0.79 local/0.70 visitante, equipo<=1 0.66/0.59, DC visitante 0.57); descuento 4 pp si alguna frecuencia >=0.95 (Red Star, Reims, Sevilla, Tijuana) y 3 pp por contexto medio (Sevilla, Tijuana). Sin cuotas como evidencia. La 'brecha' usa la probabilidad implícita 1/cuota (con margen incluido: la real sin margen es menor).",
+  "Crecimiento = p·(cuota−1) − (1−p). Todas las líneas son .5 o enteras: sin medio perdido.",
+  "aprobadas_6nov.json p_central = (k+3)/(n+4) con k=16·p_base y techo 0.98: sobreestima 3-14 pp contra mi p_propia (p.ej. Red Star 0.90 vs 0.756-0.80; Sevilla 0.90 vs 0.76-0.83). No es probabilidad.",
+  "Equipos con <15 partidos en memoria: Antalyaspor 14, Bursaspor 13, WAC 13, Argeș 12, Dinamo 12, Sevilla 12, Alavés 11, Red Star 11, Dijon 11, Reims 11, Grenoble 11, Septemvri 11, Lokomotiv 11, Unión 14, Vélez 14, Sarıyer 14, Iğdır 14. Ninguno <10. Las muestras de memoria mezclan copas (ej. WAC: 2 partidos que no son de liga).",
+  "Las 11 cuotas reales (Triunfobet, leídas por las manos el 5-nov) son comunicadas por el usuario: no verificadas de forma independiente. No se consultaron fuentes web adicionales (alineaciones, bajas, árbitros, cuotas): NO VERIFICADO; el sesgo de 'qué sabe el mercado' queda sin cubrir.",
+  "Alertas de fecha de contexto_final (Argeș 7-nov, Septemvri sin listado, Unión 8-nov) las resolvió el sitio; riesgo aceptado, no se reabre.",
+  "Proceso: tres de los candidatos de menor riesgo son 'under' (WAC, Argeș, Sarıyer) y tres 'over': si se combinan en un ticket hay concentración de dirección; para una sola pata no aplica. El lote incluye varias patas con frecuencia saturada que el director aprobó con p_central 0.90 sin base.",
+  "Fuentes: TheStatsAPI (11 consultas finalizadas, Consultada y útil), partidos.jsonl local, contraste_poisson.py. Hammarby, Castellón y Admira no re-auditadas (descartadas por precio)."
+ ]
+}
