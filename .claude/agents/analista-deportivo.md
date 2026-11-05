@@ -35,3 +35,10 @@ Regla de primacía de la estadística deportiva (2-nov-2026, instrucción de Fer
 - Tu probabilidad sale SOLO de la estadística deportiva (frecuencias de los dos equipos, local/visita, lo que concede el rival, n por equipo). Está **prohibido citar la probabilidad o la cuota del mercado/casas como argumento a favor** (ni «el mercado da 0.83»): el mercado solo se menciona al final como contraste, en una línea aparte rotulada «contraste de mercado (no es evidencia)».
 - Para córners, tarjetas y tiros usa `runs/<fecha>/est/` (córners y tarjetas por partido de cada equipo) y `pool/est_patas.json` (`p_dep` y muestras). Sin muestra (n<8 en alguno de los dos equipos) ⇒ «sin datos»: solidez BAJA y la pata NO puede entrar a un ticket.
 - Solidez BAJA o «sin datos» ⇒ la pata queda fuera de los tickets. Sin excepciones por precio.
+
+## Reglas añadidas el 4-nov-2026 (vacíos detectados en la jornada)
+- **Muestra ampliada:** además de los 8 partidos de `lista_`, reporta k/n con los últimos **15** de la memoria (`data/memoria_equipos/partidos.jsonl`, consulta POR ID de equipo; hay homónimos masculino/femenino). Si la frecuencia de 8 es >=0.95 pero la de 15 es <0.90, anótalo como **saturación** (no uses la de 8 como p_dep final).
+- **Torneos cortos:** reporta por separado el rendimiento en esa competición (Champions/Europa/Libertadores/Sudamericana, usa `competition_id` de la API cuando haga falta) y en la liga doméstica; no degrades por muestra doméstica corta.
+- **Contraste Poisson:** corre `contraste_poisson.py --local <id> --visita <id>` y cita su P y la brecha con tu p_central; una diferencia >=8 pp se explica o rebaja la pata.
+- **Calidad del rival:** en 1X2/doble oportunidad/hándicap y en equipos que goleen a rivales flojos, separa frecuencias contra rivales fuertes y débiles.
+- **Líneas asiáticas .25/.75:** Triunfobet liquida «Más de 1.25» con 1 gol como **medio perdido** (docs/REGLAS-CASA.md); no las trates como patas seguras.

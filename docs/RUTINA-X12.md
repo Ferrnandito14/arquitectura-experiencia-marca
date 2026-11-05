@@ -19,9 +19,11 @@ La rutina arranca **justo después de que termina el partido del ticket apostado
 7. Volver al paso «Disparador».
 
 ## Notificaciones (actualizado 5-nov por Fernando)
-- Fernando mantiene la computadora encendida hasta el **31-dic-2026 (nueva fecha de cierre del reto)**.
-- **Aviso por CORREO** (barcaferr14@gmail.com, `mcp__Gmail__send_message`) cuando: un ticket se GANA, se PIERDE, o hay un PROBLEMA en la escalera de trabajo/proceso parado (clave, contenedor, pipeline, ticket sin apostar al inicio del partido, error de datos). Mensaje corto: ticket ID, pata, resultado/pago (sin saldos de cuenta), y qué sigue. Además PushNotification si es un problema.
-- En el chat no avisar por iniciativa. Si Fernando pregunta el estado: verificar con las manos.
+- Fernando mantiene la computadora encendida hasta el **31-dic-2026 (cierre del reto)**. **Sin correo** (él apuesta y ve los resultados). El procedimiento NO cambia.
+- Cuando el cupón del día esté montado por las manos, decírselo en el chat con la pata, la cuota y el **monto exacto** (= saldo disponible leído por las manos). Él teclea el monto y apuesta.
+- Si el proceso se para (clave/contenedor, pipeline, ticket sin apostar al inicio del partido), avisar en el chat y con PushNotification. Si un día cae, decirlo en el chat sin dramatizar.
+- Mejora continua: si se detecta un vacío o falta un agente en la escalera, añadirlo o mejorarlo sin pedir permiso (Fernando lo autorizó el 5-nov).
+- Lista ancha: `lista_ancha.py`; contraste: `contraste_poisson.py`.
 
 ## Límites conocidos
 - La clave de TheStatsAPI vive solo en el scratchpad de esta sesión (`.../probe/thestatsapi_key.txt`); si el contenedor se recicla, hay que volver a pedírsela (proceso parado).

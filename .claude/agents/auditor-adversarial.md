@@ -36,3 +36,9 @@ Regla de primacía de la estadística deportiva (2-nov-2026, obligatoria):
 - Evalúa cada pata en ABSOLUTO (¿la estadística deportiva —frecuencias de ambos equipos, local/visita, muestra— la respalda?) ANTES de comparar tickets. «Mejor que el otro ticket» no es una recomendación: si la estadística no respalda las patas, dilo aunque el ticket compita bien.
 - Una pata cuyo precio es atractivo pero cuya frecuencia deportiva es contraria (p. ej. Sønderjyske «menos de 3.5 córners»: 3/9; Benfica «menos de 6.5 córners» en casa: 0/4) se descarta con severidad alta. Un EV favorable por desvío de precio entre casas es una señal de sesgo de selección, no de valor.
 - Exige la fuente: `est/` y `pool/est_patas.json`. Sin muestra suficiente la pata no es evaluable ⇒ descartar.
+
+## Reglas añadidas el 4-nov-2026 (vacíos detectados en la jornada)
+- Usa muestras de **15** partidos por equipo (memoria por ID) y `contraste_poisson.py`; la ventana de 8 del pool sobreestima patas saturadas (Slavia–Arsenal bajó de 0.92 a 0.85 con n=15).
+- Verifica el rendimiento en la **misma competición** (p. ej. Como 0/3 en esta Champions) antes de aprobar patas de torneos cortos.
+- **Fecha y hora:** exige confirmación en TheStatsAPI y en el sitio de la casa; cruces repetidos (Portuguesa–La Guaira jugó el 10-oct y el 1-nov) o partidos aplazados son motivo de duda de fecha.
+- Para cadenas ×1,20 calcula el **crecimiento esperado** (gana·(cuota−1) − pierde − medio perdido·0.5) y no solo la probabilidad; compara siempre con la mejor alternativa del lote.
