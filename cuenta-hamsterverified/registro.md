@@ -85,6 +85,13 @@
 | 2026-11-05 19:00 | d13-mito-pulpo | reel | Mito verificado: "Los pulpos tienen tres corazones." VERDADE | media/2026-11-05/d13-mito-pulpo.mp4 |
 | 2026-11-05 20:00 | d13-foto-ordenar | foto | Esencia de ordenar en 5 palabras: cada cosa tiene su lugar. | media/2026-11-05/d13-foto-ordenar-1.jpg |
 | 2026-11-05 21:00 | d13-mito-venas | reel | Mito verificado: "La sangre en las venas es azul." FALSO. | media/2026-11-05/d13-mito-venas.mp4 |
+| 2026-11-06 09:00 | d14-futbol-duracion | reel | Fútbol en esencia: la duración del partido (Regla 7) | media/2026-11-06/d14-futbol-duracion.mp4 |
+| 2026-11-06 12:00 | d14-mito-camaleon | reel | Mito verificado: camaleones y el camuflaje (FALSO) | media/2026-11-06/d14-mito-camaleon.mp4 |
+| 2026-11-06 14:00 | d14-esencia-terminar | reel | Esencia de terminar: cierra lo pequeño hoy | media/2026-11-06/d14-esencia-terminar.mp4 |
+| 2026-11-06 16:00 | d14-foto-escribir | foto | Esencia de escribir: una idea por frase | media/2026-11-06/d14-foto-escribir-1.jpg |
+| 2026-11-06 19:00 | d14-mito-tomate | reel | Mito verificado: el tomate es una fruta (VERDADERO) | media/2026-11-06/d14-mito-tomate.mp4 |
+| 2026-11-06 20:00 | d14-foto-puntualidad | foto | Esencia de la puntualidad en 5 palabras | media/2026-11-06/d14-foto-puntualidad-1.jpg |
+| 2026-11-06 21:00 | d14-mito-sol | reel | Mito verificado: el Sol es amarillo (FALSO) | media/2026-11-06/d14-mito-sol.mp4 |
 
 ## Resumen semanal (domingo 2026-11-01)
 Métricas al 01/11 (30 publicaciones recientes, 0 seguidores, sin señales de restricción):
