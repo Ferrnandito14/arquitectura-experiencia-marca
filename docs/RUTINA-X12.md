@@ -28,4 +28,4 @@ La rutina arranca **justo después de que termina el partido del ticket apostado
 ## Límites conocidos
 - La clave de TheStatsAPI vive solo en el scratchpad de esta sesión (`.../probe/thestatsapi_key.txt`); si el contenedor se recicla, hay que volver a pedírsela (proceso parado).
 - Si `/home/user/football-picks-system` no existe: restaurar la rama `respaldo-football-picks-system` de `Ferrnandito14/arquitectura-experiencia-marca` (add_repo con push).
-- Plan TheStatsAPI se renueva el jueves 5-nov; claves expuestas pendientes de regenerar.
+- Plan TheStatsAPI: vence el **sábado 7-nov-2026**; Fernando lo renueva el viernes 6-nov (aviso 6-nov 09:00 Caracas). Si pasa el vencimiento sin renovar, el pipeline se para: avisar. Claves expuestas pendientes de regenerar.
