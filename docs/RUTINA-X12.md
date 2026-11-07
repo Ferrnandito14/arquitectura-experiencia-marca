@@ -38,3 +38,8 @@ La rutina arranca **justo después de que termina el partido del ticket apostado
 - Estamos casi al máximo del **uso semanal**. Fernando avisa del resultado a mano (sábado 7-nov, 5:00 Caracas) y ese mismo momento se arma el ×1,20 del sábado. **No hay chequeos ni arranques automáticos** hasta nueva orden; solo queda el recordatorio de renovar TheStatsAPI (vie 6-nov 09:00).
 - Para ahorrar: lista ancha con 4–5 lotes de deportivos, contexto solo de ~8 finalistas, un único auditor.
 
+## Regla de oro: el monto no influye (Fernando, 7-nov)
+- La elección de la pata NO depende del monto apostado ni del saldo. Se decide por probabilidad, cuota (>=1,22), evidencia (frecuencia 8/15, Poisson, misma competición), contexto y auditor.
+- El monto es solo un número que se calcula DESPUÉS (todo el saldo disponible). No usar el monto como argumento a favor o en contra de una pata.
+- Flujo COMPLETO por defecto; el modo ahorro solo cuando Fernando lo pida para ese día concreto.
+
