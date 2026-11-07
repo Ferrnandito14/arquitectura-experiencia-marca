@@ -92,9 +92,23 @@
 | 2026-11-06 19:00 | d14-mito-tomate | reel | Mito verificado: el tomate es una fruta (VERDADERO) | media/2026-11-06/d14-mito-tomate.mp4 |
 | 2026-11-06 20:00 | d14-foto-puntualidad | foto | Esencia de la puntualidad en 5 palabras | media/2026-11-06/d14-foto-puntualidad-1.jpg |
 | 2026-11-06 21:00 | d14-mito-sol | reel | Mito verificado: el Sol es amarillo (FALSO) | media/2026-11-06/d14-mito-sol.mp4 |
+| 2026-11-08 09:00 | d16-futbol-gol | reel | Fútbol en esencia: cuándo es gol (Regla 10) | media/2026-11-08/d16-futbol-gol.mp4 |
+| 2026-11-08 12:00 | d16-mito-diamantes | reel | Mito verificado: diamantes y carbón (FALSO) | media/2026-11-08/d16-mito-diamantes.mp4 |
+| 2026-11-08 14:00 | d16-esencia-domingo | reel | Esencia de un buen domingo | media/2026-11-08/d16-esencia-domingo.mp4 |
+| 2026-11-08 16:00 | d16-foto-humildad | foto | Esencia de la humildad | media/2026-11-08/d16-foto-humildad-1.jpg |
+| 2026-11-08 19:00 | d16-mito-miel | reel | Mito verificado: la miel no caduca (VERDADERO) | media/2026-11-08/d16-mito-miel.mp4 |
+| 2026-11-08 20:00 | d16-foto-opinar | foto | Esencia de opinar en 6 palabras | media/2026-11-08/d16-foto-opinar-1.jpg |
+| 2026-11-08 21:00 | d16-mito-colon | reel | Mito verificado: Colón y la Tierra plana (FALSO) | media/2026-11-08/d16-mito-colon.mp4 |
 
 ## Resumen semanal (domingo 2026-11-01)
 Métricas al 01/11 (30 publicaciones recientes, 0 seguidores, sin señales de restricción):
 - Alcance por pieza: Fútbol en esencia 50 a 125 (penalti 125); Mito verificado 7 a 114 (cerebro 114, rayos 102, murciélagos 58); Esencia de... reels 32 a 59; El hámster responde 7 a 19; Esencia en N palabras 8 a 59 (irregular).
 - Fotos: alcance 0 en todas (sin seguidores no las ve nadie). Guardados 1 en total por 4 reels; compartidos casi nulos.
 - Qué funcionó: mitos de curiosidad científica y reglas de fútbol. Qué cambiar: menos "El hámster responde" y "N palabras" (bajo alcance), más mitos y fútbol; fotos se mantienen en 2 por el ritmo fijado, pero sin valor de alcance hasta tener seguidores.
+
+## Resumen semanal (domingo 2026-11-08)
+Métricas al 07/11 (50 publicaciones recientes, 1 seguidor, sin señales de restricción; la cuenta devuelve datos con normalidad):
+- Alcance por reel: Mito verificado 16 a 129 (Einstein 129, toros 127, pez dorado 103, Gran Muralla 101); Fútbol en esencia 53 a 125; Esencia de... 12 a 76; El hámster responde 7 a 49. Media de reels estable (unos 50 a 60), sin caída sostenida.
+- Fotos: alcance 0 en todas; guardados 1 en total por reel; compartidos 0.
+- Qué funcionó: mitos de curiosidad e historia y reglas de fútbol. Qué cambiar: casi sin "El hámster responde" ni "N palabras" en reel; los mitos son el eje (3 de 5 reels mañana).
+- Incidencia: la última publicación en Instagram fue el 05/11 a las 19:11 (Caracas). Las piezas del 05/11 (20:00, 21:00) y del 06/11 quedaron sin publicar y no hubo producción para el 07/11. Se reprogramaron al 07/11 y 09/11 para evitar una ráfaga de 9 piezas.
